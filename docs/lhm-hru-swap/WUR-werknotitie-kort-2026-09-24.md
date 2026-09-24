@@ -202,6 +202,24 @@ De ontwikkellus wordt:
 
 ---
 
+
+## Kwaliteitsbeoordeling als vaste stap
+
+Naast versiebeheer en reproduceerbaarheid komt er in iedere hoofdtransitie een expliciete **hydrologische QA-gate**.
+
+Daarin worden kennisregels automatisch getoetst, bijvoorbeeld grenzen aan kwel, wegzijging, runoff, grondwaterstanden of combinaties daarvan. Een overschrijding betekent niet automatisch dat een resultaat wordt verwijderd of vervangen. De berekening wordt zichtbaar gemarkeerd, waarna onderzocht kan worden of het gaat om een fysisch bijzondere situatie, een fout in de brondata, een inconsistentie in de keten of een regel die aangepast moet worden.
+
+De kennisregels worden zelf versieerbare configuratie. Daardoor is altijd reproduceerbaar:
+- welke norm gold;
+- welke SVATs/HRU's/runs niet voldeden;
+- welke uitzonderingen golden;
+- wat na onderzoek met de afwijking is gedaan.
+
+Een extra harde QA-regel wordt dat de HRU-afleiding en de SWAP-inputopbouw aantoonbaar dezelfde `SVAT_QUALIFIED` bronversie moeten gebruiken.
+
+Voor de huidige HRU10242-lijn moet daarom nog achteraf worden vastgesteld of Piet bij de HRU-afleiding dezelfde Flevoland-gecorrigeerde en op uitschieters behandelde SVAT-data heeft gebruikt als later bij de SWAP-opbouw. Als dat niet zo is, moet het effect daarvan worden gekwantificeerd en zo nodig opnieuw worden doorgerekend.
+
+
 ## Effecten die we per stap willen kwantificeren
 
 | Stadium | Betekenis |
