@@ -1,0 +1,130 @@
+schema_version: 1
+status: SOURCE_BOUND_RECONSTRUCTION
+hru_version: HRU10242
+implementation:
+  program: HRUlist2SWAP
+  version: "0.38"
+  source_date: "2026-04"
+  production_executable_binding: TO_BIND
+
+member_sets:
+  all:
+    definition: all SVAT members of the HRU
+  water_boundary:
+    definition: current v0.38 issvatwb subset
+    source_semantics: >
+      Derived through the current verdacht_asc/isverdacht/issvatwb logic.
+      Polarity and scientific meaning must be renamed and bound before admission.
+    fallback_if_empty: all
+    fallback_marks_problem: true
+
+run_table:
+  run_id: {source: HRU_ID}
+  scenario_id: {constant: direct}
+  bodem_id:
+    default: majority(BFE, member_set=all)
+    if_representative_schema: bfe_repr
+  soil2_id: {aggregation: majority, source: soil2, member_set: all}
+  lu_id:
+    default: majority(LGN, member_set=all)
+    if_representative_schema: LGN_of_svat_repr
+  climate_id: {constant: "__", status: REVIEW}
+  SWBBCFILE:
+    expression: "0 if SWBOTB == 7 else 1"
+  SWBOTB: {aggregation: majority, source: bbc, member_set: all}
+  dqsat:
+    source: dqsat
+    member_filter: "BFE == selected bodem_id"
+    aggregation: majority_real
+  BBCFIL: {source: HRU_ID}
+  DRFIL: {source: HRU_ID}
+  METFIL: {source: generated_HRU_meteo_file}
+  irrigation_id:
+    default: majority(irrigation_switch, member_set=all)
+    override:
+      condition: "fraction(irrigation_switch > 0) > 0.37"
+      value: "majority(irrigation_switch where > 0)"
+    status: REVIEW
+  solute_id: {constant: 0}
+  rotation_id: {constant: max}
+  SWINCO: {constant: 2}
+  GWLI:
+    expression: "min(0, round((mean(head_or_height) - mean(surface_level))*100))"
+    member_set: all
+    status: REVIEW_REFERENCE_AND_SIGN
+  RDS:
+    default: majority_real(root_depth among matching selected BFE/LGN)
+    if_representative_schema: rz_repr
+  PONDMX: {source_control: MaxPondDepth, conversion: "*100"}
+  RSRO: {source_control: crunoff_par}
+  tempBot: {source_control: tempCbotk}
+  glk: {source: surface_level, aggregation: mean, member_set: all}
+  area: {source: area, aggregation: sum, member_set: all}
+  geographic_location:
+    x_y:
+      method: "mean coordinate, then snap to nearest member cell"
+    col_row:
+      method: "grid index of snapped member cell"
+  nusvat: {aggregation: count, member_set: all}
+  TSTART: {source_control: TimStart}
+  TEND: {source_control: TimEnd}
+  SWETR:
+    expression: "0 if initial majority LGN < 7 else 1"
+    status: >
+      REVIEW: calculated before representative LGN can overwrite lgn_maj.
+  soil_id:
+    lookup: bodem2bofek
+    key: selected_bodem_id
+  crop_id:
+    lookup: lu2crop
+    keys: [soil2_id, lu_id]
+  croporg_id:
+    lookup: lu2croporg
+    keys: [soil2_id, lu_id]
+  dikte_id: {constant: 1700}
+  COFANI: {constant: 1.0}
+  NUMNODNEW: {constant: 43}
+
+bottom_boundary:
+  transient_inputs:
+    head_layer_1: "head_<timestamp>_l1.idf"
+    head_layer_2: "head_<timestamp>_l2.idf"
+    vertical_flux_layer_1: "bdgflf_<timestamp>_l1.idf"
+    lateral_flux_layer_1: "bdgqlat_<timestamp>_l1.asc"
+  active_qbot2:
+    SWBOTB: 2
+    member_set: water_boundary
+    expression: "100 * mean((head_l2 - head_l1) / c1)"
+    note: >
+      FLF and QLAT are computed in the current source but not used in the active
+      QBOT2 write line.
+  mixed_head_file:
+    SWBOTB: 3
+    RIMLAY: c1_average
+    HAQUIF: "100 * (mean(head_l1) + weighted(head_l2-head_l1) - mean(surface_level))"
+
+meteorology:
+  precipitation:
+    member_set: water_boundary
+    aggregation: area_weighted_mean
+  potential_or_reference_evaporation_grid:
+    member_set: water_boundary
+    aggregation: area_weighted_mean
+  other_meteo:
+    source: majority_meteorological_district
+
+drainage:
+  member_set_in_active_v038: all
+  status: REVIEW
+  note: >
+    Comments state that water-boundary selection should apply, but the active
+    source has those conditional filters commented out.
+
+admission_blockers:
+  - bind_production_executable_to_source
+  - rename_and_define_water_boundary_member_policy
+  - resolve_SWETR_vs_representative_LGN_ordering
+  - decide_irrigation_fraction_threshold
+  - make_drainage_member_policy_explicit
+  - move_embedded_constants_to_configuration
+  - bind_units_signs_and_reference_levels
