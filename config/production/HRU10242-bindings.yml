@@ -1,0 +1,210 @@
+schema_version: 1
+status: SOURCE_BOUND_WORKING_BASELINE
+authority_target: HRU10242
+
+scope:
+  starts_at: end_products_of_LHM_run
+  ends_at: qualified_SWAP_output_handoff
+  excludes:
+    - execution_of_full_LHM_model
+    - downstream_ANIMO_processing
+    - obsolete_HRU_versions
+
+programs:
+
+  lhm_server_postprocessing:
+    status: PARTIALLY_BOUND
+    observed_controls:
+      - do_gridcalc_filter.bat
+      - do_gridcalc_lgn.bat
+      - do_gridcalc_flf.bat
+      - do_gridcalc.bat
+    role: >
+      Convert and select required LHM/MODFLOW/MetaSWAP outputs for transfer to
+      the LWKM workspace. Historical variants exist and are not automatically
+      canonical.
+    blocker: bind_exact_production_batch_set_and_versions
+
+  svat_table_builder:
+    program: LWKM_makeHRU
+    source_version: "0.20"
+    source_date: "2026-05"
+    source_file: LWKM_makeHRU.f90
+    control_file: control_mkHRU.inp
+    status: SOURCE_BOUND_CONTROL_NAME_BOUND_CONTENT_PARTIAL
+    primary_product:
+      observed_current_name: SVAT_INFO_HRU.CSV
+      role: current_75_column_svat_information_table
+      binding: CANDIDATE
+      blocker: verify_table_csv_in_exact_production_control
+    control_semantics:
+      table_csv: PRIMARY_OUTPUT
+      export_csv: EXISTING_SVAT_HRU_DONOR_RELATION_INPUT_FOR_AUXILIARY_DISCHARGE_COMPARISON
+      afvoer_csv: AUXILIARY_OUTPUT
+    expected_current_auxiliary_output:
+      observed_name: HRUAFV.CSV
+      binding: CANDIDATE
+
+  hru_clustering:
+    program: HRU_clustering_LWKM20
+    expected_source: HRU_clustering_LWKM20_31082026.R
+    status: DOCUMENTATION_BOUND_SOURCE_NOT_YET_ADMITTED
+    inputs:
+      primary_svat_table:
+        observed_documentation_name: svat_info_lwkm_new.csv
+        current_binding: TO_RECONCILE_WITH_SVAT_INFO_HRU
+      original_svat_table:
+        observed_name: SVAT_INFO.csv
+      ldg_mapping:
+        observed_name: xyLDGBclus.csv
+    products:
+      svat_hru_map:
+        name: export_svat_HRU_NRU_10242.csv
+        status: OBSERVED_CURRENT
+      hru_schema:
+        name: export_HRUschema_10242.csv
+        status: OBSERVED_CURRENT
+      nru_schema:
+        name: export_NRUschema_10242.csv
+        status: OBSERVED_CURRENT
+      hru_count:
+        value: 10242
+        status: CURRENT_AUTHORITY_TARGET
+    blocker: add_and_reconcile_actual_R_source
+
+  swap_input_builder:
+    program: HRUlist2SWAP
+    source_version: "0.38"
+    source_date: "2026-04"
+    source_file: hrulist2SWAP.f90
+    control_file: control_LHM433_HRU_SWAP_10242.inp
+    status: SOURCE_BOUND_CONTROL_PARTIALLY_BOUND
+    observed_control_bindings:
+      HRU2svat: "BasicData\\csv\\export_svat_HRU_NRU_10242.csv"
+      HRU2SVAT_repr_csv: "BasicData\\csv\\export_HRUschema_10242_copy.csv"
+      HRU_asc: "BasicData\\grids\\HRU10242.asc"
+      HRU_sel_asc: "BasicData\\grids\\HRU10242_sel.asc"
+      SWAP_model_dir: "SVATS10242"
+      SWAP_model_name: "SVAT2SWAP10242"
+    source_semantics:
+      HRU_asc: OUTPUT_FULL_HRU_MEMBERSHIP_GRID
+      HRU_sel_asc: OUTPUT_GEOGRAPHIC_REPRESENTATIVE_LOCATION_GRID
+      HRU2SVAT_repr_csv: INPUT_HYDROLOGIC_REPRESENTATIVE_SCHEMA
+    products:
+      run_table:
+        expected_name: SVAT2SWAP10242.csv
+        status: DERIVED_FROM_CONTROL_AND_SOURCE
+      bbc_files:
+        directory_under_SWAP_model_dir: bbc
+      dra_files:
+        role: drainage_input
+      met_files:
+        role: meteorological_input
+    blockers:
+      - bind_exact_production_executable_binary_to_source
+      - reconcile_export_HRUschema_10242_copy_with_authoritative_HRU_schema
+      - make_member_selection_policies_explicit
+
+current_data_artifacts:
+  svat_base_like:
+    - SVAT_INFO_HRU.CSV
+  hru_relation:
+    - export_svat_HRU_NRU_10242.csv
+  hru_schema:
+    - export_HRUschema_10242.csv
+    - export_HRUschema_10242_copy.csv
+  nru_schema:
+    - export_NRUschema_10242.csv
+  diagnostic:
+    - HRUAFV.CSV
+  spatial:
+    - HRU10242.asc
+    - HRU10242_sel.asc
+
+logical_stage_binding:
+
+  LHM4_3:
+    meaning: upstream_svat_hydrology_before_LWKM_domain_selection
+    status: PARTIAL
+    note: >
+      The current SVAT builder itself already has spatial preconditions. Exact
+      baseline must therefore be defined from the agreed LHM export, not by
+      blindly calling every row in SVAT_INFO_HRU "LHM4.3".
+
+  LHM4_3_lbn:
+    meaning: LWKM_landbouw_natuur_domain_selection
+    current_field: islwkm(0/1)
+    selection: "islwkm(0/1) == 1"
+    status: STRONG_CANDIDATE
+
+  LHM4_3_cor:
+    meaning: corrected_svat_hydrology_including_Flevoland_correction
+    status: OPEN
+    candidate_evidence:
+      - kwel_org(mm/j)
+      - kwel(mm/j)
+      - HRUlist2SWAP_history_mentions_Flevoland_correction
+    admission_rule: >
+      Do not call kwel - kwel_org the Flevoland correction until producer,
+      spatial mask, units, period and all dependent variables are bound.
+
+  LHM4_3_rep:
+    meaning: explicit_policy_for_unreliable_hydrologic_extremes
+    status: OPEN_BY_DESIGN
+    diagnostic_fields:
+      - ghg_sel
+      - gt1_sel
+      - gt2_sel
+      - gt8_sel
+      - kwel_sel
+      - wegzijging_sel
+      - runoff_sel
+      - subinfil_sel
+      - isverdacht(1010000)
+    note: >
+      Diagnosis, downstream exclusion and donor/replacement are separate
+      operations and must not be collapsed.
+
+  LWKM_SVATs:
+    meaning: representative_svat_experiment
+    status: TO_DEFINE_PRECISELY
+    note: >
+      Distinguish cluster donor (svat_donor) from HRU representative SVAT
+      (svat_repr). The 1:1 SWAP experiment should bind explicitly to one.
+
+  LWKM_HRUs:
+    meaning: HRU10242_hydrologic_representation
+    status: CURRENT_TARGET
+
+  LWKM_rep:
+    meaning: HRU_level_extreme_or_replacement_policy
+    status: OPEN
+    note: Do not infer this stage from SVAT donor assignment alone.
+
+hru_input_authority_risk:
+  status: OPEN_HIGH_PRIORITY
+  question: >
+    Was HRU10242 derived from the Flevoland-corrected SVAT hydrology, or from
+    the original SVAT hydrology with only separate Flevoland information kept
+    outside the actual HRU clustering input?
+  why_it_matters: >
+    If the clustering/representative-SVAT derivation used a different hydrologic
+    state than the state later used for SWAP input, HRU representation effects
+    and Flevoland-correction effects are entangled.
+  current_documented_hru_inputs:
+    processed_svat_file: svat_info_lwkm_new.csv
+    original_svat_file: SVAT_INFO.csv
+  evidence_limit: >
+    The current HRU documentation names these files but does not establish
+    whether the processed file contains the accepted Flevoland correction.
+  admission_requirement: >
+    Bind the exact input file checksum/version used for HRU10242 and verify the
+    Flevoland correction state of all relevant hydrologic fields before
+    HRU10242 can be called production-reproducible.
+
+next_binding_actions:
+  - verify_exact_table_csv_path_in_control_mkHRU
+  - add_HRU_clustering_R_source
+  - bind_Flevoland_correction_producer
+  - decide_canonical_rep_policy
+  - bind_SWAP_output_QA_inputs

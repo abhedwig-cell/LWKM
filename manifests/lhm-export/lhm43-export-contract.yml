@@ -1,0 +1,169 @@
+schema_version: 1
+status: DRAFT_AUTHORITY
+workflow_boundary: LHM_run_output_to_LWKM_environment
+scope_note: >
+  The LHM calculation itself is out of scope. This contract starts at the
+  reproducible export package created on the NHI/LHM server and ends when
+  that package has been transferred and verified in the LWKM environment.
+
+source_model:
+  name: LHM
+  version: "4.3.x"
+  exact_version: TO_BIND
+  run_id: TO_BIND
+
+export_id: "LHM43-LWKM-TO_BIND"
+created_at: TO_BIND
+producer: TO_BIND
+code_commit_or_archive_id: TO_BIND
+
+transfer:
+  source_environment: NHI_LHM_SERVER
+  target_environment: LWKM_WORKSPACE
+  method: TO_BIND
+  checksum_algorithm: SHA256
+  require_manifest_before_transfer: true
+  require_checksum_after_transfer: true
+
+required_products:
+
+  spatial_identity:
+    - id: svat_grid
+      role: stable_svat_identifier_grid
+      consumer_parameter: svat_asc
+      source_path: TO_BIND
+      period: static
+      unit: integer_id
+      status: REQUIRED
+
+    - id: model_area_grid
+      role: model_or_district_spatial_partition
+      consumer_parameter: district_asc
+      source_path: TO_BIND
+      period: static
+      unit: integer_id
+      status: REQUIRED
+
+    - id: active_area
+      role: active_surface_area_per_svat
+      consumer_parameter: uopp_asc
+      source_path: TO_BIND
+      period: static
+      unit: m2
+      status: REQUIRED
+
+  groundwater_state:
+    - id: ghg
+      consumer_parameter: ghg_asc
+      source_path: TO_BIND
+      period: TO_BIND
+      unit: cm_below_surface
+      status: REQUIRED
+      note: Period must be recorded explicitly; output filename alone is not authoritative.
+
+    - id: glg
+      consumer_parameter: glg_asc
+      source_path: TO_BIND
+      period: TO_BIND
+      unit: cm_below_surface
+      status: REQUIRED
+
+    - id: groundwater_class
+      consumer_parameter: gt_asc
+      source_path: TO_BIND
+      period: derived_from_ghg_glg
+      unit: class
+      status: REQUIRED_IF_CURRENT_METHOD_RETAINED
+
+  long_term_fluxes:
+    - {id: precipitation, consumer_parameter: neerslag_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: actual_evaporation, consumer_parameter: verdamping_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: runoff, consumer_parameter: runoff_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: discharge_total, consumer_parameter: afvoer_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: discharge_system_1, consumer_parameter: afvoer_sys1_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: discharge_system_2, consumer_parameter: afvoer_sys2_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: discharge_system_3, consumer_parameter: afvoer_sys3_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: discharge_system_4, consumer_parameter: afvoer_sys4_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: discharge_system_5, consumer_parameter: afvoer_sys5_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: supply_total, consumer_parameter: aanvoer_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: supply_system_1, consumer_parameter: aanvoer_sys1_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: supply_system_2, consumer_parameter: aanvoer_sys2_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: supply_system_3, consumer_parameter: aanvoer_sys3_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: seepage_downward, consumer_parameter: wegzijging_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: seepage_upward, consumer_parameter: kwel_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: lateral_flux, consumer_parameter: qlat_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: infiltration_or_subinfiltration, consumer_parameter: infil_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: pipe_drainage, consumer_parameter: buis_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: irrigation, consumer_parameter: beregen_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: storage_change, consumer_parameter: dberging_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED}
+    - {id: q_metaswap, consumer_parameter: qmetaswap_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: DIAGNOSTIC_REQUIRED}
+    - {id: q_modflow, consumer_parameter: qmodf_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: DIAGNOSTIC_REQUIRED}
+
+  evap_components:
+    - {id: transpiration_actual, consumer_parameter: Tact_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED_IF_CURRENT_SCHEMA_RETAINED}
+    - {id: interception_evaporation, consumer_parameter: Eic_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED_IF_CURRENT_SCHEMA_RETAINED}
+    - {id: bare_soil_evaporation, consumer_parameter: Ebs_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED_IF_CURRENT_SCHEMA_RETAINED}
+    - {id: ponded_evaporation, consumer_parameter: Epd_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED_IF_CURRENT_SCHEMA_RETAINED}
+    - {id: surface_water_evaporation, consumer_parameter: Esp_asc, source_path: TO_BIND, period: TO_BIND, unit: mm_per_year, status: REQUIRED_IF_CURRENT_SCHEMA_RETAINED}
+
+  comparison_fields:
+    - id: seepage_original
+      consumer_parameter: kwel_org
+      source_path: TO_BIND
+      period: TO_BIND
+      unit: mm_per_year
+      status: REQUIRED_FOR_CORRECTION_PROVENANCE
+      note: Exact semantic relation to kwel_asc must be bound before use as pre-correction authority.
+
+  transient_for_swap:
+    - id: head_layer_1
+      filename_pattern: "head_<timestamp>_l1.idf"
+      source_path: TO_BIND
+      unit: m
+      status: REQUIRED
+    - id: head_layer_2
+      filename_pattern: "head_<timestamp>_l2.idf"
+      source_path: TO_BIND
+      unit: m
+      status: REQUIRED
+    - id: vertical_flux_layer_1
+      filename_pattern: "bdgflf_<timestamp>_l1.idf"
+      source_path: TO_BIND
+      unit: TO_BIND
+      status: REQUIRED
+    - id: lateral_flux_layer_1
+      filename_pattern: "bdgqlat_<timestamp>_l1.asc"
+      source_path: TO_BIND
+      unit: TO_BIND
+      status: REQUIRED_IF_PRESENT_IN_CURRENT_BOTTOM_BOUNDARY_ANALYSIS
+
+local_enrichment_not_part_of_lhm_export:
+  - land_use_classifications
+  - soil_classifications
+  - lwkm_domain_mask
+  - qualification_rule_grids
+  - irrigation_and_drainage_flags_if_derived_locally
+  - lookup_tables
+  - HRU_configuration
+  - SWAP_mapping_configuration
+
+validation:
+  mandatory:
+    - all_required_files_exist
+    - sha256_matches_after_transfer
+    - grid_geometry_consistent_or_explicitly_transformed
+    - units_bound
+    - periods_bound
+    - nodata_bound
+    - sign_conventions_bound
+    - area_basis_bound
+    - producer_script_bound
+  fail_closed: true
+
+open_authorities:
+  - exact_LHM_4_3_subversion_and_run_id
+  - exact_production_file_paths
+  - exact_period_per_GHG_GLG_and_each_flux
+  - exact_unit_and_sign_for_transient_bdgflf_and_bdgqlat
+  - exact_origin_of_kwel_org
+  - exact_boundary_between_NHI_side_derivation_and_LWKM_side_derivation

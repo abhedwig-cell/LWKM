@@ -1,0 +1,78 @@
+schema_version: 1
+program: LWKM_makeHRU
+source_version: "0.20"
+source_date: "2026-05"
+control_file_candidate: control_mkHRU.inp
+required_parameters:
+  - table_csv
+  - district_asc
+  - svat_asc
+  - neerslag_asc
+  - verdamping_asc
+  - runoff_asc
+  - wegzijging_asc
+  - afvoer_asc
+  - afvoer_sys1_asc
+  - afvoer_sys2_asc
+  - afvoer_sys3_asc
+  - afvoer_sys4_asc
+  - afvoer_sys5_asc
+  - aanvoer_asc
+  - aanvoer_sys1_asc
+  - aanvoer_sys2_asc
+  - aanvoer_sys3_asc
+  - glg_asc
+  - ghg_asc
+  - kwel_asc
+  - qlat_asc
+  - glgk_asc
+  - ghgk_asc
+  - kwelk_asc
+  - qlatk_asc
+  - infil_asc
+  - dqsat_asc
+  - isberegen_asc
+  - isdrain_asc
+  - zafv_asc
+  - zafvk_asc
+  - beregen_asc
+  - buis_asc
+  - lwkm_asc
+  - verdacht_asc
+  - gt_asc
+  - lu_asc
+  - lu7_asc
+  - lu4_asc
+  - lu2_asc
+  - soil_asc
+  - soil79_asc
+  - soil21_asc
+  - soil4_asc
+  - soil2_asc
+  - uopp_asc
+  - ghg_sel_asc
+  - gt1_sel_asc
+  - gt2_sel_asc
+  - gt8_sel_asc
+  - kwel_sel_asc
+  - wegzijging_sel_asc
+  - runoff_sel_asc
+  - subinfil_sel_asc
+  - Tact_asc
+  - Eic_asc
+  - Epd_asc
+  - Esp_asc
+  - Ebs_asc
+  - kwel_org
+  - dberging_asc
+  - qmetaswap_asc
+  - qmodf_asc
+  - export_csv
+  - afvoer_csv
+semantics:
+  table_csv: primary_svat_table_output
+  export_csv: existing_svat_hru_relation_input
+  afvoer_csv: auxiliary_hru_discharge_comparison_output
+notes:
+  - Parameter list is extracted from the inspected Fortran source.
+  - A production control is not admitted until every parameter is bound and file roles are checked.

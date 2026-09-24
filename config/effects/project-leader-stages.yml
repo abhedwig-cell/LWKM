@@ -1,0 +1,168 @@
+schema_version: 1
+status: DRAFT_EFFECT_AUTHORITY
+purpose: >
+  Bind the seven project-leader reporting stages to explicit, reproducible
+  datasets and comparisons. Stage names are retained for reporting, while
+  scientific semantics are made explicit.
+
+stages:
+
+  LHM4_3:
+    order: 1
+    label: "LHM4.3"
+    canonical_product: LHM_EXPORT_to_SVAT_BASE
+    population: agreed_LHM_svat_baseline
+    transformation: none
+    report:
+      - n_svat
+      - area
+      - hydrologic_balance
+      - distributions
+    status: BASELINE_TO_BIND
+
+  LHM4_3_lbn:
+    order: 2
+    label: "LHM4.3 lbn"
+    canonical_product: SVAT_QUALIFIED
+    transformation:
+      type: DOMAIN_SELECTION
+      current_rule: "islwkm(0/1) == 1"
+    comparison:
+      against: LHM4_3
+      interpretation: population_selection_effect
+    report:
+      - n_removed
+      - area_removed
+      - hydrologic_summary_before_after
+      - spatial_map
+    status: STRONG_CANDIDATE
+
+  LHM4_3_cor:
+    order: 3
+    label: "LHM4.3 cor"
+    canonical_product: SVAT_QUALIFIED
+    transformation:
+      type: EXPLICIT_HYDROLOGIC_CORRECTION
+      name: Flevoland_correction
+      rule_id: TO_BIND
+    comparison:
+      against: LHM4_3_lbn
+      require_same_svat_ids: true
+      interpretation: correction_effect
+    report:
+      - n_changed
+      - area_changed
+      - variable_deltas
+      - water_balance_delta
+      - correction_mask
+    status: OPEN
+    fail_closed_if:
+      - producer_not_bound
+      - correction_mask_not_bound
+      - source_and_corrected_units_or_periods_differ
+
+  LHM4_3_rep:
+    order: 4
+    label: "LHM4.3 rep"
+    canonical_product: SVAT_QUALIFIED
+    transformation:
+      type: EXPLICIT_REPLACEMENT_OR_USAGE_POLICY
+      policy_id: TO_BIND
+    comparison:
+      against: LHM4_3_cor
+      require_same_svat_ids_if_values_are_replaced: true
+    report:
+      - qualification_rule_counts
+      - affected_area
+      - excluded_or_replaced_svat_ids
+      - donor_or_replacement_method
+      - hydrologic_delta
+    status: OPEN
+    note: >
+      Qualification flags alone do not define this stage. A versioned use or
+      replacement policy is required.
+
+  LWKM_SVATs:
+    order: 5
+    label: "LWKM SVATs"
+    canonical_product: REPRESENTATIVE_SVAT_1TO1_TEST
+    representative_relation:
+      preferred_authority: HRU_SCHEMA.svat_repr
+      explicitly_not_equivalent_to: SVAT_HRU_MAP.svat_donor
+    purpose: >
+      Isolate the LHM/SWAP translation on the representative SVAT set before
+      HRU aggregation effects are introduced.
+    experiment:
+      lhm_reference: "qualified LHM hydrology at svat_repr"
+      swap_case: "one SWAP case per representative SVAT with no HRU averaging where avoidable"
+      area_weight_for_national_summary: HRU_area
+    comparison:
+      interpretation: swap_translation_effect_on_representative_svats
+    report:
+      - successful_cases
+      - failed_cases
+      - water_balance_delta
+      - flux_deltas
+      - state_deltas
+    status: TO_IMPLEMENT_EXPLICITLY
+
+  LWKM_HRUs:
+    order: 6
+    label: "LWKM HRUs"
+    canonical_product: HRU10242_SWAP
+    purpose: quantify_HRU_representation_and_input_mapping_effects
+    comparisons:
+      - id: LHM_MEMBER_TO_HRU_REPRESENTATION
+        reference: area_weighted_qualified_LHM_members_per_HRU
+        candidate: HRU_input_representation
+        interpretation: representation_and_aggregation_effect_before_SWAP
+      - id: SWAP_REPR_SVAT_TO_SWAP_HRU
+        reference: one_to_one_SWAP_representative_SVAT
+        candidate: SWAP_HRU
+        interpretation: HRU_input_mapping_effect_in_SWAP
+      - id: LHM_MEMBER_TO_SWAP_HRU_TOTAL
+        reference: area_weighted_qualified_LHM_members_per_HRU
+        candidate: SWAP_HRU
+        interpretation: total_LHM_to_HRU_SWAP_difference
+    report:
+      - hru_count
+      - svat_members_per_hru
+      - hru_area
+      - balance_deltas
+      - distribution_of_errors
+      - spatial_error_maps
+    status: CURRENT_TARGET_HRU10242
+
+  LWKM_rep:
+    order: 7
+    label: "LWKM rep"
+    canonical_product: QUALIFIED_HRU_SWAP_OUTPUT
+    transformation:
+      type: EXPLICIT_HRU_OUTPUT_QUALIFICATION_OR_REPLACEMENT
+      policy_id: TO_BIND
+    comparison:
+      against: LWKM_HRUs
+    report:
+      - affected_hru_ids
+      - affected_area
+      - reason
+      - replacement_method
+      - output_delta
+    status: OPEN
+    note: >
+      Keep this separate from upstream SVAT qualification. A strange SWAP HRU
+      result can expose an upstream problem, but any upstream fix creates a new
+      upstream run rather than silently editing this output.
+
+reporting_rule:
+  project_table_must_show:
+    - stage
+    - input_artifact_id
+    - output_artifact_id
+    - code_commit
+    - config_version
+    - n_units
+    - area
+    - hydrologic_delta
+    - status
+  no_single_total_delta_without_decomposition: true

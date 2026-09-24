@@ -1,0 +1,76 @@
+schema_version: 1
+program: HRUlist2SWAP
+source_version: "0.38"
+source_date: "2026-04"
+control_file_candidate: control_LHM433_HRU_SWAP_10242.inp
+required_parameters:
+  - SWAP_model_dir
+  - SWAP_model_name
+  - crunoff_par
+  - crunon_par
+  - MaxPondDepth
+  - tempCbotk
+  - kwelmax
+  - TimStart
+  - TimEnd
+  - dirFilesHead
+  - dirFilesflf
+  - dirFilesqlat
+  - HRU_asc
+  - HRU_sel_asc
+  - HRU2HRU_csv
+  - HRU2SVAT_repr_csv
+  - nuhorizon_csv
+  - bodem2bofek_csv
+  - lu2crop_csv
+  - verdacht_asc
+  - DRA
+  - MET
+  - BOT
+  - header
+  - svat
+  - HRU2svat
+  - glk
+  - area
+  - rds
+  - dqsat
+  - lgn
+  - soil2
+  - bfe
+  - irr_switch
+  - meteo
+  - vc
+  - riv_infil
+  - bbc
+  - svat_per
+  - meteo_SWAP
+  - metegrid
+dynamic_parameters:
+  systems: [pri, sec, ter, dra, glk]
+  patterns:
+    Len:
+      parameters: [Len_pri, Len_sec, Len_ter]
+      note: For dra and glk the source switches to Dist_ instead of Len_.
+    Dist:
+      parameters: [Dist_dra, Dist_glk]
+    bodh:
+      parameters: [bodh_pri, bodh_sec, bodh_ter, bodh_dra, bodh_glk]
+    cdr:
+      parameters: [cdr_pri, cdr_sec, cdr_ter, cdr_dra, cdr_glk]
+    inf:
+      parameters: [inf_pri, inf_sec, inf_ter]
+    peil_sum:
+      parameters: [peil_sum_pri, peil_sum_sec, peil_sum_ter]
+    peil_win:
+      parameters: [peil_win_pri, peil_win_sec, peil_win_ter]
+observed_current_bindings:
+  HRU2svat: "BasicData\\csv\\export_svat_HRU_NRU_10242.csv"
+  HRU2SVAT_repr_csv: "BasicData\\csv\\export_HRUschema_10242_copy.csv"
+  HRU_asc: "BasicData\\grids\\HRU10242.asc"
+  HRU_sel_asc: "BasicData\\grids\\HRU10242_sel.asc"
+  SWAP_model_dir: "SVATS10242"
+  SWAP_model_name: "SVAT2SWAP10242"
+notes:
+  - HRU_asc and HRU_sel_asc are output paths in the inspected source despite appearing as control parameters.
+  - verdacht_asc is requested twice in source; it is one control key.
+  - Production executable must still be bound to this source version.

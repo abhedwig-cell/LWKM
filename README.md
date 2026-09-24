@@ -2,6 +2,12 @@
 
 Werkrepository voor de verdere ontwikkeling en kwalificatie van het Landelijk Waterkwaliteitsmodel (LWKM).
 
+## Huidige prioriteit
+
+De actuele werkstroom is **LHM → SVAT → HRU → SWAP**. Doel is niet alleen de huidige LWKM 2.0-keten te reconstrueren, maar vooral een strakke, reproduceerbare canonical workflow vast te leggen die toekomstige LHM-versies, gewijzigde kwalificatieregels en andere HRU-methoden aankan zonder de provenance te verliezen.
+
+Zie: docs/lhm-hru-swap/README.md
+
 ## Projectbaseline
 
 Deze repository is gestart op basis van eerder werk rond SWAP5, ANIMO5 en WOFOST. De repository is niet bedoeld als kopie van die modelrepositories. Zij wordt de plaats voor de ketenarchitectuur, koppelcontracten, integratietests en kwalificatie-evidence van LWKM.
@@ -107,7 +113,3 @@ Kleine gecontroleerde end-to-end testbank voor SWAP5 + ANIMO5 + WOFOST 8.1.
 - duplicatie van componentmodeltests die geen ketencontract testen.
 
 Die werkzaamheden blijven in hun eigen repositories en worden hier als gepinde upstream dependencies behandeld.
-
-## Eerstvolgende stap
-
-De eerste inhoudelijke werkunit is **LWKM-ARCH01**: reconcilieer de bestaande koppelideeën en prototypes tot één prospectieve ownership- en timingmatrix. Pas daarna wordt de N-koppeling als executable contract vastgelegd.
