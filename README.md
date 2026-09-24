@@ -99,6 +99,12 @@ Bepalen welk deel van de transactionele/modelneutrale runtime daadwerkelijk gede
 **LWKM-E2E**  
 Kleine gecontroleerde end-to-end testbank voor SWAP5 + ANIMO5 + WOFOST 8.1.
 
+**LWKM-DATAFLOW**  
+Reproduceerbare keten van brondata via expliciete domeinselecties, waaronder Natuur-Nederland, naar analyse-eenheden, indicatoren en aggregaties. Selectiestappen leveren eigen audit-evidence op.
+
+**LWKM-SWAP-INPUT**  
+Reconciliatie en vervanging van de bestaande SWAP-invoergeneratie. Inhoudelijke configuratie wordt gescheiden van de uiteindelijke SWP-export en de nieuwe generator wordt incrementeel en afhankelijkheidsbewust.
+
 ### Expliciet buiten deze repository
 
 - algemene SWAP5 solverontwikkeling;
@@ -108,6 +114,10 @@ Kleine gecontroleerde end-to-end testbank voor SWAP5 + ANIMO5 + WOFOST 8.1.
 
 Die werkzaamheden blijven in hun eigen repositories en worden hier als gepinde upstream dependencies behandeld.
 
+## Werkwijzebaseline
+
+De vaste uitgangspunten voor reproduceerbare dataverwerking en de toekomstige incrementele SWAP-invoergenerator zijn vastgelegd in `docs/architecture/LWKM-WORKFLOW01-dataflow-and-swap-input.md`.
+
 ## Eerstvolgende stap
 
-De eerste inhoudelijke werkunit is **LWKM-ARCH01**: reconcilieer de bestaande koppelideeën en prototypes tot één prospectieve ownership- en timingmatrix. Pas daarna wordt de N-koppeling als executable contract vastgelegd.
+Voor de modelkoppeling blijft **LWKM-ARCH01** de authority-baseline en volgt ARCH02/N-AUTHORITY RECONCILIATION. Parallel kan **LWKM-DATAFLOW** starten met één echte ruimtelijke keten en kan **LWKM-SWAP-INPUT** beginnen met reconciliatie van de bestaande Fortran + scripts-keten voordat iets wordt herschreven.
