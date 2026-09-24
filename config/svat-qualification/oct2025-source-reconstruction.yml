@@ -1,0 +1,143 @@
+schema_version: 1
+status: SOURCE_RECONSTRUCTION
+authority: NOT_YET_CANONICAL
+source:
+  file: do_gridcalc_lgn(2).bat
+  period_variable: 1991-2020
+  evidence_block: "REM afspraken okt-25"
+  note: >
+    This configuration transcribes the active rules in the October-2025 block.
+    It does not assert that the supplied batch file was the exact production
+    executable path for HRU10242. Existing gt1_sel and gt2_sel are inherited
+    from an earlier active block in the same batch file.
+
+domain_classes:
+  agriculture_grid:
+    file: lgn250_landbouw.asc
+    agriculture_value: 1
+    non_agriculture_value: 0
+    source_definition: >
+      LGN250 classes 1,2,3,4,5,6,7,9,10,21 are selected inside filter_lwkm.
+  polder_exception_grid:
+    file: polders.asc
+    semantics: TO_BIND
+    note: >
+      The October-2025 rules exclude cells where polders.asc != 0 for selected
+      seepage/infiltration criteria. Do not call this a general Flevoland mask.
+
+rules:
+
+  - rule_id: SUBINFIL_HIGH_OUTSIDE_POLDER
+    output_field: subinfil_sel
+    status: CANDIDATE_CURRENT_SOURCE
+    source_quantity: ontw_netto_1991_2020
+    source_unit: mm_per_year
+    expression: "ontw_netto > 365 AND filter_lwkm > 0 AND polders == 0"
+    conceptual_threshold: "> 1 mm/day"
+    exact_threshold_in_source: 365
+    applies_to: LWKM_domain_outside_polder_exception
+    consequence: DIAGNOSTIC_ONLY
+
+  - rule_id: RUNOFF_HIGH_NON_AGRICULTURE
+    output_intermediate: runoff_sel_natuur
+    output_field: runoff_sel
+    status: CANDIDATE_CURRENT_SOURCE
+    source_quantity: runoff_1991_2020
+    source_unit: mm_per_year
+    expression: "runoff < -548 AND lgn250_landbouw == 0"
+    conceptual_threshold: "magnitude > 1.5 mm/day"
+    exact_threshold_in_source: -548
+    sign_note: source uses negative runoff for this criterion
+    consequence: DIAGNOSTIC_ONLY
+
+  - rule_id: RUNOFF_HIGH_AGRICULTURE
+    output_intermediate: runoff_sel_landbouw
+    output_field: runoff_sel
+    status: CANDIDATE_CURRENT_SOURCE
+    source_quantity: runoff_1991_2020
+    source_unit: mm_per_year
+    expression: "runoff < -183 AND lgn250_landbouw == 1"
+    conceptual_threshold: "magnitude > 0.5 mm/day"
+    exact_threshold_in_source: -183
+    sign_note: source uses negative runoff for this criterion
+    consequence: DIAGNOSTIC_ONLY
+
+  - rule_id: SEEPAGE_DOWN_HIGH_OUTSIDE_POLDER
+    output_field: wegzijging_sel
+    status: CANDIDATE_CURRENT_SOURCE
+    source_quantity: net_seepage_1991_2020
+    source_unit: mm_per_year
+    expression: "kwelwegz < -548 AND filter_lwkm > 0 AND polders == 0"
+    conceptual_threshold: "downward magnitude > 1.5 mm/day"
+    exact_threshold_in_source: -548
+    consequence: DIAGNOSTIC_ONLY
+
+  - rule_id: SEEPAGE_UP_HIGH_NON_AGRICULTURE_OUTSIDE_POLDER
+    output_intermediate: kwel_sel_natuur
+    output_field: kwel_sel
+    status: CANDIDATE_CURRENT_SOURCE
+    source_quantity: net_seepage_1991_2020
+    source_unit: mm_per_year
+    expression: "kwelwegz > 1826 AND lgn250_landbouw == 0 AND polders == 0"
+    conceptual_threshold: "> 5 mm/day"
+    exact_threshold_in_source: 1826
+    consequence: DIAGNOSTIC_ONLY
+
+  - rule_id: SEEPAGE_UP_HIGH_AGRICULTURE_OUTSIDE_POLDER
+    output_intermediate: kwel_sel_landbouw
+    output_field: kwel_sel
+    status: CANDIDATE_CURRENT_SOURCE
+    source_quantity: net_seepage_1991_2020
+    source_unit: mm_per_year
+    expression: "kwelwegz > 730 AND lgn250_landbouw == 1 AND polders == 0"
+    conceptual_threshold: "> 2 mm/day"
+    exact_threshold_in_source: 730
+    consequence: DIAGNOSTIC_ONLY
+
+  - rule_id: SEEPAGE_UP_IN_DRY_GT
+    output_file: kwel_droog_sel.asc
+    expected_table_field: gt8_sel
+    status: BINDING_OPEN
+    source_quantity: net_seepage_1991_2020
+    expression: "kwelwegz > 1 AND gt > 7"
+    note: >
+      Batch comment says GT 7 and 8, then 'NB alleen 8!!'; active expression
+      is gt > 7. The file written is kwel_droog_sel.asc, while LWKM_makeHRU
+      reads a control parameter named gt8_sel_asc. The exact production control
+      must bind these names before this field is authoritative.
+    consequence: DIAGNOSTIC_ONLY
+
+  - rule_id: GHG_ABOVE_SURFACE_AGRICULTURE
+    output_field: ghg_sel
+    status: CANDIDATE_CURRENT_SOURCE
+    source_quantity: GHG_1991_2020
+    source_unit: cm_below_surface
+    expression: "ghg < 0 AND lgn250_landbouw == 1"
+    consequence: DIAGNOSTIC_ONLY
+
+inherited_rules_from_earlier_active_block:
+
+  - rule_id: GT1_SPECIAL_CASE
+    output_field: gt1_sel
+    status: LEGACY_ACTIVE_IN_SAME_BATCH_TO_REVIEW
+    expression: "glg < 50 AND agriculture_minus_veen_gras"
+    note: Exact gridcalc arithmetic and exclusions must be normalized before canonical admission.
+
+  - rule_id: GT2_SPECIAL_CASE
+    output_field: gt2_sel
+    status: LEGACY_ACTIVE_IN_SAME_BATCH_TO_REVIEW
+    expression: "GHG < 40 AND GLG < 80, excluding GLG < 50 and selected grass/bulb/tree-crop exceptions"
+    note: Exact gridcalc arithmetic and exclusions must be normalized before canonical admission.
+
+forbidden_in_canonical_workflow:
+  - "Using isverdacht as the only scientific rule provenance"
+  - "Treating a rule hit as automatic value replacement"
+  - "Changing thresholds directly in batch source without config version"
+  - "Mixing obsolete earlier thresholds with current thresholds without explicit status"
+
+next_actions:
+  - bind exact control_mkHRU parameter gt8_sel_asc
+  - normalize gt1_sel and gt2_sel into explicit boolean rules
+  - bind polders.asc semantic authority and spatial coverage
+  - decide which rules are CANONICAL versus diagnostic research rules
+  - define downstream usage policy separately from rule detection
