@@ -1,0 +1,55 @@
+schema_version: 1
+run_id: ""
+parent_run_id: null
+status: EXPERIMENTAL   # EXPERIMENTAL | CANDIDATE | CANONICAL
+
+scope:
+  lhm_source: ""
+  hru_version: HRU10242
+  swap_version: ""
+  period: ""
+
+code:
+  repository: abhedwig-cell/LWKM
+  commit: ""
+  external_sources: []
+
+inputs:
+  lhm_export_manifest: ""
+  files: []
+  # - path: ""
+  #   sha256: ""
+  #   role: ""
+  #   producer: ""
+
+configuration:
+  svat_domain: ""
+  svat_corrections: ""
+  svat_qualification: ""
+  hru: ""
+  swap_mapping: ""
+
+products:
+  svat_base: ""
+  svat_qualified: ""
+  svat_hru_map: ""
+  hru_schema: ""
+  swap_input: ""
+  swap_output: ""
+  qa_report: ""
+  animo_handoff: ""
+
+qa:
+  status: NOT_RUN
+  checks: []
+  known_deviations: []
+
+change:
+  reason: ""
+  expected_effect: ""
+  comparison_run_id: null
+  decision: ""
+
+created:
+  date: ""
+  operator: ""
