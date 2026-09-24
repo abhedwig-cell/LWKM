@@ -41,6 +41,9 @@ Daarmee blijven onderzoekscycli mogelijk zonder de productielijn onnavolgbaar te
 - [Qualification and change control](qualification-and-change-control.md)
 - [Data products and contracts](data-products.md)
 - [As-is reconstruction status](as-is-reconstruction.md)
+- [Current HRU → SWAP mapping from HRUlist2SWAP v0.38](swap-mapping-current-v038.md)
+- [Current SVAT source schema](../../schemas/svat/LWKM_makeHRU-v020.md)
+- [Draft LHM4.3 export contract](../../manifests/lhm-export/lhm43-export-contract.yml)
 
 ## Scope van de huidige HRU-lijn
 
