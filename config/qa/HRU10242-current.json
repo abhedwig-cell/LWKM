@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_CURRENT_ARTIFACT_CONFIG",
+  "data_root": ".",
+  "inputs": {
+    "svat_table": "BasicData/csv/SVAT_INFO_HRU.CSV",
+    "svat_hru_map": "BasicData/csv/export_svat_HRU_NRU_10242.csv",
+    "hru_schema": "BasicData/csv/export_HRUschema_10242.csv"
+  },
+  "columns": {
+    "svat_id": "svat",
+    "area": "opp(m2)",
+    "domain_flag": "islwkm(0/1)",
+    "qualification_flags": [
+      "ghg_sel",
+      "gt1_sel",
+      "gt2_sel",
+      "gt8_sel",
+      "kwel_sel",
+      "wegzijging_sel",
+      "runoff_sel",
+      "subinfil_sel"
+    ],
+    "hydrology": [
+      "glg(cm-mv)",
+      "ghg(cm-mv)",
+      "neerslag(mm/j)",
+      "verdamping(mm/j)",
+      "runoff(mm/j)",
+      "afvoer(mm/j)",
+      "afvoer_sys1(mm/j)",
+      "afvoer_sys2(mm/j)",
+      "afvoer_sys3(mm/j)",
+      "afvoer_sys4(mm/j)",
+      "afvoer_sys5(mm/j)",
+      "aanvoer(mm/j)",
+      "wegzijging(mm/j)",
+      "kwelwegzijging(mm/j)",
+      "kwel(mm/j)",
+      "qlat(mm/j)",
+      "buisdr(mm/j)",
+      "beregening(mm/j)",
+      "Tact(mm/j)",
+      "Eic(mm/j)",
+      "Ebs(mm/j)",
+      "Epd(mm/j)",
+      "Esp(mm/j)",
+      "dberging(mm/j)",
+      "qmetaswap(mm/j)",
+      "qmodf(mm/j)"
+    ]
+  },
+  "correction_pairs": [
+    {
+      "id": "KWEL_ORG_TO_CURRENT_DIAGNOSTIC",
+      "source": "kwel_org(mm/j)",
+      "corrected": "kwel(mm/j)",
+      "official_correction": false,
+      "tolerance": 0.000001,
+      "interpretation": "Diagnostic only. Do not label as Flevoland correction until producer, mask, period, units and dependent variables are bound."
+    }
+  ],
+  "hru_map": {
+    "svat": "svat",
+    "hru": "HRU",
+    "cluster_donor": "svat_donor"
+  },
+  "hru_schema": {
+    "hru": "HRU",
+    "representative_svat": "svat_repr"
+  }
+}
