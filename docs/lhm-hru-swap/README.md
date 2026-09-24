@@ -49,6 +49,7 @@ Daarmee blijven onderzoekscycli mogelijk zonder de productielijn onnavolgbaar te
 - [Draft LHM4.3 export contract](../../manifests/lhm-export/lhm43-export-contract.yml)
 
 
+- [Five-stage hydrological comparison](five-stage-hydrological-comparison.md)
 - [Project-leader effect table specification](project-leader-effect-table-spec.md)
 - [Effect accounting tooling](effect-accounting.md)
 - [HRU10242 current production bindings](../../config/production/HRU10242-bindings.yml)
