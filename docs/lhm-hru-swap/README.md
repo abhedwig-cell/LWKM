@@ -1,0 +1,47 @@
+# LHM → SVAT → HRU → SWAP
+
+Deze map beschrijft de hydrologische LWKM-werkstroom vanaf het **eindproduct van een LHM-run** tot en met een gecontroleerd SWAP-uitvoerpakket. De volledige LHM-berekening valt buiten scope. De overdracht naar ANIMO valt eveneens buiten scope; het SWAP-handoffpakket is hier het eindpunt.
+
+De documentatie maakt bewust onderscheid tussen twee lagen:
+
+1. **As-is provenance**: voldoende reconstructie van de huidige LWKM 2.0 productielijn om bestaande bestanden, keuzes en hydrologische veranderingen te kunnen verklaren.
+2. **Canonical workflow**: de voortaan voorgeschreven, reproduceerbare werkwijze. Deze hoeft historische omwegen en onderzoeksvarianten niet na te bootsen.
+
+## Hoofdproducten
+
+De canonical workflow kent zes inhoudelijke productgrenzen:
+
+1. **LHM_EXPORT** — gecontroleerde export uit de LHM/NHI-omgeving.
+2. **SVAT_BASE** — geharmoniseerde SVAT-dataset met bronwaarden en provenance.
+3. **SVAT_QUALIFIED** — domeinselectie, expliciete correcties en kwaliteits-/gebruiksflags.
+4. **SVAT_HRU_MAP + HRU_SCHEMA** — reproduceerbare HRU-afleiding voor de actuele HRU-methode.
+5. **SWAP_INPUT** — volledig herleidbaar SWAP-invoerpakket per HRU.
+6. **SWAP_OUTPUT_QA** — SWAP-resultaten met controles en formeel handoffpakket voor de volgende LWKM-stap.
+
+Geen van deze producten overschrijft destructief zijn voorganger.
+
+## Belangrijk ontwerpprincipe
+
+De werkstroom is **lineair in data-afhankelijkheid, maar iteratief in ontwikkeling**.
+
+Een onverwacht resultaat in SWAP mag leiden tot:
+- een nieuwe diagnostische analyse;
+- een nieuwe of aangepaste SVAT-kwalificatieregel;
+- een nieuwe HRU-configuratie;
+- een gewijzigde SWAP-mappingregel.
+
+Maar zo'n bevinding wijzigt nooit stilzwijgend een bestaande run. Zij leidt tot een **nieuwe versie van configuratie + nieuwe run-id + nieuwe evidence**.
+
+Daarmee blijven onderzoekscycli mogelijk zonder de productielijn onnavolgbaar te maken.
+
+## Documenten
+
+- [Canonical workflow](canonical-workflow.md)
+- [SVAT qualification specification](svat-qualification-spec.md)
+- [Qualification and change control](qualification-and-change-control.md)
+- [Data products and contracts](data-products.md)
+- [As-is reconstruction status](as-is-reconstruction.md)
+
+## Scope van de huidige HRU-lijn
+
+De actuele authority is de **HRU10242-lijn**. Oudere HRU-indelingen worden niet inhoudelijk gereconstrueerd tenzij een historisch bestand nodig is om de provenance van de actuele lijn te verklaren.
