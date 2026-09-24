@@ -1,105 +1,162 @@
-# Werknotitie LWKM 2.0: workflow van LHM naar SWAP via HRU's
+# Werknotitie LWKM 2.0
+## Workflow van LHM naar SWAP via HRU's
 
 **Datum:** 24 september 2026  
 **Status:** concept voor bespreking
 
-## Doel
+### Waarom deze workflow nu wordt vastgelegd
 
-De afgelopen jaren is de route van LHM-resultaten naar LWKM-SWAP stapsgewijs opgebouwd. Daardoor staan data, scripts, selectieregels en tussenproducten nu op verschillende plekken. De inhoudelijke lijn is grotendeels aanwezig, maar de reproduceerbaarheid en traceerbaarheid kunnen beter.
+De route van LHM-resultaten naar SWAP is in de afgelopen jaren stap voor stap ontwikkeld. Daardoor staan data, scripts, selectieregels en tussenproducten nu op verschillende plekken. Inhoudelijk is veel aanwezig, maar het is niet altijd direct zichtbaar welke stap welke verandering veroorzaakt.
 
-De huidige reconstructie wordt daarom gebruikt om twee dingen tegelijk te bereiken:
+De huidige inzet is daarom tweeledig:
 
-1. de huidige LWKM 2.0-keten voldoende reconstrueren om bestaande resultaten en hydrologische veranderingen te kunnen verklaren;
-2. een strakke, versieerbare workflow vastleggen die voortaan de standaard wordt.
+1. voldoende reconstrueren hoe de huidige LWKM 2.0-keten tot stand komt;
+2. tegelijk een strakke, reproduceerbare werkwijze vastleggen die voortaan als standaard kan dienen.
 
-De volledige LHM-berekening valt buiten deze workflow. Het startpunt is een afgeronde LHM-run; het eindpunt is een gecontroleerd SWAP-uitvoerpakket voor overdracht naar de volgende LWKM-stap.
+De volledige LHM-berekening valt buiten deze workflow. Het startpunt is een afgeronde LHM-run. Het eindpunt is een gecontroleerd SWAP-uitvoerpakket dat kan worden overgedragen aan de volgende LWKM-stap.
 
-## Hoofdworkflow
+---
+
+## Hoofdlijn
 
 ```text
 LHM-run op NHI/LHM-server
         │
         ▼
 1. LHM_EXPORT
-   gecontroleerde selectie en overdracht van benodigde LHM-data
+   selecteren en bundelen van benodigde LHM-resultaten
         │
         ▼
 2. SVAT_BASE
-   LHM-uitvoer + modelinvoer + ruimtelijke basisgegevens
-   samengebracht per SVAT
+   modeluitvoer + modelinvoer + ruimtelijke informatie per SVAT
         │
         ▼
 3. SVAT_QUALIFIED
-   domeinselectie + correcties + plausibiliteitsregels
+   domeinselectie + correcties + plausibiliteitscontrole
         │
         ▼
 4. HRU_DERIVATION
-   SVAT → HRU10242 + representatieve SVAT + kwaliteitsinformatie
+   SVATs groeperen tot HRU10242
         │
         ▼
 5. SWAP_INPUT_BUILD
-   expliciete vertaling van HRU/SVAT-informatie naar SWAP-invoer
+   HRU/SVAT-informatie vertalen naar SWAP-invoer
         │
         ▼
 6. SWAP_RUN + QA
-   rekenen, waterbalans, plausibiliteit en vergelijking met LHM
+   rekenen + waterbalans + plausibiliteit + vergelijking met LHM
         │
         ▼
 overdracht naar ANIMO
 ```
 
-De datastroom is lineair. De ontwikkeling is iteratief: wanneer downstream een probleem zichtbaar wordt, wordt teruggegaan naar de stap waar de oorzaak zit. Een wijziging levert vervolgens een nieuwe kandidaatversie op, niet een handmatig aangepast eindbestand.
+De datastroom is lineair. De ontwikkeling is iteratief. Wanneer later in de keten een probleem zichtbaar wordt, gaan we terug naar de stap waar de oorzaak zit. Een wijziging levert vervolgens een nieuwe kandidaatversie op, niet een handmatig aangepast eindbestand.
+
+---
 
 ## 1. LHM_EXPORT
 
-Op de LHM-server is veel meer uitvoer beschikbaar dan LWKM nodig heeft. In plaats van de complete LHM-uitvoer over te zetten, definiëren we een reproduceerbaar exportpakket met alleen de noodzakelijke gegevens.
+Op de LHM-server is veel meer uitvoer beschikbaar dan LWKM nodig heeft. In plaats van de complete LHM-uitvoer over te zetten, maken we een gecontroleerd exportpakket.
 
-Daarin zitten onder meer GHG/GLG, waterbalansfluxen, kwel/wegzijging, drainage, runoff, infiltratie, beregening en de tijdsafhankelijke MODFLOW-informatie die nodig is voor SWAP-randvoorwaarden.
+Daarin zitten alleen de gegevens die downstream nodig zijn, bijvoorbeeld:
 
-Per bestand worden versie, periode, eenheid, bron, producerend script en checksum vastgelegd.
+- GHG en GLG;
+- relevante waterbalanscomponenten;
+- kwel en wegzijging;
+- drainage, runoff, infiltratie en beregening;
+- benodigde MetaSWAP- en MODFLOW-grootheden;
+- tijdsafhankelijke MODFLOW-informatie voor SWAP-randvoorwaarden;
+- ruimtelijke basisgegevens en classificaties.
+
+Per product worden versie, periode, eenheid, bronbestand, producerend script en checksum vastgelegd.
+
+**Nieuwe standaard:** LHM is upstream authority. LWKM begint bij een gecontroleerde export.
+
+---
 
 ## 2. SVAT_BASE
 
-Binnen de LWKM-omgeving worden de benodigde modeluitvoer, modelinvoer en aanvullende ruimtelijke informatie bij elkaar gebracht in één dataset per SVAT.
+Binnen de LWKM-omgeving worden alle benodigde gegevens per SVAT samengebracht.
 
-De bestaande route via `LWKM_makeHRU` doet hier al een belangrijk deel van. De huidige interface bevat onder meer SVAT-id, oppervlak, GHG/GLG, hydrologische fluxen, bodem, landgebruik en verschillende kwaliteitsvelden.
+De huidige route via `LWKM_makeHRU` doet dit voor een belangrijk deel al. De actuele SVAT-interface bevat onder meer:
 
-In de nieuwe structuur blijven oorspronkelijke waarden behouden. Afgeleide waarden, correcties en selecties worden apart geregistreerd.
+- SVAT-id, coördinaten en oppervlak;
+- GHG en GLG;
+- neerslag en verdamping;
+- runoff;
+- afvoer en aanvoer;
+- kwel en wegzijging;
+- drainage en beregening;
+- bodem en landgebruik;
+- hydrologische klassen;
+- verschillende kwaliteits- en selectiesignalen.
+
+In de nieuwe structuur worden bronwaarden niet meer destructief overschreven. Afgeleide waarden, correcties en selecties blijven herkenbaar als aparte informatie.
+
+**Nieuwe standaard:** één canonieke SVAT-basis met behoud van herkomst.
+
+---
 
 ## 3. SVAT_QUALIFIED
 
-Hier worden drie soorten beslissingen expliciet uit elkaar gehouden.
+Hier worden drie soorten beslissingen strikt uit elkaar gehouden.
 
-**Domeinselectie.** Welke SVATs horen bij LWKM? Het bestaande veld `isLWKM` is hiervoor een sterke kandidaat.
+### Domeinselectie
 
-**Inhoudelijke correcties.** Bekende modelartefacten, zoals de huidige correctie rond Flevoland/kwel, worden als expliciete correctie vastgelegd met bronwaarde, gecorrigeerde waarde, reden en versie.
+Welke SVATs horen bij LWKM? Het huidige veld `isLWKM` is hiervoor een sterke kandidaat.
 
-**Plausibiliteitscontrole.** Hydrologisch vreemde SVATs worden gemarkeerd. In de bestaande scripts zijn al regels aanwezig voor onder meer extreme kwel, wegzijging, runoff, subinfiltratie en GHG boven maaiveld.
+### Correcties
 
-Belangrijk is dat signaleren en handelen worden gescheiden. Een verdachte SVAT wordt niet automatisch vervangen. Per downstream toepassing wordt vastgelegd of de SVAT mag worden gebruikt en, indien nodig, welke vervangingsregel geldt.
+Bekende modelartefacten worden expliciet gecorrigeerd. Een voorbeeld is de kwelcorrectie rond Flevoland. Bij zo'n correctie leggen we bronwaarde, gecorrigeerde waarde, reden, gebied en versie vast.
+
+### Plausibiliteitscontrole
+
+Hydrologisch vreemde situaties worden gemarkeerd. In de huidige scripts bestaan al criteria voor onder andere:
+
+- zeer hoge kwel;
+- sterke wegzijging;
+- extreme runoff;
+- hoge subinfiltratie;
+- kwel bij droge grondwaterstanden;
+- GHG boven maaiveld bij landbouw.
+
+Belangrijk: **signaleren is niet hetzelfde als vervangen.**
+
+Een gemarkeerde SVAT kan bijvoorbeeld wel bruikbaar zijn voor bodem/landgebruik, maar niet voor een bepaalde hydrologische randvoorwaarde.
+
+**Nieuwe standaard:** diagnose, gebruiksbesluit en eventuele vervanging worden afzonderlijk vastgelegd.
+
+---
 
 ## 4. HRU_DERIVATION
 
-Na kwalificatie volgt een zelfstandige HRU-procedure. Voor de huidige lijn is **HRU10242** de authority.
+Na kwalificatie volgt een zelfstandige HRU-procedure.
 
-De huidige methode groepeert SVATs op bodem-, landgebruik- en hydrologische kenmerken, gebruikt GHG en netto kwel in de clustering, koppelt rest-SVATs aan donoren en kiest een representatieve SVAT per HRU.
+Voor de huidige lijn is **HRU10242** de authority.
 
-De belangrijkste producten zijn:
+De methode gebruikt onder andere bodem, landgebruik, GHG en netto kwel, clustert SVATs en koppelt rest-SVATs waar nodig aan donoren. Per HRU wordt daarnaast een representatieve SVAT gekozen.
 
-- `SVAT_HRU_MAP`: koppeling van iedere SVAT aan een HRU;
-- `HRU_SCHEMA`: eigenschappen en representatieve informatie per HRU;
+Belangrijkste producten:
+
+- `SVAT_HRU_MAP`: welke SVAT hoort bij welke HRU;
+- `HRU_SCHEMA`: kenmerken per HRU;
+- representatieve SVAT;
 - HRU-raster;
-- kwaliteitsmaten, onder meer purity en afwijkingen in GHG/netto kwel.
+- kwaliteitsmaten, zoals purity en afwijkingen in GHG/netto kwel.
 
-De HRU-stap verandert de SVAT-basis niet, maar voegt een nieuwe representatielaag toe.
+**Nieuwe standaard:** de HRU-procedure verandert de SVAT-basis niet, maar voegt een expliciete representatielaag toe.
+
+---
 
 ## 5. SWAP_INPUT_BUILD
 
 De overgang van HRU naar SWAP is een eigen modelleringsstap.
 
-De huidige `HRUlist2SWAP`-code gebruikt verschillende regels voor bodem, landgebruik, worteldiepte, drainage, meteorologie en onderrandvoorwaarden. Een deel komt van een representatieve SVAT, een deel uit gemiddelden of meerderheidsregels binnen de HRU.
+De huidige `HRUlist2SWAP`-code gebruikt verschillende regels voor bodem, landgebruik, worteldiepte, drainage, meteorologie en onderrandvoorwaarden. Sommige waarden komen van een representatieve SVAT, andere worden gemiddeld of via meerderheidsregels bepaald.
 
-Deze regels worden daarom uit de programmatuur gehaald en vastgelegd in een versieerbare **SWAP_MAPPING**. Zo is per SWAP-invoerveld zichtbaar:
+Die regels worden voortaan vastgelegd in een aparte **SWAP_MAPPING**.
+
+Per SWAP-invoerveld wordt expliciet gemaakt:
 
 - welke bron wordt gebruikt;
 - welke SVATs meetellen;
@@ -107,75 +164,95 @@ Deze regels worden daarom uit de programmatuur gehaald en vastgelegd in een vers
 - welke eenheidsconversie geldt;
 - welke fallback geldt.
 
+**Nieuwe standaard:** wetenschappelijke mappingregels staan niet alleen verborgen in programmatuur.
+
+---
+
 ## 6. SWAP_RUN + QA
 
-Na het aanmaken van de SWAP-invoer worden de HRU's doorgerekend.
+Na het genereren van SWAP-invoer worden de HRU's doorgerekend.
 
-De QA kijkt niet alleen of een run technisch slaagt, maar ook naar:
+De controle kijkt niet alleen of SWAP technisch draait, maar ook naar:
 
 - waterbalans;
 - hydrologische plausibiliteit;
 - afwijkende HRU's;
 - verschillen ten opzichte van de LHM/SVAT-referentie.
 
-Daarbij proberen we afwijkingen toe te schrijven aan de juiste stap: oorspronkelijke LHM-hydrologie, selectie/correctie, HRU-representatie, SWAP-inputmapping of SWAP zelf.
+Een afwijking moet zoveel mogelijk worden teruggebracht naar de juiste oorzaak:
 
-De onderzoekslus wordt:
+- LHM-brondata;
+- selectie/correctie;
+- HRU-representatie;
+- SWAP-inputmapping;
+- SWAP zelf.
+
+De ontwikkellus wordt:
 
 **OBSERVE → LOCALIZE → PROPOSE → CANDIDATE RUN → COMPARE → ACCEPT/REJECT → PERSIST**
 
-## Hydrologische effecten per stap
+---
 
-De projectleider wil de relevante veranderingen tussen de stadia kunnen kwantificeren. De huidige opzet maakt daarvoor het volgende onderscheid:
+## Effecten die we per stap willen kwantificeren
 
-| Stadium | Effect dat we willen bepalen |
+| Stadium | Betekenis |
 |---|---|
-| LHM4.3 | hydrologische uitgangstoestand |
-| LHM4.3 lbn | effect van selectie landbouw + natuur |
-| LHM4.3 cor | effect van inhoudelijke correcties |
-| LHM4.3 rep | effect van kwaliteits-/vervangingsbeleid |
-| LWKM SVATs | 1:1 verschil LHM versus SWAP voor representatieve SVATs |
-| LWKM HRU's | effect van HRU-aggregatie en representatie |
-| LWKM rep | eventuele vervanging/correctie op HRU-niveau |
+| **LHM4.3** | hydrologische uitgangstoestand |
+| **LHM4.3 lbn** | effect van selectie landbouw + natuur |
+| **LHM4.3 cor** | effect van inhoudelijke correcties |
+| **LHM4.3 rep** | effect van kwaliteits-/vervangingsbeleid |
+| **LWKM SVATs** | 1:1 vergelijking LHM versus SWAP voor representatieve SVATs |
+| **LWKM HRU's** | effect van HRU-aggregatie en representatie |
+| **LWKM rep** | eventuele vervanging/correctie op HRU-niveau |
 
-Per stap worden waar relevant aantallen, oppervlak, gebiedsgewogen gemiddelden, MAE/RMSE, extremen en ruimtelijke verschillen gerapporteerd.
+Per stap willen we waar relevant rapporteren:
 
-## Versiebeheer
+- aantal SVATs/HRU's;
+- vertegenwoordigd oppervlak;
+- aantal en oppervlak gewijzigde eenheden;
+- gebiedsgewogen gemiddelden;
+- MAE/RMSE;
+- extremen en percentielen;
+- ruimtelijke ligging van verschillen.
 
-De workflow wordt vastgelegd in:
+---
 
-`abhedwig-cell/LWKM`
+## Waar staan we nu?
 
-Iedere kandidaat- of productierun krijgt een manifest met onder meer:
+De reconstructie is inmiddels ver genoeg om de hoofdlijn betrouwbaar te beschrijven.
 
-- LHM-bronversie;
-- inputbestanden en checksums;
-- codecommit;
-- configuratieversies;
-- HRU-versie;
-- SWAP-versie;
-- QA-status.
+Reeds vastgelegd:
 
-De basisregel is:
+- canonical workflow LHM → SVAT → HRU → SWAP;
+- concept LHM-exportcontract;
+- huidige 75-koloms SVAT-interface uit `LWKM_makeHRU v0.20`;
+- HRU10242 als actuele HRU-authority;
+- technische HRU-clusteringsmethodiek;
+- huidige HRU → SWAP-mapping uit `HRUlist2SWAP v0.38`;
+- belangrijkste hydrologische kwalificatieregels;
+- versieerbare wijzigings- en onderzoekslus;
+- eerste QA-tool voor effectvergelijkingen;
+- runmanifest en Git-versiebeheer.
 
-> Geen waarde in een canonical product verandert zonder dat zichtbaar is welke input, configuratie, code of expliciete correctie is gewijzigd.
+Nog te binden:
 
-## Huidige stand
+1. exacte productiecontrol van `LWKM_makeHRU`;
+2. het feitelijke R-script van HRU10242;
+3. exacte Flevoland-correctie;
+4. formeel beleid voor gebruik/vervanging van hydrologisch verdachte SVATs;
+5. actuele SWAP-output- en balanscontrole;
+6. eerste volledige effecttabel met echte cijfers.
 
-De reconstructie is inmiddels ver genoeg om de hoofdlijn goed te beschrijven. Op dit moment zijn onder meer vastgelegd:
+---
 
-- de nieuwe canonical workflow;
-- een exportcontract voor LHM-data;
-- het huidige SVAT-datamodel uit `LWKM_makeHRU v0.20`;
-- HRU10242 als actuele HRU-lijn;
-- de HRU-clusteringsmethodiek;
-- de huidige HRU → SWAP-mapping uit `HRUlist2SWAP v0.38`;
-- de bestaande hydrologische kwalificatieregels;
-- een versieerbare wijzigings- en onderzoekslus;
-- een eerste QA-tool om effecten tussen workflowstappen reproduceerbaar te berekenen.
+## Kernboodschap
 
-Nog open zijn vooral de exacte productiecontrol van de SVAT-opbouw, de feitelijke R-bron van HRU10242, de precieze Flevoland-correctie, het formele vervangingsbeleid voor verdachte hydrologie en de koppeling met de actuele SWAP-output-QA.
+Veel inhoudelijke onderdelen bestonden al. Het probleem was vooral dat ze historisch over bestanden, scripts en locaties verspreid zijn geraakt.
 
-De kern is daarmee niet meer: **hoe hebben we alle historische stappen ooit uitgevoerd?**
+De nieuwe werkwijze maakt iedere stap expliciet:
 
-De kern wordt: **welke gecontroleerde producten en beslissingen zijn nodig om van een LHM-run reproduceerbaar naar een gekwalificeerde SWAP-run te komen?**
+**bron → product → configuratie → QA → versie**
+
+Daardoor kunnen we straks een nieuwe LHM-versie, aangepaste selectieregels, een andere HRU-indeling of gewijzigde SWAP-mapping invoeren zonder opnieuw een ondoorzichtige keten op te bouwen.
+
+De huidige reconstructie is daarmee niet alleen documentatie van LWKM 2.0, maar de basis voor een beheerste volgende versie.
