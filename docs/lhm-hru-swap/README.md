@@ -47,6 +47,13 @@ Daarmee blijven onderzoekscycli mogelijk zonder de productielijn onnavolgbaar te
 - [Current SVAT source schema](../../schemas/svat/LWKM_makeHRU-v020.md)
 - [Draft LHM4.3 export contract](../../manifests/lhm-export/lhm43-export-contract.yml)
 
+
+- [Project-leader effect table specification](project-leader-effect-table-spec.md)
+- [Effect accounting tooling](effect-accounting.md)
+- [HRU10242 current production bindings](../../config/production/HRU10242-bindings.yml)
+- [October-2025 SVAT qualification source reconstruction](../../config/svat-qualification/oct2025-source-reconstruction.yml)
+- [HRU10242 QA configuration](../../config/qa/HRU10242-current.json)
+
 ## Scope van de huidige HRU-lijn
 
 De actuele authority is de **HRU10242-lijn**. Oudere HRU-indelingen worden niet inhoudelijk gereconstrueerd tenzij een historisch bestand nodig is om de provenance van de actuele lijn te verklaren.
