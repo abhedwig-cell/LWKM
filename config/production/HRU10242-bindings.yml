@@ -181,6 +181,27 @@ logical_stage_binding:
     status: OPEN
     note: Do not infer this stage from SVAT donor assignment alone.
 
+hru_input_authority_risk:
+  status: OPEN_HIGH_PRIORITY
+  question: >
+    Was HRU10242 derived from the Flevoland-corrected SVAT hydrology, or from
+    the original SVAT hydrology with only separate Flevoland information kept
+    outside the actual HRU clustering input?
+  why_it_matters: >
+    If the clustering/representative-SVAT derivation used a different hydrologic
+    state than the state later used for SWAP input, HRU representation effects
+    and Flevoland-correction effects are entangled.
+  current_documented_hru_inputs:
+    processed_svat_file: svat_info_lwkm_new.csv
+    original_svat_file: SVAT_INFO.csv
+  evidence_limit: >
+    The current HRU documentation names these files but does not establish
+    whether the processed file contains the accepted Flevoland correction.
+  admission_requirement: >
+    Bind the exact input file checksum/version used for HRU10242 and verify the
+    Flevoland correction state of all relevant hydrologic fields before
+    HRU10242 can be called production-reproducible.
+
 next_binding_actions:
   - verify_exact_table_csv_path_in_control_mkHRU
   - add_HRU_clustering_R_source
