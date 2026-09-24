@@ -41,6 +41,8 @@ Daarmee blijven onderzoekscycli mogelijk zonder de productielijn onnavolgbaar te
 - [Qualification and change control](qualification-and-change-control.md)
 - [Data products and contracts](data-products.md)
 - [As-is reconstruction status](as-is-reconstruction.md)
+- [Hydrological effect decomposition](effect-decomposition.md)
+- [Effect accounting and QA](effect-accounting.md)
 - [Current HRU → SWAP mapping from HRUlist2SWAP v0.38](swap-mapping-current-v038.md)
 - [Current SVAT source schema](../../schemas/svat/LWKM_makeHRU-v020.md)
 - [Draft LHM4.3 export contract](../../manifests/lhm-export/lhm43-export-contract.yml)
@@ -48,3 +50,11 @@ Daarmee blijven onderzoekscycli mogelijk zonder de productielijn onnavolgbaar te
 ## Scope van de huidige HRU-lijn
 
 De actuele authority is de **HRU10242-lijn**. Oudere HRU-indelingen worden niet inhoudelijk gereconstrueerd tenzij een historisch bestand nodig is om de provenance van de actuele lijn te verklaren.
+
+
+## Executable workflow checks
+
+- `tools/check_control.py` validates operational control files against source-bound parameter schemas.
+- `tools/qa_lhm_hru_swap.py` generates the first reproducible effect evidence for domain selection, correction diagnostics, qualification flags and HRU representation.
+- `config/production/HRU10242-bindings.yml` is the current producer-consumer binding map.
+- `config/effects/project-leader-stages.yml` is the machine-readable definition of the seven reporting stages.
