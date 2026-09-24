@@ -134,6 +134,8 @@ Na kwalificatie volgt een zelfstandige HRU-procedure.
 
 Voor de huidige lijn is **HRU10242** de authority.
 
+Een harde ontwerpregel is dat **dezelfde gekwalificeerde SVAT-informatie zowel de basis vormt voor de HRU-afleiding als voor de latere opbouw van SWAP-invoer**. Er mag dus niet ongemerkt een andere versie van correcties, selectie of hydrologische invoer tussen deze twee stappen terechtkomen.
+
 De methode gebruikt onder andere bodem, landgebruik, GHG en netto kwel, clustert SVATs en koppelt rest-SVATs waar nodig aan donoren. Per HRU wordt daarnaast een representatieve SVAT gekozen.
 
 Belangrijkste producten:
@@ -151,6 +153,13 @@ Belangrijkste producten:
 ## 5. SWAP_INPUT_BUILD
 
 De overgang van HRU naar SWAP is een eigen modelleringsstap.
+
+We willen hierbij **twee parallelle SWAP-representaties** kunnen opbouwen:
+
+1. **HRU-SWAP:** één SWAP-model per HRU, opgebouwd uit de informatie van alle SVATs binnen die HRU volgens expliciete aggregatieregels;
+2. **representatieve-SVAT SWAP:** één SWAP-model voor de representatieve SVAT die tijdens de HRU-afleiding is gekozen.
+
+Die representatieve SVAT is onderdeel van het HRU-resultaat. De huidige HRU-methodiek kiest daarvoor een feitelijke SVAT die zo representatief mogelijk ligt ten opzichte van de HRU-kenmerken. Beide varianten zijn relevant voor vergelijking en kunnen downstream richting ANIMO worden gebruikt.
 
 De huidige `HRUlist2SWAP`-code gebruikt verschillende regels voor bodem, landgebruik, worteldiepte, drainage, meteorologie en onderrandvoorwaarden. Sommige waarden komen van een representatieve SVAT, andere worden gemiddeld of via meerderheidsregels bepaald.
 
