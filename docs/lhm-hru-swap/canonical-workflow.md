@@ -108,9 +108,15 @@ Een diagnose en een vervangingsactie zijn dus twee verschillende zaken.
 
 ### Input
 
-- SVAT_QUALIFIED;
+- **SVAT_QUALIFIED als gedeelde hydrologische authority voor zowel HRU-afleiding als SWAP-inputopbouw**;
 - een versieerbare HRU-configuratie;
 - noodzakelijke aanvullende ruimtelijke informatie.
+
+### Harde consistentie-eis
+
+De HRU-afleiding en de latere SWAP-inputopbouw mogen niet ieder hun eigen versie van de SVAT-hydrologie gebruiken. Beide moeten teruggaan op exact dezelfde `SVAT_QUALIFIED` dataset, met dezelfde correcties, selectie- en gebruiksflags en dezelfde run/provenance.
+
+Daarmee wordt voorkomen dat bijvoorbeeld de HRU-indeling op ongecorrigeerde hydrologie is gebaseerd terwijl SWAP-invoer op gecorrigeerde hydrologie wordt opgebouwd.
 
 ### Output
 
@@ -132,7 +138,23 @@ De huidige authority is HRU10242. De methodiek moet zodanig worden vastgelegd da
 
 ### Doel
 
-Uit SVAT-data, de SVAT-HRU-relatie, HRU-schema en een expliciete SWAP-mappingspecificatie wordt een SWAP-invoerpakket afgeleid.
+Uit **dezelfde `SVAT_QUALIFIED` authority** die voor de HRU-afleiding is gebruikt, samen met de SVAT-HRU-relatie, HRU-schema en een expliciete SWAP-mappingspecificatie, worden twee controleerbare SWAP-invoervormen afgeleid.
+
+### Twee vereiste SWAP-representaties
+
+**A. HRU-geaggregeerde SWAP**
+
+Per HRU wordt één SWAP-model opgebouwd uit de informatie van alle SVATs binnen die HRU volgens expliciete aggregatie-, selectie- en representatieregels.
+
+**B. Representatieve-SVAT SWAP**
+
+Per HRU wordt daarnaast een SWAP-model opgebouwd voor de representatieve SVAT die door de HRU-afleiding is gekozen. Deze representant is onderdeel van het HRU-resultaat en is dus geen afzonderlijk later gekozen punt.
+
+Beide representaties moeten reproduceerbaar zijn en naast elkaar kunnen worden doorgerekend. Ze ondersteunen verschillende analyses:
+- representatieve-SVAT SWAP: 1:1 vergelijking met de gekozen fysieke SVAT;
+- HRU-geaggregeerde SWAP: effect van de volledige HRU-schematisatie.
+
+Beide paden kunnen downstream als gekwalificeerde invoer richting ANIMO worden gebruikt.
 
 ### Per invoergrootheid moet bekend zijn
 
