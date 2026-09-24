@@ -244,6 +244,26 @@ Per stap willen we waar relevant rapporteren:
 
 ---
 
+
+## Opslag, werkplekken en overdracht
+
+De workflow draait fysiek op meerdere plekken: de NHI/LHM-server, de centrale W:-schijf, de grote werkruimte van Leo en een externe/gedistribueerde omgeving voor de SWAP-berekeningen. Dat hoeft geen probleem te zijn zolang **de authority niet over die plekken versnipperd raakt**.
+
+Daarom wordt onderscheid gemaakt tussen:
+- **authoritative source packages**, die bewaard moeten blijven;
+- **canonical products**, die formeel zijn geaccepteerd;
+- **working copies**, die alleen voor verwerking bestaan;
+- **QA/evidence**, waarmee een run is beoordeeld.
+
+Niet alle grote tussenbestanden hoeven blijvend op de W:-schijf te staan. Wel moeten de bronbestanden, manifests, code/configuratie en benodigde QA-evidence voldoende zijn om afgeleide producten opnieuw te maken.
+
+Iedere overdracht wordt een formeel handoffpunt. Een bestand is dus niet correct overgedragen omdat iemand weet dat het “daar ergens staat”. De ontvangende stap controleert run-id, manifest, verwachte bestanden en checksums en registreert welke exacte inputversie is gebruikt.
+
+Productiescripts mogen vervolgens alleen uit zo'n geaccepteerd pakket lezen. Daarmee voorkomen we dat dezelfde veronderstelde invoer als verschillende kopieën op W:, Leo of een lokale werkdirectory uiteen gaat lopen.
+
+De gedistribueerde SWAP-berekening wordt later eveneens als formeel extern handoffpunt opgenomen: een gemanifesteerd SWAP-inputpakket gaat naar de rekeneenheid en een gemanifesteerd resultaatpakket komt terug. De huidige nabewerking op Leo tot een compacte SWAP-resultaat-CSV hoort vervolgens weer expliciet bij de LWKM-keten.
+
+
 ## Waar staan we nu?
 
 De reconstructie is inmiddels ver genoeg om de hoofdlijn betrouwbaar te beschrijven.
