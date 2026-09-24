@@ -1,4 +1,4 @@
-# Four-stage hydrological comparison design
+# Five-stage hydrological comparison design
 
 Status: **DRAFT AUTHORITY**
 
@@ -6,25 +6,38 @@ Status: **DRAFT AUTHORITY**
 
 The core communication and QA question is not only whether the final HRU representation is acceptable, but **which transformation step causes which hydrological change**.
 
-For the current LWKM 2.0 line this is reduced to four directly comparable stages.
+For the current LWKM 2.0 line this is reduced to five directly comparable stages. A purely technical spatial clip is separated from the scientifically relevant agriculture+nature domain selection.
 
 ## Stage sequence
 
-### S0 — SVAT original
+### S0 — SVAT Netherlands baseline
 
 Population:
-- within the Netherlands;
-- agriculture + nature only;
+- original LHM/SVAT hydrology;
+- foreign cells removed;
+- large/open water areas outside the relevant national modelling domain removed;
+- **no agriculture+nature selection yet**;
 - no Flevoland hydrological correction;
-- no extreme-value replacement;
-- original LHM/SVAT hydrology.
+- no extreme-value replacement.
 
 Target product:
-`SVAT_ORIGINAL_LBN.csv`
+`SVAT_NL_BASE.csv`
 
-This is the clean baseline for the comparison.
+This is the national hydrological baseline after only the agreed technical/spatial trimming.
 
-### S1 — SVAT + Flevoland correction
+### S1 — SVAT agriculture + nature
+
+Same hydrological values as S0, but the population is reduced to the LWKM agriculture+nature domain.
+
+Target product:
+`SVAT_LBN.csv`
+
+Comparison:
+`S1 - S0` = **agriculture+nature domain-selection effect**.
+
+This effect is scientifically relevant and must be shown explicitly. It is not treated as mere ballast removal.
+
+### S2 — SVAT + Flevoland correction
 
 Same SVAT keys, same schema and same domain as S0.
 
@@ -36,11 +49,11 @@ Target product:
 The correction may include more than kwel if the alternative LHM run shows that associated drainage/ontwatering or other balance terms must change consistently.
 
 Comparison:
-`S1 - S0` = **Flevoland correction effect**.
+`S2 - S1` = **Flevoland correction effect**.
 
-### S2 — SVAT + extreme/outlier policy
+### S3 — SVAT + extreme/outlier policy
 
-Same SVAT keys, same schema and same domain as S1.
+Same SVAT keys, same schema and same domain as S2.
 
 Hydrologically implausible/extreme SVAT values are treated according to an explicit, versioned policy. If replacement by donor/other SVAT is used, target/source and replaced variables must be recorded.
 
@@ -48,20 +61,20 @@ Target product:
 `SVAT_QUALIFIED_REP.csv`
 
 Comparison:
-`S2 - S1` = **extreme/outlier treatment effect**.
+`S3 - S2` = **extreme/outlier treatment effect**.
 
-This effect must not include the Flevoland correction, because that was already applied in S1.
+This effect must not include the Flevoland correction, because that was already applied in S2.
 
-### S3 — HRU10242 representation
+### S4 — HRU10242 representation
 
-The HRU derivation is based on S2.
+The HRU derivation is based on S3.
 
 Required products:
 - `SVAT_HRU_MAP.csv`;
 - `HRU_SCHEMA.csv`;
 - HRU-level hydrological representation.
 
-For one-to-one comparison with S2, HRU-level hydrological values must be **back-projected to the original SVAT domain**:
+For one-to-one comparison with S3, HRU-level hydrological values must be **back-projected to the original SVAT domain**:
 
 `SVAT -> HRU -> HRU value assigned back to each member SVAT`.
 
@@ -71,7 +84,7 @@ Target comparison product:
 It must contain the same SVAT keys and comparable hydrological columns as S2.
 
 Comparison:
-`S3_backprojected - S2` = **pure HRU representation effect**.
+`S4_backprojected - S3` = **pure HRU representation effect**.
 
 This is the quantity that can be communicated as hydrological information change/loss caused by going from roughly 400k SVATs to about 10k HRUs.
 
@@ -79,7 +92,7 @@ This is the quantity that can be communicated as hydrological information change
 
 A national HRU total can look good while local HRU errors compensate each other.
 
-By mapping the HRU representation back to every original SVAT location, S2 and S3 have:
+By mapping the HRU representation back to every original SVAT location, S3 and S4 have:
 - identical spatial support;
 - identical SVAT keys;
 - identical weighting basis.
@@ -95,9 +108,10 @@ This allows:
 
 For each transition:
 
-1. S0 → S1: Flevoland correction;
-2. S1 → S2: extreme/outlier treatment;
-3. S2 → S3: HRU representation.
+1. S0 → S1: agriculture+nature domain selection;
+2. S1 → S2: Flevoland correction;
+3. S2 → S3: extreme/outlier treatment;
+4. S3 → S4: HRU representation.
 
 Report for each relevant water-balance variable:
 
@@ -118,11 +132,12 @@ The effects must be **incremental**, not cumulative.
 Therefore:
 
 ```text
-TOTAL CHANGE S0 → S3
+TOTAL CHANGE S0 → S4
   =
-  Flevoland effect      (S0 → S1)
-+ extreme-policy effect (S1 → S2)
-+ HRU effect            (S2 → S3)
+  agriculture+nature selection effect (S0 → S1)
++ Flevoland effect                   (S1 → S2)
++ extreme-policy effect              (S2 → S3)
++ HRU effect                         (S3 → S4)
 ```
 
 For additive balance quantities, this decomposition should close numerically subject to rounding and any explicitly documented non-linear transformations.
@@ -164,14 +179,15 @@ The key communication result is therefore not only the final LHM-versus-HRU diff
 
 ## Minimum data requirement
 
-The analysis can be performed cleanly when these four comparable products exist:
+The analysis can be performed cleanly when these five comparable products exist:
 
-1. `SVAT_ORIGINAL_LBN.csv`
-2. `SVAT_FLEVOLAND_CORR.csv`
-3. `SVAT_QUALIFIED_REP.csv`
-4. `SVAT_HRU10242_BACKPROJECTED.csv`
+1. `SVAT_NL_BASE.csv`
+2. `SVAT_LBN.csv`
+3. `SVAT_FLEVOLAND_CORR.csv`
+4. `SVAT_QUALIFIED_REP.csv`
+5. `SVAT_HRU10242_BACKPROJECTED.csv`
 
-All four must use:
+All five must use:
 - the same SVAT key;
 - the same domain;
 - the same column names;
