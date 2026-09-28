@@ -61,3 +61,51 @@ def staged_round_plan(df:pd.DataFrame,rounds:list[list[str]],min_area_ha=500,are
     if len(rem):
         x=rem.copy(); x["candidate_round"]=0; parts.append(x)
     return pd.concat(parts).sort_index() if parts else df.assign(candidate_round=0)
+
+class PartitionerProtocol:
+    """Callable interface: partition(group, min_size) -> integer labels."""
+    def __call__(self, group:pd.DataFrame, min_size:int)->np.ndarray:
+        raise NotImplementedError
+
+def identical_hydrology(group:pd.DataFrame,cols=("GHG_LHM43","NettoKwel_LHM43"))->bool:
+    return all(pd.to_numeric(group[c],errors="coerce").nunique(dropna=False)<=1 for c in cols)
+
+def adaptive_partition(group:pd.DataFrame,partitioner,*,initial_fraction=.25,reduction_factor=.841,
+                       min_size=10,mae_ghg=1000,mae_nkw=500,skew_limit=2)->tuple[pd.DataFrame,dict]:
+    g=group.copy()
+    if identical_hydrology(g):
+        g["cluster_local"]=0
+        return g,{"accepted":True,"reason":"IDENTICAL_HYDROLOGY","iterations":0,"min_size":len(g)}
+    fraction=initial_fraction; iterations=0; last_size=None
+    while True:
+        size=max(min_size,int(np.floor(len(g)*fraction)))
+        if last_size==size and size<=min_size:
+            return g.assign(cluster_local=-1),{"accepted":False,"reason":"MIN_SIZE_LIMIT","iterations":iterations,"min_size":size}
+        labels=np.asarray(partitioner(g,size))
+        if len(labels)!=len(g):raise ValueError("Partitioner returned wrong label count")
+        candidate=g.assign(cluster_local=labels)
+        ok=True
+        for _,cluster in candidate.groupby("cluster_local"):
+            if not accept_quality(cluster_quality(cluster),mae_ghg,mae_nkw,skew_limit):
+                ok=False;break
+        iterations+=1
+        if ok:return candidate,{"accepted":True,"reason":"QUALITY_PASS","iterations":iterations,"min_size":size}
+        if size<=min_size:
+            return g.assign(cluster_local=-1),{"accepted":False,"reason":"MIN_SIZE_LIMIT","iterations":iterations,"min_size":size}
+        last_size=size; fraction*=reduction_factor
+
+def run_round(remainder:pd.DataFrame,group_cols:list[str],partitioner,*,round_no:int,min_area_ha=500,
+              area_ha_col="Oppha",special_ldgb=(35,38,56))->tuple[pd.DataFrame,pd.DataFrame,pd.DataFrame]:
+    eligible,deferred=split_round_input(remainder,group_cols,min_area_ha,area_ha_col)
+    accepted=[]; failed=[]; diagnostics=[]
+    for keys,g in eligible.groupby(group_cols,dropna=False,sort=False):
+        ldgb=int(g["LDGBclus"].iloc[0]); minimum=4 if ldgb in special_ldgb else 10
+        clustered,diag=adaptive_partition(g,partitioner,min_size=minimum)
+        diag.update({"round":round_no,"n":len(g),"LDGBclus":ldgb}); diagnostics.append(diag)
+        if diag["accepted"]:
+            clustered["aggr_no"]=round_no; accepted.append(clustered)
+        else: failed.append(g)
+    a=pd.concat(accepted) if accepted else remainder.iloc[0:0].copy()
+    f=pd.concat(failed) if failed else remainder.iloc[0:0].copy()
+    rem=pd.concat([deferred,f]).sort_index()
+    return a,rem,pd.DataFrame(diagnostics)
