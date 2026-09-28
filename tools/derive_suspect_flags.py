@@ -26,3 +26,27 @@ def combine_with_gt12(oct_flags:pd.DataFrame,gt1:pd.Series,gt2:pd.Series)->pd.Da
     x=x[order];x["is_suspect"]=x.ne(0).any(axis=1)
     x["isuit_code"]=1000000*x[order].sum(axis=1)+100000*x.ghg_sel+10000*(x.gt1_sel+x.gt2_sel)+1000*x.gt8_sel+100*(x.kwel_sel+x.wegzijging_sel)+10*x.runoff_sel+x.subinfil_sel
     return x
+
+
+PEAT_BOFEK=set(range(1,19))
+AG_LGN={0,1,2,3,4,5,6,7,9,10,21}
+AG_NON_GRASS_LGN={0,2,3,4,5,6,7,9,10,21}
+
+def derive_gt12_compat(df:pd.DataFrame)->pd.DataFrame:
+    """Reconstruct intended binary GT1/GT2 masks from producer dependencies.
+    Historical gridcalc precedence still requires raster regression for exact admission.
+    """
+    ag=df["lgn"].isin(AG_LGN)&df["is_lwkm_domain"].astype(bool)
+    non_grass=df["lgn"].isin(AG_NON_GRASS_LGN)&df["is_lwkm_domain"].astype(bool)
+    peat_grass=df["bofek"].isin(PEAT_BOFEK)&df["lgn"].eq(1)
+    gt1=(df["glg"]<50)&ag&~peat_grass
+    gt2_base=(df["ghg"]<40)&(df["glg"]<80)&~(df["glg"]<50)
+    bollen=gt2_base&df["lgn"].eq(10)
+    boom=gt2_base&df["lgn"].eq(7)&df["bofek"].isin(PEAT_BOFEK)
+    gt2=gt2_base&non_grass&~bollen&~boom
+    return pd.DataFrame({"gt1_sel":gt1.astype(int),"gt2_sel":gt2.astype(int)},index=df.index)
+
+def derive_all_compat(df:pd.DataFrame)->pd.DataFrame:
+    octf=derive_oct2025(df)
+    gt=derive_gt12_compat(df)
+    return combine_with_gt12(octf,gt.gt1_sel,gt.gt2_sel)
