@@ -42,15 +42,15 @@ def donor_round(targets:pd.DataFrame,donors:pd.DataFrame,group_cols:list[str],we
     r=pd.concat(remainder) if remainder else targets.iloc[0:0].copy()
     return a,r
 
-def make_hru_extra(remainder:pd.DataFrame,start_hru:int)->pd.DataFrame:
+def make_hru_extra(remainder:pd.DataFrame,start_hru:int,donor_selector=None)->pd.DataFrame:
     if remainder.empty:return remainder.copy()
     x=remainder.copy(); group=["LDGBclus","lu4","grondsoort4","Gt_LHM43"]
     codes,_=pd.factorize(x[group].astype(str).agg("|".join,axis=1),sort=True)
     x["HRU"]=start_hru+codes+1
-    # Existing target nearest to group centre is explicit and deterministic.
+    if donor_selector is None:
+        raise NotImplementedError("Historical HRUextra donor selector is not yet source-bound")
     reps={}
-    for h,g in x.groupby("HRU"):
-        reps[h]=medoid_existing_svat(g,("GHG_LHM43","NettoKwel_LHM43"))
+    for h,g in x.groupby("HRU"): reps[h]=int(donor_selector(g))
     x["hru_cluster_donor_svat"]=x["HRU"].map(reps)
     x["assignment_route"]="HRU_EXTRA"
     return x
