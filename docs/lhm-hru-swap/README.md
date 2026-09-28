@@ -1,5 +1,7 @@
 # LHM → SVAT → HRU → SWAP
 
+**Actuele overdracht:** [HANDOFF-2026-09-28.md](HANDOFF-2026-09-28.md)
+
 Deze map beschrijft de hydrologische LWKM-werkstroom vanaf het **eindproduct van een LHM-run** tot en met een gecontroleerd SWAP-uitvoerpakket. De volledige LHM-berekening valt buiten scope. De overdracht naar ANIMO valt eveneens buiten scope; het SWAP-handoffpakket is hier het eindpunt.
 
 De documentatie maakt bewust onderscheid tussen twee lagen:
