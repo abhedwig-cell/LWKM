@@ -68,5 +68,26 @@
   "hru_schema": {
     "hru": "HRU",
     "representative_svat": "svat_repr"
-  }
+  },
+  "hru_backprojection_region_column": "LDGBclus_orig",
+  "hru_backprojection": [
+    {
+      "name": "GHG",
+      "source_table": "mapping",
+      "svat": "GHG_LHM43_orig",
+      "hru_average": "GHG_average",
+      "region_column": "LDGBclus_orig",
+      "units": "cm-mv",
+      "interpretation": "Pure HRU-average representation effect for the clustering GHG variable."
+    },
+    {
+      "name": "NettoKwel",
+      "source_table": "mapping",
+      "svat": "NettoKwel_LHM43_orig",
+      "hru_average": "NettoKwel_average",
+      "region_column": "LDGBclus_orig",
+      "units": "mm/j",
+      "interpretation": "Pure HRU-average representation effect for the clustering NettoKwel variable."
+    }
+  ]
 }
