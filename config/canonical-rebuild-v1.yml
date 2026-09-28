@@ -1,0 +1,63 @@
+schema_version: 1
+workflow: LWKM_CANONICAL_REBUILD
+baseline: HRU10242_2026
+workunits:
+  A_svat_builder:
+    inputs: [LHM_EXPORT, landuse_lookup]
+    outputs: [SVAT_BASE, SVAT_LBN, FLEVOLAND_CORRECTION]
+    gates:
+      selected_svat_count: 427656
+      flevoland_changed_kwel_count: 4677
+  B_qualification:
+    inputs: [SVAT_LBN, FLEVOLAND_CORRECTION, qualification_rules]
+    outputs: [SVAT_QUALIFICATION]
+    gates:
+      suspected_count: 20934
+      preserve_original_values: true
+  C_hru_clustering:
+    inputs: [SVAT_QUALIFICATION, LDGB_MAPPING, HRU_CONFIG]
+    outputs: [SVAT_HRU_MEMBERSHIP, HRU_CLUSTER_DONOR, HRU_SCHEMA, NRU_SCHEMA]
+    gates:
+      hru_count: 10242
+      nru_count: 25054
+      donor_relations_separate: true
+  D_hru_qa:
+    inputs: [SVAT_HRU_MEMBERSHIP, HRU_SCHEMA]
+    outputs: [HRU_BACKPROJECTION_QA]
+    gates:
+      metrics: [GHG_MAE, GHG_RMSE, NettoKwel_MAE, NettoKwel_RMSE, purity, regional_LDGB]
+  E_swap_mapping:
+    inputs: [SVAT_HRU_MEMBERSHIP, HRU_SCHEMA, SWAP_MAPPING_CONFIG]
+    outputs: [SWAP_CASE_TABLE]
+    baseline_profile: HRU10242_V038
+    gates:
+      case_count: 10242
+      unresolved:
+        - schema_copy_2559_sentinel_falsification
+        - SWETR_ordering
+        - dqsat_ordering
+        - irrigation_threshold
+        - drainage_member_policy
+  F_swp_generator:
+    inputs: [SWAP_CASE_TABLE]
+    outputs: [SWP_CASE_ARTIFACTS, CASE_MANIFEST]
+    requirements:
+      incremental_generation: true
+      content_addressed: true
+      standard_single_cell_compatibility: true
+  G_runner:
+    inputs: [CASE_MANIFEST, SWAP_EXECUTABLE]
+    outputs: [RUN_MANIFEST, NATIVE_SWAP_OUTPUT]
+    states: [PLANNED, STAGED, RUNNING, SUCCEEDED, FAILED, EXTRACTED, QUALIFIED]
+  H_extractor:
+    inputs: [NATIVE_SWAP_OUTPUT]
+    outputs: [CANONICAL_HYDROLOGY]
+    required_dimensions: [case, time, compartment_or_interface, variable, value, unit, sign]
+  I_acceptance:
+    inputs: [CANONICAL_HYDROLOGY, QA_CONFIG]
+    outputs: [ACCEPTANCE_MANIFEST]
+    rule: no_downstream_handoff_without_qualification
+  J_animo_adapter:
+    inputs: [ACCEPTANCE_MANIFEST, CANONICAL_HYDROLOGY]
+    outputs: [ANIMO_HYDRO_EXCHANGE]
+    compatibility_targets: [SWATRE_UNF, SWAP_BUN]
