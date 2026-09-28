@@ -7,10 +7,12 @@ stages:
     outputs: [svat_lbn.csv, flevoland_correction.csv, manifest.json]
     gate: [domain_427656, flevoland_4677]
   B_QUALIFICATION:
-    implementation: EXECUTABLE
-    entrypoint: tools/build_canonical_svat.py
-    outputs: [svat_qualification.csv]
+    implementation: EXECUTABLE_COMPATIBILITY
+    entrypoints: [tools/derive_suspect_flags.py, tools/qualification_adapter.py, tools/build_canonical_svat.py]
+    modes: [reference, derive, regress]
+    outputs: [svat_qualification.csv, qualification_flag_regression.csv]
     gate: [suspected_20934]
+    blocker_for_historical_admission: full_eight_grid_raster_regression_and_gridcalc_precedence_gt1_gt2
   C_HRU:
     implementation: PARTIAL
     modules: [tools/hru_clustering.py, tools/hru_core.py]
