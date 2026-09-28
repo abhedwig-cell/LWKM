@@ -888,6 +888,16 @@ Daarvoor ontbreken nog de exacte productie-inputs en authority-relaties.
 Deze tabel maakt zichtbaar dat vooral **S4 al zeer concreet is**, terwijl voor S0–S3 met name de formele scheiding tussen bron, correctie en gebruiksbesluit nog moet worden vastgezet.
 
 
+
+### 25A.9 Concrete numerieke reconstructie beschikbaar
+
+Op 28 september 2026 is op basis van de reeds gedeelde archieven een eerste concrete vijfstappenreconstructie uitgevoerd. De resultaten staan in:
+
+- `docs/lhm-hru-swap/current-data-reconstruction-2026-09-28.md`;
+- `evidence/lhm-hru-swap/current-data-reconstruction-summary-2026-09-28.csv`.
+
+Daarin zijn onder meer de actuele aantallen SVATs/HRU's/NRU's, de `islwkm`-selectie, de diagnostische `kwel_org → kwel`-verandering, de acht kwalificatieflags en de omvang van de donorlaag concreet gekwantificeerd. Een belangrijk resultaat is dat de donorlaag (57.880 SVATs) aanzienlijk groter is dan de hydrologisch geflagde populatie (20.934 SVATs). Daarmee is aangetoond dat hydrologische kwalificatie en HRU-donormatching in de bestaande keten niet als één en dezelfde transformatie mogen worden behandeld.
+
 ## 26. Belangrijkste open punten
 
 De belangrijkste nog te sluiten punten zijn:
