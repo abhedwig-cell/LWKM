@@ -1,0 +1,30 @@
+schema_version: 1
+product: CANONICAL_HYDROLOGY_V1
+primary_key: [case_id, time, location_type, location_id, variable]
+required_fields:
+  case_id: "stable SWAP case identifier"
+  time: "ISO date/time or model time normalized by extractor"
+  location_type: "compartment, interface, surface, bottom, drain, groundwater, aggregate"
+  location_id: "stable index/name within location_type"
+  variable: "canonical state or flux name"
+  value: "numeric"
+  unit: "explicit physical unit"
+  sign_convention: "explicit positive direction/meaning"
+principles:
+  - native_SWAP_output_is_source_evidence
+  - extraction_is_versioned
+  - QA_summaries_are_derived
+  - ANIMO_serialization_is_derived
+  - no_implicit_units_or_signs
+minimum_water_balance_variables:
+  - precipitation
+  - evapotranspiration
+  - runoff
+  - drainage
+  - bottom_flux
+  - storage_change
+  - soil_water_flux
+acceptance:
+  unique_primary_key: true
+  numeric_values: true
+  completeness_by_case: required
