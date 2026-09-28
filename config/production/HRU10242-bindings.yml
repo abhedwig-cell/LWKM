@@ -71,7 +71,10 @@ programs:
   hru_clustering:
     program: HRU_clustering_LWKM20
     expected_source: HRU_clustering_LWKM20_31082026.R
-    status: DOCUMENTATION_BOUND_SOURCE_NOT_YET_ADMITTED
+    source_archive: Rscripts.zip
+    source_archive_member: Rscripts/HRU_clustering/HRU_clustering_LWKM20_31082026.R
+    source_sha256: 6e5055241590be6bf7f7afe53a2eaf3f03ab3e0627cb9a82bbae138b73eb599e
+    status: SOURCE_BOUND_NOT_YET_RUN_REPRODUCED
     inputs:
       primary_svat_table:
         observed_documentation_name: svat_info_lwkm_new.csv
@@ -93,7 +96,36 @@ programs:
       hru_count:
         value: 10242
         status: CURRENT_AUTHORITY_TARGET
-    blocker: add_and_reconcile_actual_R_source
+    source_parameters:
+      MinOppha_ha: 500
+      groupfraction: 0.25
+      MAE_threshold_GHG: 1000
+      MAE_threshold_Nkw: 500
+      minnosvats: 10
+      minsvatsinNRU: 4
+      reduction_factor: 0.841
+      FlagClus: true
+      special_LDGBclus:
+        ids: [35, 38, 56]
+        minnosvats: 4
+        minsvatsinNRU: 2
+    source_observed_paths:
+      project_root: "w:/PROJECTS/ESG_DB_PROJECTS/Waterkwaliteitsmodellen/Ontwikkeling LWKM2.0/Vaststellen HRUs/"
+      processed_input: "Herschikking/20251114/svat_info_lwkm_new.csv"
+      original_input: "Herschikking/20251114/SVAT_INFO.csv"
+      ldg_mapping: "xyLDGBclus.csv"
+      output_directory: "Result/"
+    source_observed_behaviour:
+      - "processed input is used as primary clustering dataset"
+      - "rows with svat_donor != svat are rebuilt from original SVAT_INFO.csv filtered on islwkm == 1"
+      - "isdrain is forced to 0 for lu2 == 2"
+      - "representative SVAT is a medoid on GHG_LHM43 and NettoKwel_LHM43"
+      - "HRU and NRU rasters are written to the same filename in the source, so the second write can overwrite the first"
+    blockers:
+      - reproduce_exact_HRU10242_run_from_bound_inputs
+      - bind_svat_info_lwkm_new_producer_and_checksum
+      - bind_xyLDGBclus_checksum
+      - reconcile_output_timestamp_with_current_10242_artifacts
 
   swap_input_builder:
     program: HRUlist2SWAP
@@ -231,7 +263,7 @@ hru_input_authority_risk:
 
 next_binding_actions:
   - reconstruct_filter_lwkm2_from_landuse_and_confirm_legacy_four_cell_error
-  - add_HRU_clustering_R_source
+  - reproduce_HRU10242_from_bound_R_source_and_inputs
   - bind_Flevoland_correction_producer
   - decide_canonical_rep_policy
   - bind_SWAP_output_QA_inputs
