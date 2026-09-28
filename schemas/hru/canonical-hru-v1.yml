@@ -56,6 +56,8 @@ regression:
     route_comparison: required
     backprojection_metrics: required
 notes:
+  - "svat_donor is a C-stage assignment relation, not a B-stage destructive replacement."
+  - "Original SVAT attributes remain immutable; downstream aggregation joins donor relations explicitly."
   - "HRU numeric labels are not scientific identity; compare member sets label-invariantly."
   - "Cluster donor and representative SVAT are separate relations."
   - "Raster products are derived exports, never authority."
