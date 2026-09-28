@@ -1,4 +1,4 @@
-schema_version: 1
+schema_version: 2
 profile: HRU10242_R_20260831
 source_sha256: 6e5055241590be6bf7f7afe53a2eaf3f03ab3e0627cb9a82bbae138b73eb599e
 parameters:
@@ -22,13 +22,15 @@ rounds:
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, pawn21, bodem370, Gt_LHM43, kwelklasse4]
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, pawn21, Gt_LHM43, kwelklasse4]
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, Gt_LHM43, kwelklasse4]
+  - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, pawn21, Gt_LHM43]
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, Gt_LHM43]
-  - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, kwelklasse4]
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, pawn21, kwelklasse4]
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, kwelklasse4]
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, pawn21]
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4]
 notes:
-  round_7: "Alternative combination after dropping kwelklasse4 in round 6; source summary indicates pawn21-free alternative."
+  round_6: "Alternative from round 4: remove kwelklasse4 while retaining pawn21 and Gt."
+  round_7: "Round 6 without pawn21; equivalent to round 5 without kwelklasse4."
+  round_8: "Alternative without Gt, retaining pawn21 and kwelklasse4."
   skew_test: "Historical code rejects only positive skew > 2, not abs(skew)>2."
   exact_scclust_compatibility: "Requires regression against R scclust; Python engine must not claim equivalence before fixture comparison."
