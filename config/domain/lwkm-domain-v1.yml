@@ -1,0 +1,51 @@
+schema_version: 1
+id: LWKM_DOMAIN_LBN_V1
+status: CANDIDATE_CANONICAL
+description: >
+  Reconstruct the LWKM agriculture+nature domain from the 22-class land-use
+  code using the existing lu2lwkm.csv lookup. The domain flag is true when
+  LWKM-ID > 0.
+source_field: landgebruik22
+lookup:
+  historical_file: lu2lwkm.csv
+  key: LU-ID
+  value: LWKM-ID
+selected_lu_ids:
+  - 1   # gras
+  - 2   # mais
+  - 3   # aardappelen
+  - 4   # bieten
+  - 5   # granen
+  - 6   # overige
+  - 7   # boomteelt
+  - 9   # boomgaard
+  - 10  # bollen
+  - 11  # loofbos
+  - 12  # naaldbos
+  - 13  # moeras
+  - 14  # duinvegetatie
+  - 15  # kale
+  - 17  # natuurlijk
+  - 19  # donker
+  - 20  # heidevegetatie
+  - 21  # fruitkwekerijen
+excluded_lu_ids:
+  - 8   # glastuinbouw
+  - 16  # water
+  - 18  # stedelijk
+  - 22  # sportvelden
+derived_rule: "islwkm = (LWKM-ID > 0)"
+equivalent_rule_current_reconstruction: "lu2 in {1,2}"
+evidence:
+  historical_svat_table_rows: 552834
+  reconstructed_selected_rows: 427656
+  reconstructed_excluded_rows: 125178
+  crosscheck:
+    lu2_1_selected: 327624
+    lu2_2_selected: 100032
+    lu2_3_excluded: 125178
+legacy_note: >
+  A historical filter_lwkm diagnostic contains 427660 selected cells. User
+  confirms that the four-cell difference is a historical error, not an
+  additional intended filter. Canonical reconstruction must target 427656
+  for the current historical baseline.
