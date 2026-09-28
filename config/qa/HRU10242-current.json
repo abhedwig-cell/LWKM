@@ -11,83 +11,24 @@
     "svat_id": "svat",
     "area": "opp(m2)",
     "domain_flag": "islwkm(0/1)",
-    "qualification_flags": [
-      "ghg_sel",
-      "gt1_sel",
-      "gt2_sel",
-      "gt8_sel",
-      "kwel_sel",
-      "wegzijging_sel",
-      "runoff_sel",
-      "subinfil_sel"
-    ],
-    "hydrology": [
-      "glg(cm-mv)",
-      "ghg(cm-mv)",
-      "neerslag(mm/j)",
-      "verdamping(mm/j)",
-      "runoff(mm/j)",
-      "afvoer(mm/j)",
-      "afvoer_sys1(mm/j)",
-      "afvoer_sys2(mm/j)",
-      "afvoer_sys3(mm/j)",
-      "afvoer_sys4(mm/j)",
-      "afvoer_sys5(mm/j)",
-      "aanvoer(mm/j)",
-      "wegzijging(mm/j)",
-      "kwelwegzijging(mm/j)",
-      "kwel(mm/j)",
-      "qlat(mm/j)",
-      "buisdr(mm/j)",
-      "beregening(mm/j)",
-      "Tact(mm/j)",
-      "Eic(mm/j)",
-      "Ebs(mm/j)",
-      "Epd(mm/j)",
-      "Esp(mm/j)",
-      "dberging(mm/j)",
-      "qmetaswap(mm/j)",
-      "qmodf(mm/j)"
-    ]
+    "qualification_flags": ["ghg_sel","gt1_sel","gt2_sel","gt8_sel","kwel_sel","wegzijging_sel","runoff_sel","subinfil_sel"],
+    "hydrology": ["glg(cm-mv)","ghg(cm-mv)","neerslag(mm/j)","verdamping(mm/j)","runoff(mm/j)","afvoer(mm/j)","afvoer_sys1(mm/j)","afvoer_sys2(mm/j)","afvoer_sys3(mm/j)","afvoer_sys4(mm/j)","afvoer_sys5(mm/j)","aanvoer(mm/j)","wegzijging(mm/j)","kwelwegzijging(mm/j)","kwel(mm/j)","qlat(mm/j)","buisdr(mm/j)","beregening(mm/j)","Tact(mm/j)","Eic(mm/j)","Ebs(mm/j)","Epd(mm/j)","Esp(mm/j)","dberging(mm/j)","qmetaswap(mm/j)","qmodf(mm/j)"]
   },
   "correction_pairs": [
     {
-      "id": "KWEL_ORG_TO_CURRENT_DIAGNOSTIC",
+      "id": "FLEVOLAND_KWEL_DELTA",
       "source": "kwel_org(mm/j)",
       "corrected": "kwel(mm/j)",
-      "official_correction": false,
+      "official_correction": true,
       "tolerance": 0.000001,
-      "interpretation": "Diagnostic only. Do not label as Flevoland correction until producer, mask, period, units and dependent variables are bound."
+      "interpretation": "Observed LWKM Flevoland correction. Standard LHM kwel output was postprocessed/edited by Deltares; exact upstream Deltares procedure remains a provenance gap. Current bound dataset is expected to contain 4677 changed SVATs."
     }
   ],
-  "hru_map": {
-    "svat": "svat",
-    "hru": "HRU",
-    "cluster_donor": "svat_donor"
-  },
-  "hru_schema": {
-    "hru": "HRU",
-    "representative_svat": "svat_repr"
-  },
+  "hru_map": {"svat":"svat","hru":"HRU","cluster_donor":"svat_donor"},
+  "hru_schema": {"hru":"HRU","representative_svat":"svat_repr"},
   "hru_backprojection_region_column": "LDGBclus_orig",
   "hru_backprojection": [
-    {
-      "name": "GHG",
-      "source_table": "mapping",
-      "svat": "GHG_LHM43_orig",
-      "hru_average": "GHG_average",
-      "region_column": "LDGBclus_orig",
-      "units": "cm-mv",
-      "interpretation": "Pure HRU-average representation effect for the clustering GHG variable."
-    },
-    {
-      "name": "NettoKwel",
-      "source_table": "mapping",
-      "svat": "NettoKwel_LHM43_orig",
-      "hru_average": "NettoKwel_average",
-      "region_column": "LDGBclus_orig",
-      "units": "mm/j",
-      "interpretation": "Pure HRU-average representation effect for the clustering NettoKwel variable."
-    }
+    {"name":"GHG","source_table":"mapping","svat":"GHG_LHM43_orig","hru_average":"GHG_average","region_column":"LDGBclus_orig","units":"cm-mv","interpretation":"Pure HRU-average representation effect for the clustering GHG variable."},
+    {"name":"NettoKwel","source_table":"mapping","svat":"NettoKwel_LHM43_orig","hru_average":"NettoKwel_average","region_column":"LDGBclus_orig","units":"mm/j","interpretation":"Pure HRU-average representation effect for the clustering NettoKwel variable."}
   ]
 }
