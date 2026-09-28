@@ -1,130 +1,116 @@
-schema_version: 1
-status: SOURCE_BOUND_RECONSTRUCTION
+schema_version: 2
+status: SOURCE_BOUND_RECONSTRUCTION_WITH_OPEN_ARTIFACT_FALSIFICATION
 hru_version: HRU10242
 implementation:
   program: HRUlist2SWAP
   version: "0.38"
   source_date: "2026-04"
-  production_executable_binding: TO_BIND
+  executable:
+    sha256: a6a56f0f17395216712cc79ddf68e2550cf67f26275dca1f86c90ed25102453d
+    identity_binding: STRONG
+    reproducible_build_provenance: OPEN
 
 member_sets:
-  all:
-    definition: all SVAT members of the HRU
+  all: {definition: "all SVAT members of the HRU"}
   water_boundary:
-    definition: current v0.38 issvatwb subset
-    source_semantics: >
-      Derived through the current verdacht_asc/isverdacht/issvatwb logic.
-      Polarity and scientific meaning must be renamed and bound before admission.
+    definition: "active v0.38 issvatwb subset"
     fallback_if_empty: all
     fallback_marks_problem: true
+    status: RENAME_AND_BIND_POSITIVE_SEMANTICS
+
+representative_schema:
+  source_schema: export_HRUschema_10242.csv
+  production_control_reference: export_HRUschema_10242_copy.csv
+  copy_status: FALSIFICATION_REQUIRED
+  sentinel_rows: 2559
+  warning: >
+    The copy sets rz_repr=bfe_repr=bodem_repr=-999 for 2559 HRUs. Supplied
+    v0.38 source applies bfe_repr and rz_repr unconditionally whenever the
+    representative file exists. -999 is not a source-defined disable switch.
+  falsification:
+    realized_fields: [bodem_id, RDS]
+    compare_to: [original_representative_schema, all_member_majority_fallback]
 
 run_table:
   run_id: {source: HRU_ID}
   scenario_id: {constant: direct}
   bodem_id:
-    default: majority(BFE, member_set=all)
-    if_representative_schema: bfe_repr
-  soil2_id: {aggregation: majority, source: soil2, member_set: all}
+    default: "majority(BFE, all)"
+    representative_override: bfe_repr
+    status: INPUT_ARTIFACT_UNRESOLVED
+  soil2_id: {source: soil2, aggregation: majority, member_set: all}
   lu_id:
-    default: majority(LGN, member_set=all)
-    if_representative_schema: LGN_of_svat_repr
+    default: "majority(LGN, all)"
+    representative_override: LGN_of_svat_repr
   climate_id: {constant: "__", status: REVIEW}
-  SWBBCFILE:
-    expression: "0 if SWBOTB == 7 else 1"
-  SWBOTB: {aggregation: majority, source: bbc, member_set: all}
+  SWBOTB: {source: bbc, aggregation: majority, member_set: all}
+  SWBBCFILE: {expression: "0 if SWBOTB == 7 else 1"}
   dqsat:
     source: dqsat
-    member_filter: "BFE == selected bodem_id"
+    member_filter: "BFE == pre-override selected BFE"
     aggregation: majority_real
-  BBCFIL: {source: HRU_ID}
-  DRFIL: {source: HRU_ID}
-  METFIL: {source: generated_HRU_meteo_file}
+    status: REVIEW_ORDERING_WITH_REPRESENTATIVE_BFE
   irrigation_id:
-    default: majority(irrigation_switch, member_set=all)
-    override:
-      condition: "fraction(irrigation_switch > 0) > 0.37"
-      value: "majority(irrigation_switch where > 0)"
-    status: REVIEW
-  solute_id: {constant: 0}
-  rotation_id: {constant: max}
-  SWINCO: {constant: 2}
+    active_threshold: "fraction(irrigation_switch > 0) > 0.37"
+    when_active: "majority(irrigation_switch where > 0)"
+    history_claim: "v0.37 history says 30 percent"
+    status: SOURCE_HISTORY_MISMATCH_REVIEW
   GWLI:
-    expression: "min(0, round((mean(head_or_height) - mean(surface_level))*100))"
+    expression: "min(0, round((mean(head_or_height)-mean(surface_level))*100))"
     member_set: all
     status: REVIEW_REFERENCE_AND_SIGN
   RDS:
-    default: majority_real(root_depth among matching selected BFE/LGN)
-    if_representative_schema: rz_repr
-  PONDMX: {source_control: MaxPondDepth, conversion: "*100"}
-  RSRO: {source_control: crunoff_par}
-  tempBot: {source_control: tempCbotk}
+    default: "majority_real(root_depth for matching BFE/LGN)"
+    representative_override: rz_repr
+    status: INPUT_ARTIFACT_UNRESOLVED
+  SWETR:
+    expression: "0 if pre-override majority LGN < 7 else 1"
+    status: REVIEW_STALE_AFTER_REPRESENTATIVE_LGN_OVERRIDE
   glk: {source: surface_level, aggregation: mean, member_set: all}
   area: {source: area, aggregation: sum, member_set: all}
-  geographic_location:
-    x_y:
-      method: "mean coordinate, then snap to nearest member cell"
-    col_row:
-      method: "grid index of snapped member cell"
+  geographic_location: {method: mean_coordinate_then_snap_to_nearest_member}
   nusvat: {aggregation: count, member_set: all}
   TSTART: {source_control: TimStart}
   TEND: {source_control: TimEnd}
-  SWETR:
-    expression: "0 if initial majority LGN < 7 else 1"
-    status: >
-      REVIEW: calculated before representative LGN can overwrite lgn_maj.
-  soil_id:
-    lookup: bodem2bofek
-    key: selected_bodem_id
-  crop_id:
-    lookup: lu2crop
-    keys: [soil2_id, lu_id]
-  croporg_id:
-    lookup: lu2croporg
-    keys: [soil2_id, lu_id]
+  PONDMX: {source_control: MaxPondDepth, conversion: "*100"}
+  RSRO: {source_control: crunoff_par}
+  tempBot: {source_control: tempCbotk}
+  soil_id: {lookup: bodem2bofek, key: final_bodem_id}
+  crop_id: {lookup: lu2crop, keys: [soil2_id, final_lu_id]}
+  croporg_id: {lookup: lu2croporg, keys: [soil2_id, final_lu_id]}
+  SWINCO: {constant: 2}
+  solute_id: {constant: 0}
+  rotation_id: {constant: max}
   dikte_id: {constant: 1700}
   COFANI: {constant: 1.0}
   NUMNODNEW: {constant: 43}
 
 bottom_boundary:
-  transient_inputs:
-    head_layer_1: "head_<timestamp>_l1.idf"
-    head_layer_2: "head_<timestamp>_l2.idf"
-    vertical_flux_layer_1: "bdgflf_<timestamp>_l1.idf"
-    lateral_flux_layer_1: "bdgqlat_<timestamp>_l1.asc"
   active_qbot2:
     SWBOTB: 2
     member_set: water_boundary
-    expression: "100 * mean((head_l2 - head_l1) / c1)"
-    note: >
-      FLF and QLAT are computed in the current source but not used in the active
-      QBOT2 write line.
-  mixed_head_file:
+    expression: "100 * mean((head_l2-head_l1)/c1)"
+  computed_not_active_in_qbot2: [FLF, QLAT, "FLF+QLAT"]
+  mixed_head_alternative:
     SWBOTB: 3
     RIMLAY: c1_average
-    HAQUIF: "100 * (mean(head_l1) + weighted(head_l2-head_l1) - mean(surface_level))"
+    HAQUIF: "100*(mean(head_l1)+weighted(head_l2-head_l1)-mean(surface_level))"
 
 meteorology:
-  precipitation:
-    member_set: water_boundary
-    aggregation: area_weighted_mean
-  potential_or_reference_evaporation_grid:
-    member_set: water_boundary
-    aggregation: area_weighted_mean
-  other_meteo:
-    source: majority_meteorological_district
+  precipitation: {member_set: water_boundary, aggregation: area_weighted_mean}
+  evaporation_grid: {member_set: water_boundary, aggregation: area_weighted_mean}
+  other_variables: {source: majority_meteorological_district}
 
 drainage:
-  member_set_in_active_v038: all
-  status: REVIEW
-  note: >
-    Comments state that water-boundary selection should apply, but the active
-    source has those conditional filters commented out.
+  active_member_policy: all
+  status: REVIEW_COMMENT_VS_ACTIVE_CODE
 
-admission_blockers:
-  - bind_production_executable_to_source
+canonical_admission_blockers:
+  - falsify_export_HRUschema_10242_copy_against_realized_run_table
   - rename_and_define_water_boundary_member_policy
-  - resolve_SWETR_vs_representative_LGN_ordering
-  - decide_irrigation_fraction_threshold
+  - resolve_SWETR_ordering
+  - decide_irrigation_threshold_37_vs_documented_30
+  - review_dqsat_ordering_against_representative_BFE
   - make_drainage_member_policy_explicit
   - move_embedded_constants_to_configuration
   - bind_units_signs_and_reference_levels
