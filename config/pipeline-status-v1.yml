@@ -20,9 +20,10 @@ stages:
     modules: [tools/hru_core.py, tools/compare_hru_partitions.py]
     blocker: candidate_HRU_output
   E_SWAP_MAPPING:
-    implementation: PARTIAL
-    module: tools/swap_mapping.py
-    blocker: full_field_mapping_and_schema_copy_falsification
+    implementation: EXECUTABLE_COMPATIBILITY
+    modules: [tools/swap_mapping.py, tools/build_swap_inputs.py, tools/generate_bbc.py, tools/generate_dra.py, tools/generate_met.py]
+    outputs: [Runs.csv, bbc, dra, met, dependencies.json, manifest.json]
+    blocker_for_historical_admission: schema_copy_2559_sentinel_falsification_and_full_product_regression
   F_SWP_GENERATION:
     implementation: PARTIAL
     modules: [tools/plan_swap_cases.py, tools/generate_swap_cases.py]
