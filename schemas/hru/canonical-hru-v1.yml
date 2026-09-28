@@ -1,0 +1,61 @@
+schema_version: 1
+product: HRU_CANONICAL_V1
+tables:
+  svat_hru_membership:
+    primary_key: svat
+    required:
+      - svat
+      - HRU
+      - NRU
+      - aggr_no
+      - assignment_route
+      - is_valid_cluster_input
+    assignment_route_values:
+      - PRIMARY_CLUSTER
+      - DONOR_LDGB_LU4
+      - DONOR_LDGB_LU2
+      - HRU_EXTRA
+  hru_cluster_donor:
+    primary_key: svat
+    required: [svat, hru_cluster_donor_svat, assignment_route]
+  hru_schema:
+    primary_key: HRU
+    required:
+      - HRU
+      - n_svat
+      - area_ha
+      - GHG_average
+      - NettoKwel_average
+      - hru_representative_svat
+      - dominant_lu2
+      - dominant_lu4
+      - dominant_grondsoort2
+      - dominant_grondsoort4
+      - dominant_pawn21
+  nru_schema:
+    primary_key: NRU
+    required: [NRU, HRU, LDGBclus, n_svat]
+  hru_qa:
+    required:
+      - HRU
+      - mae_GHG
+      - rmse_GHG
+      - mae_NettoKwel
+      - rmse_NettoKwel
+      - purity_lu4
+      - purity_grondsoort2
+      - purity_grondsoort4
+      - purity_pawn21
+regression:
+  historical_profile: HRU10242_R_20260831
+  gates:
+    selected_svat_count: 427656
+    hru_count: 10242
+    nru_count: 25054
+    exact_partition_comparison: required
+    route_comparison: required
+    backprojection_metrics: required
+notes:
+  - "HRU numeric labels are not scientific identity; compare member sets label-invariantly."
+  - "Cluster donor and representative SVAT are separate relations."
+  - "Raster products are derived exports, never authority."
