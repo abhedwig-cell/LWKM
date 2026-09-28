@@ -1,0 +1,24 @@
+schema_version: 1
+product: SWAP_CASE_MANIFEST_V1
+identity:
+  key: HRU
+dependency_hash_inputs:
+  - canonical_case_spec
+  - swap_mapping_version
+  - swap_executable_version
+  - meteorology_reference
+  - bottom_boundary_reference
+  - soil_reference
+  - crop_reference
+incremental_policy:
+  regenerate_if_dependency_hash_changes: true
+  retain_if_hash_equal: true
+  remove_if_hru_removed: true
+separation_of_concerns:
+  scientific_mapping: tools/swap_mapping.py
+  incremental_planning: tools/plan_swap_cases.py
+  serialization: tools/generate_swap_cases.py
+admission:
+  case_spec_writer_status: TRANSITIONAL
+  full_swp_writer_status: NOT_YET_IMPLEMENTED
+  requirement: "Full SWP serialization must be compared with historical generated files and SWAP parser acceptance before admission."
