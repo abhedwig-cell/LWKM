@@ -1,68 +1,78 @@
-# Flevoland correction — design note
+# Flevoland correction — reconstructed working authority
 
-Status: **OPEN AUTHORITY / TO VERIFY**
+Status: **KWEL-ONLY WORKING AUTHORITY**
 
-## Physical issue
+## Scope clarification
 
-In the current LHM schematisation, some deep watercourses in Flevoland that physically cut through the confining layer are represented as if they discharge from the upper model layer. As a result, groundwater that should effectively be intercepted by those deep watercourses can first appear numerically as upward flux into the upper layer and only subsequently leave through drainage/surface-water terms.
+Project-owner clarification on 28 September 2026: in the LWKM preprocessing chain under reconstruction, the Flevoland correction concerns a set of SVAT cells with changed **kwel**. It should therefore not be expanded into a drainage or surface-water correction unless separate source evidence later proves such an additional transformation.
 
-For LWKM this intermediate routing is not necessarily the hydrological signal that should be transferred downstream.
+This supersedes the earlier speculative requirement in this note that coupled drainage terms had to be part of the LWKM Flevoland correction.
 
-## Consequence
+## Reconstructed transformation
 
-The Flevoland correction is therefore potentially **not only a correction of seepage/kwel**.
+The bound production control distinguishes:
 
-If the alternative LHM calculation removes or changes this artificial routing, the associated incoming/outgoing drainage or surface-water flux terms may also need to be corrected consistently. Using corrected kwel together with uncorrected drainage terms could create an internally inconsistent water balance.
+- original kwel: `LHM_uitvoer\filter\Kwel_1991-2020.asc`;
+- corrected/used kwel: `LHM_uitvoer\kwel_corr\Kwel_1991-2020.asc`.
 
-This must be verified against the actual alternative LHM run and its balance terms.
+The current SVAT table preserves both states as:
 
-## Recommended data design
+- `kwel_org(mm/j)`;
+- `kwel(mm/j)`.
 
-Use two directly comparable, same-schema SVAT datasets:
+Therefore the materialized correction mask can be reconstructed directly as:
 
-- `SVAT_BASE_RAW`: standard LHM result;
-- `SVAT_BASE_FLEVOLAND_CORR`: same keys, columns, units and periods, but with the accepted Flevoland-corrected hydrological values for the cells where the correction applies.
+```
+flevoland_kwel_corrected = kwel != kwel_org
+```
 
-The two tables must have identical SVAT keys and column definitions, so they can be diffed one-to-one.
+within the selected SVAT domain.
 
-However, the canonical authority should still preserve:
+Observed current result:
 
-1. the raw source values;
-2. the alternative/corrected source values;
-3. the spatial correction mask;
-4. the exact rule that selects corrected values;
-5. provenance of both LHM runs.
+- 4,677 changed SVATs;
+- about 268.0 km² affected;
+- bounding coordinates approximately x 138,375–197,625 m and y 475,375–538,875 m;
+- area-weighted kwel over the selected domain changes from about 116.93 to 108.67 mm/y;
+- delta about -8.26 mm/y;
+- equivalent volume delta about -210.7 million m³/y;
+- within changed cells, area-weighted mean delta about -785.9 mm/y.
 
-The corrected table is therefore a **materialized scenario/view**, not an opaque manually edited replacement of the raw table.
+## Canonical S1 → S2 semantics
 
-## Required comparison
+For the five-stage comparison, S2 can now be reconstructed from S1 by preserving the same SVAT keys/domain and replacing only the kwel state for the observed correction set:
 
-For every corrected SVAT, compare at minimum:
+```
+S1: kwel = kwel_org
+S2: kwel = kwel
+```
 
-- kwel / upward groundwater flux;
-- relevant drainage/ontwatering components;
-- runoff / surface-water exchange if affected;
-- storage change if affected;
-- groundwater levels if affected;
-- total water-balance residual.
+All other variables remain unchanged for this specific LWKM transformation unless later producer evidence demonstrates otherwise.
 
-The correction should be admitted only after the affected terms are identified and the corrected balance is physically interpretable.
+The pair `kwel_org` / `kwel` is preferable to inferring Flevoland from a geographic polygon: it records the actual cells on which the historical correction acts.
 
-## Effect accounting
+## Remaining provenance gap
 
-The project-leader step `LHM4.3 lbn → LHM4.3 cor` should then be computed as a direct one-to-one comparison:
+The downstream transformation is reconstructable. What is not yet fully bound is the upstream producer of the corrected `Kwel_1991-2020.asc`: exact alternative LHM run, producer script and/or source manifest.
 
-`SVAT_BASE_RAW[selected domain]`
-versus
-`SVAT_BASE_FLEVOLAND_CORR[selected domain]`.
+That gap affects provenance of the corrected values, but no longer blocks reconstructing the observed S1 → S2 transformation itself.
 
-Because schema, keys and domain are identical, the resulting delta can be attributed to the Flevoland correction rather than to selection or HRU aggregation.
+## QA for canonical implementation
 
-## Open questions
+A modern implementation should persist per affected SVAT:
 
-- Which exact flux terms differ in the alternative LHM run?
-- Is the correction applied only inside Flevoland, and what is the authoritative mask?
-- Is the corrected kwel a direct output of the alternative run or a post-processed quantity?
-- Which drainage/ontwatering terms must be replaced together with kwel?
-- Does the alternative run change GHG/GLG or storage enough that these must also be taken from the corrected run?
-- Can the corrected state be reproduced from a versioned transformation, or must the alternative LHM run itself remain an upstream input authority?
+- SVAT id;
+- x/y;
+- area;
+- `kwel_raw_mm_y`;
+- `kwel_corrected_mm_y`;
+- `delta_kwel_mm_y`;
+- correction rule/source id.
+
+Required checks:
+
+1. S1 and S2 have identical SVAT keys and area;
+2. only kwel changes in this transformation;
+3. affected-cell count equals 4,677 for the bound current dataset;
+4. national and affected-area weighted deltas reproduce the observed diagnostics;
+5. raw and corrected kwel remain separately available.
