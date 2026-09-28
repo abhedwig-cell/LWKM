@@ -58,8 +58,13 @@ flags:
   wegzijging_sel: [kwelwegz, domain_mask, polder_mask]
   runoff_sel: [runoff, agriculture_mask]
   subinfil_sel: [ontw_netto, domain_mask, polder_mask]
+non_authoritative_diagnostic:
+  piet_verdacht:
+    note: "Read by LWKM_makeHRU v0.20 but its isuit assignment is immediately overwritten before use."
 critical_uncertainties:
-  - exact_kwel_Flevoland_correction_insertion_before_selection
-  - gridcalc_operator_precedence_for_kwelwegz_expression
-  - gridcalc_operator_precedence_for_gt1_gt2_mask_subtraction
+  - exact_kwel_Flevoland_correction_producer
+  - whether_gt8_kwel_droog_was_recomputed_after_Flevoland_correction
   - confirm_rewritten_batch_against_actual_production_batch
+resolved:
+  gridcalc_operator_precedence: "strict left-to-right"
+  final_suspicious_authority: "union of eight explicit flags"
