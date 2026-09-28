@@ -30,15 +30,18 @@ def nearest_donors(targets:pd.DataFrame, donors:pd.DataFrame, weights:dict[str,f
     return pd.Series(donors.iloc[idx][donor_id].to_numpy(),index=targets.index,name="hru_cluster_donor_svat")
 
 def medoid_existing_svat(group:pd.DataFrame, variables=("GHG_LHM43","NettoKwel_LHM43"),id_col="svat")->int:
+    """Historical representative_points(method='medoid'): real row with minimum mean Euclidean distance."""
     if group.empty: raise ValueError("Empty HRU")
     x=group[list(variables)].astype(float).to_numpy()
-    # Robust scale keeps the two clustering dimensions comparable.
-    med=np.nanmedian(x,axis=0)
-    mad=np.nanmedian(np.abs(x-med),axis=0)
-    mad=np.where((mad==0)|~np.isfinite(mad),1.0,mad)
-    z=(x-med)/mad
-    dist=((z[:,None,:]-z[None,:,:])**2).sum(axis=2)
-    return int(group.iloc[int(np.argmin(dist.sum(axis=1)))][id_col])
+    dist=np.sqrt(((x[:,None,:]-x[None,:,:])**2).sum(axis=2))
+    return int(group.iloc[int(np.argmin(dist.mean(axis=1)))][id_col])
+
+def robust_iqr_scale(values):
+    """Historical robust_scalar: (x-median)/IQR, zeros when IQR is zero/NA."""
+    x=np.asarray(values,dtype=float); med=np.nanmedian(x)
+    q25,q75=np.nanpercentile(x,[25,75]);iqr=q75-q25
+    if not np.isfinite(iqr) or iqr==0:return np.zeros_like(x)
+    return (x-med)/iqr
 
 def backprojection_metrics(members:pd.DataFrame,hru_values:pd.DataFrame,*,hru_col="HRU",area_col="area_m2",
                            specs=(("GHG","GHG_LHM43_orig","GHG_average"),
