@@ -1,0 +1,48 @@
+schema_version: 1
+pipeline: LWKM_CANONICAL_V1
+stages:
+  A_SVAT:
+    implementation: EXECUTABLE
+    entrypoint: tools/build_canonical_svat.py
+    outputs: [svat_lbn.csv, flevoland_correction.csv, manifest.json]
+    gate: [domain_427656, flevoland_4677]
+  B_QUALIFICATION:
+    implementation: EXECUTABLE
+    entrypoint: tools/build_canonical_svat.py
+    outputs: [svat_qualification.csv]
+    gate: [suspected_20934]
+  C_HRU:
+    implementation: PARTIAL
+    modules: [tools/hru_clustering.py, tools/hru_core.py]
+    blocker: exact_scclust_partition_adapter_and_bound_input_runtime
+  D_HRU_QA:
+    implementation: PARTIAL
+    modules: [tools/hru_core.py, tools/compare_hru_partitions.py]
+    blocker: candidate_HRU_output
+  E_SWAP_MAPPING:
+    implementation: PARTIAL
+    module: tools/swap_mapping.py
+    blocker: full_field_mapping_and_schema_copy_falsification
+  F_SWP_GENERATION:
+    implementation: PARTIAL
+    modules: [tools/plan_swap_cases.py, tools/generate_swap_cases.py]
+    blocker: legacy_Datamodel_renderer_or_canonical_SWAP_template
+  G_SWAP_RUN:
+    implementation: SCAFFOLD
+    module: tools/run_state.py
+    blocker: admitted_case_serializer_and_executable_adapter
+  H_HYDRO_EXTRACTION:
+    implementation: SCAFFOLD
+    module: tools/hydrology_contract.py
+    blocker: native_SWAP_output_adapter
+  I_ACCEPTANCE:
+    implementation: SCAFFOLD
+    module: tools/accept_hydrology.py
+    blocker: full_QA_policy
+  J_ANIMO:
+    implementation: NOT_IMPLEMENTED
+    blocker: exact_current_ANIMO_exchange_writer_contract
+rules:
+  no_stage_may_claim_complete_if_dependency_is_partial: true
+  observed_historical_outputs_are_regression_evidence: true
+  unknown_provenance_does_not_imply_unknown_transformation: true
