@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse, hashlib, json
 from pathlib import Path
 import pandas as pd
+from tools.qualification_adapter import derive_flags,compare_flags
 
 FLAG_COLUMNS = [
     "ghg_sel","gt1_sel","gt2_sel","gt8_sel",
@@ -62,8 +63,15 @@ def main()->None:
     p.add_argument("--expect-domain",type=int,default=427656)
     p.add_argument("--expect-flevoland",type=int,default=4677)
     p.add_argument("--expect-suspected",type=int,default=20934)
+    p.add_argument("--qualification-mode",choices=["reference","derive","regress"],default="reference")
     a=p.parse_args()
     df=pd.read_csv(a.input_csv)
+    flag_comparison=None
+    if a.qualification_mode in ("derive","regress"):
+        derived=derive_flags(df)
+        if a.qualification_mode=="regress":
+            flag_comparison=compare_flags(df,derived)
+        for col in FLAG_COLUMNS: df[col]=derived[col].to_numpy()
     lbn,corr,qual=prepare(df)
     suspected=int((~qual["is_valid_for_hru_cluster_building"]).sum())
     actual={"domain":len(lbn),"flevoland":len(corr),"suspected":suspected}
@@ -75,6 +83,7 @@ def main()->None:
     write_csv(lbn,out/"svat_lbn.csv")
     write_csv(corr,out/"flevoland_correction.csv")
     write_csv(qual,out/"svat_qualification.csv")
+    if flag_comparison is not None: write_csv(flag_comparison,out/"qualification_flag_regression.csv")
     manifest={
       "schema_version":1,
       "input":{"path":str(a.input_csv),"sha256":sha256(a.input_csv),"rows":len(df)},
@@ -89,6 +98,7 @@ def main()->None:
         "flevoland":"kwel_corrected != kwel_raw; both retained",
         "qualification":"any of eight historical flags => not valid for HRU cluster building",
         "destructive_donor_copy":False,
+        "qualification_mode":a.qualification_mode,
       },
     }
     (out/"manifest.json").write_text(json.dumps(manifest,indent=2),encoding="utf-8")
