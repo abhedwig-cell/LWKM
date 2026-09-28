@@ -2,25 +2,29 @@
 
 Status: **KWEL-ONLY WORKING AUTHORITY**
 
-## Scope clarification
+## Scope and provenance clarification
 
-Project-owner clarification on 28 September 2026: in the LWKM preprocessing chain under reconstruction, the Flevoland correction concerns a set of SVAT cells with changed **kwel**. It should therefore not be expanded into a drainage or surface-water correction unless separate source evidence later proves such an additional transformation.
+Project-owner clarification on 28 September 2026:
 
-This supersedes the earlier speculative requirement in this note that coupled drainage terms had to be part of the LWKM Flevoland correction.
+- the LWKM Flevoland correction concerns a set of SVAT cells with changed **kwel**;
+- the corrected values were produced by **Deltares postprocessing/editing of LHM output files**;
+- they are not the result of a separate alternative LHM model run as previously hypothesized.
+
+The exact Deltares postprocessing method/script is not yet bound. “Postprocessing/editing” is therefore the formal description used here; no unverified implementation is inferred.
 
 ## Reconstructed transformation
 
 The bound production control distinguishes:
 
 - original kwel: `LHM_uitvoer\filter\Kwel_1991-2020.asc`;
-- corrected/used kwel: `LHM_uitvoer\kwel_corr\Kwel_1991-2020.asc`.
+- Deltares-corrected/used kwel: `LHM_uitvoer\kwel_corr\Kwel_1991-2020.asc`.
 
 The current SVAT table preserves both states as:
 
 - `kwel_org(mm/j)`;
 - `kwel(mm/j)`.
 
-Therefore the materialized correction mask can be reconstructed directly as:
+The materialized correction set is therefore reconstructed directly as:
 
 ```
 flevoland_kwel_corrected = kwel != kwel_org
@@ -40,26 +44,32 @@ Observed current result:
 
 ## Canonical S1 → S2 semantics
 
-For the five-stage comparison, S2 can now be reconstructed from S1 by preserving the same SVAT keys/domain and replacing only the kwel state for the observed correction set:
+For the five-stage comparison, S2 is reconstructed from S1 by preserving the same SVAT keys/domain and changing only kwel:
 
 ```
 S1: kwel = kwel_org
-S2: kwel = kwel
+S2: kwel = Deltares-corrected kwel
 ```
 
-All other variables remain unchanged for this specific LWKM transformation unless later producer evidence demonstrates otherwise.
+The pair `kwel_org` / `kwel` records the actual historical correction set and is preferable to reconstructing that set from a geographic polygon.
 
-The pair `kwel_org` / `kwel` is preferable to inferring Flevoland from a geographic polygon: it records the actual cells on which the historical correction acts.
+Do not add drainage, runoff or other hydrological changes to this LWKM transformation unless separate evidence establishes that Deltares also edited those outputs for this correction.
 
 ## Remaining provenance gap
 
-The downstream transformation is reconstructable. What is not yet fully bound is the upstream producer of the corrected `Kwel_1991-2020.asc`: exact alternative LHM run, producer script and/or source manifest.
+The transformation and its output are reconstructable. The remaining upstream gap is narrower:
 
-That gap affects provenance of the corrected values, but no longer blocks reconstructing the observed S1 → S2 transformation itself.
+- which exact LHM output file(s) Deltares edited;
+- exact script/tool/manual procedure;
+- selection/mask used;
+- formula or replacement source for corrected values;
+- responsible/versioned delivery if available.
+
+This provenance gap does not block reconstruction of the observed S1 → S2 state transition.
 
 ## QA for canonical implementation
 
-A modern implementation should persist per affected SVAT:
+Persist per affected SVAT:
 
 - SVAT id;
 - x/y;
@@ -67,7 +77,7 @@ A modern implementation should persist per affected SVAT:
 - `kwel_raw_mm_y`;
 - `kwel_corrected_mm_y`;
 - `delta_kwel_mm_y`;
-- correction rule/source id.
+- correction source/method id when recovered.
 
 Required checks:
 
