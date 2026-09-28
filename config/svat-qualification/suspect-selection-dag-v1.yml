@@ -1,0 +1,65 @@
+schema_version: 1
+profile: LWKM_SUSPECT_SELECTION_DAG_1991_2020
+raw_sources:
+  ghg_cm: ../ghg_1991-2020_cm.asc
+  glg_cm: ../glg_1991-2020_cm.asc
+  runoff_period: bdgqrun_1991-2020.asc
+  rivdrn_net_period: bdgrivdrn_net_1991-2020.asc
+  kwel_l1_period: Kwel_1991-2020_l1.asc
+  wegzijging_l1_period: Wegzijging_1991-2020_l1.asc
+  lgn: Basicdata/grids/lgn250.asc
+  bofek: Basicdata/grids/4.3/BODEM_BOFEK.asc
+  svat: svat.asc
+  domain_mask: filter_lwkm.asc
+  polder_mask: polders.asc
+derived:
+  ghg:
+    expression: ghg_cm * domain_mask
+  glg:
+    expression: glg_cm * domain_mask
+  runoff:
+    expression: runoff_period * domain_mask
+  rivdrn_netto:
+    expression: rivdrn_net_period * domain_mask
+  ontw_netto:
+    expression: runoff + rivdrn_netto
+  kwel:
+    source: kwel_l1_period
+    note: "Historical workflow later has corrected kwel products; exact correction insertion point must remain explicit."
+  wegzijging:
+    source: wegzijging_l1_period
+  kwelwegz:
+    historical_expression: "kwel + wegzijging / 365.25"
+    warning: "Operator precedence is ambiguous from batch text. Do not simplify to (kwel+wegzijging)/365.25 without regression."
+  gt:
+    inputs: [ghg, glg, svat]
+    classes:
+      1: "glg < 50"
+      2: "50 <= glg < 80"
+      3: "80 <= glg < 120 and ghg < 40"
+      4: "80 <= glg < 120 and 40 <= ghg < 80"
+      5: "glg >= 120 and ghg < 40"
+      6: "glg >= 120 and 40 <= ghg < 80"
+      7: "80 <= ghg < 140"
+      8: "ghg >= 140"
+  agriculture_mask:
+    inputs: [lgn, domain_mask]
+    lgn_classes: [0,1,2,3,4,5,6,7,9,10,21]
+  agriculture_non_grass:
+    lgn_classes: [0,2,3,4,5,6,7,9,10,21]
+  peat_grass:
+    expression: "lgn == 1 and bofek in 1..18"
+flags:
+  ghg_sel: [ghg, agriculture_mask]
+  gt1_sel: [glg, agriculture_mask, peat_grass]
+  gt2_sel: [ghg, glg, agriculture_non_grass, lgn, bofek]
+  gt8_sel: [kwelwegz, gt]
+  kwel_sel: [kwelwegz, agriculture_mask, polder_mask]
+  wegzijging_sel: [kwelwegz, domain_mask, polder_mask]
+  runoff_sel: [runoff, agriculture_mask]
+  subinfil_sel: [ontw_netto, domain_mask, polder_mask]
+critical_uncertainties:
+  - exact_kwel_Flevoland_correction_insertion_before_selection
+  - gridcalc_operator_precedence_for_kwelwegz_expression
+  - gridcalc_operator_precedence_for_gt1_gt2_mask_subtraction
+  - confirm_rewritten_batch_against_actual_production_batch
