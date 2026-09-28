@@ -31,19 +31,42 @@ programs:
     source_date: "2026-05"
     source_file: LWKM_makeHRU.f90
     control_file: control_mkHRU.inp
-    status: SOURCE_BOUND_CONTROL_NAME_BOUND_CONTENT_PARTIAL
+    status: SOURCE_AND_CONTROL_BOUND
     primary_product:
       observed_current_name: SVAT_INFO_HRU.CSV
+      exact_control_path: "Basicdata\\csv\\svat_info_HRU.csv"
       role: current_75_column_svat_information_table
-      binding: CANDIDATE
-      blocker: verify_table_csv_in_exact_production_control
+      binding: CONTROL_CONFIRMED
     control_semantics:
       table_csv: PRIMARY_OUTPUT
       export_csv: EXISTING_SVAT_HRU_DONOR_RELATION_INPUT_FOR_AUXILIARY_DISCHARGE_COMPARISON
       afvoer_csv: AUXILIARY_OUTPUT
+    exact_control_bindings:
+      district_asc: "Basicdata\\grids\\HRU10242.ASC"
+      svat_asc: "Basicdata\\grids\\svat.asc"
+      lwkm_asc: "LHM_uitvoer\\filter\\filter_lwkm2.asc"
+      verdacht_asc: "LHM_uitvoer\\filter\\Piet_verdacht.asc"
+      gt_asc: "LHM_uitvoer\\filter\\gt.asc"
+      kwel_asc: "LHM_uitvoer\\kwel_corr\\Kwel_1991-2020.asc"
+      wegzijging_asc: "LHM_uitvoer\\kwel_corr\\Wegzijging_1991-2020.asc"
+      kwel_org: "LHM_uitvoer\\filter\\Kwel_1991-2020.asc"
+      ghg_sel_asc: "LHM_uitvoer\\filter\\ghg_sel.asc"
+      gt8_sel_asc: "LHM_uitvoer\\filter\\kwel_droog_sel.asc"
+      kwel_sel_asc: "LHM_uitvoer\\kwel_corr\\kwel_sel.asc"
+      wegzijging_sel_asc: "LHM_uitvoer\\kwel_corr\\wegzijging_sel.asc"
+      runoff_sel_asc: "LHM_uitvoer\\filter\\runoff_sel.asc"
+      subinfil_sel_asc: "LHM_uitvoer\\filter\\subinfil_sel.asc"
+      gt1_sel_asc: "LHM_uitvoer\\filter\\gt1_sel.asc"
+      gt2_sel_asc: "LHM_uitvoer\\filter\\gt2_sel.asc"
+      export_csv: "Basicdata\\csv\\export_svat_HRU_NRU_10242.csv"
+      afvoer_csv: "Basicdata\\csv\\HRUafv.csv"
     expected_current_auxiliary_output:
       observed_name: HRUAFV.CSV
-      binding: CANDIDATE
+      binding: CONTROL_CONFIRMED
+    launch_script:
+      file: do_mkHRU_INFO.bat
+      invocation: "exe\\LWKM_makeHRU.exe mkHRU_INFO.log control_mkHRU.inp"
+      status: BOUND
 
   hru_clustering:
     program: HRU_clustering_LWKM20
@@ -78,7 +101,7 @@ programs:
     source_date: "2026-04"
     source_file: hrulist2SWAP.f90
     control_file: control_LHM433_HRU_SWAP_10242.inp
-    status: SOURCE_BOUND_CONTROL_PARTIALLY_BOUND
+    status: SOURCE_AND_CONTROL_BOUND_BINARY_NAME_NOT_YET_SOURCE_VERIFIED
     observed_control_bindings:
       HRU2svat: "BasicData\\csv\\export_svat_HRU_NRU_10242.csv"
       HRU2SVAT_repr_csv: "BasicData\\csv\\export_HRUschema_10242_copy.csv"
@@ -101,9 +124,10 @@ programs:
       met_files:
         role: meteorological_input
     blockers:
-      - bind_exact_production_executable_binary_to_source
+      - bind_HRU2SWAP_executable_binary_to_HRUlist2SWAP_v038_source
       - reconcile_export_HRUschema_10242_copy_with_authoritative_HRU_schema
       - make_member_selection_policies_explicit
+      - reconcile_period_semantics_1991_2020_vs_GHG_GLG_1980_2019_vs_SWAP_1971_2021
 
 current_data_artifacts:
   svat_base_like:
@@ -139,10 +163,13 @@ logical_stage_binding:
 
   LHM4_3_cor:
     meaning: corrected_svat_hydrology_including_Flevoland_correction
-    status: OPEN
+    status: CONTROL_BINDING_CONFIRMED_METHOD_AUTHORITY_STILL_OPEN
     candidate_evidence:
-      - kwel_org(mm/j)
-      - kwel(mm/j)
+      - "kwel_org(mm/j) <- LHM_uitvoer\\filter\\Kwel_1991-2020.asc"
+      - "kwel(mm/j) <- LHM_uitvoer\\kwel_corr\\Kwel_1991-2020.asc"
+      - "wegzijging(mm/j) <- LHM_uitvoer\\kwel_corr\\Wegzijging_1991-2020.asc"
+      - "kwel_sel <- LHM_uitvoer\\kwel_corr\\kwel_sel.asc"
+      - "wegzijging_sel <- LHM_uitvoer\\kwel_corr\\wegzijging_sel.asc"
       - HRUlist2SWAP_history_mentions_Flevoland_correction
     admission_rule: >
       Do not call kwel - kwel_org the Flevoland correction until producer,
@@ -203,7 +230,7 @@ hru_input_authority_risk:
     HRU10242 can be called production-reproducible.
 
 next_binding_actions:
-  - verify_exact_table_csv_path_in_control_mkHRU
+  - reconstruct_filter_lwkm2_from_landuse_and_confirm_legacy_four_cell_error
   - add_HRU_clustering_R_source
   - bind_Flevoland_correction_producer
   - decide_canonical_rep_policy
