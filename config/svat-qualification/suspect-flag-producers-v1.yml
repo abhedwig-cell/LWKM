@@ -1,0 +1,53 @@
+schema_version: 1
+profile: SUSPECT_FLAGS_LWKM_2026_RECONSTRUCTION
+producer: do_gridcalc_lgn_rewritten.bat
+consumer: LWKM_makeHRU_v0.20
+period: 1991-2020
+units_note: "Several source grids are period sums; thresholds 365/548/183/730/1826 correspond approximately to daily thresholds after period convention. Preserve source expressions for compatibility."
+flags:
+  ghg_sel:
+    authority_block: oct_2025
+    expression: "ghg < 0 AND agriculture"
+    inputs: [ghg, lgn250_landbouw]
+  gt1_sel:
+    authority_block: earlier_selection_block
+    expression: "glg < 50 AND agriculture MINUS veen_gras"
+    inputs: [glg, lgn250_landbouw, veen_gras]
+    status: NEED_GRIDCALC_OPERATOR_PRECEDENCE_REGRESSION
+  gt2_sel:
+    authority_block: earlier_selection_block
+    expression: "(ghg < 40 AND glg < 80 MINUS glg < 50) AND agriculture_non_grass MINUS bollen_gt2 MINUS boomteelt_gt2"
+    inputs: [ghg, glg, lgn250_landbouw_gras, bollen_gt2, boomteelt_gt2]
+    status: NEED_GRIDCALC_OPERATOR_PRECEDENCE_REGRESSION
+  gt8_sel:
+    authority_block: oct_2025
+    output_name: kwel_droog_sel.asc
+    expression: "kwelwegz > 1 AND gt > 7"
+    note: "Source comment says GT7/GT8 with kwel; original note says NB alleen 8. gt>7 means class 8."
+  kwel_sel:
+    authority_block: oct_2025
+    expression_nature: "kwelwegz > 1826 AND nature AND not_polder"
+    expression_agriculture: "kwelwegz > 730 AND agriculture AND not_polder"
+    combine: sum
+  wegzijging_sel:
+    authority_block: oct_2025
+    expression: "kwelwegz < -548 AND LWKM_domain AND not_polder"
+  runoff_sel:
+    authority_block: oct_2025
+    expression_nature: "runoff < -548 AND nature"
+    expression_agriculture: "runoff < -183 AND agriculture"
+    combine: sum
+    sign_note: "Historical grid uses negative runoff sign."
+  subinfil_sel:
+    authority_block: oct_2025
+    expression: "ontw_netto > 365 AND LWKM_domain AND not_polder"
+    source_derivation: "ontw_netto = runoff + rivdrn_netto"
+consumer_encoding:
+  any_suspect: "sum(flags) > 0"
+  isuit_code: "1000000*sum(all flags) + 100000*ghg + 10000*(gt1+gt2) + 1000*gt8 + 100*(kwel+wegzijging) + 10*runoff + subinfil"
+historical_target:
+  suspect_svat_count: 20934
+open_checks:
+  - exact_GRIDCALC_arithmetic_precedence_for_gt1_gt2_subtractions
+  - reproduce_flag_overlap_counts_from_raw_grids
+  - confirm_rewritten_batch_matches_actual_production_batch
