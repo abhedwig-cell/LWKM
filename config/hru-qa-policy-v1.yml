@@ -1,0 +1,29 @@
+schema_version: 1
+profile: HRU_QA_HISTORICAL_BASELINE_V1
+hard_gates:
+  selected_svat_count: 427656
+  hru_count: 10242
+  nru_count: 25054
+  every_svat_assigned_once: true
+  every_hru_has_representative_svat: true
+  no_unknown_assignment_route: true
+diagnostics_required:
+  - route_summary
+  - aggregation_round_distribution
+  - regional_LDGB_backprojection
+  - GHG_area_weighted_bias_mae_rmse_p50_p90_p95
+  - NettoKwel_area_weighted_bias_mae_rmse_p50_p90_p95
+  - purity_lu4
+  - purity_grondsoort2
+  - purity_grondsoort4
+  - purity_pawn21
+  - HRUextra_count_and_area
+comparison_modes:
+  historical_exact:
+    exact_partition: required
+    exact_assignment_route: required
+    representative_relation: required
+  scientific_equivalent:
+    exact_partition: not_required
+    tolerances: PREREGISTER_BEFORE_USE
+rule: "Scientific-equivalent tolerances may not be chosen after seeing candidate results."
