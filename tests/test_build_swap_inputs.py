@@ -10,3 +10,5 @@ def test_static_case_binds_final_lookups_and_metfil():
     mapped,providers=build_static_case(m,rep,control,({10:99},{(1,5):4},{(1,5):6}))
     assert mapped["soil_id"]==99 and mapped["crop_id"]==4 and mapped["METFIL"]=="7.met"
     assert providers["PONDMX"](mapped)==50
+    assert providers["area"](mapped)==2
+    assert providers["xc"](mapped) in (0.0,2.0)
