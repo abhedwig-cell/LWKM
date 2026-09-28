@@ -714,6 +714,180 @@ De reconstructie heeft inmiddels het volgende opgeleverd:
 - een eerste QA-tool is toegevoegd voor reproduceerbare effectanalyse;
 - de volledige lijn staat in een draft pull request en is nog niet definitief production-admitted.
 
+
+
+## 25A. Concreet ingevuld op basis van reeds aangeleverde bestanden
+
+Een deel van de workflow hoeft niet meer conceptueel te blijven. Uit de reeds aangeleverde broncode, HRU-documentatie en eerder uitgelezen CSV-producten kan de actuele keten al behoorlijk concreet worden ingevuld.
+
+### 25A.1 Huidige SVAT-tabel en producent
+
+De aangeleverde broncode identificeert de producent als:
+
+- programma: `LWKM_makeHRU`;
+- versie: **0.20, mei 2026**;
+- doel volgens de broncode: een CSV-tabel maken ten behoeve van de HRU-indeling;
+- de feitelijke outputparameter heet `table_csv`.
+
+De broncode leest onder andere:
+
+- SVAT- en districtgrids;
+- neerslag en verdamping;
+- runoff;
+- afvoer totaal en systemen 1 t/m 5;
+- aanvoer totaal en systemen 1 t/m 3;
+- GHG en GLG;
+- kwel en wegzijging;
+- qlat;
+- infiltratie;
+- drainage-/ontwateringsinformatie;
+- beregening;
+- bodem- en landgebruiksklassen;
+- `lwkm_asc`;
+- `verdacht_asc`;
+- acht afzonderlijke selectie-/kwalificatiegrids;
+- `kwel_org_asc`;
+- verdampingscomponenten;
+- bergingsverandering;
+- MetaSWAP- en MODFLOW-fluxen.
+
+In een eerder uitgelezen huidig CSV-product, `SVAT_INFO_HRU.CSV`, waren **427.656 SVAT-records** aanwezig en **75 kolommen**. Dit getal is afkomstig uit de eerder geïnspecteerde aangeleverde `csv.zip`; het moet bij de definitieve admission opnieuw met een reproduceerbare run/checksum worden bevestigd.
+
+### 25A.2 Huidige kwalificatievelden
+
+De huidige SVAT-interface bevat expliciete velden voor onder andere:
+
+- `islwkm(0/1)`;
+- `ghg_sel`;
+- `gt1_sel`;
+- `gt2_sel`;
+- `gt8_sel`;
+- `kwel_sel`;
+- `wegzijging_sel`;
+- `runoff_sel`;
+- `subinfil_sel`;
+- `isverdacht`.
+
+Daarmee is de basis voor een reproduceerbare kwalificatielaag feitelijk al aanwezig. De nog ontbrekende stap is vooral het formaliseren van de betekenis, versie en downstream actie van iedere regel.
+
+Belangrijk: `isverdacht` is in de huidige keten geen eenvoudige universele ja/nee-authority voor vervangen. Het gebruik ervan verschilt per onderdeel en moet daarom worden vervangen door expliciet benoemde gebruiksflags.
+
+### 25A.3 Huidige HRU10242-producten
+
+Uit de eerder aangeleverde actuele CSV-set zijn de volgende HRU10242-producten vastgesteld:
+
+- `export_HRUschema_10242.csv`;
+- `export_NRUschema_10242.csv`;
+- `export_svat_HRU_NRU_10242.csv`;
+- `SVAT_INFO_HRU.CSV`;
+- `HRUAFV.CSV`.
+
+Bij eerdere inspectie bevatte:
+
+- `export_HRUschema_10242.csv`: **10.242 HRU's**;
+- `export_svat_HRU_NRU_10242.csv`: **427.656 SVAT-regels**, gekoppeld aan **10.242 HRU's**;
+- `export_NRUschema_10242.csv`: **25.054 NRU's**.
+
+Deze aantallen zijn zeer bruikbaar voor de huidige reconstructie, maar moeten voor de formele production binding nog worden gekoppeld aan checksums en de exacte producerende run.
+
+### 25A.4 Huidige HRU-afleiding inhoudelijk
+
+De aangeleverde HRU-documentatie beschrijft het bronbestand:
+
+`HRU_clustering_LWKM20_31082026.R`
+
+De gedocumenteerde methode is concreet:
+
+- SVATs zijn gridcellen van **250 × 250 m**, dus **6,25 ha**;
+- clustering vindt plaats binnen groepen met categorische kenmerken van onder andere landgebruik, bodem, grondwatertrap en kwelklasse;
+- er zijn **11 aggregatie-/versoepelingsniveaus**;
+- binnen een groep worden **GHG** en **NettoKwel** gebruikt als continue hydrologische clusteringvariabelen;
+- clustering is size-constrained;
+- kwaliteit wordt getoetst met onder andere **MAE**, **RMSE**, purity en scheefheid;
+- overblijvende SVATs kunnen via gewogen nearest-neighbour-matching aan een donor worden gekoppeld;
+- iedere HRU krijgt een representatieve bestaande SVAT;
+- voor die representatieve SVAT wordt in de uiteindelijke methode een **medoid op GHG en NettoKwel** gebruikt;
+- daarnaast worden representatieve punten rond de 10e/90e-percentielcombinaties bepaald.
+
+De gedocumenteerde invoer van het HRU-script bevat zowel:
+
+- `svat_info_lwkm_new.csv`;
+- `SVAT_INFO.csv`;
+- `xyLDGBclus.csv`.
+
+Daarmee is ook het eerder benoemde authority-risico concreet: het script kan informatie uit zowel een bewerkt als een oorspronkelijk SVAT-bestand betrekken. Voor HRU10242 moet dus nog worden bewezen welke hydrologische correctiestatus in `svat_info_lwkm_new.csv` zat en of het teruggrijpen op `SVAT_INFO.csv` geen ongecorrigeerde waarden heeft heringevoerd.
+
+### 25A.5 Huidige HRU-output en reeds aanwezige kwaliteitsinformatie
+
+De HRU-documentatie beschrijft al uitvoer die rechtstreeks bruikbaar is voor de toekomstige QA:
+
+- `export_svat_HRU_NRU_<datum>.csv`: volledige SVAT → HRU/NRU-koppeling;
+- `export_HRUschema_<datum>.csv`: HRU-schema;
+- `export_NRUschema_<datum>.csv`: NRU-schema;
+- `export_HRUpurity_<datum>.csv`: purity- en samenvattingsinformatie;
+- rasters met verschillen in GHG en NettoKwel tussen SVAT en HRU;
+- relatieve GHG-afwijking;
+- dichtheidsplots;
+- kaarten van gebiedsgemiddelde MAE.
+
+Er hoeft dus niet vanaf nul een HRU-QA te worden ontworpen. De bestaande diagnostiek kan worden opgenomen in de nieuwe canonical QA-gate en vervolgens worden uitgebreid naar de volledige vijfstappenvergelijking.
+
+### 25A.6 Huidige SWAP-inputgenerator
+
+De aangeleverde broncode identificeert:
+
+- programma: `HRUlist2SWAP`;
+- versie: **0.38, april 2026**;
+- doel: op basis van de HRU-lijst SWAP-invoer maken;
+- per HRU worden onder andere BBC-, drainage- en meteorologiebestanden opgebouwd.
+
+De source history bevat reeds expliciete ontwikkelstappen voor:
+
+- directe LHM-invoer;
+- drainage;
+- Flevoland-correctie;
+- qlat;
+- verdachte cellen;
+- infiltratie;
+- beregening;
+- drainageweerstand.
+
+De actuele code bevat zowel velden voor alle HRU-SVATs als voor een representatieve SVAT (`svat_repr`, `rz_repr`, `bfe_repr`, `bodem_repr`). Daarmee is de basis voor de twee gewenste SWAP-routes al gedeeltelijk in de bestaande programmatuur aanwezig, al moet de representatieve-SVAT-route nog als expliciet productpad worden ingericht.
+
+### 25A.7 Wat nu al concreet kan worden geanalyseerd
+
+Zodra de eerder aangeleverde CSV's opnieuw als reproduceerbare lokale bestanden beschikbaar zijn, kan zonder nieuwe conceptuele ontwikkeling al worden berekend:
+
+1. aantallen en oppervlak per kwalificatieflag;
+2. overlap tussen de verschillende `*_sel`-regels;
+3. verschil tussen `kwel_org` en de gebruikte `kwel` als **diagnostiek**;
+4. verschil tussen eigen SVAT en donor-SVAT;
+5. verschil tussen SVAT en HRU voor GHG en NettoKwel;
+6. HRU-purity, MAE en RMSE;
+7. ruimtelijke concentratie van HRU-afwijkingen.
+
+Wat nog **niet zuiver** kan worden toegerekend zonder extra binding:
+
+- het definitieve effect van de Flevoland-correctie;
+- het definitieve effect van het extremen-/vervangingsbeleid;
+- het volledige vijfstappeneffect S0 → S4;
+- SWAP-outputeffecten.
+
+Daarvoor ontbreken nog de exacte productie-inputs en authority-relaties.
+
+### 25A.8 Concrete status per vijfstappenproduct
+
+| Toestand | Wat al beschikbaar is | Status |
+|---|---|---|
+| **S0 SVAT_NL_BASE** | bronvelden en technische selectie zijn grotendeels reconstrueerbaar uit LHM/LWKM-bronnen | nog niet als afzonderlijk canonical CSV gebonden |
+| **S1 SVAT_LBN** | `islwkm` en huidige SVAT-populatie geven sterke basis voor landbouw+natuur-selectie | selectie semantisch nog formeel binden |
+| **S2 SVAT_FLEVOLAND_CORR** | `kwel_org` en `kwel` bestaan naast elkaar; HRUlist2SWAP-history noemt Flevoland-correctie | exacte alternatieve LHM-run, masker en mee te corrigeren balanscomponenten nog binden |
+| **S3 SVAT_QUALIFIED_REP** | acht selectievelden, `isverdacht`, donorinformatie en huidige batchregels bestaan | vervangings-/usage-policy nog formeel binden |
+| **S4 HRU10242** | actuele 10.242-HRU koppeling, HRU-schema, NRU-schema en representatieve SVATs zijn beschikbaar | sterkst ingevulde stap; exacte producerende R-bron/run nog binden |
+
+Deze tabel maakt zichtbaar dat vooral **S4 al zeer concreet is**, terwijl voor S0–S3 met name de formele scheiding tussen bron, correctie en gebruiksbesluit nog moet worden vastgezet.
+
+
 ## 26. Belangrijkste open punten
 
 De belangrijkste nog te sluiten punten zijn:
