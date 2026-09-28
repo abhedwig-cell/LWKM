@@ -290,10 +290,18 @@ def hru_average_backprojection(
     cfg: dict[str, Any],
     area_col: str,
     svat_id: str,
-) -> list[dict[str, Any]]:
+) -> tuple[list[dict[str, Any]], pd.DataFrame]:
+    """
+    Back-project HRU-average values to each member SVAT.
+
+    A spec may source the SVAT-side value from either:
+      - source_table="svat"    : the qualified SVAT table; or
+      - source_table="mapping" : the HRU mapping export (preferred for the
+        exact clustering variables, because it preserves *_orig semantics).
+    """
     specs = cfg.get("hru_backprojection", [])
     if not specs:
-        return []
+        return [], pd.DataFrame()
 
     mc = cfg["hru_map"]
     sc = cfg["hru_schema"]
@@ -309,37 +317,75 @@ def hru_average_backprojection(
     schema = hru_schema.copy()
     schema["_qa_hru"] = pd.to_numeric(schema[schema_hru], errors="coerce")
 
-    x = m[["_qa_svat", "_qa_hru"]].merge(
-        base, on="_qa_svat", how="left", validate="many_to_one"
-    )
-    x = x.merge(schema, on="_qa_hru", how="left", suffixes=("_svat", "_hru"), validate="many_to_one")
+    # Keep area from the shared SVAT authority. Mapping exports do not always
+    # preserve the exact authoritative area field.
+    area_lookup = base[["_qa_svat", area_col]].copy()
+    x = m.merge(area_lookup, on="_qa_svat", how="left", validate="many_to_one")
+    x = x.merge(schema, on="_qa_hru", how="left", suffixes=("_map", "_hru"), validate="many_to_one")
     w = num(x[area_col])
 
     rows = []
+    long_parts = []
     for spec in specs:
-        source = maybe_col(base, spec["svat"])
-        hru_avg = maybe_col(hru_schema, spec["hru_average"])
-        if source is None or hru_avg is None:
+        source_table = spec.get("source_table", "svat")
+        source_req = spec["svat"]
+        hru_req = spec["hru_average"]
+
+        if source_table == "mapping":
+            source = maybe_col(mapping, source_req)
+            if source is None:
+                rows.append({
+                    "variable": spec.get("name", source_req),
+                    "status": "MISSING_COLUMN",
+                    "source_table": source_table,
+                    "svat_column": source_req,
+                    "hru_average_column": hru_req,
+                })
+                continue
+            source_x = source if source not in hru_schema.columns else source + "_map"
+        else:
+            source = maybe_col(base, source_req)
+            if source is None:
+                rows.append({
+                    "variable": spec.get("name", source_req),
+                    "status": "MISSING_COLUMN",
+                    "source_table": source_table,
+                    "svat_column": source_req,
+                    "hru_average_column": hru_req,
+                })
+                continue
+            # Bring the exact SVAT source field in explicitly.
+            tmp = base[["_qa_svat", source]].rename(columns={source: "_qa_source_value"})
+            xx = x.merge(tmp, on="_qa_svat", how="left", validate="many_to_one")
+            source_x = "_qa_source_value"
+
+        hru_avg = maybe_col(hru_schema, hru_req)
+        if hru_avg is None:
             rows.append({
-                "variable": spec.get("name", spec["svat"]),
+                "variable": spec.get("name", source_req),
                 "status": "MISSING_COLUMN",
-                "svat_column": spec["svat"],
-                "hru_average_column": spec["hru_average"],
+                "source_table": source_table,
+                "svat_column": source_req,
+                "hru_average_column": hru_req,
             })
             continue
 
-        source_joined = source if source not in hru_schema.columns else source + "_svat"
-        hru_joined = hru_avg if hru_avg not in base.columns else hru_avg + "_hru"
-        a = num(x[source_joined])
-        b = num(x[hru_joined])
+        work = x if source_table == "mapping" else xx
+        hru_x = hru_avg if hru_avg not in mapping.columns else hru_avg + "_hru"
+
+        a = num(work[source_x])
+        b = num(work[hru_x])
         delta = b - a
         valid = delta.notna() & w.notna() & (w > 0)
+
         rows.append({
-            "variable": spec.get("name", source),
+            "variable": spec.get("name", source_req),
             "status": "OK",
+            "source_table": source_table,
             "svat_column": source,
             "hru_average_column": hru_avg,
             "n_pairs": int(valid.sum()),
+            "area_m2": float(w[valid].sum()),
             "weighted_mean_svat": wmean(a[valid], w[valid]),
             "weighted_mean_hru_backprojected": wmean(b[valid], w[valid]),
             "weighted_mean_delta": wmean(delta[valid], w[valid]),
@@ -350,7 +396,26 @@ def hru_average_backprojection(
             "p99_delta": delta[valid].quantile(0.99),
             "max_abs_delta": delta[valid].abs().max(skipna=True),
         })
-    return rows
+
+        part = pd.DataFrame({
+            "svat": work.loc[valid, "_qa_svat"],
+            "hru": work.loc[valid, "_qa_hru"],
+            "variable": spec.get("name", source_req),
+            "svat_value": a[valid],
+            "hru_backprojected_value": b[valid],
+            "delta": delta[valid],
+            "area_m2": w[valid],
+        })
+        region_req = spec.get("region_column") or cfg.get("hru_backprojection_region_column")
+        if region_req:
+            region = maybe_col(mapping, region_req)
+            if region is not None:
+                region_x = region if region not in hru_schema.columns else region + "_map"
+                part["region"] = work.loc[valid, region_x].to_numpy()
+        long_parts.append(part)
+
+    details = pd.concat(long_parts, ignore_index=True) if long_parts else pd.DataFrame()
+    return rows, details
 
 def representation_effects(
     svat: pd.DataFrame,
@@ -538,8 +603,32 @@ def main() -> int:
     hru_info.update(crosswalk)
     pd.DataFrame([hru_info]).to_csv(ns.out / "hru_mapping_summary.csv", index=False)
 
-    backproj = hru_average_backprojection(selected, mapping, schema, cfg, area, sid)
+    backproj, backproj_detail = hru_average_backprojection(selected, mapping, schema, cfg, area, sid)
     pd.DataFrame(backproj).to_csv(ns.out / "hru_average_backprojection.csv", index=False)
+    if not backproj_detail.empty:
+        backproj_detail.to_csv(ns.out / "hru_average_backprojection_detail.csv", index=False)
+        if "region" in backproj_detail.columns:
+            regional_rows = []
+            for (variable, region), g in backproj_detail.groupby(["variable", "region"], dropna=False):
+                ww = num(g["area_m2"])
+                dd = num(g["delta"])
+                valid = ww.notna() & (ww > 0) & dd.notna()
+                regional_rows.append({
+                    "variable": variable,
+                    "region": region,
+                    "n_svat": int(valid.sum()),
+                    "area_m2": float(ww[valid].sum()),
+                    "weighted_mean_delta": wmean(dd[valid], ww[valid]),
+                    "weighted_mae": wmean(dd[valid].abs(), ww[valid]),
+                    "weighted_rmse": wrmse(dd[valid], ww[valid]),
+                    "p01_delta": dd[valid].quantile(0.01),
+                    "median_delta": dd[valid].median(),
+                    "p99_delta": dd[valid].quantile(0.99),
+                    "max_abs_delta": dd[valid].abs().max(skipna=True),
+                })
+            pd.DataFrame(regional_rows).to_csv(
+                ns.out / "hru_average_backprojection_by_region.csv", index=False
+            )
 
     result = {
         "dataset": base,
