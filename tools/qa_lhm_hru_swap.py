@@ -563,27 +563,55 @@ def main() -> int:
         p = Path(value)
         return p if p.is_absolute() else root / p
 
+    def optional_path_for(key: str) -> Path | None:
+        value = cfg["inputs"].get(key)
+        if not value:
+            return None
+        p = Path(value)
+        return p if p.is_absolute() else root / p
+
     ns.out.mkdir(parents=True, exist_ok=True)
 
+    # Current qualified/current-chain SVAT table. This is the authority used
+    # for correction diagnostics, qualification flags and HRU crosswalks.
     svat = read_table(path_for("svat_table"))
     sid = resolve_col(svat, cfg["columns"]["svat_id"])
     area = resolve_col(svat, cfg["columns"]["area"])
     domain = resolve_col(svat, cfg["columns"]["domain_flag"])
 
-    base = summary(svat, sid, area)
-    if base["duplicate_id_rows"]:
-        raise ValueError(f"SVAT key not unique: {base['duplicate_id_rows']} duplicate rows")
+    current = summary(svat, sid, area)
+    if current["duplicate_id_rows"]:
+        raise ValueError(f"Current SVAT key not unique: {current['duplicate_id_rows']} duplicate rows")
 
+    # Optional broader pre-selection table, used specifically for S0 -> S1.
+    # If absent, fall back to the current table for backward compatibility.
+    base_path = optional_path_for("svat_base_table")
+    base_svat = read_table(base_path) if base_path else svat.copy()
+    base_sid = resolve_col(base_svat, cfg["columns"]["svat_id"])
+    base_area = resolve_col(base_svat, cfg["columns"]["area"])
+    base_domain = resolve_col(base_svat, cfg["columns"]["domain_flag"])
+    base = summary(base_svat, base_sid, base_area)
+    if base["duplicate_id_rows"]:
+        raise ValueError(f"Base SVAT key not unique: {base['duplicate_id_rows']} duplicate rows")
+
+    base_selected = base_svat[flag(base_svat[base_domain])].copy()
+    sel = summary(base_selected, base_sid, base_area)
+
+    # For downstream S2/S3/S4 analysis use the current-chain table and retain
+    # only domain members if a mixed-domain table is supplied.
     selected = svat[flag(svat[domain])].copy()
-    sel = summary(selected, sid, area)
+    selected_current = summary(selected, sid, area)
     fields = cfg["columns"]["hydrology"]
 
     pd.DataFrame(
-        hydrology_stage(svat, area, fields, "SVAT_BASE_PHYSICAL") +
-        hydrology_stage(selected, area, fields, "SVAT_DOMAIN_SELECTED")
+        hydrology_stage(base_svat, base_area, fields, "S0_SVAT_NL_BASE_CANDIDATE") +
+        hydrology_stage(base_selected, base_area, fields, "S1_SVAT_LBN_CANDIDATE") +
+        hydrology_stage(selected, area, fields, "S2_PLUS_CURRENT_SVAT_CHAIN")
     ).to_csv(ns.out / "stage_hydrology.csv", index=False)
 
-    pd.DataFrame(domain_effect(svat, selected, area, fields)).to_csv(ns.out / "domain_effect.csv", index=False)
+    pd.DataFrame(domain_effect(base_svat, base_selected, base_area, fields)).to_csv(
+        ns.out / "domain_effect.csv", index=False
+    )
 
     corr = correction_diagnostics(selected, area, cfg.get("correction_pairs", []))
     pd.DataFrame(corr).to_csv(ns.out / "correction_diagnostics.csv", index=False)
@@ -633,6 +661,7 @@ def main() -> int:
     result = {
         "dataset": base,
         "selected_dataset": sel,
+        "current_chain_dataset": selected_current,
         "qualification_union_rows": int(any_rule.sum()),
         "hru_mapping": hru_info,
         "hru_average_backprojection": backproj,
