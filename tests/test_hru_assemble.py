@@ -14,7 +14,7 @@ def test_normal_ldgb_rejects_three_member_nru():
 def test_hru_extra_and_representative_are_existing_svats():
     d=pd.DataFrame({"svat":[1,2,3],"LDGBclus":[1]*3,"lu4":[2]*3,"grondsoort4":[3]*3,"Gt_LHM43":[4]*3,
                     "GHG_LHM43":[0,10,100],"NettoKwel_LHM43":[0,10,100]})
-    x=make_hru_extra(d,5)
+    x=make_hru_extra(d,5,lambda g: g.loc[(g.GHG_LHM43-10).abs().idxmin(),'svat'])
     assert x.HRU.nunique()==1
     assert x.hru_cluster_donor_svat.iloc[0] in {1,2,3}
     x=finalize_nru(x)
