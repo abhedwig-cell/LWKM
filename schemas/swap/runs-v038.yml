@@ -1,0 +1,81 @@
+schema_version: 1
+profile: HRU10242_V038_RUNS
+columns:
+  - run_id
+  - scenario_id
+  - bodem_id
+  - soil2_id
+  - lu_id
+  - climate_id
+  - SWBBCFILE
+  - SWBOTB
+  - dqsat
+  - BBCFIL
+  - DRFIL
+  - METFIL
+  - irrigation_id
+  - solute_id
+  - rotation_id
+  - SWINCO
+  - GWLI
+  - RDS
+  - PONDMX
+  - RSRO
+  - tempBot
+  - glk
+  - area
+  - xc
+  - yc
+  - col
+  - row
+  - nusvat
+  - TSTART
+  - TEND
+  - SWETR
+  - soil_id
+  - crop_id
+  - croporg_id
+  - dikte_id
+  - COFANI
+  - NUMNODNEW
+constants:
+  scenario_id: direct
+  climate_id: "__"
+  solute_id: 0
+  rotation_id: max
+  SWINCO: 2
+  dikte_id: 1700
+  COFANI: 1.0
+  NUMNODNEW: 43
+direct_or_core_mapping:
+  run_id: HRU
+  BBCFIL: HRU
+  DRFIL: HRU
+  bodem_id: final_bfe
+  soil2_id: majority_soil2
+  lu_id: final_lgn
+  SWBOTB: majority_bbc
+  SWBBCFILE: "0 if SWBOTB == 7 else 1"
+  irrigation_id: historical_threshold_mapping
+  nusvat: member_count
+  area: member_area_sum
+provider_required:
+  - dqsat
+  - METFIL
+  - GWLI
+  - RDS
+  - PONDMX
+  - RSRO
+  - tempBot
+  - glk
+  - xc
+  - yc
+  - col
+  - row
+  - TSTART
+  - TEND
+  - SWETR
+  - soil_id
+  - crop_id
+  - croporg_id
+admission_rule: "No row may be emitted with unresolved fields or guessed defaults."
