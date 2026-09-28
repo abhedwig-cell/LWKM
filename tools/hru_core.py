@@ -14,7 +14,8 @@ DEFAULT_WEIGHTS_R1={
 }
 DEFAULT_WEIGHTS_R2={**DEFAULT_WEIGHTS_R1,"codelu4":250.0}
 
-def weighted_distance_matrix(targets:pd.DataFrame, donors:pd.DataFrame, weights:dict[str,float])->np.ndarray:
+def weighted_squared_euclidean_matrix(targets:pd.DataFrame, donors:pd.DataFrame, weights:dict[str,float])->np.ndarray:
+    """Squared weighted Euclidean distance; same NN ordering as RANN::nn2 after sqrt(weight) scaling."""
     cols=list(weights)
     t=targets[cols].astype(float).to_numpy()
     d=donors[cols].astype(float).to_numpy()
@@ -24,7 +25,7 @@ def weighted_distance_matrix(targets:pd.DataFrame, donors:pd.DataFrame, weights:
 
 def nearest_donors(targets:pd.DataFrame, donors:pd.DataFrame, weights:dict[str,float], donor_id:str="svat")->pd.Series:
     if donors.empty: raise ValueError("No donors")
-    dist=weighted_distance_matrix(targets,donors,weights)
+    dist=weighted_squared_euclidean_matrix(targets,donors,weights)
     idx=np.argmin(dist,axis=1)
     return pd.Series(donors.iloc[idx][donor_id].to_numpy(),index=targets.index,name="hru_cluster_donor_svat")
 
