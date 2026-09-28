@@ -67,3 +67,5 @@ De actuele authority is de **HRU10242-lijn**. Oudere HRU-indelingen worden niet 
 - `tools/qa_lhm_hru_swap.py` generates the first reproducible effect evidence for domain selection, correction diagnostics, qualification flags and HRU representation.
 - `config/production/HRU10242-bindings.yml` is the current producer-consumer binding map.
 - `config/effects/project-leader-stages.yml` is the machine-readable definition of the seven reporting stages.
+
+- [Vijfstappen-effecttabel v0.1](five-stage-effect-table-v0.1.md)
