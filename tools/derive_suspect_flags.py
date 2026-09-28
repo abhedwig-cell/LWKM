@@ -39,12 +39,22 @@ def derive_gt12_compat(df:pd.DataFrame)->pd.DataFrame:
     ag=df["lgn"].isin(AG_LGN)&df["is_lwkm_domain"].astype(bool)
     non_grass=df["lgn"].isin(AG_NON_GRASS_LGN)&df["is_lwkm_domain"].astype(bool)
     peat_grass=df["bofek"].isin(PEAT_BOFEK)&df["lgn"].eq(1)
-    gt1=(df["glg"]<50)&ag&~peat_grass
-    gt2_base=(df["ghg"]<40)&(df["glg"]<80)&~(df["glg"]<50)
-    bollen=gt2_base&df["lgn"].eq(10)
-    boom=gt2_base&df["lgn"].eq(7)&df["bofek"].isin(PEAT_BOFEK)
-    gt2=gt2_base&non_grass&~bollen&~boom
+    # gridcalc evaluates strictly left-to-right. Preserve numeric raster algebra,
+    # then the consumer clips negatives with MAX(flag,0).
+    gt1=((df["glg"]<50).astype(int)*ag.astype(int)-peat_grass.astype(int)).clip(lower=0)
+    a=(df["ghg"]<40).astype(int)
+    a=a*(df["glg"]<80).astype(int)
+    a=a-(df["glg"]<50).astype(int)
+    a=a*non_grass.astype(int)
+    gt2_base_for_crop=((df["ghg"]<40)&(df["glg"]<80)).astype(int)-(df["glg"]<50).astype(int)
+    bollen=gt2_base_for_crop*df["lgn"].eq(10).astype(int)
+    boom=gt2_base_for_crop*df["lgn"].eq(7).astype(int)*df["bofek"].isin(PEAT_BOFEK).astype(int)
+    gt2=(a-bollen-boom).clip(lower=0)
     return pd.DataFrame({"gt1_sel":gt1.astype(int),"gt2_sel":gt2.astype(int)},index=df.index)
+
+def kwelwegz_gridcalc(kwel,wegzijging):
+    """Historical gridcalc: operations are evaluated left-to-right."""
+    return (pd.to_numeric(kwel,errors="coerce")+pd.to_numeric(wegzijging,errors="coerce"))/365.25
 
 def derive_all_compat(df:pd.DataFrame)->pd.DataFrame:
     octf=derive_oct2025(df)
