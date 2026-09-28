@@ -37,6 +37,12 @@ def main():
     rows=[];deps=[]
     for h,g in members.groupby("HRU",sort=True):
         rep=reps.loc[int(h)].to_dict() if int(h) in reps.index else None
+        if rep is not None:
+            required_rep={"svat_repr","rz_repr","bfe_repr"}
+            missing_rep=required_rep-set(rep)
+            if missing_rep: raise ValueError(f"Legacy v0.38 representative adapter missing {sorted(missing_rep)} for HRU {h}")
+            if any(float(rep[k]) < 0 for k in ("rz_repr","bfe_repr")):
+                raise ValueError(f"Unsafe negative representative sentinel for HRU {h}; historical semantics unresolved")
         mapped,providers=build_static_case(g,rep,control,(b2b,l2c,l2o))
         dyn=dynamic.get(str(int(h)))
         if dyn is None:raise ValueError(f"Missing dynamic provider payload for HRU {h}")
