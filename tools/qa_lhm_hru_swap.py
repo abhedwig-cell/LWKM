@@ -229,6 +229,129 @@ def qualification(df: pd.DataFrame, area_col: str, fields: list[str]) -> tuple[l
     return rows, any_rule
 
 
+
+def qualification_overlap(df: pd.DataFrame, fields: list[str]) -> pd.DataFrame:
+    present = [c for req in fields if (c := maybe_col(df, req)) is not None]
+    masks = {c: flag(df[c]) for c in present}
+    rows = []
+    for a in present:
+        for b in present:
+            ma = masks[a]
+            mb = masks[b]
+            both = ma & mb
+            rows.append({
+                "rule_a": a,
+                "rule_b": b,
+                "n_a": int(ma.sum()),
+                "n_b": int(mb.sum()),
+                "n_both": int(both.sum()),
+                "fraction_of_a": float(both.sum() / ma.sum()) if int(ma.sum()) else np.nan,
+                "fraction_of_b": float(both.sum() / mb.sum()) if int(mb.sum()) else np.nan,
+            })
+    return pd.DataFrame(rows)
+
+
+def donor_flag_crosswalk(
+    selected: pd.DataFrame,
+    mapping: pd.DataFrame,
+    cfg: dict[str, Any],
+    svat_id: str,
+    any_rule: pd.Series,
+) -> dict[str, Any]:
+    mc = cfg["hru_map"]
+    map_svat = resolve_col(mapping, mc["svat"])
+    map_donor = resolve_col(mapping, mc["cluster_donor"])
+
+    flags = pd.DataFrame({
+        "_qa_svat": pd.to_numeric(selected[svat_id], errors="coerce"),
+        "_qa_flagged": any_rule.to_numpy(bool),
+    })
+    m = mapping.copy()
+    m["_qa_svat"] = pd.to_numeric(m[map_svat], errors="coerce")
+    m["_qa_donor"] = pd.to_numeric(m[map_donor], errors="coerce")
+    x = m.merge(flags, on="_qa_svat", how="left", validate="many_to_one")
+    changed = x["_qa_svat"].notna() & x["_qa_donor"].notna() & (x["_qa_svat"] != x["_qa_donor"])
+    flagged = x["_qa_flagged"].fillna(False)
+
+    return {
+        "rows": int(len(x)),
+        "donor_changed_total": int(changed.sum()),
+        "donor_changed_flagged": int((changed & flagged).sum()),
+        "donor_changed_unflagged": int((changed & ~flagged).sum()),
+        "flagged_total": int(flagged.sum()),
+        "flagged_with_same_donor": int((~changed & flagged).sum()),
+    }
+
+
+def hru_average_backprojection(
+    svat: pd.DataFrame,
+    mapping: pd.DataFrame,
+    hru_schema: pd.DataFrame,
+    cfg: dict[str, Any],
+    area_col: str,
+    svat_id: str,
+) -> list[dict[str, Any]]:
+    specs = cfg.get("hru_backprojection", [])
+    if not specs:
+        return []
+
+    mc = cfg["hru_map"]
+    sc = cfg["hru_schema"]
+    map_svat = resolve_col(mapping, mc["svat"])
+    map_hru = resolve_col(mapping, mc["hru"])
+    schema_hru = resolve_col(hru_schema, sc["hru"])
+
+    base = svat.copy()
+    base["_qa_svat"] = pd.to_numeric(base[svat_id], errors="coerce")
+    m = mapping.copy()
+    m["_qa_svat"] = pd.to_numeric(m[map_svat], errors="coerce")
+    m["_qa_hru"] = pd.to_numeric(m[map_hru], errors="coerce")
+    schema = hru_schema.copy()
+    schema["_qa_hru"] = pd.to_numeric(schema[schema_hru], errors="coerce")
+
+    x = m[["_qa_svat", "_qa_hru"]].merge(
+        base, on="_qa_svat", how="left", validate="many_to_one"
+    )
+    x = x.merge(schema, on="_qa_hru", how="left", suffixes=("_svat", "_hru"), validate="many_to_one")
+    w = num(x[area_col])
+
+    rows = []
+    for spec in specs:
+        source = maybe_col(base, spec["svat"])
+        hru_avg = maybe_col(hru_schema, spec["hru_average"])
+        if source is None or hru_avg is None:
+            rows.append({
+                "variable": spec.get("name", spec["svat"]),
+                "status": "MISSING_COLUMN",
+                "svat_column": spec["svat"],
+                "hru_average_column": spec["hru_average"],
+            })
+            continue
+
+        source_joined = source if source not in hru_schema.columns else source + "_svat"
+        hru_joined = hru_avg if hru_avg not in base.columns else hru_avg + "_hru"
+        a = num(x[source_joined])
+        b = num(x[hru_joined])
+        delta = b - a
+        valid = delta.notna() & w.notna() & (w > 0)
+        rows.append({
+            "variable": spec.get("name", source),
+            "status": "OK",
+            "svat_column": source,
+            "hru_average_column": hru_avg,
+            "n_pairs": int(valid.sum()),
+            "weighted_mean_svat": wmean(a[valid], w[valid]),
+            "weighted_mean_hru_backprojected": wmean(b[valid], w[valid]),
+            "weighted_mean_delta": wmean(delta[valid], w[valid]),
+            "weighted_mae": wmean(delta[valid].abs(), w[valid]),
+            "weighted_rmse": wrmse(delta[valid], w[valid]),
+            "p01_delta": delta[valid].quantile(0.01),
+            "median_delta": delta[valid].median(),
+            "p99_delta": delta[valid].quantile(0.99),
+            "max_abs_delta": delta[valid].abs().max(skipna=True),
+        })
+    return rows
+
 def representation_effects(
     svat: pd.DataFrame,
     mapping: pd.DataFrame,
@@ -402,18 +525,28 @@ def main() -> int:
 
     qual, any_rule = qualification(selected, area, cfg["columns"]["qualification_flags"])
     pd.DataFrame(qual).to_csv(ns.out / "qualification_counts.csv", index=False)
+    qualification_overlap(selected, cfg["columns"]["qualification_flags"]).to_csv(
+        ns.out / "qualification_overlap.csv", index=False
+    )
 
     mapping = read_table(path_for("svat_hru_map"))
     schema = read_table(path_for("hru_schema"))
     repr_rows, hru_info = representation_effects(selected, mapping, schema, cfg, fields, area, sid)
     pd.DataFrame(repr_rows).to_csv(ns.out / "representation_effect.csv", index=False)
+
+    crosswalk = donor_flag_crosswalk(selected, mapping, cfg, sid, any_rule)
+    hru_info.update(crosswalk)
     pd.DataFrame([hru_info]).to_csv(ns.out / "hru_mapping_summary.csv", index=False)
+
+    backproj = hru_average_backprojection(selected, mapping, schema, cfg, area, sid)
+    pd.DataFrame(backproj).to_csv(ns.out / "hru_average_backprojection.csv", index=False)
 
     result = {
         "dataset": base,
         "selected_dataset": sel,
         "qualification_union_rows": int(any_rule.sum()),
         "hru_mapping": hru_info,
+        "hru_average_backprojection": backproj,
         "guardrails": {
             "correction_requires_explicit_authority": True,
             "qualification_is_not_replacement": True,
