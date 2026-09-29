@@ -25,3 +25,10 @@ Production priority now:
 1. qualify qq aggregation and head/c1 support;
 2. preserve FLF/QLAT as audited diagnostic quantities;
 3. do not reactivate historical FLF boundary modes without a separate admission.
+
+
+## Realized-output correction (2026-09-29)
+
+A supplied production run directory contains populated BBC rows with THREE numeric columns after DATE2, e.g. HRU 7876. Therefore the prior source-only conclusion that the realized production BBC contains only active qq/QBOT2 is incomplete. The exact executable/version used for these files must be reconciled with the supplied source before independent reproduction is claimed.
+
+Do not assume column 1/2/3 semantics until matched to source/executable provenance.
