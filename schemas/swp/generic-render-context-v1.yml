@@ -1,0 +1,36 @@
+schema_version: 1
+context: generic_swap_render_context
+authority_precedence:
+  - datamodel_explicit
+  - referenced_domain_table
+  - named_profile_default
+  - unresolved_fail
+sections:
+  simulation:
+    symbols: [TSTART, TEND]
+  meteo:
+    symbols: [METFIL, SWETR]
+  crop:
+    symbols: [RDS, CROPROTATION]
+  soil_profile:
+    repeated: true
+    symbols: [ISUBLAY, ISOILLAY, HSUBLAY, NCOMP]
+  soil_hydraulics:
+    repeated: true
+    symbols: [ORES, OSAT, ALFA, NPAR, KSATFIT, LEXP, H_ENPR, KSATEXM, BDENS, ELAS]
+  soil_texture:
+    repeated: true
+    symbols: [PSAND, PSILT, PCLAY, ORGMAT]
+  bottom_boundary:
+    symbols: [SWBOTB]
+    optional_repeated_blocks:
+      SWBOTB_2: [DATE2, QBOT2]
+  drainage:
+    symbols: [SWDRA, DRFIL]
+  bottom_boundary_file:
+    symbols: [SWBBCFILE, BBCFIL]
+validation:
+  unknown_template_symbol: fail
+  unresolved_used_symbol: fail
+  unused_context_value: allow
+  repeated_block_length_mismatch: fail
