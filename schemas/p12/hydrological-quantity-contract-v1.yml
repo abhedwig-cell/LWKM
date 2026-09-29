@@ -1,0 +1,26 @@
+schema_version: 1
+contract: hydrological_quantity_support
+required_fields:
+  - quantity
+  - source
+  - native_unit
+  - support_domain
+  - intensive_or_extensive
+  - time_basis
+  - sign_convention
+  - representation_area
+  - conversion
+  - target_unit
+  - target_support
+support_domains:
+  - MODFLOW_CELL
+  - SVAT_GEOMETRY
+  - SVAT_REPRESENTATION
+  - HRU
+invariants:
+  - volume_conservation_across_support_conversion
+  - fractions_sum_to_one_within_parent_domain
+policy:
+  unknown_unit_or_support: fail
+  infer_weight_from_geometry_only: forbidden
+  historical_formula_without_dimensional_contract: audit_only
