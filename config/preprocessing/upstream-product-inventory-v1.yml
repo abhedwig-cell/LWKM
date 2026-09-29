@@ -66,11 +66,11 @@ families:
     isbuisdrainage.asc: {status: producer_reconstructed, rule: "buisdrainage < -30 and agriculture"}
     filter_lwkm2.asc: {status: partially_reconstructed, blocker: exact_filter_lwkm_to_filter_lwkm2_relation}
   drainage_components:
-    Afvoer_sys1_1991-2020.asc: {status: producer_search_needed}
-    Afvoer_sys2_1991-2020.asc: {status: producer_search_needed}
-    Afvoer_sys3_1991-2020.asc: {status: producer_search_needed}
-    Afvoer_sys4_1991-2020.asc: {status: producer_search_needed}
-    Afvoer_sys5_1991-2020.asc: {status: producer_search_needed}
-    Aanvoer_sys1_1991-2020.asc: {status: producer_search_needed}
-    Aanvoer_sys2_1991-2020.asc: {status: producer_search_needed}
-    Aanvoer_sys3_1991-2020.asc: {status: producer_search_needed}
+    Afvoer_sys1_1991-2020.asc: {status: producer_reconstructed, source: bdgriv_sys1_neg_l1}
+    Afvoer_sys2_1991-2020.asc: {status: producer_reconstructed, source: bdgriv_sys2_neg_l1}
+    Afvoer_sys3_1991-2020.asc: {status: producer_reconstructed, source: bdgriv_sys3_neg_l1}
+    Afvoer_sys4_1991-2020.asc: {status: producer_reconstructed, source: bdgdrn_sys1_l1}
+    Afvoer_sys5_1991-2020.asc: {status: producer_reconstructed, source: bdgdrn_sys3_l1}
+    Aanvoer_sys1_1991-2020.asc: {status: producer_reconstructed, source: bdgriv_sys1_pos_l1}
+    Aanvoer_sys2_1991-2020.asc: {status: producer_reconstructed, source: bdgriv_sys2_pos_l1}
+    Aanvoer_sys3_1991-2020.asc: {status: producer_reconstructed, source: bdgriv_sys3_pos_l1}
