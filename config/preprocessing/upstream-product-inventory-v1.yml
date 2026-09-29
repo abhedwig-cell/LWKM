@@ -1,0 +1,76 @@
+schema_version: 1
+authority: control_mkHRU.inp
+purpose: inventory of every upstream raster/product consumed by LWKM_makeHRU v0.20
+families:
+  spatial:
+    ECHO_toestroom_geclusterd_66gebieden.asc: {status: external_basicdata, role: original_district}
+    HRU10242.ASC: {status: downstream_feedback, role: realized_HRU_grid}
+    svat.asc: {status: external_basicdata, role: SVAT_identity}
+    grensvlak_NHIWQ_v2_fill.asc: {status: external_basicdata, role: dqsat}
+  landuse:
+    lgn250.asc: {status: raw_basicdata}
+    lu7.asc: {status: lookup_recoverable, source: lgn250.asc}
+    lu4.asc: {status: lookup_recoverable, source: lgn250.asc}
+    lu2.asc: {status: lookup_recoverable, source: lgn250.asc}
+  soil:
+    bodem.asc: {status: external_basicdata, output_column: bodem370}
+    soil79.asc: {status: lookup_recoverable, source: bodem.asc, output_column: bofek79}
+    soil21.asc: {status: lookup_recoverable, source: bodem.asc, output_column: pawn21}
+    soil4.asc: {status: lookup_recoverable, source: bodem.asc, output_column: grondsoort4}
+    soil2.asc: {status: lookup_recoverable, source: bodem.asc, output_column: grondsoort2}
+  groundwater:
+    glg.asc: {status: external_basicdata}
+    ghg.asc: {status: external_basicdata}
+    glg_fuzzyclass.asc: {status: producer_reconstructed, producer: grid2fuzzy, lookup: glg2fuzzy.csv}
+    ghg_fuzzyclass.asc: {status: producer_reconstructed, producer: grid2fuzzy, lookup: ghg2fuzzy.csv}
+    gt.asc: {status: producer_reconstructed, producer: gridcalc_GHG_GLG_rules}
+  flux_classes:
+    bdgrivdrn_net_fuzzyclass.asc: {status: producer_reconstructed, producer: grid2fuzzy, lookup: ontw2fuzzy.csv}
+    kwel_fuzzyclass.asc: {status: producer_reconstructed_but_flevoland_source_gap, producer: grid2fuzzy, lookup: kwelmmd2fuzzy.csv}
+    qlat_fuzzyclass.asc: {status: producer_reconstructed, producer: grid2fuzzy, lookup: kwelmmd2fuzzy.csv}
+  hydrology:
+    uopp.asc: {status: producer_reconstructed}
+    rivdrn_netto_1991-2020_sum.asc: {status: producer_reconstructed}
+    Riv_infiltratie_1991-2020_sum.asc: {status: producer_reconstructed}
+    Kwel_1991-2020.asc: {status: corrected_external_relation, location: kwel_corr}
+    Wegzijging_1991-2020.asc: {status: corrected_external_relation, location: kwel_corr}
+    qlatwb_1991-2020.asc: {status: producer_reconstructed}
+    Beregening_1991-2020.asc: {status: producer_reconstructed}
+    Buisdrainage_1991-2020.asc: {status: producer_reconstructed}
+    Neerslag_1991-2020.asc: {status: producer_reconstructed}
+    Verdamping_1991-2020.asc: {status: producer_reconstructed}
+    Runoff_1991-2020.asc: {status: producer_reconstructed}
+    rivdrn_ontwatering_1991-2020.asc: {status: producer_reconstructed}
+    Riv_infiltratie_1991-2020.asc: {status: producer_reconstructed}
+    Kwel_1991-2020_original.asc: {status: producer_reconstructed, control_name: kwel_org}
+    Tact_1991-2020.asc: {status: producer_reconstructed}
+    Eic_1991-2020.asc: {status: producer_reconstructed}
+    Ebs_1991-2020.asc: {status: producer_reconstructed}
+    Epd_1991-2020.asc: {status: producer_reconstructed}
+    Esp_1991-2020.asc: {status: producer_reconstructed}
+    Dberging_1991-2020.asc: {status: producer_reconstructed}
+    QMetaswap_1991-2020.asc: {status: producer_reconstructed}
+    Qmodf_1991-2020.asc: {status: producer_reconstructed}
+  qualification:
+    ghg_sel.asc: {status: producer_reconstructed}
+    kwel_droog_sel.asc: {status: producer_reconstructed, output_flag: gt8_sel}
+    kwel_sel.asc: {status: producer_reconstructed_but_flevoland_source_gap}
+    wegzijging_sel.asc: {status: producer_reconstructed_but_flevoland_source_gap}
+    runoff_sel.asc: {status: producer_reconstructed}
+    subinfil_sel.asc: {status: producer_reconstructed}
+    gt1_sel.asc: {status: producer_reconstructed}
+    gt2_sel.asc: {status: producer_reconstructed}
+    Piet_verdacht.asc: {status: legacy_diagnostic_dead_overwrite}
+  switches:
+    isberegen.asc: {status: producer_reconstructed, rule: "beregening > 10 and agriculture"}
+    isbuisdrainage.asc: {status: producer_reconstructed, rule: "buisdrainage < -30 and agriculture"}
+    filter_lwkm2.asc: {status: partially_reconstructed, blocker: exact_filter_lwkm_to_filter_lwkm2_relation}
+  drainage_components:
+    Afvoer_sys1_1991-2020.asc: {status: producer_search_needed}
+    Afvoer_sys2_1991-2020.asc: {status: producer_search_needed}
+    Afvoer_sys3_1991-2020.asc: {status: producer_search_needed}
+    Afvoer_sys4_1991-2020.asc: {status: producer_search_needed}
+    Afvoer_sys5_1991-2020.asc: {status: producer_search_needed}
+    Aanvoer_sys1_1991-2020.asc: {status: producer_search_needed}
+    Aanvoer_sys2_1991-2020.asc: {status: producer_search_needed}
+    Aanvoer_sys3_1991-2020.asc: {status: producer_search_needed}
