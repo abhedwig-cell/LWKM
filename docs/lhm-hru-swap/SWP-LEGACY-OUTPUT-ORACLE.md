@@ -18,17 +18,11 @@ For the inspected generated SWP files:
 
 Crop rotation is expanded into explicit yearly rows in the SWP; for run 12 these reference gras_maaien.
 
-## Confirmed unwanted side effects
+## Auxiliary lifecycle correction
 
-run_000000012 contains:
-- 12.met: 0 bytes
-- 12.dra: 0 bytes
-- 12.bbc: 0 bytes
-- gras_maaien.crp: copied asset
-- atmospheric_1975-2020.co2: copied asset
-- swap.swp
+run_000000012 initially contains zero-byte 12.met, 12.dra and 12.bbc targets. User domain knowledge establishes that substantive content for files such as MET and BBC is generated later by the Fortran workflow. These zero-byte files are therefore intermediate lifecycle targets/placeholders, not evidence that the auxiliary input is semantically empty.
 
-Thus the legacy generator creates/copies auxiliary files even when the run-specific MET/DRA/BBC files contain no data. The replacement must not reproduce this behavior by default.
+The replacement must preserve the producer contract while avoiding unnecessary regeneration. SWP rendering and auxiliary-content production remain separate stages.
 
 ## Resolved hidden rule
 
