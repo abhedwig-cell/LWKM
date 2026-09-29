@@ -1,0 +1,26 @@
+schema_version: 1
+profile: LWKM_2026
+extends: generic_swap_render_context_v1
+purpose: "Current LWKM subset of the generic SWAP datamodel/template capability."
+policy:
+  copy_shared_assets: false
+  create_empty_auxiliary_files: false
+  render_auxiliary_files_implicitly: false
+defaults:
+  simulation:
+    TSTART: "1971-01-01"
+    TEND: "2021-12-31"
+  soil_hydraulics:
+    ELAS: 1.0e-6
+defaults_status:
+  TSTART: legacy_observed_pending_datamodel_binding
+  TEND: legacy_observed_pending_datamodel_binding
+  ELAS: legacy_observed_pending_explicit_datamodel_field
+unresolved_policy:
+  RDS: "must resolve from datamodel/domain rule; do not use observed 120 as a hidden default"
+  METFIL: "reference only if meteo export/input is required"
+  DRFIL: "reference only when SWDRA requires an actual drainage file"
+  BBCFIL: "reference only when SWBBCFILE requires an actual BBC file"
+regression_oracle:
+  source: run_000000012.zip
+  runs: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
