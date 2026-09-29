@@ -44,3 +44,14 @@ Do not force-fit these residuals. Reconstruct executable provenance or compare m
 ## Governance consequence
 
 Modern P12 should implement donor-equal semantics because it matches clustering authority and realized outputs far better, while retaining a source-current compatibility fixture separately.
+
+
+## Six-snapshot confirmation
+
+Using head pairs at 1971-01-01, 01-11, 01-21, 02-01, 02-11 and 02-21, matched to realized BBC labels 31-dec, 10-jan, 20-jan, 31-jan, 10-feb and 20-feb according to the source's paaltjes/TimStart handling, yields 294 HRU-date comparisons.
+
+Overall:
+- supplied-source selection MAE: 0.053486 cm/day; RMSE 0.089419; 31/294 within 0.00055 cm/day.
+- donor-equal selection MAE: 0.005841 cm/day; RMSE 0.013584; 86/294 within 0.00055 cm/day.
+
+Donor-equal has lower MAE on every one of the six snapshots. This strengthens the conclusion that the realized executable did not use the supplied-source inverted membership rule.
