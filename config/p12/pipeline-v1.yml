@@ -1,0 +1,31 @@
+schema_version: 1
+pipeline: P12_SWAP_INPUT
+nodes:
+  runs:
+    inputs: [hru_static, hru_svat_relation]
+    outputs: [canonical_runs]
+  bbc:
+    inputs: [hru_svat_relation, bottom_flux_timeseries, bottom_boundary_policy]
+    outputs: [bbc]
+  met:
+    inputs: [hru_svat_relation, precipitation_timeseries, evaporation_timeseries, district_meteo]
+    outputs: [met]
+  dra:
+    inputs: [hru_static, drainage_inputs]
+    outputs: [dra]
+  swp:
+    inputs: [canonical_runs, soil_domain, crop_domain, profile, template]
+    outputs: [swp]
+edges:
+  - [runs, swp]
+fingerprint_policy:
+  per_node: true
+  timestamps_are_authority: false
+  unchanged: skip
+  changed: atomic_replace
+historical_oracle:
+  runs: hrulist2SWAP.f90
+  bbc: hrulist2SWAP.f90
+  met: hrulist2SWAP.f90
+  dra: hrulist2SWAP.f90
+  swp: SWAPtools_create_SWAP
