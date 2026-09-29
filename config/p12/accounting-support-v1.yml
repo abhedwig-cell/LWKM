@@ -1,0 +1,44 @@
+schema_version: 1
+contract: P12_ACCOUNTING_SUPPORT_V1
+reference_areas:
+  modflow_cell_m2: 62500
+quantities:
+  qq_vertical:
+    source_support: MODFLOW_CELL
+    source_kind: intensive
+    source_unit: m_per_day
+    derivation: "(head_l2 - head_l1) / c1"
+    target_support: HRU_MODFLOW_CELLS
+    historical_aggregation: equal_mean_over_selected_cells
+    candidate_status: physically_plausible
+    uopp_weighting: forbidden_without_explicit_target_change
+  precipitation:
+    source_support: METEO_RASTER_AT_SVAT
+    source_kind: intensive
+    target_support: HRU_METASWAP_ACTIVE_AREA
+    aggregation: "sum(value * uopp_member) / sum(uopp_member)"
+    status: observed
+  evaporation:
+    source_support: METEO_RASTER_AT_SVAT
+    source_kind: intensive
+    target_support: HRU_METASWAP_ACTIVE_AREA
+    aggregation: "sum(value * uopp_member) / sum(uopp_member)"
+    status: observed
+  flf:
+    source_support: MODFLOW_CELL
+    source_kind: extensive_budget_candidate
+    target_support: HRU_METASWAP_ACTIVE_AREA
+    historical_aggregation: "100 * sum(value) / sum(uopp_member)"
+    status: native_unit_and_target_semantics_pending
+  qlat:
+    source_support: MIXED_DERIVED_COUPLING
+    source_kind: derived_balance
+    target_support: HRU_METASWAP_ACTIVE_AREA
+    historical_aggregation: "100 * sum(value) / sum(uopp_member)"
+    status: historical_alternative_and_diagnostic_pending
+rules:
+  - "1 MODFLOW cell maps to 1 MetaSWAP SVAT in source LHM coupling."
+  - "uopp may be less than 62500 m2."
+  - "Do not require MetaSWAP surface balance to close the complete MODFLOW-cell surface balance."
+  - "Do not apply uopp weighting to MODFLOW-cell intensities unless target support is intentionally changed."
+  - "Every conversion must name source and target support."
