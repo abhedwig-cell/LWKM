@@ -61,20 +61,26 @@ def finalize_nru(membership:pd.DataFrame)->pd.DataFrame:
     codes,_=pd.factorize(x["NRUcode"],sort=True);x["NRU"]=codes+1
     return x
 
-def representative_relation(membership:pd.DataFrame)->pd.DataFrame:
+def representative_relation(membership:pd.DataFrame,candidate_selector=None)->pd.DataFrame:
+    """Historical representative relation; categorical fallback must select candidates first."""
+    if candidate_selector is None:
+        raise NotImplementedError("Historical packed-code representative candidate selector is not yet source-bound")
     rows=[]
     for h,g in membership.groupby("HRU",sort=True):
-        sid=medoid_existing_svat(g,("GHG_LHM43","NettoKwel_LHM43"))
+        candidates=candidate_selector(g)
+        if candidates is None or len(candidates)==0:
+            raise ValueError(f"No representative candidates for HRU {h}")
+        sid=medoid_existing_svat(candidates,("GHG_LHM43","NettoKwel_LHM43"))
         rows.append({"HRU":int(h),"hru_representative_svat":sid})
     return pd.DataFrame(rows)
 
-def assemble(primary:pd.DataFrame,remainder:pd.DataFrame,suspected:pd.DataFrame|None=None):
+def assemble(primary:pd.DataFrame,remainder:pd.DataFrame,suspected:pd.DataFrame|None=None,*,hru_extra_selector=None,representative_candidate_selector=None):
     valid,small=return_small_nru_groups(primary)
     base=assign_existing_hru_ids(valid)
     rest=pd.concat([remainder,small]+([suspected] if suspected is not None and len(suspected) else []))
     a1,rest=donor_round(rest,base,["LDGBclus","lu4"],DEFAULT_WEIGHTS_R1,4,"DONOR_LDGB_LU4")
     a2,rest=donor_round(rest,base,["LDGBclus","lu2"],DEFAULT_WEIGHTS_R2,2,"DONOR_LDGB_LU2")
-    extra=make_hru_extra(rest,int(base["HRU"].max()) if len(base) else 0)
+    extra=make_hru_extra(rest,int(base["HRU"].max()) if len(base) else 0,hru_extra_selector)
     membership=finalize_nru(pd.concat([base,a1,a2,extra],ignore_index=True))
-    reps=representative_relation(membership)
+    reps=representative_relation(membership,representative_candidate_selector)
     return membership,reps
