@@ -12,7 +12,9 @@ This is substantially broader than LWKM's desired operation: generate/update SWP
 
 ## Target contract
 
-Canonical HRU/SVAT products + versioned SWAP parameter tables -> deterministic SWP renderer.
+Datamodel is semantic authority. A named application profile resolves explicit defaults/policies, then a generic context builder feeds the SWP template. Legacy R/SWAPtools output is regression evidence only.
+
+Canonical HRU/SVAT products + versioned SWAP parameter tables -> datamodel -> profile -> generic context -> deterministic SWP renderer.
 
 Properties:
 1. SWP generation is a separate operation from running SWAP.
