@@ -64,7 +64,7 @@ families:
   switches:
     isberegen.asc: {status: producer_reconstructed, rule: "beregening > 10 and agriculture"}
     isbuisdrainage.asc: {status: producer_reconstructed, rule: "buisdrainage < -30 and agriculture"}
-    filter_lwkm2.asc: {status: partially_reconstructed, blocker: exact_filter_lwkm_to_filter_lwkm2_relation}
+    filter_lwkm2.asc: {status: reconstructed_from_lu2lwkm, rule: "lu2 in [1,2]", realized_svat_count: 427656, note: "four-cell discrepancy with filter_lwkm retained as historical regression fixture"}
   drainage_components:
     Afvoer_sys1_1991-2020.asc: {status: producer_reconstructed, source: bdgriv_sys1_neg_l1}
     Afvoer_sys2_1991-2020.asc: {status: producer_reconstructed, source: bdgriv_sys2_neg_l1}
