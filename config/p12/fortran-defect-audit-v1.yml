@@ -1,0 +1,25 @@
+schema_version: 1
+audit: P12_FORTRAN_DEFECT_AUDIT
+principle: "historical match != scientific correctness"
+classes:
+  - units_and_signs
+  - time_calendar_aggregation
+  - area_weighting
+  - fallback_nusvatwb_zero
+  - majority_and_ties
+  - representative_vs_members
+  - nodata_propagation
+  - hardcoded_constants
+  - boundary_semantics
+  - rooting_precedence
+  - drainage_aggregation
+  - meteo_district_assignment
+  - indexing_bounds
+required_evidence:
+  - hypothesis
+  - reproducer
+  - historical_result
+  - corrected_result
+  - justification
+  - impact
+  - regression
