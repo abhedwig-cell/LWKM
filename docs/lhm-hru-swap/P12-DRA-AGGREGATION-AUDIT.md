@@ -70,3 +70,12 @@ For 49 realized DRA files:
 2. compare each DRARES/INFRES/ZBOTDR/LEVEL;
 3. only then test algebraically equivalent/corrected candidates;
 4. quantify changes separately from historical reproduction.
+
+
+## Resolution H-DRA-COND01
+
+Project coupling documentation independently defines MODFLOW drain conductance CDRN in m2/day and derives the equivalent SWAP resistance as RDRN=Acell/CDRN. Therefore for N equal 62,500 m2 MODFLOW cells with parallel conductances, the source formula
+  R = 62500*N / sum(C_i)
+is dimensionally and physically correct. uopp must not replace full cell area for this MODFLOW-supported conductance.
+
+Status: CONFIRMED_CORRECT.
