@@ -27,9 +27,10 @@ quantities:
   flf:
     source_support: MODFLOW_CELL
     source_kind: extensive_budget_candidate
-    target_support: HRU_METASWAP_ACTIVE_AREA
+    target_support: UNRESOLVED
     historical_aggregation: "100 * sum(value) / sum(uopp_member)"
-    status: native_unit_and_target_semantics_pending
+    status: UNRESOLVED_SUPPORT_CONVERSION
+    canonical_storage: [volume_or_native_sum, modflow_area_m2, metaswap_active_area_m2]
   qlat:
     source_support: MIXED_DERIVED_COUPLING
     source_kind: derived_balance
