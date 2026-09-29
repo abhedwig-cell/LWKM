@@ -1,0 +1,29 @@
+schema_version: 1
+workstream: SWP_GENERATION_REPLACEMENT
+legacy:
+  orchestrator: Tools/R/run_SWAP.R
+  generator: SWAPtools::create_SWAP
+  database_examples:
+    - Tools/SWAP/Datamodel_lwkm71c.sqlite
+    - Tools/SWAP/Datamodel_lwkm71q.sqlite
+    - Tools/SWAP/Datamodel_lwkm71r.sqlite
+  template: Tools/SWAP/template/swap.swp
+  coupled_outputs_supported: [swp, met, atm, ini, crp, dra, bbc, irg]
+target:
+  language: Python
+  primary_output: swp
+  side_effect_policy: explicit_only
+  shared_assets: reference_not_copy
+  incremental:
+    key: HRU
+    fingerprint_inputs: renderer_version_plus_effective_swp_parameters
+    unchanged_action: skip
+    changed_action: atomic_replace
+  modes: [plan, render_one, render_changed, render_all]
+gates:
+  - template_variable_inventory
+  - sqlite_to_swp_field_contract
+  - one_hru_semantic_regression
+  - deterministic_repeat_render
+  - changed_only_regression
+  - no_unrequested_side_effect_files
