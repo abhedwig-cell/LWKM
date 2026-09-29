@@ -1,0 +1,65 @@
+schema_version: 1
+authority: LWKM_workflow_no_asc.zip plus do_gridcalc_lgn_rewritten.bat
+lookup_chains:
+  gxg2class.csv:
+    engine: grid2class
+    inputs: [ghg_agriculture_cm, glg_agriculture_cm]
+    outputs: [ghg_class, glg_class]
+    status: file_present_values_not_yet_extracted
+  dyn2class.csv:
+    engine: grid2class
+    input: groundwater_dynamics_cm
+    output: dynamiek_class
+    status: file_present_values_not_yet_extracted
+  flux2class.csv:
+    engine: grid2class
+    inputs: [wegzijging, buisdrainage, kwel, rivdrn_netto]
+    outputs: [wegzijging_class, buisdrainage_class, kwel_class, rivdrn_class]
+    status: file_present_values_not_yet_extracted
+  roff2class.csv:
+    engine: grid2class
+    input: runoff
+    output: runoff_class
+    status: file_present_values_not_yet_extracted
+  kwelflux2class.csv:
+    engine: grid2class
+    input: kwelwegz_mmd
+    output: kwelwegz_class
+    status: file_present_values_not_yet_extracted
+  ontw2class.csv:
+    engine: grid2class
+    input: bdgrivdrn_net_l1_period_sum
+    output: bdgrivdrn_net_class
+    status: file_present_values_not_yet_extracted
+  ghg2fuzzy.csv:
+    engine: grid2scale
+    input: ghg_cm
+    output: ghg_fuzzyclass
+    svat_column: ghg(scale)
+    status: file_present_values_not_yet_extracted
+  glg2fuzzy.csv:
+    engine: grid2scale
+    input: glg_cm
+    output: glg_fuzzyclass
+    svat_column: glg(scale)
+    status: file_present_values_not_yet_extracted
+  kwelmmd2fuzzy.csv:
+    engine: grid2scale
+    inputs: [kwelwegz_mmd, qlatwb_mmd]
+    outputs: [kwel_fuzzyclass, qlat_fuzzyclass]
+    svat_columns: [kwelwegz(scale), qlat(scale)]
+    status: file_present_values_not_yet_extracted
+  ontw2fuzzy.csv:
+    engine: grid2scale
+    input: rivdrn_netto_period_sum
+    output: bdgrivdrn_net_fuzzyclass
+    status: file_present_values_not_yet_extracted
+domain:
+  lu2lwkm.csv:
+    rule: "islwkm = 1 iff lu2 in {1,2}"
+    realized_svat_count: 427656
+    filter_lwkm_discrepancy_cells: 4
+    status: reconstructed
+notes:
+  - "Presence in supplied ZIP is established; exact row values for the ten class/fuzzy lookups still require extraction from ZIP bytes."
+  - "Do not reopen domain membership as an unknown producer question."
