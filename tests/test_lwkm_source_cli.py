@@ -41,7 +41,7 @@ def test_plan_and_collect_directly_from_controls(tmp_path):
     static=tmp_path/"static.dat";static.write_text("static")
     meteo=run/"meteo";meteo.mkdir()
     (meteo/"prec_1970_a.asc").write_text("rain")
-    (run/"modflow/results/head/head_19700101_l1.idf").write_text("head")
+    (run/"modflow/results/head/head_19701231_l1.idf").write_text("head")
 
     control=run/"control_run_1970_1970.ini"
     control.write_text(
@@ -83,3 +83,12 @@ def test_plan_and_collect_directly_from_controls(tmp_path):
     ])==0
     assert persisted.exists()
     assert main(["verify",str(bundle)])==0
+
+    report=tmp_path/"qualification.json"
+    assert main([
+        "qualify","--controls",str(tmp_path),"--profile",str(profile),
+        "--bundle",str(bundle),"--output",str(report)
+    ])==0
+    q=json.loads(report.read_text())
+    assert q["qualified_through"]=="Q4"
+    assert q["q4"]["status"]=="PASS"
