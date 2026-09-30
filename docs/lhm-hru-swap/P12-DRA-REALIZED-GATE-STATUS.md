@@ -1,7 +1,7 @@
 # P12 DRA realized reproduction gate status
 
 Status:
-**PARTIALLY QUALIFIED, MULTI-RUN HARNESS READY, SOURCE RASTERS SEMANTICALLY RECOVERED**
+**PARTIALLY QUALIFIED; STATIC04 SOURCE-SIDE CLOSED; 49-RUN REALIZED GATE BLOCKED**
 
 ## Source-side reconstruction already available
 
@@ -37,7 +37,7 @@ The multi-run harness:
 - fails admission when candidate runs are missing/extra;
 - requires every preregistered expected difference to actually occur.
 
-Therefore the 49-run gate no longer has an implementation/harness blocker. Once raw oracles and source-derived candidate files are available, the complete comparison can run in one command.
+Therefore the 49-run gate no longer has an implementation/harness blocker. STATIC04 source-side candidate generation is now also qualified; once the realized 49-run oracle bytes become available, the complete comparison can run in one command.
 
 ## Raw Project files
 
@@ -49,7 +49,9 @@ Direct raw-byte materialization remains unauthorized in the current runtime. How
 
 Therefore the source-raster content blocker is resolved for scientific/numerical reconstruction. Raw-byte identity remains unverified and must not be conflated with numerical-content equivalence.
 
-The earlier 49-run realized DRA set is described in repository authority but is not currently raw-readable in the Library/Project surface. Only one loose raw DRA oracle is currently recoverable:
+The earlier 49-run realized DRA set is described in repository authority and remains present as `run_files.zip`, but its raw bytes are not authorized for materialization in the current runtime. A full Library crawl found only this single archive object, so there is currently no alternative duplicate to use.
+
+Only one loose raw DRA oracle is currently recoverable:
 - `2000.dra`;
 - SHA-256 `85dff23754d138b12e3084e5c06c6ad3eb77880c64d7a24f85aa48aae4acd15e`.
 
@@ -76,9 +78,15 @@ Hence:
 `L / 4 = 20 = Runs.dqsat`
 for systems 2-5.
 
-This proves historical dqsat propagation into DRA geometry, but does not discriminate between:
-- legacy majority-BFE dqsat selection;
-- schema-first representative-SVAT dqsat.
+This proves historical dqsat propagation into DRA geometry.
+
+STATIC04 source-side reconstruction has since established that run 2000 is itself non-discriminating:
+- legacy reconstructed dqsat = 20;
+- representative-SVAT dqsat = 20;
+- historical Runs.dqsat = 20;
+- realized active-system L/4 = 20.
+
+Across the full 10,242-HRU source population, however, legacy and representative-SVAT dqsat differ for 2,771 HRUs. See `P12-STATIC04-DQSAT-RESULT-2026-09-30.md`.
 
 ## Nature discrimination
 
@@ -105,7 +113,7 @@ Qualified:
 Not yet qualified across the realized 49-run oracle:
 - exact DRARES/INFRES numeric reproduction;
 - ZBOTDR/LEVEL reproduction;
-- dqsat legacy-vs-schema discrimination;
+- realized classification of STATIC04 discriminating cases;
 - nature legacy-vs-schema discrimination;
 - SWALLO source-indicator reproduction.
 
@@ -113,15 +121,21 @@ Not yet qualified across the realized 49-run oracle:
 
 Current blocker classification:
 
-**BLOCKER_RAW_49RUN_DRA_AND_REPRESENTATIVE_SVAT_AUTHORITY**
+**BLOCKER_RAW_49RUN_DRA_REALIZED_ORACLE**
 
-The two source raster numerical contents are no longer blocked. Remaining evidence needed for STATIC04 discrimination is:
-1. the persisted 10,242-row Piet representative-SVAT relation, preferably `export_HRUschema_10242.csv` or an exactly equivalent source-bound artifact;
-2. `svat.asc` or another exact source-bound SVAT-to-raster-cell relation;
-3. the raw 49 realized DRA files for the final multi-run admission gate.
+The source-side STATIC04 authority question is no longer blocked:
+- authoritative `svat_repr` recovered for 10,242 HRUs;
+- exact representative source-cell mapping recovered through the persisted member relation x/y;
+- representative-SVAT dqsat reconstructed;
+- exact legacy majority-BFE dqsat reconstructed;
+- 2,771 source-side discriminating HRUs identified.
 
-Do not substitute `Runs.col/row` for `svat_repr`: those coordinates represent a different legacy geographic selection and have not been proven to be Piet's hydrologic representative SVAT.
+The remaining admission evidence is the raw 49-run realized oracle set. Required next steps when access clears:
+1. extract all 49 realized DRA files from `run_files.zip`;
+2. intersect those HRUs with the STATIC04 comparison table;
+3. classify active-system `L/4` as legacy, schema-first, non-discriminating or unexplained;
+4. run full `regress_dra_cases.py` for DRARES/INFRES/ZBOTDR/LEVEL/SWALLO semantics;
+5. close nature/DRA4 discrimination;
+6. require zero unexplained differences before direct DRA admission.
 
-The software needed to compare the resulting candidate set is already present and tested.
-
-Do not infer source rasters or representative-SVAT dqsat from realized DRA outputs. That would make the authority test circular.
+Do not infer representative dqsat from realized DRA outputs. Realized `L/4` remains an independent oracle only.
