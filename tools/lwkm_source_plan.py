@@ -6,7 +6,7 @@ perform scientific post-processing and does not copy restart payloads.
 """
 from __future__ import annotations
 
-from dataclasses import asdict
+import glob
 from pathlib import Path
 import re
 from typing import Any
@@ -16,6 +16,7 @@ import yaml
 from tools.lhm_run_chain_provenance import compare_controls, meteo_year_dependencies, parse
 
 PERIOD_RE=re.compile(r"control_run_(\d{4})[_-](\d{4})\.ini$",re.I)
+GLOB_CHARS=("*","?","[")
 
 
 def _period(path:Path)->tuple[int,int]:
@@ -37,7 +38,6 @@ def discover_controls(root:Path)->list[Path]:
     if not controls:
         raise FileNotFoundError(f"No control_run_*.ini files under {root}")
     controls.sort(key=lambda p:(_period(p)[0],_period(p)[1],str(p)))
-    seen=[]
     prev_end=None
     for p in controls:
         start,end=_period(p)
@@ -48,7 +48,6 @@ def discover_controls(root:Path)->list[Path]:
                 raise ValueError(
                     f"Gap in control periods: previous ends {prev_end}, next starts {start}"
                 )
-        seen.append((start,end))
         prev_end=end
     return controls
 
@@ -76,21 +75,26 @@ def _strip_quotes(value:str)->str:
     return value
 
 
-def _configured_path(control:Path,value:str)->Path:
+def _configured_raw_path(control:Path,value:str)->str:
     raw=_strip_quotes(value)
+    if re.match(r"^[A-Za-z]:[\\/]",raw):
+        return raw
     p=Path(raw)
     if p.is_absolute():
-        return p
-    # On the authoritative Windows server, drive-qualified paths are absolute
-    # even though they are not interpreted as such on POSIX test runners.
-    if re.match(r"^[A-Za-z]:[\\/]",raw):
-        return Path(raw)
-    return (control.parent/p).resolve()
+        return str(p)
+    return str((control.parent/p).resolve())
+
+
+def _configured_matches(control:Path,value:str)->list[Path]:
+    raw=_configured_raw_path(control,value)
+    if any(ch in raw for ch in GLOB_CHARS):
+        matches=[Path(p) for p in sorted(glob.glob(raw))]
+    else:
+        matches=[Path(raw)]
+    return [p for p in matches if p.is_file()]
 
 
 def _pattern_regex(pattern:str)->re.Pattern:
-    # Profile patterns use a single YYYY placeholder and otherwise literal
-    # control-key characters.
     escaped=re.escape(pattern).replace("YYYY",r"(?P<year>\d{4})")
     return re.compile("^"+escaped+"$",re.I)
 
@@ -135,6 +139,33 @@ def _add_source(
     sources.append(item)
 
 
+def _add_configured_value(
+    sources:list[dict],
+    *,
+    logical_name:str,
+    source_class:str,
+    control:Path,
+    value:str,
+    period:str,
+)->None:
+    matches=_configured_matches(control,value)
+    if not matches:
+        raise FileNotFoundError(
+            f"{control.name}: configured source {logical_name} matched no file: {value}"
+        )
+    for p in matches:
+        suffix=f":{p.name}" if len(matches)>1 else ""
+        _add_source(
+            sources,
+            logical_name=logical_name+suffix,
+            source_class=source_class,
+            path=p,
+            control=control,
+            period=period,
+            producer="LHM_CONTROL",
+        )
+
+
 def build_plan(controls_root:Path,profile_path:Path)->dict:
     controls=discover_controls(Path(controls_root))
     profile=load_profile(Path(profile_path))
@@ -161,18 +192,15 @@ def build_plan(controls_root:Path,profile_path:Path)->dict:
             v=values.get(key)
             if v is None or v.resolved is None:
                 raise ValueError(f"{control.name}: unresolved/missing static key {key}")
-            _add_source(
+            _add_configured_value(
                 sources,
                 logical_name=key,
                 source_class="static_input",
-                path=_configured_path(control,v.resolved),
                 control=control,
+                value=v.resolved,
                 period=period,
-                producer="LHM_CONTROL",
             )
 
-        # Every configured meteo family must exist once for every year in this
-        # control period. Extra years in a control are ignored by this period.
         matched:dict[tuple[str,int],Any]={}
         for key,v in values.items():
             for rx,profile_pattern in period_regexes:
@@ -191,14 +219,13 @@ def build_plan(controls_root:Path,profile_path:Path)->dict:
                     raise ValueError(
                         f"{control.name}: missing period input {family}_{year}"
                     )
-                _add_source(
+                _add_configured_value(
                     sources,
                     logical_name=f"{family}_{year}",
                     source_class="period_input",
-                    path=_configured_path(control,v.resolved),
                     control=control,
+                    value=v.resolved,
                     period=period,
-                    producer="LHM_CONTROL",
                 )
 
         run_root=_run_root(control,run_cfg)
