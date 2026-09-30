@@ -75,5 +75,7 @@ def test_q1_failure_stops_later_gates(tmp_path):
     _run(tmp_path,1972)
     profile=tmp_path/"profile.yml";_profile(profile)
     result=qualify(tmp_path,profile)
-    assert result["gates"][0]["status"]=="FAIL"
-    assert result["gates"][1]["status"]=="NOT_REACHED"
+    assert result["gates"][0]["status"]=="PASS"
+    assert result["gates"][1]["status"]=="FAIL"
+    assert result["gates"][2]["status"]=="NOT_REACHED"
+    assert result["gates"][3]["status"]=="NOT_REACHED"
