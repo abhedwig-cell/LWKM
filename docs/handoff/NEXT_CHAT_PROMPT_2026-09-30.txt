@@ -2,77 +2,80 @@ Ga verder binnen repository:
 
 abhedwig-cell/LWKM
 
-Werk rechtstreeks met de GitHub-connector en gebruik Project Files/Library voor de eerder geüploade bestanden.
+Werk rechtstreeks met de GitHub-connector en gebruik Project Files/Library voor eerder geüploade bestanden.
 
 Lees vóór iedere inhoudelijke actie eerst:
-
-1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30_R2.md op branch work/lhm-hru-swap-workflow-v1;
-2. daarna alleen waar nodig de oudere docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30.md voor historische achtergrond;
-3. de actuele head van work/lhm-hru-swap-workflow-v1;
-4. de task-specifieke authority-, audit- en serverdocumenten die in de R2-handoff worden genoemd.
+1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30_R3.md op branch work/lhm-hru-swap-workflow-v1;
+2. de actuele head van work/lhm-hru-swap-workflow-v1;
+3. alleen waar nodig de oudere R2/originele handoffs voor historische achtergrond;
+4. de task-specifieke authority-, audit- en serverdocumenten die in R3 worden genoemd.
 
 De repository is authority.
 
 Werk autonoom in grote blokken. Vraag geen toestemming tussen fasen. Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate of een echte blocker.
 
-Belangrijke besluiten die al gesloten zijn:
-- canonieke bodem370-classificatielookup is gekwalificeerd en staat in config/p12/bodem370_classification_lookup.csv;
-- STATIC02 SWETR-effect is 0/10.242 verschillen;
-- STATIC03 geeft 40 soil2-correcties en 6 daaruit volgende crop_id-correcties;
-- direct-SWP renderer contextlaag is R2-qualified candidate;
-- NHI/LHM source collector werkt controlset -> resolved plan -> verified v2 bundle;
-- run-2000 SWP/BBC/DRA/MET is raw oracle;
-- run-2000 DRA bewijst dqsat-propagatie Runs.dqsat -> L/4, maar is niet discriminating voor de authority-correctie.
+Reeds gesloten/gekwalificeerd:
+- canonieke bodem370-classificatielookup staat in config/p12/bodem370_classification_lookup.csv;
+- STATIC02 SWETR-effect = 0/10.242;
+- STATIC03 = 40 soil2-correcties en 6 crop_id-correcties;
+- run-2000 directe SWP-serialisatie is volledig gesloten op 112 actieve assignments + 4 dynamische tabellen;
+- full-active-SWP comparator en multi-run regression harness zijn geïmplementeerd;
+- NHI/LHM collector werkt controls + profile -> plan -> verified v2 bundle;
+- Q0-Q4 upstream source qualification is geïmplementeerd in tools/lhm_upstream_qualification.py en via lwkm_source_cli qualify;
+- run-2000 DRA bevestigt Runs.dqsat -> L/4 propagatie;
+- representative-bodem-only dqsat fallback is gefalsificeerd.
 
 ZEER BELANGRIJK VOOR BESTANDEN:
-Vraag mij niet opnieuw om uploads voordat Project Files/Library opnieuw zijn doorzocht. De volgende bestanden zijn aantoonbaar aanwezig maar hun huidige Project-backing bytes zijn niet geautoriseerd voor raw materialization:
-- control_runs.zip
-- Tools.zip / Tools(1).zip / Tools(2).zip
-- Template.zip
-- run_files.zip
-- run_000000012.zip
+Vraag mij niet opnieuw om uploads voordat Project Files/Library opnieuw zijn doorzocht.
+
+Aantoonbaar aanwezig maar raw-byte materialization nog geblokkeerd:
+- run_files.zip / 49-run realized set
 - ahn_f250_m.asc
 - grensvlak_NHIWQ_v2_fill.asc
+- control_runs.zip
+- huidige Template.zip
 - huidige SVAT_INFO(1).CSV
 
-Raw-readable/hersteld in de R2-chat:
+De twee DRA-rasters zijn in R3 opnieuw op de actuele Library-objecten gematerialiseerd geprobeerd en faalden opnieuw met de expliciete autorisatieblokkade.
+
+Raw-readable/hersteld:
 - source (2).zip
 - exe.zip
-- Datamodel_10242.sqlite uit historische archive
+- Datamodel_10242.sqlite uit historisch archive
 - historische Datamodel_10242.xlsx
 - SVAT_Waterbalans.xlsx
 - swap.swp
 - 2000.bbc
 - 2000.dra
 - 2000.met
+- historische swap_wwl.swp mapping template
 
-Eerstvolgende prioriteit is blocker-driven:
+Eerstvolgende werk is volledig blocker-driven:
 
-A. Als run_files.zip of realized 49-run directories raw leesbaar worden:
-   - extract 49 DRA/SWP/BBC/MET oracles;
-   - voer de gezamenlijke regression oracle uit;
-   - sluit DRA aggregation, nature en dqsat discriminatie.
+A. Zodra run_files.zip of realized 49-run directories raw leesbaar zijn:
+   - draai tools/regress_swp_cases.py;
+   - preregistreer gekwalificeerde intentional differences;
+   - eis nul unexplained differences;
+   - draai de DRA-oracle over dezelfde runs;
+   - sluit nature- en dqsat-discriminatie;
+   - beoordeel DIRECT_SWP_RENDERER_ADMITTED.
 
-B. Als ahn_f250_m.asc en grensvlak_NHIWQ_v2_fill.asc raw leesbaar worden:
-   - voer volledige DRA numerieke reconstructie uit;
-   - sluit ZBOTDR/LEVEL;
-   - bind representatieve dqsat-semantiek zonder circulariteit.
+B. Zodra ahn_f250_m.asc en grensvlak_NHIWQ_v2_fill.asc raw leesbaar zijn:
+   - reconstrueer representative-SVAT glk/dqsat rechtstreeks;
+   - sluit ZBOTDR/LEVEL en STATIC04 zonder circulariteit;
+   - voer de DRA numeric gate uit.
 
-C. Als Template.zip raw leesbaar wordt:
-   - inventariseer actuele template/R-side effects;
-   - bind aan typed context;
-   - render run 2000;
-   - vereis semantische identiteit;
-   - breid uit naar 49 runs.
-
-D. Als de originele NHI/LHM run tree beschikbaar is:
-   - run lwkm-source plan;
-   - bind exacte control-periodenketen;
+C. Zodra de originele NHI/LHM run tree beschikbaar is:
+   - run lwkm-source qualify voor Q0-Q3;
+   - run plan;
    - run collect;
-   - verify/unpack;
-   - consumer smoke test;
-   - Q4 source qualification.
+   - verify;
+   - run qualify met --bundle voor Q4;
+   - unpack;
+   - consumer smoke test.
 
-Maak historische defecten niet stil 'netter'. Leg intentional differences expliciet vast.
+Current Template.zip is confirmatory, niet meer automatisch een harde production dependency: de canonicalized template + adapter + explicit profile route kan worden admitted als de 49-run regression slaagt.
+
+Maak historische defecten nooit stil 'netter'. Leg intentional differences expliciet vast.
 
 Ga door.
