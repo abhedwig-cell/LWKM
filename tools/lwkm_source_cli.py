@@ -16,6 +16,7 @@ import tempfile
 
 from tools.lwkm_source_bundle import build_bundle_from_plan, unpack_bundle, verify_bundle
 from tools.lwkm_source_plan import build_plan
+from tools.lhm_upstream_qualification import qualify
 
 
 def _summary(manifest: dict) -> dict:
@@ -64,6 +65,27 @@ def cmd_collect(args):
     return 0
 
 
+def cmd_qualify(args):
+    result=qualify(Path(args.controls),Path(args.profile))
+    q4={"status":"PENDING","reason":"bundle not supplied"}
+    if args.bundle:
+        if result["qualified_through"]!="Q3":
+            q4={"status":"NOT_REACHED","reason":"Q0-Q3 not fully passed"}
+        else:
+            try:
+                manifest=verify_bundle(Path(args.bundle))
+                q4={"status":"PASS","bundle":_summary(manifest)}
+                result["qualified_through"]="Q4"
+                result["q4_ready_for_bundle_gate"]=True
+            except Exception as exc:
+                q4={"status":"FAIL","error":str(exc)}
+    result["q4"]=q4
+    if args.output:
+        _write_json(Path(args.output),result)
+    print(json.dumps(result,indent=2))
+    return 0 if all(g["status"]=="PASS" for g in result["gates"]) and q4["status"] in {"PASS","PENDING"} else 1
+
+
 def cmd_verify(args):
     m=verify_bundle(Path(args.bundle))
     print(json.dumps(_summary(m),indent=2))
@@ -102,6 +124,13 @@ def main(argv=None):
     c.add_argument("--write-plan",help="optional path to persist the resolved plan")
     c.add_argument("--output",required=True)
     c.set_defaults(fn=cmd_collect)
+
+    q=s.add_parser("qualify",help="evaluate Q0-Q3 and optionally the Q4 bundle gate")
+    q.add_argument("--controls",required=True)
+    q.add_argument("--profile",required=True)
+    q.add_argument("--bundle",help="optional verified bundle for Q4")
+    q.add_argument("--output",help="optional JSON qualification report")
+    q.set_defaults(fn=cmd_qualify)
 
     v=s.add_parser("verify")
     v.add_argument("bundle")
