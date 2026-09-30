@@ -112,3 +112,45 @@ Classification of remaining work:
 **BLOCKER_RAW_REPRESENTATIVE_SVAT_DQSAT_AND_DISCRIMINATING_DRA_ORACLES**.
 
 Do not infer representative dqsat from realized L values. That would make the authority test circular.
+
+
+## R3 source-side qualification update — 30 September 2026
+
+The former representative-SVAT source blocker has been removed.
+
+Recovered authority:
+- raw-readable historical `csv.zip`;
+- `export_HRUschema_10242.csv`: 10,242 unique HRUs and 10,242 unique `svat_repr` values;
+- `export_svat_HRU_NRU_10242.csv`: 427,656 member SVATs with exact x/y and source `bodem370_orig`;
+- complete numerical `grensvlak_NHIWQ_v2_fill.asc` content through validated line-range recovery.
+
+All 10,242 representative SVATs occur exactly once in the member relation and belong to the expected HRU. The member-relation count also equals schema `N` for all 10,242 HRUs.
+
+The exact supplied-source legacy rule and the direct representative-SVAT rule now differ for:
+- 2,771 / 10,242 HRUs = 27.055%;
+- equal for 7,471 / 10,242 HRUs.
+
+Among discriminating HRUs:
+- representative dqsat is greater in 1,357;
+- representative dqsat is lower in 1,414;
+- median absolute difference is 4 cm;
+- maximum absolute difference is 20 cm.
+
+Run 2000 remains non-discriminating:
+- legacy = 20;
+- representative-SVAT = 20;
+- historical Runs = 20;
+- realized active DRA L/4 = 20.
+
+Full provenance and method:
+- `P12-STATIC04-DQSAT-RESULT-2026-09-30.md`;
+- `P12-DRA-R3-RASTER-RECOVERY-2026-09-30.md`;
+- `tools/compare_dqsat_authority.py`.
+
+Revised classification:
+**STATIC04_DQSAT_SOURCE_SIDE_QUALIFIED**.
+
+Remaining gate:
+**BLOCKER_RAW_49RUN_DRA_DISCRIMINATING_ORACLES**.
+
+The 49-run realized set is still needed to classify executable behavior in discriminating cases. It is not needed anymore to decide what the schema-first source-side candidate means.
