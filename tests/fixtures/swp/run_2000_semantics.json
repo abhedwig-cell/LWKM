@@ -1,0 +1,50 @@
+{
+  "oracle": "run_2000",
+  "source": {
+    "swp": "swap.swp",
+    "companions": ["2000.met", "2000.dra", "2000.bbc"],
+    "recovered_utc_date": "2026-09-30"
+  },
+  "scalars": {
+    "TSTART": "1971-01-01",
+    "TEND": "2021-12-31",
+    "METFIL": "2000.met",
+    "SWETR": 0,
+    "SWINCO": 2,
+    "GWLI": -47.0,
+    "PONDMX": 0.2,
+    "RSRO": 0.25,
+    "RDS": 40.0,
+    "SWDRA": 1,
+    "DRFIL": "2000",
+    "SWBBCFILE": 1,
+    "BBCFIL": "2000",
+    "SWBOTB": 2,
+    "NUMNODNEW": 43
+  },
+  "tables": {
+    "soil_profile": [
+      {"ISUBLAY": 1, "ISOILLAY": 1, "HSUBLAY": 25.0, "NCOMP": 25},
+      {"ISUBLAY": 2, "ISOILLAY": 2, "HSUBLAY": 15.0, "NCOMP": 15},
+      {"ISUBLAY": 3, "ISOILLAY": 3, "HSUBLAY": 10.0, "NCOMP": 10},
+      {"ISUBLAY": 4, "ISOILLAY": 3, "HSUBLAY": 10.0, "NCOMP": 10},
+      {"ISUBLAY": 5, "ISOILLAY": 4, "HSUBLAY": 20.0, "NCOMP": 20},
+      {"ISUBLAY": 6, "ISOILLAY": 4, "HSUBLAY": 60.0, "NCOMP": 12},
+      {"ISUBLAY": 7, "ISOILLAY": 4, "HSUBLAY": 60.0, "NCOMP": 6},
+      {"ISUBLAY": 8, "ISOILLAY": 4, "HSUBLAY": 100.0, "NCOMP": 10},
+      {"ISUBLAY": 9, "ISOILLAY": 4, "HSUBLAY": 1700.0, "NCOMP": 170}
+    ],
+    "soil_hydraulics": [
+      {"ORES": 0.02, "OSAT": 0.433878, "ALFA": 0.021645, "NPAR": 1.348770, "KSATFIT": 83.24164, "LEXP": 7.202077, "H_ENPR": 0.0, "KSATEXM": 83.24164, "BDENS": 1364.867, "ELAS": 0.000001},
+      {"ORES": 0.02, "OSAT": 0.387064, "ALFA": 0.016083, "NPAR": 1.524418, "KSATFIT": 22.76176, "LEXP": 2.439662, "H_ENPR": 0.0, "KSATEXM": 22.76176, "BDENS": 1575.906, "ELAS": 0.000001},
+      {"ORES": 0.02, "OSAT": 0.387064, "ALFA": 0.016083, "NPAR": 1.524418, "KSATFIT": 22.76176, "LEXP": 2.439662, "H_ENPR": 0.0, "KSATEXM": 22.76176, "BDENS": 1632.718, "ELAS": 0.000001},
+      {"ORES": 0.01, "OSAT": 0.365847, "ALFA": 0.015987, "NPAR": 2.162751, "KSATFIT": 22.32215, "LEXP": 2.867967, "H_ENPR": 0.0, "KSATEXM": 22.32215, "BDENS": 1671.779, "ELAS": 0.000001}
+    ],
+    "soil_textures": [
+      {"PSAND": 0.87, "PSILT": 0.10, "PCLAY": 0.03, "ORGMAT": 0.057},
+      {"PSAND": 0.89, "PSILT": 0.08, "PCLAY": 0.03, "ORGMAT": 0.022},
+      {"PSAND": 0.89, "PSILT": 0.08, "PCLAY": 0.03, "ORGMAT": 0.010},
+      {"PSAND": 0.91, "PSILT": 0.06, "PCLAY": 0.03, "ORGMAT": 0.003}
+    ]
+  }
+}
