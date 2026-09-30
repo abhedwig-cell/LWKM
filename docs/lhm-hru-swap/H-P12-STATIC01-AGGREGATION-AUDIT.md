@@ -38,7 +38,7 @@ Required falsification:
 - compare realized SWP rooting parameter where available;
 - inspect historical executable/source provenance.
 
-Status: DEFECT_CONFIRMED_CONTROL_FLOW. Project-owner review agrees intended semantics are two-stage preferred-set then fallback-set. Regression fixture added; production Fortran not silently patched in this workunit.
+Status: DEFECT_CONFIRMED_CONTROL_FLOW_BUT_OVERRIDDEN_IN_CURRENT_REPR_MODE. Project-owner review agrees intended semantics are two-stage preferred-set then fallback-set. In the configured 10,242 path, HRU2SVAT_REPR_CSV is present and later overwrites rds_maj with rz_repr/100, so this defect is not currently established as affecting realized production SWP input. Regression fixture retained; do not port the defective loop.
 
 ## DQSAT
 
