@@ -13,4 +13,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r tools/requirements-lhm-hru-swap.txt pytest
-      - run: pytest -q tests
+      - run: PYTHONPATH=. pytest -q tests
