@@ -11,7 +11,9 @@ CONSTANTS={"scenario_id":"direct","climate_id":"__","solute_id":0,"rotation_id":
            "SWINCO":2,"dikte_id":1700,"COFANI":1.0,"NUMNODNEW":43}
 
 def build_runs_row(mapped:dict,providers:dict)->dict:
-    row=dict(CONSTANTS);row.update(mapped)
+    # Historical v0.38 adapter constants are configuration authority. They must
+    # not be overridden accidentally by mapped/member-derived data.
+    row=dict(mapped);row.update(CONSTANTS)
     hru=int(row.get("HRU",row.get("run_id")))
     row["run_id"]=hru
     row.setdefault("BBCFIL",hru);row.setdefault("DRFIL",hru)
