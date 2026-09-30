@@ -170,3 +170,22 @@ See:
 The DRA serializer accepts an explicit SWALLO provenance mode. The default remains supplied-source behavior; realized-production compatibility must be selected explicitly.
 
 This mismatch is now an expected provenance difference, not an unexplained renderer difference.
+
+
+## Targeted STATIC04 discriminator
+
+The 49-run validation set explicitly contains HRU 7877.
+
+Independent source-side reconstruction:
+- legacy majority-BFE dqsat = 18 cm;
+- representative-SVAT dqsat = 17 cm.
+
+Therefore, for any active positive-length drainage system in realized `7877.dra`:
+- `L = 72` cm supports the legacy authority;
+- `L = 68` cm supports representative-SVAT authority;
+- another active-system L is unexplained.
+
+This narrows the minimum evidence needed to classify STATIC04 executable behavior. A loose raw `7877.dra` would be sufficient for that authority question even before the complete 49-run archive is available. Full direct-DRA admission still requires the complete multi-run gate.
+
+See:
+`P12-STATIC04-TARGETED-REALIZED-DISCRIMINATOR-7877.md`.
