@@ -34,20 +34,50 @@ def _dates_in_name(path:Path)->list[date]:
 
 
 def _q0_q1(controls_root:Path)->tuple[Gate,Gate,list[Path]]:
+    root=Path(controls_root)
+    controls=[root] if root.is_file() else sorted(root.rglob("control_run_*.ini"))
+    if not controls:
+        fail=Gate("Q0","FAIL",{"error":f"No control_run_*.ini files under {root}"})
+        return fail,Gate("Q1","NOT_REACHED",{}),[]
+
+    parsed=[]
     try:
-        controls=discover_controls(Path(controls_root))
+        for p in controls:
+            period=_period(p)
+            # Parsing every file is part of Q0. Empty assignment sets are still
+            # parseable control files; semantic completeness belongs to Q2.
+            parse(p)
+            parsed.append((p,*period))
     except Exception as exc:
         fail=Gate("Q0","FAIL",{"error":str(exc)})
         return fail,Gate("Q1","NOT_REACHED",{}),[]
-    q0=Gate("Q0","PASS",{"control_count":len(controls),"controls":[p.name for p in controls]})
-    periods=[{"control":p.name,"start":_period(p)[0],"end":_period(p)[1]} for p in controls]
-    # discover_controls already rejects gaps/overlaps.
+
+    q0=Gate("Q0","PASS",{
+        "control_count":len(parsed),
+        "controls":[p.name for p,_,_ in parsed],
+    })
+
+    parsed.sort(key=lambda x:(x[1],x[2],str(x[0])))
+    periods=[]
+    prev_end=None
+    for p,start,end in parsed:
+        if prev_end is not None and start<=prev_end:
+            return q0,Gate("Q1","FAIL",{
+                "error":f"Overlapping control periods around {p.name}"
+            }),[x[0] for x in parsed]
+        if prev_end is not None and start!=prev_end+1:
+            return q0,Gate("Q1","FAIL",{
+                "error":f"Gap in control periods: previous ends {prev_end}, next starts {start}"
+            }),[x[0] for x in parsed]
+        periods.append({"control":p.name,"start":start,"end":end})
+        prev_end=end
+
     q1=Gate("Q1","PASS",{
         "periods":periods,
         "start_year":periods[0]["start"],
         "end_year":periods[-1]["end"],
     })
-    return q0,q1,controls
+    return q0,q1,[x[0] for x in parsed]
 
 
 def _q2(controls_root:Path,profile:Path)->tuple[Gate,dict|None]:
@@ -145,7 +175,7 @@ def _q3(plan:dict|None)->Gate:
 
 def qualify(controls_root:Path,profile:Path)->dict:
     q0,q1,_controls=_q0_q1(Path(controls_root))
-    if q0.status!="PASS":
+    if q0.status!="PASS" or q1.status!="PASS":
         gates=[q0,q1,Gate("Q2","NOT_REACHED",{}),Gate("Q3","NOT_REACHED",{})]
     else:
         q2,plan=_q2(Path(controls_root),Path(profile))
