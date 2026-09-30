@@ -46,9 +46,11 @@ RUN OUTPUT:
 - MetaSWAP/SVAT periodic output required for flux reconstruction;
 - other outputs only when an LWKM producer explicitly declares them.
 
-RESTART:
-- preserve lineage metadata;
-- include restart payload only if needed to reproduce/continue the source LHM run, not merely to generate downstream LWKM input.
+UPSTREAM LHM RUN QUALIFICATION:
+- MODFLOW/MetaSWAP restart handling between LHM sub-runs is outside LWKM responsibility;
+- LWKM does not copy or manage restart payload as a downstream dependency;
+- before source collection, verify that the authoritative upstream LHM run completed sufficiently for LWKM use;
+- retain only evidence needed to identify/qualify the source run.
 
 ## In the LWKM environment
 
@@ -74,3 +76,16 @@ For a new LHM run:
 - derived LWKM products are invalidated only when their declared dependencies changed.
 
 This supports selective regeneration without losing historical reproducibility.
+
+## Qualification gate before collection
+
+A bundle may be marked QUALIFIED only if the upstream LHM run passes available checks:
+- expected control/sub-run periods are present;
+- periods have no unexplained gaps or overlaps;
+- required MODFLOW head outputs exist for the requested LWKM period;
+- required MetaSWAP/SVAT outputs exist and cover the requested period;
+- expected final output for each sub-run exists;
+- available process logs/exit markers show no failed sub-run;
+- file sizes are nonzero and obvious truncation/missing-output conditions are absent.
+
+LWKM does not certify the numerical correctness of MODFLOW itself through these checks. The gate establishes execution completeness and provenance fitness for downstream use.
