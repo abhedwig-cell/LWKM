@@ -1,4 +1,5 @@
 import pandas as pd
+import pytest
 from tools.hru_assemble import return_small_nru_groups,make_hru_extra,finalize_nru,representative_relation
 
 def test_special_ldgb_allows_two_member_nru():
@@ -18,5 +19,12 @@ def test_hru_extra_and_representative_are_existing_svats():
     assert x.HRU.nunique()==1
     assert x.hru_cluster_donor_svat.iloc[0] in {1,2,3}
     x=finalize_nru(x)
-    rep=representative_relation(x)
+
+    # Historical fallback selection is deliberately fail-closed until its
+    # packed-code candidate selector is source-bound. Production representation
+    # comes from Piet's HRU schema instead of silently re-deciding here.
+    with pytest.raises(NotImplementedError):
+        representative_relation(x)
+
+    rep=representative_relation(x,lambda g:g)
     assert rep.hru_representative_svat.iloc[0] in {1,2,3}
