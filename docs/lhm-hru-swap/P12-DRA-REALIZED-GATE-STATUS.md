@@ -1,7 +1,7 @@
 # P12 DRA realized reproduction gate status
 
 Status:
-**PARTIALLY QUALIFIED; STATIC04 AND NATURE SOURCE-SIDE CLOSED; 49-RUN REALIZED GATE BLOCKED**
+**PARTIALLY QUALIFIED; STATIC04/NATURE SOURCE-SIDE CLOSED; SWALLO PROVENANCE SPLIT EXPLICIT; 49-RUN REALIZED GATE BLOCKED**
 
 ## Source-side reconstruction already available
 
@@ -114,7 +114,7 @@ Not yet qualified across the realized 49-run oracle:
 - exact DRARES/INFRES numeric reproduction;
 - ZBOTDR/LEVEL reproduction;
 - realized classification of STATIC04 discriminating cases;
-- SWALLO source-indicator reproduction.
+- full 49-run SWALLO classification under the explicit supplied-source versus realized-production provenance modes.
 
 Nature/DRA4 authority itself is now source-side closed. Across all 10,242 HRUs, legacy pre-override land use and representative-SVAT land use differ for 1,974 HRUs, but the exact supplied-source nature predicate is identical for all 10,242. Therefore no realized 49-run DRA4 difference may be attributed to legacy-versus-schema nature ordering in the current population. See `P12-NATURE-DRA4-AUTHORITY-RESULT-2026-09-30.md`.
 
@@ -140,3 +140,33 @@ The remaining admission evidence is the raw 49-run realized oracle set. Required
 6. require zero unexplained differences before direct DRA admission.
 
 Do not infer representative dqsat from realized DRA outputs. Realized `L/4` remains an independent oracle only.
+
+## SWALLO provenance mismatch — run 2000
+
+The independent run-2000 oracle now discriminates the forced-system SWALLO rule.
+
+Recovered source-side river-infiltration indicator:
+- equal-member mean of the independent `riv_infil` field;
+- available in `SVAT_INFO_HRU.CSV` under the historically misleading header `wegzijgingz(mm/j)`;
+- run 2000 value: 11.8204166667.
+
+Realized run 2000:
+- `INFRES3 = 725`;
+- `SWALLO3 = 3`.
+
+The active supplied v0.38 source rule `system > 3 OR INFRES > 20000 OR infil_avg < 10` predicts SWALLO3=1 and is therefore falsified for the realized executable.
+
+The source-history v0.27 statement `SWALLO=3 voor sys>2` predicts SWALLO3=3 and matches the realized oracle.
+
+Modern code now exposes two explicit provenance modes:
+- `SUPPLIED_SOURCE_V038`;
+- `REALIZED_PRODUCTION_COMPAT`.
+
+See:
+- `P12-SWALLO-REALIZED-PROVENANCE-2026-09-30.md`;
+- `P12-SWALLO-RIVER-INFILTRATION.md`;
+- `tools/p12_swallo.py`.
+
+The DRA serializer accepts an explicit SWALLO provenance mode. The default remains supplied-source behavior; realized-production compatibility must be selected explicitly.
+
+This mismatch is now an expected provenance difference, not an unexplained renderer difference.
