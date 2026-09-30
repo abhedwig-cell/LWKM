@@ -1,0 +1,55 @@
+schema_version: 1
+profile: lhm433-lwkm
+classes:
+  static_input:
+    keys:
+      - c_l1
+      - drn_cond_b
+      - drn_stage_b
+      - riv_cond_p1w
+      - riv_cond_s1w
+      - riv_cond_t1w
+      - riv_stage_p1w
+      - riv_stage_s1w
+      - riv_stage_t1w
+      - riv_stage_p1z
+      - riv_stage_s1z
+      - riv_stage_t1z
+      - riv_rbot_p1w
+      - riv_rbot_s1w
+      - riv_rbot_t1w
+      - riv_rbot_p1z
+      - riv_rbot_s1z
+      - riv_rbot_t1z
+      - riv_inf_p1
+      - riv_inf_s1
+      - riv_inf_t1
+      - uopp_asc
+      - maaiveld_asc
+      - lgn_asc
+      - bodem_asc
+      - rootzone_asc
+      - metestat_asc
+  period_input:
+    key_patterns:
+      - prec_YYYY
+      - evap_YYYY
+      - tmin_YYYY
+      - tmax_YYYY
+      - tmean_YYYY
+      - radiation_YYYY
+      - humidity_YYYY
+      - vapp_YYYY
+  run_output:
+    patterns:
+      - modflow/results/head/head_*_l1.idf
+      - metaswap/svat_per/*
+    status: REQUIRE_PRODUCER_FILTER
+  restart:
+    include_payload: false
+    preserve_lineage: true
+policy:
+  unknown_dependency: fail
+  missing_required_source: fail
+  hash_algorithm: sha256
+  snapshot_mutable: false
