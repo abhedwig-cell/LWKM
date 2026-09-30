@@ -1,0 +1,38 @@
+schema_version: 1
+oracle: P12_49_REALIZED_RUNS
+classifications:
+  - NON_DISCRIMINATING
+  - DISCRIMINATING
+  - SOURCE_MISSING
+  - EXPLAINED_LEGACY
+  - EXPLAINED_SCHEMA_FIRST
+  - UNEXPLAINED
+observables:
+  SWETR:
+    legacy: majority_landuse
+    candidate: representative_landuse
+  IS_NATURE_DRA4:
+    legacy: majority_landuse
+    candidate: representative_landuse
+    confounder: raw_drares4_gt_20000
+  SOIL2:
+    legacy: member_majority
+    candidate: canonical_lookup_from_representative_soil
+  DQSAT:
+    legacy: majority_bfe_population
+    candidate: representative_soil_semantics
+    oracle: dra_L_div_4_when_active
+  RDS:
+    legacy: rz_repr
+    candidate: rz_repr
+    expected: NON_DISCRIMINATING_CURRENT_REPR_MODE
+  MET_DISTRICT:
+    status: QUALIFIED_49_OF_49
+  WET:
+    status: QUALIFIED_17885_OF_17885
+  DRA_AGGREGATION:
+    status: FORMULA_RECONSTRUCTED_FULL_GATE_PENDING_RUNTIME
+  GWLI:
+    status: CHARACTERIZE_LEGACY_ONLY
+  SWALLO:
+    status: OPEN_SOURCE_SEMANTICS
