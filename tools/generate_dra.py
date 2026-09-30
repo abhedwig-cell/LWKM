@@ -3,6 +3,8 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
+from tools.p12_swallo import SUPPLIED_SOURCE_V038, swallo
+
 def conductance_weighted_depth(glk,bottom,cdr):
     g=pd.to_numeric(glk,errors="coerce").to_numpy(float)
     b=pd.to_numeric(bottom,errors="coerce").to_numpy(float)
@@ -31,12 +33,12 @@ def repair_system(s:dict,sy:int,isnatuur:bool)->dict:
         x.update({"peil_sum":0.0,"peil_win":0.0,"dep":0.0,"drnres":100000.0,"infres":100000.0})
     return x
 
-def render_dra(systems:list[dict],n_horizons:int,year_start:int,year_end:int,infil_avg:float)->str:
+def render_dra(systems:list[dict],n_horizons:int,year_start:int,year_end:int,infil_avg:float,*,swallo_mode:str=SUPPLIED_SOURCE_V038)->str:
     lines=["DRAMET = 3","SWDIVD = 1","COFANI ="+" 1.0"*int(n_horizons),"SWDISLAY = 0","NRLEVS = 5","SWINTFL = 0","SWTOPNRSRF = 0",""]
     for sy,s in enumerate(systems,1):
-        swallo=3 if sy>3 or s["infres"]>20000 or infil_avg<10 else 1
+        swallo_value=swallo(sy,s["infres"],infil_avg,mode=swallo_mode)
         lines += [f"DRARES{sy} = {s['drnres']:8.0f}",f"INFRES{sy} = {s['infres']:8.0f}",
-                  f"SWALLO{sy} = {swallo}",f"L{sy} = {max(1.0,s['dd']):8.0f}",
+                  f"SWALLO{sy} = {swallo_value}",f"L{sy} = {max(1.0,s['dd']):8.0f}",
                   f"ZBOTDR{sy} = {-s['dep']*100:8.2f}",f"SWDTYP{sy} = {1 if sy==4 else 2}"," ",
                   f"    DATOWL{sy}   LEVEL{sy}",f" 01-jan-{year_start} {-s['peil_win']*100:8.2f}"]
         for y in range(year_start,year_end+1):
