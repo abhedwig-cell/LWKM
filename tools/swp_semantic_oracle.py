@@ -1,8 +1,9 @@
 """Semantic parser/comparator for realized SWAP .swp regression oracles.
 
-This module intentionally ignores comments and formatting. It extracts active
-scalar assignments and the three datamodel-driven soil tables used by the
-direct renderer gate.
+This module ignores comments and formatting. It extracts active scalar
+assignments plus datamodel-driven tables used by the direct-renderer gate.
+It can also project a validated render context into the same semantic shape,
+so datamodel binding can be qualified independently of template serialization.
 """
 from __future__ import annotations
 
@@ -32,6 +33,7 @@ SCALAR_GATE_FIELDS = (
 )
 
 TABLE_HEADERS = {
+    "crop_rotation": ("CROPSTART", "CROPEND", "CROPNAME", "CROPFIL", "CROPTYPE"),
     "soil_profile": ("ISUBLAY", "ISOILLAY", "HSUBLAY", "NCOMP"),
     "soil_hydraulics": (
         "ORES",
@@ -71,10 +73,18 @@ def _without_comment(line: str) -> str:
     return "".join(out).rstrip()
 
 
+def _unquote(value: Any) -> Any:
+    if isinstance(value,str):
+        value=value.strip()
+        if len(value)>=2 and value[0]==value[-1]=="'":
+            return value[1:-1].replace("''","'")
+    return value
+
+
 def _atom(value: str) -> Any:
-    value = value.strip()
-    if len(value) >= 2 and value[0] == value[-1] == "'":
-        return value[1:-1]
+    value = _unquote(value.strip())
+    if not isinstance(value,str):
+        return value
     try:
         return int(value)
     except ValueError:
@@ -86,13 +96,7 @@ def _atom(value: str) -> Any:
 
 
 def _row_atom(value: str) -> Any:
-    try:
-        return int(value)
-    except ValueError:
-        try:
-            return float(value)
-        except ValueError:
-            return value
+    return _atom(value)
 
 
 def parse_scalars(text: str) -> dict[str, Any]:
@@ -148,6 +152,45 @@ def extract_semantics(text: str) -> dict[str, Any]:
     return {
         "scalars": {k: scalars.get(k) for k in SCALAR_GATE_FIELDS},
         "tables": {name: parse_table(text, header) for name, header in TABLE_HEADERS.items()},
+    }
+
+
+def context_semantics(ctx:dict[str,Any])->dict[str,Any]:
+    """Project a resolved render context into the regression-oracle schema."""
+    scalars={
+        "TSTART":ctx.get("TSTART"),
+        "TEND":ctx.get("TEND"),
+        "METFIL":_unquote(ctx.get("METFIL")),
+        "SWETR":ctx.get("SWETR"),
+        "SWINCO":ctx.get("SWINCO"),
+        "GWLI":ctx.get("GWLI"),
+        "PONDMX":ctx.get("PONDMX"),
+        "RSRO":ctx.get("RSRO"),
+        "RDS":ctx.get("RDS_effective",ctx.get("RDS")),
+        "SWDRA":ctx.get("SWDRA"),
+        "DRFIL":_unquote(ctx.get("DRFIL")),
+        "SWBBCFILE":ctx.get("SWBBCFILE"),
+        "BBCFIL":_unquote(ctx.get("BBCFIL")),
+        "SWBOTB":ctx.get("SWBOTB"),
+        "NUMNODNEW":ctx.get("NUMNODNEW"),
+    }
+    crop=[]
+    for r in ctx.get("TABLE_CROPROTATION",[]):
+        crop.append({
+            "CROPSTART":r.get("CROPSTART"),
+            "CROPEND":r.get("CROPEND"),
+            "CROPNAME":_unquote(r.get("CROPNAME")),
+            "CROPFIL":_unquote(r.get("CROPFIL")),
+            "CROPTYPE":r.get("CROPTYPE"),
+        })
+    return {
+        "scalars":scalars,
+        "tables":{
+            "crop_rotation":crop,
+            "soil_profile":ctx.get("TABLE_SOILPROFILE",[]),
+            "soil_hydraulics":ctx.get("TABLE_SOILHYDRFUNC",[]),
+            "soil_textures":ctx.get("TABLE_SOILTEXTURES",[]),
+        },
     }
 
 
