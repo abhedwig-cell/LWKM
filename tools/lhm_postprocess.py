@@ -95,8 +95,10 @@ def read_ascii_grid(path: str | Path) -> AsciiGrid:
 
     ncols = int(header["ncols"])
     nrows = int(header["nrows"])
-    if values.shape != (nrows, ncols):
-        raise ValueError(f"{path}: expected {(nrows, ncols)}, got {values.shape}")
+    values = np.asarray(values, dtype=np.float64)
+    if values.size != nrows * ncols:
+        raise ValueError(f"{path}: expected {nrows * ncols} values, got {values.size}")
+    values = values.reshape(nrows, ncols)
 
     return AsciiGrid(
         values=values,
