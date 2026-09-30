@@ -38,7 +38,7 @@ Required falsification:
 - compare realized SWP rooting parameter where available;
 - inspect historical executable/source provenance.
 
-Status: DEFECT_CANDIDATE_CONTROL_FLOW.
+Status: DEFECT_CONFIRMED_CONTROL_FLOW. Project-owner review agrees intended semantics are two-stage preferred-set then fallback-set. Regression fixture added; production Fortran not silently patched in this workunit.
 
 ## DQSAT
 
