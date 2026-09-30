@@ -1,0 +1,57 @@
+Ga verder binnen repository:
+
+abhedwig-cell/LWKM
+
+Werk rechtstreeks met de GitHub-connector en gebruik Project Files/Library voor de eerder geüploade bestanden.
+
+Deze chat neemt de LHM -> SVAT -> HRU -> SWAP moderniseringslijn over van de lange chat van 30 september 2026.
+
+Lees vóór iedere inhoudelijke actie eerst:
+
+1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30.md op branch work/lhm-hru-swap-workflow-v1;
+2. de actuele head van work/lhm-hru-swap-workflow-v1;
+3. de daarin genoemde authority-, audit- en serverdocumenten die voor de eerstvolgende taak relevant zijn.
+
+De repository is authority. De handoff bevat de actuele besluiten, gevonden defecten, open gates, serverlogistiek en uploadinventaris.
+
+Belangrijke werkwijze:
+
+- werk autonoom in grote blokken;
+- vraag geen toestemming tussen fasen;
+- verander historische semantiek niet stil;
+- reproduceer eerst, classificeer daarna, verbeter pas onder expliciete provenance;
+- Piet's HRU-schema is authority voor representatieve bodem, landgebruik en worteldiepte;
+- bestaande Fortranprogramma's op de NHI-server hoeven niet naar Python tenzij daar aantoonbaar voordeel voor is;
+- batch/orchestration mag wel worden gemoderniseerd;
+- MODFLOW/LHM restartmechanica is upstream verantwoordelijkheid; LWKM kwalificeert alleen of de bronrun compleet genoeg is;
+- de nieuwe SWP-productie moet selectief/incrementeel kunnen regenereren;
+- Martins R/template-procedure wordt uiteindelijk uit het productiepad gehaald, maar blijft tot kwalificatie historisch orakel.
+
+ZEER BELANGRIJK VOOR BESTANDEN:
+Vraag mij niet opnieuw om eerdere uploads voordat je eerst Project Files, Library en bestaande conversation uploads hebt doorzocht en waar nodig hebt gematerialiseerd. De vorige chat had een lokale runtime/containerstoring; dat betekent niet dat de bestanden ontbreken.
+
+Probeer als eerste opnieuw toegang te krijgen tot deze reeds geüploade bestanden:
+- control_runs.zip
+- exe.zip
+- Tools(2).zip
+- Template.zip
+- Datamodel_10242.xlsx
+- SVAT_INFO(1).CSV
+- de losse batchfiles genoemd in de handoff
+- de eerder aangeleverde Fortran-sources, controlfiles, run directories en DRA-bronrasters.
+
+Eerste grote werkblok:
+1. test of de nieuwe runtime de raw uploads nu wel kan lezen;
+2. inspecteer control_runs.zip en reconstrueer de exacte LHM-deelrun/periodenketen;
+3. inspecteer exe.zip en de losse batchfiles en reconstrueer batch -> executable -> input -> output;
+4. inspecteer Tools(2).zip, Template.zip en Datamodel_10242.xlsx en reconstrueer de feitelijke R/template SWP-generatie inclusief side-effects;
+5. genereer indien mogelijk de canonieke 370-regelige bodemlookup uit SVAT_INFO;
+6. leg resultaten direct vast in de repository.
+
+Ga daarna autonoom door met:
+- afronden van de NHI-server collect/verify source-bundle workflow;
+- implementeren van de minimale directe SWP-renderer;
+- één-run regressie en daarna 49-run regressie;
+- DRA/STATIC02/03/04 numerieke closure zodra de raw bronnen beschikbaar zijn.
+
+Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate, of een echte blocker.
