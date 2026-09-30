@@ -1,29 +1,39 @@
-# H-P12-STATIC03 — soil2 crop-class authority audit
+# H-P12-STATIC03 — soil2 authority resolution
 
-Domain clarification:
-  soil2 is a two-class soil grouping used for crop mapping:
-  - sand/loam
-  - clay/peat.
+## Resolved semantics
 
-It is not the detailed SWAP hydraulic soil/profile authority. Detailed profile authority remains Piet HRU schema (bfe_repr / bodem_repr).
+Earlier workflow reconstruction established soil2 / grondsoort2 as a deterministic lookup-derived soil class, not an independent HRU decision.
 
-Legacy behavior:
-- soil2_maj = member-count majority over all HRU members;
-- representative land use is later overridden from Piet's svat_repr;
-- crop mapping uses lu2crop(soil2_maj, representative_lgn).
+Realized hierarchy:
+  bodem370 -> BOFEK79 -> PAWN21 -> grondsoort4 -> grondsoort2
 
-This is physically plausible as a separate coarse crop-parameter class, but authority is mixed.
+soil2 is the final coarse crop-soil class (sand/loam versus clay/peat).
 
-Candidate modern semantics:
-- derive crop soil class from the authoritative representative soil or representative SVAT, then combine with representative land use.
+For realized source mappings, each present bodem370 code had one deterministic realized classification combination. The realized SVAT_INFO mapping is authority for historical reconstruction; earlier audit found 10 bodem370->BOFEK differences versus Bodem370_2_bofek2020.csv, so do not silently replace realized lookup provenance with that external table.
 
-Historical semantics:
-- retain member-majority soil2 as a separately named legacy/QA value until impact is known.
+## Legacy hrulist2SWAP behavior
 
-Required audit:
-1. establish mapping from representative soil/SVAT to soil2;
-2. compare representative-derived soil2 with member-majority soil2 over all HRUs;
-3. compare resulting lu2crop/lu2croporg only where soil2 differs;
-4. use realized SWP/crop references as oracle where available.
+The Fortran nevertheless recomputes:
+  soil2_maj = MAJORITY(member soil2)
+then combines it with the later representative land use:
+  lu2crop(soil2_maj, representative_lgn)
 
-Status: OPEN_AUTHORITY_AUDIT. No defect classification yet.
+This is a second reduction after soil classification has already been established upstream.
+
+## Modern authority
+
+For the schema-first production path:
+1. take Piet's authoritative representative soil / representative SVAT;
+2. resolve its soil classification through the preserved authoritative lookup chain;
+3. derive representative_soil2 / grondsoort2;
+4. combine that with representative_landuse for crop lookup.
+
+Do not recompute soil2 by HRU member majority in the production path.
+
+Member-majority soil2 may be retained as QA and legacy-compatibility diagnostic only.
+
+## Classification
+
+LEGACY_AUTHORITY_REDUCTION_SUPERSEDED_BY_SCHEMA_FIRST_LOOKUP.
+
+Production impact relative to realized historical SWP remains to be quantified where representative-derived soil2 differs from member-majority soil2.
