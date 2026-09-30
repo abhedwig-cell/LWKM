@@ -12,8 +12,9 @@ This file documents the **current physical CSV interface** produced by the Fortr
 - The eight `*_sel` fields are separate qualification signals and must remain separately traceable.
 - `islwkm(0/1)` is the explicit downstream domain flag in this table.
 - `isverdacht(1010000)` is a composite diagnostic encoding and is not suitable as the sole canonical qualification field.
-- `kwel_org(mm/j)` is preserved as a separate comparison/provenance field; its exact relation to `kwel(mm/j)` remains to be bound before the Flevoland correction is formalized.
-- There is a source/header inconsistency: the column named `wegzijgingz(mm/j)` is populated from `plotlist%infil` in the inspected source. This must be resolved rather than silently renamed.
+- `kwel_org(mm/j)` is now source-bound as the original/uncorrected 1991–2020 kwel grid from `LHM_uitvoer\\filter\\Kwel_1991-2020.asc`; `kwel(mm/j)` comes from the corrected `LHM_uitvoer\\kwel_corr\\Kwel_1991-2020.asc`.
+- The physical column named `wegzijgingz(mm/j)` is confirmed to contain `plotlist%infil`, sourced through `infil_asc = LHM_uitvoer\\filter\\Riv_infiltratie_1991-2020_sum.asc`. Its canonical semantic name is river infiltration indicator, while the historical CSV header is retained only for compatibility.
+- The production `control_mkHRU.inp` binds `gt8_sel_asc` directly to `LHM_uitvoer\\filter\\kwel_droog_sel.asc`.
 
 ## Data dictionary
 
@@ -50,7 +51,7 @@ This file documents the **current physical CSV interface** produced by the Fortr
 | 29 | `kwelwegz(scale)` | derived class | SVAT_BASE_DERIVED |  |
 | 30 | `qlat(mm/j)` | hydrology | SVAT_BASE |  |
 | 31 | `qlat(scale)` | derived class | SVAT_BASE_DERIVED |  |
-| 32 | `wegzijgingz(mm/j)` | hydrology | SVAT_BASE | SOURCE-CODE MISMATCH: this header position is written from plotlist%infil. Rename only after semantic authority is confirmed. |
+| 32 | `wegzijgingz(mm/j)` | hydrology | SVAT_BASE | HISTORICAL HEADER MISMATCH. Actual value = `plotlist%infil`, sourced from `Riv_infiltratie_1991-2020_sum.asc`. Canonical semantic field: river infiltration indicator; preserve old header only at legacy I/O boundary. |
 | 33 | `buisdr(mm/j)` | hydrology | SVAT_BASE |  |
 | 34 | `af/aanvoer_zomer(mm/j)` | hydrology | SVAT_BASE |  |
 | 35 | `af/aanvoer_zomer(scale)` | derived class | SVAT_BASE_DERIVED |  |
@@ -91,7 +92,7 @@ This file documents the **current physical CSV interface** produced by the Fortr
 | 70 | `Epd(mm/j)` | hydrology | SVAT_BASE |  |
 | 71 | `Esp(mm/j)` | hydrology | SVAT_BASE |  |
 | 72 | `dberging(mm/j)` | hydrology | SVAT_BASE |  |
-| 73 | `kwel_org(mm/j)` | comparison/provenance | SVAT_BASE | Meaning relative to kwel(mm/j) must be bound before treating as pre-/post-correction. |
+| 73 | `kwel_org(mm/j)` | comparison/provenance | SVAT_BASE | Original/uncorrected 1991–2020 kwel from `LHM_uitvoer\\filter\\Kwel_1991-2020.asc`; contrast with corrected `kwel(mm/j)` from `LHM_uitvoer\\kwel_corr\\Kwel_1991-2020.asc`. |
 | 74 | `qmetaswap(mm/j)` | model provenance/diagnostic | SVAT_BASE |  |
 | 75 | `qmodf(mm/j)` | model provenance/diagnostic | SVAT_BASE |  |
 
@@ -122,9 +123,7 @@ This prevents an HRU donor assignment from being mistaken for a hydrological cor
 
 ## Required follow-up before admission
 
-1. Bind the production `control_mkHRU.inp` to every source field.
-2. Resolve `wegzijgingz(mm/j)` versus `plotlist%infil`.
-3. Bind the exact meaning and producer of `kwel_org(mm/j)`.
-4. Record period and area basis per hydrological variable.
-5. Replace the composite `isverdacht` as an authority with explicit rule flags + versioned qualification configuration.
-6. Define explicit correction columns/records for the Flevoland correction instead of overwriting hydrology.
+1. Complete the field-by-field provenance table for the remaining control parameters not yet explicitly documented.
+2. Record period and area basis per hydrological variable.
+3. Replace the composite `isverdacht` as an authority with explicit rule flags + versioned qualification configuration.
+4. Define explicit correction columns/records for the Flevoland correction instead of overwriting hydrology.
