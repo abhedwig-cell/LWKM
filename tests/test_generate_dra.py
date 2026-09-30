@@ -1,5 +1,6 @@
 import pandas as pd
 from tools.generate_dra import aggregate_system,repair_system,render_dra
+from tools.p12_swallo import REALIZED_PRODUCTION_COMPAT
 
 def members():
     return pd.DataFrame({"glk":[10,10],"cdr1":[1,1],"inf1":[1,1],"leng1":[1,0],
@@ -24,3 +25,9 @@ def test_serializer_has_five_level_header_and_tube_system_four():
     s={"drnres":10,"infres":10,"dep":2,"peil_sum":1,"peil_win":1,"dd":10}
     text=render_dra([s]*5,3,2000,2000,20)
     assert "NRLEVS = 5" in text and "SWDTYP4 = 1" in text and "SWALLO4 = 3" in text
+
+
+def test_serializer_can_target_realized_system_three_swallo():
+    s={"drnres":10,"infres":725,"dep":2,"peil_sum":1,"peil_win":1,"dd":10}
+    text=render_dra([s]*5,3,2000,2000,11.820416666666667,swallo_mode=REALIZED_PRODUCTION_COMPAT)
+    assert "SWALLO3 = 3" in text
