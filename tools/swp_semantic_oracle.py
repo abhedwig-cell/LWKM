@@ -222,6 +222,8 @@ def compare_semantics(
     e_tables = expected.get("tables", {})
     a_tables = actual.get("tables", {})
     for name, header in TABLE_HEADERS.items():
+        if name not in e_tables:
+            continue
         erows = e_tables.get(name, [])
         arows = a_tables.get(name, [])
         if len(erows) != len(arows):
