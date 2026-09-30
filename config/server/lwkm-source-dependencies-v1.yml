@@ -1,0 +1,36 @@
+schema_version: 1
+bundle: lwkm-source-bundle-v1
+# Logical dependencies to resolve from the authoritative LHM control file.
+# Extend only when a producer proves it consumes an additional source.
+dependencies:
+  - shd_l1
+  - c_l1
+  - drn_cond_b
+  - drn_stage_b
+  - riv_cond_p1w
+  - riv_cond_s1w
+  - riv_cond_t1w
+  - riv_stage_p1w
+  - riv_stage_s1w
+  - riv_stage_t1w
+  - riv_stage_p1z
+  - riv_stage_s1z
+  - riv_stage_t1z
+  - riv_rbot_p1w
+  - riv_rbot_s1w
+  - riv_rbot_t1w
+  - riv_rbot_p1z
+  - riv_rbot_s1z
+  - riv_rbot_t1z
+  - riv_inf_p1
+  - riv_inf_s1
+  - riv_inf_t1
+  - uopp_asc
+  - maaiveld_asc
+  - lgn_asc
+  - bodem_asc
+  - rootzone_asc
+  - metestat_asc
+notes:
+  - Dynamic meteo families are period-dependent and must be expanded for the requested run years.
+  - LWKM-derived artifacts such as HRU schema and SVAT_INFO belong in a derived bundle, not silently mixed with LHM source authority.
