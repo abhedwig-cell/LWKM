@@ -1,7 +1,7 @@
 # P12 DRA realized reproduction gate status
 
 Status:
-**PARTIALLY QUALIFIED, MULTI-RUN HARNESS READY, RAW EVIDENCE BLOCKED**
+**PARTIALLY QUALIFIED, MULTI-RUN HARNESS READY, SOURCE RASTERS SEMANTICALLY RECOVERED**
 
 ## Source-side reconstruction already available
 
@@ -45,7 +45,9 @@ The two previously missing rasters are located in Project Files:
 - `ahn_f250_m.asc` — 23,402,759 bytes;
 - `grensvlak_NHIWQ_v2_fill.asc` — 3,521,406 bytes.
 
-Their backing bytes are still not authorized for materialization in the current runtime. This is an access limitation, not evidence that the files are absent.
+Direct raw-byte materialization remains unauthorized in the current runtime. However, both raster contents have now been recovered completely through text line-range materialization and passed a full 1200 x 1300 shape gate. Numerical-content recovery and semantic hashes are recorded in `P12-DRA-R3-RASTER-RECOVERY-2026-09-30.md`.
+
+Therefore the source-raster content blocker is resolved for scientific/numerical reconstruction. Raw-byte identity remains unverified and must not be conflated with numerical-content equivalence.
 
 The earlier 49-run realized DRA set is described in repository authority but is not currently raw-readable in the Library/Project surface. Only one loose raw DRA oracle is currently recoverable:
 - `2000.dra`;
@@ -111,12 +113,14 @@ Not yet qualified across the realized 49-run oracle:
 
 Current blocker classification:
 
-**BLOCKER_RAW_49RUN_DRA_AND_SOURCE_RASTER_BYTES**
+**BLOCKER_RAW_49RUN_DRA_AND_REPRESENTATIVE_SVAT_AUTHORITY**
 
-Required external evidence:
-1. raw 49 realized DRA files;
-2. raw `ahn_f250_m.asc`;
-3. raw `grensvlak_NHIWQ_v2_fill.asc`.
+The two source raster numerical contents are no longer blocked. Remaining evidence needed for STATIC04 discrimination is:
+1. the persisted 10,242-row Piet representative-SVAT relation, preferably `export_HRUschema_10242.csv` or an exactly equivalent source-bound artifact;
+2. `svat.asc` or another exact source-bound SVAT-to-raster-cell relation;
+3. the raw 49 realized DRA files for the final multi-run admission gate.
+
+Do not substitute `Runs.col/row` for `svat_repr`: those coordinates represent a different legacy geographic selection and have not been proven to be Piet's hydrologic representative SVAT.
 
 The software needed to compare the resulting candidate set is already present and tested.
 
