@@ -26,12 +26,12 @@ def build_weights(rows, mode:str):
         for r,s in zip(members,sel):
             if not s: continue
             # area column name is deliberately supplied by caller contract
-            a=float(r["area_m2"])
+            a=float(r["uopp_m2"])
             if a<=0: raise ValueError(f"HRU {hru}: nonpositive area")
             pix[pixel_1km(float(r["x"]),float(r["y"]))]+=a
         total=sum(pix.values())
         for (row,col),a in sorted(pix.items()):
-            out.append({"hru":hru,"row":row,"col":col,"area_m2":a,"weight":a/total})
+            out.append({"hru":hru,"row":row,"col":col,"uopp_m2":a,"weight":a/total})
     return out
 
 def aggregate_grid(weight_rows,grid):
