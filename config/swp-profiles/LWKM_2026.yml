@@ -1,26 +1,74 @@
-schema_version: 1
+schema_version: 2
 profile: LWKM_2026
 extends: generic_swap_render_context_v1
-purpose: "Current LWKM subset of the generic SWAP datamodel/template capability."
+purpose: "Current LWKM direct-SWP render profile with scientific context separated from serialization/output policy."
+
 policy:
   copy_shared_assets: false
   create_empty_auxiliary_files: false
   render_auxiliary_files_implicitly: false
-defaults:
-  simulation:
-    TSTART: "1971-01-01"
-    TEND: "2021-12-31"
-  soil_hydraulics:
-    ELAS: 1.0e-6
-defaults_status:
-  TSTART: legacy_observed_pending_datamodel_binding
-  TEND: legacy_observed_pending_datamodel_binding
-  ELAS: legacy_observed_pending_explicit_datamodel_field
-unresolved_policy:
-  RDS: "must resolve from datamodel/domain rule; do not use observed 120 as a hidden default"
-  METFIL: "reference only if meteo export/input is required"
-  DRFIL: "reference only when SWDRA requires an actual drainage file"
-  BBCFIL: "reference only when SWBBCFILE requires an actual BBC file"
+  execute_swap_implicitly: false
+  zip_run_implicitly: false
+  postprocess_implicitly: false
+
+scientific_context:
+  TSTART:
+    authority: Runs.TSTART
+    status: DIRECT
+  TEND:
+    authority: Runs.TEND
+    status: DIRECT
+  ELAS:
+    authority: eigenschappen.ELAS
+    status: DOMAIN_JOIN
+  RDS:
+    authority: Runs.RDS
+    status: DIRECT
+  SWETR:
+    authority: Runs.SWETR
+    status: DIRECT_AT_RENDERER_BOUNDARY
+  METFIL:
+    authority: Runs.METFIL
+    status: FILE_REFERENCE
+  DRFIL:
+    authority: Runs.DRFIL
+    status: FILE_REFERENCE
+  BBCFIL:
+    authority: Runs.BBCFIL
+    status: FILE_REFERENCE
+
+template_adapter:
+  id: legacy_swap_wwl_r2
+  role: HISTORICAL_MAPPING_TO_CANONICAL_SERIALIZATION
+  actions:
+    - insert_explicit_table_headers
+    - parameterize_SWETR
+    - parameterize_output_controls
+  source_hash_observed:
+    swap_wwl_swp_sha256: d960f7ede8074672f8f8d6c938df0554383f631e75dfdb67ea33bfe15cc5beab
+
+# These fields control requested SWAP output, not hydrological science.
+# Values are bound to the raw realized run-2000 oracle. They are a one-run
+# serialization qualification candidate until the 49-run set is accessible.
+renderer_output:
+  SWWBA: 1
+  PERIOD: 1
+  SWAUN: 0
+  SWODAT: 0
+  INLIST_CSV: "'WATBAL,ETTERMS,GWL,CROP,WOFOST,GRASS,PP,PL,WC[-10.0;-30.0;-60.0;-100.0],SR_WTOT[0.0:-30.0;-30.0:-60.0;-60.0:-100.0],SR_RWU[0.0:-30.0;-30.0:-60.0;-60.0:-100.0],Q[-30.0;-60.0;-100.0],PRWU[0.0:-30.0],RRWU[0.0:-30.0],RWU[0.0:-30.0],H[0.0:-30.0]'"
+renderer_output_status: RUN_2000_REALIZED_ORACLE_QUALIFIED_CANDIDATE
+
 regression_oracle:
-  source: run_000000012.zip
-  runs: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+  raw_available:
+    run_2000:
+      swp_sha256: 6b47cec011749041bc99e78322ed99a4116b798ec67536969074984f96a49796
+      bbc_sha256: fe1aa408e2be00ae261dfe1f9244a682d525707e24aef63da421e6f134bafc1c
+      dra_sha256: 85dff23754d138b12e3084e5c06c6ad3eb77880c64d7a24f85aa48aae4acd15e
+      met_sha256: 2598998b5c161aedb9d39c6e3ea8919c78b9a9efbf909506f2a0dfa163a5a8f4
+  historical_set:
+    source: run_000000012.zip
+    runs: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+    raw_access: BLOCKED_CURRENT_PROJECT_BACKING
+  required_admission_set:
+    runs: 49
+    raw_access: BLOCKED_CURRENT_PROJECT_BACKING
