@@ -82,9 +82,10 @@ def _unquote(value: Any) -> Any:
 
 
 def _atom(value: str) -> Any:
-    value = _unquote(value.strip())
-    if not isinstance(value,str):
-        return value
+    raw=value.strip()
+    if len(raw)>=2 and raw[0]==raw[-1]=="'":
+        return _unquote(raw)
+    value=raw
     try:
         return int(value)
     except ValueError:
