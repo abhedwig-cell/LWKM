@@ -10,20 +10,20 @@ quantities:
     derivation: "(head_l2 - head_l1) / c1"
     target_support: HRU_MODFLOW_CELLS
     historical_aggregation: equal_mean_over_selected_cells
-    candidate_status: physically_plausible
+    candidate_status: source_semantics_confirmed_realized_executable_uses_donor_equal_or_equivalent
     uopp_weighting: forbidden_without_explicit_target_change
   precipitation:
     source_support: METEO_RASTER_AT_SVAT
     source_kind: intensive
     target_support: HRU_METASWAP_ACTIVE_AREA
     aggregation: "sum(value * uopp_member) / sum(uopp_member)"
-    status: observed
+    status: confirmed_historical_formula_uopp_weighted
   evaporation:
     source_support: METEO_RASTER_AT_SVAT
     source_kind: intensive
     target_support: HRU_METASWAP_ACTIVE_AREA
     aggregation: "sum(value * uopp_member) / sum(uopp_member)"
-    status: observed
+    status: confirmed_historical_formula_uopp_weighted
   flf:
     source_support: MODFLOW_CELL
     source_kind: extensive_budget_candidate
@@ -43,3 +43,18 @@ rules:
   - "Do not require MetaSWAP surface balance to close the complete MODFLOW-cell surface balance."
   - "Do not apply uopp weighting to MODFLOW-cell intensities unless target support is intentionally changed."
   - "Every conversion must name source and target support."
+  drainage_resistance:
+    source_support: MODFLOW_CELL
+    source_kind: parallel_conductance
+    source_unit: m2_per_day
+    target_support: HRU_MODFLOW_CELLS
+    aggregation: "(62500 * n_members) / sum(conductance)"
+    target_unit: day
+    status: CONFIRMED_CORRECT
+    uopp_weighting: forbidden
+  drainage_depth:
+    source_support: MODFLOW_CELL
+    source_kind: conductance_weighted_depth
+    target_support: HRU_EQUIVALENT_DRAIN
+    aggregation: "sum(conductance * depth) / sum(conductance)"
+    status: CONFIRMED_CORRECT
