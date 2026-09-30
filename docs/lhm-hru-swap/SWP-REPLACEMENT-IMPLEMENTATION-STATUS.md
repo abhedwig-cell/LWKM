@@ -3,29 +3,61 @@
 ## Current qualification
 
 Status:
-**R2 CONTEXT QUALIFICATION CANDIDATE**
+**R3 ONE-RUN SERIALIZATION QUALIFIED CANDIDATE**
 
-The renderer architecture and the current 10,242-run datamodel binding are now substantially closed. This is not yet `DIRECT_SWP_RENDERER_ADMITTED`, because the current production template bytes and a 49-run realized SWP regression set are still unavailable through an authorized raw path.
+The direct renderer has now passed the full run-2000 serialization gate using:
+- recovered Datamodel_10242.sqlite;
+- recovered historical swap_wwl.swp;
+- explicit SWAPtools serialization adapter;
+- explicit LWKM_2026 output profile;
+- raw realized run-2000 swap.swp oracle.
+
+This is still not DIRECT_SWP_RENDERER_ADMITTED because the intended 49-run realized regression set is not raw-readable in the current environment.
 
 ## Implemented and qualified
 
-1. The generic renderer supports scalar and repeated/conditional Mustache-style blocks and fails on unresolved symbols.
-2. Rendering is atomic.
-3. Auxiliary MET, DRA and BBC scientific production is separate from SWP rendering.
-4. The SQLite context builder resolves:
-   - simulation dates and numerical controls;
-   - MET reference and SWETR;
+1. Generic renderer:
+   - scalar substitution;
+   - repeated table sections;
+   - conditional sections;
+   - unknown symbols fatal;
+   - atomic writes.
+
+2. Scientific context:
+   - TSTART/TEND;
+   - METFIL/SWETR;
    - crop rotation;
-   - initial groundwater condition;
+   - SWINCO/GWLI;
+   - PONDMX/RSRO/RSOIL;
    - soil profile;
-   - hydraulic parameters including explicit ELAS;
-   - soil textures;
-   - rooting depth;
-   - drainage switch/reference;
-   - bottom-boundary switch/reference.
-5. Runs.RDS is current production authority. Wortelzone.RDS is QA only.
-6. The full 10,242-run recovered SQLite has zero missing renderer-domain joins and zero ELAS null rows.
-7. Dependency fingerprints cover every identified class that can change the main SWP:
+   - hydraulic rows including explicit ELAS;
+   - soil texture;
+   - RDS;
+   - DRA/BBC switches and references.
+
+3. 10,242-run datamodel completeness:
+   - zero missing renderer-domain joins;
+   - zero ELAS null rows;
+   - Runs.RDS is production authority;
+   - Wortelzone.RDS is QA only.
+
+4. Historical SWAPtools boundary:
+   - top-level create/run/zip/postprocess orchestration recovered from swap_tools.log;
+   - direct renderer replaces input serialization only;
+   - SWAP execution, ZIP lifecycle and post-processing are separate operations.
+
+5. Historical template adapter:
+   - explicit table headers;
+   - parameterized SWETR;
+   - parameterized output controls SWWBA, PERIOD, SWAUN, SWODAT;
+   - hidden template policy is no longer allowed.
+
+6. Renderer/output profile:
+   - explicit non-scientific output policy in config/swp-profiles/LWKM_2026.yml;
+   - no silent use of historical template output defaults.
+
+7. Selective regeneration:
+   fingerprints cover:
    - global config;
    - simulation/output config;
    - forcing reference;
@@ -38,76 +70,117 @@ The renderer architecture and the current 10,242-run datamodel binding are now s
    - drainage reference;
    - bottom-boundary reference;
    - run identity.
-8. The dry-run planner can therefore distinguish create/update/skip and report the semantic dependency classes that changed.
-9. A semantic SWP parser/comparator exists and ignores irrelevant formatting differences.
-10. A separate datamodel-to-oracle context gate exists, so scientific mapping can be tested before template serialization.
-11. Current branch CI passes the full unit-test suite.
 
-## Independent run-2000 oracle
+8. Regression tooling:
+   - semantic SWP parser/comparator;
+   - datamodel-context gate;
+   - template adapter tests;
+   - run-2000 semantic fixture.
 
-Raw realized files are available for:
-- `swap.swp`;
-- `2000.met`;
-- `2000.dra`;
-- `2000.bbc`.
+## Run-2000 serialization closure
 
-The realized SWP and recovered `Datamodel_10242.sqlite` agree on the discriminating main-SWP values checked so far, including:
-- dates;
-- METFIL and SWETR;
-- SWINCO and GWLI;
-- PONDMX and RSRO;
-- RDS = 40 cm;
-- drainage and BBC references;
-- SWBOTB;
-- NUMNODNEW;
-- soil profile;
-- hydraulic rows including ELAS = 1e-6;
-- soil texture.
+Raw oracle:
+- swap.swp SHA-256
+  6b47cec011749041bc99e78322ed99a4116b798ec67536969074984f96a49796.
 
-The run-2000 result is particularly useful because it falsifies the earlier apparent `RDS=120` constant from the small runs-1-to-14 sample. RDS is run dependent.
+Recovered historical mapping template:
+- swap_wwl.swp SHA-256
+  d960f7ede8074672f8f8d6c938df0554383f631e75dfdb67ea33bfe15cc5beab.
 
-## Blockers removed since the earlier status
+After explicit adaptation and profile application:
 
-The following items are no longer semantic blockers:
-- RDS authority: Runs.RDS is production authority under the P12 representative-schema contract.
-- crop rotation join: complete in the recovered 10,242 datamodel.
-- ELAS placement: explicit in `eigenschappen.ELAS`.
-- TSTART/TEND placement: explicit in Runs.
-- METFIL reference: explicit in Runs.
-- BBC time series: not part of main-SWP rendering; it remains a separate producer/file.
+- active assignment keys checked: 112;
+- assignment-key differences: 0;
+- crop rotation rows: 56 / 56 equal;
+- soil profile rows: 9 / 9 equal;
+- soil hydraulic rows: 4 / 4 equal;
+- soil texture rows: 4 / 4 equal.
+
+Classification:
+**RUN_2000_DIRECT_SERIALIZATION_GATE_CLOSED**.
+
+The earlier reduced semantic gate is therefore superseded by a stronger full-active-assignment comparison for run 2000.
+
+## What was learned about create_SWAP
+
+The recovered historical template omits explicit table-header rows in four dynamic sections. The realized SWP contains them. SWAPtools therefore performs serialization work beyond literal Mustache substitution.
+
+The historical template also hard-coded:
+- SWETR = 0;
+- SWWBA = 0;
+- PERIOD = 0;
+- SWAUN = 2;
+- SWODAT = 1.
+
+The raw realized run-2000 SWP instead has:
+- SWETR = 0 for this run;
+- SWWBA = 1;
+- PERIOD = 1;
+- SWAUN = 0;
+- SWODAT = 0;
+- a different detailed INLIST_CSV.
+
+These differences are now explicit context/profile values rather than hidden R behavior.
+
+## Blockers removed
+
+No longer blockers:
+- RDS authority;
+- crop-rotation join;
+- ELAS source;
+- simulation-date source;
+- METFIL source;
+- run-2000 template serialization behavior;
+- table-header injection behavior;
+- SWETR hidden template default;
+- output-switch hidden template defaults.
+
+STATIC02 SWETR current-population effect is already closed at 0 / 10,242 mismatches.
+
+STATIC03 canonical soil2/crop authority correction is already qualified:
+- 40 soil2 corrections;
+- 6 resulting crop_id corrections.
 
 ## Remaining admission blockers
 
-### B1 Current production template bytes
+### B1 49-run realized SWP regression
 
-The historical archive contains `swap_wwl.swp`, but it is not valid as current production authority. Its active SWETR is hard-coded to 0, while 3,080 of the 10,242 current Runs rows require SWETR = 1.
+This is now the primary direct-renderer blocker.
 
-The current Project `Template.zip` has been located, but its backing bytes are not currently authorized for materialization. Until that is resolved, the historical template can be used only as a mapping oracle.
+Need raw access to run_files.zip or equivalent realized cases to:
+- test non-zero SWETR runs;
+- test multiple crop/soil/profile combinations;
+- confirm output-profile constancy or identify run classes;
+- classify the six intentional crop corrections and other expected differences;
+- demonstrate no unexplained serialization differences.
 
-### B2 Realized multi-run SWP regression
+### B2 current Template.zip confirmation
 
-One discriminating realized run is available as raw bytes. Admission still requires the intended multi-run regression, ultimately the 49-run oracle, with:
-- exact/semantic matches where historical semantics are retained;
-- explicit expected differences where known authority-ordering defects are corrected.
+Current Template.zip raw bytes remain blocked.
 
-### B3 Corrected upstream scientific fields
+This is now confirmatory rather than the only route to admission, because an explicit canonical replacement contract exists:
+- recovered historical mapping template;
+- deterministic adapter;
+- explicit profile.
 
-Renderer correctness does not itself close the upstream P12 corrections for:
-- dqsat;
-- SWETR/land-use ordering;
-- soil2/canonical bodem lookup;
-- DRA nature suppression.
+If the 49-run regression validates this canonicalized template path, current Template.zip is no longer a hard production dependency.
 
-Those differences must enter the typed run record as qualified upstream values. The renderer must serialize them without re-deciding them.
+### B3 upstream DRA authority corrections
+
+Still outside the renderer:
+- representative-SVAT dqsat authority remains blocked by raw dqsat raster/oracle access;
+- DRA system-4 nature discrimination remains blocked by 49-run DRA access.
+
+The renderer must consume qualified upstream values and never re-decide them.
 
 ## Admission rule
 
-Do not remove Martin's R/SWAPtools path from regression use yet.
+DIRECT_SWP_RENDERER_ADMITTED requires:
+1. 49-run regression with no unexplained differences;
+2. explicit expected-difference records for qualified scientific corrections;
+3. selective-regeneration tests green;
+4. canonical template/profile version fixed in repository.
 
-`DIRECT_SWP_RENDERER_ADMITTED` requires:
-1. production template contract fixed or replaced by an explicitly versioned canonical template;
-2. one-run render passes the run-2000 semantic gate from datamodel through serialization;
-3. 49-run regression has no unexplained differences;
-4. selective-regeneration dependency tests remain green.
+Run-2000 no longer blocks admission.
 
-The architecture and context are ready for this gate. The remaining blockers are evidence/template admission blockers, not unresolved renderer science.
+The remaining renderer blocker is multi-run evidence, not unresolved serialization architecture.
