@@ -1,22 +1,19 @@
 # H-P12-STATIC01 — static aggregation audit candidates
 
-## Irrigation threshold inconsistency
+## Irrigation threshold resolution
 
-Source comment:
-  "Als 30% van opp is geirrigeerd dan irrigatie"
+Project-owner clarification: 0.37 is an intentionally calibrated threshold. The source comment mentioning 30% is stale and must not be used to change behavior.
 
-Active implementation:
+Historical calibrated implementation:
 - converts each member irr_switch>0 to 1, else 0;
-- computes unweighted member fraction av;
-- forces irrigation on only if av > 0.37;
+- computes unweighted source-member fraction av;
+- forces irrigation on if av > 0.37;
 - then takes majority irrigation source/type among irrigated members.
 
-Questions:
-1. intended threshold 0.30 or 0.37?
-2. intended support member-count/full MODFLOW cells or active uopp?
-3. realized SWP oracle should decide historical executable behavior before modernization.
-
-Status: OPEN_SEMANTIC_AUDIT, not defect-confirmed.
+Status:
+- threshold 0.37: CONFIRMED_CALIBRATED, preserve;
+- comment 30%: DOCUMENTATION_DEFECT;
+- support is currently member-count/full equal source cells. Do not silently change to uopp weighting. Reopen only if calibration provenance establishes that 0.37 was calibrated on active-area fraction.
 
 ## RDS fallback control-flow candidate
 
