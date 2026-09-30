@@ -1,7 +1,7 @@
 # P12 DRA realized reproduction gate status
 
 Status:
-**PARTIALLY QUALIFIED; STATIC04 SOURCE-SIDE CLOSED; 49-RUN REALIZED GATE BLOCKED**
+**PARTIALLY QUALIFIED; STATIC04 AND NATURE SOURCE-SIDE CLOSED; 49-RUN REALIZED GATE BLOCKED**
 
 ## Source-side reconstruction already available
 
@@ -114,8 +114,9 @@ Not yet qualified across the realized 49-run oracle:
 - exact DRARES/INFRES numeric reproduction;
 - ZBOTDR/LEVEL reproduction;
 - realized classification of STATIC04 discriminating cases;
-- nature legacy-vs-schema discrimination;
 - SWALLO source-indicator reproduction.
+
+Nature/DRA4 authority itself is now source-side closed. Across all 10,242 HRUs, legacy pre-override land use and representative-SVAT land use differ for 1,974 HRUs, but the exact supplied-source nature predicate is identical for all 10,242. Therefore no realized 49-run DRA4 difference may be attributed to legacy-versus-schema nature ordering in the current population. See `P12-NATURE-DRA4-AUTHORITY-RESULT-2026-09-30.md`.
 
 ## Admission blocker
 
@@ -135,7 +136,7 @@ The remaining admission evidence is the raw 49-run realized oracle set. Required
 2. intersect those HRUs with the STATIC04 comparison table;
 3. classify active-system `L/4` as legacy, schema-first, non-discriminating or unexplained;
 4. run full `regress_dra_cases.py` for DRARES/INFRES/ZBOTDR/LEVEL/SWALLO semantics;
-5. close nature/DRA4 discrimination;
+5. treat nature/DRA4 as zero-expected-difference for the current population and reject it as an explanation for any realized mismatch;
 6. require zero unexplained differences before direct DRA admission.
 
 Do not infer representative dqsat from realized DRA outputs. Realized `L/4` remains an independent oracle only.
