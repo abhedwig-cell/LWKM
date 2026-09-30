@@ -146,7 +146,7 @@ Output:
 
 Het commentaar luidt: `GT7/GT8 with kwel. Original note says "NB alleen 8"`.
 
-Dit is **nog niet volledig production-bound**, omdat `LWKM_makeHRU` een parameter `gt8_sel_asc` verwacht en nog moet worden vastgesteld of de actuele production control `kwel_droog_sel.asc` aan deze parameter koppelt.
+De productiecontrol is inmiddels brongebonden: `gt8_sel_asc = LHM_uitvoer\\filter\\kwel_droog_sel.asc`. De fysieke binding is dus gesloten. Open blijft alleen de inhoudelijke keuze of deze historische regel in de definitieve canonical ruleset behouden moet blijven.
 
 ### Q08 — GHG boven maaiveld bij landbouw
 
@@ -288,12 +288,12 @@ De methode is voldoende gereconstrueerd om nu onderdeel te maken van de workflow
 
 Nog te binden:
 
-1. exacte actuele production control van `LWKM_makeHRU`;
-2. betekenis en authority van `polders.asc`;
-3. binding `kwel_droog_sel.asc → gt8_sel_asc`;
-4. welke oudere regels (`gt1/gt2/gt8`, `verdachte_cellen`, extra regels) naast de oktober-2025-regels nog actief moeten blijven;
-5. exacte samenstelling/codering van `isverdacht`;
-6. afzonderlijk beleid van flag naar uitsluiten/vervangen/gebruiken;
-7. inhoudelijke review van de drempelwaarden en uitzonderingen.
+1. betekenis en authority van `polders.asc`;
+2. welke oudere regels (`gt1/gt2/gt8`, `verdachte_cellen`, extra regels) naast de oktober-2025-regels nog actief moeten blijven;
+3. inhoudelijke status van de historische `gt8`/droge-Gt-regel, waarvan de fysieke controlbinding nu wel gesloten is;
+4. afzonderlijk beleid van flag naar uitsluiten/vervangen/gebruiken;
+5. inhoudelijke review van de drempelwaarden en uitzonderingen.
+
+De exacte productiecontrol en de codering van `isverdacht` zijn inmiddels source-bound. `isverdacht` blijft desondanks uitsluitend een samengestelde diagnostische samenvatting en geen canonical authority.
 
 Deze open punten verhinderen niet dat de detectiemethode nu al expliciet als workflowstap wordt vastgelegd. Ze verhinderen alleen dat de huidige historische implementatie al als definitieve canonical ruleset wordt bestempeld.
