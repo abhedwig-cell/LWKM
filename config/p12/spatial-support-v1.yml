@@ -1,0 +1,44 @@
+schema_version: 1
+support_types:
+  MODFLOW_CELL:
+    area_m2: 62500
+    geometry: 250m_x_250m
+  ACTIVE_SVAT:
+    area_field: uopp_m2
+    max_area_m2: 62500
+  METEO_PIXEL:
+    geometry: 1000m_x_1000m
+weight_kinds:
+  EQUAL_SOURCE_CELL: {}
+  MODFLOW_CELL_AREA: {}
+  ACTIVE_SVAT_AREA:
+    field: uopp_m2
+  CONDUCTANCE: {}
+  CATEGORY_MAJORITY: {}
+  NONE: {}
+producers:
+  BBC_QBOT2:
+    source_support: MODFLOW_CELL
+    target_support: HRU_MODFLOW_CELLS
+    weight_kind: EQUAL_SOURCE_CELL
+  DRA_RESISTANCE:
+    source_support: MODFLOW_CELL
+    target_support: HRU_MODFLOW_CELLS
+    weight_kind: CONDUCTANCE
+    area_basis: MODFLOW_CELL
+  DRA_DEPTH_LEVEL:
+    source_support: MODFLOW_CELL
+    target_support: HRU_EQUIVALENT_DRAIN
+    weight_kind: CONDUCTANCE
+  MET_RAIN:
+    source_support: METEO_PIXEL
+    target_support: HRU_ACTIVE_SVAT
+    weight_kind: ACTIVE_SVAT_AREA
+  MET_ETREF:
+    source_support: METEO_PIXEL
+    target_support: HRU_ACTIVE_SVAT
+    weight_kind: ACTIVE_SVAT_AREA
+  MET_DISTRICT:
+    source_support: MODFLOW_CELL
+    target_support: HRU_DISTRICT
+    weight_kind: CATEGORY_MAJORITY
