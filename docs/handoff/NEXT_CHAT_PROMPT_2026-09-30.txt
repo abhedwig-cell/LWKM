@@ -5,77 +5,68 @@ abhedwig-cell/LWKM
 Werk rechtstreeks met de GitHub-connector en gebruik Project Files/Library voor eerder geüploade bestanden.
 
 Lees vóór iedere inhoudelijke actie eerst:
-1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30_R3.md op branch work/lhm-hru-swap-workflow-v1;
+1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30_R4.md op branch work/lhm-hru-swap-workflow-v1;
 2. de actuele head van work/lhm-hru-swap-workflow-v1;
-3. alleen waar nodig de oudere R2/originele handoffs voor historische achtergrond;
-4. de task-specifieke authority-, audit- en serverdocumenten die in R3 worden genoemd.
+3. dit bestand;
+4. task-specifieke authority-, audit- en serverdocumenten die R4 noemt;
+5. oudere R3/R2 handoffs alleen voor historische achtergrond.
 
 De repository is authority.
 
-Werk autonoom in grote blokken. Vraag geen toestemming tussen fasen. Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate of een echte blocker.
+Werk autonoom in grote blokken. Vraag geen toestemming tussen fasen. Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate, canonical admission waar verantwoord, een expliciet gefalsificeerde route of een echte blocker.
 
 Reeds gesloten/gekwalificeerd:
-- canonieke bodem370-classificatielookup staat in config/p12/bodem370_classification_lookup.csv;
-- STATIC02 SWETR-effect = 0/10.242;
-- STATIC03 = 40 soil2-correcties en 6 crop_id-correcties;
-- run-2000 directe SWP-serialisatie is volledig gesloten op 112 actieve assignments + 4 dynamische tabellen;
-- full-active-SWP comparator en multi-run regression harness zijn geïmplementeerd;
-- NHI/LHM collector werkt controls + profile -> plan -> verified v2 bundle;
-- Q0-Q4 upstream source qualification is geïmplementeerd in tools/lhm_upstream_qualification.py en via lwkm_source_cli qualify;
-- run-2000 DRA bevestigt Runs.dqsat -> L/4 propagatie;
-- representative-bodem-only dqsat fallback is gefalsificeerd.
+- canonieke bodem370 lookup;
+- STATIC02 SWETR huidige populatie non-discriminating;
+- STATIC03 40 soil2-correcties en 6 crop_id-correcties;
+- run-2000 directe SWP-serialisatie volledig gesloten;
+- multi-run SWP- en DRA-regressieharnesses klaar;
+- NHI/LHM collector + Q0-Q4 qualification implementation candidate;
+- DRA bronrasters semantisch volledig hersteld;
+- STATIC04 representative-SVAT dqsat source-side gekwalificeerd:
+  7.471 gelijk, 2.771 / 10.242 discriminerend;
+- nature/DRA4 source-side gesloten:
+  1.974 landgebruikscodeverschillen maar 0 / 10.242 nature-booleanverschillen;
+- SWALLO provenance split bevestigd:
+  supplied v0.38 forceert systemen 4-5, realized run-2000 + v0.27 historie ondersteunen systemen 3-5;
+- tools/p12_swallo.py en tools/generate_dra.py hebben expliciete provenance modes;
+- regression-oracle manifest is schema v2.
 
-ZEER BELANGRIJK VOOR BESTANDEN:
-Vraag mij niet opnieuw om uploads voordat Project Files/Library opnieuw zijn doorzocht.
+Belangrijkste resterende blocker:
 
-Aantoonbaar aanwezig maar raw-byte materialization nog geblokkeerd:
-- run_files.zip / 49-run realized set
-- ahn_f250_m.asc
-- grensvlak_NHIWQ_v2_fill.asc
-- control_runs.zip
-- huidige Template.zip
-- huidige SVAT_INFO(1).CSV
+A. 49-run realized archive
+Library bevat:
+/LWKM/run_files.zip
+20.953.239 bytes.
 
-De twee DRA-rasters zijn in R3 opnieuw op de actuele Library-objecten gematerialiseerd geprobeerd en faalden opnieuw met de expliciete autorisatieblokkade.
+Raw-byte materialization en ZIP-text extraction blijven technisch geblokkeerd, ook na Library-kopieën. Vraag de gebruiker niet opnieuw om dit bestand voordat Project Files/Library opnieuw aantoonbaar zijn gecontroleerd.
 
-Raw-readable/hersteld:
-- source (2).zip
-- exe.zip
-- Datamodel_10242.sqlite uit historisch archive
-- historische Datamodel_10242.xlsx
-- SVAT_Waterbalans.xlsx
-- swap.swp
-- 2000.bbc
-- 2000.dra
-- 2000.met
-- historische swap_wwl.swp mapping template
+Zodra raw toegang werkt:
+1. extract 49 realized directories;
+2. run tools/regress_swp_cases.py;
+3. run tools/regress_dra_cases.py;
+4. classificeer STATIC04 dqsat via realized active L/4 tegen legacy en representative predictions;
+5. preregistreer gekwalificeerde soil/crop intentional differences;
+6. gebruik expliciete SWALLO provenance classification;
+7. nature/DRA4 heeft voor huidige populatie zero expected difference;
+8. eis nul unexplained differences;
+9. beoordeel DIRECT_DRA_PRODUCER_ADMITTED en DIRECT_SWP_RENDERER_ADMITTED.
 
-Eerstvolgende werk is volledig blocker-driven:
+Bekend discriminating STATIC04 voorbeeld:
+HRU 7877: legacy dqsat 18, representative-SVAT dqsat 17.
+Verzin de realized waarde niet zonder de DRA oracle.
 
-A. Zodra run_files.zip of realized 49-run directories raw leesbaar zijn:
-   - draai tools/regress_swp_cases.py;
-   - preregistreer gekwalificeerde intentional differences;
-   - eis nul unexplained differences;
-   - draai de DRA-oracle over dezelfde runs;
-   - sluit nature- en dqsat-discriminatie;
-   - beoordeel DIRECT_SWP_RENDERER_ADMITTED.
+B. echte NHI/LHM run tree
+Een losse control_run_1970_1979.ini is vindbaar, maar geen complete authoritative run tree is gekwalificeerd.
+Zodra complete tree beschikbaar is:
+1. qualify Q0-Q3;
+2. plan;
+3. collect;
+4. verify;
+5. qualify --bundle Q4;
+6. unpack;
+7. consumer smoke test.
 
-B. Zodra ahn_f250_m.asc en grensvlak_NHIWQ_v2_fill.asc raw leesbaar zijn:
-   - reconstrueer representative-SVAT glk/dqsat rechtstreeks;
-   - sluit ZBOTDR/LEVEL en STATIC04 zonder circulariteit;
-   - voer de DRA numeric gate uit.
-
-C. Zodra de originele NHI/LHM run tree beschikbaar is:
-   - run lwkm-source qualify voor Q0-Q3;
-   - run plan;
-   - run collect;
-   - verify;
-   - run qualify met --bundle voor Q4;
-   - unpack;
-   - consumer smoke test.
-
-Current Template.zip is confirmatory, niet meer automatisch een harde production dependency: de canonicalized template + adapter + explicit profile route kan worden admitted als de 49-run regression slaagt.
-
-Maak historische defecten nooit stil 'netter'. Leg intentional differences expliciet vast.
+Maak historische defecten nooit stil netter. Houd supplied-source, realized-executable en modern-corrected semantics expliciet uit elkaar.
 
 Ga door.
