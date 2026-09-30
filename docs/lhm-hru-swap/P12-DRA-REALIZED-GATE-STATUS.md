@@ -1,7 +1,7 @@
 # P12 DRA realized reproduction gate status
 
 Status:
-**PARTIALLY QUALIFIED, 49-RUN NUMERIC GATE BLOCKED BY RAW-ORACLE ACCESS**
+**PARTIALLY QUALIFIED, MULTI-RUN HARNESS READY, RAW EVIDENCE BLOCKED**
 
 ## Source-side reconstruction already available
 
@@ -20,6 +20,25 @@ Core formulas are implemented in:
 - `tools/p12_dra_aggregate.py`;
 - `tools/generate_dra.py`.
 
+## Regression tooling now complete
+
+Single-file semantic parser:
+- `tools/dra_semantic_oracle.py`.
+
+Multi-run semantic regression harness:
+- `tools/regress_dra_cases.py`;
+- `tests/test_regress_dra_cases.py`.
+
+The multi-run harness:
+- discovers realized and candidate DRA files by run id;
+- requires one-to-one run coverage;
+- compares global and per-system DRA semantics;
+- separates exact matches, preregistered expected differences and unexplained differences;
+- fails admission when candidate runs are missing/extra;
+- requires every preregistered expected difference to actually occur.
+
+Therefore the 49-run gate no longer has an implementation/harness blocker. Once raw oracles and source-derived candidate files are available, the complete comparison can run in one command.
+
 ## Raw Project files
 
 The two previously missing rasters are located in Project Files:
@@ -28,11 +47,9 @@ The two previously missing rasters are located in Project Files:
 
 Their backing bytes are still not authorized for materialization in the current runtime. This is an access limitation, not evidence that the files are absent.
 
-The earlier 49-run realized DRA set is described in repository authority but is no longer available as individually raw-readable `.dra` files in the current Library surface. Only one loose raw DRA oracle is currently recoverable:
+The earlier 49-run realized DRA set is described in repository authority but is not currently raw-readable in the Library/Project surface. Only one loose raw DRA oracle is currently recoverable:
 - `2000.dra`;
 - SHA-256 `85dff23754d138b12e3084e5c06c6ad3eb77880c64d7a24f85aa48aae4acd15e`.
-
-Therefore the full 49-run numeric admission gate cannot be completed without recovering that oracle set or equivalent raw data.
 
 ## Independent run-2000 DRA oracle
 
@@ -46,46 +63,44 @@ Observed realized values:
 | 4 | 17040 | 100000 | 80 | -50.06 | 3 |
 | 5 | 30 | 100000 | 80 | -24.17 | 3 |
 
-This independently supports two already reconstructed behaviors:
-- systems 4 and 5 have `INFRES = 100000` in the realized file;
-- active systems 2-5 all use `L = 80 cm`.
+This independently supports:
+- systems 4 and 5 use `INFRES = 100000` in the realized file;
+- active systems 2-5 use `L = 80 cm`.
 
-The recovered `Datamodel_10242.xlsx` row for run 2000 contains:
+Recovered historical Runs row for run 2000:
 - `dqsat = 20`.
 
 Hence:
 `L / 4 = 20 = Runs.dqsat`
-
 for systems 2-5.
 
-This confirms that the realized DRA producer and the Runs intermediate used the same dqsat value for run 2000. It does **not** yet discriminate between:
+This proves historical dqsat propagation into DRA geometry, but does not discriminate between:
 - legacy majority-BFE dqsat selection;
-- schema-first representative-soil dqsat semantics.
-
-The representative candidate still requires the raw dqsat/member authority.
+- schema-first representative-SVAT dqsat.
 
 ## Nature discrimination
 
 Run 2000 has final representative `lu_id = 1`, therefore schema-first `isnatuur = false`.
 
 Its realized system 4 has:
-- raw/effective DRARES4 = 17040, below the independent >20000 shutdown criterion;
+- DRARES4 = 17040, below the independent >20000 shutdown criterion;
 - nonzero drainage depth;
-- therefore system 4 is not nature-suppressed.
+- system 4 remains active.
 
-This is consistent with the representative-landuse hypothesis but is non-discriminating because the legacy majority nature classification for this HRU is not independently available.
+This is consistent with representative-landuse semantics, but non-discriminating because the legacy pre-override nature classification is not independently available for run 2000.
 
-## What is already qualified
+## What is qualified
 
 Qualified:
 - DRA serialization shape;
 - system ordering;
 - all-member support rule;
 - DRARES/INFRES algebra in unit tests;
+- multi-run regression harness;
 - run-2000 dqsat propagation from Runs to realized L;
-- run-2000 system-4 state is physically consistent with representative non-nature land use.
+- run-2000 system-4 state consistency with representative non-nature land use.
 
-Not yet qualified across the 49-run oracle:
+Not yet qualified across the realized 49-run oracle:
 - exact DRARES/INFRES numeric reproduction;
 - ZBOTDR/LEVEL reproduction;
 - dqsat legacy-vs-schema discrimination;
@@ -94,13 +109,15 @@ Not yet qualified across the 49-run oracle:
 
 ## Admission blocker
 
-The blocker is now narrow and external to the implemented formulas:
+Current blocker classification:
 
 **BLOCKER_RAW_49RUN_DRA_AND_SOURCE_RASTER_BYTES**
 
-To close the gate, recover raw access to:
-1. the 49 realized `.dra` files;
-2. `ahn_f250_m.asc`;
-3. `grensvlak_NHIWQ_v2_fill.asc`.
+Required external evidence:
+1. raw 49 realized DRA files;
+2. raw `ahn_f250_m.asc`;
+3. raw `grensvlak_NHIWQ_v2_fill.asc`.
 
-Do not infer these source grids from realized outputs. That would make the admission test circular.
+The software needed to compare the resulting candidate set is already present and tested.
+
+Do not infer source rasters or representative-SVAT dqsat from realized DRA outputs. That would make the authority test circular.
