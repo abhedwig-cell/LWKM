@@ -1,0 +1,22 @@
+{
+  "oracle": "run_2000_dra",
+  "source": {
+    "file": "2000.dra",
+    "sha256": "85dff23754d138b12e3084e5c06c6ad3eb77880c64d7a24f85aa48aae4acd15e"
+  },
+  "global": {
+    "DRAMET": 3,
+    "SWDIVD": 1,
+    "SWDISLAY": 0,
+    "NRLEVS": 5,
+    "SWINTFL": 0,
+    "SWTOPNRSRF": 0
+  },
+  "systems": {
+    "1": {"DRARES": 100000.0, "INFRES": 100000.0, "SWALLO": 3, "L": 100.0, "ZBOTDR": 0.0, "SWDTYP": 2},
+    "2": {"DRARES": 824.0, "INFRES": 2498.0, "SWALLO": 1, "L": 80.0, "ZBOTDR": -97.79, "SWDTYP": 2},
+    "3": {"DRARES": 212.0, "INFRES": 725.0, "SWALLO": 3, "L": 80.0, "ZBOTDR": -100.0, "SWDTYP": 2},
+    "4": {"DRARES": 17040.0, "INFRES": 100000.0, "SWALLO": 3, "L": 80.0, "ZBOTDR": -50.06, "SWDTYP": 1},
+    "5": {"DRARES": 30.0, "INFRES": 100000.0, "SWALLO": 3, "L": 80.0, "ZBOTDR": -24.17, "SWDTYP": 2}
+  }
+}
