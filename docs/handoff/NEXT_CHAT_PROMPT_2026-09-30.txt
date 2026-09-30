@@ -4,54 +4,75 @@ abhedwig-cell/LWKM
 
 Werk rechtstreeks met de GitHub-connector en gebruik Project Files/Library voor de eerder geüploade bestanden.
 
-Deze chat neemt de LHM -> SVAT -> HRU -> SWAP moderniseringslijn over van de lange chat van 30 september 2026.
-
 Lees vóór iedere inhoudelijke actie eerst:
 
-1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30.md op branch work/lhm-hru-swap-workflow-v1;
-2. de actuele head van work/lhm-hru-swap-workflow-v1;
-3. de daarin genoemde authority-, audit- en serverdocumenten die voor de eerstvolgende taak relevant zijn.
+1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30_R2.md op branch work/lhm-hru-swap-workflow-v1;
+2. daarna alleen waar nodig de oudere docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30.md voor historische achtergrond;
+3. de actuele head van work/lhm-hru-swap-workflow-v1;
+4. de task-specifieke authority-, audit- en serverdocumenten die in de R2-handoff worden genoemd.
 
-De repository is authority. De handoff bevat de actuele besluiten, gevonden defecten, open gates, serverlogistiek en uploadinventaris.
+De repository is authority.
 
-Belangrijke werkwijze:
+Werk autonoom in grote blokken. Vraag geen toestemming tussen fasen. Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate of een echte blocker.
 
-- werk autonoom in grote blokken;
-- vraag geen toestemming tussen fasen;
-- verander historische semantiek niet stil;
-- reproduceer eerst, classificeer daarna, verbeter pas onder expliciete provenance;
-- Piet's HRU-schema is authority voor representatieve bodem, landgebruik en worteldiepte;
-- bestaande Fortranprogramma's op de NHI-server hoeven niet naar Python tenzij daar aantoonbaar voordeel voor is;
-- batch/orchestration mag wel worden gemoderniseerd;
-- MODFLOW/LHM restartmechanica is upstream verantwoordelijkheid; LWKM kwalificeert alleen of de bronrun compleet genoeg is;
-- de nieuwe SWP-productie moet selectief/incrementeel kunnen regenereren;
-- Martins R/template-procedure wordt uiteindelijk uit het productiepad gehaald, maar blijft tot kwalificatie historisch orakel.
+Belangrijke besluiten die al gesloten zijn:
+- canonieke bodem370-classificatielookup is gekwalificeerd en staat in config/p12/bodem370_classification_lookup.csv;
+- STATIC02 SWETR-effect is 0/10.242 verschillen;
+- STATIC03 geeft 40 soil2-correcties en 6 daaruit volgende crop_id-correcties;
+- direct-SWP renderer contextlaag is R2-qualified candidate;
+- NHI/LHM source collector werkt controlset -> resolved plan -> verified v2 bundle;
+- run-2000 SWP/BBC/DRA/MET is raw oracle;
+- run-2000 DRA bewijst dqsat-propagatie Runs.dqsat -> L/4, maar is niet discriminating voor de authority-correctie.
 
 ZEER BELANGRIJK VOOR BESTANDEN:
-Vraag mij niet opnieuw om eerdere uploads voordat je eerst Project Files, Library en bestaande conversation uploads hebt doorzocht en waar nodig hebt gematerialiseerd. De vorige chat had een lokale runtime/containerstoring; dat betekent niet dat de bestanden ontbreken.
-
-Probeer als eerste opnieuw toegang te krijgen tot deze reeds geüploade bestanden:
+Vraag mij niet opnieuw om uploads voordat Project Files/Library opnieuw zijn doorzocht. De volgende bestanden zijn aantoonbaar aanwezig maar hun huidige Project-backing bytes zijn niet geautoriseerd voor raw materialization:
 - control_runs.zip
-- exe.zip
-- Tools(2).zip
+- Tools.zip / Tools(1).zip / Tools(2).zip
 - Template.zip
-- Datamodel_10242.xlsx
-- SVAT_INFO(1).CSV
-- de losse batchfiles genoemd in de handoff
-- de eerder aangeleverde Fortran-sources, controlfiles, run directories en DRA-bronrasters.
+- run_files.zip
+- run_000000012.zip
+- ahn_f250_m.asc
+- grensvlak_NHIWQ_v2_fill.asc
+- huidige SVAT_INFO(1).CSV
 
-Eerste grote werkblok:
-1. test of de nieuwe runtime de raw uploads nu wel kan lezen;
-2. inspecteer control_runs.zip en reconstrueer de exacte LHM-deelrun/periodenketen;
-3. inspecteer exe.zip en de losse batchfiles en reconstrueer batch -> executable -> input -> output;
-4. inspecteer Tools(2).zip, Template.zip en Datamodel_10242.xlsx en reconstrueer de feitelijke R/template SWP-generatie inclusief side-effects;
-5. genereer indien mogelijk de canonieke 370-regelige bodemlookup uit SVAT_INFO;
-6. leg resultaten direct vast in de repository.
+Raw-readable/hersteld in de R2-chat:
+- source (2).zip
+- exe.zip
+- Datamodel_10242.sqlite uit historische archive
+- historische Datamodel_10242.xlsx
+- SVAT_Waterbalans.xlsx
+- swap.swp
+- 2000.bbc
+- 2000.dra
+- 2000.met
 
-Ga daarna autonoom door met:
-- afronden van de NHI-server collect/verify source-bundle workflow;
-- implementeren van de minimale directe SWP-renderer;
-- één-run regressie en daarna 49-run regressie;
-- DRA/STATIC02/03/04 numerieke closure zodra de raw bronnen beschikbaar zijn.
+Eerstvolgende prioriteit is blocker-driven:
 
-Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate, of een echte blocker.
+A. Als run_files.zip of realized 49-run directories raw leesbaar worden:
+   - extract 49 DRA/SWP/BBC/MET oracles;
+   - voer de gezamenlijke regression oracle uit;
+   - sluit DRA aggregation, nature en dqsat discriminatie.
+
+B. Als ahn_f250_m.asc en grensvlak_NHIWQ_v2_fill.asc raw leesbaar worden:
+   - voer volledige DRA numerieke reconstructie uit;
+   - sluit ZBOTDR/LEVEL;
+   - bind representatieve dqsat-semantiek zonder circulariteit.
+
+C. Als Template.zip raw leesbaar wordt:
+   - inventariseer actuele template/R-side effects;
+   - bind aan typed context;
+   - render run 2000;
+   - vereis semantische identiteit;
+   - breid uit naar 49 runs.
+
+D. Als de originele NHI/LHM run tree beschikbaar is:
+   - run lwkm-source plan;
+   - bind exacte control-periodenketen;
+   - run collect;
+   - verify/unpack;
+   - consumer smoke test;
+   - Q4 source qualification.
+
+Maak historische defecten niet stil 'netter'. Leg intentional differences expliciet vast.
+
+Ga door.
