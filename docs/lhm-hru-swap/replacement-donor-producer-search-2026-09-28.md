@@ -11,3 +11,15 @@ The remaining highest-priority source is `HRU-NRU schematisering.7z`. According 
 Until producer evidence is found, the observed 20,934 target-to-donor mapping may be used as historical observed output, not as a reconstructed canonical algorithm.
 
 Before admission, bind candidate donor population, matching variables, score/distance, grouping constraints, tie-breaking, no-match handling and relation to the eight qualification flags.
+
+
+## Superseded clarification — 30 September 2026
+
+This note used the phrase "pre-HRU replacement donor" too broadly.
+
+Later source reconciliation plus project-owner discussion with Leo and Piet establish that the operational replacement/assignment of suspect SVATs is performed inside Piet's R HRU procedure after valid clusters have been built.
+
+What remains open is only the producer of the older `svat_donor` field already present in `svat_info_lwkm_new.csv`. That legacy intermediate relation is not required as canonical scientific input because the R procedure reconstructs suspect targets from original SVAT values and performs its own donor assignment.
+
+Authority:
+`SUSPECT-SVAT-DONOR-RECONCILIATION-2026-09-30.md`.
