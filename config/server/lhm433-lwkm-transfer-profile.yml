@@ -1,8 +1,11 @@
 schema_version: 1
 profile: lhm433-lwkm
+
 classes:
   static_input:
     keys:
+      - shd_l1
+      - shd_l2
       - c_l1
       - drn_cond_b
       - drn_stage_b
@@ -30,6 +33,7 @@ classes:
       - bodem_asc
       - rootzone_asc
       - metestat_asc
+
   period_input:
     key_patterns:
       - prec_YYYY
@@ -40,14 +44,100 @@ classes:
       - radiation_YYYY
       - humidity_YYYY
       - vapp_YYYY
+
   run_output:
+    # The collector is run against the original run tree. It ascends from each
+    # control file until both markers are present; copied controls without their
+    # authoritative run tree are intentionally insufficient for Q2 collection.
+    base: find_ancestor
+    markers:
+      - modflow/results
+      - metaswap/svat_per
+
+    # Raw run outputs only. Climate-period summaries such as bdgqmsw/bdgqlat,
+    # fuzzy classes and corrected diagnostic grids are derived downstream and
+    # do not define source authority.
     patterns:
-      - modflow/results/head/head_*_l1.idf
-      - metaswap/svat_per/*
-    status: REQUIRE_PRODUCER_FILTER
+      - id: head_l1
+        glob: modflow/results/head/head_*_l1.idf
+        producer: GWLI_BBC
+        required: true
+      - id: head_l2
+        glob: modflow/results/head/head_*_l2.idf
+        producer: BBC
+        required: true
+
+      - id: riv_l1
+        glob: modflow/results/bdgriv/bdgriv_sys[1-6]_*_l1.idf
+        producer: HRU_WATER_BALANCE
+        required: true
+      - id: riv_l2
+        glob: modflow/results/bdgriv/bdgriv_sys[1-6]_*_l2.idf
+        producer: HRU_WATER_BALANCE
+        required: true
+      - id: drn_l1
+        glob: modflow/results/bdgdrn/bdgdrn_sys[1-3]_*_l1.idf
+        producer: HRU_WATER_BALANCE
+        required: true
+      - id: flf_l1
+        glob: modflow/results/bdgflf/bdgflf_*_l1.idf
+        producer: HRU_WATER_BALANCE_DIAGNOSTIC
+        required: true
+
+      - id: msw_pm
+        glob: metaswap/svat_per/bdgPm/bdgPm_*_l1.idf
+        producer: SVAT_HYDROLOGY
+        required: true
+      - id: msw_pssw
+        glob: metaswap/svat_per/bdgPssw/bdgPssw_*_l1.idf
+        producer: SVAT_HYDROLOGY
+        required: true
+      - id: msw_psgw
+        glob: metaswap/svat_per/bdgPsgw/bdgPsgw_*_l1.idf
+        producer: SVAT_HYDROLOGY
+        required: true
+      - id: msw_etact
+        glob: metaswap/svat_per/bdgETact/bdgETact_*_l1.idf
+        producer: SVAT_HYDROLOGY
+        required: true
+      - id: msw_qrun
+        glob: metaswap/svat_per/bdgqrun/bdgqrun_*_l1.idf
+        producer: SVAT_HYDROLOGY
+        required: true
+      - id: msw_qmodf
+        glob: metaswap/svat_per/bdgqmodf/bdgqmodf_*_l1.idf
+        producer: SVAT_HYDROLOGY
+        required: true
+      - id: msw_decstot
+        glob: metaswap/svat_per/bdgdecStot/bdgdecStot_*_l1.idf
+        producer: SVAT_HYDROLOGY
+        required: true
+
+      - id: msw_ebs
+        glob: metaswap/svat_per/msw_Ebs/msw_Ebs_*_l1.idf
+        producer: SVAT_ET_COMPONENTS
+        required: true
+      - id: msw_esp
+        glob: metaswap/svat_per/msw_Esp/msw_Esp_*_l1.idf
+        producer: SVAT_ET_COMPONENTS
+        required: true
+      - id: msw_epd
+        glob: metaswap/svat_per/msw_Epd/msw_Epd_*_l1.idf
+        producer: SVAT_ET_COMPONENTS
+        required: true
+      - id: msw_eic
+        glob: metaswap/svat_per/msw_Eic/msw_Eic_*_l1.idf
+        producer: SVAT_ET_COMPONENTS
+        required: true
+      - id: msw_tact
+        glob: metaswap/svat_per/msw_Tact/msw_Tact_*_l1.idf
+        producer: SVAT_ET_COMPONENTS
+        required: true
+
   restart:
     include_payload: false
     preserve_lineage: true
+
 policy:
   unknown_dependency: fail
   missing_required_source: fail
