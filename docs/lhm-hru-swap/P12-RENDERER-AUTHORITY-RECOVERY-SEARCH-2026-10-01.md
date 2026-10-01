@@ -108,3 +108,36 @@ Important improvement: the recovery-copy `Datamodel_10242.xlsx` is not raw-reada
 Do not ask the project owner to re-upload the current workbook or run-2000 `swap.swp`. They are present.
 
 The only template-side object currently found is `Template.zip`; its raw bytes remain blocked. Search has not located a loose current `swap_wwl.swp` despite the owner's statement that it was previously downloaded, so this remains an internal retrieval problem rather than a user-data request.
+
+
+## Project-owner correction and renewed retrieval — 1 October 2026 evening
+
+The project owner explicitly confirms:
+- `Datamodel_9830.zip` is obsolete and must be ignored;
+- the SQLite form of 10242 is only a translation of the same-named Excel workbook and adds no scientific authority;
+- the relevant SWP/template material had already been downloaded/supplied previously;
+- do not request those files again before exhausting internal retrieval.
+
+A renewed search was therefore performed across:
+- current conversation files;
+- full Project/Library metadata;
+- exact-title searches for `swap_wwl.swp`, `swap_wbl.swp`, `swap.swp` and SWP variants;
+- content search for literal `swap_wwl.swp` and `FILSWP`;
+- repository history and current tree.
+
+Result:
+- no currently addressable loose `swap_wwl.swp` or `swap_wbl.swp` file object is returned by the Files surface;
+- literal references to `swap_wwl.swp` are still recoverable in indexed/documented historical material;
+- repository documentation preserves its qualified SHA-256:
+  `d960f7ede8074672f8f8d6c938df0554383f631e75dfdb67ea33bfe15cc5beab`;
+- the run-2000 realized `swap.swp` remains a separate oracle and must not be confused with the mapping template;
+- current `Datamodel_10242.xlsx` remains the scientific datamodel authority.
+
+Interpretation:
+the missing loose template is an internal attachment/materialization retrieval failure, not evidence that the project owner failed to supply it.
+
+Action:
+- do not ask for `swap_wwl.swp` again;
+- do not fall back to Datamodel_9830;
+- keep searching/recovering from internal project surfaces when available;
+- continue independent DRA work in parallel.
