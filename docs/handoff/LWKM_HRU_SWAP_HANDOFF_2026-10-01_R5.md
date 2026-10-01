@@ -214,3 +214,20 @@ Read `docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md`
 and its persisted evidence before the next SWP/DRA action.
 No user re-upload is requested.
 
+
+
+## DRA source-runtime provenance follow-up
+
+Read docs/lhm-hru-swap/P12-DRA-SOURCE-RUNTIME-PROVENANCE-2026-10-01.md.
+All four supplied Alterratools variants have AVERAGE reading its function
+result before initialization for N>1. This qualifies a supplied-source defect,
+not causal attribution of the historical 49-run mismatches. Earlier algebra
+AVERAGE(N,list)*N = sum(list) requires an initialized routine; the intended
+all-member mathematics stays authority, literal Fortran execution does not.
+All 49 DRA ZIP timestamps are 2026-03-24; supplied v0.38 history dates its
+fix apr-26. Timestamps are clues, not authenticated executable identities.
+38 recovered ZIP archive instances were searched for producer/build evidence;
+no HRUlist2SWAP binary or link identity was found. Modern Python arithmetic
+must remain deterministic. Do not emulate undefined state or qualify any
+new expected difference. SWALLO v0.38 remains the policy comparison baseline,
+not a proven binary identity. No producer admission or re-upload request.

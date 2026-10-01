@@ -1,0 +1,889 @@
+{
+  "status": "PROVENANCE_AUDIT_NOT_ADMISSION",
+  "timestamp_caveat": "ZIP local timestamps are mutable, timezone-free metadata; no binary identity inferred",
+  "archives": [
+    {
+      "archive": "source (2).zip",
+      "sha256": "0ac63be726865d71468f58c992ff8ba1665862746d33d9148481897dd5dce9e6",
+      "source_versions": [
+        {
+          "member": "source/hrulist2SWAP.f90",
+          "zip_timestamp": [
+            2026,
+            5,
+            21,
+            15,
+            49,
+            56
+          ],
+          "bytes": 81961,
+          "sha256": "1abd632e50232748ed6dd3db924a4fd091b516f25648348601dadd66808d3944",
+          "history": [
+            "!!    Het grootste deel van dit programma is gelijk aan HRUlist2MetaSWAP v0.4; de grootste afwijking zit in het wegschrijven van de uitkomsten.",
+            "!!    apr-26     A.A. Veldhuizen v0.38 Bugfix drainageweerstand voor geselcteerde cellen",
+            "!!    apr-26     A.A. Veldhuizen v0.37 beregening als 30% van de cellen beregening heeft (ipv 50%)",
+            "!!    mar-26     A.A. Veldhuizen v0.36 nieuwe implementatie voor verdachte cellen",
+            "!!    mar-26     A.A. Veldhuizen v0.35 nieuwe implementatie voor verdachte cellen",
+            "!!    mar-26     A.A. Veldhuizen v0.34 qflf terug als onderrand; infiltratie uitgezet als SVAT_infil gemiddeld per HRU < 10. mm /j",
+            "!!    mar-26     A.A. Veldhuizen v0.33 qlat+qflf opgeteld als onderrand",
+            "!!    feb-26     A.A. Veldhuizen v0.32 SWINCO=2 bij vrije drainage, anders 2; level van ontwatering niet dieper dan slootdiepte",
+            "!!    feb-26     A.A. Veldhuizen v0.31 Bij hoge drainageweerstand, drainage uitschakelen, ook bij combi buisdrainage/natuur",
+            "!!    feb-26     A.A. Veldhuizen v0.30 SOIL2 toegevoegd, 1= klei/veen en 2 is zand/loss, lu2crop aangepast",
+            "!!    jan-26     A.A. Veldhuizen v0.29 WET in meteo aangepast: 0.0 als geen neerslag en minimaal 0.1 als wel",
+            "!!    jan-26     A.A. Veldhuizen v0.28 bodemhoogte maaiveld sof hersteld: is gewoon tov NAP",
+            "!!    jan-26     A.A. Veldhuizen v0.27 bfe 204 wordt bfe 205 (5cm B5 bovenop O5) + minium drares/infres =1 +SWALLO=3 voor sys>2",
+            "!!    dec-25     A.A. Veldhuizen v0.26 volgorde: eerst csv schrijven daarna andere zaken",
+            "!!    nov-25     A.A. Veldhuizen v0.25 uitbreiding csv met oa crop_id en soil_id",
+            "!!    sep-25     A.A. Veldhuizen v0.24 qlat toegevoegd",
+            "!!    sep-25     A.A. Veldhuizen v0.23 correctie Flevoland",
+            "!!    aug-25     A.A. Veldhuizen v0.22 geen XI_COND, datumformaat head-modflow ook met '000000' voor tijd mogelijk",
+            "!!    jul-24     A.A. Veldhuizen v0.21 herziening drainage: houdt nu rekening met hoofdwaterlopen/primair sec/tert greppels buis ovl",
+            "!!    jun-24     A.A. Veldhuizen v0.20 invoer rechtstreeks uit LHM ipv via MetaSWAP-blokken"
+          ]
+        },
+        {
+          "member": "source/hrulist2SWAP15042024.f90",
+          "zip_timestamp": [
+            2024,
+            5,
+            14,
+            13,
+            59,
+            10
+          ],
+          "bytes": 83388,
+          "sha256": "84c7b0db2e072baadd1c9c2573c09077f0f587de75ea353d10a0dfb4c2cfd37c",
+          "history": [
+            "!!    Het grootste deel van dit programma is gelijk aan HRUlist2MetaSWAP v0.4; de grootste afwijking zit in het wegschrijven van de uitkomsten.",
+            "!!    may-24     A.A. Veldhuizen v0.11 diepte van SWAP-kolommen naar 20 m, 1/4 L gebruiken voor doorstroomde dikte",
+            "!!    apr-24     A.A. Veldhuizen v0.10 reparatie peilen/diepte max 0.99 boven maaiveld",
+            "!!    feb-24     A.A. Veldhuizen v0.8",
+            "!!    sep-23     A.A. Veldhuizen v0.1",
+            "!!               Prototype, gebaseerd op HRUlist2MetaSWAP v0.4"
+          ]
+        },
+        {
+          "member": "source/hrulist2SWAP_21062024.f90",
+          "zip_timestamp": [
+            2024,
+            6,
+            21,
+            14,
+            39,
+            22
+          ],
+          "bytes": 83797,
+          "sha256": "aa8284fba7b27691e0976c2d4e779f3e890d5d86d05a6c953009f2c06f723bc2",
+          "history": [
+            "!!    Het grootste deel van dit programma is gelijk aan HRUlist2MetaSWAP v0.4; de grootste afwijking zit in het wegschrijven van de uitkomsten.",
+            "!!    may-24     A.A. Veldhuizen v0.11 diepte van SWAP-kolommen naar 20 m, 1/4 L gebruiken voor doorstroomde dikte",
+            "!!    apr-24     A.A. Veldhuizen v0.10 reparatie peilen/diepte max 0.99 boven maaiveld",
+            "!!    feb-24     A.A. Veldhuizen v0.8",
+            "!!    sep-23     A.A. Veldhuizen v0.1",
+            "!!               Prototype, gebaseerd op HRUlist2MetaSWAP v0.4"
+          ]
+        },
+        {
+          "member": "source/hrulist2SWAP_26042024.f90",
+          "zip_timestamp": [
+            2024,
+            4,
+            26,
+            14,
+            35,
+            52
+          ],
+          "bytes": 83126,
+          "sha256": "cd138416e976e78255f57b9309bcc0cf9f915792e569063f2dd85ebf8fab845d",
+          "history": [
+            "!!    Het grootste deel van dit programma is gelijk aan HRUlist2MetaSWAP v0.4; de grootste afwijking zit in het wegschrijven van de uitkomsten.",
+            "!!    apr-24     A.A. Veldhuizen v0.10 reparatie peilen/diepte max 0.99 boven maaiveld",
+            "!!    feb-24     A.A. Veldhuizen v0.8",
+            "!!    sep-23     A.A. Veldhuizen v0.1",
+            "!!               Prototype, gebaseerd op HRUlist2MetaSWAP v0.4"
+          ]
+        },
+        {
+          "member": "source/hrulist2SWAP_28062024.f90",
+          "zip_timestamp": [
+            2024,
+            6,
+            28,
+            15,
+            8,
+            0
+          ],
+          "bytes": 71139,
+          "sha256": "7068b7002a6523be4a3e2bd2398ede37edd59c85ea077969039106d79160c6b6",
+          "history": [
+            "!!    Het grootste deel van dit programma is gelijk aan HRUlist2MetaSWAP v0.4; de grootste afwijking zit in het wegschrijven van de uitkomsten.",
+            "!!    jun-24     A.A. Veldhuizen v0.20 invoer rechtstreeks uit LHM ipv via MetaSWAP-blokken",
+            "!!    may-24     A.A. Veldhuizen v0.11 diepte van SWAP-kolommen naar 20 m, 1/4 L gebruiken voor doorstroomde dikte",
+            "!!    apr-24     A.A. Veldhuizen v0.10 reparatie peilen/diepte max 0.99 boven maaiveld",
+            "!!    feb-24     A.A. Veldhuizen v0.8",
+            "!!    sep-23     A.A. Veldhuizen v0.1",
+            "!!               Prototype, gebaseerd op HRUlist2MetaSWAP v0.4"
+          ]
+        },
+        {
+          "member": "source/hrulist2SWAP_v021.f90",
+          "zip_timestamp": [
+            2025,
+            1,
+            29,
+            15,
+            13,
+            20
+          ],
+          "bytes": 67896,
+          "sha256": "011b911d2f534c162e5ebd597915b5c7630d8087cd02919b4ba9910fad28b63d",
+          "history": [
+            "!!    Het grootste deel van dit programma is gelijk aan HRUlist2MetaSWAP v0.4; de grootste afwijking zit in het wegschrijven van de uitkomsten.",
+            "!!    jul-24     A.A. Veldhuizen v0.21 herziening drainage: houdt nu rekening met hoofdwaterlopen/primair sec/tert greppels buis ovl",
+            "!!    jun-24     A.A. Veldhuizen v0.20 invoer rechtstreeks uit LHM ipv via MetaSWAP-blokken",
+            "!!    may-24     A.A. Veldhuizen v0.11 diepte van SWAP-kolommen naar 20 m, 1/4 L gebruiken voor doorstroomde dikte",
+            "!!    apr-24     A.A. Veldhuizen v0.10 reparatie peilen/diepte max 0.99 boven maaiveld",
+            "!!    feb-24     A.A. Veldhuizen v0.8",
+            "!!    sep-23     A.A. Veldhuizen v0.1",
+            "!!               Prototype, gebaseerd op HRUlist2MetaSWAP v0.4"
+          ]
+        }
+      ],
+      "average_routines": [
+        {
+          "member": "source/Alterratools.f90",
+          "zip_timestamp": [
+            2025,
+            9,
+            4,
+            15,
+            5,
+            20
+          ],
+          "bytes": 222265,
+          "sha256": "3f5b266d369b3ffbc42f105b92b7874ffdead205d74f14cda1b83807c61f8d78",
+          "routine": "      REAL*4 FUNCTION average (nulist,list)\r\n      IMPLICIT  NONE\r\n!\r\n      INTEGER*4       nulist\r\n      REAL*4          list(nulist)\r\n      INTEGER*4       kk\r\n!\r\n      IF (nulist .GT. 1) THEN\r\n         DO kk = 1,nulist\r\n            average = average + list(kk)\r\n         ENDDO\r\n         average = average/nulist\r\n      ELSEIF (nulist.EQ.1) THEN\r\n         average = list(1)\r\n      ELSE\r\n         average = -9999.\r\n      ENDIF\r\n      RETURN\r\n!\r\n      END\r\n\r",
+          "routine_sha256": "cc593c1b507d38c04c2cb77042c461b0ea4519e6f25e59d6908846fc11fe4bb7",
+          "finding": "READ_BEFORE_INITIALIZATION_FOR_N_GT_1"
+        },
+        {
+          "member": "source/Alterratools_011010.f90",
+          "zip_timestamp": [
+            2010,
+            10,
+            1,
+            17,
+            17,
+            42
+          ],
+          "bytes": 153471,
+          "sha256": "0ae19ff56d044ea467ae305ab4c2ce2d3b43d7f9eba29ffb6635e99df609b8b9",
+          "routine": "      REAL*4 FUNCTION average (nulist,list)\r\n      IMPLICIT  NONE\r\n!\r\n      INTEGER*4       nulist\r\n      REAL*4          list(nulist)\r\n      INTEGER*4       kk\r\n!\r\n      IF (nulist .GT. 1) THEN\r\n         DO kk = 1,nulist\r\n            average = average + list(kk)\r\n         ENDDO\r\n         average = average/nulist\r\n      ELSEIF (nulist.EQ.1) THEN\r\n         average = list(1)\r\n      ELSE\r\n         average = -9999.\r\n      ENDIF\r\n      RETURN\r\n!\r\n      END\r\n\r",
+          "routine_sha256": "cc593c1b507d38c04c2cb77042c461b0ea4519e6f25e59d6908846fc11fe4bb7",
+          "finding": "READ_BEFORE_INITIALIZATION_FOR_N_GT_1"
+        },
+        {
+          "member": "source/Alterratools_23012015.f90",
+          "zip_timestamp": [
+            2015,
+            1,
+            23,
+            10,
+            20,
+            4
+          ],
+          "bytes": 192124,
+          "sha256": "2b6da5386ee9a110deac31f2446e94f7677cb6d4183aac5dbf20e9cba2f1cd56",
+          "routine": "      REAL*4 FUNCTION average (nulist,list)\r\n      IMPLICIT  NONE\r\n!\r\n      INTEGER*4       nulist\r\n      REAL*4          list(nulist)\r\n      INTEGER*4       kk\r\n!\r\n      IF (nulist .GT. 1) THEN\r\n         DO kk = 1,nulist\r\n            average = average + list(kk)\r\n         ENDDO\r\n         average = average/nulist\r\n      ELSEIF (nulist.EQ.1) THEN\r\n         average = list(1)\r\n      ELSE\r\n         average = -9999.\r\n      ENDIF\r\n      RETURN\r\n!\r\n      END\r\n\r",
+          "routine_sha256": "cc593c1b507d38c04c2cb77042c461b0ea4519e6f25e59d6908846fc11fe4bb7",
+          "finding": "READ_BEFORE_INITIALIZATION_FOR_N_GT_1"
+        },
+        {
+          "member": "source/Alterratools_31082011.f90",
+          "zip_timestamp": [
+            2011,
+            8,
+            31,
+            15,
+            45,
+            32
+          ],
+          "bytes": 164408,
+          "sha256": "5633cec7c64912b13bf8006b8463cf6fa784fd2ba5e20e9a63ca07df1fd38375",
+          "routine": "      REAL*4 FUNCTION average (nulist,list)\r\n      IMPLICIT  NONE\r\n!\r\n      INTEGER*4       nulist\r\n      REAL*4          list(nulist)\r\n      INTEGER*4       kk\r\n!\r\n      IF (nulist .GT. 1) THEN\r\n         DO kk = 1,nulist\r\n            average = average + list(kk)\r\n         ENDDO\r\n         average = average/nulist\r\n      ELSEIF (nulist.EQ.1) THEN\r\n         average = list(1)\r\n      ELSE\r\n         average = -9999.\r\n      ENDIF\r\n      RETURN\r\n!\r\n      END\r\n\r",
+          "routine_sha256": "cc593c1b507d38c04c2cb77042c461b0ea4519e6f25e59d6908846fc11fe4bb7",
+          "finding": "READ_BEFORE_INITIALIZATION_FOR_N_GT_1"
+        }
+      ],
+      "dra_members": [],
+      "build_or_executable_members": [
+        {
+          "member": "source/sun2makkink/ttutil413.lib",
+          "zip_timestamp": [
+            2002,
+            3,
+            14,
+            13,
+            48,
+            0
+          ],
+          "bytes": 546862
+        }
+      ]
+    },
+    {
+      "archive": "run_files(1).zip",
+      "sha256": "46f1fc6b6f4aa01265db950c8ca78f9c4714a97d11cfa4d8f0c66b4dea7a05e3",
+      "source_versions": [],
+      "average_routines": [],
+      "dra_members": [
+        {
+          "member": "run_000007876/7876.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "9a260b2b1e2c1c183802c273b1f57a0720090a578130260237ee44f10102a00b"
+        },
+        {
+          "member": "run_000007877/7877.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "4c769dfc94d45d9f27aa4a93c850196689c598e71a17d5140e16fbb5fdf419b0"
+        },
+        {
+          "member": "run_000007909/7909.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "f35173602fc0df134eb978c847943689be6ece575703f12fb669c576e5455228"
+        },
+        {
+          "member": "run_000007910/7910.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "effbbad5886b7d63f71797c718baf2f6fee122415d8e6b7dc416009978c3cd24"
+        },
+        {
+          "member": "run_000007911/7911.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "2f4c12e1b5f09684e00ffa2b74151e79fa23e5eb9fd8fc0f267c0a0c2d8db4e6"
+        },
+        {
+          "member": "run_000007912/7912.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "3f099b2951c942b9d539d9fef467434b7b075de10a321b87442496d1e5a02cdb"
+        },
+        {
+          "member": "run_000007913/7913.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "9faae92715bd26a3c87dfbea4c709b07ff9432b99f00440b2f30023ca5a75e0e"
+        },
+        {
+          "member": "run_000007914/7914.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "55b21fdb35f30a076ade93ef51cdc565973797b09401ea4e0447431d6b5ecb64"
+        },
+        {
+          "member": "run_000007915/7915.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "78133059aae3aba1ac6aeaa78fa9782f34700feef0a1a73e4bd787dbd0f5b96d"
+        },
+        {
+          "member": "run_000007916/7916.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "39721b2aff1a3910677d3880ab3fb7afe8031b9f699a52b99e735508bb289502"
+        },
+        {
+          "member": "run_000007917/7917.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "7195d2bfee277e66a48ec21d826f5ac20a23d0c3372c4b3d4e95dc476ac21c20"
+        },
+        {
+          "member": "run_000007918/7918.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "b13159dd33c1059383b3a578f33484abcdad94033c9f59be428b0345bb51cf2c"
+        },
+        {
+          "member": "run_000007919/7919.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "4ff61ddd4f373a2a2ef34c728adf179d4fe703853a57f5bdb18f0f70d1e87591"
+        },
+        {
+          "member": "run_000007920/7920.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "2e3bece5f30ba9dc6114884145ca54809611495e7479000914b0d4c290f65f70"
+        },
+        {
+          "member": "run_000007921/7921.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "cb0a8aab5b0ba71b5984a16054a61f2bcc4537a3e9db3cf2b15f22646ec168c7"
+        },
+        {
+          "member": "run_000007922/7922.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "a03092ef4ec0bce4c4467d48854e1624ef55ecaaafb4b290c72a5b99c13df622"
+        },
+        {
+          "member": "run_000007923/7923.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "50c8719f5f74077c02865d3eeec9e9bfc401fe0fcc49a9f3a74f4f6c807a3acc"
+        },
+        {
+          "member": "run_000007924/7924.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "edfa0f1c9dbf02177ff3803765eded4c64ce055041e3878d38e804d4317fa924"
+        },
+        {
+          "member": "run_000007925/7925.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "828a2f521c5a4322ddf47570556ce315c94c0a65e7e012ec3ce9adcf27fb4046"
+        },
+        {
+          "member": "run_000007926/7926.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "094fca1159dd8b3b6637081670234a75c17aff393c9a721230eb29fe6d46bef9"
+        },
+        {
+          "member": "run_000007927/7927.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "ea9d86153ac422f4c7a6f9b4dff31f9a510b99fbe93afe02f3393f6c0475d705"
+        },
+        {
+          "member": "run_000007928/7928.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "79a1f0e625dff42593f03000e69d73c44eaa45f1b11429954a62c65758ce1ace"
+        },
+        {
+          "member": "run_000007929/7929.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "02575c62a83de5a83cefb68fc4b24d7cd4bc6a09f55cfc1add713adb981032bb"
+        },
+        {
+          "member": "run_000007930/7930.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12674,
+          "sha256": "2f3cb80f20e924c195498225abebcc02e7e0957feb47362803d022b8d97bda82"
+        },
+        {
+          "member": "run_000007931/7931.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12670,
+          "sha256": "f3f6032d5c67d0bae8367f14b5988c6b8bd315d4631ffb3d5999069dd06284eb"
+        },
+        {
+          "member": "run_000007932/7932.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "d3c6e1ad7ef22a65eabaf77883c3b908306f2c5d6f78f0935b34ef0f309dc87e"
+        },
+        {
+          "member": "run_000007933/7933.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "fb3f16c405378ffb6a3841d2c833b38fadf4b390ef57b8f97865d22b81914c4f"
+        },
+        {
+          "member": "run_000007934/7934.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "7628ffefcd1dc617c8b71d201d733cf05471cdfa6cad6a86c7d7ddc498145615"
+        },
+        {
+          "member": "run_000007935/7935.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12670,
+          "sha256": "cb547f530452a2ed9f216e3df3e2064faff9362e0edaebf89df8dbc3d40b1138"
+        },
+        {
+          "member": "run_000007936/7936.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12670,
+          "sha256": "bf2fa4fcf582024ca95521a9d262ed30296add74b99dffde41b9b1eb0972f847"
+        },
+        {
+          "member": "run_000007937/7937.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12674,
+          "sha256": "f9cfe187b871fe16b7e03cbc8b02af81680cf44b551fe7e8b80a6d7e8893020e"
+        },
+        {
+          "member": "run_000007938/7938.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12674,
+          "sha256": "3beaf8ba2a63213f953ca06317c4f02489384753dbd2380b35e644d9b5b8752f"
+        },
+        {
+          "member": "run_000007939/7939.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12670,
+          "sha256": "4df07cb84c0636087f7459e85b8085d1be6588c43789f926aa7fbb78073f8e91"
+        },
+        {
+          "member": "run_000007940/7940.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "0f450cd7f8fe4a5d73d04a30f61d4c6013b5179532cc0aab76267adcacdbec5b"
+        },
+        {
+          "member": "run_000007941/7941.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "fa15669c7d0bc354263e8bbc06033228906d20ff046989b7bb42894fe3ff2008"
+        },
+        {
+          "member": "run_000007942/7942.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "c3caea41b7e4247e6b03e2954aab6a4429c57cf5f1999a71ee741b10ef9b80ed"
+        },
+        {
+          "member": "run_000007943/7943.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "ae6a16482e8ce94845557fbc9f07023fa7253f8c2004f59e077530e649d598ba"
+        },
+        {
+          "member": "run_000007944/7944.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "7379565b1ba7ff72b337cfc666463205d5e050073518a935e1b30ed8ab9656b9"
+        },
+        {
+          "member": "run_000007945/7945.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "ecea9a6c311c29211c2e1b7d32b415c74169fef90c7d3c86ebeeaf212ba20e41"
+        },
+        {
+          "member": "run_000007866/7866.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12658,
+          "sha256": "0c3d22000f683e34c90b84eba7ef7e10ceb2c8f2843fe8a329004eee2bf25f64"
+        },
+        {
+          "member": "run_000007867/7867.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "c8915f7db3102a9f4f1e10cbfb60086fb47146db66e9824f55abce91918cb03e"
+        },
+        {
+          "member": "run_000007868/7868.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "f8395fda10e46324acb743e6daef8c74b75a3207f48d242ba0f234b5dfa41b33"
+        },
+        {
+          "member": "run_000007869/7869.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12666,
+          "sha256": "6b2ce2557142312630b0c735d6f9de20f0c1b86a5f2d60422dbe74cac1b01056"
+        },
+        {
+          "member": "run_000007870/7870.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "c75261f5a3e687e03e368f50bc57fab8e5b57ebfadb5451976073e520b301299"
+        },
+        {
+          "member": "run_000007871/7871.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12658,
+          "sha256": "776d172712d21559a076b32c4cb018b9da9a658f7fb58d0b67e511a44853d39a"
+        },
+        {
+          "member": "run_000007872/7872.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12658,
+          "sha256": "645ebfec103b8ed90725346c49d1d2c7b282ac43556e2534abf5a08e5498aa45"
+        },
+        {
+          "member": "run_000007873/7873.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12658,
+          "sha256": "1d99153c1d5a8df2329c98f76c2dbc6bb083d01849574a0ef79ee8b29fb78cd5"
+        },
+        {
+          "member": "run_000007874/7874.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "bf729729fcc760b0f737d701b4b50f8f8443730f49c5f298ee56134bdddfabbc"
+        },
+        {
+          "member": "run_000007875/7875.dra",
+          "zip_timestamp": [
+            2026,
+            3,
+            24,
+            20,
+            56,
+            36
+          ],
+          "bytes": 12662,
+          "sha256": "94afd35fb959f3823a0a3a20473dd81db7ed611927f8c68103f57b178f1acfcc"
+        }
+      ],
+      "build_or_executable_members": []
+    },
+    {
+      "archive": "LWKM_workflow_no_asc.zip",
+      "sha256": "6d4c210b4f375a7c3476d17976ff8179b25c82f17ceed39853e59f7ac67665c6",
+      "source_versions": [],
+      "average_routines": [],
+      "dra_members": [],
+      "build_or_executable_members": []
+    }
+  ]
+}

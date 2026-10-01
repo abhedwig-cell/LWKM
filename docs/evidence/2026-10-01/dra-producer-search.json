@@ -1,0 +1,617 @@
+{
+  "status": "RECOVERED_ZIP_PRODUCER_SEARCH_NOT_ADMISSION",
+  "archives": [
+    "recovered/LWKM/Template.zip",
+    "recovered/LWKM/drn.zip",
+    "recovered/LWKM/Tools(2).zip",
+    "recovered/LWKM/run_files(1).zip",
+    "recovered/LWKM/LWKM_workflow_no_asc.zip",
+    "recovered/LWKM/LWKM_workflow_no_asc.zip!bdgflf_l1_1991-2020.zip",
+    "recovered/LWKM/regionaal.zip",
+    "recovered/LWKM/source (2).zip",
+    "recovered/LWKM/source (2).zip!source/asc.zip",
+    "recovered/LWKM/source (2).zip!source/bda2f90.zip",
+    "recovered/LWKM/source (2).zip!source/cond2cond.zip",
+    "recovered/LWKM/source (2).zip!source/direction.zip",
+    "recovered/LWKM/source (2).zip!source/haarvat_v3.zip",
+    "recovered/LWKM/source (2).zip!source/hhgw2stochast.zip",
+    "recovered/LWKM/source (2).zip!source/hhgw2tibd.zip",
+    "recovered/LWKM/source (2).zip!source/HIB/MinLeng.zip",
+    "recovered/LWKM/source (2).zip!source/hkv2prob.zip",
+    "recovered/LWKM/source (2).zip!source/inuncount_lbw.zip",
+    "recovered/LWKM/source (2).zip!source/LBW2prob.zip",
+    "recovered/LWKM/source (2).zip!source/meandering.zip",
+    "recovered/LWKM/source (2).zip!source/premsw.zip",
+    "recovered/LWKM/source (2).zip!source/Programma Sim2HKV.zip",
+    "recovered/LWKM/source (2).zip!source/pv2sim.zip",
+    "recovered/LWKM/source (2).zip!source/seg2simgro.zip",
+    "recovered/LWKM/source (2).zip!source/sobek2simgro.zip",
+    "recovered/LWKM/source (2).zip!source/source_WRO.zip",
+    "recovered/LWKM/source (2).zip!source/stochast2prob.zip",
+    "recovered/LWKM/source (2).zip!source/SunTMakkink.zip",
+    "recovered/LWKM/source (2).zip!source/sw2inun.zip",
+    "recovered/LWKM/source (2).zip!source/Waterbalans.zip",
+    "recovered/LWKM/source (2).zip!source/wc_bal.zip",
+    "recovered/LWKM-runtime-recovery/Template.zip",
+    "recovered/LWKM-runtime-recovery/Tools(2).zip",
+    "recovered/LWKM-reconstruction/Rscripts.zip",
+    "recovered/LWKM-reconstruction/Rscripts.zip!Rscripts/HRU_clustering/optimized/files.zip",
+    "recovered/LWKM-reconstruction/Rscripts.zip!Rscripts/Shiny_LWKMviewer/files.zip",
+    "recovered/LWKM-reconstruction/Rscripts.zip!Rscripts/Shiny_LWKMviewer/files_stopbutton.zip",
+    "work/HRU2LSW.zip"
+  ],
+  "hits": [
+    {
+      "archive": "recovered/LWKM/Tools(2).zip",
+      "member": "Tools/SWAP/swap.exe",
+      "bytes": 3569664,
+      "timestamp": [
+        2025,
+        8,
+        19,
+        10,
+        59,
+        2
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/LWKM_workflow_no_asc.zip",
+      "member": "LWKM_makeHRU.log",
+      "bytes": 138,
+      "timestamp": [
+        2025,
+        7,
+        12,
+        20,
+        25,
+        54
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip",
+      "member": "source/hrulist2SWAP.f90",
+      "bytes": 81961,
+      "timestamp": [
+        2026,
+        5,
+        21,
+        15,
+        49,
+        56
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip",
+      "member": "source/hrulist2SWAP15042024.f90",
+      "bytes": 83388,
+      "timestamp": [
+        2024,
+        5,
+        14,
+        13,
+        59,
+        10
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip",
+      "member": "source/hrulist2SWAP_21062024.f90",
+      "bytes": 83797,
+      "timestamp": [
+        2024,
+        6,
+        21,
+        14,
+        39,
+        22
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip",
+      "member": "source/hrulist2SWAP_26042024.f90",
+      "bytes": 83126,
+      "timestamp": [
+        2024,
+        4,
+        26,
+        14,
+        35,
+        52
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip",
+      "member": "source/hrulist2SWAP_28062024.f90",
+      "bytes": 71139,
+      "timestamp": [
+        2024,
+        6,
+        28,
+        15,
+        8,
+        0
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip",
+      "member": "source/hrulist2SWAP_v021.f90",
+      "bytes": 67896,
+      "timestamp": [
+        2025,
+        1,
+        29,
+        15,
+        13,
+        20
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_agg/Debug/PreMetaSWAP_agg.exe",
+      "bytes": 428032,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        18
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_agg/PreMetaSWAP_agg.vfproj",
+      "bytes": 2374,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        10
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_agg/Release/PreMetaSWAP_agg_V7_3_2.exe",
+      "bytes": 1050112,
+      "timestamp": [
+        2016,
+        8,
+        12,
+        8,
+        9,
+        26
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_agg/unsamsw1var_add.exe",
+      "bytes": 434688,
+      "timestamp": [
+        2015,
+        1,
+        9,
+        13,
+        43,
+        4
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_bas/Debug/PreMetaSWAP_bas.exe",
+      "bytes": 1450496,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        24
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_bas/PreMetaSWAP_bas.vfproj",
+      "bytes": 2201,
+      "timestamp": [
+        2016,
+        8,
+        10,
+        13,
+        45,
+        38
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_bas/Release/PreMetaSWAP_bas_V7_3_12.exe",
+      "bytes": 834560,
+      "timestamp": [
+        2016,
+        8,
+        17,
+        8,
+        4,
+        40
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_cal/Debug/PreMetaSWAP_cal.exe",
+      "bytes": 310272,
+      "timestamp": [
+        2017,
+        6,
+        16,
+        5,
+        34,
+        46
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_cal/PreMetaSWAP_cal.vfproj",
+      "bytes": 2153,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        23,
+        44
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_cal/Release/PreMetaSWAP_cal.exe",
+      "bytes": 808960,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        23,
+        46
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_gen/Debug/PreMetaSWAP_gen.exe",
+      "bytes": 264704,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        22
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_gen/PreMetaSWAP_gen.vfproj",
+      "bytes": 2110,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        24,
+        36
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_gen/Release/PreMetaSWAP_gen.exe",
+      "bytes": 802304,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        24,
+        40
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_gen/Release/PreMetaSWAP_gen_V7_3_1.exe",
+      "bytes": 151040,
+      "timestamp": [
+        2016,
+        8,
+        12,
+        8,
+        28,
+        0
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_inp/Debug/PreMetaSWAP_inp.exe",
+      "bytes": 268800,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        22
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_inp/PreMetaSWAP_inp.vfproj",
+      "bytes": 2204,
+      "timestamp": [
+        2016,
+        8,
+        10,
+        13,
+        27,
+        0
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_inp/Release/PreMetaSWAP_inp_V7_3_13.exe",
+      "bytes": 811008,
+      "timestamp": [
+        2016,
+        8,
+        10,
+        13,
+        27,
+        46
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_lst/PreMetaSWAP_lst.vfproj",
+      "bytes": 1933,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        25,
+        30
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetasWAP_lta/Debug/PreMetasWAP_lta.exe",
+      "bytes": 372736,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        20
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetasWAP_lta/PreMetasWAP_lta.vfproj",
+      "bytes": 2153,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        26,
+        8
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetasWAP_lta/Release/PreMetaSWAP_lta_V7_3_2.exe",
+      "bytes": 901120,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        26,
+        14
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_par/Debug/PreMetaSWAP_par.exe",
+      "bytes": 270848,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        20
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_par/PreMetaSWAP_par.vfproj",
+      "bytes": 2153,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        10,
+        53,
+        6
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_par/Release/PreMetaSWAP_par_V7_3_2.exe",
+      "bytes": 798208,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        44,
+        30
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_spu/Debug/PreMetaSWAP_spu.exe",
+      "bytes": 270336,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        22
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_spu/PreMetaSWAP_spu.vfproj",
+      "bytes": 2127,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        21,
+        42
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_spu/Release/PreMetaSWAP_spu_V7_3_1.exe",
+      "bytes": 797696,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        21,
+        44
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_swp/Debug/PreMetaSWAP_swp.exe",
+      "bytes": 270336,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        12,
+        12,
+        22
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_swp/PreMetaSWAP_swp.vfproj",
+      "bytes": 2153,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        27,
+        32
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMetaSWAP_swp/Release/PreMetaSWAP_swp_V7_3_1.exe",
+      "bytes": 798720,
+      "timestamp": [
+        2018,
+        2,
+        12,
+        16,
+        27,
+        34
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMSW/Debug/PreMetaSWAP.exe",
+      "bytes": 2278912,
+      "timestamp": [
+        2017,
+        10,
+        4,
+        10,
+        58,
+        48
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMSW/PreMetaSWAP.vfproj",
+      "bytes": 3916,
+      "timestamp": [
+        2017,
+        6,
+        15,
+        10,
+        57,
+        14
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMSW/Release/PreMetaSWAP_V7_3_16.exe",
+      "bytes": 1118208,
+      "timestamp": [
+        2018,
+        7,
+        23,
+        16,
+        42,
+        50
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMSW_add/Debug/PreMetaSWAP_add.exe",
+      "bytes": 1724928,
+      "timestamp": [
+        2016,
+        5,
+        4,
+        9,
+        9,
+        42
+      ]
+    },
+    {
+      "archive": "recovered/LWKM/source (2).zip!source/premsw.zip",
+      "member": "premsw/workspace11.1/PreMSW_add/PreMetaSWAP_add.vfproj",
+      "bytes": 2417,
+      "timestamp": [
+        2016,
+        8,
+        10,
+        15,
+        5,
+        44
+      ]
+    },
+    {
+      "archive": "recovered/LWKM-runtime-recovery/Tools(2).zip",
+      "member": "Tools/SWAP/swap.exe",
+      "bytes": 3569664,
+      "timestamp": [
+        2025,
+        8,
+        19,
+        10,
+        59,
+        2
+      ]
+    }
+  ]
+}
