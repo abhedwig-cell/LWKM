@@ -1,5 +1,7 @@
-schema_version: 2
+schema_version: 3
 oracle: P12_49_REALIZED_RUNS
+oracle_archive_sha256: 46f1fc6b6f4aa01265db950c8ca78f9c4714a97d11cfa4d8f0c66b4dea7a05e3
+oracle_run_count: 49
 classifications:
   - NON_DISCRIMINATING
   - DISCRIMINATING
@@ -28,7 +30,14 @@ observables:
     source_side_equal_hrus: 7471
     source_side_discriminating_hrus: 2771
     oracle: dra_L_div_4_when_active
-    status: SOURCE_SIDE_QUALIFIED_REALIZED_GATE_PENDING
+    realized_49run:
+      non_discriminating: 34
+      explained_legacy: 15
+      explained_schema_first: 0
+      unexplained: 0
+      expected_candidate_L_difference_paths: 75
+      expected_difference_file: config/p12/dra-49run-static04-expected-differences-v1.yml
+    status: SOURCE_AND_REALIZED_GATES_QUALIFIED_MODERN_CORRECTION_INTENTIONAL
   RDS:
     legacy: rz_repr
     candidate: rz_repr
@@ -38,16 +47,25 @@ observables:
   WET:
     status: QUALIFIED_17885_OF_17885
   DRA_AGGREGATION:
-    status: FORMULA_RECONSTRUCTED_FULL_GATE_PENDING_REALIZED_ORACLE
+    realized_oracle_status: RAW_49RUN_RECOVERED
+    status: FORMULA_RECONSTRUCTED_CANDIDATE_GENERATION_AND_FULL_REGRESSION_PENDING
   GWLI:
     status: CHARACTERIZE_LEGACY_ONLY
   SWALLO:
     supplied_source_mode: SUPPLIED_SOURCE_V038
     supplied_source_forced_systems: [4, 5]
-    realized_compat_mode: REALIZED_PRODUCTION_COMPAT
-    realized_compat_forced_systems: [3, 4, 5]
+    run2000_compat_mode: RUN2000_V027_COMPAT
+    run2000_compat_forced_systems: [3, 4, 5]
+    backward_compat_alias: REALIZED_PRODUCTION_COMPAT
     common_conditions:
       - infres_gt_20000
       - river_infiltration_indicator_lt_10
     run_2000_status: EXPLAINED_PROVENANCE
-    status: PROVENANCE_SPLIT_CONFIRMED_49RUN_GATE_PENDING
+    realized_49run:
+      supplied_v038_scalar_matches: 241
+      supplied_v038_scalar_total: 245
+      supplied_v038_complete_run_matches: 47
+      residual_runs: [7868, 7929]
+      run2000_v027_rule_scalar_mismatches: 25
+      universal_system3_force: FALSIFIED_FOR_49RUN_ORACLE
+    status: V038_BASELINE_QUALIFIED_TWO_RUN_INPUT_PROVENANCE_RESIDUAL
