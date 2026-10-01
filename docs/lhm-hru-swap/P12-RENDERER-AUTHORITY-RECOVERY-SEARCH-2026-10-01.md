@@ -9,27 +9,15 @@ R5 requires a raw-readable renderer database and template/profile authority befo
 
 This search was performed before requesting any additional user upload.
 
-## Repository authority already established
+## Current authority correction
 
-Earlier raw recovery established a historical archive:
-- `Datamodel_9830.zip`;
-- archive SHA-256 `7eed8c4e609c490efb8eb7cff998e537cf3530eb742709d44a05f2c36271b2f7`.
+Project-owner clarification on 1 October 2026:
+- `Datamodel_9830.zip` is obsolete and must not be used as current production authority;
+- `Datamodel_10242.sqlite` is only a machine translation of the same-named Excel workbook and is not a separate scientific authority;
+- the current `Datamodel_10242.xlsx` is the datamodel authority;
+- the already supplied/downloaded current SWP/template material must be recovered from Project/Library rather than requested again.
 
-Recovered from that archive in the earlier runtime:
-- `Datamodel_10242.sqlite`;
-- SHA-256 `4b697e7f806d0e6f0c345b92bb78c456238c3af5634559a7e2f7edd4171183bb`;
-- historical `Datamodel_10242.xlsx`;
-- `swap_wwl.swp`;
-- SHA-256 `d960f7ede8074672f8f8d6c938df0554383f631e75dfdb67ea33bfe15cc5beab`;
-- `swap_tools.log`;
-- control and supporting artifacts.
-
-Those bytes were sufficient to close:
-- the 10,242-run datamodel completeness audit;
-- the datamodel-to-render-context contract;
-- run-2000 full active-SWP serialization.
-
-The archive itself is not currently exposed as a raw-readable Project/Library object in this runtime.
+Older archive-derived material remains historical mapping/regression evidence only. It must not be used to reconstruct current production values.
 
 ## Current Project/Library search
 
@@ -85,11 +73,11 @@ This is an evidence-access blocker, not a scientific-authority blocker.
 
 No user input is needed to understand the renderer semantics.
 
-To clear the runtime gate, any one of the following is sufficient:
-1. raw-readable `Datamodel_9830.zip` again;
-2. raw-readable `Datamodel_10242.sqlite` plus `swap_wwl.swp`;
-3. raw-readable current `Datamodel_10242.xlsx` plus current `Template.zip`, followed by a qualified XLSX-to-SQLite/context path;
-4. a repository fixture containing the exact already-hashed historical SQLite/template bytes.
+To clear the runtime gate, use the current authority only:
+1. raw-readable current `Datamodel_10242.xlsx` plus current `Template.zip`; or
+2. an exact extracted current template/SWP file already supplied by the project owner plus a qualified read path over the current XLSX.
+
+Do not use `Datamodel_9830.zip` as a fallback.
 
 Until then:
 - retain R2 context qualification;
