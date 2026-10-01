@@ -5,67 +5,62 @@ abhedwig-cell/LWKM
 Werk rechtstreeks met de GitHub-connector en gebruik Project Files/Library voor eerder geüploade bestanden.
 
 Lees vóór iedere inhoudelijke actie eerst:
-1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-09-30_R4.md op branch work/lhm-hru-swap-workflow-v1;
+1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-10-01_R5.md op branch work/lhm-hru-swap-workflow-v1;
 2. de actuele head van work/lhm-hru-swap-workflow-v1;
 3. dit bestand;
-4. task-specifieke authority-, audit- en serverdocumenten die R4 noemt;
-5. oudere R3/R2 handoffs alleen voor historische achtergrond.
+4. task-specifieke authority-, audit- en serverdocumenten die R5 noemt;
+5. oudere R4/R3 handoffs alleen voor historische achtergrond.
 
 De repository is authority.
 
 Werk autonoom in grote blokken. Vraag geen toestemming tussen fasen. Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate, canonical admission waar verantwoord, een expliciet gefalsificeerde route of een echte blocker.
 
-Reeds gesloten/gekwalificeerd:
-- canonieke bodem370 lookup;
-- STATIC02 SWETR huidige populatie non-discriminating;
-- STATIC03 40 soil2-correcties en 6 crop_id-correcties;
-- run-2000 directe SWP-serialisatie volledig gesloten;
-- multi-run SWP- en DRA-regressieharnesses klaar;
-- NHI/LHM collector + Q0-Q4 qualification implementation candidate;
-- DRA bronrasters semantisch volledig hersteld;
-- STATIC04 representative-SVAT dqsat source-side gekwalificeerd:
-  7.471 gelijk, 2.771 / 10.242 discriminerend;
-- nature/DRA4 source-side gesloten:
-  1.974 landgebruikscodeverschillen maar 0 / 10.242 nature-booleanverschillen;
-- SWALLO provenance split bevestigd:
-  supplied v0.38 forceert systemen 4-5, realized run-2000 + v0.27 historie ondersteunen systemen 3-5;
-- tools/p12_swallo.py en tools/generate_dra.py hebben expliciete provenance modes;
-- regression-oracle manifest is schema v2.
+Nieuw sinds R4:
+- raw 49-run archive is recovered from user upload run_files(1).zip;
+- archive SHA-256: 46f1fc6b6f4aa01265db950c8ca78f9c4714a97d11cfa4d8f0c66b4dea7a05e3;
+- 49 realized runs are available with swap.swp, DRA, BBC and MET;
+- STATIC04 realized gate is closed:
+  34 non-discriminating, 15 explained legacy, 0 explained schema-first, 0 unexplained;
+- modern representative-SVAT dqsat remains production authority;
+- 75 expected modern DRA L differences are preregistered in config/p12/dra-49run-static04-expected-differences-v1.yml;
+- SWALLO 49-run evidence supports supplied v0.38 as baseline:
+  241/245 scalar matches, 47/49 runs complete;
+- SWALLO residual runs 7868 and 7929 remain provenance/input-version questions;
+- universal systems-3-5 forced SWALLO is falsified for the 49-run archive;
+- run-2000/v0.27 mode is now explicitly scoped as RUN2000_V027_COMPAT;
+- regression-oracle manifest is schema v3;
+- Python LHM postprocessing core is implemented and tested.
 
-Belangrijkste resterende blocker:
+Primary work now:
 
-A. 49-run realized archive
-Library bevat:
-/LWKM/run_files.zip
-20.953.239 bytes.
+A. Direct SWP renderer
+1. recover raw renderer database authority, preferably historical Datamodel_10242.sqlite, from Library/archives;
+2. recover exact versioned legacy mapping template/profile;
+3. run tools/regress_swp_cases.py on all 49 realized swap.swp files;
+4. preregister only qualified intentional static differences;
+5. require zero unexplained active-SWP differences;
+6. assess DIRECT_SWP_RENDERER_ADMITTED.
 
-Raw-byte materialization en ZIP-text extraction blijven technisch geblokkeerd, ook na Library-kopieën. Vraag de gebruiker niet opnieuw om dit bestand voordat Project Files/Library opnieuw aantoonbaar zijn gecontroleerd.
+B. Direct DRA producer
+1. generate complete modern candidate DRA files from qualified source inputs;
+2. run tools/regress_dra_cases.py over all 49 runs;
+3. allow the 75 preregistered STATIC04 L differences;
+4. treat nature/DRA4 as zero expected difference for current population;
+5. investigate SWALLO residual HRUs 7868 and 7929 rather than force-fit;
+6. require zero unexplained DRARES/INFRES/ZBOTDR/LEVEL/SWALLO differences;
+7. assess DIRECT_DRA_PRODUCER_ADMITTED.
 
-Zodra raw toegang werkt:
-1. extract 49 realized directories;
-2. run tools/regress_swp_cases.py;
-3. run tools/regress_dra_cases.py;
-4. classificeer STATIC04 dqsat via realized active L/4 tegen legacy en representative predictions;
-5. preregistreer gekwalificeerde soil/crop intentional differences;
-6. gebruik expliciete SWALLO provenance classification;
-7. nature/DRA4 heeft voor huidige populatie zero expected difference;
-8. eis nul unexplained differences;
-9. beoordeel DIRECT_DRA_PRODUCER_ADMITTED en DIRECT_SWP_RENDERER_ADMITTED.
+C. Python server postprocessing
+When real LHM-server output is available:
+1. select a small golden period;
+2. run old batch/Fortran and new Python paths;
+3. compare cell-by-cell;
+4. require zero unexplained numeric differences;
+5. then expand to full active postprocessing chain.
 
-Bekend discriminating STATIC04 voorbeeld:
-HRU 7877: legacy dqsat 18, representative-SVAT dqsat 17.
-Verzin de realized waarde niet zonder de DRA oracle.
-
-B. echte NHI/LHM run tree
-Een losse control_run_1970_1979.ini is vindbaar, maar geen complete authoritative run tree is gekwalificeerd.
-Zodra complete tree beschikbaar is:
-1. qualify Q0-Q3;
-2. plan;
-3. collect;
-4. verify;
-5. qualify --bundle Q4;
-6. unpack;
-7. consumer smoke test.
+D. Real NHI/LHM Q4
+When complete authoritative run tree is available:
+qualify Q0-Q3 -> plan -> collect -> verify -> qualify Q4 -> unpack -> consumer smoke test.
 
 Maak historische defecten nooit stil netter. Houd supplied-source, realized-executable en modern-corrected semantics expliciet uit elkaar.
 
