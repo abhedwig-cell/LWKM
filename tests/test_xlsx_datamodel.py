@@ -22,7 +22,7 @@ def workbook(path, body):
 HEADER = '<row r="1"><c r="A1" t="inlineStr"><is><t>run_id</t></is></c><c r="B1" t="inlineStr"><is><t>value</t></is></c></row>'
 
 
-def test_typed_values_dates_null_and_cache(tmp_path):
+def check_typed_values_dates_null_and_cache(tmp_path):
     source = tmp_path / 'source.xlsx'
     workbook(source, HEADER + '<row r="2"><c r="A2"><v>1</v></c><c r="B2"><f>1.25*2</f><v>2.5</v></c></row><row r="3"><c r="A3"><v>2</v></c></row><row r="4"><c r="A4"><v>3</v></c><c r="B4" t="d"><v>2021-12-31T00:00:00</v></c></row>')
     destination = tmp_path / 'execution.sqlite'
@@ -38,7 +38,7 @@ INVALID_CELLS = [
     ('<c r="C2"><v>99</v></c>', 'Unnamed populated column'),
 ]
 
-def test_rejects_incomplete_or_invalid_workbook(tmp_path, cell, reason):
+def check_rejects_incomplete_or_invalid_workbook(tmp_path, cell, reason):
     source = tmp_path / 'source.xlsx'
     workbook(source, HEADER + '<row r="2"><c r="A2"><v>1</v></c>' + cell + '</row>')
     destination = tmp_path / 'execution.sqlite'
@@ -51,10 +51,10 @@ class IngestionTests(unittest.TestCase):
     def test_types_and_cached_formulas(self):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:
-            test_typed_values_dates_null_and_cache(Path(directory))
+            check_typed_values_dates_null_and_cache(Path(directory))
 
     def test_fail_closed(self):
         import tempfile
         for cell, reason in INVALID_CELLS:
             with self.subTest(reason=reason), tempfile.TemporaryDirectory() as directory:
-                test_rejects_incomplete_or_invalid_workbook(Path(directory), cell, reason)
+                check_rejects_incomplete_or_invalid_workbook(Path(directory), cell, reason)
