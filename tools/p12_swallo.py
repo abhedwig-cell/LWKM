@@ -1,1 +1,78 @@
-"""Historical SWALLO policies with explicit provenance semantics."""\n\nSUPPLIED_SOURCE_V038 = "SUPPLIED_SOURCE_V038"\nRUN2000_V027_COMPAT = "RUN2000_V027_COMPAT"\n\n# Backward-compatible alias. The 49-run oracle proves this is not a universal\n# realized-production rule, so new code should use RUN2000_V027_COMPAT.\nREALIZED_PRODUCTION_COMPAT = RUN2000_V027_COMPAT\n\n\ndef _common_forcing(infres_day: float, river_infiltration_indicator: float) -> bool:\n    return (\n        float(infres_day) > 20000.0\n        or float(river_infiltration_indicator) < 10.0\n    )\n\n\ndef swallo_supplied_source(\n    system: int,\n    infres_day: float,\n    river_infiltration_indicator: float,\n) -> int:\n    """Match the active supplied HRUlist2SWAP v0.38 source.\n\n    The supplied source forces systems 4-5 by the explicit system > 3 branch.\n    """\n    if int(system) > 3 or _common_forcing(infres_day, river_infiltration_indicator):\n        return 3\n    return 1\n\n\ndef swallo_run2000_v027_compat(\n    system: int,\n    infres_day: float,\n    river_infiltration_indicator: float,\n) -> int:\n    """Match the run-2000 discriminator and v0.27 source-history statement.\n\n    This mode must not be described as generic realized-production semantics.\n    The recovered 49-run archive contains many system-3 SWALLO=1 cases that\n    directly falsify a universal systems-3-5 forcing rule.\n    """\n    if int(system) > 2 or _common_forcing(infres_day, river_infiltration_indicator):\n        return 3\n    return 1\n\n\ndef swallo_realized_compat(\n    system: int,\n    infres_day: float,\n    river_infiltration_indicator: float,\n) -> int:\n    """Backward-compatible wrapper for the run-2000/v0.27 compatibility mode."""\n    return swallo_run2000_v027_compat(system, infres_day, river_infiltration_indicator)\n\n\ndef swallo(\n    system: int,\n    infres_day: float,\n    river_infiltration_indicator: float,\n    *,\n    mode: str = SUPPLIED_SOURCE_V038,\n) -> int:\n    """Evaluate SWALLO under an explicit provenance mode."""\n    if mode == SUPPLIED_SOURCE_V038:\n        return swallo_supplied_source(system, infres_day, river_infiltration_indicator)\n    if mode == RUN2000_V027_COMPAT:\n        return swallo_run2000_v027_compat(system, infres_day, river_infiltration_indicator)\n    raise ValueError(f"unknown SWALLO mode: {mode}")\n
+"""Historical SWALLO policies with explicit provenance semantics."""
+
+SUPPLIED_SOURCE_V038 = "SUPPLIED_SOURCE_V038"
+RUN2000_V027_COMPAT = "RUN2000_V027_COMPAT"
+
+# Backward-compatible alias. The 49-run oracle proves this is not a universal
+# realized-production rule, so new code should use RUN2000_V027_COMPAT.
+REALIZED_PRODUCTION_COMPAT = RUN2000_V027_COMPAT
+
+
+def _common_forcing(infres_day: float, river_infiltration_indicator: float) -> bool:
+    return (
+        float(infres_day) > 20000.0
+        or float(river_infiltration_indicator) < 10.0
+    )
+
+
+def swallo_supplied_source(
+    system: int,
+    infres_day: float,
+    river_infiltration_indicator: float,
+) -> int:
+    """Match the active supplied HRUlist2SWAP v0.38 source."""
+    if int(system) > 3 or _common_forcing(infres_day, river_infiltration_indicator):
+        return 3
+    return 1
+
+
+def swallo_run2000_v027_compat(
+    system: int,
+    infres_day: float,
+    river_infiltration_indicator: float,
+) -> int:
+    """Match the run-2000 discriminator and v0.27 source-history statement.
+
+    This mode is run-2000/v0.27 compatibility only. The recovered 49-run
+    archive contains many system-3 SWALLO=1 cases and therefore falsifies
+    a universal systems-3-5 forcing rule for that archive.
+    """
+    if int(system) > 2 or _common_forcing(infres_day, river_infiltration_indicator):
+        return 3
+    return 1
+
+
+def swallo_realized_compat(
+    system: int,
+    infres_day: float,
+    river_infiltration_indicator: float,
+) -> int:
+    """Backward-compatible wrapper for the run-2000/v0.27 mode."""
+    return swallo_run2000_v027_compat(
+        system,
+        infres_day,
+        river_infiltration_indicator,
+    )
+
+
+def swallo(
+    system: int,
+    infres_day: float,
+    river_infiltration_indicator: float,
+    *,
+    mode: str = SUPPLIED_SOURCE_V038,
+) -> int:
+    """Evaluate SWALLO under an explicit provenance mode."""
+    if mode == SUPPLIED_SOURCE_V038:
+        return swallo_supplied_source(
+            system,
+            infres_day,
+            river_infiltration_indicator,
+        )
+    if mode == RUN2000_V027_COMPAT:
+        return swallo_run2000_v027_compat(
+            system,
+            infres_day,
+            river_infiltration_indicator,
+        )
+    raise ValueError(f"unknown SWALLO mode: {mode}")
