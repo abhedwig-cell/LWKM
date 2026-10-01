@@ -1,0 +1,93 @@
+schema_version: 1
+purpose: STATIC04_49RUN_SCHEMA_FIRST_DQSAT_EXPECTED_DIFFERENCES
+expected_differences:
+  7871:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7877:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7909:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7910:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7911:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7920:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7922:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7923:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7927:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7928:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7929:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7930:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7935:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7937:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
+  7942:
+    - systems.1.L
+    - systems.2.L
+    - systems.3.L
+    - systems.4.L
+    - systems.5.L
