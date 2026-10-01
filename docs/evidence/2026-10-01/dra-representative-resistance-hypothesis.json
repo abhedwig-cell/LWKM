@@ -1,0 +1,2471 @@
+{
+  "status": "PROVENANCE_HYPOTHESIS_NOT_PRODUCTION",
+  "hypothesis": "single current Runs representative cell; Fortran 1-based col,row",
+  "systems": 245,
+  "DRARES_matches": 10,
+  "INFRES_matches": 106,
+  "cases": [
+    {
+      "run_id": 7866,
+      "system": 1,
+      "col": 461,
+      "row": 317,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 4832.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 14642.0
+    },
+    {
+      "run_id": 7866,
+      "system": 2,
+      "col": 461,
+      "row": 317,
+      "DRARES_candidate": 528,
+      "DRARES_oracle": 1379.0,
+      "INFRES_candidate": 1600,
+      "INFRES_oracle": 4345.0
+    },
+    {
+      "run_id": 7866,
+      "system": 3,
+      "col": 461,
+      "row": 317,
+      "DRARES_candidate": 18592,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 56340,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7866,
+      "system": 4,
+      "col": 461,
+      "row": 317,
+      "DRARES_candidate": 151,
+      "DRARES_oracle": 178.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7866,
+      "system": 5,
+      "col": 461,
+      "row": 317,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 48.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7867,
+      "system": 1,
+      "col": 431,
+      "row": 313,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 16174.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 49011.0
+    },
+    {
+      "run_id": 7867,
+      "system": 2,
+      "col": 431,
+      "row": 313,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1406.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 4261.0
+    },
+    {
+      "run_id": 7867,
+      "system": 3,
+      "col": 431,
+      "row": 313,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 15073.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 45677.0
+    },
+    {
+      "run_id": 7867,
+      "system": 4,
+      "col": 431,
+      "row": 313,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 92.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7867,
+      "system": 5,
+      "col": 431,
+      "row": 313,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 29.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7868,
+      "system": 1,
+      "col": 431,
+      "row": 317,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 6184.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 18739.0
+    },
+    {
+      "run_id": 7868,
+      "system": 2,
+      "col": 431,
+      "row": 317,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1203.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 3647.0
+    },
+    {
+      "run_id": 7868,
+      "system": 3,
+      "col": 431,
+      "row": 317,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7868,
+      "system": 4,
+      "col": 431,
+      "row": 317,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 99.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7868,
+      "system": 5,
+      "col": 431,
+      "row": 317,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 33.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7869,
+      "system": 1,
+      "col": 437,
+      "row": 326,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 5032.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 15249.0
+    },
+    {
+      "run_id": 7869,
+      "system": 2,
+      "col": 437,
+      "row": 326,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1235.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 3744.0
+    },
+    {
+      "run_id": 7869,
+      "system": 3,
+      "col": 437,
+      "row": 326,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7869,
+      "system": 4,
+      "col": 437,
+      "row": 326,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 107.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7869,
+      "system": 5,
+      "col": 437,
+      "row": 326,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 29.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7870,
+      "system": 1,
+      "col": 435,
+      "row": 347,
+      "DRARES_candidate": 8235,
+      "DRARES_oracle": 6445.0,
+      "INFRES_candidate": 24955,
+      "INFRES_oracle": 19531.0
+    },
+    {
+      "run_id": 7870,
+      "system": 2,
+      "col": 435,
+      "row": 347,
+      "DRARES_candidate": 6906,
+      "DRARES_oracle": 1212.0,
+      "INFRES_candidate": 20927,
+      "INFRES_oracle": 3674.0
+    },
+    {
+      "run_id": 7870,
+      "system": 3,
+      "col": 435,
+      "row": 347,
+      "DRARES_candidate": 3575,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 10834,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7870,
+      "system": 4,
+      "col": 435,
+      "row": 347,
+      "DRARES_candidate": 197,
+      "DRARES_oracle": 127.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7870,
+      "system": 5,
+      "col": 435,
+      "row": 347,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 34.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7871,
+      "system": 1,
+      "col": 436,
+      "row": 324,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 7114.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 21557.0
+    },
+    {
+      "run_id": 7871,
+      "system": 2,
+      "col": 436,
+      "row": 324,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 714.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2194.0
+    },
+    {
+      "run_id": 7871,
+      "system": 3,
+      "col": 436,
+      "row": 324,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7871,
+      "system": 4,
+      "col": 436,
+      "row": 324,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 111.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7871,
+      "system": 5,
+      "col": 436,
+      "row": 324,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 29.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7872,
+      "system": 1,
+      "col": 454,
+      "row": 339,
+      "DRARES_candidate": 4548,
+      "DRARES_oracle": 7753.0,
+      "INFRES_candidate": 13782,
+      "INFRES_oracle": 23495.0
+    },
+    {
+      "run_id": 7872,
+      "system": 2,
+      "col": 454,
+      "row": 339,
+      "DRARES_candidate": 974,
+      "DRARES_oracle": 2004.0,
+      "INFRES_candidate": 2951,
+      "INFRES_oracle": 6072.0
+    },
+    {
+      "run_id": 7872,
+      "system": 3,
+      "col": 454,
+      "row": 339,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7872,
+      "system": 4,
+      "col": 454,
+      "row": 339,
+      "DRARES_candidate": 84,
+      "DRARES_oracle": 100.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7872,
+      "system": 5,
+      "col": 454,
+      "row": 339,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 31.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7873,
+      "system": 1,
+      "col": 449,
+      "row": 335,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 6892.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 20884.0
+    },
+    {
+      "run_id": 7873,
+      "system": 2,
+      "col": 449,
+      "row": 335,
+      "DRARES_candidate": 891,
+      "DRARES_oracle": 1786.0,
+      "INFRES_candidate": 2700,
+      "INFRES_oracle": 5413.0
+    },
+    {
+      "run_id": 7873,
+      "system": 3,
+      "col": 449,
+      "row": 335,
+      "DRARES_candidate": 18953,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 57435,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7873,
+      "system": 4,
+      "col": 449,
+      "row": 335,
+      "DRARES_candidate": 96,
+      "DRARES_oracle": 99.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7873,
+      "system": 5,
+      "col": 449,
+      "row": 335,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 30.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7874,
+      "system": 1,
+      "col": 850,
+      "row": 594,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 660.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 3802.0
+    },
+    {
+      "run_id": 7874,
+      "system": 2,
+      "col": 850,
+      "row": 594,
+      "DRARES_candidate": 557,
+      "DRARES_oracle": 437.0,
+      "INFRES_candidate": 1689,
+      "INFRES_oracle": 1324.0
+    },
+    {
+      "run_id": 7874,
+      "system": 3,
+      "col": 850,
+      "row": 594,
+      "DRARES_candidate": 290,
+      "DRARES_oracle": 588.0,
+      "INFRES_candidate": 878,
+      "INFRES_oracle": 3991.0
+    },
+    {
+      "run_id": 7874,
+      "system": 4,
+      "col": 850,
+      "row": 594,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 1618.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7874,
+      "system": 5,
+      "col": 850,
+      "row": 594,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 34.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7875,
+      "system": 1,
+      "col": 849,
+      "row": 577,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1806.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 5473.0
+    },
+    {
+      "run_id": 7875,
+      "system": 2,
+      "col": 849,
+      "row": 577,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 621.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1882.0
+    },
+    {
+      "run_id": 7875,
+      "system": 3,
+      "col": 849,
+      "row": 577,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1924.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 10715.0
+    },
+    {
+      "run_id": 7875,
+      "system": 4,
+      "col": 849,
+      "row": 577,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 1229.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7875,
+      "system": 5,
+      "col": 849,
+      "row": 577,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 94.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7876,
+      "system": 1,
+      "col": 870,
+      "row": 617,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1483.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 4607.0
+    },
+    {
+      "run_id": 7876,
+      "system": 2,
+      "col": 870,
+      "row": 617,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 609.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1899.0
+    },
+    {
+      "run_id": 7876,
+      "system": 3,
+      "col": 870,
+      "row": 617,
+      "DRARES_candidate": 150,
+      "DRARES_oracle": 414.0,
+      "INFRES_candidate": 455,
+      "INFRES_oracle": 3399.0
+    },
+    {
+      "run_id": 7876,
+      "system": 4,
+      "col": 870,
+      "row": 617,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 463.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7876,
+      "system": 5,
+      "col": 870,
+      "row": 617,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 30.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7877,
+      "system": 1,
+      "col": 887,
+      "row": 642,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 3529.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 10693.0
+    },
+    {
+      "run_id": 7877,
+      "system": 2,
+      "col": 887,
+      "row": 642,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 418.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1267.0
+    },
+    {
+      "run_id": 7877,
+      "system": 3,
+      "col": 887,
+      "row": 642,
+      "DRARES_candidate": 634,
+      "DRARES_oracle": 432.0,
+      "INFRES_candidate": 1922,
+      "INFRES_oracle": 7730.0
+    },
+    {
+      "run_id": 7877,
+      "system": 4,
+      "col": 887,
+      "row": 642,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 361.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7877,
+      "system": 5,
+      "col": 887,
+      "row": 642,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 29.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7909,
+      "system": 1,
+      "col": 875,
+      "row": 655,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 394.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1213.0
+    },
+    {
+      "run_id": 7909,
+      "system": 2,
+      "col": 875,
+      "row": 655,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 577.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1795.0
+    },
+    {
+      "run_id": 7909,
+      "system": 3,
+      "col": 875,
+      "row": 655,
+      "DRARES_candidate": 646,
+      "DRARES_oracle": 1454.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 16527.0
+    },
+    {
+      "run_id": 7909,
+      "system": 4,
+      "col": 875,
+      "row": 655,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7909,
+      "system": 5,
+      "col": 875,
+      "row": 655,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 54.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7910,
+      "system": 1,
+      "col": 879,
+      "row": 644,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 326.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1000.0
+    },
+    {
+      "run_id": 7910,
+      "system": 2,
+      "col": 879,
+      "row": 644,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 485.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1600.0
+    },
+    {
+      "run_id": 7910,
+      "system": 3,
+      "col": 879,
+      "row": 644,
+      "DRARES_candidate": 1795,
+      "DRARES_oracle": 334.0,
+      "INFRES_candidate": 5439,
+      "INFRES_oracle": 3373.0
+    },
+    {
+      "run_id": 7910,
+      "system": 4,
+      "col": 879,
+      "row": 644,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7910,
+      "system": 5,
+      "col": 879,
+      "row": 644,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 27.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7911,
+      "system": 1,
+      "col": 876,
+      "row": 655,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 669.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2150.0
+    },
+    {
+      "run_id": 7911,
+      "system": 2,
+      "col": 876,
+      "row": 655,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 470.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1618.0
+    },
+    {
+      "run_id": 7911,
+      "system": 3,
+      "col": 876,
+      "row": 655,
+      "DRARES_candidate": 315,
+      "DRARES_oracle": 435.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 5745.0
+    },
+    {
+      "run_id": 7911,
+      "system": 4,
+      "col": 876,
+      "row": 655,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7911,
+      "system": 5,
+      "col": 876,
+      "row": 655,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 33.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7912,
+      "system": 1,
+      "col": 448,
+      "row": 832,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1055.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 3196.0
+    },
+    {
+      "run_id": 7912,
+      "system": 2,
+      "col": 448,
+      "row": 832,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 398.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1206.0
+    },
+    {
+      "run_id": 7912,
+      "system": 3,
+      "col": 448,
+      "row": 832,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 2408.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 7297.0
+    },
+    {
+      "run_id": 7912,
+      "system": 4,
+      "col": 448,
+      "row": 832,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 173.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7912,
+      "system": 5,
+      "col": 448,
+      "row": 832,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 28.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7913,
+      "system": 1,
+      "col": 448,
+      "row": 822,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 2903.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 8796.0
+    },
+    {
+      "run_id": 7913,
+      "system": 2,
+      "col": 448,
+      "row": 822,
+      "DRARES_candidate": 986,
+      "DRARES_oracle": 301.0,
+      "INFRES_candidate": 2989,
+      "INFRES_oracle": 913.0
+    },
+    {
+      "run_id": 7913,
+      "system": 3,
+      "col": 448,
+      "row": 822,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 5525.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 16743.0
+    },
+    {
+      "run_id": 7913,
+      "system": 4,
+      "col": 448,
+      "row": 822,
+      "DRARES_candidate": 374,
+      "DRARES_oracle": 156.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7913,
+      "system": 5,
+      "col": 448,
+      "row": 822,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 32.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7914,
+      "system": 1,
+      "col": 447,
+      "row": 830,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 2775.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 8408.0
+    },
+    {
+      "run_id": 7914,
+      "system": 2,
+      "col": 447,
+      "row": 830,
+      "DRARES_candidate": 8332,
+      "DRARES_oracle": 338.0,
+      "INFRES_candidate": 25248,
+      "INFRES_oracle": 1023.0
+    },
+    {
+      "run_id": 7914,
+      "system": 3,
+      "col": 447,
+      "row": 830,
+      "DRARES_candidate": 8384,
+      "DRARES_oracle": 6131.0,
+      "INFRES_candidate": 25407,
+      "INFRES_oracle": 18580.0
+    },
+    {
+      "run_id": 7914,
+      "system": 4,
+      "col": 447,
+      "row": 830,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 177.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7914,
+      "system": 5,
+      "col": 447,
+      "row": 830,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 30.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7915,
+      "system": 1,
+      "col": 445,
+      "row": 848,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 6161.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 18669.0
+    },
+    {
+      "run_id": 7915,
+      "system": 2,
+      "col": 445,
+      "row": 848,
+      "DRARES_candidate": 923,
+      "DRARES_oracle": 102.0,
+      "INFRES_candidate": 2798,
+      "INFRES_oracle": 308.0
+    },
+    {
+      "run_id": 7915,
+      "system": 3,
+      "col": 445,
+      "row": 848,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 653.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 4823.0
+    },
+    {
+      "run_id": 7915,
+      "system": 4,
+      "col": 445,
+      "row": 848,
+      "DRARES_candidate": 121,
+      "DRARES_oracle": 567.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7915,
+      "system": 5,
+      "col": 445,
+      "row": 848,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 29.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7916,
+      "system": 1,
+      "col": 458,
+      "row": 844,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 949.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2876.0
+    },
+    {
+      "run_id": 7916,
+      "system": 2,
+      "col": 458,
+      "row": 844,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 109.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 330.0
+    },
+    {
+      "run_id": 7916,
+      "system": 3,
+      "col": 458,
+      "row": 844,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1069.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 7322.0
+    },
+    {
+      "run_id": 7916,
+      "system": 4,
+      "col": 458,
+      "row": 844,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 408.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7916,
+      "system": 5,
+      "col": 458,
+      "row": 844,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 38.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7917,
+      "system": 1,
+      "col": 448,
+      "row": 848,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1119.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 3392.0
+    },
+    {
+      "run_id": 7917,
+      "system": 2,
+      "col": 448,
+      "row": 848,
+      "DRARES_candidate": 951,
+      "DRARES_oracle": 118.0,
+      "INFRES_candidate": 2881,
+      "INFRES_oracle": 357.0
+    },
+    {
+      "run_id": 7917,
+      "system": 3,
+      "col": 448,
+      "row": 848,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 601.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 5565.0
+    },
+    {
+      "run_id": 7917,
+      "system": 4,
+      "col": 448,
+      "row": 848,
+      "DRARES_candidate": 96,
+      "DRARES_oracle": 305.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7917,
+      "system": 5,
+      "col": 448,
+      "row": 848,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 29.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7918,
+      "system": 1,
+      "col": 444,
+      "row": 854,
+      "DRARES_candidate": 63,
+      "DRARES_oracle": 921.0,
+      "INFRES_candidate": 191,
+      "INFRES_oracle": 2792.0
+    },
+    {
+      "run_id": 7918,
+      "system": 2,
+      "col": 444,
+      "row": 854,
+      "DRARES_candidate": 1848,
+      "DRARES_oracle": 304.0,
+      "INFRES_candidate": 5601,
+      "INFRES_oracle": 921.0
+    },
+    {
+      "run_id": 7918,
+      "system": 3,
+      "col": 444,
+      "row": 854,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 733.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 40380.0
+    },
+    {
+      "run_id": 7918,
+      "system": 4,
+      "col": 444,
+      "row": 854,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 401.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7918,
+      "system": 5,
+      "col": 444,
+      "row": 854,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 40.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7919,
+      "system": 1,
+      "col": 454,
+      "row": 857,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 5270.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 15971.0
+    },
+    {
+      "run_id": 7919,
+      "system": 2,
+      "col": 454,
+      "row": 857,
+      "DRARES_candidate": 1697,
+      "DRARES_oracle": 538.0,
+      "INFRES_candidate": 5143,
+      "INFRES_oracle": 1631.0
+    },
+    {
+      "run_id": 7919,
+      "system": 3,
+      "col": 454,
+      "row": 857,
+      "DRARES_candidate": 403,
+      "DRARES_oracle": 542.0,
+      "INFRES_candidate": 1221,
+      "INFRES_oracle": 80119.0
+    },
+    {
+      "run_id": 7919,
+      "system": 4,
+      "col": 454,
+      "row": 857,
+      "DRARES_candidate": 1775,
+      "DRARES_oracle": 529.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7919,
+      "system": 5,
+      "col": 454,
+      "row": 857,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 30.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7920,
+      "system": 1,
+      "col": 445,
+      "row": 853,
+      "DRARES_candidate": 168,
+      "DRARES_oracle": 16652.0,
+      "INFRES_candidate": 509,
+      "INFRES_oracle": 50460.0
+    },
+    {
+      "run_id": 7920,
+      "system": 2,
+      "col": 445,
+      "row": 853,
+      "DRARES_candidate": 265,
+      "DRARES_oracle": 319.0,
+      "INFRES_candidate": 802,
+      "INFRES_oracle": 966.0
+    },
+    {
+      "run_id": 7920,
+      "system": 3,
+      "col": 445,
+      "row": 853,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 579.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 8185.0
+    },
+    {
+      "run_id": 7920,
+      "system": 4,
+      "col": 445,
+      "row": 853,
+      "DRARES_candidate": 173,
+      "DRARES_oracle": 474.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7920,
+      "system": 5,
+      "col": 445,
+      "row": 853,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 29.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7921,
+      "system": 1,
+      "col": 449,
+      "row": 857,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 934.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2830.0
+    },
+    {
+      "run_id": 7921,
+      "system": 2,
+      "col": 449,
+      "row": 857,
+      "DRARES_candidate": 119,
+      "DRARES_oracle": 232.0,
+      "INFRES_candidate": 361,
+      "INFRES_oracle": 702.0
+    },
+    {
+      "run_id": 7921,
+      "system": 3,
+      "col": 449,
+      "row": 857,
+      "DRARES_candidate": 4219,
+      "DRARES_oracle": 1814.0,
+      "INFRES_candidate": 12785,
+      "INFRES_oracle": 54716.0
+    },
+    {
+      "run_id": 7921,
+      "system": 4,
+      "col": 449,
+      "row": 857,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 474.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7921,
+      "system": 5,
+      "col": 449,
+      "row": 857,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 38.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7922,
+      "system": 1,
+      "col": 433,
+      "row": 860,
+      "DRARES_candidate": 3149,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 9544,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7922,
+      "system": 2,
+      "col": 433,
+      "row": 860,
+      "DRARES_candidate": 2258,
+      "DRARES_oracle": 1012.0,
+      "INFRES_candidate": 6843,
+      "INFRES_oracle": 3068.0
+    },
+    {
+      "run_id": 7922,
+      "system": 3,
+      "col": 433,
+      "row": 860,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 958.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 70497.0
+    },
+    {
+      "run_id": 7922,
+      "system": 4,
+      "col": 433,
+      "row": 860,
+      "DRARES_candidate": 94,
+      "DRARES_oracle": 1243.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7922,
+      "system": 5,
+      "col": 433,
+      "row": 860,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 36.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7923,
+      "system": 1,
+      "col": 448,
+      "row": 857,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 5069.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 15362.0
+    },
+    {
+      "run_id": 7923,
+      "system": 2,
+      "col": 448,
+      "row": 857,
+      "DRARES_candidate": 215,
+      "DRARES_oracle": 295.0,
+      "INFRES_candidate": 651,
+      "INFRES_oracle": 893.0
+    },
+    {
+      "run_id": 7923,
+      "system": 3,
+      "col": 448,
+      "row": 857,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 633.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 15268.0
+    },
+    {
+      "run_id": 7923,
+      "system": 4,
+      "col": 448,
+      "row": 857,
+      "DRARES_candidate": 355,
+      "DRARES_oracle": 593.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7923,
+      "system": 5,
+      "col": 448,
+      "row": 857,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 30.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7924,
+      "system": 1,
+      "col": 447,
+      "row": 832,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1708.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 5174.0
+    },
+    {
+      "run_id": 7924,
+      "system": 2,
+      "col": 447,
+      "row": 832,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 463.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1402.0
+    },
+    {
+      "run_id": 7924,
+      "system": 3,
+      "col": 447,
+      "row": 832,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 6119.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 18543.0
+    },
+    {
+      "run_id": 7924,
+      "system": 4,
+      "col": 447,
+      "row": 832,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 151.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7924,
+      "system": 5,
+      "col": 447,
+      "row": 832,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 32.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7925,
+      "system": 1,
+      "col": 445,
+      "row": 821,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 4264.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 12920.0
+    },
+    {
+      "run_id": 7925,
+      "system": 2,
+      "col": 445,
+      "row": 821,
+      "DRARES_candidate": 1993,
+      "DRARES_oracle": 393.0,
+      "INFRES_candidate": 6039,
+      "INFRES_oracle": 1192.0
+    },
+    {
+      "run_id": 7925,
+      "system": 3,
+      "col": 445,
+      "row": 821,
+      "DRARES_candidate": 13836,
+      "DRARES_oracle": 7023.0,
+      "INFRES_candidate": 41927,
+      "INFRES_oracle": 21283.0
+    },
+    {
+      "run_id": 7925,
+      "system": 4,
+      "col": 445,
+      "row": 821,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 188.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7925,
+      "system": 5,
+      "col": 445,
+      "row": 821,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 54.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7926,
+      "system": 1,
+      "col": 435,
+      "row": 829,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 2408.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 7296.0
+    },
+    {
+      "run_id": 7926,
+      "system": 2,
+      "col": 435,
+      "row": 829,
+      "DRARES_candidate": 610,
+      "DRARES_oracle": 440.0,
+      "INFRES_candidate": 1847,
+      "INFRES_oracle": 1334.0
+    },
+    {
+      "run_id": 7926,
+      "system": 3,
+      "col": 435,
+      "row": 829,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 4494.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 13617.0
+    },
+    {
+      "run_id": 7926,
+      "system": 4,
+      "col": 435,
+      "row": 829,
+      "DRARES_candidate": 109,
+      "DRARES_oracle": 140.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7926,
+      "system": 5,
+      "col": 435,
+      "row": 829,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 34.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7927,
+      "system": 1,
+      "col": 940,
+      "row": 134,
+      "DRARES_candidate": 10895,
+      "DRARES_oracle": 2200.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 8159.0
+    },
+    {
+      "run_id": 7927,
+      "system": 2,
+      "col": 940,
+      "row": 134,
+      "DRARES_candidate": 321,
+      "DRARES_oracle": 363.0,
+      "INFRES_candidate": 3209,
+      "INFRES_oracle": 2193.0
+    },
+    {
+      "run_id": 7927,
+      "system": 3,
+      "col": 940,
+      "row": 134,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1691.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 5940.0
+    },
+    {
+      "run_id": 7927,
+      "system": 4,
+      "col": 940,
+      "row": 134,
+      "DRARES_candidate": 203,
+      "DRARES_oracle": 165.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7927,
+      "system": 5,
+      "col": 940,
+      "row": 134,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 32.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7928,
+      "system": 1,
+      "col": 928,
+      "row": 154,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 462.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2073.0
+    },
+    {
+      "run_id": 7928,
+      "system": 2,
+      "col": 928,
+      "row": 154,
+      "DRARES_candidate": 882,
+      "DRARES_oracle": 212.0,
+      "INFRES_candidate": 8822,
+      "INFRES_oracle": 958.0
+    },
+    {
+      "run_id": 7928,
+      "system": 3,
+      "col": 928,
+      "row": 154,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1453.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 5576.0
+    },
+    {
+      "run_id": 7928,
+      "system": 4,
+      "col": 928,
+      "row": 154,
+      "DRARES_candidate": 769,
+      "DRARES_oracle": 211.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7928,
+      "system": 5,
+      "col": 928,
+      "row": 154,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 38.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7929,
+      "system": 1,
+      "col": 948,
+      "row": 131,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 2580.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 20010.0
+    },
+    {
+      "run_id": 7929,
+      "system": 2,
+      "col": 948,
+      "row": 131,
+      "DRARES_candidate": 234,
+      "DRARES_oracle": 454.0,
+      "INFRES_candidate": 2345,
+      "INFRES_oracle": 2563.0
+    },
+    {
+      "run_id": 7929,
+      "system": 3,
+      "col": 948,
+      "row": 131,
+      "DRARES_candidate": 16476,
+      "DRARES_oracle": 3802.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 19622.0
+    },
+    {
+      "run_id": 7929,
+      "system": 4,
+      "col": 948,
+      "row": 131,
+      "DRARES_candidate": 292,
+      "DRARES_oracle": 132.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7929,
+      "system": 5,
+      "col": 948,
+      "row": 131,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 31.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7930,
+      "system": 1,
+      "col": 960,
+      "row": 155,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 421.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2052.0
+    },
+    {
+      "run_id": 7930,
+      "system": 2,
+      "col": 960,
+      "row": 155,
+      "DRARES_candidate": 178,
+      "DRARES_oracle": 405.0,
+      "INFRES_candidate": 1785,
+      "INFRES_oracle": 1299.0
+    },
+    {
+      "run_id": 7930,
+      "system": 3,
+      "col": 960,
+      "row": 155,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1271.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 3992.0
+    },
+    {
+      "run_id": 7930,
+      "system": 4,
+      "col": 960,
+      "row": 155,
+      "DRARES_candidate": 195,
+      "DRARES_oracle": 425.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7930,
+      "system": 5,
+      "col": 960,
+      "row": 155,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 64.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7931,
+      "system": 1,
+      "col": 942,
+      "row": 163,
+      "DRARES_candidate": 3310,
+      "DRARES_oracle": 241.0,
+      "INFRES_candidate": 33095,
+      "INFRES_oracle": 1042.0
+    },
+    {
+      "run_id": 7931,
+      "system": 2,
+      "col": 942,
+      "row": 163,
+      "DRARES_candidate": 565,
+      "DRARES_oracle": 243.0,
+      "INFRES_candidate": 5651,
+      "INFRES_oracle": 866.0
+    },
+    {
+      "run_id": 7931,
+      "system": 3,
+      "col": 942,
+      "row": 163,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 809.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 3280.0
+    },
+    {
+      "run_id": 7931,
+      "system": 4,
+      "col": 942,
+      "row": 163,
+      "DRARES_candidate": 275,
+      "DRARES_oracle": 196.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7931,
+      "system": 5,
+      "col": 942,
+      "row": 163,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 31.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7932,
+      "system": 1,
+      "col": 962,
+      "row": 156,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 659.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2099.0
+    },
+    {
+      "run_id": 7932,
+      "system": 2,
+      "col": 962,
+      "row": 156,
+      "DRARES_candidate": 536,
+      "DRARES_oracle": 412.0,
+      "INFRES_candidate": 5360,
+      "INFRES_oracle": 1536.0
+    },
+    {
+      "run_id": 7932,
+      "system": 3,
+      "col": 962,
+      "row": 156,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 875.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2801.0
+    },
+    {
+      "run_id": 7932,
+      "system": 4,
+      "col": 962,
+      "row": 156,
+      "DRARES_candidate": 201,
+      "DRARES_oracle": 154.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7932,
+      "system": 5,
+      "col": 962,
+      "row": 156,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 31.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7933,
+      "system": 1,
+      "col": 937,
+      "row": 159,
+      "DRARES_candidate": 11882,
+      "DRARES_oracle": 527.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2341.0
+    },
+    {
+      "run_id": 7933,
+      "system": 2,
+      "col": 937,
+      "row": 159,
+      "DRARES_candidate": 260,
+      "DRARES_oracle": 476.0,
+      "INFRES_candidate": 2602,
+      "INFRES_oracle": 1476.0
+    },
+    {
+      "run_id": 7933,
+      "system": 3,
+      "col": 937,
+      "row": 159,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 2751.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 8336.0
+    },
+    {
+      "run_id": 7933,
+      "system": 4,
+      "col": 937,
+      "row": 159,
+      "DRARES_candidate": 167,
+      "DRARES_oracle": 336.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7933,
+      "system": 5,
+      "col": 937,
+      "row": 159,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 47.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7934,
+      "system": 1,
+      "col": 958,
+      "row": 159,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1040.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 3614.0
+    },
+    {
+      "run_id": 7934,
+      "system": 2,
+      "col": 958,
+      "row": 159,
+      "DRARES_candidate": 383,
+      "DRARES_oracle": 441.0,
+      "INFRES_candidate": 3833,
+      "INFRES_oracle": 1518.0
+    },
+    {
+      "run_id": 7934,
+      "system": 3,
+      "col": 958,
+      "row": 159,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 603.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 1982.0
+    },
+    {
+      "run_id": 7934,
+      "system": 4,
+      "col": 958,
+      "row": 159,
+      "DRARES_candidate": 98,
+      "DRARES_oracle": 288.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7934,
+      "system": 5,
+      "col": 958,
+      "row": 159,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 32.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7935,
+      "system": 1,
+      "col": 952,
+      "row": 162,
+      "DRARES_candidate": 2879,
+      "DRARES_oracle": 1406.0,
+      "INFRES_candidate": 28788,
+      "INFRES_oracle": 4261.0
+    },
+    {
+      "run_id": 7935,
+      "system": 2,
+      "col": 952,
+      "row": 162,
+      "DRARES_candidate": 767,
+      "DRARES_oracle": 314.0,
+      "INFRES_candidate": 7670,
+      "INFRES_oracle": 1034.0
+    },
+    {
+      "run_id": 7935,
+      "system": 3,
+      "col": 952,
+      "row": 162,
+      "DRARES_candidate": 14009,
+      "DRARES_oracle": 1764.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 5496.0
+    },
+    {
+      "run_id": 7935,
+      "system": 4,
+      "col": 952,
+      "row": 162,
+      "DRARES_candidate": 430,
+      "DRARES_oracle": 166.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7935,
+      "system": 5,
+      "col": 952,
+      "row": 162,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 29.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7936,
+      "system": 1,
+      "col": 961,
+      "row": 166,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 4540.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 14287.0
+    },
+    {
+      "run_id": 7936,
+      "system": 2,
+      "col": 961,
+      "row": 166,
+      "DRARES_candidate": 1209,
+      "DRARES_oracle": 1672.0,
+      "INFRES_candidate": 12088,
+      "INFRES_oracle": 5095.0
+    },
+    {
+      "run_id": 7936,
+      "system": 3,
+      "col": 961,
+      "row": 166,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 722.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 2189.0
+    },
+    {
+      "run_id": 7936,
+      "system": 4,
+      "col": 961,
+      "row": 166,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 221.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7936,
+      "system": 5,
+      "col": 961,
+      "row": 166,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 37.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7937,
+      "system": 1,
+      "col": 973,
+      "row": 180,
+      "DRARES_candidate": 40,
+      "DRARES_oracle": 2661.0,
+      "INFRES_candidate": 121,
+      "INFRES_oracle": 8064.0
+    },
+    {
+      "run_id": 7937,
+      "system": 2,
+      "col": 973,
+      "row": 180,
+      "DRARES_candidate": 8390,
+      "DRARES_oracle": 757.0,
+      "INFRES_candidate": 25424,
+      "INFRES_oracle": 2449.0
+    },
+    {
+      "run_id": 7937,
+      "system": 3,
+      "col": 973,
+      "row": 180,
+      "DRARES_candidate": 444,
+      "DRARES_oracle": 669.0,
+      "INFRES_candidate": 1345,
+      "INFRES_oracle": 2079.0
+    },
+    {
+      "run_id": 7937,
+      "system": 4,
+      "col": 973,
+      "row": 180,
+      "DRARES_candidate": 1036,
+      "DRARES_oracle": 172.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7937,
+      "system": 5,
+      "col": 973,
+      "row": 180,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 32.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7938,
+      "system": 1,
+      "col": 960,
+      "row": 181,
+      "DRARES_candidate": 463,
+      "DRARES_oracle": 444.0,
+      "INFRES_candidate": 1404,
+      "INFRES_oracle": 1378.0
+    },
+    {
+      "run_id": 7938,
+      "system": 2,
+      "col": 960,
+      "row": 181,
+      "DRARES_candidate": 148,
+      "DRARES_oracle": 489.0,
+      "INFRES_candidate": 450,
+      "INFRES_oracle": 1525.0
+    },
+    {
+      "run_id": 7938,
+      "system": 3,
+      "col": 960,
+      "row": 181,
+      "DRARES_candidate": 1240,
+      "DRARES_oracle": 592.0,
+      "INFRES_candidate": 3759,
+      "INFRES_oracle": 1802.0
+    },
+    {
+      "run_id": 7938,
+      "system": 4,
+      "col": 960,
+      "row": 181,
+      "DRARES_candidate": 315,
+      "DRARES_oracle": 176.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7938,
+      "system": 5,
+      "col": 960,
+      "row": 181,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 36.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7939,
+      "system": 1,
+      "col": 950,
+      "row": 169,
+      "DRARES_candidate": 3846,
+      "DRARES_oracle": 1442.0,
+      "INFRES_candidate": 38464,
+      "INFRES_oracle": 6595.0
+    },
+    {
+      "run_id": 7939,
+      "system": 2,
+      "col": 950,
+      "row": 169,
+      "DRARES_candidate": 530,
+      "DRARES_oracle": 570.0,
+      "INFRES_candidate": 5301,
+      "INFRES_oracle": 1789.0
+    },
+    {
+      "run_id": 7939,
+      "system": 3,
+      "col": 950,
+      "row": 169,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 3116.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 10940.0
+    },
+    {
+      "run_id": 7939,
+      "system": 4,
+      "col": 950,
+      "row": 169,
+      "DRARES_candidate": 1,
+      "DRARES_oracle": 270.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7939,
+      "system": 5,
+      "col": 950,
+      "row": 169,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 71.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7940,
+      "system": 1,
+      "col": 995,
+      "row": 147,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 6478.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 26370.0
+    },
+    {
+      "run_id": 7940,
+      "system": 2,
+      "col": 995,
+      "row": 147,
+      "DRARES_candidate": 779,
+      "DRARES_oracle": 2198.0,
+      "INFRES_candidate": 2360,
+      "INFRES_oracle": 14411.0
+    },
+    {
+      "run_id": 7940,
+      "system": 3,
+      "col": 995,
+      "row": 147,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 3776.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 13549.0
+    },
+    {
+      "run_id": 7940,
+      "system": 4,
+      "col": 995,
+      "row": 147,
+      "DRARES_candidate": 110,
+      "DRARES_oracle": 303.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7940,
+      "system": 5,
+      "col": 995,
+      "row": 147,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 36.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7941,
+      "system": 1,
+      "col": 1049,
+      "row": 156,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7941,
+      "system": 2,
+      "col": 1049,
+      "row": 156,
+      "DRARES_candidate": 496,
+      "DRARES_oracle": 14990.0,
+      "INFRES_candidate": 4964,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7941,
+      "system": 3,
+      "col": 1049,
+      "row": 156,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 13553.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7941,
+      "system": 4,
+      "col": 1049,
+      "row": 156,
+      "DRARES_candidate": 135,
+      "DRARES_oracle": 331.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7941,
+      "system": 5,
+      "col": 1049,
+      "row": 156,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 33.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7942,
+      "system": 1,
+      "col": 997,
+      "row": 146,
+      "DRARES_candidate": 8858,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 88579,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7942,
+      "system": 2,
+      "col": 997,
+      "row": 146,
+      "DRARES_candidate": 10084,
+      "DRARES_oracle": 3725.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 28573.0
+    },
+    {
+      "run_id": 7942,
+      "system": 3,
+      "col": 997,
+      "row": 146,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7942,
+      "system": 4,
+      "col": 997,
+      "row": 146,
+      "DRARES_candidate": 2850,
+      "DRARES_oracle": 363.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7942,
+      "system": 5,
+      "col": 997,
+      "row": 146,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 38.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7943,
+      "system": 1,
+      "col": 1026,
+      "row": 166,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 9003.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 42523.0
+    },
+    {
+      "run_id": 7943,
+      "system": 2,
+      "col": 1026,
+      "row": 166,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 2175.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 9328.0
+    },
+    {
+      "run_id": 7943,
+      "system": 3,
+      "col": 1026,
+      "row": 166,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 2334.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 7725.0
+    },
+    {
+      "run_id": 7943,
+      "system": 4,
+      "col": 1026,
+      "row": 166,
+      "DRARES_candidate": 72,
+      "DRARES_oracle": 222.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7943,
+      "system": 5,
+      "col": 1026,
+      "row": 166,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 43.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7944,
+      "system": 1,
+      "col": 986,
+      "row": 160,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 5785.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 41348.0
+    },
+    {
+      "run_id": 7944,
+      "system": 2,
+      "col": 986,
+      "row": 160,
+      "DRARES_candidate": 652,
+      "DRARES_oracle": 1974.0,
+      "INFRES_candidate": 6517,
+      "INFRES_oracle": 9622.0
+    },
+    {
+      "run_id": 7944,
+      "system": 3,
+      "col": 986,
+      "row": 160,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 7271.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 36182.0
+    },
+    {
+      "run_id": 7944,
+      "system": 4,
+      "col": 986,
+      "row": 160,
+      "DRARES_candidate": 182,
+      "DRARES_oracle": 142.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7944,
+      "system": 5,
+      "col": 986,
+      "row": 160,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 31.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7945,
+      "system": 1,
+      "col": 993,
+      "row": 151,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 100000.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7945,
+      "system": 2,
+      "col": 993,
+      "row": 151,
+      "DRARES_candidate": 241,
+      "DRARES_oracle": 1088.0,
+      "INFRES_candidate": 2413,
+      "INFRES_oracle": 4320.0
+    },
+    {
+      "run_id": 7945,
+      "system": 3,
+      "col": 993,
+      "row": 151,
+      "DRARES_candidate": 100000,
+      "DRARES_oracle": 1937.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 8734.0
+    },
+    {
+      "run_id": 7945,
+      "system": 4,
+      "col": 993,
+      "row": 151,
+      "DRARES_candidate": 154,
+      "DRARES_oracle": 167.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    },
+    {
+      "run_id": 7945,
+      "system": 5,
+      "col": 993,
+      "row": 151,
+      "DRARES_candidate": 30,
+      "DRARES_oracle": 33.0,
+      "INFRES_candidate": 100000,
+      "INFRES_oracle": 100000.0
+    }
+  ],
+  "source_hashes": {
+    "recovered/LWKM/Datamodel_10242.xlsx": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+    "work/hrulist2swap.f90": "1abd632e50232748ed6dd3db924a4fd091b516f25648348601dadd66808d3944",
+    "work/regionaal/regionaal/COND_secundair.IDF": "4d03fc7501d5a6098ee30e896914bc2e3b8170ebffe7cf20a86992f34259789a",
+    "work/regionaal/regionaal/COND_tertiair.IDF": "aaaa1557fa682ba020fc7fbd05066916bcce5c9bd374fb4bc0c6ca34ecb5b9e0",
+    "work/regionaal/regionaal/COND_primair.IDF": "3a869ba6c1d4637025b923fca794dc46f7bc3be39964f2a7f4d773d18d80f9d8",
+    "work/regionaal/regionaal/inf_mz_secundair.IDF": "be3924e16e6ea75e55a13f7863270bb0f12b4df5c1e486ba87c32f61f3160bcd",
+    "work/regionaal/regionaal/inf_mz_primair.IDF": "691134ffa695fa2dbb6c86cdf153c2f509f29ab3deac5fa41ac4ecda18e2d0ce",
+    "work/regionaal/regionaal/inf_mz_tertiair.IDF": "19b4740788007651da051c6e8d335a0214af7686b1001bcc615e268434179da5",
+    "work/drn/drn/COND_buisdrainage.IDF": "59e029368770156841b9201e7dbc9228808b9706785df7307cd6e812120fffa3",
+    "work/drn/drn/COND_SOF_250.IDF": "f55b584143caecb4012dd04502a86a9655ac87ba5348accb441dcf83adde1c80"
+  }
+}
