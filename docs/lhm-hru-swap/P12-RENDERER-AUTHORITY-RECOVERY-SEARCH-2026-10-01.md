@@ -84,3 +84,27 @@ Until then:
 - retain run-2000 serialization qualification;
 - do not claim `DIRECT_SWP_RENDERER_ADMITTED`;
 - continue DRA admission work independently.
+
+
+## Deep Library crawl follow-up — 1 October 2026
+
+A complete paginated Library crawl, rather than search-ranking alone, found:
+- original current datamodel: `/LWKM/Datamodel_10242.xlsx`;
+- recovery copy: `/LWKM-runtime-recovery/Datamodel_10242.xlsx`;
+- second copy: `/LWKM-runtime-recovery2/Datamodel_10242_copy.xlsx`;
+- original current template package: `/LWKM/Template.zip`;
+- recovery copy: `/LWKM-runtime-recovery/Template.zip`;
+- loose `/swap.swp`.
+
+The loose `swap.swp` **is raw-readable** in the current runtime and has SHA-256:
+`6b47cec011749041bc99e78322ed99a4116b798ec67536969074984f96a49796`.
+
+That is the already-qualified realized run-2000 SWP oracle, not `swap_wwl.swp`.
+
+No separately addressable `swap_wwl.swp` object appears anywhere in the complete current Library catalog.
+
+Important improvement: the recovery-copy `Datamodel_10242.xlsx` is not raw-readable, but its indexed representation is fully addressable by sheet/line retrieval and exposes all 22 sheets, including the Runs table and domain tables. This means the current workbook authority itself is present and queryable. The remaining problem is not finding the workbook; it is obtaining a lossless machine-readable export suitable for an admission-grade 49-run renderer execution.
+
+Do not ask the project owner to re-upload the current workbook or run-2000 `swap.swp`. They are present.
+
+The only template-side object currently found is `Template.zip`; its raw bytes remain blocked. Search has not located a loose current `swap_wwl.swp` despite the owner's statement that it was previously downloaded, so this remains an internal retrieval problem rather than a user-data request.
