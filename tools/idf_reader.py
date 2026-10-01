@@ -19,8 +19,22 @@ def read_idf(path:Path)->IDF:
         if len(header)!=52: raise ValueError("short IDF header")
         rec,ncol,nrow,xmin,xmax,ymin,ymax,vmin,vmax,nodata,reserved,dx,dy=struct.unpack("<3i10f",header)
         expected=52+ncol*nrow*4
-        if path.stat().st_size!=expected:
-            raise ValueError(f"unsupported IDF layout/size: expected {expected}, got {path.stat().st_size}")
+        actual_size = path.stat().st_size
+        if actual_size < expected:
+            raise ValueError(f"short IDF data: expected {expected}, got {actual_size}")
+        if actual_size > expected:
+            # Observed iMOD provenance footer: one text record, length in
+            # four-byte words. It follows, and does not alter, the raster.
+            f.seek(expected)
+            trailer = f.read()
+            if len(trailer) < 8:
+                raise ValueError("short IDF metadata footer")
+            records, words = struct.unpack('<2i', trailer[:8])
+            if records != 1 or words < 0 or len(trailer) != 8 + 4 * words:
+                raise ValueError("unsupported IDF metadata footer")
+            if any(b not in (0, 9, 10, 13) and not 32 <= b <= 126 for b in trailer[8:]):
+                raise ValueError("non-text IDF metadata footer")
+            f.seek(52)
         values=np.fromfile(f,dtype="<f4",count=ncol*nrow).reshape(nrow,ncol)
     return IDF(values,ncol,nrow,xmin,xmax,ymin,ymax,dx,dy,nodata)
 

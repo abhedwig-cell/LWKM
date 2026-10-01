@@ -65,3 +65,16 @@ qualify Q0-Q3 -> plan -> collect -> verify -> qualify Q4 -> unpack -> consumer s
 Maak historische defecten nooit stil netter. Houd supplied-source, realized-executable en modern-corrected semantics expliciet uit elkaar.
 
 Ga door.
+
+
+Current follow-up supersedes access-blocker statements above:
+Read docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md.
+The current XLSX and Template.zip raw bytes are available. Use XLSX directly;
+SQLite is not separate authority. Do not use Datamodel_9830.zip.
+All 10,242 typed contexts resolve, but exact historical swap_wwl.swp is still
+unrecovered. Current wwl.swp is a different incompatible template version.
+The DRA gate now includes every seasonal LEVEL entry. Independent native
+source diagnostic fails broadly, and its mismatches must remain unexplained.
+Do not claim SWP or DRA production admission. Investigate input-version
+provenance and missing length rasters. Do not request files again.
+

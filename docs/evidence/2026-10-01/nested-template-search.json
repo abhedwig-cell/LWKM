@@ -1,0 +1,42 @@
+{
+  "archives_scanned": [
+    "source (2).zip",
+    "source (2).zip!source/asc.zip",
+    "source (2).zip!source/bda2f90.zip",
+    "source (2).zip!source/cond2cond.zip",
+    "source (2).zip!source/direction.zip",
+    "source (2).zip!source/haarvat_v3.zip",
+    "source (2).zip!source/hhgw2stochast.zip",
+    "source (2).zip!source/hhgw2tibd.zip",
+    "source (2).zip!source/HIB/MinLeng.zip",
+    "source (2).zip!source/hkv2prob.zip",
+    "source (2).zip!source/inuncount_lbw.zip",
+    "source (2).zip!source/LBW2prob.zip",
+    "source (2).zip!source/meandering.zip",
+    "source (2).zip!source/premsw.zip",
+    "source (2).zip!source/Programma Sim2HKV.zip",
+    "source (2).zip!source/pv2sim.zip",
+    "source (2).zip!source/seg2simgro.zip",
+    "source (2).zip!source/sobek2simgro.zip",
+    "source (2).zip!source/source_WRO.zip",
+    "source (2).zip!source/stochast2prob.zip",
+    "source (2).zip!source/SunTMakkink.zip",
+    "source (2).zip!source/sw2inun.zip",
+    "source (2).zip!source/Waterbalans.zip",
+    "source (2).zip!source/wc_bal.zip",
+    "Rscripts.zip",
+    "Rscripts.zip!Rscripts/HRU_clustering/optimized/files.zip",
+    "Rscripts.zip!Rscripts/Shiny_LWKMviewer/files.zip",
+    "Rscripts.zip!Rscripts/Shiny_LWKMviewer/files_stopbutton.zip",
+    "HRU2LSW.zip",
+    "Tools(2).zip"
+  ],
+  "swp_members": [
+    {
+      "archive": "Tools(2).zip",
+      "member": "Tools/SWAP/template/swap.swp",
+      "sha256": "c87af3a29149932c145d3711a05cd4448764379c278b52ee5b94e3c050603238"
+    }
+  ],
+  "exact_hash_matches": 0
+}

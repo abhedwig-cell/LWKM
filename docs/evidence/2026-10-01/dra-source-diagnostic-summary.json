@@ -1,0 +1,153 @@
+{
+  "status": "DIAGNOSTIC_NOT_ADMISSION",
+  "runs": 49,
+  "systems": 245,
+  "scalar_mismatch_counts": {
+    "DRARES": 226,
+    "INFRES": 133,
+    "ZBOTDR": 230,
+    "SWALLO": 3
+  },
+  "level_mismatching_systems": 230,
+  "excluded": "L: independent length grids unresolved; no production candidate emitted",
+  "source_hashes": {
+    "recovered/LWKM/export_svat_HRU_NRU_10242.csv": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4",
+    "recovered/LWKM-runtime-recovery/ahn_f250_m.asc": "6223cfd6ee66a02f7289371fb3636507869798168d0ca027ffec6366a5e39dfd",
+    "work/RIV_INFILTRATIE_1991-2020.IDF": "d6bf49a20eac93de60952b26090f36bf3e6d3de4d0864d666b89a4a18e687718",
+    "work/regionaal/regionaal/COND_primair.IDF": "3a869ba6c1d4637025b923fca794dc46f7bc3be39964f2a7f4d773d18d80f9d8",
+    "work/regionaal/regionaal/inf_mz_primair.IDF": "691134ffa695fa2dbb6c86cdf153c2f509f29ab3deac5fa41ac4ecda18e2d0ce",
+    "work/regionaal/regionaal/steady-state/BODH_P1J_250.IDF": "6450582462de80836e0227e46eb25fb80c3cda51ce64646635c155f17ea0cc0a",
+    "work/regionaal/regionaal/PEIL_P1Z_250.IDF": "78d0a4fb9a5a06a42d1f8ef1cb75a52d0108443b38ce7b1d8b83ce4f038f8721",
+    "work/regionaal/regionaal/PEIL_P1W_250.IDF": "4650fa1d44c0cf82c89de34fb708a25a8d6e4e264d2406fe3fc87763a53e364f",
+    "work/regionaal/regionaal/COND_secundair.IDF": "4d03fc7501d5a6098ee30e896914bc2e3b8170ebffe7cf20a86992f34259789a",
+    "work/regionaal/regionaal/inf_mz_secundair.IDF": "be3924e16e6ea75e55a13f7863270bb0f12b4df5c1e486ba87c32f61f3160bcd",
+    "work/regionaal/regionaal/steady-state/BODH_S1J_250.IDF": "14a03dbfdc0a7a7acbc8c38d0fe2f6e588fc29ba93f9f3bb55ddd8ee5c72585c",
+    "work/regionaal/regionaal/PEIL_S1Z_250.IDF": "586ae61e9730d3b3f439282427e79110ff1a619b749a862267019c3f4a675050",
+    "work/regionaal/regionaal/PEIL_S1W_250.IDF": "15cc2bd45b666f3ea8ae93faa1385a2de8f3e9811ba57853036b75075442eb4d",
+    "work/regionaal/regionaal/COND_tertiair.IDF": "aaaa1557fa682ba020fc7fbd05066916bcce5c9bd374fb4bc0c6ca34ecb5b9e0",
+    "work/regionaal/regionaal/inf_mz_tertiair.IDF": "19b4740788007651da051c6e8d335a0214af7686b1001bcc615e268434179da5",
+    "work/regionaal/regionaal/steady-state/BODH_T1J_250.IDF": "17e4a1d6190c398880638a5139c3121ce9f5fb946ac30e2e2a00b3aaa882a091",
+    "work/regionaal/regionaal/PEIL_T1Z_250.IDF": "3784032afd7f3a0b806e39fd27a54f65ff7eb089d57d11b9d2cad5d6b16a3ef1",
+    "work/regionaal/regionaal/PEIL_T1W_250.IDF": "4f270427623a003898085fc65477265035abb42bb7ac36238ab2385e1c40dca3",
+    "work/drn/drn/COND_buisdrainage.IDF": "59e029368770156841b9201e7dbc9228808b9706785df7307cd6e812120fffa3",
+    "work/drn/drn/BODH_B_250.IDF": "5690ab654461874d38d7b695e4c1834a036dad4deb2a98c6bba8b66987edf029",
+    "work/drn/drn/COND_SOF_250.IDF": "f55b584143caecb4012dd04502a86a9655ac87ba5348accb441dcf83adde1c80",
+    "work/drn/drn/BODH_SOF_250.IDF": "09a65640d9a653830794770df2dab4923f899acf4340b72bfb7a14e62b9c9806"
+  },
+  "swallo_residuals": [
+    {
+      "run_id": 7870,
+      "system": 1,
+      "members": 83,
+      "nature": false,
+      "infil_avg": 25.65883045104972,
+      "differences": {
+        "DRARES": {
+          "oracle": 6445.0,
+          "candidate": 6749.0
+        },
+        "INFRES": {
+          "oracle": 19531.0,
+          "candidate": 20451.0
+        },
+        "ZBOTDR": {
+          "oracle": -129.94,
+          "candidate": -154.58
+        },
+        "SWALLO": {
+          "oracle": 1,
+          "candidate": 3
+        }
+      },
+      "level_difference_count": 103,
+      "level_examples": [
+        {
+          "date": "01-jan-1971",
+          "oracle": -99.94,
+          "candidate": -110.34
+        },
+        {
+          "date": "01-apr-1971",
+          "oracle": -99.67,
+          "candidate": -107.93
+        }
+      ]
+    },
+    {
+      "run_id": 7922,
+      "system": 3,
+      "members": 27,
+      "nature": false,
+      "infil_avg": 50.25542527657968,
+      "differences": {
+        "DRARES": {
+          "oracle": 958.0,
+          "candidate": 744.0
+        },
+        "INFRES": {
+          "oracle": 70497.0,
+          "candidate": 11102.0
+        },
+        "ZBOTDR": {
+          "oracle": -69.08,
+          "candidate": -103.85
+        },
+        "SWALLO": {
+          "oracle": 3,
+          "candidate": 1
+        }
+      },
+      "level_difference_count": 103,
+      "level_examples": [
+        {
+          "date": "01-jan-1971",
+          "oracle": -69.08,
+          "candidate": -85.89
+        },
+        {
+          "date": "01-apr-1971",
+          "oracle": -69.08,
+          "candidate": -85.89
+        }
+      ]
+    },
+    {
+      "run_id": 7929,
+      "system": 3,
+      "members": 48,
+      "nature": false,
+      "infil_avg": 11.784231182866884,
+      "differences": {
+        "DRARES": {
+          "oracle": 3802.0,
+          "candidate": 3951.0
+        },
+        "INFRES": {
+          "oracle": 19622.0,
+          "candidate": 20391.0
+        },
+        "ZBOTDR": {
+          "oracle": -43.31,
+          "candidate": -115.69
+        },
+        "SWALLO": {
+          "oracle": 1,
+          "candidate": 3
+        }
+      },
+      "level_difference_count": 103,
+      "level_examples": [
+        {
+          "date": "01-jan-1971",
+          "oracle": -43.31,
+          "candidate": -77.47
+        },
+        {
+          "date": "01-apr-1971",
+          "oracle": -42.95,
+          "candidate": -75.98
+        }
+      ]
+    }
+  ]
+}

@@ -35,15 +35,31 @@ def _atom(value:str)->Any:
 def parse_dra(text:str)->dict:
     global_values={}
     systems={i:{} for i in range(1,6)}
+    level_system = None
     for raw in text.splitlines():
         stripped=raw.lstrip()
         if not stripped or stripped.startswith("*"):
             continue
         active=raw.split("!",1)[0].rstrip()
+        header = re.match(r"^\s*DATOWL([1-5])\s+LEVEL([1-5])\s*$", active, re.I)
+        if header:
+            if header[1] != header[2]:
+                raise ValueError("DRA level-table system mismatch")
+            level_system = int(header[1])
+            systems[level_system].setdefault("LEVEL", {})
+            continue
+        level = re.match(r"^\s*(\d{2}-[A-Za-z]{3}-\d{4})\s+([-+0-9.eEdD]+)\s*$", active)
+        if level and level_system is not None:
+            date_key = level[1].lower()
+            if date_key in systems[level_system]["LEVEL"]:
+                raise ValueError(f"Duplicate DRA level date {date_key}")
+            systems[level_system]["LEVEL"][date_key] = float(level[2].replace('D','e').replace('d','e'))
+            continue
         m=ASSIGN.match(active)
         if not m:
             continue
         key,value=m.groups()
+        level_system = None
         key=key.upper()
         sm=SYSTEM_FIELD.match(key)
         if sm:
@@ -59,14 +75,23 @@ def parse_dra(text:str)->dict:
 
 def compare_dra(expected:dict,actual:dict,*,atol:float=1e-9,rtol:float=1e-9):
     diffs=[]
-    for key,ev in expected.get("global",{}).items():
+    for key in sorted(set(expected.get("global",{})) | set(actual.get("global",{}))):
+        ev=expected.get("global",{}).get(key)
         av=actual.get("global",{}).get(key)
         if not _equal(ev,av,atol,rtol):
             diffs.append(DrainDifference(f"global.{key}",ev,av))
     for sy,erow in expected.get("systems",{}).items():
         arow=actual.get("systems",{}).get(str(sy),{})
-        for key,ev in erow.items():
+        for key in sorted(set(erow) | set(arow)):
+            ev=erow.get(key)
             av=arow.get(key)
+            if key == "LEVEL":
+                for day in sorted(set(ev or {}) | set(av or {})):
+                    evalue=(ev or {}).get(day)
+                    avalue=(av or {}).get(day)
+                    if not _equal(evalue,avalue,atol,rtol):
+                        diffs.append(DrainDifference(f"systems.{sy}.LEVEL.{day}",evalue,avalue))
+                continue
             if not _equal(ev,av,atol,rtol):
                 diffs.append(DrainDifference(f"systems.{sy}.{key}",ev,av))
     return diffs

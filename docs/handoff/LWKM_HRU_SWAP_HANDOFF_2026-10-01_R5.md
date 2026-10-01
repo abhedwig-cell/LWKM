@@ -184,3 +184,33 @@ Still pending:
 4. perform real-server Python post-processing golden regression;
 5. perform real-source Q4 bundle qualification;
 6. end-to-end 10,242-run production smoke/admission.
+
+
+## R5 follow-up: raw XLSX recovery and DRA negative diagnostic
+
+The current Datamodel_10242.xlsx and Template.zip are now raw-readable.
+The XLSX hash is `5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8`.
+An explicit cached-value XLSX-to-typed-execution route resolves all 10,242
+contexts without missing required joins. SQLite is only an execution format.
+The earlier raw-XLSX/Template.zip access blockers are superseded.
+
+The current archive contains wwl.swp, not the exact qualified swap_wwl.swp.
+Its different hash and adapter contract prevent silent substitution.
+All 20 Library catalog pages and 30 nested alternate archives were searched;
+no exact template hash match was recovered. Datamodel_9830 was not used.
+The actual XLSX/current-template regression invocation fails at PERIOD=0
+adapter expectation. DIRECT_SWP_RENDERER_ADMITTED remains ungranted.
+
+The DRA gate now checks seasonal LEVEL tables and extra assignments.
+Native IDF text-provenance footers are supported with strict validation.
+An independent 49-run source diagnostic found 226 DRARES, 133 INFRES,
+230 ZBOTDR and 230 seasonal-table mismatches across 245 systems.
+These differences are unexplained and not intentional. The original
+STATIC04 and SWALLO qualified results remain unchanged.
+Missing independent length rasters and source/executable-version mismatch
+prevent complete DRA producer admission. No production candidate was emitted.
+
+Read `docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md`
+and its persisted evidence before the next SWP/DRA action.
+No user re-upload is requested.
+

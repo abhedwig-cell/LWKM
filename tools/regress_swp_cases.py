@@ -103,6 +103,19 @@ def regress_cases(
     rtol:float=1e-8,
 )->dict:
     profile=yaml.safe_load(Path(profile_path).read_text(encoding="utf-8"))
+    if Path(database).suffix.lower() == ".xlsx":
+        from tools.xlsx_datamodel import materialize_workbook
+        with tempfile.TemporaryDirectory(prefix="lwkm-xlsx-") as directory:
+            execution_db = Path(directory) / "execution.sqlite"
+            ingestion = materialize_workbook(database, execution_db)
+            result = regress_cases(
+                database=execution_db, legacy_template=legacy_template,
+                profile_path=profile_path, cases_root=cases_root,
+                expected_differences=expected_differences,
+                oracle_name=oracle_name, atol=atol, rtol=rtol,
+            )
+            result["workbook_ingestion"] = ingestion
+            return result
     template=canonicalize_legacy_template(
         Path(legacy_template).read_text(encoding="utf-8",errors="replace")
     )
