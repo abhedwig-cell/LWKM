@@ -189,3 +189,68 @@ This narrows the minimum evidence needed to classify STATIC04 executable behavio
 
 See:
 `P12-STATIC04-TARGETED-REALIZED-DISCRIMINATOR-7877.md`.
+
+
+## 1 October 2026 update — raw 49-run blocker removed
+
+The former `BLOCKER_RAW_49RUN_DRA_REALIZED_ORACLE` is no longer active.
+
+Recovered user-supplied archive:
+- `run_files(1).zip`;
+- SHA-256 `46f1fc6b6f4aa01265db950c8ca78f9c4714a97d11cfa4d8f0c66b4dea7a05e3`;
+- 49 realized run directories;
+- each contains `swap.swp`, run-specific DRA, BBC and MET inputs.
+
+### STATIC04 realized closure
+
+Full 49-run classification:
+- NON_DISCRIMINATING: 34;
+- EXPLAINED_LEGACY: 15;
+- EXPLAINED_SCHEMA_FIRST: 0;
+- UNEXPLAINED: 0.
+
+All 15 discriminating cases follow the legacy majority-BFE dqsat used by the realized executable.
+
+Modern production authority remains representative-SVAT dqsat. Therefore the schema-first DRA candidate must intentionally differ from realized history on 75 spacing paths:
+15 runs x 5 `systems.N.L`.
+
+Preregistered in:
+`config/p12/dra-49run-static04-expected-differences-v1.yml`.
+
+Authority:
+`P12-49RUN-STATIC04-REALIZED-RESULT-2026-10-01.md`.
+
+### SWALLO 49-run closure refinement
+
+The recovered 49-run archive substantially changes the earlier run-2000-only interpretation.
+
+Against 245 realized SWALLO scalars:
+- active supplied v0.38 rule matches 241/245;
+- 47/49 complete runs match;
+- residuals are limited to HRUs 7868 and 7929;
+- the run-2000/v0.27 universal system-3 forcing hypothesis has 25/245 mismatches.
+
+The 49-run archive contains many system-3 rows with realized SWALLO3=1. Therefore a universal "realized production forces systems 3-5" rule is falsified.
+
+Use:
+- `SUPPLIED_SOURCE_V038` for the 49-run historical baseline;
+- `RUN2000_V027_COMPAT` only for the separate run-2000/v0.27 provenance state.
+
+The four v0.38 residual scalar mismatches are not qualified intentional differences and remain provenance/input-version questions.
+
+Authority:
+`P12-49RUN-SWALLO-REALIZED-RESULT-2026-10-01.md`.
+
+### Revised remaining DRA gate
+
+The remaining blocker is no longer missing realized evidence.
+
+Remaining work before `DIRECT_DRA_PRODUCER_ADMITTED`:
+1. generate the complete modern candidate DRA set from qualified source inputs;
+2. run the 49-run semantic regression;
+3. accept only the preregistered 75 STATIC04 L differences and separately qualified provenance differences;
+4. investigate the two SWALLO residual runs rather than force-fitting them;
+5. require zero unexplained DRARES/INFRES/ZBOTDR/LEVEL/SWALLO differences.
+
+Current classification:
+**REALIZED_ORACLE_RECOVERED_CANDIDATE_GENERATION_FULL_REGRESSION_PENDING**.
