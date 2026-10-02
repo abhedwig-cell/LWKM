@@ -98,6 +98,8 @@ This combination is source-backed evidence that selected-member handling was rel
 Qualification status:
 `PRE_V038_SELECTED_MEMBER_AGGREGATION_PRIORITIZED_NOT_QUALIFIED`.
 
+A final loose-Library title search found the current `grensvlak_NHIWQ_v2_fill.asc` as an independently exposed file, but no loose `verdacht.asc` (or title-equivalent suspect-grid artifact). The run-linked selected-member mask therefore remains unbound in the currently accessible loose-file surface. This blocks a responsible selected-member replay in this chat even before the unresolved historical source-version question.
+
 A useful next diagnostic, once the exact historical selected-set input or source snapshot is bound, is to compare a separately labelled selected-member hypothesis against all 49 realized DRA files. It must remain diagnostic-only and must check DRARES, INFRES, ZBOTDR, all seasonal LEVEL entries and SWALLO. L remains excluded until the independent length rasters are bound.
 
 ## SWP template recovery result
