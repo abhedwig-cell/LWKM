@@ -70,6 +70,14 @@ These timestamps/history labels are mutable provenance clues, not authenticated 
 
 The supplied v0.38 policy agreement for SWALLO remains a behavioral comparison baseline only. It is not executable identity.
 
+## Version-self-identification recovery negative result
+
+A focused Library search for exact self-identifying strings for v0.35, v0.36 and v0.37, plus producer-log signatures such as `Log-file of ... HRUlist2SWAP` and `HRUSWAP_test.log`, returned no independent older source snapshot or historical producer log. Matches resolved back to the current v0.38 source/manual or the supplied batch filename.
+
+GitHub branch search for HRU/SWAP/workflow-related historical branches found only the active `work/lhm-hru-swap-workflow-v1` branch. No repository branch carrying an independently versioned v0.35-v0.37 producer source was exposed by that route.
+
+This is a scoped negative recovery result, not proof that no such source/log ever existed. It closes the currently accessible loose-Library and repository-branch routes for distinguishing v0.35 from v0.36.
+
 ## Selected-member pre-v0.38 hypothesis
 
 The active v0.38 drainage aggregation loops use all HRU members.
