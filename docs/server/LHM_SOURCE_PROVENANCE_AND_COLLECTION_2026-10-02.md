@@ -16,6 +16,25 @@ The purpose is to make explicit:
 
 This procedure precedes all new Python post-processing, HRU generation and SWAP input generation.
 
+## File-level qualification authority
+
+Project-wide authority:
+`docs/governance/LWKM_FILE_QUALIFICATION_POLICY_2026-10-02.md`.
+
+The Q0-Q4 collection procedure freezes and proves the integrity of a source snapshot. It does not by itself make every contained file semantically production-admitted.
+
+Each downstream-consumed file must also have sufficient file-level qualification for its intended use, including:
+- SHA-256 identity;
+- provenance binding;
+- format qualification;
+- semantic contract;
+- downstream consumer;
+- qualification evidence;
+- regression qualification when required.
+
+Therefore:
+`Q4 BUNDLE QUALIFIED` does not imply `ALL MEMBERS PRODUCTION_ADMITTED`.
+
 ## Core provenance rule
 
 A file is a **basis file** when:
