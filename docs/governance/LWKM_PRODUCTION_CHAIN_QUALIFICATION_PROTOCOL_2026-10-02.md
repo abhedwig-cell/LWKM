@@ -157,7 +157,14 @@ Inclusief:
 
 `NOT_STARTED_ON_REAL_SERVER`.
 
-Procedure en draft source-spec bestaan.
+Procedure, executable W01-orchestrator, machine-readable CSV source-spec en tests bestaan:
+- `tools/server/lwkm_w01.py`;
+- `config/source/lhm-server-source-spec-v1.csv`;
+- `tools/lwkm_source_bundle.py`;
+- `tests/test_lwkm_w01.py`;
+- `tests/test_lwkm_source_bundle.py`.
+
+De echte server-Q0/Q1 zijn nog niet uitgevoerd.
 
 ---
 
