@@ -8,10 +8,12 @@ Authority:
 - `docs/governance/LWKM_PRODUCTION_CHAIN_QUALIFICATION_PROTOCOL_2026-10-02.md`
 
 Executable tooling:
-- `tools/server/lwkm_source_bundle.py`
+- `tools/server/lwkm_w01.py`
 - `config/source/lhm-server-source-spec-v1.csv`
 
 The tool uses only the Python standard library.
+
+Q3-Q4 reuse the repository's existing tested low-level bundle module `tools/lwkm_source_bundle.py`; the W01 orchestrator does not define a competing ZIP format.
 
 ## Operating rule for the first server session
 
@@ -48,7 +50,7 @@ No external Python packages are required.
 The following two files must be available together with their repository-relative versions recorded:
 
 ```text
-tools\server\lwkm_source_bundle.py
+tools\server\lwkm_w01.py
 config\source\lhm-server-source-spec-v1.csv
 ```
 
@@ -105,7 +107,7 @@ Do not put a changing timestamp in the identity if the intent is to refer to one
 From the repository root:
 
 ```bat
-py -3 tools\server\lwkm_source_bundle.py q0 ^
+py -3 tools\server\lwkm_w01.py q0 ^
   --root "RUN=<ABSOLUTE_LHM_RUN_ROOT>" ^
   --root "PROJECT=<ABSOLUTE_LWKM_PROJECT_ROOT>" ^
   --output-root "D:\LWKM_provenance" ^
@@ -144,7 +146,7 @@ If anything is wrong, do not proceed.
 Run:
 
 ```bat
-py -3 tools\server\lwkm_source_bundle.py q1 ^
+py -3 tools\server\lwkm_w01.py q1 ^
   --q0 "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest\q0-run.json" ^
   --spec "config\source\lhm-server-source-spec-v1.csv" ^
   --output-dir "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest"
@@ -207,7 +209,7 @@ Do not run this during the first inventory session unless Q1 has already been ex
 Example:
 
 ```bat
-py -3 tools\server\lwkm_source_bundle.py q2 ^
+py -3 tools\server\lwkm_w01.py q2 ^
   --q0 "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest\q0-run.json" ^
   --q1-summary "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest\q1-summary.json" ^
   --inventory "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest\q1-inventory.csv" ^
@@ -236,8 +238,8 @@ Each staged member receives file-level `PROVENANCE_BOUND`, not automatic semanti
 After Q2 PASS:
 
 ```bat
-py -3 tools\server\lwkm_source_bundle.py q3 ^
-  --bundle-root "D:\LWKM_provenance\LHM433_1971_2021_CURRENT_Q2" ^
+py -3 tools\server\lwkm_w01.py q3 ^
+  --plan "D:\LWKM_provenance\LHM433_1971_2021_CURRENT_Q2\00_manifest\resolved-bundle-plan.json" ^
   --zip-path "D:\LWKM_provenance\LWKM_LHM_SOURCE_LHM433_1971_2021_CURRENT_Q4.zip"
 ```
 
@@ -253,7 +255,7 @@ The archive supports ZIP64.
 Run:
 
 ```bat
-py -3 tools\server\lwkm_source_bundle.py q4 ^
+py -3 tools\server\lwkm_w01.py q4 ^
   --zip-path "D:\LWKM_provenance\LWKM_LHM_SOURCE_LHM433_1971_2021_CURRENT_Q4.zip"
 ```
 
