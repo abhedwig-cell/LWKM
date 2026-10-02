@@ -1,0 +1,325 @@
+schema_version: 1
+status: DRAFT_CONFIRM_ON_AUTHORITATIVE_LHM_SERVER
+authority_document: docs/server/LHM_SOURCE_PROVENANCE_AND_COLLECTION_2026-10-02.md
+rules:
+  basis_definition: direct_downstream_input_not_reconstructed_from_same_snapshot
+  no_silent_substitution: true
+  hash_algorithm: SHA256
+  preserve_relative_paths: true
+  derived_outputs_are_not_source_authority: true
+
+items:
+  - id: LHM_DYNAMIC_HEAD_L1
+    provenance_class: A
+    required_by: python_postprocessing
+    source_path_or_pattern: "<authoritative_run_root>/.../head_*_l1.idf"
+    required: true
+    temporal_scope: run_period
+    expected_format: IDF
+    status: CONFIRM_PATTERN_AND_DATE_COVERAGE_ON_SERVER
+
+  - id: LHM_DYNAMIC_BDGFLF_L1
+    provenance_class: A
+    required_by: python_postprocessing_and_bottom_boundary
+    source_path_or_pattern: "<authoritative_run_root>/.../bdgflf_*_l1.idf"
+    required: true
+    temporal_scope: run_period
+    expected_format: IDF
+    status: CONFIRM_PATTERN_AND_DATE_COVERAGE_ON_SERVER
+
+  - id: LHM_DYNAMIC_BDGQLAT_L1
+    provenance_class: A
+    required_by: python_postprocessing_and_bottom_boundary
+    source_path_or_pattern: "<authoritative_run_root>/.../bdgqlat_*_l1.*"
+    required: true
+    temporal_scope: run_period
+    expected_format: IDF_OR_ASC
+    status: CONFIRM_REALIZED_FORMAT_AND_PATTERN_ON_SERVER
+
+  - id: GRID_HEADER
+    provenance_class: B
+    required_by: hru_swap_workflow
+    source_path_or_pattern: "BasicData/grids/header.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: SVAT_GRID
+    provenance_class: B
+    required_by: svat_hru_mapping
+    source_path_or_pattern: "BasicData/grids/svat.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: LGN_GRID
+    provenance_class: B
+    required_by: hru_context
+    source_path_or_pattern: "BasicData/grids/lgn250.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: SOIL_BFE_GRID
+    provenance_class: B
+    required_by: hru_context
+    source_path_or_pattern: "BasicData/grids/bodem.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: SOIL2_GRID
+    provenance_class: B
+    required_by: hru_context
+    source_path_or_pattern: "BasicData/grids/soil2.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: UOPP_GRID
+    provenance_class: B
+    required_by: hru_context
+    source_path_or_pattern: "BasicData/grids/uopp.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: IRRIGATION_GRID
+    provenance_class: B
+    required_by: hru_context
+    source_path_or_pattern: "BasicData/grids/beregen.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: ROOTZONE_GRID
+    provenance_class: B
+    required_by: hru_context
+    source_path_or_pattern: "BasicData/grids/rootzone_m.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: AHN_GRID
+    provenance_class: B
+    required_by: hru_context_and_dra
+    source_path_or_pattern: "BasicData/grids/ahn_f250_m.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: DQSAT_GRID
+    provenance_class: B
+    required_by: dra_spacing
+    source_path_or_pattern: "BasicData/grids/grensvlak_NHIWQ_v2_fill.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CURRENT_COPY_RECOVERED_SERVER_IDENTITY_TO_CONFIRM
+
+  - id: LENGTH_PRIMARY
+    provenance_class: B
+    required_by: dra_spacing_provenance
+    source_path_or_pattern: "BasicData/grids/lengte_p_250.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: UNRESOLVED_HIGH_PRIORITY_SERVER_RECOVERY
+
+  - id: LENGTH_SECONDARY
+    provenance_class: B
+    required_by: dra_spacing_provenance
+    source_path_or_pattern: "BasicData/grids/lengte_s_250.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: UNRESOLVED_HIGH_PRIORITY_SERVER_RECOVERY
+
+  - id: LENGTH_TERTIARY
+    provenance_class: B
+    required_by: dra_spacing_provenance
+    source_path_or_pattern: "BasicData/grids/lengte_t_250.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: UNRESOLVED_HIGH_PRIORITY_SERVER_RECOVERY
+
+  - id: VC_GRID
+    provenance_class: B
+    required_by: bottom_boundary
+    source_path_or_pattern: "BasicData/grids/vcw_L1.idf"
+    required: true
+    temporal_scope: static
+    expected_format: IDF
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: KD_GRID
+    provenance_class: B
+    required_by: bottom_boundary
+    source_path_or_pattern: "BasicData/grids/mdl_kd_l1.idf"
+    required: true
+    temporal_scope: static
+    expected_format: IDF
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: BBC_GRID
+    provenance_class: B
+    required_by: bbc_generation
+    source_path_or_pattern: "BasicData/grids/bbc_afv.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: DRAINAGE_RIVER_REGIONAL
+    provenance_class: B
+    required_by: dra_generation
+    source_path_or_pattern: "BasicData/modflow/riv/regionaal/**"
+    required: true
+    temporal_scope: static
+    expected_format: IDF
+    status: EXPAND_TO_EXACT_COND_INF_BODH_PEIL_FILES_AT_Q1
+
+  - id: DRAINAGE_DRN
+    provenance_class: B
+    required_by: dra_generation
+    source_path_or_pattern: "BasicData/modflow/drn/**"
+    required: true
+    temporal_scope: static
+    expected_format: IDF
+    status: EXPAND_TO_EXACT_COND_AND_BODH_FILES_AT_Q1
+
+  - id: METEO_DISTRICT_GRID
+    provenance_class: B
+    required_by: meteo_assignment
+    source_path_or_pattern: "BasicData/meteo/NHI_regio_fil.asc"
+    required: true
+    temporal_scope: static
+    expected_format: ASC
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: METEO_GRID_DEFINITION
+    provenance_class: B
+    required_by: meteo_assignment
+    source_path_or_pattern: "BasicData/meteo/mete_grid_2023.inp"
+    required: true
+    temporal_scope: static
+    expected_format: INP
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: HRU_SVAT_MEMBERSHIP
+    provenance_class: C
+    required_by: hru_construction
+    source_path_or_pattern: "BasicData/csv/export_svat_HRU_NRU_10242.csv"
+    required: true
+    temporal_scope: static
+    expected_format: CSV
+    status: RUN_BOUND_CURRENT_RECONSTRUCTION_INPUT
+
+  - id: HRU_REPRESENTATIVE_SVAT
+    provenance_class: C
+    required_by: representative_svat_semantics
+    source_path_or_pattern: "BasicData/csv/export_HRUschema_10242_copy.csv"
+    required: true
+    temporal_scope: static
+    expected_format: CSV
+    status: RUN_BOUND_CURRENT_RECONSTRUCTION_INPUT
+
+  - id: BOFEK_LOOKUP
+    provenance_class: C
+    required_by: hru_context
+    source_path_or_pattern: "BasicData/csv/Bodem370_2_bofek2020.csv"
+    required: true
+    temporal_scope: static
+    expected_format: CSV
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: HORIZON_LOOKUP
+    provenance_class: C
+    required_by: swp_and_dra_context
+    source_path_or_pattern: "BasicData/csv/nuhor370.csv"
+    required: true
+    temporal_scope: static
+    expected_format: CSV
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: SOIL_LU_CROP_LOOKUP
+    provenance_class: C
+    required_by: hru_context
+    source_path_or_pattern: "BasicData/csv/soil2lu2crop.csv"
+    required: true
+    temporal_scope: static
+    expected_format: CSV
+    status: CANDIDATE_FROM_RECOVERED_CONTROL
+
+  - id: QMODF_CORRECTION
+    provenance_class: C
+    required_by: bottom_boundary
+    source_path_or_pattern: "HRU/csv/qmodf_correct2.csv"
+    required: true
+    temporal_scope: static
+    expected_format: CSV
+    status: RUN_BOUND_CORRECTION_PROVENANCE_TO_CONFIRM
+
+  - id: SUSPECT_MASK
+    provenance_class: C
+    required_by: historical_selected_member_semantics
+    source_path_or_pattern: "LHM_uitvoer/filter/verdacht.asc"
+    required: true
+    temporal_scope: run_bound
+    expected_format: ASC
+    status: UNRESOLVED_HIGH_PRIORITY_SERVER_RECOVERY
+
+  - id: HRU_SWAP_CONTROL
+    provenance_class: D
+    required_by: historical_runtime_identity
+    source_path_or_pattern: "control_LHM433_HRU_SWAP_10242.inp"
+    required: true
+    temporal_scope: run_bound
+    expected_format: INP
+    status: RECOVERED_COPY_SERVER_IDENTITY_TO_CONFIRM
+
+  - id: HRU_SWAP_LAUNCH_BATCH
+    provenance_class: D
+    required_by: historical_runtime_identity
+    source_path_or_pattern: "do_HRU2SWAP_10242.bat"
+    required: true
+    temporal_scope: run_bound
+    expected_format: BAT
+    status: RECOVERED_COPY_SERVER_IDENTITY_TO_CONFIRM
+
+  - id: HRU2SWAP_EXECUTABLE
+    provenance_class: D
+    required_by: historical_runtime_identity
+    source_path_or_pattern: "exe/HRU2SWAP.exe"
+    required: false
+    temporal_scope: run_bound
+    expected_format: EXE
+    status: UNRESOLVED_HIGH_VALUE_PROVENANCE
+
+  - id: HRU2SWAP_LOG
+    provenance_class: D
+    required_by: historical_runtime_identity
+    source_path_or_pattern: "HRUSWAP_test.log"
+    required: false
+    temporal_scope: run_bound
+    expected_format: LOG
+    status: UNRESOLVED_HIGH_VALUE_PROVENANCE
+
+  - id: HISTORICAL_SWP_TEMPLATE
+    provenance_class: D
+    required_by: historical_swp_renderer_identity
+    source_path_or_pattern: "**/swap_wwl.swp"
+    required: false
+    temporal_scope: run_bound
+    expected_format: SWP
+    status: UNRESOLVED_HIGH_VALUE_PROVENANCE
