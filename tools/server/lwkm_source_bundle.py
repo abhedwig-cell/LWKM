@@ -91,7 +91,7 @@ def load_spec(path: Path) -> list[dict]:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         rows = list(csv.DictReader(f))
     required = {
-        "logical_id", "provenance_class", "required_by", "filename_pattern",
+        "logical_id", "root_key", "provenance_class", "required_by", "filename_pattern",
         "path_hint", "required", "max_matches", "temporal_scope",
         "expected_format", "semantic_role",
     }
@@ -110,15 +110,32 @@ def load_spec(path: Path) -> list[dict]:
         seen.add(logical_id)
         if row["provenance_class"].strip() not in CLASS_DIR:
             raise ValueError(f"Unknown provenance_class for {logical_id}")
+        if not row["root_key"].strip():
+            raise ValueError(f"Empty root_key for {logical_id}")
         if not row["filename_pattern"].strip():
             raise ValueError(f"Empty filename_pattern for {logical_id}")
     return rows
 
 
 def q0(args: argparse.Namespace) -> int:
-    source_root = Path(args.source_root).resolve()
-    if not source_root.is_dir():
-        raise FileNotFoundError(f"Source root does not exist or is not a directory: {source_root}")
+    roots = {}
+    for raw in args.root:
+        if "=" not in raw:
+            raise ValueError(f"--root must be KEY=PATH, got: {raw}")
+        key, value = raw.split("=", 1)
+        key = key.strip().upper()
+        if not key:
+            raise ValueError(f"Empty root key in: {raw}")
+        if key in roots:
+            raise ValueError(f"Duplicate root key: {key}")
+        path = Path(value.strip()).resolve()
+        if not path.is_dir():
+            raise FileNotFoundError(f"Root {key} does not exist or is not a directory: {path}")
+        stat = path.stat()
+        roots[key] = {
+            "path": str(path),
+            "last_write_utc": iso_utc_from_timestamp(stat.st_mtime),
+        }
 
     output_root = Path(args.output_root).resolve()
     manifest_dir = output_root / args.run_id / "00_manifest"
@@ -127,15 +144,13 @@ def q0(args: argparse.Namespace) -> int:
     if q0_path.exists() and not args.force:
         raise FileExistsError(f"Q0 record already exists: {q0_path}; use --force only for intentional replacement")
 
-    stat = source_root.stat()
     obj = {
         "schema_version": SCHEMA_VERSION,
         "gate": "Q0",
         "status": "Q0_RUN_IDENTITY_CAPTURED_NOT_YET_ADMITTED",
         "run_id": args.run_id,
         "server_hostname": socket.gethostname(),
-        "source_root": str(source_root),
-        "source_root_last_write_utc": iso_utc_from_timestamp(stat.st_mtime),
+        "roots": roots,
         "model_version": args.model_version,
         "simulation_start": args.simulation_start,
         "simulation_end": args.simulation_end,
@@ -149,26 +164,45 @@ def q0(args: argparse.Namespace) -> int:
         "procedure": "tools/server/lwkm_source_bundle.py",
     }
     write_json(q0_path, obj)
-    print(json.dumps({"gate": "Q0", "status": obj["status"], "q0": str(q0_path)}, indent=2))
+    print(json.dumps({
+        "gate": "Q0",
+        "status": obj["status"],
+        "q0": str(q0_path),
+        "roots": {k: v["path"] for k, v in roots.items()},
+    }, indent=2))
     return 0
 
 
 def q1(args: argparse.Namespace) -> int:
     q0_data = read_json(Path(args.q0))
-    source_root = Path(q0_data["source_root"]).resolve()
-    if not source_root.is_dir():
-        raise FileNotFoundError(f"Q0 source root is no longer available: {source_root}")
+    roots = {}
+    for key, record in q0_data.get("roots", {}).items():
+        path = Path(record["path"]).resolve()
+        if not path.is_dir():
+            raise FileNotFoundError(f"Q0 root {key} is no longer available: {path}")
+        roots[key.upper()] = path
+    if not roots:
+        raise RuntimeError("Q0 contains no roots")
 
     spec_path = Path(args.spec).resolve()
     spec = load_spec(spec_path)
+    unknown_roots = sorted({item["root_key"].strip().upper() for item in spec} - set(roots))
+    if unknown_roots:
+        raise RuntimeError(f"Source spec references undefined Q0 root keys: {unknown_roots}")
+
     output_dir = Path(args.output_dir).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    all_files = index_files(source_root)
-    indexed = []
-    for path in all_files:
-        rel = relative_posix(path, source_root)
-        indexed.append((path, rel, rel.lower(), path.name.lower()))
+    indexes = {}
+    indexed_file_count = 0
+    for key, root in roots.items():
+        files = index_files(root)
+        indexed_file_count += len(files)
+        indexed = []
+        for path in files:
+            rel = relative_posix(path, root)
+            indexed.append((path, rel, rel.lower(), path.name.lower()))
+        indexes[key] = indexed
 
     inventory_rows = []
     summary_items = []
@@ -177,13 +211,14 @@ def q1(args: argparse.Namespace) -> int:
 
     for item in spec:
         logical_id = item["logical_id"].strip()
+        root_key = item["root_key"].strip().upper()
         pattern = item["filename_pattern"].strip().lower()
         hint = normalize_hint(item["path_hint"])
         required = parse_bool(item["required"])
         max_matches = int(item["max_matches"]) if item["max_matches"].strip() else None
 
         matches = []
-        for path, rel, rel_lower, name_lower in indexed:
+        for path, rel, rel_lower, name_lower in indexes[root_key]:
             if not fnmatch.fnmatch(name_lower, pattern):
                 continue
             if hint and hint not in rel_lower:
@@ -204,6 +239,7 @@ def q1(args: argparse.Namespace) -> int:
         selected = item_status == "RESOLVED"
         summary_items.append({
             "logical_id": logical_id,
+            "root_key": root_key,
             "status": item_status,
             "match_count": len(matches),
             "required": required,
@@ -214,6 +250,7 @@ def q1(args: argparse.Namespace) -> int:
             stat = path.stat()
             inventory_rows.append({
                 "logical_id": logical_id,
+                "source_root_key": root_key,
                 "provenance_class": item["provenance_class"].strip(),
                 "required_by": item["required_by"].strip(),
                 "semantic_role": item["semantic_role"].strip(),
@@ -229,7 +266,7 @@ def q1(args: argparse.Namespace) -> int:
             })
 
     fieldnames = [
-        "logical_id", "provenance_class", "required_by", "semantic_role",
+        "logical_id", "source_root_key", "provenance_class", "required_by", "semantic_role",
         "expected_format", "temporal_scope", "source_path",
         "source_relative_path", "size_bytes", "last_write_utc", "selected",
         "q1_item_status", "qualification_status",
@@ -246,12 +283,12 @@ def q1(args: argparse.Namespace) -> int:
         "gate": "Q1",
         "status": status,
         "run_id": q0_data["run_id"],
-        "source_root": str(source_root),
+        "roots": {k: str(v) for k, v in roots.items()},
         "source_spec": str(spec_path),
         "source_spec_sha256": sha256_file(spec_path),
         "inventory_file": str(inventory_path),
         "inventory_sha256": sha256_file(inventory_path),
-        "indexed_file_count": len(all_files),
+        "indexed_file_count": indexed_file_count,
         "matched_file_rows": len(inventory_rows),
         "missing_required": missing_required,
         "ambiguous": ambiguous,
@@ -283,7 +320,13 @@ def q2(args: argparse.Namespace) -> int:
     if not selected:
         raise RuntimeError("No selected Q1 files to collect")
 
-    source_root = Path(q0_data["source_root"]).resolve()
+    roots = {
+        key.upper(): Path(record["path"]).resolve()
+        for key, record in q0_data.get("roots", {}).items()
+    }
+    if not roots:
+        raise RuntimeError("Q0 contains no roots")
+
     bundle_root = Path(args.bundle_root).resolve()
     if bundle_root.exists() and any(bundle_root.iterdir()) and not args.force:
         raise FileExistsError(f"Bundle root is not empty: {bundle_root}; choose a clean directory")
@@ -302,10 +345,14 @@ def q2(args: argparse.Namespace) -> int:
         source = Path(row["source_path"]).resolve()
         if not source.is_file():
             raise FileNotFoundError(f"Selected source disappeared: {source}")
+        root_key = row["source_root_key"].strip().upper()
+        if root_key not in roots:
+            raise RuntimeError(f"Q1 inventory references undefined Q0 root: {root_key}")
+        source_root = roots[root_key]
         try:
             source.relative_to(source_root)
         except ValueError as exc:
-            raise RuntimeError(f"Selected source escaped Q0 root: {source}") from exc
+            raise RuntimeError(f"Selected source escaped Q0 root {root_key}: {source}") from exc
 
         cls = row["provenance_class"]
         if cls not in CLASS_DIR:
@@ -318,7 +365,7 @@ def q2(args: argparse.Namespace) -> int:
             raise RuntimeError(f"Source changed while hashing: {source}")
 
         rel = Path(row["source_relative_path"])
-        target_rel = Path(CLASS_DIR[cls]) / rel
+        target_rel = Path(CLASS_DIR[cls]) / root_key / rel
         target = bundle_root / target_rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
@@ -333,6 +380,7 @@ def q2(args: argparse.Namespace) -> int:
 
         manifest_rows.append({
             "logical_id": row["logical_id"],
+            "source_root_key": root_key,
             "provenance_class": cls,
             "required_by": row["required_by"],
             "semantic_role": row["semantic_role"],
@@ -349,7 +397,7 @@ def q2(args: argparse.Namespace) -> int:
 
     manifest_path = manifest_dir / "files.csv"
     fields = [
-        "logical_id", "provenance_class", "required_by", "semantic_role",
+        "logical_id", "source_root_key", "provenance_class", "required_by", "semantic_role",
         "expected_format", "temporal_scope", "original_source_path",
         "source_relative_path", "bundle_relative_path", "size_bytes",
         "source_last_write_utc", "sha256", "qualification_status",
@@ -508,7 +556,8 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     p = sub.add_parser("q0", help="Capture authoritative run/root identity")
-    p.add_argument("--source-root", required=True)
+    p.add_argument("--root", action="append", required=True,
+                   help="Declared root as KEY=PATH; repeat, e.g. RUN=D:\\LHMrun and PROJECT=D:\\LWKM")
     p.add_argument("--output-root", required=True)
     p.add_argument("--run-id", required=True)
     p.add_argument("--model-version", default="")
