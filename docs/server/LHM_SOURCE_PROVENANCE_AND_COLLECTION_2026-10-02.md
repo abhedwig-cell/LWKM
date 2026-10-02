@@ -148,6 +148,23 @@ Unless a later audit explicitly changes their status, do not classify as primary
 
 The historical 49-run SWP/DRA/BBC/MET archive remains a **realized executable oracle**, not a raw LHM source bundle.
 
+## Executable implementation
+
+The server procedure is implemented by:
+
+- `tools/server/lwkm_w01.py` — Q0-Q4 orchestration;
+- `config/source/lhm-server-source-spec-v1.csv` — executable source inventory specification;
+- `tools/lwkm_source_bundle.py` — existing tested low-level portable bundle format/verification;
+- `docs/server/W01_LHM_SERVER_EXECUTION_GUIDE_2026-10-02.md` — exact server commands.
+
+Q0 supports multiple explicitly named roots. The initial executable spec distinguishes:
+- `RUN`: authoritative dynamic LHM/MODFLOW run output;
+- `PROJECT`: run-bound BasicData/LWKM configuration/runtime tree.
+
+These roots may be identical if the actual server layout warrants that, but they are recorded separately so provenance is not hidden behind one broad drive-level root.
+
+The first real server session must stop after Q1 for review. Q2-Q4 are run only after the inventory and source specification have been reviewed.
+
 ## Step 1: identify the authoritative server run
 
 Before copying anything, record one exact server/run identity.
@@ -337,11 +354,15 @@ The actual production script should be versioned in this repository, but the ser
 
 ### 1. Declare roots
 
-```powershell
-$SourceRoot = "D:\<authoritative-LHM-run-root>"
-$StageRoot  = "D:\LWKM_provenance\LWKM_LHM_SOURCE_<RUN_ID>"
-$ZipPath    = "D:\LWKM_provenance\LWKM_LHM_SOURCE_<RUN_ID>_Q4.zip"
+Use explicit named roots rather than one implicit tree:
+
+```text
+RUN=<absolute authoritative LHM run root>
+PROJECT=<absolute run-bound LWKM/BasicData project root>
 ```
+
+The exact command syntax is maintained in:
+`docs/server/W01_LHM_SERVER_EXECUTION_GUIDE_2026-10-02.md`.
 
 ### 2. Use a versioned file-selection list
 
