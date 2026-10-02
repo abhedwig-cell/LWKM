@@ -1,0 +1,53 @@
+logical_id,provenance_class,required_by,filename_pattern,path_hint,required,max_matches,temporal_scope,expected_format,semantic_role
+LHM_DYNAMIC_HEAD_L1,A,python_postprocessing,head_*_l1.idf,,true,,run_period,IDF,MODFLOW layer-1 head time series
+LHM_DYNAMIC_BDGFLF_L1,A,python_postprocessing_and_bottom_boundary,bdgflf_*_l1.idf,,true,,run_period,IDF,MODFLOW lower-face-flow time series
+LHM_DYNAMIC_BDGQLAT_L1,A,python_postprocessing_and_bottom_boundary,bdgqlat_*_l1.*,,true,,run_period,IDF_OR_ASC,MODFLOW lateral-flow time series
+GRID_HEADER,B,hru_swap_workflow,header.asc,BasicData\grids,true,1,static,ASC,Grid geometry/header
+SVAT_GRID,B,svat_hru_mapping,svat.asc,BasicData\grids,true,1,static,ASC,SVAT identifier grid
+LGN_GRID,B,hru_context,lgn250.asc,BasicData\grids,true,1,static,ASC,Land-use grid
+SOIL_BFE_GRID,B,hru_context,bodem.asc,BasicData\grids,true,1,static,ASC,BFE soil grid
+SOIL2_GRID,B,hru_context,soil2.asc,BasicData\grids,true,1,static,ASC,Soil2 class grid
+UOPP_GRID,B,hru_context,uopp.asc,BasicData\grids,true,1,static,ASC,Active-area grid
+IRRIGATION_GRID,B,hru_context,beregen.asc,BasicData\grids,true,1,static,ASC,Irrigation switch grid
+ROOTZONE_GRID,B,hru_context,rootzone_m.asc,BasicData\grids,true,1,static,ASC,Root-zone depth grid
+AHN_GRID,B,hru_context_and_dra,ahn_f250_m.asc,BasicData\grids,true,1,static,ASC,Ground-level grid
+DQSAT_GRID,B,dra_spacing,grensvlak_NHIWQ_v2_fill.asc,BasicData\grids,true,1,static,ASC,dqsat/source interface grid
+LENGTH_PRIMARY,B,dra_spacing_provenance,lengte_p_250.asc,BasicData\grids,true,1,static,ASC,Primary-watercourse length grid
+LENGTH_SECONDARY,B,dra_spacing_provenance,lengte_s_250.asc,BasicData\grids,true,1,static,ASC,Secondary-watercourse length grid
+LENGTH_TERTIARY,B,dra_spacing_provenance,lengte_t_250.asc,BasicData\grids,true,1,static,ASC,Tertiary-watercourse length grid
+VC_GRID,B,bottom_boundary,vcw_L1.idf,BasicData\grids,true,1,static,IDF,Vertical resistance grid
+KD_GRID,B,bottom_boundary,mdl_kd_l1.idf,BasicData\grids,true,1,static,IDF,Transmissivity grid
+BBC_GRID,B,bbc_generation,bbc_afv.asc,BasicData\grids,true,1,static,ASC,BBC classification grid
+COND_PRIMARY,B,dra_generation,COND_primair.idf,modflow\riv\regionaal,true,1,static,IDF,Primary drainage conductance
+COND_SECONDARY,B,dra_generation,COND_secundair.idf,modflow\riv\regionaal,true,1,static,IDF,Secondary drainage conductance
+COND_TERTIARY,B,dra_generation,COND_tertiair.idf,modflow\riv\regionaal,true,1,static,IDF,Tertiary drainage conductance
+INF_PRIMARY,B,dra_generation,INF_MZ_primair.idf,modflow\riv\regionaal,true,1,static,IDF,Primary infiltration factor
+INF_SECONDARY,B,dra_generation,INF_MZ_secundair.idf,modflow\riv\regionaal,true,1,static,IDF,Secondary infiltration factor
+INF_TERTIARY,B,dra_generation,INF_MZ_tertiair.idf,modflow\riv\regionaal,true,1,static,IDF,Tertiary infiltration factor
+BODH_PRIMARY,B,dra_generation,BODH_P1J_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Primary drainage bottom
+BODH_SECONDARY,B,dra_generation,BODH_S1J_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Secondary drainage bottom
+BODH_TERTIARY,B,dra_generation,BODH_T1J_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Tertiary drainage bottom
+PEIL_PRIMARY_SUMMER,B,dra_generation,PEIL_P1Z_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Primary summer level
+PEIL_PRIMARY_WINTER,B,dra_generation,PEIL_P1W_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Primary winter level
+PEIL_SECONDARY_SUMMER,B,dra_generation,PEIL_S1Z_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Secondary summer level
+PEIL_SECONDARY_WINTER,B,dra_generation,PEIL_S1W_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Secondary winter level
+PEIL_TERTIARY_SUMMER,B,dra_generation,PEIL_T1Z_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Tertiary summer level
+PEIL_TERTIARY_WINTER,B,dra_generation,PEIL_T1W_250.IDF,modflow\riv\regionaal,true,1,static,IDF,Tertiary winter level
+COND_DRAIN,B,dra_generation,COND_buisdrainage.idf,modflow\drn,true,1,static,IDF,Tube-drain conductance
+BODH_DRAIN,B,dra_generation,BODH_B_250.IDF,modflow\drn,true,1,static,IDF,Tube-drain bottom
+COND_SOF,B,dra_generation,COND_SOF_250.IDF,modflow\drn,true,1,static,IDF,SOF conductance
+BODH_SOF,B,dra_generation,BODH_SOF_250.IDF,modflow\drn,true,1,static,IDF,SOF bottom
+METEO_DISTRICT_GRID,B,meteo_assignment,NHI_regio_fil.asc,BasicData\meteo,true,1,static,ASC,Meteorological district grid
+METEO_GRID_DEFINITION,B,meteo_assignment,mete_grid_2023.inp,BasicData\meteo,true,1,static,INP,Meteorological grid definition
+HRU_SVAT_MEMBERSHIP,C,hru_construction,export_svat_HRU_NRU_10242.csv,BasicData\csv,true,1,static,CSV,Run-bound HRU-SVAT membership
+HRU_REPRESENTATIVE_SVAT,C,representative_svat_semantics,export_HRUschema_10242_copy.csv,BasicData\csv,true,1,static,CSV,Run-bound representative SVAT table
+BOFEK_LOOKUP,C,hru_context,Bodem370_2_bofek2020.csv,BasicData\csv,true,1,static,CSV,BOFEK lookup
+HORIZON_LOOKUP,C,swp_and_dra_context,nuhor370.csv,BasicData\csv,true,1,static,CSV,Horizon-count lookup
+SOIL_LU_CROP_LOOKUP,C,hru_context,soil2lu2crop.csv,BasicData\csv,true,1,static,CSV,Soil-landuse-crop lookup
+QMODF_CORRECTION,C,bottom_boundary,qmodf_correct2.csv,HRU\csv,true,1,run_bound,CSV,Run-bound groundwater correction
+SUSPECT_MASK,C,historical_selected_member_semantics,verdacht.asc,LHM_uitvoer\filter,true,1,run_bound,ASC,Historical suspect/selected-cell mask
+HRU_SWAP_CONTROL,D,historical_runtime_identity,control_LHM433_HRU_SWAP_10242.inp,,true,1,run_bound,INP,Historical HRU/SWAP control file
+HRU_SWAP_LAUNCH_BATCH,D,historical_runtime_identity,do_HRU2SWAP_10242.bat,,true,1,run_bound,BAT,Historical launch batch
+HRU2SWAP_EXECUTABLE,D,historical_runtime_identity,HRU2SWAP.exe,exe,false,1,run_bound,EXE,Historical producer executable
+HRU2SWAP_LOG,D,historical_runtime_identity,HRUSWAP_test.log,,false,1,run_bound,LOG,Historical producer log
+HISTORICAL_SWP_TEMPLATE,D,historical_swp_renderer_identity,swap_wwl.swp,,false,1,run_bound,SWP,Historical SWP mapping template
