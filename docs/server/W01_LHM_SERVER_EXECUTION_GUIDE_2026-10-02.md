@@ -45,6 +45,26 @@ Use Python 3.
 
 No external Python packages are required.
 
+Before touching real LHM data, run a syntax/import check from the repository root:
+
+```bat
+py -3 -m compileall tools\server\lwkm_w01.py tools\lwkm_source_bundle.py
+```
+
+Expected result: both files compile without error.
+
+Repository tests also exist:
+- `tests/test_lwkm_source_bundle.py`;
+- `tests/test_lwkm_w01.py`.
+
+If pytest is available, they can be run with:
+
+```bat
+py -3 -m pytest -q tests\test_lwkm_source_bundle.py tests\test_lwkm_w01.py
+```
+
+The compile check is sufficient to start Q0/Q1; pytest is not a runtime dependency.
+
 ## 1. Prepare one repository checkout or tool directory
 
 The following two files must be available together with their repository-relative versions recorded:
