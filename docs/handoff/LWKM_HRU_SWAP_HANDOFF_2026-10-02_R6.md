@@ -33,6 +33,29 @@ The most important distinction remains:
 
 Do not collapse these layers.
 
+## Project-wide file qualification rule
+
+Authority:
+`docs/governance/LWKM_FILE_QUALIFICATION_POLICY_2026-10-02.md`
+
+Project invariant:
+
+`EVERY CONSUMED FILE MUST BE INDIVIDUALLY QUALIFIED`.
+
+Presence on the server, in an archive, in a historical run or in an earlier workflow is not sufficient.
+
+Every consumed file must ultimately have a stable logical identity, SHA-256, provenance, semantic role, downstream consumer and qualification evidence. Derived files must additionally bind their qualified parents, transformation code/configuration and output hash.
+
+A Q4 ZIP qualifies collection integrity, not automatically semantic production suitability of every member. File-level qualification remains required throughout the full LHM -> SVAT -> HRU -> SWAP chain.
+
+Target end state:
+
+`100% OF CONSUMED FILE IDENTITIES QUALIFIED`
+
+and
+
+`ZERO UNTRACED PRODUCTION INPUTS`.
+
 ## First formal workflow gate: LHM server source provenance
 
 The workflow now starts with an explicit provenance freeze on the authoritative LHM server before any post-processing or HRU reconstruction.
