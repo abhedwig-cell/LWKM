@@ -1,0 +1,113 @@
+{
+  "status": "RUN_LINKED_PRODUCER_PROVENANCE_NARROWED_NOT_ADMISSION",
+  "date": "2026-10-02",
+  "branch": "work/lhm-hru-swap-workflow-v1",
+  "base_head_before_followup": "fc269e830101d6f88c2375f94784f283931d3088",
+  "authority_document": "docs/lhm-hru-swap/P12-RUN-LINKED-PRODUCER-PROVENANCE-FOLLOWUP-2026-10-02.md",
+  "run_batch": {
+    "command": "exe\\HRU2SWAP.exe HRUSWAP_test.log control_LHM433_HRU_SWAP_10242.inp",
+    "post_step": [
+      "cd svats10242",
+      "do_kopybbcdra.bat"
+    ],
+    "implication": "runtime filename and expected log/control are supplied evidence; binary/source identity is not established"
+  },
+  "control_binding": {
+    "wq_model": "SWAP",
+    "swap_model_dir": "SVATS10242",
+    "swap_model_name": "SVAT2SWAP10242",
+    "DRA": "Yes",
+    "MET": "No",
+    "BOT": "No",
+    "TimStart": "19710101",
+    "TimEnd": "20211231",
+    "dqsat": "BasicData\\grids\\grensvlak_NHIWQ_v2_fill.asc",
+    "length_inputs": [
+      "BasicData\\grids\\lengte_p_250.asc",
+      "BasicData\\grids\\lengte_s_250.asc",
+      "BasicData\\grids\\lengte_t_250.asc"
+    ]
+  },
+  "library_catalog_scan": {
+    "pages": 20,
+    "items": 3950,
+    "complete": true,
+    "loose_present": [
+      "do_HRU2SWAP_10242.bat",
+      "control_LHM433_HRU_SWAP_10242.inp"
+    ],
+    "loose_not_found": [
+      "HRU2SWAP.exe",
+      "HRUSWAP_test.log",
+      "lengte_p_250.asc",
+      "lengte_s_250.asc",
+      "lengte_t_250.asc",
+      "swap_wwl.swp"
+    ],
+    "raw_archive_materialization_in_this_chat": "unavailable for recovered LWKM_workflow_no_asc.zip and source (2).zip; no fresh unpack claimed"
+  },
+  "recovered_archive_crosscheck": {
+    "evidence": "docs/evidence/2026-10-01/dra-producer-search.json",
+    "producer_binary_or_build_identity_found": false,
+    "notes": [
+      "recovered workflow/source archives were already in recursive search coverage",
+      "Tools/SWAP/swap.exe is the simulation engine",
+      "old PreMetaSWAP binaries are a different program family"
+    ]
+  },
+  "chronology": {
+    "realized_dra_zip_member_timestamp": "2026-03-24 20:56:36",
+    "supplied_source_history": [
+      {
+        "version": "0.35",
+        "month": "2026-03",
+        "description": "new implementation for suspect cells"
+      },
+      {
+        "version": "0.36",
+        "month": "2026-03",
+        "description": "new implementation for suspect cells"
+      },
+      {
+        "version": "0.37",
+        "month": "2026-04",
+        "description": "irrigation threshold change"
+      },
+      {
+        "version": "0.38",
+        "month": "2026-04",
+        "description": "drainage-resistance bugfix for selected cells"
+      }
+    ],
+    "caveat": "ZIP timestamps and source-history labels are provenance clues, not authenticated build identity",
+    "conclusion": "exact v0.38 replay is chronologically unsupported; pre-v0.38 is a prioritized hypothesis, not a qualified identity"
+  },
+  "pre_v038_selected_member_hypothesis": {
+    "status": "SOURCE_BACKED_NOT_QUALIFIED",
+    "supplied_v038_observations": [
+      "active drainage aggregation loops use all HRU members",
+      "commented issvatwb guards remain beside drainage member loops",
+      "nusvatwb and areawb_sum selected-member state remain in source",
+      "v0.38 history labels a selected-cell drainage-resistance bugfix"
+    ],
+    "prohibited_inference": "commented code is not accepted as exact v0.36/v0.37 executable semantics",
+    "future_test_scope": [
+      "DRARES",
+      "INFRES",
+      "ZBOTDR",
+      "seasonal LEVEL",
+      "SWALLO"
+    ],
+    "excluded_until_bound": "L"
+  },
+  "modern_authority": {
+    "drainage_aggregation": "deterministic all-member",
+    "member_support_m2": 62500,
+    "dqsat": "representative-SVAT"
+  },
+  "admissions": {
+    "DIRECT_DRA_PRODUCER_ADMITTED": false,
+    "DIRECT_SWP_RENDERER_ADMITTED": false
+  },
+  "expected_differences_added": 0
+}
