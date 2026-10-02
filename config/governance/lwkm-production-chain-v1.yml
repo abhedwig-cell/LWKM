@@ -1,0 +1,128 @@
+schema_version: 1
+authority: docs/governance/LWKM_PRODUCTION_CHAIN_QUALIFICATION_PROTOCOL_2026-10-02.md
+file_policy: docs/governance/LWKM_FILE_QUALIFICATION_POLICY_2026-10-02.md
+source_provenance: docs/server/LHM_SOURCE_PROVENANCE_AND_COLLECTION_2026-10-02.md
+
+global_invariants:
+  - "100% OF CONSUMED FILE IDENTITIES QUALIFIED"
+  - "ZERO UNTRACED PRODUCTION INPUTS"
+  - "ZERO UNEXPLAINED REGRESSION DIFFERENCES"
+  - "DETERMINISTIC REBUILD UNDER SAME SOURCE+CODE+CONFIG"
+
+steps:
+  W00:
+    name: file_qualification_governance
+    status: QUALIFIED_NOT_ADMITTED
+    depends_on: []
+    admission: ZERO_UNTRACED_PRODUCTION_INPUTS
+    evidence:
+      - docs/governance/LWKM_FILE_QUALIFICATION_POLICY_2026-10-02.md
+
+  W01:
+    name: lhm_server_provenance_freeze
+    status: NOT_STARTED_ON_REAL_SERVER
+    depends_on: [W00]
+    admission: LHM_SOURCE_Q4_IMMUTABLE_SNAPSHOT
+    evidence:
+      - docs/server/LHM_SOURCE_PROVENANCE_AND_COLLECTION_2026-10-02.md
+      - config/source/lhm-server-source-spec-v1.yml
+
+  W02:
+    name: lhm_postprocessing
+    status: QUALIFIED_NOT_ADMITTED
+    depends_on: [W01]
+    admission: ZERO_UNEXPLAINED_NUMERICAL_DIFFERENCES
+    evidence:
+      - docs/server/LHM433_PYTHON_POSTPROCESSING_MIGRATION_2026-09-30.md
+      - tools/lhm_postprocess.py
+
+  W03:
+    name: svat_basis_and_selection
+    status: RECONSTRUCTED_NOT_QUALIFIED
+    depends_on: [W01, W02]
+    admission: SVAT_POPULATION_PRODUCTION_ADMITTED
+    evidence: []
+
+  W04:
+    name: suspect_donor_assignment
+    status: PARTIALLY_QUALIFIED
+    depends_on: [W03]
+    admission: DONOR_ASSIGNMENT_PRODUCTION_ADMITTED
+    evidence: []
+
+  W05:
+    name: hru_construction
+    status: PARTIALLY_QUALIFIED
+    depends_on: [W03, W04]
+    admission: HRU_SCHEMATISATION_PRODUCTION_ADMITTED
+    evidence: []
+
+  W06:
+    name: hru_context_assembly
+    status: QUALIFIED_NOT_ADMITTED
+    depends_on: [W05]
+    admission: HRU_CONTEXT_10242_PRODUCTION_ADMITTED
+    evidence:
+      - docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md
+      - tools/xlsx_datamodel.py
+
+  W07:
+    name: dra_generation
+    status: BLOCKED_BY_PROVENANCE
+    depends_on: [W06]
+    admission: DIRECT_DRA_PRODUCER_ADMITTED
+    evidence:
+      - docs/lhm-hru-swap/P12-DRA-SOURCE-RUNTIME-PROVENANCE-2026-10-01.md
+      - docs/lhm-hru-swap/P12-RUN-LINKED-PRODUCER-PROVENANCE-FOLLOWUP-2026-10-02.md
+
+  W08:
+    name: bbc_generation
+    status: RECONSTRUCTED_NOT_QUALIFIED
+    depends_on: [W06, W02]
+    admission: BBC_PRODUCTION_ADMITTED
+    evidence: []
+
+  W09:
+    name: met_generation
+    status: RECONSTRUCTED_NOT_QUALIFIED
+    depends_on: [W06]
+    admission: MET_PRODUCTION_ADMITTED
+    evidence: []
+
+  W10:
+    name: direct_swp_rendering
+    status: BLOCKED_BY_PROVENANCE
+    depends_on: [W06, W07, W08, W09]
+    admission: DIRECT_SWP_RENDERER_ADMITTED
+    evidence:
+      - docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md
+
+  W11:
+    name: per_hru_package_assembly
+    status: NOT_STARTED_AS_FORMAL_GATE
+    depends_on: [W07, W08, W09, W10]
+    admission: HRU_RUN_PACKAGE_ADMITTED
+    evidence: []
+
+  W12:
+    name: integrated_49_run_regression
+    status: PARTIALLY_QUALIFIED
+    depends_on: [W11]
+    admission: 49_RUN_INTEGRATED_REGRESSION_ADMITTED
+    evidence:
+      - config/p12/regression-oracle-v1.yml
+      - config/p12/dra-49run-static04-expected-differences-v1.yml
+
+  W13:
+    name: production_10242_build
+    status: NOT_STARTED_AS_ADMISSION_GATE
+    depends_on: [W12]
+    admission: LWKM_10242_BUILD_ADMITTED
+    evidence: []
+
+  W14:
+    name: end_to_end_production_admission
+    status: NOT_STARTED
+    depends_on: [W13]
+    admission: LWKM_END_TO_END_PRODUCTION_ADMITTED
+    evidence: []
