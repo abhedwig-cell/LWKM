@@ -5,93 +5,95 @@ abhedwig-cell/LWKM
 Werk rechtstreeks met de GitHub-connector en gebruik Project Files/Library voor eerder geüploade bestanden.
 
 Lees vóór iedere inhoudelijke actie eerst:
-1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-10-01_R5.md op branch work/lhm-hru-swap-workflow-v1;
+1. docs/handoff/LWKM_HRU_SWAP_HANDOFF_2026-10-02_R6.md op branch work/lhm-hru-swap-workflow-v1;
 2. de actuele head van work/lhm-hru-swap-workflow-v1;
 3. dit bestand;
-4. task-specifieke authority-, audit- en serverdocumenten die R5 noemt;
-5. oudere R4/R3 handoffs alleen voor historische achtergrond.
+4. task-specifieke authority-, audit- en serverdocumenten die R6 noemt;
+5. R5 en oudere handoffs alleen voor historische achtergrond.
 
 De repository is authority.
 
-Werk autonoom in grote blokken. Vraag geen toestemming tussen fasen. Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate, canonical admission waar verantwoord, een expliciet gefalsificeerde route of een echte blocker.
+Werk autonoom in grote blokken. Vraag geen toestemming tussen fasen. Stop alleen bij inhoudelijke closure, een gekwalificeerd resultaat/admission-candidate, verantwoorde admission, een expliciet gefalsificeerde route of een echte blocker.
 
-Nieuw sinds R4:
-- raw 49-run archive is recovered from user upload run_files(1).zip;
-- archive SHA-256: 46f1fc6b6f4aa01265db950c8ca78f9c4714a97d11cfa4d8f0c66b4dea7a05e3;
-- 49 realized runs are available with swap.swp, DRA, BBC and MET;
-- STATIC04 realized gate is closed:
-  34 non-discriminating, 15 explained legacy, 0 explained schema-first, 0 unexplained;
+Houd altijd apart:
+- supplied-source semantics;
+- realized executable semantics;
+- modern corrected production semantics.
+
+Actuele kernstatus:
+
+- current Datamodel_10242.xlsx is recovered and directly ingestible;
+- all 10,242 typed contexts resolve;
+- Datamodel_9830.zip is excluded;
+- 49 realized historical runs are recovered with SWP/DRA/BBC/MET;
+- STATIC04 historical behavior is closed:
+  34 non-discriminating, 15 legacy, 0 unexplained;
 - modern representative-SVAT dqsat remains production authority;
-- 75 expected modern DRA L differences are preregistered in config/p12/dra-49run-static04-expected-differences-v1.yml;
-- SWALLO 49-run evidence supports supplied v0.38 as baseline:
-  241/245 scalar matches, 47/49 runs complete;
-- SWALLO residual runs 7868 and 7929 remain provenance/input-version questions;
-- universal systems-3-5 forced SWALLO is falsified for the 49-run archive;
-- run-2000/v0.27 mode is now explicitly scoped as RUN2000_V027_COMPAT;
-- regression-oracle manifest is schema v3;
-- Python LHM postprocessing core is implemented and tested.
+- 75 expected DRA L differences are preregistered;
+- supplied v0.38 SWALLO policy matches 241/245 historical values;
+- historical SWALLO residuals remain HRU 7868 systems 1/2 and HRU 7929 systems 2/3;
+- DRA comparator covers scalars, every seasonal LEVEL row and extra assignments;
+- supplied Alterratools AVERAGE has confirmed read-before-initialization for N>1;
+- this source defect is not proven as cause of historical runtime differences;
+- Python LHM postprocessing compatibility core is implemented; real-server golden regression is pending.
+
+Direct SWP renderer:
+- exact historical swap_wwl.swp is still unrecovered;
+- current Template/wwl.swp is a different incompatible version;
+- actual XLSX/current-template attempt fails at PERIOD=0 contract;
+- do not weaken the gate or invent expected differences;
+- DIRECT_SWP_RENDERER_ADMITTED = false.
+
+Direct DRA producer:
+- independent all-member diagnostic differs broadly from historical realized DRA;
+- representative-current-cell hypothesis is falsified;
+- modern production authority remains deterministic all-member + 62500 m2 per member + representative-SVAT dqsat;
+- supplied production batch binds the workflow to:
+  exe\HRU2SWAP.exe HRUSWAP_test.log control_LHM433_HRU_SWAP_10242.inp
+- the binary and historical log remain unrecovered;
+- 49 realized DRA ZIP members are dated 2026-03-24;
+- supplied source history places v0.35/v0.36 in March and v0.37/v0.38 in April;
+- v0.38 is explicitly a drainage-resistance bugfix for selected cells;
+- pre-v0.38 selected-member aggregation is therefore the highest-value historical hypothesis, but not qualified;
+- no loose v0.35/v0.36/v0.37 source, HRU2SWAP.exe, HRUSWAP_test.log or run-linked verdacht.asc is currently recovered;
+- independent lengte_p_250.asc, lengte_s_250.asc and lengte_t_250.asc are still unbound;
+- DIRECT_DRA_PRODUCER_ADMITTED = false.
 
 Primary work now:
 
-A. Direct SWP renderer
-1. recover raw renderer database authority, preferably historical Datamodel_10242.sqlite, from Library/archives;
-2. recover exact versioned legacy mapping template/profile;
-3. run tools/regress_swp_cases.py on all 49 realized swap.swp files;
-4. preregister only qualified intentional static differences;
-5. require zero unexplained active-SWP differences;
-6. assess DIRECT_SWP_RENDERER_ADMITTED.
+A. Historical provenance recovery
+1. search server/project storage for March-2026 HRU2SWAP.exe;
+2. recover HRUSWAP_test.log if available;
+3. recover v0.35/v0.36 source/project snapshots if available;
+4. recover exact historical verdacht.asc;
+5. recover lengte_p_250.asc, lengte_s_250.asc, lengte_t_250.asc;
+6. recover exact historical swap_wwl.swp;
+7. hash and persist every recovered artifact before use.
 
-B. Direct DRA producer
-1. generate complete modern candidate DRA files from qualified source inputs;
-2. run tools/regress_dra_cases.py over all 49 runs;
-3. allow the 75 preregistered STATIC04 L differences;
-4. treat nature/DRA4 as zero expected difference for current population;
-5. investigate SWALLO residual HRUs 7868 and 7929 rather than force-fit;
-6. require zero unexplained DRARES/INFRES/ZBOTDR/LEVEL/SWALLO differences;
-7. assess DIRECT_DRA_PRODUCER_ADMITTED.
+B. DRA
+If exact pre-v0.38 selected-member evidence becomes available:
+1. run a diagnostic-only selected-member replay over all 49 historical runs;
+2. check DRARES, INFRES, ZBOTDR, every seasonal LEVEL and SWALLO;
+3. keep L excluded until independent length rasters are bound;
+4. add no intentional differences without independent qualification.
 
 C. Python server postprocessing
-When real LHM-server output is available:
-1. select a small golden period;
-2. run old batch/Fortran and new Python paths;
-3. compare cell-by-cell;
-4. require zero unexplained numeric differences;
-5. then expand to full active postprocessing chain.
+Use one small authoritative LHM period:
+1. run historical and Python routes;
+2. compare cell-by-cell;
+3. require zero unexplained numerical differences;
+4. then expand to declarative orchestration and complete active chain.
 
 D. Real NHI/LHM Q4
-When complete authoritative run tree is available:
-qualify Q0-Q3 -> plan -> collect -> verify -> qualify Q4 -> unpack -> consumer smoke test.
+When the complete authoritative server run tree is available:
+qualify Q0-Q3 -> plan -> collect -> verify -> qualify Q4 -> immutable unpack -> consumer smoke test.
 
-Maak historische defecten nooit stil netter. Houd supplied-source, realized-executable en modern-corrected semantics expliciet uit elkaar.
+E. End state
+After SWP/DRA/server/source gates:
+run complete 10,242-run end-to-end production smoke/admission.
+
+Do not request files again before exhausting repository, Project Files, Library, recovered artifacts and available server/project evidence.
+
+Do not claim admission without the full gate.
 
 Ga door.
-
-
-Current follow-up supersedes access-blocker statements above:
-Read docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md.
-The current XLSX and Template.zip raw bytes are available. Use XLSX directly;
-SQLite is not separate authority. Do not use Datamodel_9830.zip.
-All 10,242 typed contexts resolve, but exact historical swap_wwl.swp is still
-unrecovered. Current wwl.swp is a different incompatible template version.
-The DRA gate now includes every seasonal LEVEL entry. Independent native
-source diagnostic fails broadly, and its mismatches must remain unexplained.
-Do not claim SWP or DRA production admission. Investigate input-version
-provenance and missing length rasters. Do not request files again.
-
-
-
-## DRA source-runtime provenance follow-up
-
-Read docs/lhm-hru-swap/P12-DRA-SOURCE-RUNTIME-PROVENANCE-2026-10-01.md.
-All four supplied Alterratools variants have AVERAGE reading its function
-result before initialization for N>1. This qualifies a supplied-source defect,
-not causal attribution of the historical 49-run mismatches. Earlier algebra
-AVERAGE(N,list)*N = sum(list) requires an initialized routine; the intended
-all-member mathematics stays authority, literal Fortran execution does not.
-All 49 DRA ZIP timestamps are 2026-03-24; supplied v0.38 history dates its
-fix apr-26. Timestamps are clues, not authenticated executable identities.
-38 recovered ZIP archive instances were searched for producer/build evidence;
-no HRUlist2SWAP binary or link identity was found. Modern Python arithmetic
-must remain deterministic. Do not emulate undefined state or qualify any
-new expected difference. SWALLO v0.38 remains the policy comparison baseline,
-not a proven binary identity. No producer admission or re-upload request.
