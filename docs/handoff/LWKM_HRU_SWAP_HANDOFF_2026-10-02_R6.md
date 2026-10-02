@@ -33,6 +33,32 @@ The most important distinction remains:
 
 Do not collapse these layers.
 
+## First formal workflow gate: LHM server source provenance
+
+The workflow now starts with an explicit provenance freeze on the authoritative LHM server before any post-processing or HRU reconstruction.
+
+Authority:
+`docs/server/LHM_SOURCE_PROVENANCE_AND_COLLECTION_2026-10-02.md`
+
+Machine-readable draft source specification:
+`config/source/lhm-server-source-spec-v1.yml`
+
+Required sequence:
+
+`authoritative LHM server run -> Q0 run identity -> Q1 source inventory -> Q2 byte-identical staging + per-file SHA-256 -> Q3 versioned ZIP -> Q4 fresh-extraction verification -> immutable source snapshot`.
+
+After Q4, downstream work must identify the source bundle by ZIP SHA-256 and manifest SHA-256 rather than by an informal server path.
+
+The provenance model distinguishes:
+- A: authoritative dynamic LHM run outputs;
+- B: authoritative static model/schematisation inputs;
+- C: LWKM run-bound configuration and masks;
+- D: runtime/build provenance.
+
+Generated HRU/SWP/DRA/BBC/MET and other post-processed products are not raw source authority.
+
+The exact server run root and all source-spec candidates still require Q0/Q1 confirmation on the real server. In particular the historical length rasters, suspect mask, March-2026 producer binary/log and exact SWP template remain high-priority recovery targets.
+
 ## What is already qualified or implemented
 
 ### Datamodel and HRU context
