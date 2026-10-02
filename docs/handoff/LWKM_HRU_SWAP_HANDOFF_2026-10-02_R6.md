@@ -56,6 +56,25 @@ and
 
 `ZERO UNTRACED PRODUCTION INPUTS`.
 
+## Stepwise production-chain qualification
+
+Authority:
+`docs/governance/LWKM_PRODUCTION_CHAIN_QUALIFICATION_PROTOCOL_2026-10-02.md`
+
+Machine-readable chain:
+`config/governance/lwkm-production-chain-v1.yml`
+
+From this point onward, the reconstructed workflow is closed from left to right through explicit steps W00-W14. Each step has:
+- qualified input authority;
+- an explicit transformation contract;
+- an output contract;
+- qualification tests;
+- a persisted admission gate.
+
+No step is considered complete because code or files merely exist. It is complete only when its evidence supports the defined admission state.
+
+Current execution order starts at W01 on the real LHM server and then proceeds through postprocessing, SVAT, donor assignment, HRU construction, context assembly, DRA/BBC/MET, SWP rendering, package assembly, 49-run integrated regression, 10,242-run build and final end-to-end admission.
+
 ## First formal workflow gate: LHM server source provenance
 
 The workflow now starts with an explicit provenance freeze on the authoritative LHM server before any post-processing or HRU reconstruction.
