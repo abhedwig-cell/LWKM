@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import argparse
 import math
-from typing import Iterable, Sequence
+from typing import Iterable, Mapping, Sequence
 
 import numpy as np
 
@@ -25,6 +25,13 @@ from tools.idf_reader import IDF, read_idf
 
 DEFAULT_NODATA = -9999.0
 DEFAULT_MODFLOW_CELL_AREA_M2 = 62500.0
+
+# LHM433 package membership for the groundwater/surface-water interaction
+# attributed to MODFLOW layer 1. This is a production contract, not a guess
+# derived from historical post-processing filenames.
+LAYER1_RIV_SYSTEMS = (1, 2, 3, 4)
+LAYER2_RIV_SYSTEMS = (5, 6)
+LAYER1_DRN_SYSTEMS = (1, 2, 3)
 
 
 @dataclass(frozen=True)
@@ -257,6 +264,43 @@ def combine_ascii_grids(
         first.cellsize,
         first.nodata,
     )
+
+
+def combine_layer1_surfacewater_interaction(
+    riv_system_grids: Mapping[int, str | Path],
+    drn_system_grids: Mapping[int, str | Path],
+) -> AsciiGrid:
+    """Sum exactly the LHM433 RIV/DRN interactions assigned to MODFLOW layer 1.
+
+    Production membership:
+      RIV systems 1..4
+      DRN systems 1..3
+
+    RIV systems 5..6 belong to layer 2 and are deliberately rejected here.
+    The strict key check prevents omissions from being hidden by zeros in a
+    particular test period.
+    """
+    riv_keys = set(riv_system_grids)
+    drn_keys = set(drn_system_grids)
+    expected_riv = set(LAYER1_RIV_SYSTEMS)
+    expected_drn = set(LAYER1_DRN_SYSTEMS)
+
+    if riv_keys != expected_riv:
+        missing = sorted(expected_riv - riv_keys)
+        extra = sorted(riv_keys - expected_riv)
+        raise ValueError(
+            f"layer-1 RIV membership mismatch: missing={missing}, extra={extra}"
+        )
+    if drn_keys != expected_drn:
+        missing = sorted(expected_drn - drn_keys)
+        extra = sorted(drn_keys - expected_drn)
+        raise ValueError(
+            f"layer-1 DRN membership mismatch: missing={missing}, extra={extra}"
+        )
+
+    ordered = [riv_system_grids[i] for i in LAYER1_RIV_SYSTEMS]
+    ordered.extend(drn_system_grids[i] for i in LAYER1_DRN_SYSTEMS)
+    return combine_ascii_grids(ordered)
 
 
 def _expand_inputs(patterns: Iterable[str]) -> list[Path]:
