@@ -163,3 +163,19 @@ Next evidence required:
 2. product/year coverage inside `LWKM_run_resultaten_totaal`;
 3. scripts outside the total-results tree that explicitly construct or update that tree;
 4. restart/continuation metadata per period run.
+
+
+## Superseded as admission gate by project-owner authority
+
+On 2026-10-05 the project owner clarified that Deltares colleagues already collected the LHM outputs needed by LWKM into:
+
+`G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal`.
+
+Therefore reconstructing which underlying period-specific `run_*` directories were used is no longer a prerequisite for W01 output admission.
+
+This document remains useful historical evidence, especially:
+- stable byte identity of all observed `svat.asc` copies;
+- falsification of `copy.bat` as source-assembly authority.
+
+Current authority:
+`docs/server/W01_LHM_AUTHORITY_SPLIT_2026-10-05.md`.
