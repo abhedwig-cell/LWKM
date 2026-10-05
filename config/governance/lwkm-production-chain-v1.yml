@@ -27,6 +27,7 @@ steps:
       - docs/server/LHM_SOURCE_PROVENANCE_AND_COLLECTION_2026-10-02.md
       - config/source/lhm-server-source-spec-v1.yml
       - config/source/lhm-server-source-spec-v1.csv
+      - tools/server/lwkm_w01.ps1
       - tools/server/lwkm_w01.py
       - tools/lwkm_source_bundle.py
       - docs/server/W01_LHM_SERVER_EXECUTION_GUIDE_2026-10-02.md
