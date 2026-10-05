@@ -20,7 +20,7 @@ steps:
 
   W01:
     name: lhm_server_provenance_freeze
-    status: W01_OUTPUT_AUTHORITY_BOUND_INPUT_CONFIG_AUTHORITY_PARTIAL
+    status: W01_OUTPUT_INVENTORIED_INPUT_CONFIG_AUTHORITY_PARTIAL
     depends_on: [W00]
     admission: LHM_SOURCE_Q4_IMMUTABLE_SNAPSHOT
     evidence:
@@ -33,6 +33,9 @@ steps:
       - tools/server/lwkm_ini_provenance.ps1
       - docs/server/W01_LHM_SERVER_TOPOLOGY_DISCOVERY_2026-10-05.md
       - docs/server/W01_LHM_AUTHORITY_SPLIT_2026-10-05.md
+      - docs/server/W01_OUTPUT_AUTHORITY_INVENTORY_RESULT_2026-10-05.md
+      - docs/evidence/2026-10-05/w01-output-inventory-summary.json
+      - config/source/w01-output-consumer-candidates-v1.yml
       - tools/server/lwkm_w01.ps1
       - tools/server/lwkm_w01.py
       - tools/lwkm_source_bundle.py
