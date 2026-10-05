@@ -37,24 +37,43 @@ raw_candidates:
     consumers: [modflow_waterbalance, bbc_source]
     status: ALTERNATIVE_FLF_ROUTE_NOT_COADMITTED_WITH_UNCORRECTED
 
-  - logical_id: MODFLOW_BDGRIV
+  - logical_id: MODFLOW_BDGRIV_LAYER1
     path_family: modflow/bdgriv
-    filename_contract: 'bdgriv_sys<S>_<YYYYMMDD>000000_l<L>.IDF'
-    baseline_count: 116148
-    system_layer_contract:
-      systems_1_to_4: layer_1
-      systems_5_to_6: layer_2
-    role: river_budget_source
-    consumers: [modflow_waterbalance]
+    filename_contract: 'bdgriv_sys<S>_<YYYYMMDD>000000_l1.IDF'
+    baseline_count: 77432
+    systems:
+      1: primary_regional_surface_water
+      2: secondary_regional_surface_water
+      3: tertiary_regional_surface_water
+      4: main_surface_water_H1
+    production_rule: ALL_RIV_INTERACTION_IN_LAYER1_IS_REQUIRED
+    role: layer1_river_groundwater_interaction
+    consumers: [modflow_layer1_surfacewater_balance, derived_qlat]
     status: SOURCE_FAMILY_DISCOVERED_NOT_FILE_QUALIFIED
 
-  - logical_id: MODFLOW_BDGDRN
+  - logical_id: MODFLOW_BDGRIV_LAYER2
+    path_family: modflow/bdgriv
+    filename_contract: 'bdgriv_sys<S>_<YYYYMMDD>000000_l2.IDF'
+    baseline_count: 38716
+    systems:
+      5: main_surface_water_H2
+      6: wells_surfacewater_system
+    production_rule: KEEP_SEPARATE_FROM_LAYER1_INTERACTION
+    role: layer2_river_groundwater_interaction
+    consumers: []
+    status: SEPARATE_LAYER2_PROVENANCE_NOT_PART_OF_LAYER1_NET
+
+  - logical_id: MODFLOW_BDGDRN_LAYER1
     path_family: modflow/bdgdrn
     filename_contract: 'bdgdrn_sys<S>_<YYYYMMDD>000000_l1.IDF'
     baseline_count: 58074
-    systems: [1, 2, 3]
-    role: drain_budget_source
-    consumers: [modflow_waterbalance]
+    systems:
+      1: pipe_drainage
+      2: simplified_surface_ditches_MVG
+      3: overland_flow_OLF
+    production_rule: ALL_DRN_INTERACTION_IN_LAYER1_IS_REQUIRED
+    role: layer1_drain_groundwater_interaction
+    consumers: [modflow_layer1_surfacewater_balance, derived_qlat]
     status: SOURCE_FAMILY_DISCOVERED_NOT_FILE_QUALIFIED
 
   - logical_id: METASWAP_DECADE_CORE
@@ -105,14 +124,15 @@ excluded_from_primary_baseline_pending_separate_qualification:
 
 size_estimate:
   baseline_with_uncorrected_flf_only:
-    file_count: 235834
-    total_bytes: 1368328314312
-    approximate_tb_decimal: 1.3683
+    file_count: 197118
+    total_bytes: 1142039024280
+    approximate_tb_decimal: 1.1420
+    note: layer1 surface-water interaction uses RIV systems 1-4 and DRN systems 1-3; RIV systems 5-6 remain separate layer2 provenance
   alternative_corrected_flf_additional:
     file_count: 19358
     status: DO_NOT_HASH_AS_COEQUAL_PRODUCTION_SOURCE_UNTIL_OWNERSHIP_DECIDED
 
 next_gate:
-  - close exact consumer binding
+  - enforce complete layer1 RIV+DRN interaction contract in W02
   - decide corrected versus uncorrected FLF production authority
   - then generate file-level SHA256 manifest for the selected tranche
