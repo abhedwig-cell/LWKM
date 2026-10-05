@@ -74,3 +74,64 @@ looks like an aggregated results directory by name. It may be an important downs
 `W01 = Q0A_RUN_CHAIN_DISCOVERY_IN_PROGRESS`
 
 No Q0 run identity has been admitted yet.
+
+
+## Q0A result — stable SVAT schematisation across all candidate LWKM runs
+
+Server-side SHA-256 inventory on 2026-10-05 found the same byte identity for every exposed LWKM `metaswap\svat.asc`:
+
+`BFB8A580C9DE2B3D3C7966A29B4B9FDD3491F6CA52D0D3494F0400CD1A8A812A`
+
+File size for every copy:
+`12,482,732 bytes`.
+
+Confirmed candidates:
+- run_1970_1979
+- run_1980_1989
+- run_1990_1999
+- run_2000_2009
+- run_2010_2019
+- run_2010_2021_MS_daily
+- run_2020_2022
+- run_2020_2024_MS_daily
+- run_2023_2024
+- run_2025_2025
+
+Qualification consequence:
+
+`SVAT_ASC_MULTI_RUN_BYTE_IDENTITY_CONFIRMED`.
+
+This is evidence for one stable SVAT schematisation across both the standard period runs and the overlapping MS_daily alternatives. It does not select the authoritative dynamic run chain.
+
+Filesystem timestamps differ and are not treated as content authority.
+
+## NHI-server scope correction
+
+Project owner confirmed that HRU/SWAP producer material is not located on the NHI server.
+
+Therefore W01 NHI-server provenance must not require:
+- HRU2SWAP executable/log;
+- HRU/SWAP launch batch;
+- HRU/SWAP control file;
+- SWP template;
+- downstream HRU/SWAP-specific lookups merely because they exist in reconstructed LWKM evidence.
+
+Those belong to a separate downstream provenance route.
+
+W01 is restricted to:
+1. authoritative LHM/MODFLOW/MetaSWAP run output;
+2. run-bound/static NHI model inputs actually present and consumed from the NHI server;
+3. run control/restart evidence needed to bind the selected LHM run chain.
+
+## Next Q0A question
+
+Identify the actual period-run chain used to construct `LWKM_run_resultaten_totaal`.
+
+Do not infer this from directory names alone. Prefer:
+- batch/PowerShell/control scripts;
+- explicit references in aggregation commands;
+- run-specific control files;
+- restart/continuation metadata.
+
+Status remains:
+`Q0A_RUN_CHAIN_DISCOVERY_IN_PROGRESS`.
