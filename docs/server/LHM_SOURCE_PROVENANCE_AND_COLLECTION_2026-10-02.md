@@ -16,6 +16,30 @@ The purpose is to make explicit:
 
 This procedure precedes all new Python post-processing, HRU generation and SWAP input generation.
 
+## Current authority correction — 2026-10-05
+
+Project-owner authority supersedes the earlier assumption that W01 must reconstruct the internal period-run chain.
+
+Use:
+
+**Output authority**
+`G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal`
+
+This Deltares-collected directory tree is the authoritative LHM output boundary for LWKM.
+
+**Input/config authority**
+The project-owner supplied LHM control `.ini` files. These define the model/data inputs and restart/configuration semantics.
+
+Current detailed authority:
+`docs/server/W01_LHM_AUTHORITY_SPLIT_2026-10-05.md`.
+
+Machine-readable authority:
+`config/source/w01-lhm-authority-v1.yml`.
+
+The previous Q0A period-run reconstruction is retained as background evidence only and is not an admission prerequisite.
+
+HRU/SWAP runtime provenance is downstream of W01 and must not be required from the NHI server.
+
 ## File-level qualification authority
 
 Project-wide authority:
