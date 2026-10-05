@@ -75,6 +75,23 @@ No step is considered complete because code or files merely exist. It is complet
 
 Current execution order starts at W01 on the real LHM server and then proceeds through postprocessing, SVAT, donor assignment, HRU construction, context assembly, DRA/BBC/MET, SWP rendering, package assembly, 49-run integrated regression, 10,242-run build and final end-to-end admission.
 
+## W01 authority correction — 2026-10-05
+
+Project-owner authority now fixes the first provenance boundary:
+
+- LHM output authority is the Deltares-collected tree
+  `G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal`;
+- LHM input/config authority is the set of project-owner supplied LHM `.ini` control files;
+- reconstructing which underlying period-specific `run_*` directories were used is not a W01 admission prerequisite;
+- HRU/SWAP runtime material is not expected on the NHI server and belongs to downstream provenance gates.
+
+Read:
+`docs/server/W01_LHM_AUTHORITY_SPLIT_2026-10-05.md`
+and:
+`config/source/w01-lhm-authority-v1.yml`.
+
+W01 now proceeds by inventorying/qualifying downstream-used files from the authoritative total-results tree and by parsing/qualifying the INI-declared input/config graph.
+
 ## First formal workflow gate: LHM server source provenance
 
 The workflow now starts with an explicit provenance freeze on the authoritative LHM server before any post-processing or HRU reconstruction.
