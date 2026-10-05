@@ -149,6 +149,33 @@ and:
 
 Do not hash or freeze the full 2.87 TB blindly. First close the exact consumer-bound source set and FLF ownership, then hash every consumed source file.
 
+## W02 layer-1 RIV/DRN production authority — 2026-10-05
+
+Project owner clarified that the historical RIV/DRN output contains more interaction than was previously carried through and that **all interaction in MODFLOW layer 1 must be included**.
+
+The supplied LHM433 control INI confirms:
+- RIV systems 1, 2, 3 and 4 are in layer 1;
+- RIV systems 5 and 6 are in layer 2;
+- DRN systems 1, 2 and 3 are in layer 1.
+
+Modern W02 contract:
+- include all RIV 1-4 layer-1 interaction;
+- include all DRN 1-3 layer-1 interaction;
+- keep RIV 5-6 as separate layer-2 provenance and do not silently mix them into a layer-1 net term.
+
+Authority:
+`docs/server/W02_LAYER1_SURFACE_WATER_INTERACTION_CONTRACT_2026-10-05.md`.
+
+The current reconstructed all-RIV-system net sum is therefore not production-authoritative for a layer-1 interaction product.
+
+`tools/lhm_postprocess.py` now has a strict helper that requires exactly RIV 1-4 and DRN 1-3 and rejects missing/extra systems. Unit tests cover complete membership, missing system 4 and accidental layer-2 RIV inclusion.
+
+The revised 1970-2022 first source tranche is:
+- 197,118 files;
+- 1,142,039,024,280 bytes;
+- approximately 1.142 TB;
+assuming one selected FLF route and the current 12 MetaSWAP core families.
+
 ## What is already qualified or implemented
 
 ### Datamodel and HRU context
