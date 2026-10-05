@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "workstep": "W01-O",
+  "status": "OUTPUT_AUTHORITY_INVENTORIED_NOT_FILE_QUALIFIED",
+  "authority_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_run_resultaten_totaal",
+  "inventory_bundle": {
+    "name": "W01_output_inventory.zip",
+    "sha256": "161bf03b4a0fc7dda1a9335978b8a0da210d3297420b18da90ac458148215c7d",
+    "size_bytes": 5554466,
+    "output_inventory_sha256": "c5a51943d3e884b69001b258938c9e74d5d77ff9a470f356d9ffecd2f43fda17",
+    "output_folder_summary_sha256": "79feb30c4b48110705c031df528e4bbcff2e6c781a399c73e864f58106ed2c73",
+    "output_summary_sha256": "3b4ddac3ea82eeec16fa69a28ab12a21d83e29462082b43c8b4a09de24e294f2"
+  },
+  "tree": {
+    "file_count": 399184,
+    "total_bytes": 2874213809597,
+    "top_folders": {
+      "metaswap": {"file_count": 42206, "total_bytes": 224591756994, "observed_year_min": 1970, "observed_year_max": 2024},
+      "modflow": {"file_count": 287403, "total_bytes": 1555035862322, "observed_year_min": 1970, "observed_year_max": 2024},
+      "postprocessing": {"file_count": 69575, "total_bytes": 1094586190281, "classification": "DERIVED_ORACLE_NOT_PRIMARY_W02_SOURCE"}
+    },
+    "extensions": {
+      ".idf": 329250,
+      ".asc": 49781,
+      ".log": 19140,
+      ".csv": 568,
+      ".png": 390,
+      ".bat": 21,
+      ".hib": 14,
+      ".zip": 5,
+      ".exe": 5,
+      ".par": 3,
+      ".py": 3,
+      ".txt": 1,
+      ".gen": 1,
+      ".imf": 1,
+      "": 1
+    }
+  },
+  "modflow_core": {
+    "head": {
+      "file_count": 47419,
+      "total_bytes": 277134917533,
+      "observed_year_min": 1970,
+      "observed_year_max": 2024,
+      "finding": "L1 daily coverage exists through 2024; deeper-layer cadence is lower and must be consumer-qualified separately"
+    },
+    "bdgflf": {
+      "file_count": 44929,
+      "total_bytes": 229878024904,
+      "observed_year_min": 1970,
+      "observed_year_max": 2024,
+      "finding": "uncorrected root series plus separate diepe_slootkwel_gecorrigeerd series for 1970-2022; 2023-2024 root output is partitioned p000-p007"
+    },
+    "bdgriv": {
+      "file_count": 116148,
+      "total_bytes": 678867870096,
+      "observed_year_min": 1970,
+      "observed_year_max": 2022,
+      "finding": "systems 1-6; systems 1-4 layer 1 and systems 5-6 layer 2"
+    },
+    "bdgdrn": {
+      "file_count": 58074,
+      "total_bytes": 339433935048,
+      "observed_year_min": 1970,
+      "observed_year_max": 2022,
+      "finding": "systems 1-3 layer 1"
+    },
+    "bdgdrn_org": {
+      "file_count": 17544,
+      "total_bytes": 10519689420,
+      "observed_year_min": 2023,
+      "observed_year_max": 2024,
+      "finding": "partitioned 2023-2024 drainage output; not silently interchangeable with historical bdgdrn"
+    }
+  },
+  "metaswap_core": {
+    "standard_decade_cadence": "36 dates per year observed for standard core series",
+    "observed_period": "1970-2024",
+    "series": [
+      "msw_Ebs", "msw_Esp", "msw_Epd", "msw_Eic", "msw_Tact",
+      "bdgPm", "bdgPssw", "bdgPsgw", "bdgETact", "bdgQrun",
+      "bdgQmodf", "bdgdecStot", "msw_Qinf", "msw_Tpot"
+    ],
+    "derived_absent_as_raw_subfolders": ["bdgqmsw", "bdgqlat"],
+    "finding": "bdgqmsw and bdgqlat occur under postprocessing/wb as derived products, not as raw metaswap subfolders"
+  },
+  "postprocessing": {
+    "classification": "HISTORICAL_DERIVED_OR_REGRESSION_ORACLE",
+    "main_subfolders": {
+      "wb": 49687,
+      "log": 19136,
+      "wb_corr": 668,
+      "GXG": 36
+    },
+    "rule": "do not promote postprocessing products to primary W02 source when they can be regenerated from qualified raw modflow/metaswap outputs"
+  },
+  "open_gates": [
+    "bind exact downstream consumer set",
+    "decide production period coverage, especially 1970-2022 versus later 2023-2024 format",
+    "qualify corrected versus uncorrected bdgflf ownership",
+    "qualify 2023-2024 partitioned output formats before any use",
+    "hash every actually consumed source file",
+    "bind all consumed files to semantic contracts and consumers"
+  ]
+}
