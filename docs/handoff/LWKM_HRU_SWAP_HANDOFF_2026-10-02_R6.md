@@ -118,6 +118,37 @@ Generated HRU/SWP/DRA/BBC/MET and other post-processed products are not raw sour
 
 The exact server run root and all source-spec candidates still require Q0/Q1 confirmation on the real server. In particular the historical length rasters, suspect mask, March-2026 producer binary/log and exact SWP template remain high-priority recovery targets.
 
+## W01-O output inventory result — 2026-10-05
+
+The Deltares-collected output authority has now been inventoried from metadata supplied from the real NHI server.
+
+Authority root:
+`G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal`.
+
+Observed:
+- 399,184 files;
+- approximately 2.87 TB;
+- `modflow`: 287,403 files;
+- `metaswap`: 42,206 files;
+- `postprocessing`: 69,575 files.
+
+Current classification:
+- raw `modflow` and `metaswap` are primary W01-O source candidates;
+- `postprocessing` is derived/historical regression-oracle material unless a specific downstream contract says otherwise.
+
+Important period structure:
+- core MetaSWAP output and MODFLOW head/FLF extend through 2024;
+- historical `bdgriv` and `bdgdrn` extend through 2022;
+- 2023-2024 introduces changed/partitioned MODFLOW output representation;
+- `bdgqmsw` and `bdgqlat` are observed as derived postprocessing products, not raw MetaSWAP subfolders.
+
+Read:
+`docs/server/W01_OUTPUT_AUTHORITY_INVENTORY_RESULT_2026-10-05.md`
+and:
+`config/source/w01-output-consumer-candidates-v1.yml`.
+
+Do not hash or freeze the full 2.87 TB blindly. First close the exact consumer-bound source set and FLF ownership, then hash every consumed source file.
+
 ## What is already qualified or implemented
 
 ### Datamodel and HRU context
