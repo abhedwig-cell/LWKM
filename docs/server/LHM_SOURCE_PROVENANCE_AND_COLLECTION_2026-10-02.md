@@ -152,7 +152,8 @@ The historical 49-run SWP/DRA/BBC/MET archive remains a **realized executable or
 
 The server procedure is implemented by:
 
-- `tools/server/lwkm_w01.py` — Q0-Q4 orchestration;
+- `tools/server/lwkm_w01.ps1` — no-Python Q0-Q1 bootstrap on the actual Windows LHM server;
+- `tools/server/lwkm_w01.py` — equivalent Q0-Q4 orchestration where Python is available;
 - `config/source/lhm-server-source-spec-v1.csv` — executable source inventory specification;
 - `tools/lwkm_source_bundle.py` — existing tested low-level portable bundle format/verification;
 - `docs/server/W01_LHM_SERVER_EXECUTION_GUIDE_2026-10-02.md` — exact server commands.
@@ -163,7 +164,7 @@ Q0 supports multiple explicitly named roots. The initial executable spec disting
 
 These roots may be identical if the actual server layout warrants that, but they are recorded separately so provenance is not hidden behind one broad drive-level root.
 
-The first real server session must stop after Q1 for review. Q2-Q4 are run only after the inventory and source specification have been reviewed.
+The first real server session must stop after Q1 for review. Q2-Q4 are run only after the inventory and source specification have been reviewed. Python is not a prerequisite for this first server inventory.
 
 ## Step 1: identify the authoritative server run
 
