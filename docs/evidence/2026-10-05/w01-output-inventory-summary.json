@@ -15,9 +15,23 @@
     "file_count": 399184,
     "total_bytes": 2874213809597,
     "top_folders": {
-      "metaswap": {"file_count": 42206, "total_bytes": 224591756994, "observed_year_min": 1970, "observed_year_max": 2024},
-      "modflow": {"file_count": 287403, "total_bytes": 1555035862322, "observed_year_min": 1970, "observed_year_max": 2024},
-      "postprocessing": {"file_count": 69575, "total_bytes": 1094586190281, "classification": "DERIVED_ORACLE_NOT_PRIMARY_W02_SOURCE"}
+      "metaswap": {
+        "file_count": 42206,
+        "total_bytes": 224591756994,
+        "observed_year_min": 1970,
+        "observed_year_max": 2024
+      },
+      "modflow": {
+        "file_count": 287403,
+        "total_bytes": 1555035862322,
+        "observed_year_min": 1970,
+        "observed_year_max": 2024
+      },
+      "postprocessing": {
+        "file_count": 69575,
+        "total_bytes": 1094586190281,
+        "classification": "DERIVED_ORACLE_NOT_PRIMARY_W02_SOURCE"
+      }
     },
     "extensions": {
       ".idf": 329250,
@@ -57,14 +71,38 @@
       "total_bytes": 678867870096,
       "observed_year_min": 1970,
       "observed_year_max": 2022,
-      "finding": "systems 1-6; systems 1-4 layer 1 and systems 5-6 layer 2"
+      "finding": "systems 1-6; systems 1-4 layer 1 and systems 5-6 layer 2",
+      "production_layer1_contract": {
+        "required_systems": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "required_file_count_1970_2022": 77432,
+        "required_bytes_1970_2022": 452578580064,
+        "excluded_from_layer1_net_systems": [
+          5,
+          6
+        ],
+        "excluded_reason": "RIV systems 5-6 are layer 2"
+      }
     },
     "bdgdrn": {
       "file_count": 58074,
       "total_bytes": 339433935048,
       "observed_year_min": 1970,
       "observed_year_max": 2022,
-      "finding": "systems 1-3 layer 1"
+      "finding": "systems 1-3 layer 1",
+      "production_layer1_contract": {
+        "required_systems": [
+          1,
+          2,
+          3
+        ],
+        "required_file_count_1970_2022": 58074,
+        "required_bytes_1970_2022": 339433935048
+      }
     },
     "bdgdrn_org": {
       "file_count": 17544,
@@ -78,11 +116,25 @@
     "standard_decade_cadence": "36 dates per year observed for standard core series",
     "observed_period": "1970-2024",
     "series": [
-      "msw_Ebs", "msw_Esp", "msw_Epd", "msw_Eic", "msw_Tact",
-      "bdgPm", "bdgPssw", "bdgPsgw", "bdgETact", "bdgQrun",
-      "bdgQmodf", "bdgdecStot", "msw_Qinf", "msw_Tpot"
+      "msw_Ebs",
+      "msw_Esp",
+      "msw_Epd",
+      "msw_Eic",
+      "msw_Tact",
+      "bdgPm",
+      "bdgPssw",
+      "bdgPsgw",
+      "bdgETact",
+      "bdgQrun",
+      "bdgQmodf",
+      "bdgdecStot",
+      "msw_Qinf",
+      "msw_Tpot"
     ],
-    "derived_absent_as_raw_subfolders": ["bdgqmsw", "bdgqlat"],
+    "derived_absent_as_raw_subfolders": [
+      "bdgqmsw",
+      "bdgqlat"
+    ],
     "finding": "bdgqmsw and bdgqlat occur under postprocessing/wb as derived products, not as raw metaswap subfolders"
   },
   "postprocessing": {
@@ -96,11 +148,21 @@
     "rule": "do not promote postprocessing products to primary W02 source when they can be regenerated from qualified raw modflow/metaswap outputs"
   },
   "open_gates": [
+    "enforce complete layer1 RIV systems 1-4 and DRN systems 1-3 in W02",
     "bind exact downstream consumer set",
     "decide production period coverage, especially 1970-2022 versus later 2023-2024 format",
     "qualify corrected versus uncorrected bdgflf ownership",
     "qualify 2023-2024 partitioned output formats before any use",
     "hash every actually consumed source file",
     "bind all consumed files to semantic contracts and consumers"
-  ]
+  ],
+  "first_consumer_bound_tranche": {
+    "period_start": 1970,
+    "period_end": 2022,
+    "flf_route": "ONE_ROUTE_TO_BE_SELECTED",
+    "metaswap_core_families": 12,
+    "file_count": 197118,
+    "total_bytes": 1142039024280,
+    "note": "Includes head L1, one FLF route, RIV systems 1-4 layer 1, DRN systems 1-3 layer 1, and 12 MetaSWAP core decade families."
+  }
 }
