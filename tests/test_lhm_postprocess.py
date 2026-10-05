@@ -9,6 +9,7 @@ from tools.lhm_postprocess import (
     aggregate_idf_series,
     aggregate_idf_sign_split,
     combine_ascii_grids,
+    combine_layer1_surfacewater_interaction,
     read_ascii_grid,
     write_ascii_grid,
     AsciiGrid,
@@ -103,3 +104,72 @@ def test_nodata_is_not_silently_aggregated(tmp_path: Path):
         assert "NODATA" in str(exc)
     else:
         raise AssertionError("expected explicit NODATA failure")
+
+
+
+def test_layer1_surfacewater_interaction_requires_all_riv_and_drn_systems(tmp_path: Path):
+    meta = dict(ncols=1, nrows=1, xllcorner=0.0, yllcorner=0.0, cellsize=250.0, nodata=-9999.0)
+
+    def make(name: str, value: float) -> Path:
+        path = tmp_path / name
+        write_ascii_grid(path, AsciiGrid(np.array([[value]]), **meta))
+        return path
+
+    riv = {
+        1: make("riv1.asc", 1.0),
+        2: make("riv2.asc", 2.0),
+        3: make("riv3.asc", 4.0),
+        4: make("riv4.asc", 8.0),
+    }
+    drn = {
+        1: make("drn1.asc", 16.0),
+        2: make("drn2.asc", 32.0),
+        3: make("drn3.asc", 64.0),
+    }
+
+    combined = combine_layer1_surfacewater_interaction(riv, drn)
+    np.testing.assert_allclose(combined.values, [[127.0]])
+
+
+def test_layer1_surfacewater_interaction_rejects_missing_system(tmp_path: Path):
+    meta = dict(ncols=1, nrows=1, xllcorner=0.0, yllcorner=0.0, cellsize=250.0, nodata=-9999.0)
+
+    def make(name: str) -> Path:
+        path = tmp_path / name
+        write_ascii_grid(path, AsciiGrid(np.array([[1.0]]), **meta))
+        return path
+
+    riv = {1: make("r1.asc"), 2: make("r2.asc"), 3: make("r3.asc")}
+    drn = {1: make("d1.asc"), 2: make("d2.asc"), 3: make("d3.asc")}
+
+    try:
+        combine_layer1_surfacewater_interaction(riv, drn)
+    except ValueError as exc:
+        assert "missing=[4]" in str(exc)
+    else:
+        raise AssertionError("expected missing RIV system 4 to fail closed")
+
+
+def test_layer1_surfacewater_interaction_rejects_layer2_riv_system(tmp_path: Path):
+    meta = dict(ncols=1, nrows=1, xllcorner=0.0, yllcorner=0.0, cellsize=250.0, nodata=-9999.0)
+
+    def make(name: str) -> Path:
+        path = tmp_path / name
+        write_ascii_grid(path, AsciiGrid(np.array([[1.0]]), **meta))
+        return path
+
+    riv = {
+        1: make("r1.asc"),
+        2: make("r2.asc"),
+        3: make("r3.asc"),
+        4: make("r4.asc"),
+        5: make("r5.asc"),
+    }
+    drn = {1: make("d1.asc"), 2: make("d2.asc"), 3: make("d3.asc")}
+
+    try:
+        combine_layer1_surfacewater_interaction(riv, drn)
+    except ValueError as exc:
+        assert "extra=[5]" in str(exc)
+    else:
+        raise AssertionError("expected layer-2 RIV system 5 to fail closed")
