@@ -1,0 +1,10 @@
+logical_id,scope,provenance_class,required_by,filename_pattern,path_hint,required,max_matches,temporal_scope,expected_format,semantic_role,status
+LHM_DYNAMIC_HEAD_L1,NHI_RUN,A,lhm_postprocessing,head_*_l1.idf,,true,,period,IDF,MODFLOW layer-1 head time series,DISCOVER_EXACT_LOCATION_PER_SELECTED_RUN
+LHM_DYNAMIC_BDGFLF_L1,NHI_RUN,A,lhm_postprocessing_and_bbc,bdgflf_*_l1.idf,,true,,period,IDF,MODFLOW lower-face-flow time series,DISCOVER_EXACT_LOCATION_PER_SELECTED_RUN
+LHM_DYNAMIC_BDGQLAT_L1,NHI_RUN,A,lhm_postprocessing_and_bbc,bdgqlat_*_l1.*,,true,,period,IDF_OR_ASC,MODFLOW lateral-flow time series,DISCOVER_EXACT_LOCATION_PER_SELECTED_RUN
+SVAT_GRID,NHI_RUN_STATIC,B,svat_basis,svat.asc,metaswap,true,1,static,ASC,SVAT identifier grid,SVAT_ASC_MULTI_RUN_BYTE_IDENTITY_CONFIRMED
+NHI_RUN_CONTROL,NHI_RUN,D,run_chain_identity,*.ini,,false,,run_bound,INI,Run configuration candidate,DISCOVER
+NHI_RUN_CONTROL_INP,NHI_RUN,D,run_chain_identity,*.inp,,false,,run_bound,INP,Run configuration candidate,DISCOVER
+NHI_RUN_BATCH,NHI_RUN,D,run_chain_identity,*.bat,,false,,run_bound,BAT,Run launch or aggregation script candidate,DISCOVER
+NHI_RUN_CMD,NHI_RUN,D,run_chain_identity,*.cmd,,false,,run_bound,CMD,Run launch or aggregation script candidate,DISCOVER
+NHI_RUN_POWERSHELL,NHI_RUN,D,run_chain_identity,*.ps1,,false,,run_bound,PS1,Run launch or aggregation script candidate,DISCOVER
