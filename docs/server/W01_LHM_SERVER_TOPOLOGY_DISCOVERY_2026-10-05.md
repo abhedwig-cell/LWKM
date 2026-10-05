@@ -135,3 +135,31 @@ Do not infer this from directory names alone. Prefer:
 
 Status remains:
 `Q0A_RUN_CHAIN_DISCOVERY_IN_PROGRESS`.
+
+
+## Q0A finding — LWKM_run_resultaten_totaal/modflow/copy.bat does not establish source assembly
+
+Search in `LWKM_run_resultaten_totaal` found references to `run_2010_2019` only in:
+
+`LWKM_run_resultaten_totaal\modflow\copy.bat`.
+
+Observed semantics:
+
+- lines 1-6 and 9-11 are commented-out copy commands;
+- active lines 7-8 copy `bdgriv_sys5_201*_l2.IDF` and `bdgriv_sys6_201*_l2.IDF`;
+- the copy direction is from the current aggregated-results-side `bdgriv` directory to
+  `run_2010_2019\modflow\results\bdgriv\`.
+
+Therefore this batch file is **not** evidence that `LWKM_run_resultaten_totaal` was assembled from `run_2010_2019`.
+
+Qualification:
+
+`COPY_BAT_RUN_CHAIN_AUTHORITY_FALSIFIED_FOR_SOURCE_ASSEMBLY`.
+
+It may document a maintenance/back-copy operation and remains provenance evidence, but it must not be used to select the authoritative run chain.
+
+Next evidence required:
+1. full per-run control/config inventory;
+2. product/year coverage inside `LWKM_run_resultaten_totaal`;
+3. scripts outside the total-results tree that explicitly construct or update that tree;
+4. restart/continuation metadata per period run.
