@@ -189,7 +189,14 @@ Reeds gereconstrueerde semantiek:
 - positief/negatief scheiden vóór temporele sommatie;
 - state variables als tijdgemiddelde;
 - geen impliciete resampling;
-- geen stille NODATA-bewerkingen.
+- geen stille NODATA-bewerkingen;
+- alle RIV- en DRN-interactie in MODFLOW-laag 1 moet worden meegenomen;
+- layer-1 RIV membership = systems 1, 2, 3, 4;
+- layer-1 DRN membership = systems 1, 2, 3;
+- RIV systems 5 en 6 zijn layer-2 provenance en mogen niet stil in een layer-1 netterm terechtkomen.
+
+Authority:
+`docs/server/W02_LAYER1_SURFACE_WATER_INTERACTION_CONTRACT_2026-10-05.md`.
 
 ## Output
 
