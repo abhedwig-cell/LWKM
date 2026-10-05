@@ -124,6 +124,8 @@ The structure is exactly consistent with six systems:
 - systems 1-4 in layer 1;
 - systems 5-6 in layer 2.
 
+Project production authority now requires **all RIV interaction in layer 1**. Therefore systems 1-4 are mandatory members of the W02 layer-1 surface-water interaction source set. Systems 5-6 remain separate layer-2 provenance and are not part of that layer-1 net term.
+
 Each system has 19,358 observed daily dates over 1970-2022.
 
 No 2023-2024 `bdgriv` continuation was identified by this inventory.
@@ -135,6 +137,11 @@ Historical `bdgdrn`:
 - approximately 339.4 GB;
 - observed 1970 through 2022;
 - systems 1-3 in layer 1.
+
+Project production authority requires all three layer-1 DRN systems to be included:
+1. pipe drainage;
+2. MVG/simplified surface ditches;
+3. OLF/overland flow.
 
 A separate `bdgdrn_org` tree exists for 2023-2024:
 - 17,544 IDFs;
@@ -242,3 +249,26 @@ This preserves the project rule:
 `100% OF CONSUMED FILE IDENTITIES QUALIFIED`
 
 without turning every diagnostic/log/duplicate file in the authority tree into production authority.
+
+
+## Layer-1 RIV/DRN production correction — 2026-10-05
+
+Project authority requires complete MODFLOW layer-1 RIV/DRN interaction.
+
+Authority:
+`docs/server/W02_LAYER1_SURFACE_WATER_INTERACTION_CONTRACT_2026-10-05.md`.
+
+For the 1970-2022 source tranche:
+- RIV layer 1: systems 1-4 = 77,432 files;
+- DRN layer 1: systems 1-3 = 58,074 files;
+- RIV systems 5-6 = layer 2 and are excluded from the layer-1 net contract.
+
+This revises the earlier provisional source-tranche estimate from 235,834 files / 1.368 TB to:
+
+- 197,118 files;
+- 1,142,039,024,280 bytes;
+- approximately 1.142 TB;
+
+assuming one selected FLF route and the current 12 MetaSWAP core families.
+
+The historical/reconstructed all-RIV-system sum is not production-authoritative for a layer-1 balance.
