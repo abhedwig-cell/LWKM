@@ -2,6 +2,18 @@
 
 Date: 2026-10-02
 
+## Server bootstrap choice
+
+On the actual LHM server, Python/py is not available from PATH.
+
+Therefore the primary bootstrap for the first server session is Windows PowerShell:
+
+`tools/server/lwkm_w01.ps1`
+
+The PowerShell path currently implements Q0 and Q1 only. That is intentional: the first real server session must stop after the inventory has been reviewed.
+
+The Python route remains available on environments where Python exists, and Q3/Q4 can continue to reuse the repository bundle implementation after Q1 has been closed. No Python installation is required merely to perform the first provenance inventory.
+
 Authority:
 - `docs/server/LHM_SOURCE_PROVENANCE_AND_COLLECTION_2026-10-02.md`
 - `docs/governance/LWKM_FILE_QUALIFICATION_POLICY_2026-10-02.md`
@@ -27,52 +39,36 @@ Do **not** run Q2-Q4 until:
 
 Q0 and Q1 do not modify source files.
 
-## 0. Check Python
+## 0. Check PowerShell
 
-On the LHM server, open Command Prompt or PowerShell:
-
-```bat
-py -3 --version
-```
-
-If that is unavailable, try:
+From the existing Command Prompt, run:
 
 ```bat
-python --version
+powershell -NoProfile -Command "$PSVersionTable.PSVersion.ToString()"
 ```
 
-Use Python 3.
+Windows PowerShell 5.1 or newer is suitable.
 
-No external Python packages are required.
-
-Before touching real LHM data, run a syntax/import check from the repository root:
+The script is invoked with a process-local execution-policy bypass. This does not change the server's persistent execution-policy setting:
 
 ```bat
-py -3 -m compileall tools\server\lwkm_w01.py tools\lwkm_source_bundle.py
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\server\lwkm_w01.ps1 -Command q0 ...
 ```
 
-Expected result: both files compile without error.
+If `powershell` itself is not recognized, stop and report that result before changing or installing anything on the server.
 
-Repository tests also exist:
-- `tests/test_lwkm_source_bundle.py`;
-- `tests/test_lwkm_w01.py`.
-
-If pytest is available, they can be run with:
-
-```bat
-py -3 -m pytest -q tests\test_lwkm_source_bundle.py tests\test_lwkm_w01.py
-```
-
-The compile check is sufficient to start Q0/Q1; pytest is not a runtime dependency.
+Python is not required for Q0/Q1.
 
 ## 1. Prepare one repository checkout or tool directory
 
 The following two files must be available together with their repository-relative versions recorded:
 
 ```text
-tools\server\lwkm_w01.py
+tools\server\lwkm_w01.ps1
 config\source\lhm-server-source-spec-v1.csv
 ```
+
+The Python orchestrator `tools\server\lwkm_w01.py` is the equivalent route for environments with Python, but is not required on this LHM server for Q0/Q1.
 
 Use the current `work/lhm-hru-swap-workflow-v1` branch.
 
@@ -127,17 +123,17 @@ Do not put a changing timestamp in the identity if the intent is to refer to one
 From the repository root:
 
 ```bat
-py -3 tools\server\lwkm_w01.py q0 ^
-  --root "RUN=<ABSOLUTE_LHM_RUN_ROOT>" ^
-  --root "PROJECT=<ABSOLUTE_LWKM_PROJECT_ROOT>" ^
-  --output-root "D:\LWKM_provenance" ^
-  --run-id "LHM433_1971_2021_CURRENT" ^
-  --model-version "<CONFIRM_THIS>" ^
-  --simulation-start "1971-01-01" ^
-  --simulation-end "2021-12-31" ^
-  --completed-run ^
-  --restart-history "<SHORT_NOTE_IF_KNOWN>" ^
-  --notes "<OPTIONAL_NOTE>"
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\server\lwkm_w01.ps1 ^
+  -Command q0 ^
+  -Root "RUN=<ABSOLUTE_LHM_RUN_ROOT>","PROJECT=<ABSOLUTE_LWKM_PROJECT_ROOT>" ^
+  -OutputRoot "D:\LWKM_provenance" ^
+  -RunId "LHM433_1971_2021_CURRENT" ^
+  -ModelVersion "<CONFIRM_THIS>" ^
+  -SimulationStart "1971-01-01" ^
+  -SimulationEnd "2021-12-31" ^
+  -CompletedRun ^
+  -RestartHistory "<SHORT_NOTE_IF_KNOWN>" ^
+  -Notes "<OPTIONAL_NOTE>"
 ```
 
 Do not use `--completed-run` unless the selected run state is genuinely stable and no longer changing.
@@ -166,10 +162,11 @@ If anything is wrong, do not proceed.
 Run:
 
 ```bat
-py -3 tools\server\lwkm_w01.py q1 ^
-  --q0 "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest\q0-run.json" ^
-  --spec "config\source\lhm-server-source-spec-v1.csv" ^
-  --output-dir "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest"
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\server\lwkm_w01.ps1 ^
+  -Command q1 ^
+  -Q0Path "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest\q0-run.json" ^
+  -SpecPath "config\source\lhm-server-source-spec-v1.csv" ^
+  -OutputDir "D:\LWKM_provenance\LHM433_1971_2021_CURRENT\00_manifest"
 ```
 
 Q1 recursively inventories the declared roots. It does not copy or alter source data.
