@@ -1,0 +1,37 @@
+schema_version: 1
+status: W01_OUTPUT_AUTHORITY_BOUND_INPUT_CONFIG_AUTHORITY_PARTIAL
+
+output_authority:
+  logical_id: DELTARES_LWKM_LHM_OUTPUT
+  root: 'G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal'
+  authority_basis: project_owner_confirmation
+  collector: Deltares_colleagues
+  internal_period_run_reconstruction_required: false
+  discovery_tool: tools/server/lwkm_output_inventory.ps1
+  qualification_rule: every_downstream_consumed_file_requires_hash_semantics_consumer_binding
+
+input_config_authority:
+  authority_basis: project_owner_supplied_lhm_ini_files
+  discovery_tool: tools/server/lwkm_ini_provenance.ps1
+  currently_exposed_loose_files:
+    - name: control_run_1970_1979.ini
+      library_file_id: libfile_ceacc0c413e88191a0e3ad940a341e67
+      file_id: file_00000000b83c8210b996ea8826224edc
+      raw_byte_hash_status: NOT_AVAILABLE_FROM_CURRENT_PROJECT_MATERIALIZATION
+      semantic_status: TEXT_RECOVERED_INPUT_CONFIG_AUTHORITY_CANDIDATE
+  recovery_rule: exhaust_existing_project_library_archives_before_requesting_reupload
+  qualification_rule: ini_declared_path_does_not_prove_current_server_file_historical_identity
+
+separation:
+  nhi_server_w01_excludes_by_default:
+    - HRU2SWAP_executable
+    - HRU2SWAP_log
+    - HRU_SWAP_control
+    - HRU_SWAP_launch_batch
+    - SWP_template
+    - downstream_HRU_DRA_BBC_MET_runtime_assets
+  downstream_provenance_required: true
+
+evidence:
+  - docs/server/W01_LHM_AUTHORITY_SPLIT_2026-10-05.md
+  - docs/server/W01_LHM_SERVER_TOPOLOGY_DISCOVERY_2026-10-05.md
