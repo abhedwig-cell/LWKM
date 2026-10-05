@@ -27,6 +27,20 @@ The tool uses only the Python standard library.
 
 Q3-Q4 reuse the repository's existing tested low-level bundle module `tools/lwkm_source_bundle.py`; the W01 orchestrator does not define a competing ZIP format.
 
+## Q0A prerequisite discovered on the real server
+
+Server evidence on 2026-10-05 shows that
+`G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM`
+contains multiple period runs plus overlapping alternatives such as
+`run_2010_2021_MS_daily` and `run_2020_2024_MS_daily`.
+
+Therefore do not run Q0 against the whole `runs_LWKM` parent yet.
+
+First perform `Q0A_RUN_CHAIN_DISCOVERY` as documented in:
+`docs/server/W01_LHM_SERVER_TOPOLOGY_DISCOVERY_2026-10-05.md`.
+
+Q0A is metadata-only. It must establish the ordered production run chain and whether static inputs are identical across its periods.
+
 ## Operating rule for the first server session
 
 Run only Q0 and Q1 first.
