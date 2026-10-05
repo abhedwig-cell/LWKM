@@ -20,13 +20,15 @@ steps:
 
   W01:
     name: lhm_server_provenance_freeze
-    status: NOT_STARTED_ON_REAL_SERVER
+    status: Q0A_RUN_CHAIN_DISCOVERY_IN_PROGRESS
     depends_on: [W00]
     admission: LHM_SOURCE_Q4_IMMUTABLE_SNAPSHOT
     evidence:
       - docs/server/LHM_SOURCE_PROVENANCE_AND_COLLECTION_2026-10-02.md
       - config/source/lhm-server-source-spec-v1.yml
       - config/source/lhm-server-source-spec-v1.csv
+      - config/source/nhi-server-source-spec-v1.csv
+      - docs/server/W01_LHM_SERVER_TOPOLOGY_DISCOVERY_2026-10-05.md
       - tools/server/lwkm_w01.ps1
       - tools/server/lwkm_w01.py
       - tools/lwkm_source_bundle.py
