@@ -1,0 +1,118 @@
+schema_version: 1
+status: SOURCE_CONTRACT_CANDIDATE_NOT_ADMITTED
+authority_root: 'G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal'
+evidence: docs/server/W01_OUTPUT_AUTHORITY_INVENTORY_RESULT_2026-10-05.md
+
+baseline_tranche:
+  period_start: 1970
+  period_end: 2022
+  reason:
+    - historical bdgriv and bdgdrn complete through 2022
+    - historical derived postprocessing oracle is available through 2022
+    - 2023-2024 introduces changed/partitioned MODFLOW representations
+  status: PREREGISTERED_QUALIFICATION_TRANCHE_NOT_PRODUCTION_PERIOD_DECISION
+
+raw_candidates:
+  - logical_id: MODFLOW_HEAD_L1
+    path_family: modflow/head
+    filename_contract: 'head_<YYYYMMDD>000000_l1.IDF'
+    baseline_count: 19358
+    role: groundwater_head_source
+    consumers: [groundwater_statistics, downstream_diagnostics]
+    status: CONSUMER_BINDING_TO_CLOSE
+
+  - logical_id: MODFLOW_BDGFLF_L1_UNCORRECTED
+    path_family: modflow/bdgflf
+    filename_contract: 'bdgflf_<YYYYMMDD>000000_l1.IDF'
+    baseline_count: 19358
+    role: lower_face_flow_source
+    consumers: [modflow_waterbalance, bbc_source]
+    status: FLF_OWNERSHIP_UNRESOLVED
+
+  - logical_id: MODFLOW_BDGFLF_L1_CORRECTED
+    path_family: modflow/bdgflf/diepe_slootkwel_gecorrigeerd
+    filename_contract: 'bdgflf_<YYYYMMDD>000000_l1.idf'
+    baseline_count: 19358
+    role: corrected_lower_face_flow_source
+    consumers: [modflow_waterbalance, bbc_source]
+    status: ALTERNATIVE_FLF_ROUTE_NOT_COADMITTED_WITH_UNCORRECTED
+
+  - logical_id: MODFLOW_BDGRIV
+    path_family: modflow/bdgriv
+    filename_contract: 'bdgriv_sys<S>_<YYYYMMDD>000000_l<L>.IDF'
+    baseline_count: 116148
+    system_layer_contract:
+      systems_1_to_4: layer_1
+      systems_5_to_6: layer_2
+    role: river_budget_source
+    consumers: [modflow_waterbalance]
+    status: SOURCE_FAMILY_DISCOVERED_NOT_FILE_QUALIFIED
+
+  - logical_id: MODFLOW_BDGDRN
+    path_family: modflow/bdgdrn
+    filename_contract: 'bdgdrn_sys<S>_<YYYYMMDD>000000_l1.IDF'
+    baseline_count: 58074
+    systems: [1, 2, 3]
+    role: drain_budget_source
+    consumers: [modflow_waterbalance]
+    status: SOURCE_FAMILY_DISCOVERED_NOT_FILE_QUALIFIED
+
+  - logical_id: METASWAP_DECADE_CORE
+    path_families:
+      - metaswap/msw_Ebs
+      - metaswap/msw_Esp
+      - metaswap/msw_Epd
+      - metaswap/msw_Eic
+      - metaswap/msw_Tact
+      - metaswap/bdgPm
+      - metaswap/bdgPssw
+      - metaswap/bdgPsgw
+      - metaswap/bdgETact
+      - metaswap/bdgQrun
+      - metaswap/bdgQmodf
+      - metaswap/bdgdecStot
+    filename_contract: '<item>_<decade_end_YYYYMMDD>000000_l1.IDF'
+    files_per_family_baseline: 1908
+    family_count: 12
+    total_baseline_count: 22896
+    cadence: 36_per_year
+    role: metaswap_waterbalance_source
+    consumers: [metaswap_year_aggregation, derived_waterbalance, bbc_source]
+    status: SOURCE_FAMILY_DISCOVERED_NOT_FILE_QUALIFIED
+
+derived_not_raw:
+  - logical_id: BDGQMSW
+    observed_path_family: postprocessing/wb
+    classification: DERIVED_PRODUCT
+  - logical_id: BDGQLAT
+    observed_path_family: postprocessing/wb
+    classification: DERIVED_PRODUCT
+
+excluded_from_primary_baseline_pending_separate_qualification:
+  - path_family: postprocessing
+    reason: historical derived/oracle layer
+  - path_family: modflow/bdgdrn_org
+    period: 2023-2024
+    reason: changed partitioned representation
+  - path_family: modflow/bdgriv_copy
+    reason: copy/duplicate family
+  - path_family: modflow/bdgdrn_copy
+    reason: copy/duplicate family
+  - path_family: metaswap/bdgQrunm3_daily
+    reason: specialized daily route not yet consumer-bound
+  - path_family: metaswap/wof_*
+    reason: WOFOST output not yet part of current hydrology source contract
+
+size_estimate:
+  baseline_with_uncorrected_flf_only:
+    file_count: 235834
+    total_bytes: 1368328314312
+    approximate_tb_decimal: 1.3683
+  alternative_corrected_flf_additional:
+    file_count: 19358
+    status: DO_NOT_HASH_AS_COEQUAL_PRODUCTION_SOURCE_UNTIL_OWNERSHIP_DECIDED
+
+next_gate:
+  - close exact consumer binding
+  - decide corrected versus uncorrected FLF production authority
+  - then generate file-level SHA256 manifest for the selected tranche
