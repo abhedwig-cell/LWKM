@@ -166,6 +166,17 @@ These roots may be identical if the actual server layout warrants that, but they
 
 The first real server session must stop after Q1 for review. Q2-Q4 are run only after the inventory and source specification have been reviewed. Python is not a prerequisite for this first server inventory.
 
+## Q0A — discover the authoritative multi-period run chain
+
+Real-server evidence shows that the LWKM source state is potentially assembled from multiple period-specific LHM runs rather than one physical run directory.
+
+Before Q0, identify the exact ordered run chain and reject overlapping alternatives unless independently shown to be part of the production chain.
+
+Authority:
+`docs/server/W01_LHM_SERVER_TOPOLOGY_DISCOVERY_2026-10-05.md`.
+
+Q0A is required whenever multiple period runs or overlapping alternatives are present beneath the candidate run parent.
+
 ## Step 1: identify the authoritative server run
 
 Before copying anything, record one exact server/run identity.
