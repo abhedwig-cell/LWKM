@@ -1,0 +1,106 @@
+schema_version: 1
+status: PHYSICAL_DRAINAGE_AUTHORITY_DEFINED_COMPRESSION_DIAGNOSTIC
+
+physical_systems:
+  - id: RIV_H1
+    label: hoofdwaterloop_layer1
+    lhm_package: RIV
+    lhm_system: 4
+    lhm_layer: 1
+    swap_medium: open_channel
+    hydraulic_class: infiltration_capable_open
+    source_from_lhm_ini:
+      conductance: COND_HL1_250.IDF
+      bottom: both.idf
+      stage: peilh_%y%m01.idf
+      infiltration_factor: infmz_h_250_l1.idf
+    current_hrulist2swap_5level_status: OMITTED
+    production_rule: MUST_BE_INCLUDED_UPSTREAM
+
+  - id: RIV_PRIMARY
+    label: primary_regional
+    lhm_package: RIV
+    lhm_system: 1
+    lhm_layer: 1
+    swap_medium: open_channel
+    hydraulic_class: infiltration_capable_open
+    current_hrulist2swap_5level_status: INCLUDED_AS_PRI
+    production_rule: MUST_BE_INCLUDED_UPSTREAM
+
+  - id: RIV_SECONDARY
+    label: secondary_regional
+    lhm_package: RIV
+    lhm_system: 2
+    lhm_layer: 1
+    swap_medium: open_channel
+    hydraulic_class: infiltration_capable_open
+    current_hrulist2swap_5level_status: INCLUDED_AS_SEC
+    production_rule: MUST_BE_INCLUDED_UPSTREAM
+
+  - id: RIV_TERTIARY
+    label: tertiary_regional
+    lhm_package: RIV
+    lhm_system: 3
+    lhm_layer: 1
+    swap_medium: open_channel
+    hydraulic_class: infiltration_capable_open
+    current_hrulist2swap_5level_status: INCLUDED_AS_TER
+    production_rule: MUST_BE_INCLUDED_UPSTREAM
+
+  - id: DRN_MVG
+    label: maaiveldgreppels
+    lhm_package: DRN
+    lhm_system: 2
+    lhm_layer: 1
+    swap_medium: open_channel
+    hydraulic_class: drain_only_open
+    source_from_lhm_ini:
+      conductance: COND_greppels.IDF
+      bottom_and_stage: BODH_BRP2012_MVGREP_250.IDF
+    current_hrulist2swap_5level_status: OMITTED
+    production_rule: MUST_BE_INCLUDED_UPSTREAM
+
+  - id: DRN_PIPE
+    label: buisdrainage
+    lhm_package: DRN
+    lhm_system: 1
+    lhm_layer: 1
+    swap_medium: drain_tube
+    hydraulic_class: pipe
+    current_hrulist2swap_5level_status: INCLUDED_AS_DRA
+    production_rule: MUST_REMAIN_DISTINCT_DURING_COMPRESSION
+
+  - id: DRN_OLF
+    label: overland_flow
+    lhm_package: DRN
+    lhm_system: 3
+    lhm_layer: 1
+    swap_medium: open_channel
+    hydraulic_class: drain_only_open
+    current_hrulist2swap_5level_status: INCLUDED_AS_GLK
+    production_rule: MUST_BE_INCLUDED_UPSTREAM
+
+swap_interface:
+  maximum_levels: 5
+  authority:
+    supplied_hrulist_source_comment: NRLEVS_1_TO_5
+    supplied_hrulist_active_value: 5
+  compression_rule:
+    preserve_all_seven_before_interface: true
+    pipe_merge_allowed: false
+    cross_hydraulic_class_merge_allowed: false
+    open_channel_merge_only_when_active_count_exceeds_available_slots: true
+    selection: minimum_conductance_weighted_level_variance
+    merge_conservation:
+      drainage_conductance: exact_parallel_sum
+      infiltration_conductance: exact_parallel_sum_within_compatible_class
+      bottom_depth: drainage_conductance_weighted
+      summer_level: drainage_conductance_weighted
+      winter_level: drainage_conductance_weighted
+    status: DIAGNOSTIC_NOT_ADMITTED
+
+open_questions:
+  - exact modern source grids/hashes for H1 and MVG
+  - exact spacing/L semantics after compression
+  - SWAP level ordering requirement
+  - regression impact on 49-run oracle and 10242-HRU production population
