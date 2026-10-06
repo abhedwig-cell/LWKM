@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "SEVEN_TO_FIVE_COMPRESSION_DIAGNOSTIC_PASS_NOT_ADMISSION",
+  "date": "2026-10-06",
+  "tool": "tools/dra_level_compression.py",
+  "input_systems": [
+    {"id":"H1","class":"infiltration_capable_open","medium":"open_channel","drnres":200.0,"dep":2.2,"summer":1.4,"winter":1.8,"infres":400.0},
+    {"id":"P","class":"infiltration_capable_open","medium":"open_channel","drnres":300.0,"dep":2.0,"summer":1.3,"winter":1.7,"infres":600.0},
+    {"id":"S","class":"infiltration_capable_open","medium":"open_channel","drnres":500.0,"dep":1.5,"summer":1.0,"winter":1.2,"infres":1000.0},
+    {"id":"T","class":"infiltration_capable_open","medium":"open_channel","drnres":800.0,"dep":1.4,"summer":0.95,"winter":1.15,"infres":1600.0},
+    {"id":"MVG","class":"drain_only_open","medium":"open_channel","drnres":1500.0,"dep":0.5,"summer":0.5,"winter":0.5,"infres":100000.0},
+    {"id":"PIPE","class":"pipe","medium":"drain_tube","drnres":1000.0,"dep":1.0,"summer":1.0,"winter":1.0,"infres":100000.0},
+    {"id":"OLF","class":"drain_only_open","medium":"open_channel","drnres":1200.0,"dep":0.2,"summer":0.2,"winter":0.2,"infres":100000.0}
+  ],
+  "result_groups": [
+    {"source_ids":["H1"],"drnres":200.0,"dep":2.2},
+    {"source_ids":["P"],"drnres":300.0,"dep":2.0},
+    {"source_ids":["S","T"],"drnres":307.6923076923077,"dep":1.4615384615384615},
+    {"source_ids":["PIPE"],"drnres":1000.0,"dep":1.0},
+    {"source_ids":["MVG","OLF"],"drnres":666.6666666666666,"dep":0.3333333333333333}
+  ],
+  "invariants": {
+    "output_level_count": 5,
+    "every_active_source_exactly_once": true,
+    "pipe_remains_distinct": true,
+    "cross_class_merge": false,
+    "drainage_conductance_conserved": true,
+    "infiltration_conductance_conserved": true
+  },
+  "execution": {
+    "repository_clone_attempt": "BLOCKED_BY_CONTAINER_DNS_NO_GITHUB_RESOLUTION",
+    "isolated_python_execution": "PASS"
+  },
+  "caveat": "Synthetic diagnostic only. No fixed production merge mapping is admitted."
+}
