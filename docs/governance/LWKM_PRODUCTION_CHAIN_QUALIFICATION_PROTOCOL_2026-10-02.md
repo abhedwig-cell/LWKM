@@ -450,7 +450,20 @@ Admitted HRU context + qualified drainage source files.
 - representative-SVAT dqsat;
 - qualified conductance/infiltration/bottom/level inputs;
 - geen undefined-state emulatie;
-- geen oracle force-fitting.
+- geen oracle force-fitting;
+- seven physical upstream drainage/surface-water systems are authority: H1, primary, secondary, tertiary, MVG, pipe drainage and OLF;
+- no physical system may be omitted merely because SWAP accepts at most five drainage levels;
+- compression to <=5 occurs only at the SWAP interface and must conserve hydraulic conductance and lineage;
+- pipe drainage remains a distinct SWDTYP=1 class; incompatible hydraulic classes may not be silently merged.
+
+Compression design authority:
+`docs/lhm-hru-swap/P12-DRA-SEVEN-TO-FIVE-LEVEL-DESIGN-2026-10-06.md`.
+
+Machine-readable physical-system authority:
+`config/p12/dra-physical-systems-v2.yml`.
+
+Diagnostic compressor:
+`tools/dra_level_compression.py`.
 
 ## Output
 
