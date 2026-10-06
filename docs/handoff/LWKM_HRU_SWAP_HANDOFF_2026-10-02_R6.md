@@ -305,6 +305,48 @@ No exact historical template has been recovered.
 Status:
 `DIRECT_SWP_RENDERER_ADMITTED = false`.
 
+## DRA physical-system correction — 2026-10-06
+
+Project authority corrects the five-system physical-source assumption.
+
+The layer-1 physical drainage/surface-water system is now seven components:
+- H1 main surface water;
+- primary;
+- secondary;
+- tertiary;
+- MVG/surface ditches;
+- pipe drainage;
+- OLF/overland flow.
+
+The active HRUlist2SWAP code currently uses only five physical families (`pri/sec/ter/dra/glk`) and therefore omits H1 and MVG from resistance/depth derivation despite its own v0.21 history stating that hoofdwaterlopen and greppels were included.
+
+SWAP exposes at most five drainage levels. The modern architecture is therefore:
+
+`7 physical LHM systems -> full HRU aggregation -> explicit hydraulic compression -> <=5 SWAP levels`.
+
+Do not hard-code a global pair deletion or merge.
+
+Authority:
+`docs/lhm-hru-swap/P12-DRA-SEVEN-TO-FIVE-LEVEL-DESIGN-2026-10-06.md`.
+
+Machine-readable source model:
+`config/p12/dra-physical-systems-v2.yml`.
+
+Diagnostic compressor:
+`tools/dra_level_compression.py`.
+
+Synthetic execution passed the invariants:
+- seven active sources reduced to five;
+- pipe remained distinct;
+- source lineage preserved exactly;
+- drainage conductance conserved;
+- infiltration conductance conserved.
+
+Evidence:
+`docs/evidence/2026-10-06/dra-seven-to-five-compression-diagnostic.json`.
+
+This is not production admission. Real H1/MVG source files, L semantics, final SWAP ordering and 10,242-HRU diagnostics remain open.
+
 ## Direct DRA producer status
 
 ### Modern production authority
