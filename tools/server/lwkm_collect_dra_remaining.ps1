@@ -141,6 +141,9 @@ $manifest = Join-Path $manifestDir "files.csv"
 $rows | Export-Csv -LiteralPath $manifest -NoTypeInformation -Encoding UTF8
 $manifestSha = Sha256 $manifest
 $totalBytes = [int64](($rows | Measure-Object -Property size_bytes -Sum).Sum)
+$optionalArray = $optional.ToArray()
+$optionalRecoveredCount = @($optionalArray | Where-Object { $_.status -eq "RECOVERED_AT_LHM_MODELROOT" }).Count
+$optionalMissingCount = @($optionalArray | Where-Object { $_.status -eq "NOT_PRESENT_AT_LHM_MODELROOT" }).Count
 $collection = [ordered]@{
     schema_version=1
     status="DRA_REMAINING_Q2_STAGED_BYTE_IDENTICAL"
@@ -151,9 +154,9 @@ $collection = [ordered]@{
     payload_bytes=$totalBytes
     required_physical_systems=@("RIV_PRIMARY","RIV_SECONDARY","RIV_TERTIARY","DRN_PIPE","DRN_OLF")
     required_source_scope="LHM433 input authority plus AHN; historical HRU steady-state bottoms are optional W07 evidence"
-    historical_hru_bottom_probe=@($optional)
-    historical_hru_bottom_recovered_count=@($optional | Where-Object {$_.status -eq "RECOVERED_AT_LHM_MODELROOT"}).Count
-    historical_hru_bottom_missing_count=@($optional | Where-Object {$_.status -eq "NOT_PRESENT_AT_LHM_MODELROOT"}).Count
+    historical_hru_bottom_probe=$optionalArray
+    historical_hru_bottom_recovered_count=$optionalRecoveredCount
+    historical_hru_bottom_missing_count=$optionalMissingCount
     comparison_set="LHM P/S seasonal bottoms plus T package rbot=PEIL_T1Z/W; optional historical P/S/T BODH_*1J bottoms when present"
     manifest_sha256=$manifestSha
     collected_utc=(Get-Date).ToUniversalTime().ToString("o")
