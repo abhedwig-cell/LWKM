@@ -33,7 +33,12 @@ class PhysicalDrainageSystem:
     dep: float
     peil_sum: float
     peil_win: float
+    dd: float | None = None
     merge_history: tuple[dict, ...] = ()
+
+    @property
+    def allow_infiltration(self) -> bool:
+        return self.hydraulic_class == "infiltration_capable_open"
 
     @property
     def drainage_conductance(self) -> float:
@@ -92,6 +97,64 @@ def hydraulic_merge_cost(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -
     return factor * distance2
 
 
+def _merge_spacing(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> float | None:
+    """Preserve modern representative-SVAT spacing through compression.
+
+    Under the modern DRA authority every active physical system in one HRU uses
+    the same L = 4 * representative-SVAT dqsat. A differing non-null spacing is
+    therefore a contract violation, not something to average silently.
+    """
+    if a.dd is None and b.dd is None:
+        return None
+    if a.dd is None:
+        return b.dd
+    if b.dd is None:
+        return a.dd
+    if abs(float(a.dd) - float(b.dd)) > 1e-9:
+        raise ValueError(
+            f"incompatible drainage spacing during merge: {a.dd} versus {b.dd}"
+        )
+    return float(a.dd)
+
+
+def from_aggregate(
+    *,
+    source_id: str,
+    hydraulic_class: str,
+    medium: str,
+    aggregate: dict,
+) -> PhysicalDrainageSystem:
+    """Create a physical-system record from aggregate_physical_system output."""
+    return PhysicalDrainageSystem(
+        source_ids=(source_id,),
+        hydraulic_class=hydraulic_class,
+        medium=medium,
+        drnres=float(aggregate["drnres"]),
+        infres=float(aggregate["infres"]),
+        dep=float(aggregate["dep"]),
+        peil_sum=float(aggregate["peil_sum"]),
+        peil_win=float(aggregate["peil_win"]),
+        dd=float(aggregate["dd"]),
+    )
+
+
+def to_render_level(system: PhysicalDrainageSystem) -> dict:
+    """Convert a compressed physical system to explicit DRA renderer input."""
+    if system.dd is None:
+        raise ValueError("drainage spacing L is unresolved for compressed level")
+    return {
+        "source_ids": system.source_ids,
+        "medium": system.medium,
+        "allow_infiltration": system.allow_infiltration,
+        "drnres": system.drnres,
+        "infres": system.infres,
+        "dd": system.dd,
+        "dep": system.dep,
+        "peil_sum": system.peil_sum,
+        "peil_win": system.peil_win,
+    }
+
+
 def merge_systems(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> PhysicalDrainageSystem:
     if a.medium != "open_channel" or b.medium != "open_channel":
         raise ValueError("only open-channel systems may be merged")
@@ -113,6 +176,7 @@ def merge_systems(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> Physi
         dep=_weighted(a.dep, ga, b.dep, gb),
         peil_sum=_weighted(a.peil_sum, ga, b.peil_sum, gb),
         peil_win=_weighted(a.peil_win, ga, b.peil_win, gb),
+        dd=_merge_spacing(a, b),
         merge_history=a.merge_history
         + b.merge_history
         + (
