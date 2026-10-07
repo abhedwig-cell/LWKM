@@ -74,13 +74,17 @@ def _resistance_to_conductance(resistance: float) -> float:
 
 
 def _conductance_to_resistance(conductance: float) -> float:
+    """Return the exact equivalent resistance for positive conductance.
+
+    Do not clamp physical resistance to the SWAP parser maximum here. Values
+    above 1e5 d are valid diagnostic evidence that the physical source cannot
+    be represented exactly by a standalone SWAP method-3 level. Production
+    rendering owns that separate fail-closed interface gate.
+    """
     g = float(conductance)
     if not isfinite(g) or g <= 0.0:
         return INACTIVE_RESISTANCE
-    # Keep the SWAP-facing representation inside the admitted resistance
-    # range. Raw conductance is retained separately for further compression
-    # and exact conservation checks.
-    return min(INACTIVE_RESISTANCE, 1.0 / g)
+    return 1.0 / g
 
 
 def _weighted(a: float, ga: float, b: float, gb: float) -> float:
@@ -276,27 +280,50 @@ def from_aggregate(
     )
     cdr_sum = float(aggregate.get("cdr_sum", 0.0))
     inf_sum = float(aggregate.get("infiltration_conductance_sum", 0.0))
+    drainage_g = cdr_sum / support_area if support_area > 0.0 else 0.0
+    infiltration_g = inf_sum / support_area if support_area > 0.0 else 0.0
     return PhysicalDrainageSystem(
         source_ids=(source_id,),
         hydraulic_class=hydraulic_class,
         medium=medium,
-        drnres=float(aggregate["drnres"]),
-        infres=float(aggregate["infres"]),
+        # Modern physical-system objects retain the exact equivalent
+        # resistance. aggregate_physical_system also exposes SWAP-capped
+        # compatibility values, but using those here would make the
+        # >1e5-parser-range diagnostic impossible by construction.
+        drnres=_conductance_to_resistance(drainage_g),
+        infres=(
+            _conductance_to_resistance(infiltration_g)
+            if hydraulic_class == "infiltration_capable_open"
+            else INACTIVE_RESISTANCE
+        ),
         dep=float(aggregate["dep"]),
         peil_sum=float(aggregate["peil_sum"]),
         peil_win=float(aggregate["peil_win"]),
         dd=float(aggregate["dd"]),
         level_series=level_series,
-        drainage_conductance_raw=(cdr_sum / support_area if support_area > 0.0 else 0.0),
-        infiltration_conductance_raw=(inf_sum / support_area if support_area > 0.0 else 0.0),
+        drainage_conductance_raw=drainage_g,
+        infiltration_conductance_raw=infiltration_g,
         physical_active=(cdr_sum > 0.0),
     )
 
 
 def to_render_level(system: PhysicalDrainageSystem) -> dict:
-    """Convert a compressed physical system to explicit DRA renderer input."""
+    """Convert a compressed physical system to explicit DRA renderer input.
+
+    SWAP 4.3.1 method-3 accepts DRARES/INFRES only through 1e5 d. Fail
+    explicitly when the exact modern physical equivalent is outside that
+    interface instead of silently changing its conductance.
+    """
     if system.dd is None:
         raise ValueError("drainage spacing L is unresolved for compressed level")
+    if not 1.0 <= float(system.drnres) <= INACTIVE_RESISTANCE:
+        raise ValueError(
+            f"SWAP DRARES range overflow for {system.source_ids}: {system.drnres}"
+        )
+    if not 0.0 <= float(system.infres) <= INACTIVE_RESISTANCE:
+        raise ValueError(
+            f"SWAP INFRES range overflow for {system.source_ids}: {system.infres}"
+        )
     return {
         "source_ids": system.source_ids,
         "medium": system.medium,
