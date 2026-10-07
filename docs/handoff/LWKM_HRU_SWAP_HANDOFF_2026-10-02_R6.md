@@ -495,6 +495,30 @@ It also compares P/S/T current-HRU bottom definitions against the actual LHM
 package semantics; for T the LHM INI binds the river bottom to
 `PEIL_T1Z/W_250.IDF`.
 
+## W07 seven-system population preflight — 2026-10-07
+
+The modern DRA route now has two population diagnostics.
+
+1. `tools/diagnose_dra_activity_10242.py`
+   - conductance-only;
+   - requires no historical `BODH_*1J` bottoms;
+   - counts active H1/P/S/T/MVG/PIPE/OLF systems for every HRU;
+   - reports the 0..7 active-system distribution;
+   - reports how many HRUs actually require >5 -> 5 compression;
+   - compares the historical five-system activity population with the modern seven-system population.
+
+2. `tools/diagnose_dra_10242.py`
+   - full hydraulic compression diagnostic;
+   - additionally requires qualified bottom/depth authority;
+   - reports merge pairs, costs, dynamic H1 involvement, conductance conservation and bottom-authority comparisons.
+
+The activity preflight is deliberately separated from bottom-authority admission so the factual frequency of 6/7 active physical systems can be established independently.
+
+The remaining real-server source collector now treats historical `BODH_P1J/S1J/T1J` as optional evidence, not as required NHI/LHM inputs. This matches the project-owner authority that HRU/SWAP runtime/material is not an NHI-server W01 requirement.
+
+Execution guide:
+`docs/server/W07_DRA_REMAINING_Q4_EXECUTION_GUIDE_2026-10-07.md`.
+
 ## Direct DRA producer status
 
 ### Modern production authority
