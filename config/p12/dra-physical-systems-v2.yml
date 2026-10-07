@@ -288,3 +288,23 @@ bottom_authority:
   swap_interface_resistance:
     maximum_days: 100000
     action: FAIL_CLOSED_IF_COMPRESSED_LEVEL_EXCEEDS_RANGE
+
+swap_resistance_range_gate:
+  status: IMPLEMENTED_FAIL_CLOSED_PENDING_10242_POPULATION_EVIDENCE
+  SWAP_method3_limits_days:
+    DRARES: [1, 100000]
+    INFRES: [0, 100000]
+  physical_layer_rule: DO_NOT_CLAMP_BEFORE_COMPRESSION
+  diagnostic:
+    report:
+      - DRARES_hru_overflow
+      - DRARES_level_overflow_count
+      - maximum_compressed_DRARES
+      - INFRES_hru_overflow
+      - INFRES_level_overflow_count
+      - maximum_compressed_INFRES
+  production_gate: ZERO_DRARES_AND_INFRES_OVERFLOW
+  forbidden: SILENT_CLAMP_TO_100000
+  historical_20000_day_deactivation:
+    class: LEGACY_POLICY_ONLY
+    modern_action: REPORT_ONLY_DO_NOT_DEACTIVATE
