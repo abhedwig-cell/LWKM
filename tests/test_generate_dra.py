@@ -1,5 +1,11 @@
 import pandas as pd
-from tools.generate_dra import aggregate_system,repair_system,render_dra
+from tools.generate_dra import (
+    aggregate_system,
+    repair_system,
+    render_dra,
+    repair_system_explicit,
+    render_dra_explicit,
+)
 from tools.p12_swallo import REALIZED_PRODUCTION_COMPAT
 
 def members():
@@ -31,3 +37,50 @@ def test_serializer_can_target_realized_system_three_swallo():
     s={"drnres":10,"infres":725,"dep":2,"peil_sum":1,"peil_win":1,"dd":10}
     text=render_dra([s]*5,3,2000,2000,11.820416666666667,swallo_mode=REALIZED_PRODUCTION_COMPAT)
     assert "SWALLO3 = 3" in text
+
+
+
+def test_explicit_repair_disables_pipe_for_nature_independent_of_level_number():
+    s={"drnres":10,"infres":10,"dep":2,"peil_sum":1,"peil_win":1,"dd":10}
+    assert repair_system_explicit(s, medium="drain_tube", isnatuur=True)["drnres"] == 100000
+    assert repair_system_explicit(s, medium="open_channel", isnatuur=True)["drnres"] == 10
+
+
+def test_explicit_renderer_uses_medium_not_level_number_for_swdtyp():
+    base={"drnres":10,"infres":10,"dep":2,"peil_sum":1,"peil_win":1,"dd":10,
+          "allow_infiltration":False,"source_ids":("x",)}
+    levels=[
+        {**base,"medium":"drain_tube"},
+        {**base,"medium":"open_channel"},
+    ]
+    text=render_dra_explicit(levels,3,2000,2000,20)
+    assert "NRLEVS = 2" in text
+    assert "SWDTYP1 = 1" in text
+    assert "SWDTYP2 = 2" in text
+
+
+def test_explicit_renderer_uses_hydraulic_capability_not_level_number_for_swallo():
+    base={"drnres":10,"infres":10,"dep":2,"peil_sum":1,"peil_win":1,"dd":10,
+          "medium":"open_channel","source_ids":("x",)}
+    levels=[
+        {**base,"allow_infiltration":True},
+        {**base,"allow_infiltration":False},
+        {**base,"allow_infiltration":True},
+        {**base,"allow_infiltration":True},
+    ]
+    text=render_dra_explicit(levels,3,2000,2000,20)
+    assert "SWALLO1 = 1" in text
+    assert "SWALLO2 = 3" in text
+    assert "SWALLO3 = 1" in text
+    assert "SWALLO4 = 1" in text
+
+
+def test_explicit_renderer_rejects_more_than_five_levels():
+    base={"drnres":10,"infres":10,"dep":2,"peil_sum":1,"peil_win":1,"dd":10,
+          "medium":"open_channel","allow_infiltration":True,"source_ids":("x",)}
+    try:
+        render_dra_explicit([base]*6,3,2000,2000,20)
+    except ValueError as exc:
+        assert "1..5" in str(exc)
+    else:
+        raise AssertionError("expected six-level render to fail")
