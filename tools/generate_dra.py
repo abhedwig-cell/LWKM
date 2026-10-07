@@ -241,6 +241,9 @@ def render_dra_explicit(
 
         drnres = float(level["drnres"])
         infres = float(level["infres"])
+        spacing = float(level["dd"])
+        depth = float(level["dep"])
+        zbotdr = -depth * 100.0
         if not 1.0 <= drnres <= 100000.0:
             raise ValueError(
                 f"DRARES outside SWAP method-3 range for level {sy}: {drnres}"
@@ -248,6 +251,14 @@ def render_dra_explicit(
         if not 0.0 <= infres <= 100000.0:
             raise ValueError(
                 f"INFRES outside SWAP method-3 range for level {sy}: {infres}"
+            )
+        if not 1.0 <= spacing <= 100000.0:
+            raise ValueError(
+                f"L outside SWAP method-3 range for level {sy}: {spacing}"
+            )
+        if not -10000.0 <= zbotdr <= 0.0:
+            raise ValueError(
+                f"ZBOTDR outside SWAP method-3 range for level {sy}: {zbotdr}"
             )
 
         swallo_value = swallo_modern_explicit(
@@ -261,8 +272,8 @@ def render_dra_explicit(
             f"DRARES{sy} = {drnres:8.0f}",
             f"INFRES{sy} = {infres:8.0f}",
             f"SWALLO{sy} = {swallo_value}",
-            f"L{sy} = {max(1.0, level['dd']):8.0f}",
-            f"ZBOTDR{sy} = {-level['dep'] * 100:8.2f}",
+            f"L{sy} = {spacing:8.0f}",
+            f"ZBOTDR{sy} = {zbotdr:8.2f}",
             f"SWDTYP{sy} = {swdtyp}",
             " ",
             f"    DATOWL{sy}   LEVEL{sy}",
@@ -277,15 +288,27 @@ def render_dra_explicit(
                     raise ValueError(f"level_series must be strictly increasing: {key}")
                 previous = current
                 mon = _SWAP_MONTH[current.month - 1]
+                level_cm = -float(depth) * 100.0
+                if not -10000.0 <= level_cm <= 200.0:
+                    raise ValueError(
+                        f"LEVEL outside SWAP method-3 range for level {sy}: {level_cm}"
+                    )
                 lines.append(
-                    f" {current.day:02d}-{mon}-{current.year:04d} {-float(depth) * 100:8.2f}"
+                    f" {current.day:02d}-{mon}-{current.year:04d} {level_cm:8.2f}"
                 )
         else:
-            lines.append(f" 01-jan-{year_start} {-level['peil_win'] * 100:8.2f}")
+            summer_cm = -float(level["peil_sum"]) * 100.0
+            winter_cm = -float(level["peil_win"]) * 100.0
+            for value in (summer_cm, winter_cm):
+                if not -10000.0 <= value <= 200.0:
+                    raise ValueError(
+                        f"LEVEL outside SWAP method-3 range for level {sy}: {value}"
+                    )
+            lines.append(f" 01-jan-{year_start} {winter_cm:8.2f}")
             for y in range(year_start, year_end + 1):
                 lines += [
-                    f" 01-apr-{y} {-level['peil_sum'] * 100:8.2f}",
-                    f" 01-oct-{y} {-level['peil_win'] * 100:8.2f}",
+                    f" 01-apr-{y} {summer_cm:8.2f}",
+                    f" 01-oct-{y} {winter_cm:8.2f}",
                 ]
         lines.append("* End of table")
     return "\n".join(lines) + "\n"
