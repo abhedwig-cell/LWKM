@@ -21,8 +21,12 @@ function WriteJson([string]$p, $o) {
     $o | ConvertTo-Json -Depth 30 | Set-Content -LiteralPath $p -Encoding UTF8
 }
 
-$model = (Get-Item -LiteralPath $ModelRoot -ErrorAction Stop).FullName.TrimEnd("\","/")
-$out = [IO.Path]::GetFullPath($OutputDir).TrimEnd("\","/")
+# PowerShell 5.1 binds String.TrimEnd to a single char[] parameter. Passing two
+# separate string arguments throws "Argument types do not match" on Windows
+# PowerShell, so use an explicit char array.
+$trimSeparators = [char[]]@('\\','/')
+$model = (Get-Item -LiteralPath $ModelRoot -ErrorAction Stop).FullName.TrimEnd($trimSeparators)
+$out = [IO.Path]::GetFullPath($OutputDir).TrimEnd($trimSeparators)
 $collectorScriptPath = $PSCommandPath
 if ([string]::IsNullOrWhiteSpace($collectorScriptPath) -or -not (Test-Path -LiteralPath $collectorScriptPath -PathType Leaf)) {
     throw "Cannot resolve collector script path for provenance self-hash"
