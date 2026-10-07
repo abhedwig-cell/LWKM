@@ -1,6 +1,7 @@
 from tools.dra_level_compression import (
     PhysicalDrainageSystem,
     compress_to_swap_levels,
+    drainage_infiltration_level_gap,
     from_aggregate,
     to_render_level,
 )
@@ -268,3 +269,33 @@ def test_equal_cost_merge_tie_break_is_independent_of_input_order():
             expected=groups
         assert groups==expected
     assert ("A","B") in expected
+
+
+
+def test_drainage_infiltration_level_gap_is_zero_for_equal_conductance_ratios():
+    a=PhysicalDrainageSystem(
+        ("A",),"infiltration_capable_open","open_channel",
+        100.0,200.0,2.0,1.0,1.5,80.0,
+    )
+    b=PhysicalDrainageSystem(
+        ("B",),"infiltration_capable_open","open_channel",
+        200.0,400.0,1.8,0.8,1.3,80.0,
+    )
+    assert drainage_infiltration_level_gap(a,b) < 1e-15
+
+
+def test_drainage_infiltration_level_gap_detects_one_level_representation_tension():
+    a=PhysicalDrainageSystem(
+        ("A",),"infiltration_capable_open","open_channel",
+        100.0,100.0,2.0,1.0,1.5,80.0,
+    )
+    b=PhysicalDrainageSystem(
+        ("B",),"infiltration_capable_open","open_channel",
+        100.0,1000.0,1.8,0.0,0.5,80.0,
+    )
+    gap=drainage_infiltration_level_gap(a,b)
+    assert gap > 0.0
+    out=compress_to_swap_levels([a,b],max_levels=1)[0]
+    assert abs(
+        out.merge_history[-1]["max_drainage_infiltration_level_gap_m"] - gap
+    ) < 1e-15
