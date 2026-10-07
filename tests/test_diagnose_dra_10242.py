@@ -15,6 +15,7 @@ from tools.diagnose_dra_10242 import (
     _read_membership,
     _read_relation_context,
     _read_static04_snapshot,
+    diagnose,
 )
 
 
@@ -262,3 +263,26 @@ def test_merge_review_metrics_report_population_and_h1_pairs():
     assert tension["events_with_positive_gap"]==2
     assert tension["all_merge_gap_quantiles"]["max"]==0.30
     assert tension["h1_merge_gap_quantiles"]["max"]==0.30
+
+
+
+def test_full_diagnostic_rejects_wrong_h1_bundle_sha_before_reading_relation(tmp_path: Path):
+    relation=tmp_path/"missing_relation.csv"
+    h1=tmp_path/"h1.zip"
+    remaining=tmp_path/"remaining.zip"
+    h1.write_bytes(b"wrong-h1")
+    remaining.write_bytes(b"remaining")
+    try:
+        diagnose(
+            relation,
+            h1,
+            remaining,
+            tmp_path/"out",
+            stage_start="1971-01-01",
+            stage_end="2022-01-01",
+            dqsat_snapshot=tmp_path/"missing_static04.csv",
+        )
+    except ValueError as exc:
+        assert "H1/MVG bundle SHA mismatch" in str(exc)
+    else:
+        raise AssertionError("expected wrong H1 bundle identity to fail closed")
