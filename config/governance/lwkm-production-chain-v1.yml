@@ -89,10 +89,12 @@ steps:
       - docs/lhm-hru-swap/P12-DRA-SOURCE-RUNTIME-PROVENANCE-2026-10-01.md
       - docs/lhm-hru-swap/P12-RUN-LINKED-PRODUCER-PROVENANCE-FOLLOWUP-2026-10-02.md
       - docs/lhm-hru-swap/P12-DRA-SEVEN-TO-FIVE-LEVEL-DESIGN-2026-10-06.md
+      - docs/lhm-hru-swap/P12-DRA-LEVEL-ORDERING-RESOLUTION-2026-10-07.md
       - config/p12/dra-physical-systems-v2.yml
       - docs/evidence/2026-10-07/h1-mvg-file-semantic-audit.json
       - docs/evidence/2026-10-07/h1-source-exception-population-intersection.json
       - tools/dra_level_compression.py
+      - tools/dra_package_guard.py
       - tools/diagnose_dra_10242.py
       - tools/server/lwkm_collect_dra_remaining.ps1
 
