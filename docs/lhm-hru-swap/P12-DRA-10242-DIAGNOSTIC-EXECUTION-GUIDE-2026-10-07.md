@@ -63,12 +63,16 @@ Expected products include:
 
 ### Source families collected
 
-Primary / secondary / tertiary:
+Primary / secondary / tertiary required NHI/LHM source:
 - conductance;
 - infiltration factor;
-- current HRU-DRA steady-state bottom;
 - summer level;
-- winter level.
+- winter level;
+- actual LHM-package bottom candidates.
+
+Historical HRU-DRA steady-state `BODH_*1J` bottoms are probed separately and
+are optional in this NHI/LHM Q4 bundle. Their absence must not make source Q4
+fail.
 
 Pipe drainage:
 - conductance;
@@ -190,7 +194,9 @@ still fails if one occurs in the admitted relation.
 - HRUs requiring compression;
 - merge count and maximum merge cost;
 - maximum conductance-conservation error;
-- P/S/T bottom-authority comparison.
+- P/S/T bottom-authority comparison when historical J-bottom evidence is available;
+- drainage-versus-infiltration equivalent-level tension for every compressed
+  infiltration-capable merge.
 
 `hru_summary.csv`
 - one row per successfully diagnosed HRU;
@@ -226,7 +232,9 @@ After the run, review at least:
 5. every HRU with seven active systems;
 6. P/S/T bottom-authority differences;
 7. conservation residuals;
-8. failed HRUs, if any.
+8. drainage-versus-infiltration equivalent-level gap p50/p90/p95/p99/max,
+   especially H1 merges;
+9. failed HRUs, if any.
 
 Only after that review can the compression policy be admitted or revised.
 
@@ -252,3 +260,28 @@ diagnostic therefore includes that source record as the terminal H1
 This avoids depending on any SWAP `afgen` extrapolation beyond the last
 level-table date. Every simulated instant lies within the explicit H1 level
 table support.
+
+
+## Conductance-only preflight
+
+If the remaining Q4 bundle does not contain the optional historical
+`BODH_P1J_250.IDF`, `BODH_S1J_250.IDF` or `BODH_T1J_250.IDF`, first run:
+
+`tools/diagnose_dra_activity_10242.py`.
+
+This preflight requires only:
+- the 427,656-row authoritative relation;
+- H1/MVG Q4;
+- remaining-source Q4 conductance files.
+
+It still produces the decisive population facts:
+- active-system count distribution 0..7;
+- active HRUs per physical system;
+- HRUs requiring more than five SWAP levels;
+- dominant active-system combinations.
+
+It does not invent a replacement P/S/T static bottom and therefore does not
+claim full DRA hydraulic admission.
+
+The full `diagnose_dra_10242.py` run remains the next gate once a qualified
+static P/S/T bottom authority is available.
