@@ -279,6 +279,8 @@ def from_aggregate(
     level_series: tuple[tuple[str, float], ...] | None = None,
 ) -> PhysicalDrainageSystem:
     """Create a physical-system record from aggregate_physical_system output."""
+    has_raw_drainage = "cdr_sum" in aggregate
+    has_raw_infiltration = "infiltration_conductance_sum" in aggregate
     support_area = float(
         aggregate.get(
             "support_area_m2",
@@ -287,8 +289,16 @@ def from_aggregate(
     )
     cdr_sum = float(aggregate.get("cdr_sum", 0.0))
     inf_sum = float(aggregate.get("infiltration_conductance_sum", 0.0))
-    drainage_g = cdr_sum / support_area if support_area > 0.0 else 0.0
-    infiltration_g = inf_sum / support_area if support_area > 0.0 else 0.0
+    drainage_g = (
+        cdr_sum / support_area
+        if has_raw_drainage and support_area > 0.0
+        else None
+    )
+    infiltration_g = (
+        inf_sum / support_area
+        if has_raw_infiltration and support_area > 0.0
+        else None
+    )
     return PhysicalDrainageSystem(
         source_ids=(source_id,),
         hydraulic_class=hydraulic_class,
@@ -297,11 +307,20 @@ def from_aggregate(
         # resistance. aggregate_physical_system also exposes SWAP-capped
         # compatibility values, but using those here would make the
         # >1e5-parser-range diagnostic impossible by construction.
-        drnres=_conductance_to_resistance(drainage_g),
+        drnres=(
+            _conductance_to_resistance(drainage_g)
+            if drainage_g is not None
+            else float(aggregate["drnres"])
+        ),
         infres=(
             _conductance_to_resistance(infiltration_g)
             if hydraulic_class == "infiltration_capable_open"
-            else INACTIVE_RESISTANCE
+            and infiltration_g is not None
+            else (
+                float(aggregate["infres"])
+                if hydraulic_class == "infiltration_capable_open"
+                else INACTIVE_RESISTANCE
+            )
         ),
         dep=float(aggregate["dep"]),
         peil_sum=float(aggregate["peil_sum"]),
@@ -310,7 +329,11 @@ def from_aggregate(
         level_series=level_series,
         drainage_conductance_raw=drainage_g,
         infiltration_conductance_raw=infiltration_g,
-        physical_active=(cdr_sum > 0.0),
+        physical_active=(
+            (cdr_sum > 0.0)
+            if has_raw_drainage
+            else (_resistance_to_conductance(float(aggregate["drnres"])) > 0.0)
+        ),
     )
 
 
