@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 
 from tools.diagnose_dra_10242 import (
+    _assert_ascii_matches_idf,
     _build_h1_level_matrix,
     _comparison_stats,
     _month_key,
@@ -164,3 +165,27 @@ def test_static04_snapshot_preserves_discriminating_column(tmp_path: Path):
     out=_read_static04_snapshot(p)
     assert len(out)==10242
     assert int(out["discriminating"].sum())==1
+
+
+
+def test_ascii_geometry_must_match_drainage_idf():
+    from types import SimpleNamespace
+    idf=SimpleNamespace(
+        ncol=1200,nrow=1300,xmin=0.0,xmax=300000.0,
+        ymin=300000.0,ymax=625000.0,dx=250.0,dy=250.0,
+    )
+    good=SimpleNamespace(
+        ncols=1200,nrows=1300,xllcorner=0.0,yllcorner=300000.0,
+        cellsize=250.0,
+    )
+    _assert_ascii_matches_idf(good,idf,label="good")
+    bad=SimpleNamespace(
+        ncols=1200,nrows=1300,xllcorner=125.0,yllcorner=300000.0,
+        cellsize=250.0,
+    )
+    try:
+        _assert_ascii_matches_idf(bad,idf,label="bad")
+    except ValueError as exc:
+        assert "geometry" in str(exc)
+    else:
+        raise AssertionError("expected shifted AHN grid to fail")
