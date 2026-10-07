@@ -150,6 +150,29 @@ def _merge_level_series(
     )
 
 
+def max_source_level_separation(
+    a: PhysicalDrainageSystem,
+    b: PhysicalDrainageSystem,
+) -> float:
+    """Maximum prescribed-level separation collapsed by a merge.
+
+    Any non-zero separation means two physical activation breakpoints are
+    represented by one SWAP level. Even when drainage and infiltration
+    conductance ratios are proportional, the source piecewise flux relation is
+    not generally exact between those two breakpoints.
+    """
+    dates=_common_level_dates(a,b)
+    if dates:
+        return max(
+            (abs(_level_on(a,key)-_level_on(b,key)) for key in dates),
+            default=0.0,
+        )
+    return max(
+        abs(float(a.peil_sum)-float(b.peil_sum)),
+        abs(float(a.peil_win)-float(b.peil_win)),
+    )
+
+
 def drainage_infiltration_level_gap(
     a: PhysicalDrainageSystem,
     b: PhysicalDrainageSystem,
@@ -323,6 +346,10 @@ def merge_systems(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> Physi
                 "cost": hydraulic_merge_cost(a, b),
                 "max_drainage_infiltration_level_gap_m":
                     drainage_infiltration_level_gap(a, b),
+                "max_source_level_separation_m":
+                    max_source_level_separation(a, b),
+                "bottom_depth_separation_m":
+                    abs(float(a.dep)-float(b.dep)),
             },
         ),
     )
