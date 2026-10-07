@@ -196,6 +196,8 @@ remaining_source_collection:
     - P_LHM_PACKAGE_WINTER_BOTTOM
     - S_LHM_PACKAGE_SUMMER_BOTTOM
     - S_LHM_PACKAGE_WINTER_BOTTOM
+    - T_LHM_PACKAGE_SUMMER_BOTTOM_EQUALS_PEIL_T1Z
+    - T_LHM_PACKAGE_WINTER_BOTTOM_EQUALS_PEIL_T1W
   reason: compare current HRU DRA steady-state bottom authority with actual LHM package-bottom semantics before modern admission
 
 level_ordering:
