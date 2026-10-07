@@ -19,6 +19,10 @@ import tempfile
 import numpy as np
 import pandas as pd
 
+from tools.compare_dqsat_authority import (
+    compare_dqsat_authority,
+    read_ascii_grid as read_dqsat_ascii_grid,
+)
 from tools.dra_level_compression import compress_to_swap_levels, from_aggregate
 from tools.generate_dra import aggregate_physical_system
 from tools.idf_reader import read_idf
@@ -89,6 +93,32 @@ def _read_membership(path: Path) -> pd.DataFrame:
     if out.duplicated(subset=["svat"]).any():
         raise ValueError("membership contains duplicate SVAT ids")
     return out
+
+
+def _read_relation_context(path: Path) -> tuple[pd.DataFrame,pd.DataFrame,pd.DataFrame]:
+    """Read the authoritative 10242 SVAT->HRU relation once.
+
+    The same source carries the HRU membership used by HRUlist2SWAP and the
+    x/y + original-soil fields required by the already qualified STATIC04
+    representative-dqsat derivation.
+    """
+    full=pd.read_csv(path,low_memory=False)
+    membership=_read_membership(path)
+    sc=_find_column(full.columns,exact=("svat_orig","svat"))
+    xc=_find_column(full.columns,exact=("x","xc(m)","xc"))
+    yc=_find_column(full.columns,exact=("y","yc(m)","yc"))
+    if sc is None or xc is None or yc is None:
+        raise ValueError(
+            "authoritative relation must expose svat_orig/svat and x/y coordinates"
+        )
+    coords=full[[sc,xc,yc]].copy()
+    coords.columns=["svat","x","y"]
+    coords["svat"]=pd.to_numeric(coords["svat"],errors="raise").astype(np.int64)
+    coords["x"]=pd.to_numeric(coords["x"],errors="raise").astype(float)
+    coords["y"]=pd.to_numeric(coords["y"],errors="raise").astype(float)
+    if coords["svat"].duplicated().any():
+        raise ValueError("authoritative relation contains duplicate SVAT ids")
+    return membership,coords,full
 
 
 def _find_column(columns,*,exact=(),contains_all=()):
@@ -203,7 +233,7 @@ def _coordinates_to_row_col(coords: pd.DataFrame,reference_idf: Path) -> pd.Data
 
 def _prepare_static_members(
     membership: pd.DataFrame,
-    svat_info: Path,
+    coordinates: pd.DataFrame,
     h1_bundle: Path,
     remaining_bundle: Path,
 ) -> pd.DataFrame:
@@ -242,7 +272,7 @@ def _prepare_static_members(
         "S_bottom_lhm_win":_find_one(remaining_bundle,"BODH_S1W_250.IDF"),
     }
 
-    coords=_coordinates_to_row_col(_read_svat_coordinates(svat_info),paths["H1_cdr"])
+    coords=_coordinates_to_row_col(coordinates,paths["H1_cdr"])
     mem=membership.merge(coords,on="svat",how="left",validate="many_to_one")
     if mem[["row","col"]].isna().any().any():
         missing=mem.loc[mem["row"].isna(),"svat"].head(10).tolist()
@@ -333,31 +363,36 @@ def _comparison_stats(members: pd.DataFrame) -> dict:
 
 
 def diagnose(
-    membership_csv: Path,
-    svat_info_csv: Path,
-    dqsat_csv: Path,
+    relation_csv: Path,
+    schema_csv: Path,
+    dqsat_grid: Path,
     h1_mvg_zip: Path,
     remaining_zip: Path,
     output_dir: Path,
     *,
     stage_start: str,
     stage_end: str,
-    dqsat_hru_column: str | None,
-    dqsat_value_column: str | None,
 ) -> None:
     output_dir.mkdir(parents=True,exist_ok=True)
-    membership=_read_membership(membership_csv)
-    dqsat=_read_dqsat(
-        dqsat_csv,
-        hru_column=dqsat_hru_column,
-        dqsat_column=dqsat_value_column,
+    membership,coordinates,relation=_read_relation_context(relation_csv)
+    schema=pd.read_csv(schema_csv,low_memory=False)
+    dqsat_table=compare_dqsat_authority(
+        schema,
+        relation,
+        read_dqsat_ascii_grid(dqsat_grid),
+    )
+    dqsat=dict(
+        zip(
+            dqsat_table["hru"].astype(int),
+            dqsat_table["representative_dqsat"].astype(float),
+        )
     )
 
     with tempfile.TemporaryDirectory(prefix="lwkm_dra_") as td:
         root=Path(td)
         h1root=_extract_bundle(h1_mvg_zip,root)
         remroot=_extract_bundle(remaining_zip,root)
-        members=_prepare_static_members(membership,svat_info_csv,h1root,remroot)
+        members=_prepare_static_members(membership,coordinates,h1root,remroot)
 
         hru_count=int(members["hru"].nunique())
         if hru_count!=10242:
@@ -446,8 +481,16 @@ def diagnose(
         "schema_version":2,
         "status":"DRA_10242_DIAGNOSTIC_PASS" if len(f)==0 and len(s)==10242 else "DRA_10242_DIAGNOSTIC_FAIL",
         "source_identity":{
+            "relation_sha256":_sha256(relation_csv),
+            "schema_sha256":_sha256(schema_csv),
+            "dqsat_grid_sha256":_sha256(dqsat_grid),
             "h1_mvg_zip_sha256":_sha256(h1_mvg_zip),
             "remaining_zip_sha256":_sha256(remaining_zip),
+        },
+        "representative_dqsat":{
+            "authority":"STATIC04_REPRESENTATIVE_SVAT",
+            "hru_count":int(len(dqsat_table)),
+            "discriminating_from_legacy_majority_bfe":int(dqsat_table["discriminating"].sum()),
         },
         "hru_expected":10242,
         "hru_completed":int(len(s)),
@@ -474,11 +517,12 @@ def diagnose(
 
 def main() -> int:
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--membership",type=Path,required=True)
-    p.add_argument("--svat-info",type=Path,required=True)
-    p.add_argument("--dqsat",type=Path,required=True)
-    p.add_argument("--dqsat-hru-column")
-    p.add_argument("--dqsat-value-column")
+    p.add_argument("--relation",type=Path,required=True,
+                   help="authoritative export_svat_HRU_NRU_10242.csv")
+    p.add_argument("--schema",type=Path,required=True,
+                   help="authoritative export_HRUschema_10242_copy.csv")
+    p.add_argument("--dqsat-grid",type=Path,required=True,
+                   help="qualified grensvlak_NHIWQ_v2_fill.asc")
     p.add_argument("--h1-mvg-zip",type=Path,required=True)
     p.add_argument("--remaining-zip",type=Path,required=True)
     p.add_argument("--stage-start",default="1971-01-01")
@@ -486,16 +530,14 @@ def main() -> int:
     p.add_argument("--output-dir",type=Path,required=True)
     a=p.parse_args()
     diagnose(
-        a.membership,
-        a.svat_info,
-        a.dqsat,
+        a.relation,
+        a.schema,
+        a.dqsat_grid,
         a.h1_mvg_zip,
         a.remaining_zip,
         a.output_dir,
         stage_start=a.stage_start,
         stage_end=a.stage_end,
-        dqsat_hru_column=a.dqsat_hru_column,
-        dqsat_value_column=a.dqsat_value_column,
     )
     return 0
 
