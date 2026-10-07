@@ -762,10 +762,12 @@ def diagnose(
             "required_for_production":"ZERO_OVERFLOW",
         },
         "ordering_candidate":"DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE",
-        "ordering_admission":"DRA_LEVEL_ORDERING_CONDITIONALLY_QUALIFIED",
+        "ordering_admission":"W07_DIAGNOSTIC_ORDERING_QUALIFIED_PRODUCTION_SENSITIVITY_OPEN",
         "ordering_conditions":[
             "DRAMET=3",
             "SWINTFL=0",
+            "deterministic deepest-first/medium/lineage serialization is admitted for W07 diagnostic use",
+            "bounded SWDIVD ordering sensitivity remains required before production admission",
             "indexed rapid macropore drainage must be absent or explicitly rebound after compression",
         ],
         "merge_event_count":int(len(m)),
