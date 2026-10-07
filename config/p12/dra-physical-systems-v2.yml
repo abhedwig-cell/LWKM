@@ -195,23 +195,40 @@ population_intersection_2026_10_07:
 remaining_source_collection:
   tool: tools/server/lwkm_collect_dra_remaining.ps1
   status: READY_FOR_REAL_SERVER_Q4
-  required_families:
+  required_nhi_lhm_families:
     - RIV_PRIMARY
     - RIV_SECONDARY
     - RIV_TERTIARY
     - DRN_PIPE
     - DRN_OLF
     - AHN_GROUND_CM
-  comparison_inputs:
+  required_lhm_package_bottom_inputs:
     - P_LHM_PACKAGE_SUMMER_BOTTOM
     - P_LHM_PACKAGE_WINTER_BOTTOM
     - S_LHM_PACKAGE_SUMMER_BOTTOM
     - S_LHM_PACKAGE_WINTER_BOTTOM
     - T_LHM_PACKAGE_SUMMER_RBOT_EQUALS_PEIL_T1Z
     - T_LHM_PACKAGE_WINTER_RBOT_EQUALS_PEIL_T1W
-    - T_LHM_PACKAGE_SUMMER_BOTTOM_EQUALS_PEIL_T1Z
-    - T_LHM_PACKAGE_WINTER_BOTTOM_EQUALS_PEIL_T1W
-  reason: compare current HRU DRA steady-state bottom authority with actual LHM package-bottom semantics before modern admission
+  optional_historical_hru_bottom_probe:
+    - BODH_P1J_250.IDF
+    - BODH_S1J_250.IDF
+    - BODH_T1J_250.IDF
+  optional_reason: >-
+    These steady-state J bottoms are authority from the historical HRU/SWAP
+    BasicData control, not from the NHI/LHM run INI. Their absence from the
+    NHI server must not fail Q4 collection of genuine LHM inputs.
+  activity_preflight:
+    tool: tools/diagnose_dra_activity_10242.py
+    requires_historical_j_bottoms: false
+    qualification_scope: conductance_presence_only
+  full_hydraulic_comparison:
+    requires_historical_j_bottoms: true
+    missing_policy: FAIL_CLOSED_NO_PACKAGE_BOTTOM_SUBSTITUTION
+  reason: >-
+    First close the actual seven-system activity/compression population from
+    qualified LHM conductance sources. Compare current-HRU steady-state bottom
+    authority with actual LHM package-bottom semantics only when both byte
+    authorities are independently recovered.
 
 level_ordering:
   status: W07_DIAGNOSTIC_ORDERING_QUALIFIED_PRODUCTION_SENSITIVITY_OPEN
