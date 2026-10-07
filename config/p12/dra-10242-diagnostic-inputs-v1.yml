@@ -59,6 +59,14 @@ representative_dqsat:
 
 diagnostic:
   tool: tools/diagnose_dra_10242.py
+  population_input_rule: exactly_one_dqsat_route_snapshot_or_schema_plus_grid
+  operational_cli:
+    - --relation export_svat_HRU_NRU_10242.csv
+    - --dqsat-snapshot static04_dqsat_full_10242.csv
+  audit_cli:
+    - --relation export_svat_HRU_NRU_10242.csv
+    - --schema export_HRUschema_10242.csv
+    - --dqsat-grid grensvlak_NHIWQ_v2_fill.asc
   source_bundles_required:
     - LHM433_H1_MVG_Q4.zip
     - LHM433_DRA_REMAINING_Q4.zip
