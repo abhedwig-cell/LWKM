@@ -211,6 +211,16 @@ def _read_static04_snapshot(path: Path) -> pd.DataFrame:
         raise ValueError("non-finite representative dqsat in STATIC04 snapshot")
     if "discriminating" not in out.columns:
         out["discriminating"]=False
+    elif out["discriminating"].dtype != bool:
+        raw=out["discriminating"].astype(str).str.strip().str.lower()
+        allowed={"true","false","1","0","yes","no","y","n"}
+        bad=~raw.isin(allowed)
+        if bad.any():
+            raise ValueError(
+                "invalid discriminating values in STATIC04 snapshot: "
+                + ",".join(sorted(raw[bad].unique())[:10])
+            )
+        out["discriminating"]=raw.isin({"true","1","yes","y"})
     return out.sort_values("hru").reset_index(drop=True)
 
 
@@ -248,6 +258,17 @@ def _h1_stage_files(root: Path,start: str,end: str) -> list[Path]:
     keys=[k for k,_ in pairs]
     if len(keys)!=len(set(keys)):
         raise ValueError("duplicate H1 stage month")
+    expected=[
+        d.strftime("%Y-%m-%d")
+        for d in pd.date_range(start=start,end=end,freq="MS")
+    ]
+    if keys!=expected:
+        missing=sorted(set(expected)-set(keys))
+        extra=sorted(set(keys)-set(expected))
+        raise ValueError(
+            f"H1 stage sequence is not gap-free monthly: "
+            f"missing={missing[:10]}, extra={extra[:10]}"
+        )
     return [p for _,p in pairs]
 
 
@@ -378,10 +399,13 @@ def _aggregate_static(group: pd.DataFrame,name: str,dq: float) -> dict:
 def _build_h1_level_matrix(
     members: pd.DataFrame,
     stage_files: list[Path],
+    *,
+    reference_idf: Path | None = None,
 ) -> tuple[list[str],np.ndarray,dict[int,str]]:
     """Stream H1 stages once and aggregate monthly level depth per HRU."""
     hru=members["hru"].to_numpy(int)
     max_hru=int(hru.max())
+    reference_grid=read_idf(reference_idf) if reference_idf is not None else None
     rows=members["row"].to_numpy(int)
     cols=members["col"].to_numpy(int)
     glk=members["glk"].to_numpy(float)
@@ -393,8 +417,17 @@ def _build_h1_level_matrix(
     failures={}
 
     for j,path in enumerate(stage_files):
-        v,nd=_load_idf_values(path)
-        stage=_sample(v,nd,rows,cols)
+        grid=read_idf(path)
+        if reference_grid is not None and not _same_grid_geometry(reference_grid,grid):
+            raise ValueError(
+                f"H1 stage geometry does not match drainage reference: {path}"
+            )
+        stage=_sample(
+            np.asarray(grid.values,dtype=float),
+            float(grid.nodata),
+            rows,
+            cols,
+        )
         missing=active & np.isnan(stage)
         if missing.any():
             for hid in np.unique(hru[missing]):
@@ -490,7 +523,11 @@ def diagnose(
             )
 
         stage_files=_h1_stage_files(h1root,stage_start,stage_end)
-        stage_dates,h1_matrix,h1_failures=_build_h1_level_matrix(members,stage_files)
+        stage_dates,h1_matrix,h1_failures=_build_h1_level_matrix(
+            members,
+            stage_files,
+            reference_idf=_find_one(h1root,"COND_HL1_250.IDF"),
+        )
         comparison=_comparison_stats(members)
 
         summary=[]
