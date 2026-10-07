@@ -459,3 +459,56 @@ the SWAP table reader.
 This is a SWAP serialization/interpolation contract. Whether a later scientific
 mapping should represent LHM monthly stages as linear or stepwise forcing is a
 separate model-mapping decision and must not be changed silently.
+
+
+## Drainage versus infiltration equivalent-level tension — 2026-10-07
+
+Exact parallel conductance conservation is necessary but is not, by itself,
+sufficient to prove that a compressed infiltration-capable SWAP level exactly
+reproduces both branches of the two-source flux relation.
+
+One SWAP method-3 level has one shared prescribed water level, while drainage
+uses DRARES and infiltration uses INFRES.
+
+For two physical systems A and B:
+
+- the drainage-equivalent level is weighted by drainage conductance;
+- the infiltration-equivalent level is weighted by infiltration conductance.
+
+If the two physical systems have different infiltration/drainage conductance
+ratios, those two equivalent levels need not coincide.
+
+The diagnostic quantity is therefore:
+
+`max_drainage_infiltration_level_gap_m`
+
+defined as the maximum absolute difference, over all retained level timestamps,
+between:
+
+1. the drainage-conductance-weighted equivalent level; and
+2. the infiltration-conductance-weighted equivalent level.
+
+Properties:
+
+- drain-only MVG/OLF merges have no infiltration-level tension;
+- infiltration-capable merges can have zero tension when the source
+  infiltration/drainage conductance ratios are equal;
+- a positive value identifies an irreducible one-level representation
+  compromise, not a conductance-conservation failure.
+
+Current compression continues to use the drainage-conductance-weighted level.
+That choice is **not yet production-admitted for all infiltration-capable
+merges**.
+
+The 10,242-HRU population diagnostic now reports:
+- the gap on every merge event;
+- p50/p90/p95/p99/max over all merges;
+- the same distribution for merges involving H1;
+- the number of merge events with a positive gap.
+
+No scientific acceptance threshold is defined before the real population
+distribution is observed.
+
+Status:
+
+`INFILTRATION_CAPABLE_MERGE_LEVEL_EQUIVALENCE_DIAGNOSTIC_REQUIRED`.
