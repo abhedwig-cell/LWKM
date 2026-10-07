@@ -540,8 +540,22 @@ def diagnose(
     schema_csv: Path | None = None,
     dqsat_grid: Path | None = None,
     dqsat_snapshot: Path | None = None,
+    expected_h1_mvg_sha256: str = "3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa",
+    expected_remaining_sha256: str | None = None,
 ) -> None:
     output_dir.mkdir(parents=True,exist_ok=True)
+    actual_h1=_sha256(h1_mvg_zip)
+    actual_remaining=_sha256(remaining_zip)
+    if actual_h1.lower()!=expected_h1_mvg_sha256.lower():
+        raise ValueError(
+            f"H1/MVG bundle SHA mismatch: expected={expected_h1_mvg_sha256} actual={actual_h1}"
+        )
+    if expected_remaining_sha256 is not None and actual_remaining.lower()!=expected_remaining_sha256.lower():
+        raise ValueError(
+            "remaining-source bundle SHA mismatch: "
+            f"expected={expected_remaining_sha256} actual={actual_remaining}"
+        )
+
     membership,coordinates,relation=_read_relation_context(relation_csv)
     if len(membership)!=427656:
         raise ValueError(f"expected 427656 membership rows, got {len(membership)}")
@@ -701,8 +715,9 @@ def diagnose(
             "schema_sha256":None if schema_csv is None else _sha256(schema_csv),
             "dqsat_grid_sha256":None if dqsat_grid is None else _sha256(dqsat_grid),
             "dqsat_snapshot_sha256":None if dqsat_snapshot is None else _sha256(dqsat_snapshot),
-            "h1_mvg_zip_sha256":_sha256(h1_mvg_zip),
-            "remaining_zip_sha256":_sha256(remaining_zip),
+            "h1_mvg_zip_sha256":actual_h1,
+            "remaining_zip_sha256":actual_remaining,
+            "remaining_zip_expected_sha256":expected_remaining_sha256,
         },
         "representative_dqsat":{
             "authority":dqsat_authority,
@@ -756,6 +771,7 @@ def main() -> int:
                    help="qualified static04_dqsat_full_10242.csv replay snapshot")
     p.add_argument("--h1-mvg-zip",type=Path,required=True)
     p.add_argument("--remaining-zip",type=Path,required=True)
+    p.add_argument("--expected-remaining-sha256")
     p.add_argument("--stage-start",default="1971-01-01")
     p.add_argument("--stage-end",default="2022-01-01")
     p.add_argument("--output-dir",type=Path,required=True)
@@ -770,6 +786,7 @@ def main() -> int:
         schema_csv=a.schema,
         dqsat_grid=a.dqsat_grid,
         dqsat_snapshot=a.dqsat_snapshot,
+        expected_remaining_sha256=a.expected_remaining_sha256,
     )
     return 0
 
