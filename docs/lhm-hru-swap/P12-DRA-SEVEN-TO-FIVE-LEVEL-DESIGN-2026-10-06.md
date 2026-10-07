@@ -434,3 +434,28 @@ The 10,242 diagnostic now compares all three regional river systems:
 
 No modern bottom authority is selected until this comparison is measured on the
 full admitted population.
+
+
+## H1 time-table boundary semantics — 2026-10-07
+
+The modern diagnostic period is aligned to the historical HRU/SWAP control:
+
+- simulation start: 1971-01-01;
+- simulation end: 2021-12-31;
+- H1 source table used by the diagnostic: 1971-01-01 through 2021-12-01;
+- required H1 records in that selected range: 612 consecutive monthly records.
+
+The diagnostic now fails closed if that selected monthly sequence has any
+missing or extra month.
+
+SWAP/TTUTIL time-table semantics are:
+- linear interpolation between specified time records;
+- outside the specified table range, use the closest specified value.
+
+Therefore the 2021-12-01 H1 value remains valid through 2021-12-31 when it is
+the final table record. No synthetic 2022-01-01 boundary record is required by
+the SWAP table reader.
+
+This is a SWAP serialization/interpolation contract. Whether a later scientific
+mapping should represent LHM monthly stages as linear or stepwise forcing is a
+separate model-mapping decision and must not be changed silently.
