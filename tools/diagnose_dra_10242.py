@@ -456,6 +456,18 @@ def _comparison_stats(members: pd.DataFrame) -> dict:
     return out
 
 
+def _numeric_quantiles(values: np.ndarray) -> dict:
+    if len(values)==0:
+        return {"p50":None,"p90":None,"p95":None,"p99":None,"max":None}
+    return {
+        "p50":float(np.quantile(values,0.50)),
+        "p90":float(np.quantile(values,0.90)),
+        "p95":float(np.quantile(values,0.95)),
+        "p99":float(np.quantile(values,0.99)),
+        "max":float(np.max(values)),
+    }
+
+
 def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
     """Review metrics for the bounded seven-to-five population gate."""
     if len(s):
@@ -467,15 +479,14 @@ def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
 
     if len(m):
         costs=pd.to_numeric(m["cost"],errors="raise").to_numpy(float)
-        quantiles={
-            "p50":float(np.quantile(costs,0.50)),
-            "p90":float(np.quantile(costs,0.90)),
-            "p95":float(np.quantile(costs,0.95)),
-            "p99":float(np.quantile(costs,0.99)),
-            "max":float(np.max(costs)),
-        }
+        quantiles=_numeric_quantiles(costs)
+        gaps=pd.to_numeric(
+            m["max_drainage_infiltration_level_gap_m"],errors="raise"
+        ).to_numpy(float)
+        gap_quantiles=_numeric_quantiles(gaps)
         pair_counts={}
         h1_events=0
+        h1_gaps=[]
         for row in m.itertuples(index=False):
             left=str(row.left)
             right=str(row.right)
@@ -483,16 +494,22 @@ def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
             pair_counts[pair]=pair_counts.get(pair,0)+1
             if "H1" in set(left.split("+")) or "H1" in set(right.split("+")):
                 h1_events+=1
+                h1_gaps.append(float(row.max_drainage_infiltration_level_gap_m))
         top_pairs=[
             {"pair":pair,"count":count}
             for pair,count in sorted(
                 pair_counts.items(),key=lambda kv:(-kv[1],kv[0])
             )[:20]
         ]
+        positive_gap_events=int((gaps>0.0).sum())
+        h1_gap_quantiles=_numeric_quantiles(np.asarray(h1_gaps,dtype=float))
     else:
-        quantiles={"p50":None,"p90":None,"p95":None,"p99":None,"max":None}
+        quantiles=_numeric_quantiles(np.asarray([],dtype=float))
+        gap_quantiles=_numeric_quantiles(np.asarray([],dtype=float))
+        h1_gap_quantiles=_numeric_quantiles(np.asarray([],dtype=float))
         top_pairs=[]
         h1_events=0
+        positive_gap_events=0
 
     return {
         "zero_active_hru":zero_active,
@@ -500,6 +517,14 @@ def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
         "seven_active_hru":seven_active,
         "h1_merge_event_count":h1_events,
         "merge_cost_quantiles":quantiles,
+        "merge_level_representation_tension":{
+            "metric":"max absolute difference between drainage-equivalent and infiltration-equivalent merged level",
+            "unit":"m",
+            "acceptance_threshold":None,
+            "events_with_positive_gap":positive_gap_events,
+            "all_merge_gap_quantiles":gap_quantiles,
+            "h1_merge_gap_quantiles":h1_gap_quantiles,
+        },
         "top_merge_pairs":top_pairs,
     }
 
@@ -624,6 +649,9 @@ def diagnose(
                             "left":"+".join(event["left"]),
                             "right":"+".join(event["right"]),
                             "cost":float(event["cost"]),
+                            "max_drainage_infiltration_level_gap_m":float(
+                                event.get("max_drainage_infiltration_level_gap_m",0.0)
+                            ),
                             "final_group":"+".join(p.source_ids),
                             "dynamic_dates":0 if p.level_series is None else len(p.level_series),
                         })
