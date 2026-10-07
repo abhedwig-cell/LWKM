@@ -108,16 +108,33 @@ swap_interface:
       seasonal_open_channels: evaluate_seasonal_level_at_dynamic_timestamps_when_merged
       explicit_date_mismatch: FAIL_CLOSED
     merge_equivalence_diagnostic:
-      metric: max_drainage_infiltration_level_gap_m
-      meaning: absolute_gap_between_drainage_weighted_and_infiltration_weighted_equivalent_levels
-      unit: m
-      applies_to: infiltration_capable_merged_levels
       conductance_conservation_alone_is_sufficient_for_admission: false
-      acceptance_threshold: UNSET_PENDING_10242_POPULATION_EVIDENCE
+      drainage_infiltration_centroid_gap:
+        metric: max_drainage_infiltration_level_gap_m
+        meaning: absolute_gap_between_drainage_weighted_and_infiltration_weighted_equivalent_levels
+        unit: m
+        applies_to: infiltration_capable_merged_levels
+        acceptance_threshold: UNSET_PENDING_10242_POPULATION_EVIDENCE
+      source_activation_level_span:
+        metric: max_source_level_separation_m
+        meaning: maximum_separation_between_physical_prescribed_levels_collapsed_into_one_SWAP_level
+        unit: m
+        applies_to: all_merged_levels
+        exact_equivalence_implication: nonzero_span_means_two_activation_breakpoints_are_collapsed
+        acceptance_threshold: UNSET_PENDING_10242_POPULATION_EVIDENCE
+      bottom_depth_span:
+        metric: bottom_depth_separation_m
+        meaning: absolute_source_drainage_bottom_depth_separation_collapsed_into_equivalent_bottom
+        unit: m
+        applies_to: all_merged_levels
+        acceptance_threshold: UNSET_PENDING_10242_POPULATION_EVIDENCE
       required_population_reporting:
-        - all_merge_p50_p90_p95_p99_max
-        - H1_merge_p50_p90_p95_p99_max
-        - events_with_positive_gap
+        - drainage_infiltration_gap_p50_p90_p95_p99_max
+        - source_activation_level_span_p50_p90_p95_p99_max
+        - H1_source_activation_level_span_p50_p90_p95_p99_max
+        - bottom_depth_span_p50_p90_p95_p99_max
+        - events_with_positive_centroid_gap
+        - events_with_positive_source_level_span
     status: IMPLEMENTED_NOT_10242_ADMITTED
 
 qualified_source_bundles:
