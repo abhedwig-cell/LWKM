@@ -238,16 +238,28 @@ def render_dra_explicit(
         medium = level["medium"]
         if medium not in {"open_channel", "drain_tube"}:
             raise ValueError(f"unsupported drainage medium: {medium}")
+
+        drnres = float(level["drnres"])
+        infres = float(level["infres"])
+        if not 1.0 <= drnres <= 100000.0:
+            raise ValueError(
+                f"DRARES outside SWAP method-3 range for level {sy}: {drnres}"
+            )
+        if not 0.0 <= infres <= 100000.0:
+            raise ValueError(
+                f"INFRES outside SWAP method-3 range for level {sy}: {infres}"
+            )
+
         swallo_value = swallo_modern_explicit(
             bool(level["allow_infiltration"]),
-            float(level["infres"]),
+            infres,
             float(river_infiltration_indicator),
         )
         swdtyp = 1 if medium == "drain_tube" else 2
 
         lines += [
-            f"DRARES{sy} = {level['drnres']:8.0f}",
-            f"INFRES{sy} = {level['infres']:8.0f}",
+            f"DRARES{sy} = {drnres:8.0f}",
+            f"INFRES{sy} = {infres:8.0f}",
             f"SWALLO{sy} = {swallo_value}",
             f"L{sy} = {max(1.0, level['dd']):8.0f}",
             f"ZBOTDR{sy} = {-level['dep'] * 100:8.2f}",
