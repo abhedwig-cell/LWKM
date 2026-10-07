@@ -47,8 +47,20 @@ foreach ($p in @($bundle,$zip,$q4,$zipShaFile)) {
 New-Item -ItemType Directory -Path $manifestDir -Force | Out-Null
 
 $spec = New-Object System.Collections.Generic.List[object]
+$optional = New-Object System.Collections.Generic.List[object]
+
 function AddSpec([string]$id,[string]$role,[string]$source,[string]$rel,[string]$authority) {
     $script:spec.Add([pscustomobject]@{logical_id=$id; semantic_role=$role; source=$source; rel=$rel; authority=$authority})
+}
+
+function AddOptionalSpec([string]$id,[string]$role,[string]$source,[string]$rel,[string]$authority) {
+    if (Test-Path -LiteralPath $source -PathType Leaf) {
+        $script:spec.Add([pscustomobject]@{logical_id=$id; semantic_role=$role; source=$source; rel=$rel; authority=$authority})
+        $script:optional.Add([pscustomobject]@{logical_id=$id; source_path=$source; status="RECOVERED_AT_LHM_MODELROOT"})
+    }
+    else {
+        $script:optional.Add([pscustomobject]@{logical_id=$id; source_path=$source; status="NOT_PRESENT_AT_LHM_MODELROOT"})
+    }
 }
 
 # P/S/T source set used by the current HRU DRA control.
@@ -58,9 +70,9 @@ AddSpec "T_CONDUCTANCE" "Tertiary river conductance" (Join-Path $riv "COND_terti
 AddSpec "P_INFILTRATION_FACTOR" "Primary river infiltration factor" (Join-Path $riv "inf_mz_primair.IDF") "10_RIV/P/inf_mz_primair.IDF" "CURRENT_HRU_DRA_CONTROL_AND_LHM_INI"
 AddSpec "S_INFILTRATION_FACTOR" "Secondary river infiltration factor" (Join-Path $riv "inf_mz_secundair.IDF") "10_RIV/S/inf_mz_secundair.IDF" "CURRENT_HRU_DRA_CONTROL_AND_LHM_INI"
 AddSpec "T_INFILTRATION_FACTOR" "Tertiary river infiltration factor" (Join-Path $riv "inf_mz_tertiair.IDF") "10_RIV/T/inf_mz_tertiair.IDF" "CURRENT_HRU_DRA_CONTROL_AND_LHM_INI"
-AddSpec "P_BOTTOM_HRU" "Primary bottom used by current HRU DRA control" (Join-Path $riv "steady-state\BODH_P1J_250.IDF") "10_RIV/P/BODH_P1J_250.IDF" "CURRENT_HRU_DRA_CONTROL"
-AddSpec "S_BOTTOM_HRU" "Secondary bottom used by current HRU DRA control" (Join-Path $riv "steady-state\BODH_S1J_250.IDF") "10_RIV/S/BODH_S1J_250.IDF" "CURRENT_HRU_DRA_CONTROL"
-AddSpec "T_BOTTOM_HRU" "Tertiary bottom used by current HRU DRA control" (Join-Path $riv "steady-state\BODH_T1J_250.IDF") "10_RIV/T/BODH_T1J_250.IDF" "CURRENT_HRU_DRA_CONTROL"
+AddOptionalSpec "P_BOTTOM_HRU" "Primary bottom used by current HRU DRA control" (Join-Path $riv "steady-state\BODH_P1J_250.IDF") "40_HISTORICAL_HRU_BOTTOM/P/BODH_P1J_250.IDF" "CURRENT_HRU_DRA_CONTROL_NOT_LHM_PACKAGE"
+AddOptionalSpec "S_BOTTOM_HRU" "Secondary bottom used by current HRU DRA control" (Join-Path $riv "steady-state\BODH_S1J_250.IDF") "40_HISTORICAL_HRU_BOTTOM/S/BODH_S1J_250.IDF" "CURRENT_HRU_DRA_CONTROL_NOT_LHM_PACKAGE"
+AddOptionalSpec "T_BOTTOM_HRU" "Tertiary bottom used by current HRU DRA control" (Join-Path $riv "steady-state\BODH_T1J_250.IDF") "40_HISTORICAL_HRU_BOTTOM/T/BODH_T1J_250.IDF" "CURRENT_HRU_DRA_CONTROL_NOT_LHM_PACKAGE"
 AddSpec "P_LEVEL_SUM" "Primary summer level" (Join-Path $riv "PEIL_P1Z_250.IDF") "10_RIV/P/PEIL_P1Z_250.IDF" "CURRENT_HRU_DRA_CONTROL_AND_LHM_INI"
 AddSpec "P_LEVEL_WIN" "Primary winter level" (Join-Path $riv "PEIL_P1W_250.IDF") "10_RIV/P/PEIL_P1W_250.IDF" "CURRENT_HRU_DRA_CONTROL_AND_LHM_INI"
 AddSpec "S_LEVEL_SUM" "Secondary summer level" (Join-Path $riv "PEIL_S1Z_250.IDF") "10_RIV/S/PEIL_S1Z_250.IDF" "CURRENT_HRU_DRA_CONTROL_AND_LHM_INI"
@@ -129,7 +141,11 @@ $collection = [ordered]@{
     file_count=$rows.Count
     payload_bytes=$totalBytes
     required_physical_systems=@("RIV_PRIMARY","RIV_SECONDARY","RIV_TERTIARY","DRN_PIPE","DRN_OLF")
-    comparison_set="LHM P/S seasonal bottoms plus T package rbot=PEIL_T1Z/W retained to compare package versus current HRU DRA bottom authority"
+    required_source_scope="LHM433 input authority plus AHN; historical HRU steady-state bottoms are optional W07 evidence"
+    historical_hru_bottom_probe=@($optional)
+    historical_hru_bottom_recovered_count=@($optional | Where-Object {$_.status -eq "RECOVERED_AT_LHM_MODELROOT"}).Count
+    historical_hru_bottom_missing_count=@($optional | Where-Object {$_.status -eq "NOT_PRESENT_AT_LHM_MODELROOT"}).Count
+    comparison_set="LHM P/S seasonal bottoms plus T package rbot=PEIL_T1Z/W; optional historical P/S/T BODH_*1J bottoms when present"
     manifest_sha256=$manifestSha
     collected_utc=(Get-Date).ToUniversalTime().ToString("o")
     collector_host=$env:COMPUTERNAME
