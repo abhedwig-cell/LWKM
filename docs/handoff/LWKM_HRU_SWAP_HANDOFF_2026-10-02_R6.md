@@ -347,6 +347,33 @@ Evidence:
 
 This is not production admission. Real H1/MVG source files, L semantics, final SWAP ordering and 10,242-HRU diagnostics remain open.
 
+## H1/MVG real-server Q4 recovery — 2026-10-07
+
+The H1/MVG source bundle required by the seven-physical-system DRA redesign has passed a real-server Q4 collection and fresh-extraction verification.
+
+Bundle identity:
+- ZIP SHA-256: `3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa`;
+- manifest SHA-256: `216af5086a83109abfcaa74b19c92535c354a79008ec958e0b7c0eb40fc32ebb`;
+- 681 payload files;
+- 4,249,475,616 payload bytes;
+- zero unexplained file-identity differences.
+
+H1 dynamic stage:
+- 676 `peilh_*.idf` files;
+- filename date range 1969-12-01 through 2026-03-01;
+- 676 equals the inclusive calendar-month count for that range, strongly indicating gap-free monthly coverage;
+- exact per-file sequence and hashes still need persistence from `files.csv`.
+
+This closes the H1/MVG **source recovery** blocker. It does not yet grant semantic production admission. Remaining file-level work:
+1. persist the individual member hashes from `files.csv`;
+2. confirm exact monthly sequence with zero duplicates/gaps;
+3. validate IDF geometry/NODATA/units;
+4. wire H1 and MVG into the seven-system HRU aggregation;
+5. run the 10,242-HRU compression diagnostic.
+
+Evidence:
+`docs/evidence/2026-10-07/h1-mvg-q4-summary.json`.
+
 ## Direct DRA producer status
 
 ### Modern production authority
