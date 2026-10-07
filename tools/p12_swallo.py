@@ -61,20 +61,24 @@ def swallo_modern_explicit(
     infres_day: float,
     river_infiltration_indicator: float,
 ) -> int:
-    """Modern production semantics independent of SWAP level number.
+    """Modern physical-source semantics independent of historical heuristics.
 
-    A compressed SWAP level carries an explicit hydraulic capability.
-    Drain-only levels are forced to SWALLO=3. Infiltration-capable levels
-    remain eligible for SWALLO=1 unless the common resistance/indicator
-    guards disable infiltration.
+    Hydraulic capability is explicit after seven-system aggregation and
+    compression. Drain-only levels use SWALLO=3. An infiltration-capable RIV
+    level uses SWALLO=1.
+
+    The v0.38 thresholds INFRES > 20000 and historical Riv_infiltratie < 10
+    remain available only in the historical policy functions above. Applying
+    them here would silently delete finite LHM layer-1 infiltration conductance
+    and contradict the modern all-interaction authority.
+
+    infres_day and river_infiltration_indicator are retained in the call
+    signature for renderer/API compatibility. SWAP parser-range validation of
+    INFRES is a separate fail-closed interface gate.
     """
-    if (not bool(allow_infiltration)) or _common_forcing(
-        infres_day,
-        river_infiltration_indicator,
-    ):
-        return 3
-    return 1
-
+    float(infres_day)
+    float(river_infiltration_indicator)
+    return 1 if bool(allow_infiltration) else 3
 
 def swallo(
     system: int,
