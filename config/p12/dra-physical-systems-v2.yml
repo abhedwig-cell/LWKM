@@ -1,5 +1,5 @@
 schema_version: 1
-status: PHYSICAL_DRAINAGE_AUTHORITY_DEFINED_COMPRESSION_DIAGNOSTIC
+status: PHYSICAL_DRAINAGE_AUTHORITY_DEFINED_H1_MVG_Q4_RECOVERED_COMPRESSION_DIAGNOSTIC
 
 physical_systems:
   - id: RIV_H1
@@ -99,8 +99,21 @@ swap_interface:
       winter_level: drainage_conductance_weighted
     status: DIAGNOSTIC_NOT_ADMITTED
 
+qualified_source_bundles:
+  H1_MVG:
+    status: H1_MVG_Q4_IMMUTABLE_SNAPSHOT
+    zip_sha256: 3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa
+    manifest_sha256: 216af5086a83109abfcaa74b19c92535c354a79008ec958e0b7c0eb40fc32ebb
+    payload_file_count: 681
+    payload_bytes: 4249475616
+    h1_dynamic_stage_file_count: 676
+    h1_dynamic_stage_date_min: 19691201
+    h1_dynamic_stage_date_max: 20260301
+    individual_file_hash_registry_status: PENDING_FILES_CSV_PERSISTENCE
+    evidence: docs/evidence/2026-10-07/h1-mvg-q4-summary.json
+
 open_questions:
-  - exact modern source grids/hashes for H1 and MVG
+  - persist individual H1/MVG member hashes from files.csv and complete semantic/geometry qualification
   - exact spacing/L semantics after compression
   - SWAP level ordering requirement
   - regression impact on 49-run oracle and 10242-HRU production population
