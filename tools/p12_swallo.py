@@ -6,6 +6,7 @@ RUN2000_V027_COMPAT = "RUN2000_V027_COMPAT"
 # Backward-compatible alias. The 49-run oracle proves this is not a universal
 # realized-production rule, so new code should use RUN2000_V027_COMPAT.
 REALIZED_PRODUCTION_COMPAT = RUN2000_V027_COMPAT
+MODERN_EXPLICIT_PHYSICAL = "MODERN_EXPLICIT_PHYSICAL"
 
 
 def _common_forcing(infres_day: float, river_infiltration_indicator: float) -> bool:
@@ -53,6 +54,26 @@ def swallo_realized_compat(
         infres_day,
         river_infiltration_indicator,
     )
+
+
+def swallo_modern_explicit(
+    allow_infiltration: bool,
+    infres_day: float,
+    river_infiltration_indicator: float,
+) -> int:
+    """Modern production semantics independent of SWAP level number.
+
+    A compressed SWAP level carries an explicit hydraulic capability.
+    Drain-only levels are forced to SWALLO=3. Infiltration-capable levels
+    remain eligible for SWALLO=1 unless the common resistance/indicator
+    guards disable infiltration.
+    """
+    if (not bool(allow_infiltration)) or _common_forcing(
+        infres_day,
+        river_infiltration_indicator,
+    ):
+        return 3
+    return 1
 
 
 def swallo(
