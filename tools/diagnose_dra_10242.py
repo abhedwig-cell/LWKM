@@ -582,7 +582,7 @@ def main() -> int:
     p.add_argument("--h1-mvg-zip",type=Path,required=True)
     p.add_argument("--remaining-zip",type=Path,required=True)
     p.add_argument("--stage-start",default="1971-01-01")
-    p.add_argument("--stage-end",default="2021-12-01")
+    p.add_argument("--stage-end",default="2022-01-01")
     p.add_argument("--output-dir",type=Path,required=True)
     a=p.parse_args()
     diagnose(
