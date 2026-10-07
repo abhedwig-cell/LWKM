@@ -34,6 +34,26 @@ historical HRU-DRA control and are only optional W07 comparison evidence.
 If they happen to be present under the LHM model root, the collector includes
 them and records that fact. If they are absent, Q4 must still succeed.
 
+## Fetch the current collector directly
+
+From CMD on the NHI server, this downloads the exact current branch version
+into `LWKM_tools` using Windows PowerShell 5.1:
+
+```bat
+powershell -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/abhedwig-cell/LWKM/work/lhm-hru-swap-workflow-v1/tools/server/lwkm_collect_dra_remaining.ps1' -OutFile 'G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_tools\lwkm_collect_dra_remaining.ps1'"
+```
+
+Then verify that the file exists:
+
+```bat
+dir "G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_tools\lwkm_collect_dra_remaining.ps1"
+```
+
+If outbound GitHub access is blocked on that server, use the repository file
+`tools/server/lwkm_collect_dra_remaining.ps1` through the normal browser/file
+transfer route instead. Do not substitute an older local copy without checking
+its content identity.
+
 ## Server command
 
 Place the current repository version of:
