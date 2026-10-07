@@ -164,6 +164,29 @@ def _read_dqsat(
     return dict(zip(hru,d))
 
 
+def _read_static04_snapshot(path: Path) -> pd.DataFrame:
+    """Read the persisted qualified STATIC04 representative-dqsat snapshot."""
+    df=pd.read_csv(path,low_memory=False)
+    required={"hru","representative_dqsat"}
+    missing=required.difference(df.columns)
+    if missing:
+        raise ValueError(f"STATIC04 snapshot missing columns {sorted(missing)}")
+    out=df.copy()
+    out["hru"]=pd.to_numeric(out["hru"],errors="raise").astype(int)
+    out["representative_dqsat"]=pd.to_numeric(
+        out["representative_dqsat"],errors="raise"
+    ).astype(float)
+    if len(out)!=10242:
+        raise ValueError(f"expected 10242 STATIC04 rows, got {len(out)}")
+    if out["hru"].duplicated().any():
+        raise ValueError("duplicate HRU in STATIC04 snapshot")
+    if (~np.isfinite(out["representative_dqsat"])).any():
+        raise ValueError("non-finite representative dqsat in STATIC04 snapshot")
+    if "discriminating" not in out.columns:
+        out["discriminating"]=False
+    return out.sort_values("hru").reset_index(drop=True)
+
+
 def _extract_bundle(zip_path: Path,root: Path) -> Path:
     target=root/zip_path.stem
     target.mkdir(parents=True,exist_ok=False)
@@ -364,23 +387,45 @@ def _comparison_stats(members: pd.DataFrame) -> dict:
 
 def diagnose(
     relation_csv: Path,
-    schema_csv: Path,
-    dqsat_grid: Path,
     h1_mvg_zip: Path,
     remaining_zip: Path,
     output_dir: Path,
     *,
     stage_start: str,
     stage_end: str,
+    schema_csv: Path | None = None,
+    dqsat_grid: Path | None = None,
+    dqsat_snapshot: Path | None = None,
 ) -> None:
     output_dir.mkdir(parents=True,exist_ok=True)
     membership,coordinates,relation=_read_relation_context(relation_csv)
-    schema=pd.read_csv(schema_csv,low_memory=False)
-    dqsat_table=compare_dqsat_authority(
-        schema,
-        relation,
-        read_dqsat_ascii_grid(dqsat_grid),
-    )
+    if len(membership)!=427656:
+        raise ValueError(f"expected 427656 membership rows, got {len(membership)}")
+
+    using_snapshot=dqsat_snapshot is not None
+    using_recompute=schema_csv is not None or dqsat_grid is not None
+    if using_snapshot == using_recompute:
+        raise ValueError(
+            "choose exactly one representative-dqsat route: "
+            "--dqsat-snapshot OR both --schema and --dqsat-grid"
+        )
+    if using_snapshot:
+        dqsat_table=_read_static04_snapshot(dqsat_snapshot)
+        dqsat_authority="STATIC04_PERSISTED_QUALIFIED_SNAPSHOT"
+    else:
+        if schema_csv is None or dqsat_grid is None:
+            raise ValueError("--schema and --dqsat-grid must be supplied together")
+        schema=pd.read_csv(schema_csv,low_memory=False)
+        dqsat_table=compare_dqsat_authority(
+            schema,
+            relation,
+            read_dqsat_ascii_grid(dqsat_grid),
+        )
+        if len(dqsat_table)!=10242:
+            raise ValueError(
+                f"expected 10242 recomputed STATIC04 rows, got {len(dqsat_table)}"
+            )
+        dqsat_authority="STATIC04_RECOMPUTED_FROM_REPRESENTATIVE_SVAT"
     dqsat=dict(
         zip(
             dqsat_table["hru"].astype(int),
@@ -397,6 +442,14 @@ def diagnose(
         hru_count=int(members["hru"].nunique())
         if hru_count!=10242:
             raise ValueError(f"expected 10242 HRUs, got {hru_count}")
+        membership_hrus=set(int(x) for x in members["hru"].unique())
+        dqsat_hrus=set(int(x) for x in dqsat)
+        if membership_hrus!=dqsat_hrus:
+            missing=sorted(membership_hrus-dqsat_hrus)[:20]
+            extra=sorted(dqsat_hrus-membership_hrus)[:20]
+            raise ValueError(
+                f"representative-dqsat HRU domain mismatch: missing={missing}, extra={extra}"
+            )
 
         stage_files=_h1_stage_files(h1root,stage_start,stage_end)
         stage_dates,h1_matrix,h1_failures=_build_h1_level_matrix(members,stage_files)
@@ -482,13 +535,14 @@ def diagnose(
         "status":"DRA_10242_DIAGNOSTIC_PASS" if len(f)==0 and len(s)==10242 else "DRA_10242_DIAGNOSTIC_FAIL",
         "source_identity":{
             "relation_sha256":_sha256(relation_csv),
-            "schema_sha256":_sha256(schema_csv),
-            "dqsat_grid_sha256":_sha256(dqsat_grid),
+            "schema_sha256":None if schema_csv is None else _sha256(schema_csv),
+            "dqsat_grid_sha256":None if dqsat_grid is None else _sha256(dqsat_grid),
+            "dqsat_snapshot_sha256":None if dqsat_snapshot is None else _sha256(dqsat_snapshot),
             "h1_mvg_zip_sha256":_sha256(h1_mvg_zip),
             "remaining_zip_sha256":_sha256(remaining_zip),
         },
         "representative_dqsat":{
-            "authority":"STATIC04_REPRESENTATIVE_SVAT",
+            "authority":dqsat_authority,
             "hru_count":int(len(dqsat_table)),
             "discriminating_from_legacy_majority_bfe":int(dqsat_table["discriminating"].sum()),
         },
@@ -519,10 +573,12 @@ def main() -> int:
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--relation",type=Path,required=True,
                    help="authoritative export_svat_HRU_NRU_10242.csv")
-    p.add_argument("--schema",type=Path,required=True,
-                   help="authoritative export_HRUschema_10242_copy.csv")
-    p.add_argument("--dqsat-grid",type=Path,required=True,
-                   help="qualified grensvlak_NHIWQ_v2_fill.asc")
+    p.add_argument("--schema",type=Path,
+                   help="authoritative export_HRUschema_10242_copy.csv; use with --dqsat-grid")
+    p.add_argument("--dqsat-grid",type=Path,
+                   help="qualified grensvlak_NHIWQ_v2_fill.asc; use with --schema")
+    p.add_argument("--dqsat-snapshot",type=Path,
+                   help="qualified static04_dqsat_full_10242.csv replay snapshot")
     p.add_argument("--h1-mvg-zip",type=Path,required=True)
     p.add_argument("--remaining-zip",type=Path,required=True)
     p.add_argument("--stage-start",default="1971-01-01")
@@ -531,13 +587,14 @@ def main() -> int:
     a=p.parse_args()
     diagnose(
         a.relation,
-        a.schema,
-        a.dqsat_grid,
         a.h1_mvg_zip,
         a.remaining_zip,
         a.output_dir,
         stage_start=a.stage_start,
         stage_end=a.stage_end,
+        schema_csv=a.schema,
+        dqsat_grid=a.dqsat_grid,
+        dqsat_snapshot=a.dqsat_snapshot,
     )
     return 0
 
