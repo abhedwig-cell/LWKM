@@ -23,6 +23,11 @@ function WriteJson([string]$p, $o) {
 
 $model = (Get-Item -LiteralPath $ModelRoot -ErrorAction Stop).FullName.TrimEnd("\","/")
 $out = [IO.Path]::GetFullPath($OutputDir).TrimEnd("\","/")
+$collectorScriptPath = $PSCommandPath
+if ([string]::IsNullOrWhiteSpace($collectorScriptPath) -or -not (Test-Path -LiteralPath $collectorScriptPath -PathType Leaf)) {
+    throw "Cannot resolve collector script path for provenance self-hash"
+}
+$collectorScriptSha256 = Sha256 $collectorScriptPath
 if ($out.StartsWith($model + "\", [StringComparison]::OrdinalIgnoreCase) -or $out.Equals($model, [StringComparison]::OrdinalIgnoreCase)) {
     throw "OutputDir must be outside ModelRoot"
 }
@@ -152,6 +157,8 @@ $collection = [ordered]@{
     collector_user=$env:USERNAME
     powershell_version=$PSVersionTable.PSVersion.ToString()
     procedure="tools/server/lwkm_collect_dra_remaining.ps1"
+    collector_script_path=$collectorScriptPath
+    collector_script_sha256=$collectorScriptSha256
 }
 WriteJson (Join-Path $manifestDir "collection.json") $collection
 
@@ -183,6 +190,7 @@ try {
         payload_file_count=$rows.Count
         payload_bytes=$totalBytes
         zero_unexplained_file_identity_differences=$true
+        collector_script_sha256=$collectorScriptSha256
         verified_utc=(Get-Date).ToUniversalTime().ToString("o")
     }
     WriteJson $q4 $result
