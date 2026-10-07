@@ -107,6 +107,17 @@ swap_interface:
       H1: preserve_monthly_peilh_series
       seasonal_open_channels: evaluate_seasonal_level_at_dynamic_timestamps_when_merged
       explicit_date_mismatch: FAIL_CLOSED
+    merge_equivalence_diagnostic:
+      metric: max_drainage_infiltration_level_gap_m
+      meaning: absolute_gap_between_drainage_weighted_and_infiltration_weighted_equivalent_levels
+      unit: m
+      applies_to: infiltration_capable_merged_levels
+      conductance_conservation_alone_is_sufficient_for_admission: false
+      acceptance_threshold: UNSET_PENDING_10242_POPULATION_EVIDENCE
+      required_population_reporting:
+        - all_merge_p50_p90_p95_p99_max
+        - H1_merge_p50_p90_p95_p99_max
+        - events_with_positive_gap
     status: IMPLEMENTED_NOT_10242_ADMITTED
 
 qualified_source_bundles:
