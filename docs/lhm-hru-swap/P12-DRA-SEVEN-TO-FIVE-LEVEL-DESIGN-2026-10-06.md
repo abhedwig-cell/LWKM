@@ -189,11 +189,21 @@ This demonstrates algorithm behavior only. It is not a fixed production mapping.
 
 ### 1. Real H1 and MVG inputs
 
-The exact modern H1 and MVG source files must be recovered and file-qualified from the LHM input authority.
+The H1/MVG source bundle has now passed Q4 collection on the real NHI server.
 
-The supplied LHM INI identifies candidate source roles including H1 conductance, H1 bottom, H1 dynamic stage, H1 infiltration factor, MVG conductance and MVG bottom/stage.
+Bundle:
+- ZIP SHA-256: 3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa
+- manifest SHA-256: 216af5086a83109abfcaa74b19c92535c354a79008ec958e0b7c0eb40fc32ebb
+- 681 payload files
+- 4,249,475,616 payload bytes
+- zero unexplained file-identity differences after fresh extraction.
 
-Exact server bytes and hashes still need qualification.
+The H1 dynamic stage subset contains 676 files with filename dates from 1969-12-01 through 2026-03-01. That count equals the inclusive number of calendar months in the range, strongly indicating complete monthly coverage; exact per-month sequence confirmation still requires persistence/inspection of files.csv.
+
+Evidence:
+docs/evidence/2026-10-07/h1-mvg-q4-summary.json.
+
+The source-recovery blocker is therefore closed. Individual member hashes, geometry checks and semantic qualification remain to be persisted before production admission.
 
 ### 2. Spacing/L semantics
 
@@ -227,7 +237,7 @@ Required report:
 
 The seven-to-five route is currently:
 
-PHYSICAL_7_SYSTEMS_AUTHORITY_DEFINED_COMPRESSION_DIAGNOSTIC_NOT_ADMITTED.
+PHYSICAL_7_SYSTEMS_AUTHORITY_DEFINED_H1_MVG_Q4_RECOVERED_COMPRESSION_DIAGNOSTIC_NOT_ADMITTED.
 
 Production admission requires:
 
