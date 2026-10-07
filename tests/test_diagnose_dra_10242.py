@@ -9,6 +9,7 @@ from tools.diagnose_dra_10242 import (
     _build_h1_level_matrix,
     _comparison_stats,
     _coordinates_to_row_col,
+    _derive_lhm_bottom_candidates,
     _h1_stage_files,
     _month_key,
     _merge_review_metrics,
@@ -98,11 +99,13 @@ def test_bottom_authority_comparison_includes_tertiary_lhm_peil_as_rbot():
         "S_bottom":[2.0],"S_bottom_lhm_sum":[2.0],"S_bottom_lhm_win":[2.0],
         "T_bottom":[3.0],"T_bottom_lhm_sum":[4.0],"T_bottom_lhm_win":[5.0],
     })
+    members=_derive_lhm_bottom_candidates(members)
     out=_comparison_stats(members)
-    assert "T_sum" in out and "T_win" in out
-    assert out["T_sum"]["different_gt_1e_6"] == 1
-    assert out["T_sum"]["max_abs_difference_m"] == 1.0
-    assert out["T_win"]["max_abs_difference_m"] == 2.0
+    assert "T" in out
+    spread=out["T"]["seasonal_bottom_spread"]
+    assert spread["different_gt_1e_6"] == 1
+    assert spread["max_abs_difference_m"] == 1.0
+    assert out["T"]["baseline_static_candidate"] == "equal_season_mean"
 
 
 
@@ -242,14 +245,20 @@ def test_merge_review_metrics_report_population_and_h1_pairs():
         {
             "left":"H1","right":"P","cost":1.0,
             "max_drainage_infiltration_level_gap_m":0.10,
+            "max_source_level_separation_m":0.20,
+            "bottom_depth_separation_m":0.05,
         },
         {
             "left":"P","right":"H1","cost":3.0,
             "max_drainage_infiltration_level_gap_m":0.30,
+            "max_source_level_separation_m":0.40,
+            "bottom_depth_separation_m":0.15,
         },
         {
             "left":"MVG","right":"OLF","cost":2.0,
             "max_drainage_infiltration_level_gap_m":0.0,
+            "max_source_level_separation_m":0.10,
+            "bottom_depth_separation_m":0.02,
         },
     ])
     out=_merge_review_metrics(s,m)
@@ -260,10 +269,16 @@ def test_merge_review_metrics_report_population_and_h1_pairs():
     assert out["top_merge_pairs"][0]=={"pair":"H1 | P","count":2}
     assert out["merge_cost_quantiles"]["max"]==3.0
     tension=out["merge_level_representation_tension"]
-    assert tension["acceptance_threshold"] is None
-    assert tension["events_with_positive_gap"]==2
-    assert tension["all_merge_gap_quantiles"]["max"]==0.30
-    assert tension["h1_merge_gap_quantiles"]["max"]==0.30
+    centroid=tension["drainage_infiltration_centroid_gap"]
+    assert centroid["acceptance_threshold"] is None
+    assert centroid["events_with_positive_gap"]==2
+    assert centroid["all_merge_quantiles"]["max"]==0.30
+    assert centroid["h1_merge_quantiles"]["max"]==0.30
+    activation=tension["source_activation_level_span"]
+    assert activation["events_with_positive_span"]==3
+    assert activation["all_merge_quantiles"]["max"]==0.40
+    assert activation["h1_merge_quantiles"]["max"]==0.40
+    assert tension["bottom_depth_span"]["all_merge_quantiles"]["max"]==0.15
 
 
 
