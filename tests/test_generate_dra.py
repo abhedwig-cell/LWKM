@@ -5,6 +5,7 @@ from tools.generate_dra import (
     repair_system,
     render_dra,
     repair_system_explicit,
+    repair_system_explicit_legacy_v038,
     render_dra_explicit,
 )
 from tools.p12_swallo import REALIZED_PRODUCTION_COMPAT
@@ -41,10 +42,26 @@ def test_serializer_can_target_realized_system_three_swallo():
 
 
 
-def test_explicit_repair_disables_pipe_for_nature_independent_of_level_number():
+def test_legacy_explicit_repair_disables_pipe_for_nature_independent_of_level_number():
     s={"drnres":10,"infres":10,"dep":2,"peil_sum":1,"peil_win":1,"dd":10}
-    assert repair_system_explicit(s, medium="drain_tube", isnatuur=True)["drnres"] == 100000
-    assert repair_system_explicit(s, medium="open_channel", isnatuur=True)["drnres"] == 10
+    assert repair_system_explicit_legacy_v038(
+        s, medium="drain_tube", isnatuur=True
+    )["drnres"] == 100000
+    assert repair_system_explicit_legacy_v038(
+        s, medium="open_channel", isnatuur=True
+    )["drnres"] == 10
+
+
+def test_modern_explicit_repair_preserves_high_resistance_physical_level():
+    s={"drnres":25000,"infres":50000,"dep":2,"peil_sum":1,"peil_win":1,"dd":10}
+    assert repair_system_explicit(s,medium="open_channel",isnatuur=False) == s
+
+
+def test_modern_explicit_repair_does_not_delete_pipe_only_for_nature_label():
+    s={"drnres":1000,"infres":100000,"dep":1,"peil_sum":1,"peil_win":1,"dd":80}
+    x=repair_system_explicit(s,medium="drain_tube",isnatuur=True)
+    assert x["drnres"] == 1000
+    assert x["dep"] == 1
 
 
 def test_explicit_renderer_uses_medium_not_level_number_for_swdtyp():
