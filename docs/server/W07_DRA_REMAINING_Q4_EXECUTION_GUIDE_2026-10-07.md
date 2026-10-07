@@ -71,6 +71,22 @@ The collection JSON also reports whether each optional historical J-bottom was:
 - `RECOVERED_AT_LHM_MODELROOT`; or
 - `NOT_PRESENT_AT_LHM_MODELROOT`.
 
+Q4 success is deliberately independent of those optional files because they are
+not LHM-package source authority.
+
+However, the current 10,242 **historical-vs-package bottom comparison** uses
+`BODH_P1J_250.IDF`, `BODH_S1J_250.IDF` and `BODH_T1J_250.IDF` as the
+historical HRU-DRA side of that comparison. Therefore:
+
+- if all three are recovered by this probe, the full comparison can run directly;
+- if one or more are absent, do not substitute an LHM seasonal package bottom
+  as the historical J-bottom;
+- instead recover the missing J-bottom byte identities separately from existing
+  HRU/LHM2SWAP workflow archives before running that comparison.
+
+This distinction prevents the NHI/LHM Q4 gate from being polluted by downstream
+historical HRU artifacts while still keeping the diagnostic reproducible.
+
 ## Required upload after success
 
 Preferred:
