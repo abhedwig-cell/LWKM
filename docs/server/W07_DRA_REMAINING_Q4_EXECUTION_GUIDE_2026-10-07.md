@@ -94,18 +94,26 @@ The collection JSON also reports whether each optional historical J-bottom was:
 Q4 success is deliberately independent of those optional files because they are
 not LHM-package source authority.
 
-However, the current 10,242 **historical-vs-package bottom comparison** uses
-`BODH_P1J_250.IDF`, `BODH_S1J_250.IDF` and `BODH_T1J_250.IDF` as the
-historical HRU-DRA side of that comparison. Therefore:
+The 10,242 full diagnostic no longer requires these historical J-bottoms.
 
-- if all three are recovered by this probe, the full comparison can run directly;
-- if one or more are absent, do not substitute an LHM seasonal package bottom
-  as the historical J-bottom;
-- instead recover the missing J-bottom byte identities separately from existing
-  HRU/LHM2SWAP workflow archives before running that comparison.
+Modern P/S/T static-bottom diagnostic authority is derived from the actual LHM
+package summer/winter bottoms:
 
-This distinction prevents the NHI/LHM Q4 gate from being polluted by downstream
-historical HRU artifacts while still keeping the diagnostic reproducible.
+- baseline candidate: equal-season arithmetic mean;
+- sensitivity bound 1: deepest seasonal bottom;
+- sensitivity bound 2: shallowest seasonal bottom.
+
+This is appropriate for diagnosis because the LHM package uses equal half-year
+summer/winter periods, while SWAP method 3 exposes one static ZBOTDR per level.
+The mean is therefore the least-squares equal-season static candidate. It is
+**not yet production-admitted**.
+
+If all three historical `BODH_*1J` files are recovered, the diagnostic adds a
+fourth historical comparison automatically. If they are absent, the modern
+diagnostic still runs and Q4 remains valid.
+
+Never substitute an LHM seasonal package bottom and label it as the historical
+J-bottom.
 
 ## Required upload after success
 
@@ -140,7 +148,11 @@ The diagnostic computes:
 - H1 merge frequency;
 - exact drainage/infiltration-conductance conservation;
 - deterministic level order;
-- P/S/T historical-bottom versus LHM-package-bottom differences when the
-  historical J-bottom bytes are available.
+- P/S/T LHM seasonal-bottom spread;
+- sensitivity of 7→5 grouping to mean/deepest/shallowest package-bottom
+  reduction;
+- historical J-bottom comparison when those optional bytes are available;
+- counts of levels that legacy v0.38 would deactivate at DRARES > 20000 d;
+- fail-closed SWAP DRARES > 1e5 interface overflow.
 
 No production DRA admission follows automatically from this diagnostic.
