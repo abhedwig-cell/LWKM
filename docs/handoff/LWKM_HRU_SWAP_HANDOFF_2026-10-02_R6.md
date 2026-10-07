@@ -405,6 +405,46 @@ Evidence:
 
 H1/MVG source recovery and byte identity are closed. H1 exception semantics/population intersection remain open before seven-system DRA production admission.
 
+## Seven-system DRA implementation progress — 2026-10-07
+
+W07 is no longer generically blocked by unknown DRA source provenance.
+
+Modern corrected production architecture is implemented through the diagnostic stage:
+
+`7 physical systems -> all-member HRU aggregation -> hydraulic compression if >5 active -> explicit SWAP level repair/rendering`.
+
+Implemented safeguards:
+- physical-system identity is explicit, not encoded in SWAP level number;
+- pipe/open-channel semantics are explicit;
+- infiltration capability is explicit;
+- weak but positive physical conductance is preserved until after compression;
+- raw physical conductance and SWAP resistance are separate internal quantities;
+- representative-SVAT dqsat gives the common modern L = 4*dqsat and is preserved through merges;
+- H1 monthly level dynamics are preserved through compression and explicit DATOWL/LEVEL rendering;
+- H1 monthly rasters are streamed once for the whole 10,242-HRU diagnostic rather than once per HRU;
+- positive-conductance members with missing hydraulic attributes fail closed.
+
+The full 10,242-HRU population diagnostic runner is:
+`tools/diagnose_dra_10242.py`.
+
+It expects:
+- `export_svat_HRU_NRU_10242.csv`;
+- a SVAT_INFO-style coordinate table;
+- representative-dqsat authority;
+- the Q4 H1/MVG ZIP;
+- the Q4 remaining-five-source ZIP.
+
+The current membership file has been recovered in Library at:
+`/LWKM/export_svat_HRU_NRU_10242.csv`.
+
+The remaining P/S/T/PIPE/OLF + AHN Q4 collector is:
+`tools/server/lwkm_collect_dra_remaining.ps1`.
+
+W07 status is now:
+`MODERN_SEVEN_SYSTEM_IMPLEMENTED_SOURCE_Q4_PARTIAL`.
+
+Admission remains false until the remaining source bundle is Q4-qualified and the 10,242-HRU diagnostic passes.
+
 ## Direct DRA producer status
 
 ### Modern production authority
