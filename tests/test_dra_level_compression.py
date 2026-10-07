@@ -207,7 +207,7 @@ def test_legacy_resistance_sentinel_without_raw_metadata_remains_inactive():
     assert p.active is False
 
 
-def test_merged_swap_resistance_is_capped_but_raw_conductance_is_preserved():
+def test_merged_physical_resistance_is_uncapped_and_raw_conductance_is_preserved():
     a=PhysicalDrainageSystem(
         ("A",),
         "drain_only_open",
@@ -237,9 +237,15 @@ def test_merged_swap_resistance_is_capped_but_raw_conductance_is_preserved():
         physical_active=True,
     )
     out=compress_to_swap_levels([a,b],max_levels=1)[0]
-    assert out.drnres == 100000.0
+    assert out.drnres == 5000000.0
     assert abs(out.drainage_conductance - 2e-7) < 1e-20
     assert out.active is True
+    try:
+        to_render_level(out)
+    except ValueError as exc:
+        assert "DRARES range overflow" in str(exc)
+    else:
+        raise AssertionError("expected uncapped merged resistance to fail SWAP interface gate")
 
 
 
@@ -312,10 +318,10 @@ def test_source_level_span_detects_irreducible_activation_breakpoint_loss():
         ("B",),"infiltration_capable_open","open_channel",
         200.0,400.0,2.0,1.4,1.7,80.0,
     )
-    assert max_source_level_separation(a,b) == 0.4
+    assert abs(max_source_level_separation(a,b) - 0.4) < 1e-12
     merged=compress_to_swap_levels([a,b],max_levels=1)[0]
     event=merged.merge_history[-1]
-    assert event["max_source_level_separation_m"] == 0.4
+    assert abs(event["max_source_level_separation_m"] - 0.4) < 1e-12
     assert event["bottom_depth_separation_m"] == 0.0
 
 
