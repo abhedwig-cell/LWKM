@@ -656,3 +656,31 @@ represented conductance of a weaker physical system.
 This range gate is distinct from the historical v0.38
 `drnres > 20000` deactivation heuristic. The latter is reported for legacy
 comparison but is not modern physical-source authority.
+
+
+## Modern SWALLO capability rule — 2026-10-07
+
+Historical HRUlist2SWAP v0.38 disables infiltration when either:
+- INFRES > 20000 d; or
+- the historical HRU-average river-infiltration diagnostic is < 10.
+
+Those thresholds remain valid historical/replay semantics only.
+
+They are not modern physical-source authority. The modern seven-system route
+already carries an explicit hydraulic class per physical/compressed level:
+
+- H1/P/S/T: infiltration-capable open channel;
+- MVG/OLF: drain-only open channel;
+- PIPE: drain tube / drain-only.
+
+Therefore modern SWALLO is:
+- 1 for an infiltration-capable compressed level;
+- 3 for a drain-only level.
+
+The exact INFRES remains in the level and is independently subject to the SWAP
+method-3 parser range gate (<= 100000 d). A finite qualified LHM infiltration
+conductance is never changed to zero solely because an old diagnostic threshold
+was crossed.
+
+Historical SWALLO functions and their 49-run regression baseline remain
+unchanged and separate.
