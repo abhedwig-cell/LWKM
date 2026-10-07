@@ -172,3 +172,18 @@ def test_explicit_renderer_writes_dynamic_monthly_level_series():
     assert "01-feb-2000  -170.00" in text
     assert "01-mar-2000  -160.00" in text
     assert "01-apr-2000" not in text
+
+
+
+def test_dynamic_renderer_uses_fixed_english_month_tokens():
+    level={
+        "drnres":10,"infres":10,"dep":2,"peil_sum":1,"peil_win":1.5,"dd":80,
+        "medium":"open_channel","allow_infiltration":True,"source_ids":("H1",),
+        "level_series":(
+            ("2000-05-01",1.2),
+            ("2000-10-01",1.4),
+        ),
+    }
+    text=render_dra_explicit([level],3,2000,2000,20)
+    assert "01-may-2000" in text
+    assert "01-oct-2000" in text
