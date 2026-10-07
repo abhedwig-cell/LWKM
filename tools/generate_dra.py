@@ -27,6 +27,101 @@ def aggregate_system(members,sy:int,dqsat_maj:float):
     ps=min(max(0.0,-ps+glkavg),max(0.0,dep));pw=min(max(0.0,-pw+glkavg),max(0.0,dep));dep=max(0.0,dep)
     return {"drnres":dra,"infres":infres,"dd":dd,"dep":dep,"peil_sum":ps,"peil_win":pw}
 
+def aggregate_physical_system(
+    members,
+    *,
+    cdr_col: str,
+    bottom_col: str,
+    summer_level_col: str,
+    winter_level_col: str,
+    representative_dqsat: float,
+    infiltration_factor_col: str | None = None,
+    cell_area_m2: float = 62500.0,
+) -> dict:
+    """Modern all-member aggregation for one named physical drainage system.
+
+    Unlike the historical five-index helper this function has no system-number
+    semantics. Every HRU member retains full MODFLOW-cell support.
+
+    Missing hydraulic attributes at a member with positive conductance fail
+    closed. Drain-only systems pass infiltration_factor_col=None.
+
+    Modern L/spacing authority is representative-SVAT dqsat:
+    L = 4 * representative_dqsat for an active physical system.
+    """
+    glk = pd.to_numeric(members["glk"], errors="coerce")
+    cdr = pd.to_numeric(members[cdr_col], errors="coerce")
+    bottom = pd.to_numeric(members[bottom_col], errors="coerce")
+    summer = pd.to_numeric(members[summer_level_col], errors="coerce")
+    winter = pd.to_numeric(members[winter_level_col], errors="coerce")
+
+    if glk.isna().any():
+        raise ValueError("missing ground level in HRU membership")
+
+    active_member = cdr.fillna(0.0) > 0.0
+    if cdr[active_member].isna().any():
+        raise ValueError(f"missing conductance in active {cdr_col} member")
+    if bottom[active_member].isna().any():
+        raise ValueError(f"missing bottom for positive-conductance {cdr_col} member")
+    if summer[active_member].isna().any():
+        raise ValueError(f"missing summer level for positive-conductance {cdr_col} member")
+    if winter[active_member].isna().any():
+        raise ValueError(f"missing winter level for positive-conductance {cdr_col} member")
+
+    cdr = cdr.fillna(0.0).clip(lower=0.0)
+    cdr_sum = float(cdr.sum())
+    n = len(members)
+    area = float(cell_area_m2) * n
+
+    if infiltration_factor_col is None:
+        infiltration_sum = 0.0
+        infres = 100000.0
+    else:
+        inf = pd.to_numeric(members[infiltration_factor_col], errors="coerce")
+        if inf[active_member].isna().any():
+            raise ValueError(
+                f"missing infiltration factor for positive-conductance {cdr_col} member"
+            )
+        inf = inf.fillna(0.0).clip(lower=0.0)
+        infiltration_sum = float((cdr * inf).sum())
+        infres = min(
+            100000.0,
+            max(1.0, area / infiltration_sum if infiltration_sum > 0.0 else 100000.0),
+        )
+
+    drnres = min(
+        100000.0,
+        max(1.0, area / cdr_sum if cdr_sum > 0.0 else 100000.0),
+    )
+
+    if cdr_sum > 0.0:
+        dep = conductance_weighted_depth(glk, bottom, cdr)
+        glkavg = float(glk.mean())
+        ps = glkavg - conductance_weighted_depth(glk, summer, cdr)
+        pw = glkavg - conductance_weighted_depth(glk, winter, cdr)
+        ps = min(max(0.0, -ps + glkavg), max(0.0, dep))
+        pw = min(max(0.0, -pw + glkavg), max(0.0, dep))
+        dep = max(0.0, dep)
+        dd = float(representative_dqsat) * 4.0
+    else:
+        dep = 0.0
+        ps = 0.0
+        pw = 0.0
+        dd = 100.0
+
+    return {
+        "drnres": drnres,
+        "infres": infres,
+        "dd": dd,
+        "dep": dep,
+        "peil_sum": ps,
+        "peil_win": pw,
+        "cdr_sum": cdr_sum,
+        "infiltration_conductance_sum": infiltration_sum,
+        "member_count": n,
+    }
+
+
 def repair_system(s:dict,sy:int,isnatuur:bool)->dict:
     x=dict(s)
     if x["drnres"]>20000 or (sy==4 and isnatuur):
