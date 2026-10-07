@@ -286,3 +286,45 @@ def test_full_diagnostic_rejects_wrong_h1_bundle_sha_before_reading_relation(tmp
         assert "H1/MVG bundle SHA mismatch" in str(exc)
     else:
         raise AssertionError("expected wrong H1 bundle identity to fail closed")
+
+
+
+def test_lhm_seasonal_bottom_candidates_use_equal_season_mean_and_bounds():
+    members=pd.DataFrame({
+        "P_bottom_lhm_sum":[8.0],
+        "P_bottom_lhm_win":[6.0],
+        "S_bottom_lhm_sum":[5.0],
+        "S_bottom_lhm_win":[5.0],
+        "T_bottom_lhm_sum":[4.0],
+        "T_bottom_lhm_win":[2.0],
+    })
+    out=_derive_lhm_bottom_candidates(members)
+    assert out.loc[0,"P_bottom_lhm_mean"] == 7.0
+    assert out.loc[0,"P_bottom_lhm_deepest"] == 6.0
+    assert out.loc[0,"P_bottom_lhm_shallowest"] == 8.0
+    assert out.loc[0,"P_bottom"] == 7.0
+    assert out.loc[0,"T_bottom_lhm_mean"] == 3.0
+
+
+def test_bottom_comparison_does_not_require_historical_j_grids():
+    members=pd.DataFrame({
+        "P_bottom_lhm_sum":[8.0],"P_bottom_lhm_win":[6.0],
+        "S_bottom_lhm_sum":[5.0],"S_bottom_lhm_win":[5.0],
+        "T_bottom_lhm_sum":[4.0],"T_bottom_lhm_win":[2.0],
+    })
+    members=_derive_lhm_bottom_candidates(members)
+    out=_comparison_stats(members)
+    assert out["P"]["historical_j"]["available"] is False
+    assert out["P"]["seasonal_bottom_spread"]["max_abs_difference_m"] == 2.0
+
+
+def test_bottom_comparison_uses_historical_j_when_recovered():
+    members=pd.DataFrame({
+        "P_bottom_lhm_sum":[8.0],"P_bottom_lhm_win":[6.0],"P_bottom_historical_j":[7.0],
+        "S_bottom_lhm_sum":[5.0],"S_bottom_lhm_win":[5.0],"S_bottom_historical_j":[5.0],
+        "T_bottom_lhm_sum":[4.0],"T_bottom_lhm_win":[2.0],"T_bottom_historical_j":[3.0],
+    })
+    members=_derive_lhm_bottom_candidates(members)
+    out=_comparison_stats(members)
+    assert out["P"]["historical_j"]["available"] is True
+    assert out["P"]["historical_j"]["comparison"]["mean"]["max_abs_difference_m"] == 0.0
