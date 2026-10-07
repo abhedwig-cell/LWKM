@@ -685,6 +685,16 @@ def diagnose(
                     "max_merge_cost":max(costs) if costs else 0.0,
                     "drainage_conductance_error":gd1-gd0,
                     "infiltration_conductance_error":gi1-gi0,
+                    "legacy_high_resistance_level_count":sum(
+                        1 for p in compressed if p.drnres > 20000.0
+                    ),
+                    "swap_drares_overflow_level_count":sum(
+                        1 for p in compressed if p.drnres > 100000.0
+                    ),
+                    "max_compressed_drares":max(
+                        (float(p.drnres) for p in compressed),
+                        default=0.0,
+                    ),
                     "all_levels_same_L":all_levels_same_l,
                     "level_order":"|".join(
                         f"{'+'.join(p.source_ids)}@dep={p.dep:.9g}@L={float(p.dd):.9g}"
@@ -738,6 +748,19 @@ def diagnose(
             (s["multiple_swap_levels"] & s["all_levels_same_L"]).sum()
         ) if len(s) else 0,
         "hru_requiring_compression":int(s["compression_required"].sum()) if len(s) else 0,
+        "legacy_v038_high_resistance_deactivation":{
+            "threshold_days":20000.0,
+            "hru_affected":int((s["legacy_high_resistance_level_count"]>0).sum()) if len(s) else 0,
+            "level_count":int(s["legacy_high_resistance_level_count"].sum()) if len(s) else 0,
+            "modern_action":"REPORT_ONLY_DO_NOT_DEACTIVATE",
+        },
+        "swap_drares_range_gate":{
+            "maximum_days":100000.0,
+            "hru_overflow":int((s["swap_drares_overflow_level_count"]>0).sum()) if len(s) else 0,
+            "level_overflow_count":int(s["swap_drares_overflow_level_count"].sum()) if len(s) else 0,
+            "maximum_compressed_drares_days":float(s["max_compressed_drares"].max()) if len(s) else None,
+            "required_for_production":"ZERO_OVERFLOW",
+        },
         "ordering_candidate":"DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE",
         "ordering_admission":"DRA_LEVEL_ORDERING_CONDITIONALLY_QUALIFIED",
         "ordering_conditions":[
