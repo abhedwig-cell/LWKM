@@ -135,9 +135,9 @@ def test_dynamic_h1_profile_is_merged_pointwise_with_seasonal_channel():
     out=compress_to_swap_levels([h1,p],max_levels=1)[0]
     assert out.level_series is not None
     vals=dict(out.level_series)
-    assert vals["2000-01-01"] == (1.8+1.5)/2
-    assert vals["2000-04-01"] == (1.2+1.0)/2
-    assert vals["2000-10-01"] == (1.6+1.5)/2
+    assert abs(vals["2000-01-01"] - (1.8+1.5)/2) < 1e-12
+    assert abs(vals["2000-04-01"] - (1.2+1.0)/2) < 1e-12
+    assert abs(vals["2000-10-01"] - (1.6+1.5)/2) < 1e-12
 
 
 def test_dynamic_profiles_with_different_dates_fail_closed():
