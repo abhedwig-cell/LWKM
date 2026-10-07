@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "status": "DRA_REMAINING_COLLECTOR_PATHS_VALIDATED_AGAINST_LHM433_INI",
+  "ini_authority": "control_run_1970_1979.ini",
+  "collector": "tools/server/lwkm_collect_dra_remaining.ps1",
+  "validated_required_paths": [
+    "modflow/riv/regionaal/COND_primair.IDF",
+    "modflow/riv/regionaal/COND_secundair.IDF",
+    "modflow/riv/regionaal/COND_tertiair.IDF",
+    "modflow/riv/regionaal/inf_mz_primair.IDF",
+    "modflow/riv/regionaal/inf_mz_secundair.IDF",
+    "modflow/riv/regionaal/inf_mz_tertiair.IDF",
+    "modflow/riv/regionaal/PEIL_P1Z_250.IDF",
+    "modflow/riv/regionaal/PEIL_P1W_250.IDF",
+    "modflow/riv/regionaal/PEIL_S1Z_250.IDF",
+    "modflow/riv/regionaal/PEIL_S1W_250.IDF",
+    "modflow/riv/regionaal/PEIL_T1Z_250.IDF",
+    "modflow/riv/regionaal/PEIL_T1W_250.IDF",
+    "modflow/riv/regionaal/BODH_P1Z_250.IDF",
+    "modflow/riv/regionaal/BODH_P1W_250.IDF",
+    "modflow/riv/regionaal/BODH_S1Z_250.IDF",
+    "modflow/riv/regionaal/BODH_S1W_250.IDF",
+    "modflow/drn/COND_buisdrainage.IDF",
+    "modflow/drn/BODH_B_250.IDF",
+    "modflow/drn/COND_SOF_250.IDF",
+    "modflow/drn/BODH_SOF_250.IDF",
+    "metaswap/grid/ahn_f250_cm.asc"
+  ],
+  "tertiary_package_bottom_semantics": {
+    "winter_rbot": "PEIL_T1W_250.IDF",
+    "summer_rbot": "PEIL_T1Z_250.IDF",
+    "note": "The LHM package INI intentionally binds tertiary river bottom to the corresponding tertiary stage grids."
+  },
+  "optional_historical_hru_bottoms": [
+    "steady-state/BODH_P1J_250.IDF",
+    "steady-state/BODH_S1J_250.IDF",
+    "steady-state/BODH_T1J_250.IDF"
+  ],
+  "optional_historical_hru_bottom_rule": "These are HRU/SWAP historical comparison evidence, not required LHM-package authority; their absence must not fail NHI-server Q4.",
+  "conclusion": "Collector required paths are source-authority-consistent and ready for real-server Q4."
+}
