@@ -1,6 +1,8 @@
 from tools.dra_level_compression import (
     PhysicalDrainageSystem,
     compress_to_swap_levels,
+    from_aggregate,
+    to_render_level,
 )
 
 
@@ -83,3 +85,37 @@ def test_inactive_physical_system_does_not_consume_swap_level():
     out = compress_to_swap_levels(inp)
     assert len(out) <= 5
     assert "H1" not in {x for s in out for x in s.source_ids}
+
+
+
+def test_modern_spacing_is_preserved_through_merge():
+    a=PhysicalDrainageSystem(("A",),"infiltration_capable_open","open_channel",100,200,2,1,1.5,80)
+    b=PhysicalDrainageSystem(("B",),"infiltration_capable_open","open_channel",200,400,1.8,1.1,1.4,80)
+    out=compress_to_swap_levels([a,b],max_levels=1)
+    assert out[0].dd == 80
+
+
+def test_different_modern_spacing_fails_instead_of_averaging():
+    a=PhysicalDrainageSystem(("A",),"infiltration_capable_open","open_channel",100,200,2,1,1.5,80)
+    b=PhysicalDrainageSystem(("B",),"infiltration_capable_open","open_channel",200,400,1.8,1.1,1.4,60)
+    try:
+        compress_to_swap_levels([a,b],max_levels=1)
+    except ValueError as exc:
+        assert "incompatible drainage spacing" in str(exc)
+    else:
+        raise AssertionError("expected differing modern L values to fail closed")
+
+
+def test_aggregate_bridge_preserves_metadata_for_renderer():
+    agg={"drnres":100.0,"infres":200.0,"dep":2.0,"peil_sum":1.0,"peil_win":1.5,"dd":80.0}
+    p=from_aggregate(
+        source_id="H1",
+        hydraulic_class="infiltration_capable_open",
+        medium="open_channel",
+        aggregate=agg,
+    )
+    r=to_render_level(p)
+    assert r["source_ids"] == ("H1",)
+    assert r["allow_infiltration"] is True
+    assert r["medium"] == "open_channel"
+    assert r["dd"] == 80.0
