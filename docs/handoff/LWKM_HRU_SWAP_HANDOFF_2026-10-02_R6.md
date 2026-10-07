@@ -445,6 +445,56 @@ W07 status is now:
 
 Admission remains false until the remaining source bundle is Q4-qualified and the 10,242-HRU diagnostic passes.
 
+## DRA level ordering and package-index guard — 2026-10-07
+
+SWAP 4.3.1 source authority has now been inspected through both the ordinary
+DRAMET=3 flux path and DIVDRA vertical-distribution path.
+
+Qualified W07 result:
+- ordinary DRAMET=3 exchange is calculated per level and summed;
+- DIVDRA constructs its own active-system sequence from `FDisInf * Lspacing`;
+- LWKM writes `SWINTFL=0`, so the special last-level interflow semantic is inactive;
+- modern serialized ordering is deterministic (depth, medium, source lineage);
+- equal compression costs are tie-broken canonically by source lineage, independent of caller order.
+
+Level number remains potentially semantic only for rapid macropore drainage
+when `SWMACRO=1 && SWDRRAP=1`, because SWAP then uses
+`NUMLEVRAPDRA`.
+
+That question is moved to W10/W11. `tools/dra_package_guard.py` resolves
+`NUMLEVRAPDRA` from post-compression source lineage and fails closed if an
+old/stale numeric level cannot be reconciled.
+
+Authority:
+`docs/lhm-hru-swap/P12-DRA-LEVEL-ORDERING-RESOLUTION-2026-10-07.md`.
+
+The 10,242-HRU W07 diagnostic is therefore no longer blocked by generic level
+ordering.
+
+## DRA 10,242 diagnostic input binding — 2026-10-07
+
+The population diagnostic now has two provenance-correct representative-dqsat routes:
+
+1. preferred recomputation from `export_svat_HRU_NRU_10242.csv` +
+   `export_HRUschema_10242_copy.csv` + `grensvlak_NHIWQ_v2_fill.asc`;
+2. STATIC04 qualified replay route using persisted
+   `static04_dqsat_full_10242.csv`.
+
+The loose schema-copy file is not currently recovered as a standalone Library
+file, so the replay route can be used immediately without weakening STATIC04
+authority. The recomputation route remains implemented for later independent
+replay.
+
+Machine-readable binding:
+`config/p12/dra-10242-diagnostic-inputs-v1.yml`.
+
+The diagnostic fails closed unless it sees exactly 427,656 membership rows,
+10,242 HRUs, 10,242 representative-dqsat values and identical HRU domains.
+
+It also compares P/S/T current-HRU bottom definitions against the actual LHM
+package semantics; for T the LHM INI binds the river bottom to
+`PEIL_T1Z/W_250.IDF`.
+
 ## Direct DRA producer status
 
 ### Modern production authority
