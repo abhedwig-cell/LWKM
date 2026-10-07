@@ -150,6 +150,42 @@ def _merge_level_series(
     )
 
 
+def drainage_infiltration_level_gap(
+    a: PhysicalDrainageSystem,
+    b: PhysicalDrainageSystem,
+) -> float:
+    """Maximum gap between drainage- and infiltration-equivalent levels.
+
+    One SWAP method-3 level has one water-level series shared by DRARES and
+    INFRES. For two infiltration-capable physical systems, the exact drainage
+    centroid uses drainage conductance weights while the exact infiltration
+    centroid uses infiltration conductance weights. A non-zero gap therefore
+    quantifies irreducible level-representation tension in a one-level merge.
+    """
+    ga=a.drainage_conductance
+    gb=b.drainage_conductance
+    ia=a.infiltration_conductance
+    ib=b.infiltration_conductance
+    if ga+gb<=0.0 or ia+ib<=0.0:
+        return 0.0
+
+    dates=_common_level_dates(a,b)
+    if dates:
+        pairs=[(_level_on(a,key),_level_on(b,key)) for key in dates]
+    else:
+        pairs=[
+            (float(a.peil_sum),float(b.peil_sum)),
+            (float(a.peil_win),float(b.peil_win)),
+        ]
+
+    gaps=[]
+    for la,lb in pairs:
+        ld=_weighted(la,ga,lb,gb)
+        li=_weighted(la,ia,lb,ib)
+        gaps.append(abs(ld-li))
+    return max(gaps,default=0.0)
+
+
 def hydraulic_merge_cost(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> float:
     """Ward-like merge cost over bottom/summer/winter levels.
 
@@ -285,6 +321,8 @@ def merge_systems(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> Physi
                 "left": list(a.source_ids),
                 "right": list(b.source_ids),
                 "cost": hydraulic_merge_cost(a, b),
+                "max_drainage_infiltration_level_gap_m":
+                    drainage_infiltration_level_gap(a, b),
             },
         ),
     )
