@@ -215,3 +215,14 @@ def test_static04_snapshot_normalizes_text_boolean(tmp_path: Path):
     out=_read_static04_snapshot(p)
     assert out["discriminating"].dtype == bool
     assert int(out["discriminating"].sum()) == 1
+
+
+
+def test_ordering_metrics_contract_is_named_in_runner_source():
+    # Cheap guard: the population runner must persist the evidence required by
+    # the SWAP DIVDRA ordering authority note.
+    source=Path("tools/diagnose_dra_10242.py").read_text(encoding="utf-8")
+    assert '"all_levels_same_L"' in source
+    assert '"level_order"' in source
+    assert '"hru_with_equal_L_ordering_tie"' in source
+    assert '"DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE"' in source
