@@ -187,3 +187,54 @@ def test_drain_only_infiltration_conductance_is_zero_even_with_resistance_sentin
         1000.0,100000.0,0.2,0.2,0.2,80.0,
     )
     assert p.infiltration_conductance == 0.0
+
+
+
+def test_legacy_resistance_sentinel_without_raw_metadata_remains_inactive():
+    p=PhysicalDrainageSystem(
+        ("legacy",),
+        "drain_only_open",
+        "open_channel",
+        100000.0,
+        100000.0,
+        1.0,
+        0.5,
+        0.5,
+    )
+    assert p.drainage_conductance == 0.0
+    assert p.active is False
+
+
+def test_merged_swap_resistance_is_capped_but_raw_conductance_is_preserved():
+    a=PhysicalDrainageSystem(
+        ("A",),
+        "drain_only_open",
+        "open_channel",
+        100000.0,
+        100000.0,
+        1.0,
+        0.5,
+        0.5,
+        80.0,
+        drainage_conductance_raw=1e-7,
+        infiltration_conductance_raw=0.0,
+        physical_active=True,
+    )
+    b=PhysicalDrainageSystem(
+        ("B",),
+        "drain_only_open",
+        "open_channel",
+        100000.0,
+        100000.0,
+        1.0,
+        0.5,
+        0.5,
+        80.0,
+        drainage_conductance_raw=1e-7,
+        infiltration_conductance_raw=0.0,
+        physical_active=True,
+    )
+    out=compress_to_swap_levels([a,b],max_levels=1)[0]
+    assert out.drnres == 100000.0
+    assert abs(out.drainage_conductance - 2e-7) < 1e-20
+    assert out.active is True
