@@ -36,6 +36,9 @@ class PhysicalDrainageSystem:
     peil_win: float
     dd: float | None = None
     level_series: tuple[tuple[str, float], ...] | None = None
+    drainage_conductance_raw: float | None = None
+    infiltration_conductance_raw: float | None = None
+    physical_active: bool | None = None
     merge_history: tuple[dict, ...] = ()
 
     @property
@@ -44,20 +47,28 @@ class PhysicalDrainageSystem:
 
     @property
     def drainage_conductance(self) -> float:
+        if self.drainage_conductance_raw is not None:
+            return float(self.drainage_conductance_raw)
         return _resistance_to_conductance(self.drnres)
 
     @property
     def infiltration_conductance(self) -> float:
+        if not self.allow_infiltration:
+            return 0.0
+        if self.infiltration_conductance_raw is not None:
+            return float(self.infiltration_conductance_raw)
         return _resistance_to_conductance(self.infres)
 
     @property
     def active(self) -> bool:
+        if self.physical_active is not None:
+            return bool(self.physical_active)
         return self.drainage_conductance > 0.0
 
 
 def _resistance_to_conductance(resistance: float) -> float:
     r = float(resistance)
-    if not isfinite(r) or r <= 0.0 or r >= INACTIVE_RESISTANCE:
+    if not isfinite(r) or r <= 0.0:
         return 0.0
     return 1.0 / r
 
@@ -66,7 +77,7 @@ def _conductance_to_resistance(conductance: float) -> float:
     g = float(conductance)
     if not isfinite(g) or g <= 0.0:
         return INACTIVE_RESISTANCE
-    return min(INACTIVE_RESISTANCE, 1.0 / g)
+    return 1.0 / g
 
 
 def _weighted(a: float, ga: float, b: float, gb: float) -> float:
@@ -195,6 +206,14 @@ def from_aggregate(
     level_series: tuple[tuple[str, float], ...] | None = None,
 ) -> PhysicalDrainageSystem:
     """Create a physical-system record from aggregate_physical_system output."""
+    support_area = float(
+        aggregate.get(
+            "support_area_m2",
+            62500.0 * float(aggregate.get("member_count", 0)),
+        )
+    )
+    cdr_sum = float(aggregate.get("cdr_sum", 0.0))
+    inf_sum = float(aggregate.get("infiltration_conductance_sum", 0.0))
     return PhysicalDrainageSystem(
         source_ids=(source_id,),
         hydraulic_class=hydraulic_class,
@@ -206,6 +225,9 @@ def from_aggregate(
         peil_win=float(aggregate["peil_win"]),
         dd=float(aggregate["dd"]),
         level_series=level_series,
+        drainage_conductance_raw=(cdr_sum / support_area if support_area > 0.0 else 0.0),
+        infiltration_conductance_raw=(inf_sum / support_area if support_area > 0.0 else 0.0),
+        physical_active=(cdr_sum > 0.0),
     )
 
 
@@ -250,6 +272,9 @@ def merge_systems(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> Physi
         peil_win=_weighted(a.peil_win, ga, b.peil_win, gb),
         dd=_merge_spacing(a, b),
         level_series=_merge_level_series(a, b, ga, gb),
+        drainage_conductance_raw=ga + gb,
+        infiltration_conductance_raw=gi,
+        physical_active=True,
         merge_history=a.merge_history
         + b.merge_history
         + (
