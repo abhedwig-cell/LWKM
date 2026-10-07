@@ -362,3 +362,50 @@ def test_uncapped_physical_resistance_exposes_swap_range_overflow():
         assert "DRARES range overflow" in str(exc)
     else:
         raise AssertionError("expected physical DRARES >1e5 to fail SWAP interface gate")
+
+
+
+def test_infiltration_capable_class_with_zero_physical_infiltration_is_rendered_drain_only():
+    agg={
+        "drnres":1000.0,
+        "infres":100000.0,
+        "dep":1.0,
+        "peil_sum":0.5,
+        "peil_win":0.5,
+        "dd":80.0,
+        "cdr_sum":62.5,
+        "infiltration_conductance_sum":0.0,
+        "member_count":1,
+        "support_area_m2":62500.0,
+    }
+    p=from_aggregate(
+        source_id="RIV_ZERO_INF",
+        hydraulic_class="infiltration_capable_open",
+        medium="open_channel",
+        aggregate=agg,
+    )
+    assert p.active is True
+    assert p.infiltration_conductance == 0.0
+    assert p.allow_infiltration is False
+    assert to_render_level(p)["allow_infiltration"] is False
+
+
+def test_merge_enables_infiltration_only_when_merged_raw_conductance_is_positive():
+    zero=PhysicalDrainageSystem(
+        ("A",),"infiltration_capable_open","open_channel",
+        1000.0,100000.0,1.0,0.5,0.5,80.0,
+        drainage_conductance_raw=1e-3,
+        infiltration_conductance_raw=0.0,
+        physical_active=True,
+    )
+    positive=PhysicalDrainageSystem(
+        ("B",),"infiltration_capable_open","open_channel",
+        1000.0,2000.0,1.0,0.5,0.5,80.0,
+        drainage_conductance_raw=1e-3,
+        infiltration_conductance_raw=5e-4,
+        physical_active=True,
+    )
+    assert zero.allow_infiltration is False
+    merged=compress_to_swap_levels([zero,positive],max_levels=1)[0]
+    assert merged.infiltration_conductance == 5e-4
+    assert merged.allow_infiltration is True
