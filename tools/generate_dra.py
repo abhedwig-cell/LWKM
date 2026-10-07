@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from tools.p12_swallo import SUPPLIED_SOURCE_V038, swallo
+from tools.p12_swallo import SUPPLIED_SOURCE_V038, swallo, swallo_modern_explicit
 
 def conductance_weighted_depth(glk,bottom,cdr):
     g=pd.to_numeric(glk,errors="coerce").to_numpy(float)
@@ -45,3 +45,83 @@ def render_dra(systems:list[dict],n_horizons:int,year_start:int,year_end:int,inf
             lines += [f" 01-apr-{y} {-s['peil_sum']*100:8.2f}",f" 01-oct-{y} {-s['peil_win']*100:8.2f}"]
         lines.append("* End of table")
     return "\n".join(lines)+"\n"
+
+
+
+def repair_system_explicit(s: dict, *, medium: str, isnatuur: bool) -> dict:
+    """Modern repair semantics with hydraulic type explicit, not index-coded."""
+    if medium not in {"open_channel", "drain_tube"}:
+        raise ValueError(f"unsupported drainage medium: {medium}")
+    x = dict(s)
+    if x["drnres"] > 20000 or (medium == "drain_tube" and isnatuur):
+        x.update({
+            "peil_sum": 0.0,
+            "peil_win": 0.0,
+            "dep": 0.0,
+            "drnres": 100000.0,
+            "infres": 100000.0,
+        })
+    return x
+
+
+def render_dra_explicit(
+    levels: list[dict],
+    n_horizons: int,
+    year_start: int,
+    year_end: int,
+    river_infiltration_indicator: float,
+) -> str:
+    """Render <=5 SWAP drainage levels using explicit hydraulic metadata.
+
+    Each level must contain:
+      drnres, infres, dd, dep, peil_sum, peil_win,
+      medium = open_channel | drain_tube,
+      allow_infiltration = bool,
+      source_ids = iterable[str] (lineage only).
+
+    This avoids the historical index assumptions sy==4 => pipe and sy>3 =>
+    drain-only. Final L/spacing admission remains a separate gate.
+    """
+    if not 1 <= len(levels) <= 5:
+        raise ValueError(f"SWAP supports 1..5 drainage levels, got {len(levels)}")
+
+    lines = [
+        "DRAMET = 3",
+        "SWDIVD = 1",
+        "COFANI =" + " 1.0" * int(n_horizons),
+        "SWDISLAY = 0",
+        f"NRLEVS = {len(levels)}",
+        "SWINTFL = 0",
+        "SWTOPNRSRF = 0",
+        "",
+    ]
+
+    for sy, level in enumerate(levels, 1):
+        medium = level["medium"]
+        if medium not in {"open_channel", "drain_tube"}:
+            raise ValueError(f"unsupported drainage medium: {medium}")
+        swallo_value = swallo_modern_explicit(
+            bool(level["allow_infiltration"]),
+            float(level["infres"]),
+            float(river_infiltration_indicator),
+        )
+        swdtyp = 1 if medium == "drain_tube" else 2
+
+        lines += [
+            f"DRARES{sy} = {level['drnres']:8.0f}",
+            f"INFRES{sy} = {level['infres']:8.0f}",
+            f"SWALLO{sy} = {swallo_value}",
+            f"L{sy} = {max(1.0, level['dd']):8.0f}",
+            f"ZBOTDR{sy} = {-level['dep'] * 100:8.2f}",
+            f"SWDTYP{sy} = {swdtyp}",
+            " ",
+            f"    DATOWL{sy}   LEVEL{sy}",
+            f" 01-jan-{year_start} {-level['peil_win'] * 100:8.2f}",
+        ]
+        for y in range(year_start, year_end + 1):
+            lines += [
+                f" 01-apr-{y} {-level['peil_sum'] * 100:8.2f}",
+                f" 01-oct-{y} {-level['peil_win'] * 100:8.2f}",
+            ]
+        lines.append("* End of table")
+    return "\n".join(lines) + "\n"
