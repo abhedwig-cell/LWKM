@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "workstep": "W01-I",
+  "status": "H1_MVG_Q4_IMMUTABLE_SNAPSHOT",
+  "bundle_id": "LHM433_H1_MVG",
+  "server_run_utc": "2026-10-07T06:57:37.0849500Z",
+  "authority": "project-owner supplied LHM433 control INI resolved against E:\\LHM_4.3.3\\Data\\2_Model_Input",
+  "bundle": {
+    "zip_name": "LHM433_H1_MVG_Q4.zip",
+    "zip_size_bytes": 64091261,
+    "zip_sha256": "3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa",
+    "manifest_sha256": "216af5086a83109abfcaa74b19c92535c354a79008ec958e0b7c0eb40fc32ebb",
+    "payload_file_count": 681,
+    "payload_bytes": 4249475616,
+    "zero_unexplained_file_identity_differences": true
+  },
+  "h1_dynamic_stage": {
+    "file_count": 676,
+    "filename_date_min": "19691201",
+    "filename_date_max": "20260301",
+    "expected_inclusive_month_count": 676,
+    "count_matches_full_month_sequence": true,
+    "gap_free_status": "STRONGLY_INDICATED_BY_COUNT_AND_RANGE_PENDING_FILES_CSV_EXACT_SEQUENCE_CHECK"
+  },
+  "static_payload_expected": {
+    "count": 5,
+    "logical_files": [
+      "H1_CONDUCTANCE: COND_HL1_250.IDF",
+      "H1_BOTTOM: both.idf",
+      "H1_INFILTRATION_FACTOR: infmz_h_250_l1.idf",
+      "MVG_CONDUCTANCE: COND_greppels.IDF",
+      "MVG_BOTTOM_STAGE: BODH_BRP2012_MVGREP_250.IDF"
+    ]
+  },
+  "qualification_consequence": [
+    "H1/MVG source bundle recovery blocker closed",
+    "Q4 byte-identity bundle qualification passed",
+    "file-level hashes remain to be persisted from files.csv before individual member admission",
+    "semantic/geometry qualification remains required before DRA production admission"
+  ],
+  "evidence_source": "real NHI server command output supplied by project owner"
+}
