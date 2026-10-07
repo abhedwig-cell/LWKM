@@ -123,10 +123,9 @@ qualified_source_bundles:
     evidence: docs/evidence/2026-10-07/h1-mvg-q4-summary.json
 
 open_questions:
-  - resolve H1 source-support exceptions before DRA production admission
-  - determine whether H1 exception cells participate in admitted LWKM SVAT/HRU population
+  - confirm H1 source-exception zero-intersection against final W03-admitted SVAT population
   - final SWAP level ordering requirement
-  - Q4 bind remaining P/S/T/PIPE/OLF source families
+  - Q4 bind remaining P/S/T/PIPE/OLF source families using tools/server/lwkm_collect_dra_remaining.ps1
   - regression impact on 49-run oracle and 10242-HRU production population
 
 source_audit_2026_10_07:
@@ -182,3 +181,20 @@ population_intersection_2026_10_07:
     exact_coordinate_matches: 0
   production_policy: FAIL_CLOSED_IF_ANY_EXCEPTION_OCCURS_IN_ADMITTED_HRU_MEMBER
   closure_scope: STRONG_NEGATIVE_INTERSECTION_PENDING_W03_FINAL_POPULATION_ADMISSION
+
+remaining_source_collection:
+  tool: tools/server/lwkm_collect_dra_remaining.ps1
+  status: READY_FOR_REAL_SERVER_Q4
+  required_families:
+    - RIV_PRIMARY
+    - RIV_SECONDARY
+    - RIV_TERTIARY
+    - DRN_PIPE
+    - DRN_OLF
+    - AHN_GROUND_CM
+  comparison_inputs:
+    - P_LHM_PACKAGE_SUMMER_BOTTOM
+    - P_LHM_PACKAGE_WINTER_BOTTOM
+    - S_LHM_PACKAGE_SUMMER_BOTTOM
+    - S_LHM_PACKAGE_WINTER_BOTTOM
+  reason: compare current HRU DRA steady-state bottom authority with actual LHM package-bottom semantics before modern admission
