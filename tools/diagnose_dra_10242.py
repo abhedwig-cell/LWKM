@@ -298,9 +298,16 @@ def _read_svat_coordinates(path: Path) -> pd.DataFrame:
 
 
 def _coordinates_to_row_col(coords: pd.DataFrame,reference_idf: Path) -> pd.DataFrame:
+    """Map SVAT coordinates only when they are exact IDF cell centres."""
     g=read_idf(reference_idf)
-    col=np.floor((coords["x"].to_numpy(float)-g.xmin)/g.dx).astype(int)
-    row=np.floor((g.ymax-coords["y"].to_numpy(float))/g.dy).astype(int)
+    x=coords["x"].to_numpy(float)
+    y=coords["y"].to_numpy(float)
+    colf=(x-g.xmin)/g.dx-0.5
+    rowf=g.nrow-(y-g.ymin)/g.dy-0.5
+    col=np.rint(colf).astype(int)
+    row=np.rint(rowf).astype(int)
+    if not np.allclose(colf,col,atol=1e-8) or not np.allclose(rowf,row,atol=1e-8):
+        raise ValueError("SVAT coordinates are not exact IDF-cell centres")
     if ((row<0)|(row>=g.nrow)|(col<0)|(col>=g.ncol)).any():
         raise ValueError("SVAT coordinates fall outside drainage-grid geometry")
     out=coords.copy()
