@@ -35,8 +35,8 @@ def aggregate_physical_system(
     *,
     cdr_col: str,
     bottom_col: str,
-    summer_level_col: str,
-    winter_level_col: str,
+    summer_level_col: str | None,
+    winter_level_col: str | None,
     representative_dqsat: float,
     infiltration_factor_col: str | None = None,
     cell_area_m2: float = 62500.0,
@@ -55,8 +55,14 @@ def aggregate_physical_system(
     glk = pd.to_numeric(members["glk"], errors="coerce")
     cdr = pd.to_numeric(members[cdr_col], errors="coerce")
     bottom = pd.to_numeric(members[bottom_col], errors="coerce")
-    summer = pd.to_numeric(members[summer_level_col], errors="coerce")
-    winter = pd.to_numeric(members[winter_level_col], errors="coerce")
+    summer = (
+        pd.to_numeric(members[summer_level_col], errors="coerce")
+        if summer_level_col is not None else None
+    )
+    winter = (
+        pd.to_numeric(members[winter_level_col], errors="coerce")
+        if winter_level_col is not None else None
+    )
 
     if glk.isna().any():
         raise ValueError("missing ground level in HRU membership")
@@ -66,9 +72,9 @@ def aggregate_physical_system(
         raise ValueError(f"missing conductance in active {cdr_col} member")
     if bottom[active_member].isna().any():
         raise ValueError(f"missing bottom for positive-conductance {cdr_col} member")
-    if summer[active_member].isna().any():
+    if summer is not None and summer[active_member].isna().any():
         raise ValueError(f"missing summer level for positive-conductance {cdr_col} member")
-    if winter[active_member].isna().any():
+    if winter is not None and winter[active_member].isna().any():
         raise ValueError(f"missing winter level for positive-conductance {cdr_col} member")
 
     cdr = cdr.fillna(0.0).clip(lower=0.0)
@@ -98,13 +104,24 @@ def aggregate_physical_system(
     )
 
     if cdr_sum > 0.0:
-        dep = conductance_weighted_depth(glk, bottom, cdr)
-        glkavg = float(glk.mean())
-        ps = glkavg - conductance_weighted_depth(glk, summer, cdr)
-        pw = glkavg - conductance_weighted_depth(glk, winter, cdr)
-        ps = min(max(0.0, -ps + glkavg), max(0.0, dep))
-        pw = min(max(0.0, -pw + glkavg), max(0.0, dep))
+        c = cdr.to_numpy(float)
+        gg = glk.to_numpy(float)
+        bb = bottom.to_numpy(float)
+        mask = c > 0.0
+        dep = float(np.sum(c[mask] * (gg[mask] - bb[mask])) / np.sum(c[mask]))
         dep = max(0.0, dep)
+        if summer is not None and winter is not None:
+            ss = summer.to_numpy(float)
+            ww = winter.to_numpy(float)
+            ps = float(np.sum(c[mask] * (gg[mask] - ss[mask])) / np.sum(c[mask]))
+            pw = float(np.sum(c[mask] * (gg[mask] - ww[mask])) / np.sum(c[mask]))
+            ps = min(max(0.0, ps), dep)
+            pw = min(max(0.0, pw), dep)
+        elif summer is None and winter is None:
+            ps = 0.0
+            pw = 0.0
+        else:
+            raise ValueError("summer and winter level columns must both be set or both be None")
         dd = float(representative_dqsat) * 4.0
     else:
         dep = 0.0
@@ -122,6 +139,7 @@ def aggregate_physical_system(
         "cdr_sum": cdr_sum,
         "infiltration_conductance_sum": infiltration_sum,
         "member_count": n,
+        "support_area_m2": area,
     }
 
 
