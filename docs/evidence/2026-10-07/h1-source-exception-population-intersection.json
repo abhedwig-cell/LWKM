@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "H1_SOURCE_EXCEPTIONS_ZERO_MATCH_IN_RECOVERED_SVAT_TABLES",
+  "date": "2026-10-07",
+  "sources_checked": [
+    "SVAT_INFO.csv",
+    "svat_info_lwkm_new.csv"
+  ],
+  "method": "exact x,y coordinate search in indexed table content",
+  "exception_sets": {
+    "missing_infiltration_factor_at_positive_H1_conductance": {
+      "cells": 296,
+      "matches_in_SVAT_INFO": 0,
+      "matches_in_svat_info_lwkm_new": 0
+    },
+    "missing_H1_stage_2022_04_01_at_positive_conductance": {
+      "cells": 15,
+      "matches_in_SVAT_INFO": 0,
+      "matches_in_svat_info_lwkm_new": 0
+    },
+    "missing_H1_bottom_and_2005_01_to_2021_12_stage": {
+      "cells": 1,
+      "coordinate": [190875, 509125],
+      "matches_in_SVAT_INFO": 0,
+      "matches_in_svat_info_lwkm_new": 0
+    },
+    "H1_stage_below_bottom": {
+      "cells": 1,
+      "coordinate": [152375, 442875],
+      "matches_in_SVAT_INFO": 0,
+      "matches_in_svat_info_lwkm_new": 0
+    }
+  },
+  "interpretation": "All currently known H1 source-support exceptions lie outside the recovered SVAT table coordinate populations. This strongly supports that they do not affect the reconstructed LWKM HRU population, but final closure remains tied to W03 production-population admission.",
+  "production_rule": "No fallback is introduced. Named physical-system aggregation fails closed if an admitted HRU member has positive H1 conductance with missing required H1 hydraulic attributes."
+}
