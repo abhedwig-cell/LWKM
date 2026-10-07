@@ -1,5 +1,5 @@
 schema_version: 1
-status: PHYSICAL_DRAINAGE_AUTHORITY_DEFINED_H1_MVG_Q4_RECOVERED_COMPRESSION_DIAGNOSTIC
+status: SEVEN_SYSTEM_MODERN_DRA_PIPELINE_IMPLEMENTED_NOT_10242_QUALIFIED
 
 physical_systems:
   - id: RIV_H1
@@ -91,13 +91,23 @@ swap_interface:
     cross_hydraulic_class_merge_allowed: false
     open_channel_merge_only_when_active_count_exceeds_available_slots: true
     selection: minimum_conductance_weighted_level_variance
+    sequence:
+      - aggregate_all_seven_physical_systems
+      - preserve_all_positive_conductance_systems
+      - compress_only_if_more_than_five_active
+      - apply_swap_level_repair_after_compression
+      - render_explicit_levels
     merge_conservation:
       drainage_conductance: exact_parallel_sum
       infiltration_conductance: exact_parallel_sum_within_compatible_class
       bottom_depth: drainage_conductance_weighted
-      summer_level: drainage_conductance_weighted
-      winter_level: drainage_conductance_weighted
-    status: DIAGNOSTIC_NOT_ADMITTED
+      level_time_series: drainage_conductance_weighted_per_timestamp
+      spacing_L: preserve_common_representative_svat_dqsat_times_4
+    dynamic_level_policy:
+      H1: preserve_monthly_peilh_series
+      seasonal_open_channels: evaluate_seasonal_level_at_dynamic_timestamps_when_merged
+      explicit_date_mismatch: FAIL_CLOSED
+    status: IMPLEMENTED_NOT_10242_ADMITTED
 
 qualified_source_bundles:
   H1_MVG:
@@ -115,8 +125,8 @@ qualified_source_bundles:
 open_questions:
   - resolve H1 source-support exceptions before DRA production admission
   - determine whether H1 exception cells participate in admitted LWKM SVAT/HRU population
-  - exact spacing/L semantics after compression
-  - SWAP level ordering requirement
+  - final SWAP level ordering requirement
+  - Q4 bind remaining P/S/T/PIPE/OLF source families
   - regression impact on 49-run oracle and 10242-HRU production population
 
 source_audit_2026_10_07:
@@ -152,3 +162,23 @@ source_audit_2026_10_07:
     stage_exception_months: 205
     stage_below_bottom_distinct_cells: 1
     result: SEMANTIC_EXCEPTIONS_OPEN
+
+population_intersection_2026_10_07:
+  evidence: docs/evidence/2026-10-07/h1-source-exception-population-intersection.json
+  tables:
+    - SVAT_INFO.csv
+    - svat_info_lwkm_new.csv
+  missing_infiltration_factor_cells:
+    source_cells: 296
+    exact_coordinate_matches: 0
+  april_2022_stage_gap_cells:
+    source_cells: 15
+    exact_coordinate_matches: 0
+  missing_bottom_long_stage_gap_cell:
+    source_cells: 1
+    exact_coordinate_matches: 0
+  stage_below_bottom_cell:
+    source_cells: 1
+    exact_coordinate_matches: 0
+  production_policy: FAIL_CLOSED_IF_ANY_EXCEPTION_OCCURS_IN_ADMITTED_HRU_MEMBER
+  closure_scope: STRONG_NEGATIVE_INTERSECTION_PENDING_W03_FINAL_POPULATION_ADMISSION
