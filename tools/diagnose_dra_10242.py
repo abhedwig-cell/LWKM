@@ -893,11 +893,23 @@ def diagnose(
                     "legacy_high_resistance_level_count":sum(
                         1 for p in compressed if p.drnres > 20000.0
                     ),
+                    "swap_drares_underflow_level_count":sum(
+                        1 for p in compressed if p.drnres < 1.0
+                    ),
                     "swap_drares_overflow_level_count":sum(
                         1 for p in compressed if p.drnres > 100000.0
                     ),
                     "swap_infres_overflow_level_count":sum(
                         1 for p in compressed if p.infres > 100000.0
+                    ),
+                    "swap_l_underflow_level_count":sum(
+                        1 for p in compressed if p.dd is not None and p.dd < 1.0
+                    ),
+                    "swap_l_overflow_level_count":sum(
+                        1 for p in compressed if p.dd is not None and p.dd > 100000.0
+                    ),
+                    "swap_zbotdr_range_level_count":sum(
+                        1 for p in compressed if not 0.0 <= p.dep <= 100.0
                     ),
                     "max_compressed_drares":max(
                         (float(p.drnres) for p in compressed),
@@ -976,20 +988,39 @@ def diagnose(
             "level_count":int(s["legacy_high_resistance_level_count"].sum()) if len(s) else 0,
             "modern_action":"REPORT_ONLY_DO_NOT_DEACTIVATE",
         },
-        "swap_resistance_range_gate":{
-            "maximum_days":100000.0,
-            "drares":{
-                "hru_overflow":int((s["swap_drares_overflow_level_count"]>0).sum()) if len(s) else 0,
-                "level_overflow_count":int(s["swap_drares_overflow_level_count"].sum()) if len(s) else 0,
-                "maximum_compressed_days":float(s["max_compressed_drares"].max()) if len(s) else None,
+        "swap_method3_interface_range_gate":{
+            "DRARES_days":[1.0,100000.0],
+            "INFRES_days":[0.0,100000.0],
+            "L_m":[1.0,100000.0],
+            "ZBOTDR_cm":[-10000.0,0.0],
+            "drares_underflow":{
+                "hru_count":int((s["swap_drares_underflow_level_count"]>0).sum()) if len(s) else 0,
+                "level_count":int(s["swap_drares_underflow_level_count"].sum()) if len(s) else 0,
             },
-            "infres":{
-                "hru_overflow":int((s["swap_infres_overflow_level_count"]>0).sum()) if len(s) else 0,
-                "level_overflow_count":int(s["swap_infres_overflow_level_count"].sum()) if len(s) else 0,
-                "maximum_compressed_days":float(s["max_compressed_infres"].max()) if len(s) else None,
+            "drares_overflow":{
+                "hru_count":int((s["swap_drares_overflow_level_count"]>0).sum()) if len(s) else 0,
+                "level_count":int(s["swap_drares_overflow_level_count"].sum()) if len(s) else 0,
+                "maximum_days":float(s["max_compressed_drares"].max()) if len(s) else None,
             },
-            "required_for_production":"ZERO_DRARES_AND_INFRES_OVERFLOW",
-            "rule":"physical resistance is never silently clamped to SWAP parser range",
+            "infres_overflow":{
+                "hru_count":int((s["swap_infres_overflow_level_count"]>0).sum()) if len(s) else 0,
+                "level_count":int(s["swap_infres_overflow_level_count"].sum()) if len(s) else 0,
+                "maximum_days":float(s["max_compressed_infres"].max()) if len(s) else None,
+            },
+            "L_underflow":{
+                "hru_count":int((s["swap_l_underflow_level_count"]>0).sum()) if len(s) else 0,
+                "level_count":int(s["swap_l_underflow_level_count"].sum()) if len(s) else 0,
+            },
+            "L_overflow":{
+                "hru_count":int((s["swap_l_overflow_level_count"]>0).sum()) if len(s) else 0,
+                "level_count":int(s["swap_l_overflow_level_count"].sum()) if len(s) else 0,
+            },
+            "ZBOTDR_out_of_range":{
+                "hru_count":int((s["swap_zbotdr_range_level_count"]>0).sum()) if len(s) else 0,
+                "level_count":int(s["swap_zbotdr_range_level_count"].sum()) if len(s) else 0,
+            },
+            "required_for_production":"ZERO_INTERFACE_RANGE_VIOLATIONS",
+            "rule":"physical values are never silently clamped to SWAP parser ranges",
         },
         "ordering_candidate":"DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE",
         "ordering_admission":"W07_DIAGNOSTIC_ORDERING_QUALIFIED_PRODUCTION_SENSITIVITY_OPEN",
