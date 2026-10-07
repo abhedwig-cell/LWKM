@@ -164,8 +164,13 @@ def render_dra(systems:list[dict],n_horizons:int,year_start:int,year_end:int,inf
 
 
 
-def repair_system_explicit(s: dict, *, medium: str, isnatuur: bool) -> dict:
-    """Modern repair semantics with hydraulic type explicit, not index-coded."""
+def repair_system_explicit_legacy_v038(
+    s: dict,
+    *,
+    medium: str,
+    isnatuur: bool,
+) -> dict:
+    """Historical v0.38 repair without fixed system-number assumptions."""
     if medium not in {"open_channel", "drain_tube"}:
         raise ValueError(f"unsupported drainage medium: {medium}")
     x = dict(s)
@@ -178,6 +183,23 @@ def repair_system_explicit(s: dict, *, medium: str, isnatuur: bool) -> dict:
             "infres": 100000.0,
         })
     return x
+
+
+def repair_system_explicit(
+    s: dict,
+    *,
+    medium: str,
+    isnatuur: bool = False,
+) -> dict:
+    """Modern corrected repair: preserve every physically active level.
+
+    The historical 20000-day threshold and the old nature/pipe heuristic are
+    compatibility policies, not modern physical-source authority. SWAP parser
+    range checks remain a separate fail-closed production gate.
+    """
+    if medium not in {"open_channel", "drain_tube"}:
+        raise ValueError(f"unsupported drainage medium: {medium}")
+    return dict(s)
 
 
 def render_dra_explicit(
