@@ -24,7 +24,7 @@ function WriteJson([string]$p, $o) {
 # PowerShell 5.1 binds String.TrimEnd to a single char[] parameter. Passing two
 # separate string arguments throws "Argument types do not match" on Windows
 # PowerShell, so use an explicit char array.
-$trimSeparators = [char[]]@('\\','/')
+$trimSeparators = [char[]]@([char]92, [char]47)
 $model = (Get-Item -LiteralPath $ModelRoot -ErrorAction Stop).FullName.TrimEnd($trimSeparators)
 $out = [IO.Path]::GetFullPath($OutputDir).TrimEnd($trimSeparators)
 $collectorScriptPath = $PSCommandPath
