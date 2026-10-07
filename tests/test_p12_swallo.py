@@ -5,6 +5,7 @@ from tools.p12_swallo import (
     swallo,
     swallo_realized_compat,
     swallo_supplied_source,
+    swallo_modern_explicit,
 )
 
 
@@ -34,3 +35,16 @@ def test_run_2000_discriminating_inputs():
     indicator = 11.820416666666667
     assert swallo_supplied_source(3, 725, indicator) == 1
     assert swallo_realized_compat(3, 725, indicator) == 3
+
+
+
+def test_modern_swallo_ignores_legacy_thresholds_and_uses_physical_capability():
+    # Historical v0.38 would disable both examples. Modern physical semantics
+    # keep finite LHM RIV infiltration active; parser-range checks are separate.
+    assert swallo_supplied_source(1, 25000.0, 20.0) == 3
+    assert swallo_modern_explicit(True, 25000.0, 20.0) == 1
+
+    assert swallo_supplied_source(1, 1000.0, 5.0) == 3
+    assert swallo_modern_explicit(True, 1000.0, 5.0) == 1
+
+    assert swallo_modern_explicit(False, 1000.0, 20.0) == 3
