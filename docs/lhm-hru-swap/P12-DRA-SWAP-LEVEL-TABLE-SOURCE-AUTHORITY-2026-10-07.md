@@ -115,9 +115,14 @@ Those remain separate qualification questions.
 and serializes deterministic English month tokens.
 
 For the current historical production interval the population diagnostic
-defaults to H1 records from 1971-01-01 through 2021-12-01.
+uses H1 records from 1971-01-01 through **2022-01-01** for a simulation ending
+2021-12-31.
 
-Before final production admission, the end-of-table behavior must either:
-- be source-qualified for `afgen`; or
-- be made unambiguous by providing a qualified terminal record beyond the
-  simulation end.
+The recovered and Q4-qualified H1 source contains that January-2022 stage.
+It is deliberately retained as a terminal guard record. Therefore all
+simulated times lie inside the explicit `DATOWL/LEVEL` support and the
+production route does not depend on `afgen` extrapolation beyond the last
+record.
+
+Qualified:
+`H1_DYNAMIC_LEVEL_TABLE_EXPLICITLY_BRACKETS_SIMULATION_PERIOD`.
