@@ -11,6 +11,7 @@ from tools.diagnose_dra_10242 import (
     _read_dqsat,
     _read_membership,
     _read_relation_context,
+    _read_static04_snapshot,
 )
 
 
@@ -119,3 +120,19 @@ def test_authoritative_relation_supplies_membership_and_coordinates(tmp_path: Pa
         {"svat":2,"x":375.0,"y":625.0},
     ]
     assert "bodem370_orig" in full.columns
+
+
+
+def test_static04_snapshot_requires_full_10242_rows(tmp_path: Path):
+    p=tmp_path/"static04.csv"
+    pd.DataFrame({
+        "hru":[1,2],
+        "representative_dqsat":[8.0,7.0],
+        "discriminating":[False,True],
+    }).to_csv(p,index=False)
+    try:
+        _read_static04_snapshot(p)
+    except ValueError as exc:
+        assert "10242" in str(exc)
+    else:
+        raise AssertionError("expected incomplete STATIC04 snapshot to fail")
