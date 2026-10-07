@@ -331,3 +331,34 @@ def test_equal_conductance_ratio_can_have_zero_centroid_gap_but_nonzero_level_sp
     )
     assert drainage_infiltration_level_gap(a,b) == 0.0
     assert max_source_level_separation(a,b) == 1.0
+
+
+
+def test_uncapped_physical_resistance_exposes_swap_range_overflow():
+    agg={
+        "drnres":100000.0,
+        "infres":100000.0,
+        "dep":1.0,
+        "peil_sum":0.5,
+        "peil_win":0.5,
+        "dd":80.0,
+        "cdr_sum":0.01,
+        "infiltration_conductance_sum":0.005,
+        "member_count":1,
+        "support_area_m2":62500.0,
+    }
+    p=from_aggregate(
+        source_id="weak",
+        hydraulic_class="infiltration_capable_open",
+        medium="open_channel",
+        aggregate=agg,
+    )
+    assert p.active is True
+    assert p.drnres == 6250000.0
+    assert p.infres == 12500000.0
+    try:
+        to_render_level(p)
+    except ValueError as exc:
+        assert "DRARES range overflow" in str(exc)
+    else:
+        raise AssertionError("expected physical DRARES >1e5 to fail SWAP interface gate")
