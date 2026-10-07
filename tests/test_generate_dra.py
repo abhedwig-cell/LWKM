@@ -258,3 +258,50 @@ def test_explicit_renderer_rejects_infres_above_swap_parser_range():
         assert "INFRES outside SWAP method-3 range" in str(exc)
     else:
         raise AssertionError("expected INFRES range overflow to fail")
+
+
+
+def test_explicit_renderer_rejects_spacing_below_swap_parser_range():
+    level={
+        "drnres":1000.0,"infres":1000.0,"dep":1.0,
+        "peil_sum":0.5,"peil_win":0.5,"dd":0.5,
+        "medium":"open_channel","allow_infiltration":True,
+        "source_ids":("x",),
+    }
+    try:
+        render_dra_explicit([level],3,2000,2000,20)
+    except ValueError as exc:
+        assert "L outside SWAP method-3 range" in str(exc)
+    else:
+        raise AssertionError("expected L underflow to fail")
+
+
+def test_explicit_renderer_rejects_bottom_deeper_than_swap_parser_range():
+    level={
+        "drnres":1000.0,"infres":1000.0,"dep":101.0,
+        "peil_sum":0.5,"peil_win":0.5,"dd":80.0,
+        "medium":"open_channel","allow_infiltration":True,
+        "source_ids":("x",),
+    }
+    try:
+        render_dra_explicit([level],3,2000,2000,20)
+    except ValueError as exc:
+        assert "ZBOTDR outside SWAP method-3 range" in str(exc)
+    else:
+        raise AssertionError("expected ZBOTDR range violation to fail")
+
+
+def test_explicit_renderer_rejects_dynamic_level_outside_swap_parser_range():
+    level={
+        "drnres":1000.0,"infres":1000.0,"dep":1.0,
+        "peil_sum":0.5,"peil_win":0.5,"dd":80.0,
+        "medium":"open_channel","allow_infiltration":True,
+        "source_ids":("x",),
+        "level_series":(("2000-01-01",101.0),),
+    }
+    try:
+        render_dra_explicit([level],3,2000,2000,20)
+    except ValueError as exc:
+        assert "LEVEL outside SWAP method-3 range" in str(exc)
+    else:
+        raise AssertionError("expected dynamic LEVEL range violation to fail")
