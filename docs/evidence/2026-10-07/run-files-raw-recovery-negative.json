@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "RUN_FILES_RAW_RECOVERY_BLOCKED_BY_PROJECT_MATERIALIZATION",
+  "date": "2026-10-07",
+  "artifact": {
+    "name": "run_files(1).zip",
+    "sha256": "46f1fc6b6f4aa01265db950c8ca78f9c4714a97d11cfa4d8f0c66b4dea7a05e3",
+    "library_file_id": "libfile_f64824b6b0d88191bbc12275e10d2f1f",
+    "file_id": "file_000000002a9c82108b0fe7d3a66dc8ae",
+    "size_bytes": 20953239
+  },
+  "attempts": [
+    {
+      "method": "direct library read",
+      "result": "metadata recovered, ZIP has no readable text surface"
+    },
+    {
+      "method": "raw_file materialization",
+      "result": "blocked: Project file has no authorized raw-byte materialization path"
+    },
+    {
+      "method": "archive-scoped text search",
+      "queries": ["SWMACRO", "SWDRRAP", "NUMLEVRAPDRA", "DRAMET = 3"],
+      "result": "zero nested indexed hits"
+    }
+  ],
+  "consequence": {
+    "W07": "not blocked; level ordering conditionally qualified for DRAMET=3, SWINTFL=0",
+    "W10_W11": "indexed rapid-macropore drainage remains fail-closed until SWP/package semantics are bound",
+    "reupload_request": false
+  }
+}
