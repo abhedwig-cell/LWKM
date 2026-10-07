@@ -324,8 +324,11 @@ modern_swallo:
     - drain_only_open
     - pipe
   rule: >-
-    SWALLO is derived from explicit post-compression hydraulic capability.
-    Finite RIV infiltration is not disabled by historical v0.38 thresholds.
+    SWALLO is derived from explicit post-compression hydraulic capability and
+    positive physical infiltration conductance. A RIV-class level with zero
+    qualified infiltration conductance is rendered drain-only (SWALLO=3);
+    positive finite RIV infiltration is not disabled by historical v0.38
+    thresholds.
   historical_thresholds:
     INFRES_gt_20000_days:
       scope: LEGACY_V038_ONLY
