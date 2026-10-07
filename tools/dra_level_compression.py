@@ -43,7 +43,11 @@ class PhysicalDrainageSystem:
 
     @property
     def allow_infiltration(self) -> bool:
-        return self.hydraulic_class == "infiltration_capable_open"
+        """Whether this represented level has positive physical infiltration conductance."""
+        return (
+            self.hydraulic_class == "infiltration_capable_open"
+            and self.infiltration_conductance > 0.0
+        )
 
     @property
     def drainage_conductance(self) -> float:
@@ -53,10 +57,13 @@ class PhysicalDrainageSystem:
 
     @property
     def infiltration_conductance(self) -> float:
-        if not self.allow_infiltration:
+        if self.hydraulic_class != "infiltration_capable_open":
             return 0.0
         if self.infiltration_conductance_raw is not None:
-            return float(self.infiltration_conductance_raw)
+            g=float(self.infiltration_conductance_raw)
+            if not isfinite(g) or g < 0.0:
+                raise ValueError(f"invalid raw infiltration conductance {g}")
+            return g
         return _resistance_to_conductance(self.infres)
 
     @property
