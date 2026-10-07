@@ -256,3 +256,44 @@ The modern workflow will no longer treat the historical five HRU drainage system
 All seven physical layer-1 drainage/surface-water components are upstream authority.
 
 Five levels are only a SWAP-interface representation limit.
+
+
+## H1/MVG file-level audit — 2026-10-07
+
+The uploaded Q4 ZIP was independently re-read and all 681 payload files were re-hashed against its embedded `files.csv`.
+
+Result:
+- 681/681 hashes match;
+- 4,249,475,616/4,249,475,616 payload bytes accounted for;
+- zero missing files;
+- zero hash/size mismatches;
+- all IDF headers are readable;
+- all 681 files share the same 1200 x 1300, 250 m grid and national extent.
+
+The H1 stage sequence is exactly monthly and gap-free:
+- 676 unique months;
+- 1969-12-01 through 2026-03-01;
+- no duplicate months;
+- no missing months.
+
+Per-file NODATA must be honored:
+- through 1978-10 H1 stages use -9999;
+- from 1978-11 onward H1 stages use approximately 1e20;
+- static H1/MVG files use approximately 1e20.
+
+MVG source support is exact:
+- 66,280 conductance cells;
+- 66,280 bottom/stage cells;
+- zero support mismatches.
+
+H1 has source-support exceptions requiring an explicit policy before production:
+- 296 H1 conductance cells have no explicit infiltration-factor value;
+- one H1 conductance cell lacks a bottom value;
+- that same cell lacks dynamic stage from 2005-01 through 2021-12;
+- `PEILH_20220401` lacks stage at 15 H1 conductance cells;
+- one H1 conductance cell has stage below river bottom in 436 monthly files.
+
+These are source-data facts, not yet classified as errors in the admitted LWKM population. First determine whether the affected cells enter the production SVAT/HRU population and then reproduce or explicitly replace the LHM fallback semantics.
+
+Evidence:
+`docs/evidence/2026-10-07/h1-mvg-file-semantic-audit.json`.
