@@ -10,6 +10,7 @@ from tools.diagnose_dra_10242 import (
     _month_key,
     _read_dqsat,
     _read_membership,
+    _read_relation_context,
 )
 
 
@@ -96,3 +97,25 @@ def test_bottom_authority_comparison_includes_tertiary_lhm_peil_as_rbot():
     assert out["T_sum"]["different_gt_1e_6"] == 1
     assert out["T_sum"]["max_abs_difference_m"] == 1.0
     assert out["T_win"]["max_abs_difference_m"] == 2.0
+
+
+
+def test_authoritative_relation_supplies_membership_and_coordinates(tmp_path: Path):
+    p=tmp_path/"relation.csv"
+    pd.DataFrame({
+        "svat_orig":[1,2],
+        "HRU":[10,11],
+        "NRU":[20,21],
+        "NRUcode":["a","b"],
+        "svat_donor":[1,2],
+        "x":[125.0,375.0],
+        "y":[625.0,625.0],
+        "bodem370_orig":[1,2],
+    }).to_csv(p,index=False)
+    membership,coords,full=_read_relation_context(p)
+    assert membership["svat"].tolist()==[1,2]
+    assert coords.to_dict("records")==[
+        {"svat":1,"x":125.0,"y":625.0},
+        {"svat":2,"x":375.0,"y":625.0},
+    ]
+    assert "bodem370_orig" in full.columns
