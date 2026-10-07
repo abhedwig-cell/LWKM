@@ -1,6 +1,7 @@
 import pandas as pd
 from tools.generate_dra import (
     aggregate_system,
+    aggregate_physical_system,
     repair_system,
     render_dra,
     repair_system_explicit,
@@ -84,3 +85,72 @@ def test_explicit_renderer_rejects_more_than_five_levels():
         assert "1..5" in str(exc)
     else:
         raise AssertionError("expected six-level render to fail")
+
+
+
+def test_named_physical_system_uses_all_members_and_representative_dqsat():
+    df=pd.DataFrame({
+        "glk":[10.0,10.0],
+        "cdr_h1":[1.0,3.0],
+        "inf_h1":[0.5,1.0],
+        "bottom_h1":[8.0,9.0],
+        "summer_h1":[9.0,9.5],
+        "winter_h1":[8.5,9.0],
+    })
+    s=aggregate_physical_system(
+        df,
+        cdr_col="cdr_h1",
+        bottom_col="bottom_h1",
+        summer_level_col="summer_h1",
+        winter_level_col="winter_h1",
+        infiltration_factor_col="inf_h1",
+        representative_dqsat=25.0,
+    )
+    assert s["drnres"] == 31250.0
+    assert s["dd"] == 100.0
+    assert s["member_count"] == 2
+
+
+def test_named_drain_only_system_has_inactive_infiltration_resistance():
+    df=pd.DataFrame({
+        "glk":[10.0],
+        "cdr_mvg":[100.0],
+        "bottom_mvg":[9.0],
+        "summer_mvg":[9.0],
+        "winter_mvg":[9.0],
+    })
+    s=aggregate_physical_system(
+        df,
+        cdr_col="cdr_mvg",
+        bottom_col="bottom_mvg",
+        summer_level_col="summer_mvg",
+        winter_level_col="winter_mvg",
+        representative_dqsat=20.0,
+    )
+    assert s["infres"] == 100000.0
+    assert s["dd"] == 80.0
+
+
+def test_named_physical_system_fails_closed_on_missing_active_hydraulics():
+    df=pd.DataFrame({
+        "glk":[10.0],
+        "cdr_h1":[100.0],
+        "inf_h1":[float("nan")],
+        "bottom_h1":[9.0],
+        "summer_h1":[9.0],
+        "winter_h1":[9.0],
+    })
+    try:
+        aggregate_physical_system(
+            df,
+            cdr_col="cdr_h1",
+            bottom_col="bottom_h1",
+            summer_level_col="summer_h1",
+            winter_level_col="winter_h1",
+            infiltration_factor_col="inf_h1",
+            representative_dqsat=20.0,
+        )
+    except ValueError as exc:
+        assert "missing infiltration factor" in str(exc)
+    else:
+        raise AssertionError("expected missing active H1 infiltration factor to fail closed")
