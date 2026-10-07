@@ -377,3 +377,26 @@ Historical functions remain available separately for compatibility/regression.
 Current status:
 
 `SEVEN_SYSTEM_MODERN_DRA_PIPELINE_IMPLEMENTED_NOT_10242_QUALIFIED`.
+
+
+## Remaining five-source Q4 collection — 2026-10-07
+
+A second real-server collector is now prepared:
+
+`tools/server/lwkm_collect_dra_remaining.ps1`.
+
+It collects and Q4-verifies the remaining modern seven-system source families:
+- primary conductance, infiltration factor, level and current-HRU bottom;
+- secondary conductance, infiltration factor, level and current-HRU bottom;
+- tertiary conductance, infiltration factor, level and current-HRU bottom;
+- pipe conductance and bottom/stage;
+- OLF conductance and bottom/stage;
+- authoritative LHM MetaSWAP AHN ground level in centimetres.
+
+The bundle also deliberately includes LHM-package seasonal P/S bottom grids separately from the current HRU DRA steady-state P/S/T bottom grids.
+
+Reason:
+the LHM INI package semantics and current HRU DRA control do not use exactly the same bottom source definitions. No modern production choice is made until those candidates are compared on the admitted LWKM support.
+
+This collector follows the same Q2/Q4 byte-identity pattern as the H1/MVG collector:
+source hash -> staged copy hash -> ZIP -> fresh extraction -> payload rehash.
