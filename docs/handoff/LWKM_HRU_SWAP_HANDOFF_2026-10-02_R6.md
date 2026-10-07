@@ -374,6 +374,37 @@ This closes the H1/MVG **source recovery** blocker. It does not yet grant semant
 Evidence:
 `docs/evidence/2026-10-07/h1-mvg-q4-summary.json`.
 
+## H1/MVG file-level qualification — 2026-10-07
+
+The uploaded H1/MVG Q4 ZIP has now been independently re-hashed in full:
+- 681/681 payload files match the embedded manifest;
+- 4,249,475,616/4,249,475,616 bytes accounted for;
+- zero missing files;
+- zero size/hash mismatches.
+
+All 681 IDFs share the expected 1200 x 1300, 250 m geometry and national extent.
+
+The H1 stage sequence is exactly gap-free monthly:
+- 676 unique files;
+- 1969-12-01 through 2026-03-01;
+- zero missing months;
+- zero duplicates.
+
+MVG conductance and bottom/stage supports match exactly on 66,280 cells.
+
+H1 has a small set of source-support exceptions that remain semantically open:
+- 296 H1 conductance cells lack an explicit infiltration factor;
+- one H1 conductance cell lacks a bottom and lacks stage for 2005-01 through 2021-12;
+- April 2022 H1 stage is absent at 15 conductance cells;
+- one H1 cell has stage below bottom in 436 monthly files.
+
+The major bottom/stage anomaly coordinate pairs were not found in the indexed `svat_info_lwkm_new.csv` selected-population text search. Treat this only as a useful negative indication, not yet a complete population-intersection proof.
+
+Evidence:
+`docs/evidence/2026-10-07/h1-mvg-file-semantic-audit.json`.
+
+H1/MVG source recovery and byte identity are closed. H1 exception semantics/population intersection remain open before seven-system DRA production admission.
+
 ## Direct DRA producer status
 
 ### Modern production authority
