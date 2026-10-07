@@ -68,7 +68,7 @@ class PhysicalDrainageSystem:
 
 def _resistance_to_conductance(resistance: float) -> float:
     r = float(resistance)
-    if not isfinite(r) or r <= 0.0:
+    if not isfinite(r) or r <= 0.0 or r >= INACTIVE_RESISTANCE:
         return 0.0
     return 1.0 / r
 
@@ -77,7 +77,10 @@ def _conductance_to_resistance(conductance: float) -> float:
     g = float(conductance)
     if not isfinite(g) or g <= 0.0:
         return INACTIVE_RESISTANCE
-    return 1.0 / g
+    # Keep the SWAP-facing representation inside the admitted resistance
+    # range. Raw conductance is retained separately for further compression
+    # and exact conservation checks.
+    return min(INACTIVE_RESISTANCE, 1.0 / g)
 
 
 def _weighted(a: float, ga: float, b: float, gb: float) -> float:
