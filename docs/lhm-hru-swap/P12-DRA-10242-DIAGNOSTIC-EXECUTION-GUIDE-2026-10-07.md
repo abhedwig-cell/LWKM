@@ -142,7 +142,7 @@ python tools/diagnose_dra_10242.py \
   --h1-mvg-zip LHM433_H1_MVG_Q4.zip \
   --remaining-zip LHM433_DRA_REMAINING_Q4.zip \
   --stage-start 1971-01-01 \
-  --stage-end 2021-12-01 \
+  --stage-end 2022-01-01 \
   --output-dir dra_10242_diagnostic
 ```
 
@@ -156,7 +156,7 @@ python tools/diagnose_dra_10242.py \
   --h1-mvg-zip LHM433_H1_MVG_Q4.zip \
   --remaining-zip LHM433_DRA_REMAINING_Q4.zip \
   --stage-start 1971-01-01 \
-  --stage-end 2021-12-01 \
+  --stage-end 2022-01-01 \
   --output-dir dra_10242_diagnostic_source_rebuild
 ```
 
@@ -239,3 +239,16 @@ Only after that review can the compression policy be admitted or revised.
 - remaining P/S/T/PIPE/OLF source Q4: pending server execution;
 - 10,242 diagnostic code: implemented;
 - production DRA admission: **not granted**.
+
+
+## Terminal H1 level guard
+
+The production simulation ends on 2021-12-31.
+
+The recovered H1 source has a qualified 2022-01-01 monthly stage. The
+diagnostic therefore includes that source record as the terminal H1
+`DATOWL/LEVEL` point.
+
+This avoids depending on any SWAP `afgen` extrapolation beyond the last
+level-table date. Every simulated instant lies within the explicit H1 level
+table support.
