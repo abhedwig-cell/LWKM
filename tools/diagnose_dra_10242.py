@@ -889,8 +889,15 @@ def diagnose(
                     "swap_drares_overflow_level_count":sum(
                         1 for p in compressed if p.drnres > 100000.0
                     ),
+                    "swap_infres_overflow_level_count":sum(
+                        1 for p in compressed if p.infres > 100000.0
+                    ),
                     "max_compressed_drares":max(
                         (float(p.drnres) for p in compressed),
+                        default=0.0,
+                    ),
+                    "max_compressed_infres":max(
+                        (float(p.infres) for p in compressed),
                         default=0.0,
                     ),
                     "all_levels_same_L":all_levels_same_l,
@@ -962,12 +969,20 @@ def diagnose(
             "level_count":int(s["legacy_high_resistance_level_count"].sum()) if len(s) else 0,
             "modern_action":"REPORT_ONLY_DO_NOT_DEACTIVATE",
         },
-        "swap_drares_range_gate":{
+        "swap_resistance_range_gate":{
             "maximum_days":100000.0,
-            "hru_overflow":int((s["swap_drares_overflow_level_count"]>0).sum()) if len(s) else 0,
-            "level_overflow_count":int(s["swap_drares_overflow_level_count"].sum()) if len(s) else 0,
-            "maximum_compressed_drares_days":float(s["max_compressed_drares"].max()) if len(s) else None,
-            "required_for_production":"ZERO_OVERFLOW",
+            "drares":{
+                "hru_overflow":int((s["swap_drares_overflow_level_count"]>0).sum()) if len(s) else 0,
+                "level_overflow_count":int(s["swap_drares_overflow_level_count"].sum()) if len(s) else 0,
+                "maximum_compressed_days":float(s["max_compressed_drares"].max()) if len(s) else None,
+            },
+            "infres":{
+                "hru_overflow":int((s["swap_infres_overflow_level_count"]>0).sum()) if len(s) else 0,
+                "level_overflow_count":int(s["swap_infres_overflow_level_count"].sum()) if len(s) else 0,
+                "maximum_compressed_days":float(s["max_compressed_infres"].max()) if len(s) else None,
+            },
+            "required_for_production":"ZERO_DRARES_AND_INFRES_OVERFLOW",
+            "rule":"physical resistance is never silently clamped to SWAP parser range",
         },
         "ordering_candidate":"DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE",
         "ordering_admission":"W07_DIAGNOSTIC_ORDERING_QUALIFIED_PRODUCTION_SENSITIVITY_OPEN",
