@@ -153,6 +153,8 @@ qualified_source_bundles:
 open_questions:
   - confirm H1 source-exception zero-intersection against final W03-admitted SVAT population
   - Q4 bind remaining P/S/T/PIPE/OLF source families using tools/server/lwkm_collect_dra_remaining.ps1
+  - evaluate LHM seasonal-bottom reduction sensitivity over all 10242 HRUs
+  - quantify legacy-v0.38 high-resistance deactivation and SWAP 1e5-d range overflow
   - regression impact on 49-run oracle and 10242-HRU production population
 
 source_audit_2026_10_07:
@@ -265,3 +267,24 @@ level_ordering:
       required_binding: NUMLEVRAPDRA_to_postcompression_source_lineage
       unresolved_action: FAIL_CLOSED
       owner_gate: W10_W11
+
+bottom_authority:
+  modern_PST_package_source:
+    source: supplied_LHM433_INI
+    summer_winter_period_weighting: equal_half_year
+    SWAP_constraint: one_static_ZBOTDR_per_level
+    diagnostic_baseline_candidate: LHM_EQUAL_SEASON_MEAN
+    diagnostic_sensitivity:
+      - LHM_DEEPEST
+      - LHM_SHALLOWEST
+    historical_J_bottom:
+      role: optional_historical_HRU_DRA_comparison
+      modern_source_authority: false
+    production_admission: OPEN_PENDING_10242_AND_SWAP_SENSITIVITY
+  legacy_repair:
+    supplied_v038_threshold_days: 20000
+    modern_default: DO_NOT_DEACTIVATE_PHYSICAL_LEVEL
+    diagnostic: REPORT_WOULD_BE_DEACTIVATED
+  swap_interface_resistance:
+    maximum_days: 100000
+    action: FAIL_CLOSED_IF_COMPRESSED_LEVEL_EXCEEDS_RANGE
