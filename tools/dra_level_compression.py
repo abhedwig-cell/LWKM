@@ -17,6 +17,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, replace
 from math import isfinite
+from datetime import date
 from typing import Iterable
 
 
@@ -34,6 +35,7 @@ class PhysicalDrainageSystem:
     peil_sum: float
     peil_win: float
     dd: float | None = None
+    level_series: tuple[tuple[str, float], ...] | None = None
     merge_history: tuple[dict, ...] = ()
 
     @property
@@ -74,6 +76,66 @@ def _weighted(a: float, ga: float, b: float, gb: float) -> float:
     return (ga * float(a) + gb * float(b)) / total
 
 
+def _series_map(system: PhysicalDrainageSystem) -> dict[str, float] | None:
+    if system.level_series is None:
+        return None
+    out = dict(system.level_series)
+    if len(out) != len(system.level_series):
+        raise ValueError(f"duplicate level-series dates in {system.source_ids}")
+    return out
+
+
+def _seasonal_level(system: PhysicalDrainageSystem, date_key: str) -> float:
+    try:
+        month = date.fromisoformat(date_key).month
+    except ValueError as exc:
+        raise ValueError(f"level-series date must be ISO YYYY-MM-DD: {date_key}") from exc
+    return system.peil_sum if 4 <= month <= 9 else system.peil_win
+
+
+def _level_on(system: PhysicalDrainageSystem, date_key: str) -> float:
+    series = _series_map(system)
+    if series is None:
+        return _seasonal_level(system, date_key)
+    if date_key not in series:
+        raise ValueError(f"missing explicit level date {date_key} in {system.source_ids}")
+    return float(series[date_key])
+
+
+def _common_level_dates(
+    a: PhysicalDrainageSystem,
+    b: PhysicalDrainageSystem,
+) -> list[str]:
+    sa = _series_map(a)
+    sb = _series_map(b)
+    if sa is None and sb is None:
+        return []
+    if sa is None:
+        return sorted(sb)
+    if sb is None:
+        return sorted(sa)
+    if set(sa) != set(sb):
+        raise ValueError(
+            f"dynamic level-series date mismatch: {a.source_ids} versus {b.source_ids}"
+        )
+    return sorted(sa)
+
+
+def _merge_level_series(
+    a: PhysicalDrainageSystem,
+    b: PhysicalDrainageSystem,
+    ga: float,
+    gb: float,
+) -> tuple[tuple[str, float], ...] | None:
+    dates = _common_level_dates(a, b)
+    if not dates:
+        return None
+    return tuple(
+        (key, _weighted(_level_on(a, key), ga, _level_on(b, key), gb))
+        for key in dates
+    )
+
+
 def hydraulic_merge_cost(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> float:
     """Ward-like merge cost over bottom/summer/winter levels.
 
@@ -89,11 +151,18 @@ def hydraulic_merge_cost(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -
     if ga <= 0.0 or gb <= 0.0:
         return float("inf")
     factor = ga * gb / (ga + gb)
-    distance2 = (
-        (a.dep - b.dep) ** 2
-        + (a.peil_sum - b.peil_sum) ** 2
-        + (a.peil_win - b.peil_win) ** 2
-    )
+    dates = _common_level_dates(a, b)
+    if dates:
+        level_distance = sum(
+            (_level_on(a, key) - _level_on(b, key)) ** 2 for key in dates
+        ) / len(dates)
+        distance2 = (a.dep - b.dep) ** 2 + level_distance
+    else:
+        distance2 = (
+            (a.dep - b.dep) ** 2
+            + (a.peil_sum - b.peil_sum) ** 2
+            + (a.peil_win - b.peil_win) ** 2
+        )
     return factor * distance2
 
 
@@ -123,6 +192,7 @@ def from_aggregate(
     hydraulic_class: str,
     medium: str,
     aggregate: dict,
+    level_series: tuple[tuple[str, float], ...] | None = None,
 ) -> PhysicalDrainageSystem:
     """Create a physical-system record from aggregate_physical_system output."""
     return PhysicalDrainageSystem(
@@ -135,6 +205,7 @@ def from_aggregate(
         peil_sum=float(aggregate["peil_sum"]),
         peil_win=float(aggregate["peil_win"]),
         dd=float(aggregate["dd"]),
+        level_series=level_series,
     )
 
 
@@ -152,6 +223,7 @@ def to_render_level(system: PhysicalDrainageSystem) -> dict:
         "dep": system.dep,
         "peil_sum": system.peil_sum,
         "peil_win": system.peil_win,
+        "level_series": system.level_series,
     }
 
 
@@ -177,6 +249,7 @@ def merge_systems(a: PhysicalDrainageSystem, b: PhysicalDrainageSystem) -> Physi
         peil_sum=_weighted(a.peil_sum, ga, b.peil_sum, gb),
         peil_win=_weighted(a.peil_win, ga, b.peil_win, gb),
         dd=_merge_spacing(a, b),
+        level_series=_merge_level_series(a, b, ga, gb),
         merge_history=a.merge_history
         + b.merge_history
         + (
