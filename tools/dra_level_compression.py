@@ -318,13 +318,16 @@ def compress_to_swap_levels(
     work = active[:]
     while len(work) > max_levels:
         best = None
-        best_cost = float("inf")
+        best_key = None
         for i in range(len(work)):
             for j in range(i + 1, len(work)):
                 cost = hydraulic_merge_cost(work[i], work[j])
-                if cost < best_cost:
-                    best_cost = cost
+                pair_lineage = tuple(sorted((work[i].source_ids, work[j].source_ids)))
+                candidate_key = (cost, pair_lineage)
+                if best_key is None or candidate_key < best_key:
+                    best_key = candidate_key
                     best = (i, j)
+        best_cost = float("inf") if best_key is None else best_key[0]
         if best is None or not isfinite(best_cost):
             classes = [(s.source_ids, s.hydraulic_class, s.medium) for s in work]
             raise ValueError(
@@ -335,8 +338,8 @@ def compress_to_swap_levels(
         merged = merge_systems(work[i], work[j])
         work = [s for k, s in enumerate(work) if k not in {i, j}] + [merged]
 
-    # Deterministic diagnostic ordering only. Final SWAP ordering is a separate
-    # qualification gate.
+    # Deterministic output ordering. Merge tie-breaks above are also canonical
+    # on source lineage, so compression is independent of caller input order.
     work.sort(key=lambda s: (-s.dep, s.medium, s.source_ids))
 
     _validate_lineage(original, work, inactive)
