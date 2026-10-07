@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - work/lhm-hru-swap-workflow-v1
+
+concurrency:
+  group: lwkm-canonical-tests-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   test:
     runs-on: ubuntu-latest
