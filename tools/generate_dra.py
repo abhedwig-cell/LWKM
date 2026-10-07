@@ -6,6 +6,8 @@ import pandas as pd
 
 from tools.p12_swallo import SUPPLIED_SOURCE_V038, swallo, swallo_modern_explicit
 
+_SWAP_MONTH = ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec")
+
 def conductance_weighted_depth(glk,bottom,cdr):
     g=pd.to_numeric(glk,errors="coerce").to_numpy(float)
     b=pd.to_numeric(bottom,errors="coerce").to_numpy(float)
@@ -222,7 +224,7 @@ def render_dra_explicit(
                 if previous is not None and current <= previous:
                     raise ValueError(f"level_series must be strictly increasing: {key}")
                 previous = current
-                mon = current.strftime("%b").lower()
+                mon = _SWAP_MONTH[current.month - 1]
                 lines.append(
                     f" {current.day:02d}-{mon}-{current.year:04d} {-float(depth) * 100:8.2f}"
                 )
