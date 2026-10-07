@@ -124,7 +124,6 @@ qualified_source_bundles:
 
 open_questions:
   - confirm H1 source-exception zero-intersection against final W03-admitted SVAT population
-  - final SWAP level ordering requirement
   - Q4 bind remaining P/S/T/PIPE/OLF source families using tools/server/lwkm_collect_dra_remaining.ps1
   - regression impact on 49-run oracle and 10242-HRU production population
 
@@ -198,3 +197,19 @@ remaining_source_collection:
     - S_LHM_PACKAGE_SUMMER_BOTTOM
     - S_LHM_PACKAGE_WINTER_BOTTOM
   reason: compare current HRU DRA steady-state bottom authority with actual LHM package-bottom semantics before modern admission
+
+level_ordering:
+  status: DRA_LEVEL_ORDERING_CONDITIONALLY_QUALIFIED
+  authority: docs/lhm-hru-swap/P12-DRA-LEVEL-ORDERING-RESOLUTION-2026-10-07.md
+  ordinary_drainage:
+    DRAMET: 3
+    SWINTFL: 0
+    serialized_order: [deeper_dep_first, medium, source_lineage]
+    merge_tie_break: canonical_source_lineage
+    divdra_internal_order: FDisInf_times_Lspacing
+  package_guard:
+    indexed_macropore_drainage:
+      trigger: SWMACRO_1_AND_SWDRRAP_1
+      required_binding: NUMLEVRAPDRA_to_postcompression_source_lineage
+      unresolved_action: FAIL_CLOSED
+      owner_gate: W10_W11
