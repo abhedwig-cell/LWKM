@@ -297,3 +297,83 @@ These are source-data facts, not yet classified as errors in the admitted LWKM p
 
 Evidence:
 `docs/evidence/2026-10-07/h1-mvg-file-semantic-audit.json`.
+
+
+## Population intersection and dynamic-level correction — 2026-10-07
+
+### H1 source exceptions versus recovered SVAT populations
+
+Exact coordinate searches were executed for all currently known H1 support exceptions against both recovered SVAT tables:
+- `SVAT_INFO.csv`;
+- `svat_info_lwkm_new.csv`.
+
+Results:
+- 296 positive-conductance H1 cells without infiltration factor: 0 coordinate matches in either table;
+- 15 April-2022 H1 stage gaps: 0 coordinate matches in either table;
+- the single missing-bottom / 2005-2021 stage-gap cell: 0 matches;
+- the single stage-below-bottom cell: 0 matches.
+
+Evidence:
+`docs/evidence/2026-10-07/h1-source-exception-population-intersection.json`.
+
+Interpretation:
+the known H1 source irregularities are outside both recovered SVAT coordinate populations and therefore strongly appear irrelevant to the reconstructed current LWKM HRU population.
+
+This remains bounded by W03 admission: if the formally admitted SVAT population later differs, the intersection test must be repeated.
+
+No fallback semantics are introduced. The modern named physical-system aggregator fails closed whenever an admitted HRU member has positive conductance but lacks its required hydraulic attributes.
+
+### Compression before SWAP-specific deactivation
+
+The modern sequence is explicitly:
+
+1. sample all seven physical systems;
+2. aggregate all HRU members;
+3. preserve every positive-conductance physical system;
+4. compress hydraulically compatible systems only if active count exceeds five;
+5. only then apply SWAP-level repair/deactivation rules;
+6. render <=5 explicit SWAP levels.
+
+Therefore the historical `drnres > 20000` repair is not used as an upstream physical-system deletion rule.
+
+### Modern spacing/L
+
+Modern spacing authority remains representative-SVAT dqsat.
+
+For every physically active component:
+
+`L = 4 * representative-SVAT dqsat`.
+
+Thus all physical drainage components within one HRU have the same modern L. Compression preserves this value exactly and fails closed if conflicting non-null L values are presented.
+
+Historical length rasters remain required only for historical replay/provenance questions, not for this modern corrected spacing contract.
+
+### Dynamic H1 water levels
+
+H1 is different from the other six source families because its LHM level input is a monthly `peilh_*.idf` time series.
+
+The modern compression model therefore supports a per-level explicit level series.
+
+Rules:
+- H1 retains its monthly level profile;
+- P/S/T seasonal levels are evaluated at every H1 timestamp when merged with H1;
+- constant drain-only levels can likewise be evaluated at each timestamp;
+- equivalent merged level at each timestamp is drainage-conductance weighted;
+- dynamic profiles with inconsistent explicit date axes fail closed;
+- DRA rendering writes the explicit `DATOWL/LEVEL` series rather than reducing it back to only summer/winter values.
+
+Official SWAP method-3 input supports time-dependent open-channel `DATOWL/LEVEL` tables and at most five drainage levels. Historical SWAP 4 parameterization exposes MAOWL = 10*366 records, comfortably above the recovered 676-month H1 source sequence.
+
+### Code state
+
+Implemented:
+- `aggregate_physical_system`: named, all-member, fail-closed physical-system aggregation;
+- `repair_system_explicit`: medium-based rather than system-number-based repair;
+- `render_dra_explicit`: explicit medium/infiltration semantics and dynamic level tables;
+- `dra_level_compression.py`: seven-to-five hydraulic compression, source lineage, conductance conservation, representative-dqsat spacing preservation and dynamic-level-series merging.
+
+Historical functions remain available separately for compatibility/regression.
+
+Current status:
+
+`SEVEN_SYSTEM_MODERN_DRA_PIPELINE_IMPLEMENTED_NOT_10242_QUALIFIED`.
