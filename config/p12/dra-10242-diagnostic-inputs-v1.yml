@@ -1,0 +1,70 @@
+schema_version: 1
+status: DRA_10242_POPULATION_INPUTS_BOUND
+
+membership:
+  logical_id: HRU10242_SVAT_MEMBERSHIP
+  library_path: /LWKM/export_svat_HRU_NRU_10242.csv
+  library_file_id: libfile_6978c794ffe8819184714ef531b87748
+  file_id: file_000000008fdc8246b9464275d7b3479d
+  size_bytes: 74144234
+  parser_contract:
+    first_five_fields:
+      - svat_orig
+      - HRU
+      - NRU
+      - NRUcode
+      - svat_donor
+    normalized_to:
+      - svat
+      - hru
+      - nru
+      - nrucode
+      - svatdonor
+  expected_rows: 427656
+  expected_hru_count: 10242
+  status: RECOVERED_LIBRARY_AUTHORITY
+
+representative_dqsat:
+  logical_id: STATIC04_REPRESENTATIVE_DQSAT_10242
+  library_path: /LWKM/static04_dqsat_full_10242.csv
+  library_file_id: libfile_2e35cd631510819189af1a8a88a4068e
+  file_id: file_00000000283c81f48874aae00bff37bd
+  size_bytes: 318757
+  hru_column: hru
+  value_column: representative_dqsat
+  expected_rows: 10242
+  authority: modern_representative_svat_STATIC04
+  status: QUALIFIED_INPUT_AUTHORITY
+
+svat_coordinates:
+  logical_id: LWKM_SELECTED_SVAT_INFO
+  library_path: /LWKM/svat_info_lwkm_new.csv
+  library_file_id: libfile_73401492ac5481919df1efd1b38929d6
+  file_id: file_00000000892481f497aa57bcb37bd013
+  size_bytes: 96324523
+  columns:
+    svat: svat
+    x: x
+    y: y
+  expected_population_role: selected_LWKM_SVAT_coordinate_authority
+  status: RECOVERED_LIBRARY_AUTHORITY
+
+diagnostic:
+  tool: tools/diagnose_dra_10242.py
+  source_bundles_required:
+    - LHM433_H1_MVG_Q4.zip
+    - LHM433_DRA_REMAINING_Q4.zip
+  default_h1_stage_period:
+    start: 1971-01-01
+    end: 2021-12-01
+  hard_gates:
+    hru_count: 10242
+    membership_rows: 427656
+    zero_failed_hrus: true
+    max_abs_drainage_conductance_error: 0
+    max_abs_infiltration_conductance_error: 0
+  outputs:
+    - summary.json
+    - hru_summary.csv
+    - merge_events.csv
+    - failures.csv
