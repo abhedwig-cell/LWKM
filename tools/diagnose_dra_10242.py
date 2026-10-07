@@ -239,6 +239,13 @@ def _find_one(root: Path,name: str) -> Path:
     return matches[0]
 
 
+def _find_optional_one(root: Path,name: str) -> Path | None:
+    matches=list(root.rglob(name))
+    if len(matches)>1:
+        raise ValueError(f"expected at most one {name} below {root}, got {len(matches)}")
+    return matches[0] if matches else None
+
+
 def _month_key(path: Path) -> str:
     m=re.search(r"(?i)peilh_(\d{4})(\d{2})(\d{2})\.idf$",path.name)
     if not m:
@@ -302,6 +309,35 @@ def _coordinates_to_row_col(coords: pd.DataFrame,reference_idf: Path) -> pd.Data
     return out
 
 
+def _derive_lhm_bottom_candidates(members: pd.DataFrame) -> pd.DataFrame:
+    """Derive explicit static-bottom candidates from LHM seasonal package bottoms.
+
+    P/S/T LHM package semantics expose summer and winter rbot values while SWAP
+    method 3 accepts one static ZBOTDR per level. With equal six-month seasonal
+    weighting, the arithmetic mean is the least-squares static candidate.
+    Deepest and shallowest candidates are retained as a bounded sensitivity
+    envelope; no candidate is production-admitted here.
+    """
+    out=members.copy()
+    for system in ("P","S","T"):
+        summer=pd.to_numeric(out[f"{system}_bottom_lhm_sum"],errors="coerce")
+        winter=pd.to_numeric(out[f"{system}_bottom_lhm_win"],errors="coerce")
+        both=summer.notna() & winter.notna()
+        mean=pd.Series(np.nan,index=out.index,dtype=float)
+        deep=pd.Series(np.nan,index=out.index,dtype=float)
+        shallow=pd.Series(np.nan,index=out.index,dtype=float)
+        mean.loc[both]=(summer.loc[both]+winter.loc[both])/2.0
+        # Elevation: lower value is the deeper channel bottom.
+        deep.loc[both]=np.minimum(summer.loc[both],winter.loc[both])
+        shallow.loc[both]=np.maximum(summer.loc[both],winter.loc[both])
+        out[f"{system}_bottom_lhm_mean"]=mean
+        out[f"{system}_bottom_lhm_deepest"]=deep
+        out[f"{system}_bottom_lhm_shallowest"]=shallow
+        # Baseline diagnostic candidate, not production admission.
+        out[f"{system}_bottom"]=mean
+    return out
+
+
 def _prepare_static_members(
     membership: pd.DataFrame,
     coordinates: pd.DataFrame,
@@ -320,9 +356,6 @@ def _prepare_static_members(
         "P_inf":_find_one(remaining_bundle,"inf_mz_primair.IDF"),
         "S_inf":_find_one(remaining_bundle,"inf_mz_secundair.IDF"),
         "T_inf":_find_one(remaining_bundle,"inf_mz_tertiair.IDF"),
-        "P_bottom":_find_one(remaining_bundle,"BODH_P1J_250.IDF"),
-        "S_bottom":_find_one(remaining_bundle,"BODH_S1J_250.IDF"),
-        "T_bottom":_find_one(remaining_bundle,"BODH_T1J_250.IDF"),
         "P_sum":_find_one(remaining_bundle,"PEIL_P1Z_250.IDF"),
         "P_win":_find_one(remaining_bundle,"PEIL_P1W_250.IDF"),
         "S_sum":_find_one(remaining_bundle,"PEIL_S1Z_250.IDF"),
@@ -341,6 +374,11 @@ def _prepare_static_members(
         "P_bottom_lhm_win":_find_one(remaining_bundle,"BODH_P1W_250.IDF"),
         "S_bottom_lhm_sum":_find_one(remaining_bundle,"BODH_S1Z_250.IDF"),
         "S_bottom_lhm_win":_find_one(remaining_bundle,"BODH_S1W_250.IDF"),
+    }
+    historical_bottom_paths={
+        "P_bottom_historical_j":_find_optional_one(remaining_bundle,"BODH_P1J_250.IDF"),
+        "S_bottom_historical_j":_find_optional_one(remaining_bundle,"BODH_S1J_250.IDF"),
+        "T_bottom_historical_j":_find_optional_one(remaining_bundle,"BODH_T1J_250.IDF"),
     }
 
     reference_grid=read_idf(paths["H1_cdr"])
@@ -367,6 +405,23 @@ def _prepare_static_members(
             cols,
         )
 
+    for key,path in historical_bottom_paths.items():
+        if path is None:
+            continue
+        grid=read_idf(path)
+        if not _same_grid_geometry(reference_grid,grid):
+            raise ValueError(
+                f"{key} geometry does not match H1 drainage reference: {path}"
+            )
+        mem[key]=_sample(
+            np.asarray(grid.values,dtype=float),
+            float(grid.nodata),
+            rows,
+            cols,
+        )
+
+    mem=_derive_lhm_bottom_candidates(mem)
+
     ground=_find_one(remaining_bundle,"ahn_f250_cm.asc")
     gg=read_ascii_grid(ground)
     _assert_ascii_matches_idf(gg,reference_grid,label="AHN ground grid")
@@ -378,17 +433,39 @@ def _prepare_static_members(
     return mem
 
 
-def _aggregate_static(group: pd.DataFrame,name: str,dq: float) -> dict:
+def _aggregate_static(
+    group: pd.DataFrame,
+    name: str,
+    dq: float,
+    *,
+    bottom_policy: str = "lhm_mean",
+) -> dict:
     inf=f"{name}_inf" if name in {"H1","P","S","T"} else None
     if name=="H1":
         summer=winter=None
     else:
         summer=f"{name}_sum"
         winter=f"{name}_win"
+
+    if name in {"P","S","T"}:
+        bottom_columns={
+            "lhm_mean":f"{name}_bottom_lhm_mean",
+            "lhm_deepest":f"{name}_bottom_lhm_deepest",
+            "lhm_shallowest":f"{name}_bottom_lhm_shallowest",
+            "historical_j":f"{name}_bottom_historical_j",
+        }
+        if bottom_policy not in bottom_columns:
+            raise ValueError(f"unsupported P/S/T bottom policy: {bottom_policy}")
+        bottom_col=bottom_columns[bottom_policy]
+        if bottom_col not in group.columns:
+            raise ValueError(f"bottom policy {bottom_policy} unavailable for {name}")
+    else:
+        bottom_col=f"{name}_bottom"
+
     return aggregate_physical_system(
         group,
         cdr_col=f"{name}_cdr",
-        bottom_col=f"{name}_bottom",
+        bottom_col=bottom_col,
         summer_level_col=summer,
         winter_level_col=winter,
         infiltration_factor_col=inf,
@@ -442,19 +519,41 @@ def _build_h1_level_matrix(
 def _comparison_stats(members: pd.DataFrame) -> dict:
     out={}
     for system in ("P","S","T"):
-        base=members[f"{system}_bottom"].to_numpy(float)
-        for season in ("sum","win"):
-            alt=members[f"{system}_bottom_lhm_{season}"].to_numpy(float)
-            valid=np.isfinite(base)&np.isfinite(alt)
-            diff=np.abs(base[valid]-alt[valid])
-            out[f"{system}_{season}"]={
+        summer=members[f"{system}_bottom_lhm_sum"].to_numpy(float)
+        winter=members[f"{system}_bottom_lhm_win"].to_numpy(float)
+        valid=np.isfinite(summer)&np.isfinite(winter)
+        spread=np.abs(summer[valid]-winter[valid])
+        item={
+            "seasonal_bottom_spread":{
                 "valid_member_rows":int(valid.sum()),
-                "different_gt_1e_6":int((diff>1e-6).sum()),
-                "mean_abs_difference_m":float(diff.mean()) if len(diff) else None,
-                "max_abs_difference_m":float(diff.max()) if len(diff) else None,
-            }
+                "different_gt_1e_6":int((spread>1e-6).sum()),
+                "mean_abs_difference_m":float(spread.mean()) if len(spread) else None,
+                "max_abs_difference_m":float(spread.max()) if len(spread) else None,
+            },
+            "baseline_static_candidate":"equal_season_mean",
+        }
+        hist_col=f"{system}_bottom_historical_j"
+        if hist_col in members.columns:
+            hist=members[hist_col].to_numpy(float)
+            comparisons={}
+            for label,alt in (
+                ("summer",summer),
+                ("winter",winter),
+                ("mean",members[f"{system}_bottom_lhm_mean"].to_numpy(float)),
+            ):
+                ok=np.isfinite(hist)&np.isfinite(alt)
+                diff=np.abs(hist[ok]-alt[ok])
+                comparisons[label]={
+                    "valid_member_rows":int(ok.sum()),
+                    "different_gt_1e_6":int((diff>1e-6).sum()),
+                    "mean_abs_difference_m":float(diff.mean()) if len(diff) else None,
+                    "max_abs_difference_m":float(diff.max()) if len(diff) else None,
+                }
+            item["historical_j"]={"available":True,"comparison":comparisons}
+        else:
+            item["historical_j"]={"available":False}
+        out[system]=item
     return out
-
 
 def _numeric_quantiles(values: np.ndarray) -> dict:
     if len(values)==0:
@@ -527,6 +626,39 @@ def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
         },
         "top_merge_pairs":top_pairs,
     }
+
+
+def _build_physical_policy(
+    group: pd.DataFrame,
+    dq: float,
+    *,
+    bottom_policy: str,
+    stage_dates: list[str],
+    h1_depths: np.ndarray,
+) -> list:
+    physical=[]
+    for name,cls,medium in SYSTEMS:
+        agg=_aggregate_static(group,name,dq,bottom_policy=bottom_policy)
+        series=None
+        if name=="H1" and agg["cdr_sum"]>0.0:
+            if np.isnan(h1_depths).any():
+                raise ValueError("incomplete H1 monthly level series")
+            series=tuple(
+                (key,min(float(depth),float(agg["dep"])))
+                for key,depth in zip(stage_dates,h1_depths)
+            )
+        physical.append(from_aggregate(
+            source_id=name,
+            hydraulic_class=cls,
+            medium=medium,
+            aggregate=agg,
+            level_series=series,
+        ))
+    return physical
+
+
+def _groups_signature(levels) -> str:
+    return "|".join("+".join(p.source_ids) for p in levels)
 
 
 def diagnose(
@@ -628,28 +760,54 @@ def diagnose(
                 if hid not in dqsat:
                     raise ValueError("missing representative dqsat")
                 dq=float(dqsat[hid])
-                physical=[]
-                for name,cls,medium in SYSTEMS:
-                    agg=_aggregate_static(group,name,dq)
-                    series=None
-                    if name=="H1" and agg["cdr_sum"]>0.0:
-                        row=h1_matrix[hid]
-                        if np.isnan(row).any():
-                            raise ValueError("incomplete H1 monthly level series")
-                        series=tuple(
-                            (key,min(float(depth),float(agg["dep"])))
-                            for key,depth in zip(stage_dates,row)
-                        )
-                    physical.append(from_aggregate(
-                        source_id=name,
-                        hydraulic_class=cls,
-                        medium=medium,
-                        aggregate=agg,
-                        level_series=series,
-                    ))
-
+                h1_depths=h1_matrix[hid]
+                physical=_build_physical_policy(
+                    group,dq,
+                    bottom_policy="lhm_mean",
+                    stage_dates=stage_dates,
+                    h1_depths=h1_depths,
+                )
                 active=[p for p in physical if p.active]
                 compressed=compress_to_swap_levels(physical,max_levels=5)
+
+                deep=compress_to_swap_levels(
+                    _build_physical_policy(
+                        group,dq,
+                        bottom_policy="lhm_deepest",
+                        stage_dates=stage_dates,
+                        h1_depths=h1_depths,
+                    ),
+                    max_levels=5,
+                )
+                shallow=compress_to_swap_levels(
+                    _build_physical_policy(
+                        group,dq,
+                        bottom_policy="lhm_shallowest",
+                        stage_dates=stage_dates,
+                        h1_depths=h1_depths,
+                    ),
+                    max_levels=5,
+                )
+                mean_groups=_groups_signature(compressed)
+                deep_groups=_groups_signature(deep)
+                shallow_groups=_groups_signature(shallow)
+
+                historical_groups=None
+                historical_available=all(
+                    f"{name}_bottom_historical_j" in group.columns
+                    for name in ("P","S","T")
+                )
+                if historical_available:
+                    historical=compress_to_swap_levels(
+                        _build_physical_policy(
+                            group,dq,
+                            bottom_policy="historical_j",
+                            stage_dates=stage_dates,
+                            h1_depths=h1_depths,
+                        ),
+                        max_levels=5,
+                    )
+                    historical_groups=_groups_signature(historical)
                 gd0=sum(p.drainage_conductance for p in active)
                 gd1=sum(p.drainage_conductance for p in compressed)
                 gi0=sum(p.infiltration_conductance for p in active)
@@ -700,7 +858,17 @@ def diagnose(
                         f"{'+'.join(p.source_ids)}@dep={p.dep:.9g}@L={float(p.dd):.9g}"
                         for p in compressed
                     ),
-                    "groups":"|".join("+".join(p.source_ids) for p in compressed),
+                    "groups":mean_groups,
+                    "groups_lhm_deepest":deep_groups,
+                    "groups_lhm_shallowest":shallow_groups,
+                    "bottom_policy_grouping_sensitive":(
+                        mean_groups!=deep_groups or mean_groups!=shallow_groups
+                    ),
+                    "historical_j_bottom_available":historical_available,
+                    "groups_historical_j":historical_groups,
+                    "historical_j_grouping_differs_from_lhm_mean":(
+                        historical_groups is not None and historical_groups!=mean_groups
+                    ),
                 })
             except Exception as exc:
                 failures.append({"hru":hid,"error":str(exc)})
@@ -774,6 +942,19 @@ def diagnose(
         "max_merge_cost":float(s["max_merge_cost"].max()) if len(s) else None,
         "max_abs_drainage_conductance_error":float(s["drainage_conductance_error"].abs().max()) if len(s) else None,
         "max_abs_infiltration_conductance_error":float(s["infiltration_conductance_error"].abs().max()) if len(s) else None,
+        "bottom_authority":{
+            "baseline_candidate":"LHM_EQUAL_SEASON_MEAN",
+            "reason":"equal six-month winter/summer weighting gives the least-squares static ZBOTDR candidate",
+            "production_admission":"NOT_GRANTED_PENDING_SENSITIVITY_AND_SWAP_RESPONSE",
+            "sensitivity_candidates":["LHM_DEEPEST","LHM_SHALLOWEST"],
+            "hru_grouping_sensitive":int(s["bottom_policy_grouping_sensitive"].sum()) if len(s) else 0,
+            "historical_j_available_for_all_completed_hrus":bool(
+                len(s) and s["historical_j_bottom_available"].all()
+            ),
+            "historical_j_grouping_differs_from_lhm_mean":int(
+                s["historical_j_grouping_differs_from_lhm_mean"].sum()
+            ) if len(s) else 0,
+        },
         "bottom_authority_comparison":comparison,
         "outputs":{
             "hru_summary":"hru_summary.csv",
