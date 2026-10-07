@@ -227,3 +227,34 @@ def test_named_dynamic_physical_system_can_aggregate_without_seasonal_columns():
     assert s["peil_sum"] == 0.0
     assert s["peil_win"] == 0.0
     assert s["support_area_m2"] == 125000.0
+
+
+
+def test_explicit_renderer_rejects_drares_above_swap_parser_range():
+    level={
+        "drnres":100001.0,"infres":100000.0,"dep":1.0,
+        "peil_sum":0.5,"peil_win":0.5,"dd":80.0,
+        "medium":"open_channel","allow_infiltration":False,
+        "source_ids":("weak",),
+    }
+    try:
+        render_dra_explicit([level],3,2000,2000,20)
+    except ValueError as exc:
+        assert "DRARES outside SWAP method-3 range" in str(exc)
+    else:
+        raise AssertionError("expected DRARES range overflow to fail")
+
+
+def test_explicit_renderer_rejects_infres_above_swap_parser_range():
+    level={
+        "drnres":1000.0,"infres":100001.0,"dep":1.0,
+        "peil_sum":0.5,"peil_win":0.5,"dd":80.0,
+        "medium":"open_channel","allow_infiltration":True,
+        "source_ids":("weak",),
+    }
+    try:
+        render_dra_explicit([level],3,2000,2000,20)
+    except ValueError as exc:
+        assert "INFRES outside SWAP method-3 range" in str(exc)
+    else:
+        raise AssertionError("expected INFRES range overflow to fail")
