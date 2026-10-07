@@ -620,3 +620,39 @@ The modern diagnostic therefore:
 
 This keeps historical replay and modern corrected production semantics
 explicitly separate.
+
+
+## SWAP method-3 resistance range gate — 2026-10-07
+
+A modern physical drainage component must not be silently altered merely to fit
+the SWAP parser range.
+
+SWAP 4.3.1 method 3 accepts:
+- DRARES: 1 .. 100000 d;
+- INFRES: 0 .. 100000 d.
+
+The modern seven-system aggregation therefore keeps exact equivalent physical
+resistance after HRU aggregation and after compression. It no longer clamps
+positive physical conductance to 100000 d before diagnostics.
+
+Consequences:
+- positive but very weak physical systems remain active during 7->5 compression;
+- exact parallel conductance conservation remains meaningful;
+- a final compressed DRARES > 100000 d is reported as a SWAP-interface overflow;
+- a final compressed INFRES > 100000 d is likewise reported;
+- the explicit DRA renderer fails closed on either overflow.
+
+Production requirement:
+
+`ZERO DRARES/INFRES RANGE OVERFLOW`.
+
+If population evidence finds overflow, the resolution must be explicit:
+- further physically justified compatible compression; or
+- a separately qualified approximation policy.
+
+Silently writing 100000 d is not allowed because it would increase the
+represented conductance of a weaker physical system.
+
+This range gate is distinct from the historical v0.38
+`drnres > 20000` deactivation heuristic. The latter is reported for legacy
+comparison but is not modern physical-source authority.
