@@ -228,6 +228,10 @@ def _prepare_static_members(
         "S_win":_find_one(remaining_bundle,"PEIL_S1W_250.IDF"),
         "T_sum":_find_one(remaining_bundle,"PEIL_T1Z_250.IDF"),
         "T_win":_find_one(remaining_bundle,"PEIL_T1W_250.IDF"),
+        # In the LHM package INI, tertiary rbot is intentionally bound to
+        # the same PEIL_T1Z/W grids rather than a separate BODH_T* source.
+        "T_bottom_lhm_sum":_find_one(remaining_bundle,"PEIL_T1Z_250.IDF"),
+        "T_bottom_lhm_win":_find_one(remaining_bundle,"PEIL_T1W_250.IDF"),
         "PIPE_cdr":_find_one(remaining_bundle,"COND_buisdrainage.IDF"),
         "PIPE_bottom":_find_one(remaining_bundle,"BODH_B_250.IDF"),
         "OLF_cdr":_find_one(remaining_bundle,"COND_SOF_250.IDF"),
@@ -313,7 +317,7 @@ def _build_h1_level_matrix(
 
 def _comparison_stats(members: pd.DataFrame) -> dict:
     out={}
-    for system in ("P","S"):
+    for system in ("P","S","T"):
         base=members[f"{system}_bottom"].to_numpy(float)
         for season in ("sum","win"):
             alt=members[f"{system}_bottom_lhm_{season}"].to_numpy(float)
