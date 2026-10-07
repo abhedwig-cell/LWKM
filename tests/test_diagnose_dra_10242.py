@@ -8,6 +8,7 @@ from tools.diagnose_dra_10242 import (
     _assert_ascii_matches_idf,
     _build_h1_level_matrix,
     _comparison_stats,
+    _h1_stage_files,
     _month_key,
     _read_dqsat,
     _read_membership,
@@ -189,3 +190,28 @@ def test_ascii_geometry_must_match_drainage_idf():
         assert "geometry" in str(exc)
     else:
         raise AssertionError("expected shifted AHN grid to fail")
+
+
+
+def test_h1_stage_selection_requires_gap_free_months(tmp_path: Path):
+    _write_idf(tmp_path/"peilh_20000101.idf",1.0)
+    _write_idf(tmp_path/"peilh_20000301.idf",1.0)
+    try:
+        _h1_stage_files(tmp_path,"2000-01-01","2000-03-01")
+    except ValueError as exc:
+        assert "not gap-free monthly" in str(exc)
+        assert "2000-02-01" in str(exc)
+    else:
+        raise AssertionError("expected missing H1 month to fail")
+
+
+def test_static04_snapshot_normalizes_text_boolean(tmp_path: Path):
+    p=tmp_path/"snapshot.csv"
+    pd.DataFrame({
+        "hru":range(1,10243),
+        "representative_dqsat":[10.0]*10242,
+        "discriminating":["false"]*10241+["true"],
+    }).to_csv(p,index=False)
+    out=_read_static04_snapshot(p)
+    assert out["discriminating"].dtype == bool
+    assert int(out["discriminating"].sum()) == 1
