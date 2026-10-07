@@ -119,3 +119,39 @@ def test_aggregate_bridge_preserves_metadata_for_renderer():
     assert r["allow_infiltration"] is True
     assert r["medium"] == "open_channel"
     assert r["dd"] == 80.0
+
+
+
+def test_dynamic_h1_profile_is_merged_pointwise_with_seasonal_channel():
+    h1=PhysicalDrainageSystem(
+        ("H1",),"infiltration_capable_open","open_channel",
+        100,200,2.0,1.0,1.5,80,
+        (("2000-01-01",1.8),("2000-04-01",1.2),("2000-10-01",1.6)),
+    )
+    p=PhysicalDrainageSystem(
+        ("P",),"infiltration_capable_open","open_channel",
+        100,200,2.0,1.0,1.5,80,
+    )
+    out=compress_to_swap_levels([h1,p],max_levels=1)[0]
+    assert out.level_series is not None
+    vals=dict(out.level_series)
+    assert vals["2000-01-01"] == (1.8+1.5)/2
+    assert vals["2000-04-01"] == (1.2+1.0)/2
+    assert vals["2000-10-01"] == (1.6+1.5)/2
+
+
+def test_dynamic_profiles_with_different_dates_fail_closed():
+    a=PhysicalDrainageSystem(
+        ("A",),"infiltration_capable_open","open_channel",
+        100,200,2,1,1,80,(("2000-01-01",1.0),),
+    )
+    b=PhysicalDrainageSystem(
+        ("B",),"infiltration_capable_open","open_channel",
+        100,200,2,1,1,80,(("2000-02-01",1.0),),
+    )
+    try:
+        compress_to_swap_levels([a,b],max_levels=1)
+    except ValueError as exc:
+        assert "date mismatch" in str(exc)
+    else:
+        raise AssertionError("expected dynamic date mismatch to fail closed")
