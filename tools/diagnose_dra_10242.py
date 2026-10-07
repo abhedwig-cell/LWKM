@@ -1,45 +1,25 @@
 """Population diagnostic for the modern seven-physical-system DRA pipeline.
 
-This is a qualification/diagnostic runner, not yet a production DRA packager.
+Qualification runner only; it does not write production DRA files.
 
-Inputs are deliberately explicit:
-- current 5-column HRU membership CSV;
-- SVAT raster used to map SVAT ids to model cells;
-- representative-SVAT dqsat table or CSV;
-- H1/MVG Q4 bundle;
-- remaining-five Q4 bundle.
-
-The runner reports:
-- active physical-system count per HRU;
-- HRUs requiring 7->5 compression;
-- selected merge groups;
-- exact conductance-conservation errors;
-- H1/MVG missing-source intersections;
-- bottom/level shifts caused by compression.
-
-It fails closed on positive-conductance members with missing required hydraulic
-attributes. No historical fallback is silently applied.
+The expensive H1 monthly source is streamed exactly once. Monthly HRU level
+series are accumulated with numpy bincount, so the runner is O(number of H1
+months) raster reads rather than O(HRUs * months).
 """
 from __future__ import annotations
 
-from dataclasses import asdict
 from pathlib import Path
 from zipfile import ZipFile
 import argparse
-import csv
+import hashlib
 import json
-import math
 import re
 import tempfile
 
 import numpy as np
 import pandas as pd
 
-from tools.dra_level_compression import (
-    PhysicalDrainageSystem,
-    compress_to_swap_levels,
-    from_aggregate,
-)
+from tools.dra_level_compression import compress_to_swap_levels, from_aggregate
 from tools.generate_dra import aggregate_physical_system
 from tools.idf_reader import read_idf
 from tools.lhm_postprocess import read_ascii_grid
@@ -56,6 +36,14 @@ SYSTEMS = (
 )
 
 
+def _sha256(path: Path) -> str:
+    h=hashlib.sha256()
+    with path.open("rb") as fh:
+        for block in iter(lambda: fh.read(1024*1024),b""):
+            h.update(block)
+    return h.hexdigest()
+
+
 def _valid(values: np.ndarray, nodata: float) -> np.ndarray:
     a=np.asarray(values,dtype=float)
     return np.isfinite(a) & ~np.isclose(a,float(nodata))
@@ -68,52 +56,81 @@ def _load_idf_values(path: Path) -> tuple[np.ndarray,float]:
 
 def _sample(values: np.ndarray,nodata: float,rows: np.ndarray,cols: np.ndarray) -> np.ndarray:
     out=values[rows,cols].astype(float,copy=True)
-    valid=_valid(out,nodata)
-    out[~valid]=np.nan
+    out[~_valid(out,nodata)]=np.nan
     return out
 
 
-def _svat_locations(svat_grid: Path) -> pd.DataFrame:
-    g=read_ascii_grid(svat_grid)
-    vals=np.asarray(g.values)
-    valid=np.isfinite(vals) & ~np.isclose(vals,g.nodata) & (vals>0)
-    row,col=np.where(valid)
-    svat=vals[row,col].astype(np.int64)
-    if len(np.unique(svat)) != len(svat):
-        raise ValueError("SVAT raster contains duplicate positive SVAT ids")
-    return pd.DataFrame({"svat":svat,"row":row.astype(int),"col":col.astype(int)})
-
-
 def _read_membership(path: Path) -> pd.DataFrame:
-    # Current HRUlist2SWAP reads the first five fields as:
-    # svat, HRU, NRU, NRUcode, svatdonor.
+    """Read current export_svat_HRU_NRU_* membership.
+
+    HRUlist2SWAP consumes the first five fields as
+    svat, HRU, NRU, NRUcode, svatdonor.
+    """
     df=pd.read_csv(path)
-    if df.shape[1] < 5:
-        df=pd.read_csv(path,header=None)
-    if df.shape[1] < 5:
-        raise ValueError("HRU membership must have at least five columns")
-    df=df.iloc[:,:5].copy()
-    df.columns=["svat","hru","nru","nrucode","svatdonor"]
-    for c in ("svat","hru","nru","svatdonor"):
-        df[c]=pd.to_numeric(df[c],errors="raise").astype(np.int64)
-    if df["hru"].min()<1:
+    norm={str(c).strip().lower():c for c in df.columns}
+    wanted=[
+        next((norm[k] for k in norm if k=="svat"),None),
+        next((norm[k] for k in norm if k in {"hru","hrunr","hru_nr"}),None),
+        next((norm[k] for k in norm if k in {"nru","nrunr","nru_nr"}),None),
+        next((norm[k] for k in norm if k in {"nrucode","nru_code"}),None),
+        next((norm[k] for k in norm if k in {"svat_donor","svatdonor","donor"}),None),
+    ]
+    if any(c is None for c in wanted):
+        if df.shape[1] < 5:
+            raise ValueError("HRU membership must have at least five columns")
+        out=df.iloc[:,:5].copy()
+    else:
+        out=df[wanted].copy()
+    out.columns=["svat","hru","nru","nrucode","svatdonor"]
+    for col in ("svat","hru","nru","svatdonor"):
+        out[col]=pd.to_numeric(out[col],errors="raise").astype(np.int64)
+    if out["hru"].min()<1:
         raise ValueError("HRU ids must be positive")
-    return df
+    if out.duplicated(subset=["svat"]).any():
+        raise ValueError("membership contains duplicate SVAT ids")
+    return out
 
 
-def _read_dqsat(path: Path) -> dict[int,float]:
+def _find_column(columns,*,exact=(),contains_all=()):
+    norm={str(c).strip().lower():c for c in columns}
+    for name in exact:
+        if name.lower() in norm:
+            return norm[name.lower()]
+    for key,c in norm.items():
+        if all(token.lower() in key for token in contains_all):
+            return c
+    return None
+
+
+def _read_dqsat(
+    path: Path,
+    *,
+    hru_column: str | None = None,
+    dqsat_column: str | None = None,
+) -> dict[int,float]:
+    """Read representative-SVAT dqsat authority for all HRUs."""
     df=pd.read_csv(path)
-    lower={str(c).lower():c for c in df.columns}
-    hru_col=next((lower[k] for k in lower if k in {"hru","hru_id","run","run_id"}),None)
-    d_col=next((lower[k] for k in lower if "repr" in k and "dqsat" in k),None)
-    if d_col is None:
-        d_col=next((lower[k] for k in lower if k in {"dqsat","dqsat_repr","representative_dqsat"}),None)
-    if hru_col is None or d_col is None:
-        raise ValueError(f"cannot identify HRU/representative dqsat columns in {path}")
-    hru=pd.to_numeric(df[hru_col],errors="raise").astype(int)
-    d=pd.to_numeric(df[d_col],errors="raise").astype(float)
+    hc=hru_column or _find_column(
+        df.columns,
+        exact=("hru","hru_id","run","run_id"),
+        contains_all=("hru",),
+    )
+    dc=dqsat_column or _find_column(
+        df.columns,
+        exact=("representative_dqsat","dqsat_repr","repr_dqsat","dqsat"),
+        contains_all=("repr","dqsat"),
+    )
+    if hc is None or dc is None:
+        raise ValueError(
+            f"cannot identify HRU/representative-dqsat columns in {path}; "
+            "supply --dqsat-hru-column and --dqsat-value-column"
+        )
+    hru=pd.to_numeric(df[hc],errors="raise").astype(int)
+    d=pd.to_numeric(df[dc],errors="raise").astype(float)
     if hru.duplicated().any():
         raise ValueError("duplicate HRU in representative dqsat authority")
+    if (~np.isfinite(d)).any():
+        raise ValueError("non-finite representative dqsat")
     return dict(zip(hru,d))
 
 
@@ -126,17 +143,10 @@ def _extract_bundle(zip_path: Path,root: Path) -> Path:
 
 
 def _find_one(root: Path,name: str) -> Path:
-    m=list(root.rglob(name))
-    if len(m)!=1:
-        raise ValueError(f"expected exactly one {name} below {root}, got {len(m)}")
-    return m[0]
-
-
-def _h1_stage_files(root: Path) -> list[Path]:
-    files=sorted(root.rglob("peilh_*.idf"))
-    if not files:
-        raise ValueError("no H1 peilh_*.idf in H1/MVG bundle")
-    return files
+    matches=list(root.rglob(name))
+    if len(matches)!=1:
+        raise ValueError(f"expected exactly one {name} below {root}, got {len(matches)}")
+    return matches[0]
 
 
 def _month_key(path: Path) -> str:
@@ -146,22 +156,57 @@ def _month_key(path: Path) -> str:
     return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
 
 
+def _h1_stage_files(root: Path,start: str,end: str) -> list[Path]:
+    pairs=[]
+    for p in root.rglob("peilh_*.idf"):
+        key=_month_key(p)
+        if start<=key<=end:
+            pairs.append((key,p))
+    pairs.sort()
+    if not pairs:
+        raise ValueError(f"no H1 stage files in requested period {start}..{end}")
+    keys=[k for k,_ in pairs]
+    if len(keys)!=len(set(keys)):
+        raise ValueError("duplicate H1 stage month")
+    return [p for _,p in pairs]
+
+
+def _read_svat_coordinates(path: Path) -> pd.DataFrame:
+    """Read SVAT id and coordinates from SVAT_INFO-style CSV."""
+    df=pd.read_csv(path)
+    sc=_find_column(df.columns,exact=("svat",))
+    xc=_find_column(df.columns,exact=("xc(m)","x","xc"))
+    yc=_find_column(df.columns,exact=("yc(m)","y","yc"))
+    if sc is None or xc is None or yc is None:
+        raise ValueError("SVAT_INFO must expose svat and x/y or xc/yc columns")
+    out=df[[sc,xc,yc]].copy()
+    out.columns=["svat","x","y"]
+    out["svat"]=pd.to_numeric(out["svat"],errors="raise").astype(np.int64)
+    out["x"]=pd.to_numeric(out["x"],errors="raise").astype(float)
+    out["y"]=pd.to_numeric(out["y"],errors="raise").astype(float)
+    if out["svat"].duplicated().any():
+        raise ValueError("SVAT_INFO contains duplicate svat ids")
+    return out
+
+
+def _coordinates_to_row_col(coords: pd.DataFrame,reference_idf: Path) -> pd.DataFrame:
+    g=read_idf(reference_idf)
+    col=np.floor((coords["x"].to_numpy(float)-g.xmin)/g.dx).astype(int)
+    row=np.floor((g.ymax-coords["y"].to_numpy(float))/g.dy).astype(int)
+    if ((row<0)|(row>=g.nrow)|(col<0)|(col>=g.ncol)).any():
+        raise ValueError("SVAT coordinates fall outside drainage-grid geometry")
+    out=coords.copy()
+    out["row"]=row
+    out["col"]=col
+    return out
+
+
 def _prepare_static_members(
     membership: pd.DataFrame,
-    svat_grid: Path,
+    svat_info: Path,
     h1_bundle: Path,
     remaining_bundle: Path,
-) -> tuple[pd.DataFrame,dict[str,list[Path]]]:
-    loc=_svat_locations(svat_grid)
-    mem=membership.merge(loc,on="svat",how="left",validate="many_to_one")
-    if mem[["row","col"]].isna().any().any():
-        missing=mem.loc[mem["row"].isna(),"svat"].head(10).tolist()
-        raise ValueError(f"membership SVAT ids absent from SVAT raster: {missing}")
-    mem["row"]=mem["row"].astype(int)
-    mem["col"]=mem["col"].astype(int)
-    rows=mem["row"].to_numpy()
-    cols=mem["col"].to_numpy()
-
+) -> pd.DataFrame:
     paths={
         "H1_cdr":_find_one(h1_bundle,"COND_HL1_250.IDF"),
         "H1_bottom":_find_one(h1_bundle,"both.idf"),
@@ -187,7 +232,21 @@ def _prepare_static_members(
         "PIPE_bottom":_find_one(remaining_bundle,"BODH_B_250.IDF"),
         "OLF_cdr":_find_one(remaining_bundle,"COND_SOF_250.IDF"),
         "OLF_bottom":_find_one(remaining_bundle,"BODH_SOF_250.IDF"),
+        "P_bottom_lhm_sum":_find_one(remaining_bundle,"BODH_P1Z_250.IDF"),
+        "P_bottom_lhm_win":_find_one(remaining_bundle,"BODH_P1W_250.IDF"),
+        "S_bottom_lhm_sum":_find_one(remaining_bundle,"BODH_S1Z_250.IDF"),
+        "S_bottom_lhm_win":_find_one(remaining_bundle,"BODH_S1W_250.IDF"),
     }
+
+    coords=_coordinates_to_row_col(_read_svat_coordinates(svat_info),paths["H1_cdr"])
+    mem=membership.merge(coords,on="svat",how="left",validate="many_to_one")
+    if mem[["row","col"]].isna().any().any():
+        missing=mem.loc[mem["row"].isna(),"svat"].head(10).tolist()
+        raise ValueError(f"membership SVAT ids absent from SVAT_INFO: {missing}")
+    mem["row"]=mem["row"].astype(int)
+    mem["col"]=mem["col"].astype(int)
+    rows=mem["row"].to_numpy()
+    cols=mem["col"].to_numpy()
 
     for key,path in paths.items():
         v,nd=_load_idf_values(path)
@@ -197,92 +256,136 @@ def _prepare_static_members(
     gg=read_ascii_grid(ground)
     mem["glk"]=_sample(gg.values,gg.nodata,rows,cols)/100.0
 
-    # Drain-only level equals bottom/stage source.
-    mem["MVG_sum"]=mem["MVG_bottom"]
-    mem["MVG_win"]=mem["MVG_bottom"]
-    mem["PIPE_sum"]=mem["PIPE_bottom"]
-    mem["PIPE_win"]=mem["PIPE_bottom"]
-    mem["OLF_sum"]=mem["OLF_bottom"]
-    mem["OLF_win"]=mem["OLF_bottom"]
-
-    return mem,{"H1_stage":_h1_stage_files(h1_bundle)}
+    for name in ("MVG","PIPE","OLF"):
+        mem[f"{name}_sum"]=mem[f"{name}_bottom"]
+        mem[f"{name}_win"]=mem[f"{name}_bottom"]
+    return mem
 
 
-def _aggregate_static(
-    group: pd.DataFrame,
-    name: str,
-    representative_dqsat: float,
-) -> dict:
+def _aggregate_static(group: pd.DataFrame,name: str,dq: float) -> dict:
     inf=f"{name}_inf" if name in {"H1","P","S","T"} else None
+    if name=="H1":
+        summer=winter=None
+    else:
+        summer=f"{name}_sum"
+        winter=f"{name}_win"
     return aggregate_physical_system(
         group,
         cdr_col=f"{name}_cdr",
         bottom_col=f"{name}_bottom",
-        summer_level_col=f"{name}_sum",
-        winter_level_col=f"{name}_win",
+        summer_level_col=summer,
+        winter_level_col=winter,
         infiltration_factor_col=inf,
-        representative_dqsat=representative_dqsat,
+        representative_dqsat=dq,
     )
 
 
-def _h1_series_for_hru(
-    group: pd.DataFrame,
+def _build_h1_level_matrix(
+    members: pd.DataFrame,
     stage_files: list[Path],
-) -> tuple[tuple[str,float],...]:
-    cdr=pd.to_numeric(group["H1_cdr"],errors="coerce").fillna(0).to_numpy(float)
-    active=cdr>0
-    if not active.any():
-        return ()
-    rows=group["row"].to_numpy(int)
-    cols=group["col"].to_numpy(int)
-    glk=group["glk"].to_numpy(float)
-    total=float(cdr.sum())
-    out=[]
-    for path in stage_files:
+) -> tuple[list[str],np.ndarray,dict[int,str]]:
+    """Stream H1 stages once and aggregate monthly level depth per HRU."""
+    hru=members["hru"].to_numpy(int)
+    max_hru=int(hru.max())
+    rows=members["row"].to_numpy(int)
+    cols=members["col"].to_numpy(int)
+    glk=members["glk"].to_numpy(float)
+    cdr=pd.to_numeric(members["H1_cdr"],errors="coerce").fillna(0.0).to_numpy(float)
+    active=cdr>0.0
+    denominator=np.bincount(hru,weights=cdr,minlength=max_hru+1)
+    dates=[_month_key(p) for p in stage_files]
+    matrix=np.full((max_hru+1,len(stage_files)),np.nan,dtype=np.float32)
+    failures={}
+
+    for j,path in enumerate(stage_files):
         v,nd=_load_idf_values(path)
         stage=_sample(v,nd,rows,cols)
-        if np.isnan(stage[active]).any():
-            raise ValueError(f"missing H1 stage in active HRU member for {path.name}")
-        depth=float(np.sum(cdr*(glk-stage))/total)
-        out.append((_month_key(path),max(0.0,depth)))
-    return tuple(out)
+        missing=active & np.isnan(stage)
+        if missing.any():
+            for hid in np.unique(hru[missing]):
+                failures.setdefault(int(hid),f"missing H1 stage in active member at {path.name}")
+        safe=np.where(active & ~np.isnan(stage),cdr*(glk-stage),0.0)
+        numerator=np.bincount(hru,weights=safe,minlength=max_hru+1)
+        ok=denominator>0.0
+        matrix[ok,j]=np.maximum(0.0,numerator[ok]/denominator[ok]).astype(np.float32)
+    return dates,matrix,failures
+
+
+def _comparison_stats(members: pd.DataFrame) -> dict:
+    out={}
+    for system in ("P","S"):
+        base=members[f"{system}_bottom"].to_numpy(float)
+        for season in ("sum","win"):
+            alt=members[f"{system}_bottom_lhm_{season}"].to_numpy(float)
+            valid=np.isfinite(base)&np.isfinite(alt)
+            diff=np.abs(base[valid]-alt[valid])
+            out[f"{system}_{season}"]={
+                "valid_member_rows":int(valid.sum()),
+                "different_gt_1e_6":int((diff>1e-6).sum()),
+                "mean_abs_difference_m":float(diff.mean()) if len(diff) else None,
+                "max_abs_difference_m":float(diff.max()) if len(diff) else None,
+            }
+    return out
 
 
 def diagnose(
     membership_csv: Path,
-    svat_grid: Path,
+    svat_info_csv: Path,
     dqsat_csv: Path,
     h1_mvg_zip: Path,
     remaining_zip: Path,
     output_dir: Path,
+    *,
+    stage_start: str,
+    stage_end: str,
+    dqsat_hru_column: str | None,
+    dqsat_value_column: str | None,
 ) -> None:
     output_dir.mkdir(parents=True,exist_ok=True)
     membership=_read_membership(membership_csv)
-    dqsat=_read_dqsat(dqsat_csv)
+    dqsat=_read_dqsat(
+        dqsat_csv,
+        hru_column=dqsat_hru_column,
+        dqsat_column=dqsat_value_column,
+    )
 
     with tempfile.TemporaryDirectory(prefix="lwkm_dra_") as td:
         root=Path(td)
         h1root=_extract_bundle(h1_mvg_zip,root)
         remroot=_extract_bundle(remaining_zip,root)
-        members,extra=_prepare_static_members(membership,svat_grid,h1root,remroot)
+        members=_prepare_static_members(membership,svat_info_csv,h1root,remroot)
 
-        if members["hru"].nunique()!=10242:
-            raise ValueError(f"expected 10242 HRUs, got {members['hru'].nunique()}")
+        hru_count=int(members["hru"].nunique())
+        if hru_count!=10242:
+            raise ValueError(f"expected 10242 HRUs, got {hru_count}")
+
+        stage_files=_h1_stage_files(h1root,stage_start,stage_end)
+        stage_dates,h1_matrix,h1_failures=_build_h1_level_matrix(members,stage_files)
+        comparison=_comparison_stats(members)
 
         summary=[]
-        merges=[]
+        merge_events=[]
         failures=[]
         for hru,group in members.groupby("hru",sort=True):
+            hid=int(hru)
             try:
-                if int(hru) not in dqsat:
+                if hid in h1_failures:
+                    raise ValueError(h1_failures[hid])
+                if hid not in dqsat:
                     raise ValueError("missing representative dqsat")
-                dq=float(dqsat[int(hru)])
+                dq=float(dqsat[hid])
                 physical=[]
                 for name,cls,medium in SYSTEMS:
                     agg=_aggregate_static(group,name,dq)
                     series=None
-                    if name=="H1" and agg["cdr_sum"]>0:
-                        series=_h1_series_for_hru(group,extra["H1_stage"])
+                    if name=="H1" and agg["cdr_sum"]>0.0:
+                        row=h1_matrix[hid]
+                        if np.isnan(row).any():
+                            raise ValueError("incomplete H1 monthly level series")
+                        series=tuple(
+                            (key,min(float(depth),float(agg["dep"])))
+                            for key,depth in zip(stage_dates,row)
+                        )
                     physical.append(from_aggregate(
                         source_id=name,
                         hydraulic_class=cls,
@@ -297,49 +400,65 @@ def diagnose(
                 gd1=sum(p.drainage_conductance for p in compressed)
                 gi0=sum(p.infiltration_conductance for p in active)
                 gi1=sum(p.infiltration_conductance for p in compressed)
+                costs=[]
+                for p in compressed:
+                    for event in p.merge_history:
+                        costs.append(float(event["cost"]))
+                        merge_events.append({
+                            "hru":hid,
+                            "left":"+".join(event["left"]),
+                            "right":"+".join(event["right"]),
+                            "cost":float(event["cost"]),
+                            "final_group":"+".join(p.source_ids),
+                            "dynamic_dates":0 if p.level_series is None else len(p.level_series),
+                        })
                 summary.append({
-                    "hru":int(hru),
+                    "hru":hid,
                     "members":len(group),
                     "active_physical_systems":len(active),
                     "swap_levels":len(compressed),
                     "compression_required":len(active)>5,
+                    "merge_count":len(costs),
+                    "max_merge_cost":max(costs) if costs else 0.0,
                     "drainage_conductance_error":gd1-gd0,
                     "infiltration_conductance_error":gi1-gi0,
                     "groups":"|".join("+".join(p.source_ids) for p in compressed),
                 })
-                for p in compressed:
-                    if len(p.source_ids)>1:
-                        merges.append({
-                            "hru":int(hru),
-                            "sources":"+".join(p.source_ids),
-                            "drnres":p.drnres,
-                            "infres":p.infres,
-                            "dep":p.dep,
-                            "dd":p.dd,
-                            "dynamic_dates":0 if p.level_series is None else len(p.level_series),
-                        })
             except Exception as exc:
-                failures.append({"hru":int(hru),"error":str(exc)})
+                failures.append({"hru":hid,"error":str(exc)})
 
     s=pd.DataFrame(summary)
-    m=pd.DataFrame(merges)
+    m=pd.DataFrame(merge_events)
     f=pd.DataFrame(failures)
     s.to_csv(output_dir/"hru_summary.csv",index=False)
     m.to_csv(output_dir/"merge_events.csv",index=False)
     f.to_csv(output_dir/"failures.csv",index=False)
 
-    counts={str(int(k)):int(v) for k,v in s["active_physical_systems"].value_counts().sort_index().items()} if len(s) else {}
+    counts=(
+        {str(int(k)):int(v) for k,v in s["active_physical_systems"].value_counts().sort_index().items()}
+        if len(s) else {}
+    )
     result={
-        "schema_version":1,
+        "schema_version":2,
         "status":"DRA_10242_DIAGNOSTIC_PASS" if len(f)==0 and len(s)==10242 else "DRA_10242_DIAGNOSTIC_FAIL",
+        "source_identity":{
+            "h1_mvg_zip_sha256":_sha256(h1_mvg_zip),
+            "remaining_zip_sha256":_sha256(remaining_zip),
+        },
         "hru_expected":10242,
         "hru_completed":int(len(s)),
         "hru_failed":int(len(f)),
+        "membership_rows":int(len(membership)),
+        "h1_stage_date_start":stage_dates[0],
+        "h1_stage_date_end":stage_dates[-1],
+        "h1_stage_date_count":len(stage_dates),
         "active_system_count_distribution":counts,
         "hru_requiring_compression":int(s["compression_required"].sum()) if len(s) else 0,
         "merge_event_count":int(len(m)),
+        "max_merge_cost":float(s["max_merge_cost"].max()) if len(s) else None,
         "max_abs_drainage_conductance_error":float(s["drainage_conductance_error"].abs().max()) if len(s) else None,
         "max_abs_infiltration_conductance_error":float(s["infiltration_conductance_error"].abs().max()) if len(s) else None,
+        "bottom_authority_comparison":comparison,
         "outputs":{
             "hru_summary":"hru_summary.csv",
             "merge_events":"merge_events.csv",
@@ -352,13 +471,28 @@ def diagnose(
 def main() -> int:
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--membership",type=Path,required=True)
-    p.add_argument("--svat-grid",type=Path,required=True)
+    p.add_argument("--svat-info",type=Path,required=True)
     p.add_argument("--dqsat",type=Path,required=True)
+    p.add_argument("--dqsat-hru-column")
+    p.add_argument("--dqsat-value-column")
     p.add_argument("--h1-mvg-zip",type=Path,required=True)
     p.add_argument("--remaining-zip",type=Path,required=True)
+    p.add_argument("--stage-start",default="1971-01-01")
+    p.add_argument("--stage-end",default="2021-12-01")
     p.add_argument("--output-dir",type=Path,required=True)
     a=p.parse_args()
-    diagnose(a.membership,a.svat_grid,a.dqsat,a.h1_mvg_zip,a.remaining_zip,a.output_dir)
+    diagnose(
+        a.membership,
+        a.svat_info,
+        a.dqsat,
+        a.h1_mvg_zip,
+        a.remaining_zip,
+        a.output_dir,
+        stage_start=a.stage_start,
+        stage_end=a.stage_end,
+        dqsat_hru_column=a.dqsat_hru_column,
+        dqsat_value_column=a.dqsat_value_column,
+    )
     return 0
 
 
