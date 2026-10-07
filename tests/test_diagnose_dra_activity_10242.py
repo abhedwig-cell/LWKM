@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from tools.diagnose_dra_activity_10242 import _read_relation
+from tools.diagnose_dra_activity_10242 import _read_relation, diagnose_activity
 
 
 def test_activity_relation_fails_closed_on_incomplete_population(tmp_path: Path):
@@ -21,3 +21,19 @@ def test_activity_relation_fails_closed_on_incomplete_population(tmp_path: Path)
 def test_activity_system_contract_has_all_seven_named_sources():
     from tools.diagnose_dra_activity_10242 import MODERN_SEVEN
     assert MODERN_SEVEN == ("H1","P","S","T","MVG","PIPE","OLF")
+
+
+
+def test_activity_preflight_rejects_wrong_h1_bundle_sha_before_reading_relation(tmp_path: Path):
+    relation=tmp_path/"missing_relation.csv"
+    h1=tmp_path/"h1.zip"
+    remaining=tmp_path/"remaining.zip"
+    h1.write_bytes(b"wrong-h1")
+    remaining.write_bytes(b"remaining")
+    with pytest.raises(ValueError,match="H1/MVG bundle SHA mismatch"):
+        diagnose_activity(
+            relation,
+            h1,
+            remaining,
+            tmp_path/"out",
+        )
