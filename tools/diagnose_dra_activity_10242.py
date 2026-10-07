@@ -98,8 +98,29 @@ def _rows_cols(relation: pd.DataFrame,reference_idf: Path) -> tuple[np.ndarray,n
     return row,col
 
 
-def _sample_positive(path: Path,rows: np.ndarray,cols: np.ndarray) -> np.ndarray:
+def _same_geometry(a,b) -> bool:
+    return (
+        a.ncol==b.ncol
+        and a.nrow==b.nrow
+        and np.isclose(a.xmin,b.xmin)
+        and np.isclose(a.xmax,b.xmax)
+        and np.isclose(a.ymin,b.ymin)
+        and np.isclose(a.ymax,b.ymax)
+        and np.isclose(a.dx,b.dx)
+        and np.isclose(a.dy,b.dy)
+    )
+
+
+def _sample_positive(
+    path: Path,
+    rows: np.ndarray,
+    cols: np.ndarray,
+    *,
+    reference_grid,
+) -> np.ndarray:
     g=read_idf(path)
+    if not _same_geometry(reference_grid,g):
+        raise ValueError(f"conductance geometry mismatch: {path}")
     v=np.asarray(g.values,dtype=float)[rows,cols]
     valid=np.isfinite(v) & ~np.isclose(v,float(g.nodata))
     return valid & (v>0.0)
@@ -136,13 +157,19 @@ def diagnose_activity(
         roots={"H1_MVG":h1root,"REMAINING":remroot}
 
         ref=_find_one(h1root,"COND_HL1_250.IDF")
+        reference_grid=read_idf(ref)
         rows,cols=_rows_cols(relation,ref)
 
         activity=pd.DataFrame({
             "hru":relation["hru"].to_numpy(int),
         })
         for system,(bundle,name) in SYSTEM_FILES.items():
-            activity[system]=_sample_positive(_find_one(roots[bundle],name),rows,cols)
+            activity[system]=_sample_positive(
+                _find_one(roots[bundle],name),
+                rows,
+                cols,
+                reference_grid=reference_grid,
+            )
 
     grouped=activity.groupby("hru",sort=True)[list(MODERN_SEVEN)].any()
     if len(grouped)!=10242:
@@ -150,9 +177,12 @@ def diagnose_activity(
 
     grouped["legacy_five_active"]=grouped[list(LEGACY_FIVE)].sum(axis=1).astype(int)
     grouped["modern_seven_active"]=grouped[list(MODERN_SEVEN)].sum(axis=1).astype(int)
-    grouped["added_by_H1"]=grouped["H1"] & ~grouped[list(LEGACY_FIVE)].any(axis=1)
+    grouped["new_system_increment"]=(
+        grouped["modern_seven_active"]-grouped["legacy_five_active"]
+    ).astype(int)
     grouped["H1_active"]=grouped["H1"]
     grouped["MVG_active"]=grouped["MVG"]
+    grouped["H1_and_MVG_active"]=grouped["H1"] & grouped["MVG"]
     grouped["compression_required"]=grouped["modern_seven_active"]>5
     grouped["active_systems"]=grouped.apply(
         lambda r:"+".join(s for s in MODERN_SEVEN if bool(r[s])),
@@ -194,9 +224,16 @@ def diagnose_activity(
         "per_system_active_hru":per_system,
         "legacy_five_active_count_distribution":legacy_dist,
         "modern_seven_active_count_distribution":modern_dist,
+        "new_system_increment_distribution":{
+            str(int(k)):int(v)
+            for k,v in out["new_system_increment"].value_counts().sort_index().items()
+        },
         "hru_requiring_compression":int(out["compression_required"].sum()),
+        "hru_with_six_active_systems":int((out["modern_seven_active"]==6).sum()),
+        "hru_with_seven_active_systems":int((out["modern_seven_active"]==7).sum()),
         "hru_with_H1":int(out["H1_active"].sum()),
         "hru_with_MVG":int(out["MVG_active"].sum()),
+        "hru_with_H1_and_MVG":int(out["H1_and_MVG_active"].sum()),
         "hru_with_H1_or_MVG":int((out["H1_active"]|out["MVG_active"]).sum()),
         "top_active_system_combinations":top_combinations,
         "output":"hru_activity.csv",
