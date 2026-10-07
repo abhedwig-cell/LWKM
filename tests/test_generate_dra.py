@@ -154,3 +154,21 @@ def test_named_physical_system_fails_closed_on_missing_active_hydraulics():
         assert "missing infiltration factor" in str(exc)
     else:
         raise AssertionError("expected missing active H1 infiltration factor to fail closed")
+
+
+
+def test_explicit_renderer_writes_dynamic_monthly_level_series():
+    level={
+        "drnres":10,"infres":10,"dep":2,"peil_sum":1,"peil_win":1.5,"dd":80,
+        "medium":"open_channel","allow_infiltration":True,"source_ids":("H1",),
+        "level_series":(
+            ("2000-01-01",1.8),
+            ("2000-02-01",1.7),
+            ("2000-03-01",1.6),
+        ),
+    }
+    text=render_dra_explicit([level],3,2000,2000,20)
+    assert "01-jan-2000  -180.00" in text
+    assert "01-feb-2000  -170.00" in text
+    assert "01-mar-2000  -160.00" in text
+    assert "01-apr-2000" not in text
