@@ -58,6 +58,33 @@ def _load_idf_values(path: Path) -> tuple[np.ndarray,float]:
     return np.asarray(g.values,dtype=float),float(g.nodata)
 
 
+def _same_grid_geometry(a,b) -> bool:
+    return (
+        a.ncol == b.ncol
+        and a.nrow == b.nrow
+        and np.isclose(a.xmin,b.xmin)
+        and np.isclose(a.xmax,b.xmax)
+        and np.isclose(a.ymin,b.ymin)
+        and np.isclose(a.ymax,b.ymax)
+        and np.isclose(a.dx,b.dx)
+        and np.isclose(a.dy,b.dy)
+    )
+
+
+def _assert_ascii_matches_idf(ascii_grid, idf_grid, *, label: str) -> None:
+    if (
+        ascii_grid.ncols != idf_grid.ncol
+        or ascii_grid.nrows != idf_grid.nrow
+        or not np.isclose(ascii_grid.xllcorner,idf_grid.xmin)
+        or not np.isclose(ascii_grid.yllcorner,idf_grid.ymin)
+        or not np.isclose(ascii_grid.cellsize,idf_grid.dx)
+        or not np.isclose(idf_grid.dx,idf_grid.dy)
+    ):
+        raise ValueError(
+            f"{label} geometry does not match drainage IDF geometry"
+        )
+
+
 def _sample(values: np.ndarray,nodata: float,rows: np.ndarray,cols: np.ndarray) -> np.ndarray:
     out=values[rows,cols].astype(float,copy=True)
     out[~_valid(out,nodata)]=np.nan
@@ -295,6 +322,7 @@ def _prepare_static_members(
         "S_bottom_lhm_win":_find_one(remaining_bundle,"BODH_S1W_250.IDF"),
     }
 
+    reference_grid=read_idf(paths["H1_cdr"])
     coords=_coordinates_to_row_col(coordinates,paths["H1_cdr"])
     mem=membership.merge(coords,on="svat",how="left",validate="many_to_one")
     if mem[["row","col"]].isna().any().any():
@@ -306,11 +334,21 @@ def _prepare_static_members(
     cols=mem["col"].to_numpy()
 
     for key,path in paths.items():
-        v,nd=_load_idf_values(path)
-        mem[key]=_sample(v,nd,rows,cols)
+        grid=read_idf(path)
+        if not _same_grid_geometry(reference_grid,grid):
+            raise ValueError(
+                f"{key} geometry does not match H1 drainage reference: {path}"
+            )
+        mem[key]=_sample(
+            np.asarray(grid.values,dtype=float),
+            float(grid.nodata),
+            rows,
+            cols,
+        )
 
     ground=_find_one(remaining_bundle,"ahn_f250_cm.asc")
     gg=read_ascii_grid(ground)
+    _assert_ascii_matches_idf(gg,reference_grid,label="AHN ground grid")
     mem["glk"]=_sample(gg.values,gg.nodata,rows,cols)/100.0
 
     for name in ("MVG","PIPE","OLF"):
