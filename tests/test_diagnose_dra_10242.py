@@ -237,9 +237,18 @@ def test_merge_review_metrics_report_population_and_h1_pairs():
         {"active_physical_systems":7},
     ])
     m=pd.DataFrame([
-        {"left":"H1","right":"P","cost":1.0},
-        {"left":"P","right":"H1","cost":3.0},
-        {"left":"MVG","right":"OLF","cost":2.0},
+        {
+            "left":"H1","right":"P","cost":1.0,
+            "max_drainage_infiltration_level_gap_m":0.10,
+        },
+        {
+            "left":"P","right":"H1","cost":3.0,
+            "max_drainage_infiltration_level_gap_m":0.30,
+        },
+        {
+            "left":"MVG","right":"OLF","cost":2.0,
+            "max_drainage_infiltration_level_gap_m":0.0,
+        },
     ])
     out=_merge_review_metrics(s,m)
     assert out["zero_active_hru"]==1
@@ -248,3 +257,8 @@ def test_merge_review_metrics_report_population_and_h1_pairs():
     assert out["h1_merge_event_count"]==2
     assert out["top_merge_pairs"][0]=={"pair":"H1 | P","count":2}
     assert out["merge_cost_quantiles"]["max"]==3.0
+    tension=out["merge_level_representation_tension"]
+    assert tension["acceptance_threshold"] is None
+    assert tension["events_with_positive_gap"]==2
+    assert tension["all_merge_gap_quantiles"]["max"]==0.30
+    assert tension["h1_merge_gap_quantiles"]["max"]==0.30
