@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "status": "H1_MVG_FILE_AND_SEMANTIC_AUDIT_PARTIAL_PASS",
+  "date": "2026-10-07",
+  "bundle": {
+    "zip_sha256": "3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa",
+    "manifest_sha256": "216af5086a83109abfcaa74b19c92535c354a79008ec958e0b7c0eb40fc32ebb",
+    "payload_file_count": 681,
+    "payload_bytes": 4249475616,
+    "independent_manifest_payload_rehash": {
+      "files_checked": 681,
+      "bytes_rehashed": 4249475616,
+      "missing_files": 0,
+      "hash_or_size_mismatches": 0,
+      "result": "PASS"
+    }
+  },
+  "geometry": {
+    "all_681_idfs_header_readable": true,
+    "ncol": 1200,
+    "nrow": 1300,
+    "xmin": 0.0,
+    "xmax": 300000.0,
+    "ymin": 300000.0,
+    "ymax": 625000.0,
+    "dx": 250.0,
+    "dy": 250.0,
+    "geometry_variants": 1
+  },
+  "nodata": {
+    "static_files": 1.0000000200408773e20,
+    "h1_stage_1969_12_through_1978_10": -9999.0,
+    "h1_stage_1978_11_through_2026_03": 1.0000000200408773e20,
+    "transition_count": 1,
+    "semantic_action": "reader must honor per-file NODATA; do not normalize by assumption before read"
+  },
+  "h1_dynamic_stage": {
+    "files": 676,
+    "date_min": "1969-12-01",
+    "date_max": "2026-03-01",
+    "expected_months_inclusive": 676,
+    "missing_months": 0,
+    "duplicate_months": 0,
+    "bad_filename_dates": 0,
+    "result": "EXACT_GAP_FREE_MONTHLY_SEQUENCE"
+  },
+  "static_files": {
+    "H1_CONDUCTANCE": {
+      "path": "10_H1/COND_HL1_250.IDF",
+      "sha256": "05f20579aa36c51e2da203f8460a84e836aee2a4a09494427454fac35f936b03",
+      "size_bytes": 6240052,
+      "valid_cells": 56716,
+      "min": 0.019648000597953796,
+      "max": 7675.0,
+      "mean": 2744.5774993908403
+    },
+    "H1_BOTTOM": {
+      "path": "10_H1/both.idf",
+      "sha256": "86fb8259374712e913560127216ef9063d61265e0826560b9f34a630fe571c2c",
+      "size_bytes": 6240256,
+      "valid_cells": 101744,
+      "min": -60.650001525878906,
+      "max": 56.75,
+      "mean": -2.6640272179260536,
+      "idf_metadata_footer_bytes": 204
+    },
+    "H1_INFILTRATION_FACTOR": {
+      "path": "10_H1/infmz_h_250_l1.idf",
+      "sha256": "86947960fa87cc93c269f7d3e6fbd95908ac04e46fbd6437480c5f53a37fc85b",
+      "size_bytes": 6240052,
+      "valid_cells": 56685,
+      "values": [0.1, 0.3, 1.0],
+      "dominant_value": 0.1
+    },
+    "MVG_CONDUCTANCE": {
+      "path": "20_MVG/COND_greppels.IDF",
+      "sha256": "91e5945a419b6f8541fcf67e99f1033c9b06b6c086ff14b27076a6a535b9693a",
+      "size_bytes": 6240052,
+      "valid_cells": 66280,
+      "min": 0.17353399097919464,
+      "max": 2083.333251953125,
+      "mean": 884.1242154429129
+    },
+    "MVG_BOTTOM_STAGE": {
+      "path": "20_MVG/BODH_BRP2012_MVGREP_250.IDF",
+      "sha256": "b3440024c1c55d9b697b43196a6b621f7f92c0b2bdc275be3c4d2973153257b4",
+      "size_bytes": 6240052,
+      "valid_cells": 66280,
+      "min": -6.921999931335449,
+      "max": 120.36199951171875,
+      "mean": 0.9584075364382577
+    }
+  },
+  "support_checks": {
+    "MVG": {
+      "conductance_valid_cells": 66280,
+      "bottom_stage_valid_cells": 66280,
+      "conductance_missing_bottom_stage": 0,
+      "bottom_stage_outside_conductance": 0,
+      "result": "EXACT_SUPPORT_MATCH"
+    },
+    "H1": {
+      "conductance_valid_cells": 56716,
+      "conductance_missing_infiltration_factor_cells": 296,
+      "infiltration_factor_valid_outside_conductance_cells": 265,
+      "conductance_missing_bottom_cells": 1,
+      "bottom_valid_outside_conductance_cells": 45029,
+      "stage_months_with_any_conductance_cell_missing_stage": 205,
+      "stage_missing_detail": [
+        {
+          "grid_row_zero_based": 463,
+          "grid_col_zero_based": 763,
+          "x_center": 190875.0,
+          "y_center": 509125.0,
+          "months_missing": 204,
+          "date_min": "2005-01-01",
+          "date_max": "2021-12-01",
+          "also_missing_bottom": true
+        },
+        {
+          "date": "2022-04-01",
+          "conductance_cells_missing_stage": 15,
+          "note": "15 distinct layer-1 H1 conductance cells"
+        }
+      ],
+      "stage_below_bottom": {
+        "distinct_cells": 1,
+        "months": 436,
+        "grid_row_zero_based": 728,
+        "grid_col_zero_based": 609,
+        "x_center": 152375.0,
+        "y_center": 442875.0,
+        "bottom": 3.2750000953674316,
+        "conductance": 267.8571472167969,
+        "minimum_stage_minus_bottom": -1.0662503242492676
+      },
+      "result": "SOURCE_SUPPORT_EXCEPTIONS_REQUIRE_EXPLICIT_PRODUCTION_POLICY"
+    }
+  },
+  "qualification": {
+    "bundle_integrity": "PASS",
+    "file_identity": "PASS_ALL_681_AGAINST_MANIFEST",
+    "geometry": "PASS",
+    "monthly_sequence": "PASS",
+    "MVG_static_support": "PASS",
+    "H1_semantic_support": "OPEN_EXCEPTIONS",
+    "production_admission": false
+  },
+  "next": [
+    "determine whether H1 support-exception cells participate in the admitted LWKM SVAT/HRU population",
+    "qualify H1 missing infiltration-factor semantics",
+    "qualify H1 missing bottom/stage fallback or exclusion semantics from LHM source behavior",
+    "only then assemble seven physical HRU drainage systems and run 10242-HRU compression diagnostics"
+  ]
+}
