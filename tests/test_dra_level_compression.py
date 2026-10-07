@@ -4,6 +4,7 @@ from tools.dra_level_compression import (
     drainage_infiltration_level_gap,
     from_aggregate,
     to_render_level,
+    max_source_level_separation,
 )
 
 
@@ -299,3 +300,34 @@ def test_drainage_infiltration_level_gap_detects_one_level_representation_tensio
     assert abs(
         out.merge_history[-1]["max_drainage_infiltration_level_gap_m"] - gap
     ) < 1e-15
+
+
+
+def test_source_level_span_detects_irreducible_activation_breakpoint_loss():
+    a=PhysicalDrainageSystem(
+        ("A",),"infiltration_capable_open","open_channel",
+        100.0,200.0,2.0,1.0,1.5,80.0,
+    )
+    b=PhysicalDrainageSystem(
+        ("B",),"infiltration_capable_open","open_channel",
+        200.0,400.0,2.0,1.4,1.7,80.0,
+    )
+    assert max_source_level_separation(a,b) == 0.4
+    merged=compress_to_swap_levels([a,b],max_levels=1)[0]
+    event=merged.merge_history[-1]
+    assert event["max_source_level_separation_m"] == 0.4
+    assert event["bottom_depth_separation_m"] == 0.0
+
+
+def test_equal_conductance_ratio_can_have_zero_centroid_gap_but_nonzero_level_span():
+    from tools.dra_level_compression import drainage_infiltration_level_gap
+    a=PhysicalDrainageSystem(
+        ("A",),"infiltration_capable_open","open_channel",
+        100.0,200.0,2.0,1.0,1.0,80.0,
+    )
+    b=PhysicalDrainageSystem(
+        ("B",),"infiltration_capable_open","open_channel",
+        200.0,400.0,2.0,2.0,2.0,80.0,
+    )
+    assert drainage_infiltration_level_gap(a,b) == 0.0
+    assert max_source_level_separation(a,b) == 1.0
