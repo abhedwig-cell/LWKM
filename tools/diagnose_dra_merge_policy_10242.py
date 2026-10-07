@@ -130,15 +130,22 @@ def main()->int:
             inf=np.nan_to_num(g[f"{s}_inf"].to_numpy(float),nan=0.0)
             rec[f"{s}_Gi"]=float((c*inf).sum())
             for season in ("sum","win"):
+                glk=g["AHN_cm"].to_numpy(float)
                 lev=g[f"{s}_{season}"].to_numpy(float)
-                rec[f"{s}_{season}"]=float(np.sum(c[mask]*lev[mask])/cs) if cs else np.nan
+                # Compare the same vertical quantity used by modern DRA aggregation:
+                # positive depth below local ground, not absolute NAP elevation.
+                depth=np.clip(glk-lev,0.0,None)
+                rec[f"{s}_{season}"]=float(np.sum(c[mask]*depth[mask])/cs) if cs else np.nan
                 bot=g[f"{s}_bot_{season}"].to_numpy(float)
-                rec[f"{s}_bot_{season}"]=float(np.sum(c[mask]*bot[mask])/cs) if cs else np.nan
+                bot_depth=np.clip(glk-bot,0.0,None)
+                rec[f"{s}_bot_{season}"]=float(np.sum(c[mask]*bot_depth[mask])/cs) if cs else np.nan
         for s in ("MVG","OLF"):
             c=np.nan_to_num(g[f"{s}_cdr"].to_numpy(float),nan=0.0)
             mask=c>0; cs=float(c.sum()); rec[f"{s}_G"]=cs
+            glk=g["AHN_cm"].to_numpy(float)
             bot=g[f"{s}_bot"].to_numpy(float)
-            rec[f"{s}_level"]=float(np.sum(c[mask]*bot[mask])/cs) if cs else np.nan
+            depth=np.clip(glk-bot,0.0,None)
+            rec[f"{s}_level"]=float(np.sum(c[mask]*depth[mask])/cs) if cs else np.nan
         rows_out.append(rec)
     q=pd.DataFrame(rows_out)
 
@@ -171,12 +178,19 @@ def main()->int:
 
     st.to_csv(a.output_dir/"st_candidate.csv",index=False)
     mo.to_csv(a.output_dir/"mvg_olf_candidate.csv",index=False)
+    st.nlargest(100,"max_level_span_m").to_csv(
+        a.output_dir/"st_level_span_outliers_top100.csv",index=False
+    )
+    mo.nlargest(100,"level_span_m").to_csv(
+        a.output_dir/"mvg_olf_level_span_outliers_top100.csv",index=False
+    )
     result={
-      "schema_version":1,
+      "schema_version":2,
       "status":"DRA_MERGE_POLICY_POPULATION_DIAGNOSTIC_NOT_ADMISSION",
       "source_identity":{"relation_sha256":sha256(a.relation),
         "h1_mvg_zip_sha256":sha256(a.h1_mvg_zip),
         "remaining_zip_sha256":sha256(a.remaining_zip)},
+      "vertical_semantics":"CONDUCTANCE_WEIGHTED_DEPTH_BELOW_LOCAL_AHN_GROUND",
       "protected_levels":["H1","PIPE"],
       "S_T":{"both_active_hru":int(len(st)),
         "S_conductance_fraction":quant(st.S_fraction),
