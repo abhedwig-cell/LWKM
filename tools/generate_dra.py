@@ -1,5 +1,6 @@
 """Active v0.38 drainage aggregation and DRA serialization."""
 from __future__ import annotations
+from datetime import date
 import numpy as np
 import pandas as pd
 
@@ -211,12 +212,26 @@ def render_dra_explicit(
             f"SWDTYP{sy} = {swdtyp}",
             " ",
             f"    DATOWL{sy}   LEVEL{sy}",
-            f" 01-jan-{year_start} {-level['peil_win'] * 100:8.2f}",
         ]
-        for y in range(year_start, year_end + 1):
-            lines += [
-                f" 01-apr-{y} {-level['peil_sum'] * 100:8.2f}",
-                f" 01-oct-{y} {-level['peil_win'] * 100:8.2f}",
-            ]
+
+        series = level.get("level_series")
+        if series:
+            previous = None
+            for key, depth in series:
+                current = date.fromisoformat(key)
+                if previous is not None and current <= previous:
+                    raise ValueError(f"level_series must be strictly increasing: {key}")
+                previous = current
+                mon = current.strftime("%b").lower()
+                lines.append(
+                    f" {current.day:02d}-{mon}-{current.year:04d} {-float(depth) * 100:8.2f}"
+                )
+        else:
+            lines.append(f" 01-jan-{year_start} {-level['peil_win'] * 100:8.2f}")
+            for y in range(year_start, year_end + 1):
+                lines += [
+                    f" 01-apr-{y} {-level['peil_sum'] * 100:8.2f}",
+                    f" 01-oct-{y} {-level['peil_win'] * 100:8.2f}",
+                ]
         lines.append("* End of table")
     return "\n".join(lines) + "\n"
