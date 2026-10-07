@@ -583,9 +583,18 @@ def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
             m["max_drainage_infiltration_level_gap_m"],errors="raise"
         ).to_numpy(float)
         gap_quantiles=_numeric_quantiles(gaps)
+        level_spans=pd.to_numeric(
+            m["max_source_level_separation_m"],errors="raise"
+        ).to_numpy(float)
+        level_span_quantiles=_numeric_quantiles(level_spans)
+        bottom_spans=pd.to_numeric(
+            m["bottom_depth_separation_m"],errors="raise"
+        ).to_numpy(float)
+        bottom_span_quantiles=_numeric_quantiles(bottom_spans)
         pair_counts={}
         h1_events=0
         h1_gaps=[]
+        h1_level_spans=[]
         for row in m.itertuples(index=False):
             left=str(row.left)
             right=str(row.right)
@@ -594,6 +603,7 @@ def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
             if "H1" in set(left.split("+")) or "H1" in set(right.split("+")):
                 h1_events+=1
                 h1_gaps.append(float(row.max_drainage_infiltration_level_gap_m))
+                h1_level_spans.append(float(row.max_source_level_separation_m))
         top_pairs=[
             {"pair":pair,"count":count}
             for pair,count in sorted(
@@ -601,14 +611,22 @@ def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
             )[:20]
         ]
         positive_gap_events=int((gaps>0.0).sum())
+        positive_level_span_events=int((level_spans>0.0).sum())
         h1_gap_quantiles=_numeric_quantiles(np.asarray(h1_gaps,dtype=float))
+        h1_level_span_quantiles=_numeric_quantiles(
+            np.asarray(h1_level_spans,dtype=float)
+        )
     else:
         quantiles=_numeric_quantiles(np.asarray([],dtype=float))
         gap_quantiles=_numeric_quantiles(np.asarray([],dtype=float))
         h1_gap_quantiles=_numeric_quantiles(np.asarray([],dtype=float))
+        level_span_quantiles=_numeric_quantiles(np.asarray([],dtype=float))
+        bottom_span_quantiles=_numeric_quantiles(np.asarray([],dtype=float))
+        h1_level_span_quantiles=_numeric_quantiles(np.asarray([],dtype=float))
         top_pairs=[]
         h1_events=0
         positive_gap_events=0
+        positive_level_span_events=0
 
     return {
         "zero_active_hru":zero_active,
@@ -617,12 +635,28 @@ def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
         "h1_merge_event_count":h1_events,
         "merge_cost_quantiles":quantiles,
         "merge_level_representation_tension":{
-            "metric":"max absolute difference between drainage-equivalent and infiltration-equivalent merged level",
-            "unit":"m",
-            "acceptance_threshold":None,
-            "events_with_positive_gap":positive_gap_events,
-            "all_merge_gap_quantiles":gap_quantiles,
-            "h1_merge_gap_quantiles":h1_gap_quantiles,
+            "drainage_infiltration_centroid_gap":{
+                "metric":"max absolute difference between drainage-equivalent and infiltration-equivalent merged level",
+                "unit":"m",
+                "acceptance_threshold":None,
+                "events_with_positive_gap":positive_gap_events,
+                "all_merge_quantiles":gap_quantiles,
+                "h1_merge_quantiles":h1_gap_quantiles,
+            },
+            "source_activation_level_span":{
+                "metric":"max separation between the two physical prescribed levels collapsed into one SWAP level",
+                "unit":"m",
+                "acceptance_threshold":None,
+                "events_with_positive_span":positive_level_span_events,
+                "all_merge_quantiles":level_span_quantiles,
+                "h1_merge_quantiles":h1_level_span_quantiles,
+            },
+            "bottom_depth_span":{
+                "metric":"absolute drainage-bottom depth separation of the merged source pair",
+                "unit":"m",
+                "acceptance_threshold":None,
+                "all_merge_quantiles":bottom_span_quantiles,
+            },
         },
         "top_merge_pairs":top_pairs,
     }
@@ -823,6 +857,12 @@ def diagnose(
                             "cost":float(event["cost"]),
                             "max_drainage_infiltration_level_gap_m":float(
                                 event.get("max_drainage_infiltration_level_gap_m",0.0)
+                            ),
+                            "max_source_level_separation_m":float(
+                                event.get("max_source_level_separation_m",0.0)
+                            ),
+                            "bottom_depth_separation_m":float(
+                                event.get("bottom_depth_separation_m",0.0)
                             ),
                             "final_group":"+".join(p.source_ids),
                             "dynamic_dates":0 if p.level_series is None else len(p.level_series),
