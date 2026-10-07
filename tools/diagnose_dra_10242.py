@@ -579,16 +579,27 @@ def diagnose(
                             "final_group":"+".join(p.source_ids),
                             "dynamic_dates":0 if p.level_series is None else len(p.level_series),
                         })
+                level_dd=[float(p.dd) for p in compressed if p.dd is not None]
+                all_levels_same_l=(
+                    len(level_dd)<=1
+                    or (max(level_dd)-min(level_dd))<=1e-9
+                )
                 summary.append({
                     "hru":hid,
                     "members":len(group),
                     "active_physical_systems":len(active),
                     "swap_levels":len(compressed),
+                    "multiple_swap_levels":len(compressed)>1,
                     "compression_required":len(active)>5,
                     "merge_count":len(costs),
                     "max_merge_cost":max(costs) if costs else 0.0,
                     "drainage_conductance_error":gd1-gd0,
                     "infiltration_conductance_error":gi1-gi0,
+                    "all_levels_same_L":all_levels_same_l,
+                    "level_order":"|".join(
+                        f"{'+'.join(p.source_ids)}@dep={p.dep:.9g}@L={float(p.dd):.9g}"
+                        for p in compressed
+                    ),
                     "groups":"|".join("+".join(p.source_ids) for p in compressed),
                 })
             except Exception as exc:
@@ -629,7 +640,13 @@ def diagnose(
         "h1_stage_date_end":stage_dates[-1],
         "h1_stage_date_count":len(stage_dates),
         "active_system_count_distribution":counts,
+        "hru_with_multiple_swap_levels":int(s["multiple_swap_levels"].sum()) if len(s) else 0,
+        "hru_with_equal_L_ordering_tie":int(
+            (s["multiple_swap_levels"] & s["all_levels_same_L"]).sum()
+        ) if len(s) else 0,
         "hru_requiring_compression":int(s["compression_required"].sum()) if len(s) else 0,
+        "ordering_candidate":"DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE",
+        "ordering_admission":"CANDIDATE_NOT_ADMITTED",
         "merge_event_count":int(len(m)),
         "max_merge_cost":float(s["max_merge_cost"].max()) if len(s) else None,
         "max_abs_drainage_conductance_error":float(s["drainage_conductance_error"].abs().max()) if len(s) else None,
