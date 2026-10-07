@@ -199,7 +199,7 @@ remaining_source_collection:
   reason: compare current HRU DRA steady-state bottom authority with actual LHM package-bottom semantics before modern admission
 
 level_ordering:
-  status: DRA_LEVEL_ORDERING_CONDITIONALLY_QUALIFIED
+  status: W07_DIAGNOSTIC_ORDERING_QUALIFIED_PRODUCTION_SENSITIVITY_OPEN
   authority: docs/lhm-hru-swap/P12-DRA-LEVEL-ORDERING-RESOLUTION-2026-10-07.md
   ordinary_drainage:
     DRAMET: 3
@@ -207,6 +207,9 @@ level_ordering:
     serialized_order: [deeper_dep_first, medium, source_lineage]
     merge_tie_break: canonical_source_lineage
     divdra_internal_order: FDisInf_times_Lspacing
+    equal_L_tie_behavior: supplied_input_order_is_retained
+    production_admission: NOT_GRANTED
+    production_next_gate: bounded_SWAP_SWDIVD_ordering_sensitivity
   package_guard:
     indexed_macropore_drainage:
       trigger: SWMACRO_1_AND_SWDRRAP_1
