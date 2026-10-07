@@ -6,6 +6,7 @@ import pandas as pd
 
 from tools.diagnose_dra_10242 import (
     _build_h1_level_matrix,
+    _comparison_stats,
     _month_key,
     _read_dqsat,
     _read_membership,
@@ -81,3 +82,17 @@ def test_h1_missing_stage_is_bound_to_affected_hru(tmp_path: Path):
     })
     _,_,failures=_build_h1_level_matrix(members,[p])
     assert 7 in failures
+
+
+
+def test_bottom_authority_comparison_includes_tertiary_lhm_peil_as_rbot():
+    members=pd.DataFrame({
+        "P_bottom":[1.0],"P_bottom_lhm_sum":[1.0],"P_bottom_lhm_win":[1.0],
+        "S_bottom":[2.0],"S_bottom_lhm_sum":[2.0],"S_bottom_lhm_win":[2.0],
+        "T_bottom":[3.0],"T_bottom_lhm_sum":[4.0],"T_bottom_lhm_win":[5.0],
+    })
+    out=_comparison_stats(members)
+    assert "T_sum" in out and "T_win" in out
+    assert out["T_sum"]["different_gt_1e_6"] == 1
+    assert out["T_sum"]["max_abs_difference_m"] == 1.0
+    assert out["T_win"]["max_abs_difference_m"] == 2.0
