@@ -77,7 +77,7 @@ diagnostic:
       arguments: [--relation, --dqsat-snapshot]
   default_h1_stage_period:
     start: 1971-01-01
-    end: 2021-12-01
+    end: 2022-01-01
   hard_gates:
     hru_count: 10242
     membership_rows: 427656
