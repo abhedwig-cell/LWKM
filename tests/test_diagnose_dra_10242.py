@@ -8,6 +8,7 @@ from tools.diagnose_dra_10242 import (
     _assert_ascii_matches_idf,
     _build_h1_level_matrix,
     _comparison_stats,
+    _coordinates_to_row_col,
     _h1_stage_files,
     _month_key,
     _merge_review_metrics,
@@ -328,3 +329,25 @@ def test_bottom_comparison_uses_historical_j_when_recovered():
     out=_comparison_stats(members)
     assert out["P"]["historical_j"]["available"] is True
     assert out["P"]["historical_j"]["comparison"]["mean"]["max_abs_difference_m"] == 0.0
+
+
+
+def test_full_diagnostic_accepts_exact_idf_cell_centre(tmp_path: Path):
+    grid=tmp_path/"grid.idf"
+    _write_idf(grid,1.0)
+    coords=pd.DataFrame({"svat":[1],"x":[125.0],"y":[125.0]})
+    out=_coordinates_to_row_col(coords,grid)
+    assert int(out.loc[0,"row"]) == 0
+    assert int(out.loc[0,"col"]) == 0
+
+
+def test_full_diagnostic_rejects_offcentre_svat_coordinates(tmp_path: Path):
+    grid=tmp_path/"grid.idf"
+    _write_idf(grid,1.0)
+    coords=pd.DataFrame({"svat":[1],"x":[126.0],"y":[125.0]})
+    try:
+        _coordinates_to_row_col(coords,grid)
+    except ValueError as exc:
+        assert "exact IDF-cell centres" in str(exc)
+    else:
+        raise AssertionError("expected off-centre SVAT coordinate to fail closed")
