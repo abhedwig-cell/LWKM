@@ -238,3 +238,33 @@ def test_merged_swap_resistance_is_capped_but_raw_conductance_is_preserved():
     assert out.drnres == 100000.0
     assert abs(out.drainage_conductance - 2e-7) < 1e-20
     assert out.active is True
+
+
+
+def test_equal_cost_merge_tie_break_is_independent_of_input_order():
+    systems=[
+        PhysicalDrainageSystem(
+            (name,),
+            "drain_only_open",
+            "open_channel",
+            1000.0,
+            100000.0,
+            1.0,
+            0.5,
+            0.5,
+            80.0,
+        )
+        for name in ("A","B","C","D","E","F")
+    ]
+    expected=None
+    for ordered in (
+        systems,
+        list(reversed(systems)),
+        [systems[i] for i in (2,5,1,4,0,3)],
+    ):
+        out=compress_to_swap_levels(ordered,max_levels=5)
+        groups=sorted(tuple(x.source_ids) for x in out)
+        if expected is None:
+            expected=groups
+        assert groups==expected
+    assert ("A","B") in expected
