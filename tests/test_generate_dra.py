@@ -187,3 +187,26 @@ def test_dynamic_renderer_uses_fixed_english_month_tokens():
     text=render_dra_explicit([level],3,2000,2000,20)
     assert "01-may-2000" in text
     assert "01-oct-2000" in text
+
+
+
+def test_named_dynamic_physical_system_can_aggregate_without_seasonal_columns():
+    df=pd.DataFrame({
+        "glk":[10.0,10.0],
+        "cdr_h1":[1.0,3.0],
+        "inf_h1":[0.5,1.0],
+        "bottom_h1":[8.0,9.0],
+    })
+    s=aggregate_physical_system(
+        df,
+        cdr_col="cdr_h1",
+        bottom_col="bottom_h1",
+        summer_level_col=None,
+        winter_level_col=None,
+        infiltration_factor_col="inf_h1",
+        representative_dqsat=25.0,
+    )
+    assert s["cdr_sum"] == 4.0
+    assert s["peil_sum"] == 0.0
+    assert s["peil_win"] == 0.0
+    assert s["support_area_m2"] == 125000.0
