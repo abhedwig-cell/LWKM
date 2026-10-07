@@ -95,7 +95,7 @@ swap_interface:
       - aggregate_all_seven_physical_systems
       - preserve_all_positive_conductance_systems
       - compress_only_if_more_than_five_active
-      - apply_swap_level_repair_after_compression
+      - apply_modern_swap_interface_validation_after_compression
       - render_explicit_levels
     merge_conservation:
       drainage_conductance: exact_parallel_sum
@@ -241,13 +241,20 @@ remaining_source_collection:
     requires_historical_j_bottoms: false
     qualification_scope: conductance_presence_only
   full_hydraulic_comparison:
-    requires_historical_j_bottoms: true
-    missing_policy: FAIL_CLOSED_NO_PACKAGE_BOTTOM_SUBSTITUTION
+    requires_historical_j_bottoms: false
+    modern_baseline_bottom: LHM_EQUAL_SEASON_MEAN
+    sensitivity_bottoms:
+      - LHM_DEEPEST
+      - LHM_SHALLOWEST
+    historical_j_bottom:
+      role: OPTIONAL_HISTORICAL_COMPARISON
+      missing_policy: CONTINUE_MODERN_DIAGNOSTIC_WITHOUT_HISTORICAL_COMPARISON
   reason: >-
     First close the actual seven-system activity/compression population from
-    qualified LHM conductance sources. Compare current-HRU steady-state bottom
-    authority with actual LHM package-bottom semantics only when both byte
-    authorities are independently recovered.
+    qualified LHM source inputs. The modern full hydraulic diagnostic uses the
+    LHM seasonal package-bottom authority and does not depend on downstream
+    historical J-bottom artifacts. When independently recovered, J-bottoms are
+    additional historical comparison evidence only.
 
 level_ordering:
   status: W07_DIAGNOSTIC_ORDERING_QUALIFIED_PRODUCTION_SENSITIVITY_OPEN
