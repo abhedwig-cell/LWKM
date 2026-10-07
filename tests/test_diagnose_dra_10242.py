@@ -10,6 +10,7 @@ from tools.diagnose_dra_10242 import (
     _comparison_stats,
     _h1_stage_files,
     _month_key,
+    _merge_review_metrics,
     _read_dqsat,
     _read_membership,
     _read_relation_context,
@@ -226,3 +227,24 @@ def test_ordering_metrics_contract_is_named_in_runner_source():
     assert '"level_order"' in source
     assert '"hru_with_equal_L_ordering_tie"' in source
     assert '"DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE"' in source
+
+
+
+def test_merge_review_metrics_report_population_and_h1_pairs():
+    s=pd.DataFrame([
+        {"active_physical_systems":0},
+        {"active_physical_systems":6},
+        {"active_physical_systems":7},
+    ])
+    m=pd.DataFrame([
+        {"left":"H1","right":"P","cost":1.0},
+        {"left":"P","right":"H1","cost":3.0},
+        {"left":"MVG","right":"OLF","cost":2.0},
+    ])
+    out=_merge_review_metrics(s,m)
+    assert out["zero_active_hru"]==1
+    assert out["six_active_hru"]==1
+    assert out["seven_active_hru"]==1
+    assert out["h1_merge_event_count"]==2
+    assert out["top_merge_pairs"][0]=={"pair":"H1 | P","count":2}
+    assert out["merge_cost_quantiles"]["max"]==3.0
