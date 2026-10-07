@@ -573,3 +573,50 @@ This makes the intended admission logic explicit:
 5. quantify bottom-depth collapse;
 6. assess the real 10,242-HRU distribution and SWAP sensitivity;
 7. only then decide whether the five-level representation is scientifically acceptable.
+
+
+## P/S/T static-bottom authority refinement — 2026-10-07
+
+The NHI/LHM source authority exposes seasonal P/S/T river bottoms:
+- P: BODH_P1Z / BODH_P1W;
+- S: BODH_S1Z / BODH_S1W;
+- T: the supplied LHM INI binds rbot to PEIL_T1Z / PEIL_T1W.
+
+The historical HRU-DRA control instead references downstream steady-state
+BODH_P1J / BODH_S1J / BODH_T1J files. Those are not required NHI/LHM source
+files and may be absent from the model root.
+
+SWAP method 3 has one static ZBOTDR per drainage level. The 10,242 diagnostic
+therefore uses:
+
+- LHM_EQUAL_SEASON_MEAN as reproducible baseline candidate;
+- LHM_DEEPEST and LHM_SHALLOWEST as bounded source-based sensitivity cases;
+- historical J-bottom as an optional fourth comparison when recovered.
+
+Because the LHM summer/winter regimes each span half a year, the arithmetic
+mean is the equal-time least-squares static-bottom candidate. This is a
+diagnostic candidate, not production admission.
+
+The diagnostic reports the number of HRUs whose compressed lineage/grouping
+changes across these bottom candidates. A sensitive population requires a
+subsequent SWAP response sensitivity before bottom reduction can be admitted.
+
+## Legacy high-resistance deactivation refinement — 2026-10-07
+
+Supplied v0.38 deactivates a drainage system when DRARES > 20000 d and disables
+the historical pipe system for nature HRUs.
+
+Those rules remain available as historical compatibility semantics.
+
+They are **not** modern physical-source authority: a positive-conductance
+physical watercourse must first remain represented through seven-system
+aggregation and compression.
+
+The modern diagnostic therefore:
+- does not silently deactivate a compressed physical level at 20000 d;
+- reports how many levels/HRUs the supplied v0.38 threshold would remove;
+- fails closed if any compressed DRARES exceeds SWAP's parser maximum of
+  100000 d.
+
+This keeps historical replay and modern corrected production semantics
+explicitly separate.
