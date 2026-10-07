@@ -512,3 +512,64 @@ distribution is observed.
 Status:
 
 `INFILTRATION_CAPABLE_MERGE_LEVEL_EQUIVALENCE_DIAGNOSTIC_REQUIRED`.
+
+
+## Activation-breakpoint loss diagnostic — 2026-10-07
+
+The drainage-versus-infiltration centroid-gap diagnostic is necessary but not sufficient to establish hydraulic equivalence of a compressed level.
+
+Even when two infiltration-capable source systems have proportional drainage and infiltration conductances, so that the drainage-weighted and infiltration-weighted equivalent levels coincide, the two physical source levels may still differ.
+
+A one-level SWAP representation then collapses two physical activation breakpoints into one. Between those source levels, the uncompressed system can have a different combination of drainage/infiltration states than any single equivalent SWAP level can reproduce exactly.
+
+Therefore every merge now records two additional quantities.
+
+### Source activation-level span
+
+`max_source_level_separation_m`
+
+Definition:
+
+the maximum absolute separation, over the relevant seasonal or explicit dynamic level timestamps, between the two physical prescribed source levels being merged.
+
+Interpretation:
+- zero: no activation-level separation attributable to prescribed level;
+- positive: at least two physical activation thresholds are collapsed into one SWAP threshold;
+- a zero drainage/infiltration centroid gap does **not** imply this metric is zero.
+
+### Bottom-depth span
+
+`bottom_depth_separation_m`
+
+Definition:
+
+the absolute difference between the two source drainage-bottom depths before merging.
+
+This exposes an additional structural simplification hidden by a conductance-weighted equivalent bottom.
+
+### Population reporting
+
+The 10,242-HRU diagnostic must report, at minimum:
+
+- source activation-level span p50/p90/p95/p99/max over all merge events;
+- the same quantiles for H1-involving merges;
+- number of merge events with positive source-level span;
+- bottom-depth span p50/p90/p95/p99/max;
+- drainage-versus-infiltration centroid-gap distributions;
+- merge pair frequencies and merge costs.
+
+No production acceptance threshold is defined before these real-population distributions are observed.
+
+Current status:
+
+`MERGE_CONDUCTANCE_CONSERVATION_PROVEN_LEVEL_EQUIVALENCE_NOT_YET_ADMITTED`.
+
+This makes the intended admission logic explicit:
+
+1. exact source lineage preservation;
+2. exact drainage/infiltration conductance conservation;
+3. quantify source activation-breakpoint loss;
+4. quantify drainage-versus-infiltration centroid tension;
+5. quantify bottom-depth collapse;
+6. assess the real 10,242-HRU distribution and SWAP sensitivity;
+7. only then decide whether the five-level representation is scientifically acceptable.
