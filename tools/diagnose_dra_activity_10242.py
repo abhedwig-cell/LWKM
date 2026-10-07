@@ -110,8 +110,23 @@ def diagnose_activity(
     h1_mvg_zip: Path,
     remaining_zip: Path,
     output_dir: Path,
+    *,
+    expected_h1_mvg_sha256: str = "3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa",
+    expected_remaining_sha256: str | None = None,
 ) -> None:
     output_dir.mkdir(parents=True,exist_ok=True)
+    actual_h1=_sha256(h1_mvg_zip)
+    actual_remaining=_sha256(remaining_zip)
+    if actual_h1.lower()!=expected_h1_mvg_sha256.lower():
+        raise ValueError(
+            f"H1/MVG bundle SHA mismatch: expected={expected_h1_mvg_sha256} actual={actual_h1}"
+        )
+    if expected_remaining_sha256 is not None and actual_remaining.lower()!=expected_remaining_sha256.lower():
+        raise ValueError(
+            "remaining-source bundle SHA mismatch: "
+            f"expected={expected_remaining_sha256} actual={actual_remaining}"
+        )
+
     relation=_read_relation(relation_csv)
 
     with tempfile.TemporaryDirectory(prefix="lwkm_dra_activity_") as td:
@@ -170,8 +185,9 @@ def diagnose_activity(
         "status":"DRA_10242_ACTIVITY_PREFLIGHT_PASS",
         "source_identity":{
             "relation_sha256":_sha256(relation_csv),
-            "h1_mvg_zip_sha256":_sha256(h1_mvg_zip),
-            "remaining_zip_sha256":_sha256(remaining_zip),
+            "h1_mvg_zip_sha256":actual_h1,
+            "remaining_zip_sha256":actual_remaining,
+            "remaining_zip_expected_sha256":expected_remaining_sha256,
         },
         "membership_rows":int(len(relation)),
         "hru_count":int(len(out)),
@@ -197,9 +213,16 @@ def main() -> int:
     p.add_argument("--relation",type=Path,required=True)
     p.add_argument("--h1-mvg-zip",type=Path,required=True)
     p.add_argument("--remaining-zip",type=Path,required=True)
+    p.add_argument("--expected-remaining-sha256")
     p.add_argument("--output-dir",type=Path,required=True)
     a=p.parse_args()
-    diagnose_activity(a.relation,a.h1_mvg_zip,a.remaining_zip,a.output_dir)
+    diagnose_activity(
+        a.relation,
+        a.h1_mvg_zip,
+        a.remaining_zip,
+        a.output_dir,
+        expected_remaining_sha256=a.expected_remaining_sha256,
+    )
     return 0
 
 
