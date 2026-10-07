@@ -400,3 +400,37 @@ the LHM INI package semantics and current HRU DRA control do not use exactly the
 
 This collector follows the same Q2/Q4 byte-identity pattern as the H1/MVG collector:
 source hash -> staged copy hash -> ZIP -> fresh extraction -> payload rehash.
+
+
+## Level-ordering closure — 2026-10-07
+
+Final W07 ordering is conditionally qualified in:
+
+`docs/lhm-hru-swap/P12-DRA-LEVEL-ORDERING-RESOLUTION-2026-10-07.md`.
+
+The SWAP 4.3.1 DIVDRA implementation was included in this review. DIVDRA builds
+its own active-system order from `FDisInf * Lspacing`; serialized level order
+is not assumed to be the hydraulic order.
+
+Modern compression uses deterministic serialization and canonical lineage
+tie-breaks.
+
+The only remaining explicit drainage-level-index coupling is rapid macropore
+drainage via `NUMLEVRAPDRA`. This is guarded at package level by
+`tools/dra_package_guard.py` and is a W10/W11 concern rather than a W07
+compression blocker.
+
+## P/S/T bottom-authority diagnostic
+
+The real LHM package and the historical HRU DRA control do not use identical
+river-bottom definitions.
+
+The 10,242 diagnostic now compares all three regional river systems:
+
+- P: current-HRU `BODH_P1J` versus LHM package `BODH_P1Z/W`;
+- S: current-HRU `BODH_S1J` versus LHM package `BODH_S1Z/W`;
+- T: current-HRU `BODH_T1J` versus the LHM package's explicit use of
+  `PEIL_T1Z/W` as rbot.
+
+No modern bottom authority is selected until this comparison is measured on the
+full admitted population.
