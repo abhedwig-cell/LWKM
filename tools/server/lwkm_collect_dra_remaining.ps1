@@ -129,7 +129,7 @@ $collection = [ordered]@{
     file_count=$rows.Count
     payload_bytes=$totalBytes
     required_physical_systems=@("RIV_PRIMARY","RIV_SECONDARY","RIV_TERTIARY","DRN_PIPE","DRN_OLF")
-    comparison_set="LHM seasonal P/S bottoms retained to compare package versus current HRU DRA bottom authority"
+    comparison_set="LHM P/S seasonal bottoms plus T package rbot=PEIL_T1Z/W retained to compare package versus current HRU DRA bottom authority"
     manifest_sha256=$manifestSha
     collected_utc=(Get-Date).ToUniversalTime().ToString("o")
     collector_host=$env:COMPUTERNAME
