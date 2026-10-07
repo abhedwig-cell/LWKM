@@ -696,7 +696,12 @@ def diagnose(
         ) if len(s) else 0,
         "hru_requiring_compression":int(s["compression_required"].sum()) if len(s) else 0,
         "ordering_candidate":"DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE",
-        "ordering_admission":"CANDIDATE_NOT_ADMITTED",
+        "ordering_admission":"DRA_LEVEL_ORDERING_CONDITIONALLY_QUALIFIED",
+        "ordering_conditions":[
+            "DRAMET=3",
+            "SWINTFL=0",
+            "indexed rapid macropore drainage must be absent or explicitly rebound after compression",
+        ],
         "merge_event_count":int(len(m)),
         "max_merge_cost":float(s["max_merge_cost"].max()) if len(s) else None,
         "max_abs_drainage_conductance_error":float(s["drainage_conductance_error"].abs().max()) if len(s) else None,
