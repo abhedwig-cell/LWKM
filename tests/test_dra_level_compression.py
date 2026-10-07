@@ -155,3 +155,35 @@ def test_dynamic_profiles_with_different_dates_fail_closed():
         assert "date mismatch" in str(exc)
     else:
         raise AssertionError("expected dynamic date mismatch to fail closed")
+
+
+
+def test_positive_physical_conductance_survives_swap_resistance_sentinel_before_repair():
+    agg={
+        "drnres":100000.0,
+        "infres":100000.0,
+        "dep":1.0,
+        "peil_sum":0.5,
+        "peil_win":0.5,
+        "dd":80.0,
+        "cdr_sum":0.1,
+        "infiltration_conductance_sum":0.0,
+        "member_count":1,
+        "support_area_m2":62500.0,
+    }
+    p=from_aggregate(
+        source_id="weak",
+        hydraulic_class="drain_only_open",
+        medium="open_channel",
+        aggregate=agg,
+    )
+    assert p.active is True
+    assert p.drainage_conductance > 0.0
+
+
+def test_drain_only_infiltration_conductance_is_zero_even_with_resistance_sentinel():
+    p=PhysicalDrainageSystem(
+        ("OLF",),"drain_only_open","open_channel",
+        1000.0,100000.0,0.2,0.2,0.2,80.0,
+    )
+    assert p.infiltration_conductance == 0.0
