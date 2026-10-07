@@ -109,10 +109,17 @@ Therefore this remains a W10/W11 package gate.
 
 ## Qualified W07 decision
 
-For the current W07 seven-system diagnostic and modern ordinary drainage
-contract:
+For the current W07 seven-system **population diagnostic** and modern ordinary
+drainage contract:
 
-`DRA_LEVEL_ORDERING_CONDITIONALLY_QUALIFIED`.
+`W07_DIAGNOSTIC_ORDERING_QUALIFIED_PRODUCTION_SENSITIVITY_OPEN`.
+
+This qualification is deliberately narrower than production admission.
+The companion source note
+`P12-DRA-SWAP-LEVEL-ORDERING-AUTHORITY-2026-10-07.md` records that equal-L
+DIVDRA ties preserve supplied order and therefore require a bounded SWAP
+sensitivity before the deepest-first choice becomes scientific production
+authority.
 
 Conditions:
 - `DRAMET = 3`;
@@ -122,6 +129,11 @@ Conditions:
 Under those conditions, the deterministic modern ordering is admissible for the
 W07 diagnostic. No physical watercourse identity is encoded solely by the
 numeric SWAP level number.
+
+It is **not** yet admitted as order-insensitive for production SWAP physics:
+with equal L, the vertical `SWDIVD=1` compartment allocation can retain the
+supplied order as a tie-break. Deepest-first remains the deterministic
+production candidate until bounded sensitivity evidence is available.
 
 ## W10/W11 fail-closed rule
 
