@@ -136,3 +136,31 @@ def test_static04_snapshot_requires_full_10242_rows(tmp_path: Path):
         assert "10242" in str(exc)
     else:
         raise AssertionError("expected incomplete STATIC04 snapshot to fail")
+
+
+
+def test_static04_snapshot_requires_exact_10242_domain(tmp_path: Path):
+    p=tmp_path/"snapshot.csv"
+    pd.DataFrame({
+        "hru":[1,2],
+        "representative_dqsat":[10.0,20.0],
+        "discriminating":[False,True],
+    }).to_csv(p,index=False)
+    try:
+        _read_static04_snapshot(p)
+    except ValueError as exc:
+        assert "expected 10242 STATIC04 rows" in str(exc)
+    else:
+        raise AssertionError("expected undersized STATIC04 snapshot to fail")
+
+
+def test_static04_snapshot_preserves_discriminating_column(tmp_path: Path):
+    p=tmp_path/"snapshot.csv"
+    pd.DataFrame({
+        "hru":range(1,10243),
+        "representative_dqsat":[10.0]*10242,
+        "discriminating":[False]*10241+[True],
+    }).to_csv(p,index=False)
+    out=_read_static04_snapshot(p)
+    assert len(out)==10242
+    assert int(out["discriminating"].sum())==1
