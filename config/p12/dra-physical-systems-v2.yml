@@ -308,3 +308,24 @@ swap_resistance_range_gate:
   historical_20000_day_deactivation:
     class: LEGACY_POLICY_ONLY
     modern_action: REPORT_ONLY_DO_NOT_DEACTIVATE
+
+modern_swallo:
+  status: PHYSICAL_CAPABILITY_AUTHORITY
+  infiltration_capable_classes:
+    - infiltration_capable_open
+  drain_only_classes:
+    - drain_only_open
+    - pipe
+  rule: >-
+    SWALLO is derived from explicit post-compression hydraulic capability.
+    Finite RIV infiltration is not disabled by historical v0.38 thresholds.
+  historical_thresholds:
+    INFRES_gt_20000_days:
+      scope: LEGACY_V038_ONLY
+    Riv_infiltratie_lt_10:
+      scope: LEGACY_V038_ONLY
+  SWAP_INFRES_parser_range_days: [0, 100000]
+  production_rule: >-
+    Preserve all qualified layer-1 RIV infiltration conductance through
+    aggregation/compression; fail separately if the exact final INFRES cannot
+    be represented inside the SWAP parser range.
