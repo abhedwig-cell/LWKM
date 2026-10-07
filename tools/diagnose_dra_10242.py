@@ -456,6 +456,54 @@ def _comparison_stats(members: pd.DataFrame) -> dict:
     return out
 
 
+def _merge_review_metrics(s: pd.DataFrame,m: pd.DataFrame) -> dict:
+    """Review metrics for the bounded seven-to-five population gate."""
+    if len(s):
+        zero_active=int((s["active_physical_systems"]==0).sum())
+        six_active=int((s["active_physical_systems"]==6).sum())
+        seven_active=int((s["active_physical_systems"]==7).sum())
+    else:
+        zero_active=six_active=seven_active=0
+
+    if len(m):
+        costs=pd.to_numeric(m["cost"],errors="raise").to_numpy(float)
+        quantiles={
+            "p50":float(np.quantile(costs,0.50)),
+            "p90":float(np.quantile(costs,0.90)),
+            "p95":float(np.quantile(costs,0.95)),
+            "p99":float(np.quantile(costs,0.99)),
+            "max":float(np.max(costs)),
+        }
+        pair_counts={}
+        h1_events=0
+        for row in m.itertuples(index=False):
+            left=str(row.left)
+            right=str(row.right)
+            pair=" | ".join(sorted((left,right)))
+            pair_counts[pair]=pair_counts.get(pair,0)+1
+            if "H1" in set(left.split("+")) or "H1" in set(right.split("+")):
+                h1_events+=1
+        top_pairs=[
+            {"pair":pair,"count":count}
+            for pair,count in sorted(
+                pair_counts.items(),key=lambda kv:(-kv[1],kv[0])
+            )[:20]
+        ]
+    else:
+        quantiles={"p50":None,"p90":None,"p95":None,"p99":None,"max":None}
+        top_pairs=[]
+        h1_events=0
+
+    return {
+        "zero_active_hru":zero_active,
+        "six_active_hru":six_active,
+        "seven_active_hru":seven_active,
+        "h1_merge_event_count":h1_events,
+        "merge_cost_quantiles":quantiles,
+        "top_merge_pairs":top_pairs,
+    }
+
+
 def diagnose(
     relation_csv: Path,
     h1_mvg_zip: Path,
@@ -616,6 +664,7 @@ def diagnose(
         {str(int(k)):int(v) for k,v in s["active_physical_systems"].value_counts().sort_index().items()}
         if len(s) else {}
     )
+    review_metrics=_merge_review_metrics(s,m)
     result={
         "schema_version":2,
         "status":"DRA_10242_DIAGNOSTIC_PASS" if len(f)==0 and len(s)==10242 else "DRA_10242_DIAGNOSTIC_FAIL",
@@ -640,6 +689,7 @@ def diagnose(
         "h1_stage_date_end":stage_dates[-1],
         "h1_stage_date_count":len(stage_dates),
         "active_system_count_distribution":counts,
+        **review_metrics,
         "hru_with_multiple_swap_levels":int(s["multiple_swap_levels"].sum()) if len(s) else 0,
         "hru_with_equal_L_ordering_tie":int(
             (s["multiple_swap_levels"] & s["all_levels_same_L"]).sum()
