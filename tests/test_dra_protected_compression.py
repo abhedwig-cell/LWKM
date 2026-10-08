@@ -30,3 +30,28 @@ def test_rejects_incompatible_regional_merges():
          sys("MVG",.1),sys("PIPE",1),sys("OLF",.1)]
     with pytest.raises(ValueError,match="NO_ACCEPTABLE"):
         select_protected_candidate(src,regional_error_limit_m=.01)
+
+def test_triple_regional_merge_without_surface_merge():
+    src=[sys("H1",1),sys("P",2),sys("S",2),sys("T",2),
+         sys("MVG",.1),sys("PIPE",1),sys("OLF",.4)]
+    levels,audit=select_protected_candidate(src)
+    assert len(levels)==5
+    assert any(set(s.source_ids)=={"P","S","T"} for s in levels)
+    assert any(s.source_ids==("MVG",) for s in levels)
+    assert any(s.source_ids==("OLF",) for s in levels)
+
+def test_conductance_and_lineage_preserved():
+    src=[sys("H1",1,g=2,gi=1),sys("P",2,g=3,gi=2),
+         sys("S",2,g=4,gi=1),sys("T",2,g=5,gi=1),
+         sys("MVG",.1,g=6),sys("PIPE",1,g=7),sys("OLF",.1,g=8)]
+    levels,_=select_protected_candidate(src)
+    assert abs(sum(x.drainage_conductance for x in src)-
+               sum(x.drainage_conductance for x in levels))<1e-12
+    assert abs(sum(x.infiltration_conductance for x in src)-
+               sum(x.infiltration_conductance for x in levels))<1e-12
+    assert sorted(x for s in src for x in s.source_ids)==sorted(
+        x for s in levels for x in s.source_ids)
+
+def test_invalid_level_limit_fails():
+    with pytest.raises(ValueError,match="max_levels"):
+        select_protected_candidate([sys("P",1)],max_levels=0)
