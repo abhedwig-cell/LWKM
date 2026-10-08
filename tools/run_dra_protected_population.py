@@ -128,7 +128,10 @@ def run(source:Path,output:Path,*,regional_limit=0.10,surface_limit=0.02):
                     "levels":[{"source_ids":list(x["source_ids"]),
                                "drnres":x["drnres"],"infres":x["infres"],
                                "dd":x["dd"],"dep":x["dep"],
-                               "peil_sum":x["peil_sum"],"peil_win":x["peil_win"]}
+                               "peil_sum":x["peil_sum"],"peil_win":x["peil_win"],
+                               "medium":x["medium"],
+                               "allow_infiltration":x["allow_infiltration"],
+                               "level_series":x["level_series"]}
                               for x in rendered]}
         except (ValueError,AssertionError,KeyError,TypeError) as exc:
             record={"hru":hid,"fingerprint":fingerprint,
