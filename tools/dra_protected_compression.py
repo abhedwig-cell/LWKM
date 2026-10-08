@@ -4,7 +4,6 @@ This is a diagnostic candidate selector, not production admission. Error
 thresholds are explicit provisional inputs, never silently relaxed.
 """
 from __future__ import annotations
-from itertools import combinations
 from math import isfinite
 from tools.dra_level_compression import (
     PhysicalDrainageSystem, merge_systems,
@@ -69,8 +68,12 @@ def select_protected_candidate(systems, *, max_levels=5,
         by_name[name]=s
     if set(by_name)-REGIONAL-SURFACE-PROTECTED:
         raise ValueError("unknown physical source")
+    if max_levels < 1:
+        raise ValueError("max_levels must be positive")
     if len(active)<=max_levels:
         levels=sorted(active,key=lambda x:(-x.dep,x.medium,x.source_ids))
+        _validate_lineage(active,levels,[])
+        _validate_conductance_conservation(active,levels)
         return levels,{"status":"NO_COMPRESSION","max_error_m":0.0,"groups":[list(s.source_ids) for s in levels]}
 
     names=tuple(sorted(by_name))
