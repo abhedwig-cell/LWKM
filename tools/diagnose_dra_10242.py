@@ -822,6 +822,7 @@ def diagnose(
         summary=[]
         merge_events=[]
         failures=[]
+        protected_input_records=[]
         for hru,group in members.groupby("hru",sort=True):
             hid=int(hru)
             try:
@@ -837,6 +838,24 @@ def diagnose(
                     stage_dates=stage_dates,
                     h1_depths=h1_depths,
                 )
+                # Persist normalized seven-system physical inputs so the
+                # HRU-agnostic incremental runner can replay the exact
+                # candidate population without resampling the large rasters.
+                protected_input_records.append({
+                    "hru":str(hid),
+                    "systems":[{
+                        "source_id":p.source_ids[0],
+                        "hydraulic_class":p.hydraulic_class,
+                        "medium":p.medium,
+                        "drainage_conductance":p.drainage_conductance,
+                        "infiltration_conductance":p.infiltration_conductance,
+                        "dep":p.dep,
+                        "peil_sum":p.peil_sum,
+                        "peil_win":p.peil_win,
+                        "dd":p.dd,
+                        "level_series":list(p.level_series) if p.level_series is not None else None,
+                    } for p in physical],
+                })
                 active=[p for p in physical if p.active]
                 compressed=compress_to_swap_levels(physical,max_levels=5)
                 # Parallel qualification route only. Keep historical/generic
@@ -985,6 +1004,10 @@ def diagnose(
             except Exception as exc:
                 failures.append({"hru":hid,"error":str(exc)})
 
+    (output_dir/"protected_physical_inputs.json").write_text(
+        json.dumps({"schema_version":1,"hrus":protected_input_records},
+                   sort_keys=True,allow_nan=False)+"\\n",encoding="utf-8"
+    )
     s=pd.DataFrame(summary)
     m=pd.DataFrame(merge_events)
     f=pd.DataFrame(failures)
