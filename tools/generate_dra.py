@@ -39,6 +39,7 @@ def aggregate_physical_system(
     winter_level_col: str | None,
     representative_dqsat: float,
     infiltration_factor_col: str | None = None,
+    missing_infiltration_factor_is_zero: bool = False,
     cell_area_m2: float = 62500.0,
 ) -> dict:
     """Modern all-member aggregation for one named physical drainage system.
@@ -47,7 +48,8 @@ def aggregate_physical_system(
     semantics. Every HRU member retains full MODFLOW-cell support.
 
     Missing hydraulic attributes at a member with positive conductance fail
-    closed. Drain-only systems pass infiltration_factor_col=None.
+    closed, except infiltration factors when the explicitly confirmed LHM
+    missing-is-zero policy is requested. Drain-only systems pass infiltration_factor_col=None.
 
     Modern L/spacing authority is representative-SVAT dqsat:
     L = 4 * representative_dqsat for an active physical system.
@@ -87,7 +89,7 @@ def aggregate_physical_system(
         infres = 100000.0
     else:
         inf = pd.to_numeric(members[infiltration_factor_col], errors="coerce")
-        if inf[active_member].isna().any():
+        if inf[active_member].isna().any() and not missing_infiltration_factor_is_zero:
             raise ValueError(
                 f"missing infiltration factor for positive-conductance {cdr_col} member"
             )
