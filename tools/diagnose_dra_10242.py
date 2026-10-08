@@ -24,6 +24,7 @@ from tools.compare_dqsat_authority import (
     read_ascii_grid as read_dqsat_ascii_grid,
 )
 from tools.dra_level_compression import compress_to_swap_levels, from_aggregate
+from tools.dra_protected_compression import select_protected_candidate
 from tools.generate_dra import aggregate_physical_system
 from tools.idf_reader import read_idf
 from tools.lhm_postprocess import read_ascii_grid
@@ -842,6 +843,20 @@ def diagnose(
                 )
                 active=[p for p in physical if p.active]
                 compressed=compress_to_swap_levels(physical,max_levels=5)
+                # Parallel qualification route only. Keep historical/generic
+                # outputs unchanged until protected policy is admitted.
+                try:
+                    protected_levels,protected_audit=select_protected_candidate(
+                        physical,max_levels=5,
+                    )
+                    protected_status=protected_audit["status"]
+                    protected_groups=_groups_signature(protected_levels)
+                    protected_error=protected_audit["max_error_m"]
+                except ValueError as protected_exc:
+                    protected_status="FAIL_CLOSED"
+                    protected_groups=None
+                    protected_error=None
+
 
                 deep=compress_to_swap_levels(
                     _build_physical_policy(
@@ -913,6 +928,9 @@ def diagnose(
                 )
                 summary.append({
                     "hru":hid,
+                    "protected_candidate_status":protected_status,
+                    "protected_candidate_groups":protected_groups,
+                    "protected_candidate_max_error_m":protected_error,
                     "members":len(group),
                     "active_physical_systems":len(active),
                     "swap_levels":len(compressed),
