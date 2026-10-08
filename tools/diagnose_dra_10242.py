@@ -427,6 +427,20 @@ def _prepare_static_members(
             cols,
         )
 
+    # Owner-approved missing seasonal stage -> corresponding package bottom.
+    # Apply only on positive-conductance source cells, preserving all valid stages.
+    # T's package bottom aliases the stage itself; unresolved T cells stay missing.
+    for system in ("P","S","T"):
+        active=pd.to_numeric(mem[f"{system}_cdr"],errors="coerce").fillna(0.0)>0.0
+        for season,tag in (("sum","Z"),("win","W")):
+            stage_col=f"{system}_{season}"
+            bottom_col=f"{system}_bottom_lhm_{season}"
+            missing=active & mem[stage_col].isna()
+            recover=missing & mem[bottom_col].notna()
+            mem.loc[recover,stage_col]=mem.loc[recover,bottom_col]
+            mem[f"{system}_{season}_stage_bottom_fallback"]=recover
+            mem[f"{system}_{season}_stage_unresolved"]=missing & ~recover
+
     mem=_derive_lhm_bottom_candidates(mem)
 
     ground=_find_one(remaining_bundle,"ahn_f250_cm.asc")
