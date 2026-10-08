@@ -988,6 +988,26 @@ def diagnose(
     s=pd.DataFrame(summary)
     m=pd.DataFrame(merge_events)
     f=pd.DataFrame(failures)
+    # Persist every protected candidate independently of the generic route.
+    # A failed candidate must remain visible even if generic compression passes.
+    protected_records=[]
+    for record in summary:
+        protected_records.append({
+            "hru":record["hru"],
+            "status":record["protected_candidate_status"],
+            "groups":record["protected_candidate_groups"],
+            "max_error_m":record["protected_candidate_max_error_m"],
+            "compression_required":record["compression_required"],
+        })
+    for failure in failures:
+        protected_records.append({
+            "hru":failure["hru"],"status":"UPSTREAM_FAIL_CLOSED",
+            "groups":None,"max_error_m":None,
+            "compression_required":None,
+        })
+    pd.DataFrame(protected_records).to_csv(
+        output_dir/"protected_candidate_summary.csv",index=False
+    )
     s.to_csv(output_dir/"hru_summary.csv",index=False)
     m.to_csv(output_dir/"merge_events.csv",index=False)
     f.to_csv(output_dir/"failures.csv",index=False)
