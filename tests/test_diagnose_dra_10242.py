@@ -131,35 +131,32 @@ def test_authoritative_relation_supplies_membership_and_coordinates(tmp_path: Pa
 
 
 
-def test_static04_snapshot_requires_full_10242_rows(tmp_path: Path):
+def test_static04_snapshot_accepts_new_partition_size(tmp_path: Path):
     p=tmp_path/"static04.csv"
     pd.DataFrame({
         "hru":[1,2],
         "representative_dqsat":[8.0,7.0],
         "discriminating":[False,True],
     }).to_csv(p,index=False)
-    try:
-        _read_static04_snapshot(p)
-    except ValueError as exc:
-        assert "10242" in str(exc)
-    else:
-        raise AssertionError("expected incomplete STATIC04 snapshot to fail")
+    result=_read_static04_snapshot(p)
+    assert result["hru"].tolist()==[1,2]
+    assert result["representative_dqsat"].tolist()==[8.0,7.0]
 
 
 
-def test_static04_snapshot_requires_exact_10242_domain(tmp_path: Path):
+def test_static04_snapshot_requires_unique_hru_domain(tmp_path: Path):
     p=tmp_path/"snapshot.csv"
     pd.DataFrame({
-        "hru":[1,2],
+        "hru":[1,1],
         "representative_dqsat":[10.0,20.0],
         "discriminating":[False,True],
     }).to_csv(p,index=False)
     try:
         _read_static04_snapshot(p)
     except ValueError as exc:
-        assert "expected 10242 STATIC04 rows" in str(exc)
+        assert "duplicate HRU" in str(exc)
     else:
-        raise AssertionError("expected undersized STATIC04 snapshot to fail")
+        raise AssertionError("expected duplicate HRU snapshot to fail")
 
 
 def test_static04_snapshot_preserves_discriminating_column(tmp_path: Path):
