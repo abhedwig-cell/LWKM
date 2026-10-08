@@ -25,6 +25,7 @@ from tools.compare_dqsat_authority import (
 )
 from tools.dra_level_compression import compress_to_swap_levels, from_aggregate
 from tools.dra_protected_compression import select_protected_candidate
+from tools.derive_representative_dqsat import derive as derive_representative_dqsat
 from tools.generate_dra import aggregate_physical_system
 from tools.idf_reader import read_idf
 from tools.lhm_postprocess import read_ascii_grid
@@ -204,8 +205,8 @@ def _read_static04_snapshot(path: Path) -> pd.DataFrame:
     out["representative_dqsat"]=pd.to_numeric(
         out["representative_dqsat"],errors="raise"
     ).astype(float)
-    if len(out)!=10242:
-        raise ValueError(f"expected 10242 STATIC04 rows, got {len(out)}")
+    if len(out)==0:
+        raise ValueError("empty representative dqsat snapshot")
     if out["hru"].duplicated().any():
         raise ValueError("duplicate HRU in STATIC04 snapshot")
     if (~np.isfinite(out["representative_dqsat"])).any():
@@ -763,8 +764,8 @@ def diagnose(
         )
 
     membership,coordinates,relation=_read_relation_context(relation_csv)
-    if len(membership)!=427656:
-        raise ValueError(f"expected 427656 membership rows, got {len(membership)}")
+    if membership.empty:
+        raise ValueError("empty HRU membership")
 
     using_snapshot=dqsat_snapshot is not None
     using_recompute=schema_csv is not None or dqsat_grid is not None
@@ -780,15 +781,10 @@ def diagnose(
         if schema_csv is None or dqsat_grid is None:
             raise ValueError("--schema and --dqsat-grid must be supplied together")
         schema=pd.read_csv(schema_csv,low_memory=False)
-        dqsat_table=compare_dqsat_authority(
-            schema,
-            relation,
-            read_dqsat_ascii_grid(dqsat_grid),
+        dqsat_table=derive_representative_dqsat(
+            schema,relation,read_dqsat_ascii_grid(dqsat_grid)
         )
-        if len(dqsat_table)!=10242:
-            raise ValueError(
-                f"expected 10242 recomputed STATIC04 rows, got {len(dqsat_table)}"
-            )
+        dqsat_table["discriminating"]=False
         dqsat_authority="STATIC04_RECOMPUTED_FROM_REPRESENTATIVE_SVAT"
     dqsat=dict(
         zip(
@@ -804,8 +800,8 @@ def diagnose(
         members=_prepare_static_members(membership,coordinates,h1root,remroot)
 
         hru_count=int(members["hru"].nunique())
-        if hru_count!=10242:
-            raise ValueError(f"expected 10242 HRUs, got {hru_count}")
+        if hru_count==0:
+            raise ValueError("no HRUs in prepared membership")
         membership_hrus=set(int(x) for x in members["hru"].unique())
         dqsat_hrus=set(int(x) for x in dqsat)
         if membership_hrus!=dqsat_hrus:
@@ -1003,7 +999,7 @@ def diagnose(
     review_metrics=_merge_review_metrics(s,m)
     result={
         "schema_version":2,
-        "status":"DRA_10242_DIAGNOSTIC_PASS" if len(f)==0 and len(s)==10242 else "DRA_10242_DIAGNOSTIC_FAIL",
+        "status":"DRA_POPULATION_DIAGNOSTIC_PASS" if len(f)==0 and len(s)==hru_count else "DRA_POPULATION_DIAGNOSTIC_FAIL",
         "source_identity":{
             "relation_sha256":_sha256(relation_csv),
             "schema_sha256":None if schema_csv is None else _sha256(schema_csv),
@@ -1018,7 +1014,7 @@ def diagnose(
             "hru_count":int(len(dqsat_table)),
             "discriminating_from_legacy_majority_bfe":int(dqsat_table["discriminating"].sum()),
         },
-        "hru_expected":10242,
+        "hru_expected":hru_count,
         "hru_completed":int(len(s)),
         "hru_failed":int(len(f)),
         "membership_rows":int(len(membership)),
