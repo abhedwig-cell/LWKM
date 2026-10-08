@@ -1006,7 +1006,7 @@ def diagnose(
 
     (output_dir/"protected_physical_inputs.json").write_text(
         json.dumps({"schema_version":1,"hrus":protected_input_records},
-                   sort_keys=True,allow_nan=False)+"\\n",encoding="utf-8"
+                   sort_keys=True,allow_nan=False)+"\n",encoding="utf-8"
     )
     s=pd.DataFrame(summary)
     m=pd.DataFrame(merge_events)
