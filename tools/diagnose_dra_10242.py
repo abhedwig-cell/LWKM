@@ -441,6 +441,23 @@ def _prepare_static_members(
             mem[f"{system}_{season}_stage_bottom_fallback"]=recover
             mem[f"{system}_{season}_stage_unresolved"]=missing & ~recover
 
+    # Owner-approved complete-record selection for P/S/T RIV sources.
+    # After seasonal stage-to-bottom recovery, exclude source cells that still
+    # lack any required stage/bottom. Preserve raw cdr for provenance.
+    for system in ("P","S","T"):
+        raw_cdr=pd.to_numeric(mem[f"{system}_cdr"],errors="coerce").fillna(0.0)
+        active=raw_cdr>0.0
+        required=[
+            f"{system}_sum",f"{system}_win",
+            f"{system}_bottom_lhm_sum",f"{system}_bottom_lhm_win",
+        ]
+        complete=mem[required].notna().all(axis=1)
+        excluded=active & ~complete
+        mem[f"{system}_cdr_raw"]=raw_cdr
+        mem[f"{system}_riv_incomplete_excluded"]=excluded
+        mem[f"{system}_riv_excluded_conductance"]=raw_cdr.where(excluded,0.0)
+        mem.loc[excluded,f"{system}_cdr"]=0.0
+
     mem=_derive_lhm_bottom_candidates(mem)
 
     ground=_find_one(remaining_bundle,"ahn_f250_cm.asc")
