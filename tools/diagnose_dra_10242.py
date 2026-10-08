@@ -476,6 +476,7 @@ def _aggregate_static(
         summer_level_col=summer,
         winter_level_col=winter,
         infiltration_factor_col=inf,
+        missing_infiltration_factor_is_zero=(name in {"P","S","T"}),
         representative_dqsat=dq,
     )
 
