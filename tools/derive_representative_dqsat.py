@@ -11,7 +11,7 @@ import pandas as pd
 from tools.compare_dqsat_authority import read_ascii_grid, sample_centres
 
 
-def derive(schema:pd.DataFrame,relation:pd.DataFrame,grid):
+def derive(schema:pd.DataFrame,relation:pd.DataFrame,grid,*,allow_zero:bool=False):
     required_schema={"HRU","svat_repr"}
     required_relation={"HRU","svat_orig","x","y"}
     if not required_schema.issubset(schema.columns):
@@ -35,7 +35,7 @@ def derive(schema:pd.DataFrame,relation:pd.DataFrame,grid):
     values=sample_centres(grid,joined.x,joined.y)
     if (~np.isfinite(values)).any() or np.isclose(values,grid.nodata).any():
         raise ValueError("invalid representative dqsat raster sample")
-    if (values<=0).any():
+    if (values<0).any() or ((values==0).any() and not allow_zero):
         raise ValueError("representative dqsat must be positive")
     return pd.DataFrame({"hru":joined.HRU.to_numpy(),
                          "representative_svat":joined.svat_repr.to_numpy(),
