@@ -8,10 +8,11 @@ import re
 from pathlib import Path
 
 DEFAULT_FILE_KEYS=("METFIL","DRFIL","BBCFIL")
+# Other file-bearing SWP symbols require explicit versioned profile authority.
 ASSIGN=re.compile(r"^\s*([A-Za-z][A-Za-z0-9_]*)\s*=\s*(.*?)\s*(?:[!*].*)?$")
 
 
-def extract_references(swp_text, *, file_keys=DEFAULT_FILE_KEYS):
+def extract_references(swp_text, *, file_keys=DEFAULT_FILE_KEYS, required_keys=()):
     keys=set(file_keys)
     if not keys or any(not re.fullmatch(r"[A-Za-z][A-Za-z0-9_]*",k) for k in keys):
         raise ValueError("invalid file reference key policy")
@@ -33,8 +34,13 @@ def extract_references(swp_text, *, file_keys=DEFAULT_FILE_KEYS):
         if path.is_absolute() or ".." in path.parts or len(path.parts)!=1 or "\\" in value or "/" in value:
             raise ValueError(f"unsafe SWP file reference: {key}={value}")
         seen[key]=value
+    missing=set(required_keys)-set(seen)
+    if missing:
+        raise ValueError(f"missing required SWP file assignments: {sorted(missing)}")
     return seen
 
 
-def required_package_assets(swp_text, *, file_keys=DEFAULT_FILE_KEYS):
-    return sorted({"swap.swp",*extract_references(swp_text,file_keys=file_keys).values()})
+def required_package_assets(swp_text, *, file_keys=DEFAULT_FILE_KEYS, required_keys=()):
+    return sorted({"swap.swp",*extract_references(
+        swp_text,file_keys=file_keys,required_keys=required_keys
+    ).values()})
