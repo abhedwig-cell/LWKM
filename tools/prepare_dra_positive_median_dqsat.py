@@ -13,7 +13,7 @@ from tools.derive_representative_dqsat import derive
 
 
 def prepare(schema,relation,grid):
-    rep=derive(schema,relation,grid)
+    rep=derive(schema,relation,grid,allow_zero=True)
     required={"HRU","svat_orig","x","y"}
     if not required.issubset(relation):
         raise ValueError("relation missing member sampling columns")
