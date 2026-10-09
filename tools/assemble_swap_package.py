@@ -17,7 +17,7 @@ def sha256(path):
     return h.hexdigest()
 
 
-def assemble(run_id,assets,output_root,*,profile_id,code_commit):
+def assemble(run_id,assets,output_root,*,profile_id,code_commit,required_assets=None):
     """assets: filename -> {path, sha256, qualification_id}."""
     run_id=str(run_id)
     if not run_id or not run_id.isdecimal():
@@ -28,6 +28,10 @@ def assemble(run_id,assets,output_root,*,profile_id,code_commit):
         raise ValueError("missing swap.swp")
     if not assets:
         raise ValueError("empty package")
+    if required_assets is not None:
+        missing=set(required_assets)-set(assets)
+        if missing:
+            raise ValueError(f"missing required referenced assets: {sorted(missing)}")
     target=Path(output_root)/f"run_{int(run_id):05d}"
     root=Path(output_root)
     root.mkdir(parents=True,exist_ok=True)
