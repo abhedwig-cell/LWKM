@@ -44,6 +44,10 @@ def test_candidate_failure_blocks_overall_status(monkeypatch,tmp_path):
     def fake_diagnose(*args,**kwargs):
         out=Path(args[3]);out.mkdir(parents=True,exist_ok=True)
         (out/"protected_physical_inputs.json").write_text('{"schema_version":1,"hrus":[]}')
+    import pandas as pd
+    monkeypatch.setattr(workflow.pd,"read_csv",lambda *a,**k:pd.DataFrame())
+    monkeypatch.setattr(workflow,"read_ascii_grid",lambda *a:object())
+    monkeypatch.setattr(workflow,"prepare",lambda *a:pd.DataFrame({"hru":[1],"representative_dqsat":[4.]}))
     monkeypatch.setattr(workflow,"diagnose",fake_diagnose)
     monkeypatch.setattr(workflow,"run",lambda *args:{"failed_hru_count":1,"hru_count":1})
     monkeypatch.setattr(workflow,"review",lambda *args:{"failed_hru_count":0,"hru_count":1})
