@@ -10,6 +10,9 @@ from pathlib import Path
 from tools.diagnose_dra_10242 import diagnose
 from tools.run_dra_protected_population import run
 from tools.review_dra_protected_population import review
+from tools.prepare_dra_positive_median_dqsat import prepare
+from tools.compare_dqsat_authority import read_ascii_grid
+import pandas as pd
 
 
 def execute(*,relation:Path,h1_mvg_zip:Path,remaining_zip:Path,
@@ -18,9 +21,16 @@ def execute(*,relation:Path,h1_mvg_zip:Path,remaining_zip:Path,
             expected_h1_sha256:str,expected_remaining_sha256:str):
     output_dir.mkdir(parents=True,exist_ok=True)
     source_dir=output_dir/"source_diagnostic"
+    median_table=prepare(
+        pd.read_csv(schema,low_memory=False),
+        pd.read_csv(relation,low_memory=False),
+        read_ascii_grid(dqsat_grid),
+    )
+    median_path=output_dir/"positive_median_dqsat.csv"
+    median_table.to_csv(median_path,index=False)
     diagnose(relation,h1_mvg_zip,remaining_zip,source_dir,
              stage_start=stage_start,stage_end=stage_end,
-             schema_csv=schema,dqsat_grid=dqsat_grid,
+             dqsat_snapshot=median_path,
              expected_h1_mvg_sha256=expected_h1_sha256,
              expected_remaining_sha256=expected_remaining_sha256)
     physical_input=source_dir/"protected_physical_inputs.json"
