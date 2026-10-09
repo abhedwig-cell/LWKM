@@ -7,6 +7,7 @@ filesystem; refuses unqualified source assets and path traversal.
 from __future__ import annotations
 import hashlib,json,os,shutil,tempfile
 from pathlib import Path
+from tools.swp_file_reference_guard import required_package_assets
 
 
 def sha256(path):
@@ -28,8 +29,14 @@ def assemble(run_id,assets,output_root,*,profile_id,code_commit,required_assets=
         raise ValueError("missing swap.swp")
     if not assets:
         raise ValueError("empty package")
+    swp_source=Path(assets["swap.swp"]["path"])
+    if not swp_source.is_file():
+        raise FileNotFoundError(swp_source)
+    derived=set(required_package_assets(swp_source.read_text(encoding="utf-8")))
     if required_assets is not None:
-        missing=set(required_assets)-set(assets)
+        derived.update(required_assets)
+    if derived:
+        missing=derived-set(assets)
         if missing:
             raise ValueError(f"missing required referenced assets: {sorted(missing)}")
     target=Path(output_root)/f"run_{int(run_id):05d}"
