@@ -1,6 +1,7 @@
 """v0.38 BBC aggregation and serialization."""
 from __future__ import annotations
 import pandas as pd
+import numpy as np
 
 def water_boundary_members(members):
     x=members.loc[members["issvatwb"].astype(bool)].copy()
@@ -9,10 +10,26 @@ def water_boundary_members(members):
 def aggregate_qbot2(members,head_l1:pd.Series,head_l2:pd.Series)->float:
     wb=water_boundary_members(members)
     idx=wb.index
-    q=((head_l2.loc[idx]-head_l1.loc[idx])/pd.to_numeric(wb["c1"],errors="coerce")).mean()
-    return float(100*q)
+    if not idx.is_unique:
+        raise ValueError("BBC member indices must be unique")
+    if not idx.isin(head_l1.index).all() or not idx.isin(head_l2.index).all():
+        raise ValueError("BBC head series missing required member indices")
+    c1=pd.to_numeric(wb["c1"],errors="coerce").to_numpy(dtype=float)
+    h1=pd.to_numeric(head_l1.loc[idx],errors="coerce").to_numpy(dtype=float)
+    h2=pd.to_numeric(head_l2.loc[idx],errors="coerce").to_numpy(dtype=float)
+    if not (np.isfinite(c1).all() and np.isfinite(h1).all() and np.isfinite(h2).all()):
+        raise ValueError("BBC requires finite c1 and head values")
+    if (c1<=0).any():
+        raise ValueError("BBC c1 must be strictly positive")
+    return float(100.0*np.mean((h2-h1)/c1))
 
 def render_bbc(dates,values)->str:
+    if len(dates)!=len(values) or not len(dates):
+        raise ValueError("BBC dates and values must be nonempty and equally sized")
+    if len(set(str(d) for d in dates))!=len(dates):
+        raise ValueError("BBC dates must be unique")
+    if not np.isfinite(np.asarray(values,dtype=float)).all():
+        raise ValueError("BBC QBOT2 values must be finite")
     lines=["SWBOTB=2","SW2=2","      DATE2     QBOT2"]
     for d,v in zip(dates,values):lines.append(f"{str(d):>11}{float(v):10.4f}")
     lines.append("* End of table")
