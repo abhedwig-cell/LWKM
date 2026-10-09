@@ -20,6 +20,10 @@ def test_orchestration_passes_actual_handoff_and_reviews(monkeypatch,tmp_path):
     def fake_review(path):
         called["review_path"]=path.name
         return {"failed_hru_count":0,"hru_count":1}
+    import pandas as pd
+    monkeypatch.setattr(workflow.pd,"read_csv",lambda *a,**k:pd.DataFrame())
+    monkeypatch.setattr(workflow,"read_ascii_grid",lambda *a:object())
+    monkeypatch.setattr(workflow,"prepare",lambda *a:pd.DataFrame({"hru":[1],"representative_dqsat":[4.]}))
     monkeypatch.setattr(workflow,"diagnose",fake_diagnose)
     monkeypatch.setattr(workflow,"run",fake_run)
     monkeypatch.setattr(workflow,"review",fake_review)
