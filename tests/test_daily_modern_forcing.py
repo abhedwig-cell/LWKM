@@ -42,7 +42,13 @@ def test_daily_flux_units_and_terminal_point():
 
 def test_varying_daily_means_not_silently_nodal_interpolated():
     f=pd.DataFrame(dict(date=['2020-07-01','2020-07-02'],q_ext_mm_d=[1.,2.]))
-    with pytest.raises(ValueError,match='interpolation policy'):effective_bbc(f,start='2020-07-01',end='2020-07-02')
+    from tools.package_preflight import dated_table
+    with pytest.raises(ValueError,match='not volume-qualified'):effective_bbc(f,start='2020-07-01',end='2020-07-02')
+    text=effective_bbc(f,start='2020-07-01',end='2020-07-02',experimental_daily_steps=True)
+    days,rows=dated_table(text,'DATE2 QBOT2',daily_steps=True)
+    assert [float(x[1]) for x in rows]==[.1,.1,.2,.2]
+    with pytest.raises(ValueError,match='invalid BBC daily step'):
+        dated_table(text.replace('2020-07-02 0.1','2020-07-02 0.3'),'DATE2 QBOT2',daily_steps=True)
 
 
 def test_internal_face_exchange_cancels():
@@ -72,3 +78,9 @@ def test_catalogue_bridge_does_not_retain_historical_forcing(tmp_path):
     pairs=tmp_path/'pairs.json';pairs.write_text(json.dumps(dict(start='2020-07-01',end='2020-07-01',runs=[dict(hru_id=7,status='BLOCKED')])) )
     r=bind(base,pairs,tmp_path/'new.json')
     assert r['runs']=={} and r['start']=='2020-07-01' and r['et_policy']=='owner_tulip_pm'
+
+
+def test_bbc_zero_is_a_real_token_for_swap_parser():
+    f=pd.DataFrame(dict(date=['2020-07-01','2020-07-02'],q_ext_mm_d=[1.,0.]))
+    text=effective_bbc(f,start='2020-07-01',end='2020-07-02',experimental_daily_steps=True)
+    assert '2020-07-02 0.' in text

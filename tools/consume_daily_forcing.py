@@ -27,7 +27,7 @@ def consume(plan,output):
                 p=output/f'{hid}.{ext}';data=text.encode();reuse=p.exists() and p.read_bytes()==data
                 if not reuse:p.write_bytes(data)
                 assets[p.name]=dict(path=str(p.resolve()),sha256=sha256(p),logical_id=f'W_A_{hid}_{ext}',qualification_status='CANDIDATE_NOT_ADMITTED',
-                    semantic_contract='GW_L1_DAILY_MEAN_CONSTANT_INTERVAL' if ext=='bbc' else 'STRICT_DAILY_MET_CANONICAL_UNITS',evidence_refs=[str(plan.resolve())],reused=reuse)
+                    semantic_contract='GW_L1_CONSTANT_DAILY_FLUX_STEP_TABLE' if ext=='bbc' else 'STRICT_DAILY_MET_CANONICAL_UNITS',evidence_refs=[str(plan.resolve())],reused=reuse)
             row.update(status='FORCING_PAIR_CANDIDATE',assets=assets)
         except (ValueError,IndexError) as e:row.update(status='BLOCKED',error=str(e))
         rows.append(row)

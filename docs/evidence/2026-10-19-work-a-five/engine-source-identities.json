@@ -1,0 +1,9 @@
+{
+  "archive_sha256": "1a2d798994c2990b397f9349317e3a26f40662fbcff55c9ea484dd638af45151",
+  "members": {
+    "SWAP/swap.f90": "39d1cbd93dbd0f99505e92ef94ac0d23bddb496529c280397d2d7c2b7eb9b58a",
+    "SWAP/boundbottom.f90": "5735f2b6e70408d304f6f5fa35ba659fb3422e03109630e27368933f5c10836e",
+    "SWAP/functions.f90": "b32dee127747e619cb92965d0473173ec7fd93c56128a0dbd5ebf5942c300527",
+    "SWAP/arrays.f90": "fc16661fceb3c806830e83fb790430dceb375bfbe0b9bbacf54ffa5e0db206a0"
+  }
+}

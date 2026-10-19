@@ -44,16 +44,24 @@ def process(plan,output,*,allow_estimated_wel=False):
     for day in pd.date_range(cfg['start'],cfg['end']).strftime('%Y-%m-%d'):
         lo=pd.Timestamp(day);hi=lo+pd.Timedelta(days=1)
         records=[x for x in cfg['intervals'] if pd.Timestamp(x['start'])<hi and pd.Timestamp(x['end'])>lo]
-        rates={k:[] for k in ['flf','lat','ghb','wel']}
+        if records and any(set(x['components'])!=set(records[0]['components']) for x in records):raise ValueError('mixed component modes within day')
+        five=all(set(x['components'])=={'flf','frf','fff','ghb','wel'} for x in records) and bool(records)
+        rates={k:[] for k in (['flf','frf','fff','ghb','wel'] if five else ['flf','lat','ghb','wel'])}
         for rec in records:
             roles=set(rec['components'])
-            if roles not in ({'flf','lat','ghb','wel'},{'flf','right','front','ghb','wel'}):raise ValueError('wrong component set; do not mix net LAT and faces or include RIV/DRN/STO/MSW')
+            if roles not in ({'flf','lat','ghb','wel'},{'flf','frf','fff','ghb','wel'},{'flf','right','front','ghb','wel'}):raise ValueError('wrong component set; do not mix net LAT and faces or include RIV/DRN/STO/MSW')
             values={}
             for role,terms in rec['components'].items():
                 if not terms:raise ValueError('missing component terms')
                 needed=np.zeros(reference.values.shape,dtype=bool);needed[rows,cols]=True
-                if role=='right':needed[rows[cols>0],cols[cols>0]-1]=True
-                if role=='front':needed[rows[rows>0]-1,cols[rows>0]]=True
+                operations={x.get('spatial_operation','CELL_NET') for x in terms}
+                if len(operations)!=1:raise ValueError('mixed spatial operations')
+                operation=operations.pop()
+                allowed={'CELL_NET','SAVED_CURRENT_MINUS_PREVIOUS_COLUMN','SAVED_CURRENT_MINUS_PREVIOUS_ROW'}
+                if operation not in allowed:raise ValueError('unbound spatial operation')
+                if operation!='CELL_NET' and (role,operation) not in [('frf','SAVED_CURRENT_MINUS_PREVIOUS_COLUMN'),('fff','SAVED_CURRENT_MINUS_PREVIOUS_ROW')]:raise ValueError('wrong reconstructed component operation')
+                if role=='right' or operation=='SAVED_CURRENT_MINUS_PREVIOUS_COLUMN':needed[rows[cols>0],cols[cols>0]-1]=True
+                if role=='front' or operation=='SAVED_CURRENT_MINUS_PREVIOUS_ROW':needed[rows[rows>0]-1,cols[rows>0]]=True
                 arr=np.zeros(reference.values.shape)
                 for term in terms:
                     if term['layer']!=1:raise ValueError('non-layer1 package term')
@@ -65,13 +73,24 @@ def process(plan,output,*,allow_estimated_wel=False):
                         if np.any(needed&(mask==1)&~np.isfinite(data)):raise ValueError('missing active package values')
                         data=np.where(mask==0,0.,data)
                     arr+=data*term['positive_multiplier']
+                if operation=='SAVED_CURRENT_MINUS_PREVIOUS_COLUMN':
+                    previous=np.zeros_like(arr);previous[:,1:]=arr[:,:-1];arr=arr-previous
+                elif operation=='SAVED_CURRENT_MINUS_PREVIOUS_ROW':
+                    previous=np.zeros_like(arr);previous[1:]=arr[:-1];arr=arr-previous
                 values[role]=arr
-            if 'lat' not in values:
+            if 'lat' not in values and 'frf' not in values:
                 values['lat']=into_cell_from_faces(values.pop('right'),values.pop('front'))
             for role in rates:rates[role].append((max(pd.Timestamp(rec['start']),lo),min(pd.Timestamp(rec['end']),hi),values[role][rows,cols]))
         cells=pd.DataFrame(dict(date=day,cell_id=membership.cell_id))
         for role,intervals in rates.items():cells[role]=integrate_intervals(intervals,start=day,end=day)[day]
+        if five:cells['lat']=cells.frf+cells.fff
         hru=aggregate(cells,membership[['hru_id','cell_id','area_m2']],start=day,end=day,full_cell_area=reference.dx*reference.dy)
+        if five:
+            joined=cells.merge(membership[['hru_id','cell_id']],on='cell_id',validate='one_to_one')
+            for component in ['frf','fff']:
+                sums=joined.groupby('hru_id')[component].sum()
+                hru[component+'_net_m3_d']=hru.hru_id.map(sums)
+                hru[component+'_mm_d']=1000*hru[component+'_net_m3_d']/hru.area_m2
         row=dict(date=day,production_admitted=False,files={})
         for kind,frame in [('cells',cells),('hrus',hru)]:
             target=output/f'{day}-{kind}.csv';data=frame.to_csv(index=False,float_format='%.12g').encode()

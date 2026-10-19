@@ -35,10 +35,17 @@ def date_value(s):
         return date(int(year),months.index(mon.lower())+1,int(day))
 
 
-def dated_table(text,header):
+def dated_table(text,header,*,daily_steps=False):
     rows=parse_named_table(text,header)
     dates=[date_value(str(r[0])) for r in rows]
-    if not dates or dates!=sorted(set(dates)):raise ValueError('unordered/missing dates: '+header)
+    if not dates:raise ValueError('unordered/missing dates: '+header)
+    if daily_steps:
+        if len(rows)%2:raise ValueError('incomplete BBC daily step')
+        for i in range(0,len(rows),2):
+            if len(rows[i])!=2 or len(rows[i+1])!=2 or dates[i+1]!=dates[i]+timedelta(days=1) or float(rows[i][1])!=float(rows[i+1][1]):
+                raise ValueError('invalid BBC daily step')
+            if i and dates[i]!=dates[i-1]:raise ValueError('BBC daily step gap/overlap')
+    elif dates!=sorted(set(dates)):raise ValueError('unordered/missing dates: '+header)
     if not np.isfinite(np.array([r[1:] for r in rows],dtype=float)).all():raise ValueError('nonfinite table: '+header)
     return dates,rows
 
@@ -94,8 +101,9 @@ def validate(directory):
     if int(scalar(swp,'SWBBCFILE'))==1:
         bbc=require(safe_name(scalar(swp,'BBCFIL'),'.bbc')).read_text()
         if int(scalar(bbc,'SWBOTB'))!=2 or int(scalar(bbc,'SW2'))!=2:raise ValueError('BBC profile requires prescribed-flux table')
-        days,rows=dated_table(bbc,'DATE2 QBOT2')
+        days,rows=dated_table(bbc,'DATE2 QBOT2',daily_steps='! LWKM_DAILY_STEP_V1' in bbc)
         if any(len(r)!=2 for r in rows):raise ValueError('BBC diagnostic extra columns forbidden')
+        if any(abs(float(r[1]))>100 for r in rows):raise ValueError('BBC QBOT2 outside -100..100 cm/day')
         if days[0]>start or days[-1]<end:raise ValueError('BBC period gap')
     rotation=parse_named_table(swp,TABLE_HEADERS['TABLE_CROPROTATION'])
     covered=set()

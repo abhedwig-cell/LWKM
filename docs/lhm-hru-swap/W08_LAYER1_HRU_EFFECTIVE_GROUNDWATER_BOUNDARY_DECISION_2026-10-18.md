@@ -46,3 +46,7 @@ Primaire kwalificatiepunten:
 
 ## Besluit
 De effectieve overige grondwaterrandvoorwaarde van elke HRU wordt opgebouwd door op dag- en laag-1-celniveau FLF + LAT + GHB + WEL te sommeren, daarna over alle aan de HRU toegewezen cellen te aggregeren en door het vertegenwoordigde oppervlak om te rekenen naar mm/d. Er wordt geen aaneengesloten HRU-polygon of expliciete buitenrand vereist. MetaSWAP, bergingsverandering en de apart behandelde ontwatering maken geen deel uit van deze invoerconstructie.
+
+## Aanvullend projecteigenaarbesluit 19 oktober 2026
+
+Gebruik de bestaande gereconstrueerde dagelijkse FLF/FRF/FFF/GHB/WEL-producten en hun vastgelegde tekenomzettingen. `LAT = FRF_net + FFF_net`; alle netto-termen zijn positief naar laag 1. De eerdere eis om oorspronkelijke WEL/GHB-budgetten te vinden is vervallen. Reconstructie en face-semantiek worden niet heropend. Zie [de bestaande authority en uitgevoerde regressie](../production/WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md). Dagvolumebehoud in SWAP blijft een afzonderlijk te toetsen interface-eigenschap.

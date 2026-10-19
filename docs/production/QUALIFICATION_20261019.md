@@ -45,3 +45,5 @@ De 45 succesvolle technische proeven laten over 1971 ongeveer 389 tot 579 mm tot
 Geen volledige moderne productie-uitvoering is toegelaten. Nodig zijn complete geconsumeerde dagelijkse bronnen, gekwalificeerde package-tekens en tijdsaggregatie, een onderbouwde W08-route, oplossing van de drainage-uitzonderingen en vier crop-factorcombinaties, complete assets, fysische resultatencontrole en een volledige recursieve bronregistratie. De historische produceridentiteit blijft een afzonderlijke equivalentiebeperking.
 
 De volledige 10.242-HRU-drainagesensitiviteitsrun voor 1970-2021 is gestart en daarna gestopt toen de referentieset aantoonbaar faalde op vereiste bron- en interfacegates. De grote run levert geen afgeronde populatiekwalificatie op. Het stoppunt en de rekentijd staan in dra-full-attempt.json.
+
+Actuele Work A-aanvulling: [bestaande FRF/FFF-authority, zes geproduceerde HRU-randvoorwaarden en de 98 echte BBC-interfaceproeven](WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md). De variërende BBC-route is na modeltoets niet toegelaten voor dagvolumebehoud; volledige moderne forcing blijft afhankelijk van de bestaande dagelijkse serverproducten en MET.
