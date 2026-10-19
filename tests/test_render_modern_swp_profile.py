@@ -10,7 +10,7 @@ def profile(tmp_path,template,required):
                              "required_context":required}))
     return t,p
 
-def test_profile_renders_explicit_swet_and_period():
+def test_profile_renders_explicit_swet_and_period(tmp_path):
     t,p=profile(tmp_path,"SWETR={{SWETR}}\nPERIOD={{PERIOD}}\n",["SWETR","PERIOD"])
     output,audit=render_profile(t,p,{"SWETR":1,"PERIOD":0})
     assert "SWETR=1" in output and "PERIOD=0" in output

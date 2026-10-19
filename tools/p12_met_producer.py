@@ -27,8 +27,10 @@ def compose(station:int,day:int,month:int,year:int,rain:float,etref:float,
         raise ValueError("MET Tmin exceeds Tmax")
     if district.rad<0 or district.wind<0 or etref<0:
         raise ValueError("MET negative radiation, wind or reference evaporation")
-    if not 0<=district.hum<=1:
-        raise ValueError("MET relative humidity outside 0..1")
+    # SWAP 4.3.1 MOD_meteo declares HUM as vapour pressure [kPa],
+    # with the daily input range 0..10. It is not relative humidity.
+    if not 0<=district.hum<=10:
+        raise ValueError("MET vapour pressure outside 0..10 kPa")
     if not 0<=district.wet<=24 or not 0<=daily_max_wet<=24:
         raise ValueError("MET WET duration outside 0..24 hours")
     w=historical_wet_policy(rain,district.wet,daily_max_wet)

@@ -1,0 +1,2991 @@
+{
+  "config": {
+    "algorithm": "protected-compression-v1",
+    "regional_limit_m": 0.1,
+    "surface_limit_m": 0.02
+  },
+  "failed_hru_count": 19,
+  "hru_count": 47,
+  "input_sha256": "5828e7d2d98115bb21c769485a3e7f8b6ce657371655e091d23d8480a72cc7e2",
+  "results": [
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 342317.93378817366",
+      "fingerprint": "aa633a29cd7a6b50b1399718da30b30c95153a5b18cef29e20405afeb18bdfa1",
+      "hru": "7866",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "a543bd97b29d83ed2e7a6eb92997b2de15dced641d314bfd0a682eb61753d7cb",
+      "hru": "7867",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 1.7772190788679714,
+          "drnres": 16583.29230643197,
+          "infres": 50252.3989317308,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.270873170036788,
+          "peil_win": 1.3836478621778787,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 1.4696483391191488,
+          "drnres": 1441.658521776484,
+          "infres": 4368.662013606436,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.184971707085294,
+          "peil_win": 1.2137501417841317,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 36.0,
+          "dep": 1.0448950078519978,
+          "drnres": 94.56484087886619,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 1.0448950078519978,
+          "peil_win": 1.0448950078519978,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 1.0067335263933126,
+          "drnres": 15455.11482825436,
+          "infres": 46833.679436737264,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9998930370928264,
+          "peil_win": 1.0067335263933126,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 36.0,
+          "dep": 0.15000005190460766,
+          "drnres": 30.000001171875045,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.15000005190460766,
+          "peil_win": 0.15000005190460766,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "H1"
+          ],
+          [
+            "P"
+          ],
+          [
+            "S",
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.006631774166331769,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "03d394594b7a1ec765989463fee54b3a32e9635ac7037e4791643c18ae9c1051",
+      "hru": "7868",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 1.8823257680684604,
+          "drnres": 6695.4880304967055,
+          "infres": 66954.87930726161,
+          "level_series": [
+            [
+              "1971-01-01",
+              0.0
+            ],
+            [
+              "1971-02-01",
+              0.0
+            ],
+            [
+              "1971-03-01",
+              0.0
+            ],
+            [
+              "1971-04-01",
+              0.0
+            ],
+            [
+              "1971-05-01",
+              0.0
+            ],
+            [
+              "1971-06-01",
+              0.0
+            ],
+            [
+              "1971-07-01",
+              0.0
+            ],
+            [
+              "1971-08-01",
+              0.0
+            ],
+            [
+              "1971-09-01",
+              0.0
+            ],
+            [
+              "1971-10-01",
+              0.0
+            ],
+            [
+              "1971-11-01",
+              0.0
+            ],
+            [
+              "1971-12-01",
+              0.0
+            ]
+          ],
+          "medium": "open_channel",
+          "peil_sum": 0.0,
+          "peil_win": 0.0,
+          "source_ids": [
+            "H1"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 1.6005418190690717,
+          "drnres": 6550.838176451065,
+          "infres": 19851.023988315617,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0929846948536655,
+          "peil_win": 1.2143977400819606,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 1.230413620643551,
+          "drnres": 1242.4431177932418,
+          "infres": 3764.9789952211822,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9444335239430275,
+          "peil_win": 0.9797810179808208,
+          "source_ids": [
+            "S",
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 36.0,
+          "dep": 0.9290290320841513,
+          "drnres": 104.37978745087818,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.9290290320841513,
+          "peil_win": 0.9290290320841513,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 36.0,
+          "dep": 0.15054558497342233,
+          "drnres": 34.503118132706504,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.15054558497342233,
+          "peil_win": 0.15054558497342233,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0009524973701359336,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "e192fc12645b994c0676d7c42b0c3b0fa90d700fe5c8c9f128a8d4e1a852c9d5",
+      "hru": "7869",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 2.0354431074737898,
+          "drnres": 5208.580675380306,
+          "infres": 15783.577176999741,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.5753663037061525,
+          "peil_win": 1.5955202120402239,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 1.5749621853300715,
+          "drnres": 1278.772051145562,
+          "infres": 3875.066667671904,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.2906441748216189,
+          "peil_win": 1.2923799496196915,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 36.0,
+          "dep": 1.0694604853255703,
+          "drnres": 22959.782220495872,
+          "infres": 69575.0948732004,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0694604853255703,
+          "peil_win": 1.0694604853255703,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 36.0,
+          "dep": 1.0207188471890583,
+          "drnres": 110.36043443061692,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 1.0207188471890583,
+          "peil_win": 1.0207188471890583,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 36.0,
+          "dep": 0.1509714096614208,
+          "drnres": 29.417179035020002,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.1509714096614208,
+          "peil_win": 0.1509714096614208,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('T',): 272507.6002929407",
+      "fingerprint": "a5cc76b3064f23c21a9997639eb5e6d95ccf39babd2909a5748ad795ce9f8ae4",
+      "hru": "7871",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 248822.16937983438",
+      "fingerprint": "cc300a0f1032acfe90a0bcf3db1eba74fcac8574d8734bd53d2c9e241133cecd",
+      "hru": "7872",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 174675.81889869407",
+      "fingerprint": "d4903d25b56cb43736645d2d615764f326fbb5bde4576038c4a7a3d1cb76acfe",
+      "hru": "7873",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.00011688110831405717,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "e3d593e4247a6609c8897f333e310ec4acda80cc25094360422730c67e2eda74",
+      "hru": "7874",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.5375259554722518,
+          "drnres": 2759.0869668613086,
+          "infres": 8360.869264318326,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0461210241301457,
+          "peil_win": 1.0461210241301457,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.0805428708867149,
+          "drnres": 366.9636897023803,
+          "infres": 1112.0111367289514,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8033300833112184,
+          "peil_win": 0.8033300833112184,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 0.6542593524895166,
+          "drnres": 518.6385887339059,
+          "infres": 4067.9095892747096,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.654191469332802,
+          "peil_win": 0.6542593524895166,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.6105966173510772,
+          "drnres": 1580.7861789405138,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.6105966173510772,
+          "peil_win": 0.6105966173510772,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.22814346513735495,
+          "drnres": 29.87541201294776,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.22814346513735495,
+          "peil_win": 0.22814346513735495,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "dee48d11500bec237eba9a3490544572096639110361bfa56798d55325c65628",
+      "hru": "7875",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.5171001632250194,
+          "drnres": 301.4915663534262,
+          "infres": 913.7997743228257,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0205018474752352,
+          "peil_win": 1.0799429249048504,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.2070319970463224,
+          "drnres": 226.7312603776005,
+          "infres": 697.5995849891634,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9272741789321365,
+          "peil_win": 0.9283947763358985,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.7469826052871934,
+          "drnres": 434.58046021725914,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.7469826052871934,
+          "peil_win": 0.7469826052871934,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 0.6933286230017703,
+          "drnres": 444.1338645201983,
+          "infres": 4800.989822126519,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.6927932761254966,
+          "peil_win": 0.6933286230017703,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.2481440770128035,
+          "drnres": 30.000001171875045,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.2481440770128035,
+          "peil_win": 0.2481440770128035,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0003072848356804858,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "154cc3a58339f195a61e120ea9c7629fb4b5614643e77c454e8dbee9d2827c82",
+      "hru": "7876",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.314415164000547,
+          "drnres": 1502.9107605830636,
+          "infres": 4670.383213484648,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8479970047943027,
+          "peil_win": 0.9503395271073618,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.1195880633204816,
+          "drnres": 617.2245419336247,
+          "infres": 1924.998534504585,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8516612684538609,
+          "peil_win": 0.8516612684538609,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.6779640700021693,
+          "drnres": 469.60941262625465,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.6779640700021693,
+          "peil_win": 0.6779640700021693,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 0.5556473617699653,
+          "drnres": 419.42314271400335,
+          "infres": 3445.9906224180804,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.5553951990154232,
+          "peil_win": 0.5556473617699653,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.23682906351213637,
+          "drnres": 29.749694831583838,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.23682906351213637,
+          "peil_win": 0.23682906351213637,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "66a99474847b88e5bbed8a383238283d272d8b566c39140d6e8679406e3ca3e8",
+      "hru": "7877",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.7199223502033214,
+          "drnres": 3594.506827703631,
+          "infres": 10892.444499608391,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.2484720360011698,
+          "peil_win": 1.2465350599899871,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.1278355733675303,
+          "drnres": 425.9373159619345,
+          "infres": 1290.7190879900209,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8659859370661296,
+          "peil_win": 0.8659859370661296,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.6573072533761938,
+          "drnres": 367.2952222650746,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.6573072533761938,
+          "peil_win": 0.6573072533761938,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 0.5798137651809112,
+          "drnres": 439.624312217605,
+          "infres": 7874.963329818581,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.5798137651809112,
+          "peil_win": 0.5798137651809112,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.20781058469499883,
+          "drnres": 30.000001171875045,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.20781058469499883,
+          "peil_win": 0.20781058469499883,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "a4c5a703a06c403b4bb64316c608af8e8cdad2db63047a4ea5dae99a3dc83efc",
+      "hru": "7909",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 2.1568878871156727,
+          "drnres": 233.09776875441065,
+          "infres": 713.027330652896,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.6832101569586522,
+          "peil_win": 1.7264776018663546,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.8240935012159463,
+          "drnres": 332.0664786856251,
+          "infres": 1052.3066737760873,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.5652812785428936,
+          "peil_win": 1.5652812785428936,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 0.9147781026549853,
+          "drnres": 542.7934845146381,
+          "infres": 6979.000961503821,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9147539571845116,
+          "peil_win": 0.9147781026549853,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.7450594630647268,
+          "drnres": 1038.0873218285772,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.7450594630647268,
+          "peil_win": 0.7450594630647268,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.23525763956705734,
+          "drnres": 30.000001171875045,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.23525763956705734,
+          "peil_win": 0.23525763956705734,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "505011a4d98472b43effd87137648a37d60551685aec1f25375aa28c32d9ae65",
+      "hru": "7910",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.5503256694640044,
+          "drnres": 402.50858933374946,
+          "infres": 1236.3418394337223,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0669127447094142,
+          "peil_win": 1.0753780844437917,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.5462393371516792,
+          "drnres": 537.6528366826619,
+          "infres": 1772.450557022532,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.2834937481015687,
+          "peil_win": 1.2833450533635913,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 0.884232098193493,
+          "drnres": 370.015647098218,
+          "infres": 3735.886434794522,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8835491814970418,
+          "peil_win": 0.884232098193493,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.7444805274085665,
+          "drnres": 1669.7803437602574,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.7444805274085665,
+          "peil_win": 0.7444805274085665,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.2425002391815186,
+          "drnres": 30.000001171875045,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.2425002391815186,
+          "peil_win": 0.2425002391815186,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0001717425140102399,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "2071dfb38b0f4289bb1d150749d7c47e10834cd045d770d55be05c6c2536e56b",
+      "hru": "7911",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 2.0307062301953085,
+          "drnres": 658.7735764878516,
+          "infres": 2136.9798863720443,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.537382579061074,
+          "peil_win": 1.653654613365274,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 1.7397671584565686,
+          "drnres": 414.31264878971785,
+          "infres": 1436.7565067737044,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.4902565122333282,
+          "peil_win": 1.490623609153949,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 72.0,
+          "dep": 0.9517004340545278,
+          "drnres": 430.89655450562395,
+          "infres": 6380.993211514909,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9517004340545278,
+          "peil_win": 0.9517004340545278,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.8115649399520234,
+          "drnres": 1350.7715971170335,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.8115649399520234,
+          "peil_win": 0.8115649399520234,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 72.0,
+          "dep": 0.2357617770730011,
+          "drnres": 29.855929681011848,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.2357617770730011,
+          "peil_win": 0.2357617770730011,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "dfb716b3c6b42fff710a6d5c6707542a523b1670d99e1f521fd6cecfb2593e7c",
+      "hru": "7912",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.061353857150459,
+          "drnres": 1118.2695319738586,
+          "infres": 3388.6954167812787,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.5927215304549968,
+          "peil_win": 0.7155239485060481,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.0216719309664923,
+          "drnres": 421.9865909511813,
+          "infres": 1278.7471944937618,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.6856641397330724,
+          "peil_win": 0.7985860443681743,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.7661181332755154,
+          "drnres": 183.18553359332995,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.7661181332755154,
+          "peil_win": 0.7661181332755154,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.6033074125905414,
+          "drnres": 2553.079420760405,
+          "infres": 7736.6039979095385,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.575481222232837,
+          "peil_win": 0.6033074125905414,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.15404309871412555,
+          "drnres": 32.06896676993539,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.15404309871412555,
+          "peil_win": 0.15404309871412555,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "90fafa13d43c6e191471605de82f024a1a7364cbf2ad88514098632c20d5cb80",
+      "hru": "7913",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.4985745641672055,
+          "drnres": 3228.000381433639,
+          "infres": 9781.818948983131,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.957042820831973,
+          "peil_win": 1.140517013989519,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.4858717861770467,
+          "drnres": 276.2300307972482,
+          "infres": 837.060666123798,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.1373524749277415,
+          "peil_win": 1.2343290503394588,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.9955199401317804,
+          "drnres": 147.04273196379873,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.9955199401317804,
+          "peil_win": 0.9955199401317804,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.9805970618177562,
+          "drnres": 5904.031060109425,
+          "infres": 17891.002501528237,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8425982976268689,
+          "peil_win": 0.9805970618177562,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.14999998975964263,
+          "drnres": 30.93750120849614,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.14999998975964263,
+          "peil_win": 0.14999998975964263,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P",
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0011427644001823537,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "390713f91e9c755919d2d08b21a174176c18f3ba3f82dc7bbca9093c212247a9",
+      "hru": "7914",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.3072545858137772,
+          "drnres": 318.0075090699673,
+          "infres": 963.6590801014687,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8881222740982609,
+          "peil_win": 1.092696257700788,
+          "source_ids": [
+            "P",
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.9918573062976999,
+          "drnres": 6476.616527780293,
+          "infres": 19626.109910371775,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8931956999330923,
+          "peil_win": 0.9918573062976999,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.9308142408556388,
+          "drnres": 186.7473899111943,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.9308142408556388,
+          "peil_win": 0.9308142408556388,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.1999999953187612,
+          "drnres": 1310.3635278739002,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.1999999953187612,
+          "peil_win": 0.1999999953187612,
+          "source_ids": [
+            "MVG"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.14999999344665554,
+          "drnres": 31.5000012304688,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.14999999344665554,
+          "peil_win": 0.14999999344665554,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "e7e8851811842e8b6b276866cc3099a642f10a7553808d120660434109e8af80",
+      "hru": "7915",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.087911041259766,
+          "drnres": 6319.289536057978,
+          "infres": 19149.36146955146,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.7879110889434817,
+          "peil_win": 0.7879110889434817,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.9839894417193331,
+          "drnres": 104.39961243045735,
+          "infres": 316.3624493393625,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.7291142227331057,
+          "peil_win": 0.7307688674265791,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.7808335053822107,
+          "drnres": 670.0651380112151,
+          "infres": 4946.68647038616,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.7792644049450111,
+          "peil_win": 0.7808335053822107,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.6511582109228443,
+          "drnres": 581.387063311194,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.6511582109228443,
+          "peil_win": 0.6511582109228443,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.24387616602234216,
+          "drnres": 30.000001171875045,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.24387616602234216,
+          "peil_win": 0.24387616602234216,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0005467949317159267,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "902eb7d0407ee576fdcd16430d3ff81506970ec4846154943f586dccd480be18",
+      "hru": "7916",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.3626000655761275,
+          "drnres": 482.209223427195,
+          "infres": 1461.240012927039,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0328960056402192,
+          "peil_win": 1.0866775524474248,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.2066216989633856,
+          "drnres": 82.02854502413152,
+          "infres": 248.5713386806367,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9451318102798804,
+          "peil_win": 0.9633553505741342,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.8955459282326729,
+          "drnres": 967.8649745164963,
+          "infres": 5685.929477103416,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.891398212680628,
+          "peil_win": 0.8955459282326729,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.7105389763587506,
+          "drnres": 316.3901325186942,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.7105389763587506,
+          "peil_win": 0.7105389763587506,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.23694499404245875,
+          "drnres": 29.55599342907344,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.23694499404245875,
+          "peil_win": 0.23694499404245875,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.00016405658743742568,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "a021bddbae43c8c7d96451277559733ac2ad4154376ac2f870a9e0595bee7e52",
+      "hru": "7917",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.2363316538988882,
+          "drnres": 1157.2696868517537,
+          "infres": 3506.8776995939093,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9225447257901672,
+          "peil_win": 0.9251244633807383,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.1465069983655956,
+          "drnres": 121.88161975690343,
+          "infres": 369.3382270114036,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8905271342495257,
+          "peil_win": 0.891528656484323,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.8303418202266614,
+          "drnres": 621.8235432414216,
+          "infres": 5753.703953303058,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8301309261949149,
+          "peil_win": 0.8303418202266614,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.6832633793879954,
+          "drnres": 315.5267077577709,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.6832633793879954,
+          "peil_win": 0.6832633793879954,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.24566868081833818,
+          "drnres": 29.89223145400464,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.24566868081833818,
+          "peil_win": 0.24566868081833818,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0006229364014692912,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "57f47e6460eb9a1773fdeb7911d42deeac6d7cc4245c159ada344892ac45429f",
+      "hru": "7918",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.602568327400801,
+          "drnres": 630.6677204113081,
+          "infres": 1911.1142283358347,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.1663828672358294,
+          "peil_win": 1.215786422944099,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.2843861469371507,
+          "drnres": 212.49054996201403,
+          "infres": 643.910731873935,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0108200654555632,
+          "peil_win": 1.017869237400734,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.9065783581540879,
+          "drnres": 523.2231761893245,
+          "infres": 41948.33568102543,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9065783581540879,
+          "peil_win": 0.9065783581540879,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.8259980031474833,
+          "drnres": 303.1693700153763,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.8259980031474833,
+          "peil_win": 0.8259980031474833,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.24103415031421285,
+          "drnres": 29.54457238819757,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.24103415031421285,
+          "peil_win": 0.24103415031421285,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0004227275564578619,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "0e1d2570fca123fe862e58649fa9e4f4ab21a8beb8ff11e80ac12ac33a1e9517",
+      "hru": "7919",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.5027846177378565,
+          "drnres": 5441.99170714943,
+          "infres": 16490.88330577005,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.1056243931064265,
+          "peil_win": 1.1056243931064265,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.2711045462268407,
+          "drnres": 555.7895207662873,
+          "infres": 1684.2106020642332,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0092600621027117,
+          "peil_win": 1.0092600621027117,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.849265129929974,
+          "drnres": 559.8778469777351,
+          "infres": 82726.56485996797,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8492324811724626,
+          "peil_win": 0.849265129929974,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.7481894229381476,
+          "drnres": 546.4806856850084,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.7481894229381476,
+          "peil_win": 0.7481894229381476,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.24687070760863952,
+          "drnres": 30.53292877294254,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.24687070760863952,
+          "peil_win": 0.24687070760863952,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "S"
+          ],
+          [
+            "P"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.00032003212616422456,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "3b14ca498d33f559ca51993d63840290a0b615fb0a63e057e072933b9e114bf5",
+      "hru": "7920",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.2344430287475239,
+          "drnres": 332.7256921214638,
+          "infres": 1008.2596330307067,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9618612521441644,
+          "peil_win": 0.9708661756113869,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.2011178549853034,
+          "drnres": 17804.716875368245,
+          "infres": 53953.68535718907,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.7611268753686905,
+          "peil_win": 0.7618235983336873,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.8357989157721113,
+          "drnres": 494.76170401080043,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.8357989157721113,
+          "peil_win": 0.8357989157721113,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.8136642223198729,
+          "drnres": 604.2882242243894,
+          "infres": 8549.016749470902,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8123692728219447,
+          "peil_win": 0.8136642223198729,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.22944267523537692,
+          "drnres": 30.168475933298694,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.22944267523537692,
+          "peil_win": 0.22944267523537692,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.001045669468179719,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "29b5b81fc7ce65d6af066d136d428d2a07de165495a4ed3234b5d76cfffa17e8",
+      "hru": "7921",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 48.0,
+          "dep": 1.7991025541725076,
+          "drnres": 629.0795631126598,
+          "infres": 1906.3016306523784,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.3139164906555074,
+          "peil_win": 1.3756660936496445,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 48.0,
+          "dep": 1.3819943354522723,
+          "drnres": 152.49460814273675,
+          "infres": 462.10485479741124,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.1163527123515298,
+          "peil_win": 1.1190171359679062,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 48.0,
+          "dep": 0.9545067427452637,
+          "drnres": 436.68336658930554,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.9545067427452637,
+          "peil_win": 0.9545067427452637,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 48.0,
+          "dep": 0.9320083775856128,
+          "drnres": 1262.5375882598403,
+          "infres": 42090.52139354652,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9320083775856128,
+          "peil_win": 0.9320083775856128,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 48.0,
+          "dep": 0.235995928311118,
+          "drnres": 29.12850631322598,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.235995928311118,
+          "peil_win": 0.235995928311118,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "OLF"
+          ],
+          [
+            "MVG"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "32379586cf3f3773b2bcf6b33e9d209c2a8dd7c8a105257e49770a61ce3a9466",
+      "hru": "7922",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.2296758899368008,
+          "drnres": 689.9144134819178,
+          "infres": 2090.64965474904,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9438876570395793,
+          "peil_win": 0.9438876570395793,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 1.005423989288981,
+          "drnres": 1066.9560905979988,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 1.005423989288981,
+          "peil_win": 1.005423989288981,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 0.8589497108593701,
+          "drnres": 744.1312275288539,
+          "infres": 11101.847430960983,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8589497108593701,
+          "peil_win": 0.8589497108593701,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 0.23846151660955875,
+          "drnres": 31.153847370793315,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.23846151660955875,
+          "peil_win": 0.23846151660955875,
+          "source_ids": [
+            "OLF"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 0.19999997564991295,
+          "drnres": 2773.829438935358,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.19999997564991295,
+          "peil_win": 0.19999997564991295,
+          "source_ids": [
+            "MVG"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0007478707825294914,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "e8f254c289641c98b8f77318d33501298b77c8a2371bd83eb407d1c1f34cec78",
+      "hru": "7923",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 52.0,
+          "dep": 1.5314076165986543,
+          "drnres": 5236.269542919217,
+          "infres": 15867.48283287445,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.085370333230221,
+          "peil_win": 1.2326564004349512,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 52.0,
+          "dep": 1.2097008240468237,
+          "drnres": 304.5125638872718,
+          "infres": 922.7653084455461,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9477906376908183,
+          "peil_win": 0.9552040112940314,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 52.0,
+          "dep": 0.7658343787944482,
+          "drnres": 612.2943541142716,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.7658343787944482,
+          "peil_win": 0.7658343787944482,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 52.0,
+          "dep": 0.7394236426320703,
+          "drnres": 653.9196285482052,
+          "infres": 15770.522760889442,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.7319081572343189,
+          "peil_win": 0.7394236426320703,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 52.0,
+          "dep": 0.2319188762158291,
+          "drnres": 30.69218988173476,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.2319188762158291,
+          "peil_win": 0.2319188762158291,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "T"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "93312efbbf874c4252914040470aa7c17a218e75008faaf0efde2bc9a53fe4d6",
+      "hru": "7924",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.200454309316243,
+          "drnres": 852.1543972532717,
+          "infres": 2582.285949671817,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.7029884015608076,
+          "peil_win": 0.8071922899225223,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.0471253830692837,
+          "drnres": 436.88212530841054,
+          "infres": 1323.8851756008344,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.7101444486549582,
+          "peil_win": 0.8255009597490515,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.7435813197915453,
+          "drnres": 149.54559493928127,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.7435813197915453,
+          "peil_win": 0.7435813197915453,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.6742488106349762,
+          "drnres": 5209.539994279872,
+          "infres": 15786.484203852602,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.6195913384629692,
+          "peil_win": 0.6742488106349762,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.1490332454343205,
+          "drnres": 32.608696925951136,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.1490332454343205,
+          "peil_win": 0.1490332454343205,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.00010709732075046889,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "b95b7692bb2a77a20d26d004c628be6a7de2060d588daa3042d3766fef414932",
+      "hru": "7925",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.734099311062438,
+          "drnres": 2010.7236707700038,
+          "infres": 6093.101790518264,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.2950727558466981,
+          "peil_win": 1.3969183375101306,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.3786470727039952,
+          "drnres": 291.1221831541625,
+          "infres": 882.1883987454751,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0487051439217705,
+          "peil_win": 1.1464364587304876,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.1260647437783748,
+          "drnres": 6499.635069514715,
+          "infres": 19695.86306437101,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0615526546365766,
+          "peil_win": 1.1260647437783748,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 1.0591862023644398,
+          "drnres": 108.73327811638738,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 1.0591862023644398,
+          "peil_win": 1.0591862023644398,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.15800210773740866,
+          "drnres": 30.71095968566878,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.15800210773740866,
+          "peil_win": 0.15800210773740866,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0,
+        "status": "NO_COMPRESSION"
+      },
+      "fingerprint": "d77aea27848f5dc26a1a8e0b4761955455e37898ebaf565ddfacb3163074e5df",
+      "hru": "7926",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.4494543244430698,
+          "drnres": 1678.6379292271017,
+          "infres": 5086.781401587958,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.9575920817267665,
+          "peil_win": 1.1459243739394769,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 1.2562178371689785,
+          "drnres": 314.49684256854357,
+          "infres": 953.0206971865525,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.892407951004146,
+          "peil_win": 1.0455742909134709,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 40.0,
+          "dep": 0.9424416315616762,
+          "drnres": 3087.351158340923,
+          "infres": 12036.069676564373,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.8884188918865629,
+          "peil_win": 0.9424416315616762,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.938011893760684,
+          "drnres": 132.91216033171438,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.938011893760684,
+          "peil_win": 0.938011893760684,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 40.0,
+          "dep": 0.1585106338986691,
+          "drnres": 31.276596966422918,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.1585106338986691,
+          "peil_win": 0.1585106338986691,
+          "source_ids": [
+            "OLF"
+          ]
+        }
+      ],
+      "status": "NO_COMPRESSION"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 118646.50853719993",
+      "fingerprint": "0bd2b8f62d3b933250ba89b7391afc7218510870860ae1444d719d3b5d5876f7",
+      "hru": "7927",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('H1',): 162483.189640233",
+      "fingerprint": "3c38ba5bcabfde9d7e8a09359fee4d570ca6c474d7dd2944ae41513bd464ebab",
+      "hru": "7928",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 338872.3026986443",
+      "fingerprint": "92fadea836b001136baa03c9378fafea043b11a5de9febea81f91cc67c682970",
+      "hru": "7930",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('H1',): 312500.0126818398",
+      "fingerprint": "79ddcf01ccfa7c722feec0f010237a9f8e3a6682c5534451748d8ce5f7eb1637",
+      "hru": "7931",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 192275.64974125376",
+      "fingerprint": "4766b6fdd34f67c80483711d8daee0d3b3430a6dd574628bdf18d26e5d7d1144",
+      "hru": "7932",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0007807972712216306,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "7178777725a6cde97a9bac6c4169425a9e3e23073cc06941bcda6d04509842a4",
+      "hru": "7933",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.9651306552701047,
+          "drnres": 246.5211581556401,
+          "infres": 868.6634410322963,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.5626127522384872,
+          "peil_win": 1.680878103707118,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.8639902536124127,
+          "drnres": 254.3971559547862,
+          "infres": 779.9110042617654,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.5927943825381468,
+          "peil_win": 1.5958766776395206,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.192980006814565,
+          "drnres": 927.2990093617416,
+          "infres": 2809.9968864066395,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.1894179871175545,
+          "peil_win": 1.192980006814565,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 1.0118093878742085,
+          "drnres": 236.20869093452623,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 1.0118093878742085,
+          "peil_win": 1.0118093878742085,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 0.2349156436051811,
+          "drnres": 29.32912909460393,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.2349156436051811,
+          "peil_win": 0.2349156436051811,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 550158.4046534643",
+      "fingerprint": "1de5ec07d9952a0729a47374cc9e0028a56d07fe5b3798bf7748dcbf7a2cf200",
+      "hru": "7934",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "S"
+          ],
+          [
+            "P"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 7.162168589342975e-05,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "0566bfc33ba6dfbf272c2677447331ab3fd9825dbd96fb8e886088aa1ec44bd3",
+      "hru": "7935",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.6893520938933615,
+          "drnres": 322.431934469068,
+          "infres": 1061.4565722666214,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.348855280535656,
+          "peil_win": 1.3959346536834498,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.2873082854495883,
+          "drnres": 1443.2398762041264,
+          "infres": 4373.453996530086,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.887308331699477,
+          "peil_win": 1.2847827498539084,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.116363965525256,
+          "drnres": 1810.5343575100433,
+          "infres": 5640.239711118102,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.0805310549987635,
+          "peil_win": 1.116363965525256,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 0.9875241098440227,
+          "drnres": 170.08049761759273,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.9875241098440227,
+          "peil_win": 0.9875241098440227,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 0.21659473323554745,
+          "drnres": 29.870523386847704,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.21659473323554745,
+          "peil_win": 0.21659473323554745,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 137710.57213510628",
+      "fingerprint": "aebb724d37e1d46547c62392519af3f9cdc46065112363cd34f5b8b5c1a219c9",
+      "hru": "7936",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('H1',): 417962.68805665773",
+      "fingerprint": "e046d35710e23cbfc82fb6b1f69722e8ebe8b8ae9b5dc19da26f83b1bfd74470",
+      "hru": "7937",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('H1',): 677459.7017186763",
+      "fingerprint": "cf1de978996d707fd4bf69f1e8d2d270d2e3b855d88f3e1702d8924685093326",
+      "hru": "7938",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "audit": {
+        "groups": [
+          [
+            "P"
+          ],
+          [
+            "S"
+          ],
+          [
+            "T"
+          ],
+          [
+            "PIPE"
+          ],
+          [
+            "MVG",
+            "OLF"
+          ]
+        ],
+        "max_error_m": 0.0004662564288323671,
+        "regional_limit_m": 0.1,
+        "status": "CANDIDATE_NOT_ADMITTED",
+        "surface_limit_m": 0.02
+      },
+      "fingerprint": "95e5ac1579972794b91f60ef35ef6fe511aee6e35c6c2461fe43ce48ea61ea14",
+      "hru": "7939",
+      "levels": [
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.617096207505595,
+          "drnres": 183.39905003935903,
+          "infres": 668.728088109119,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.2170961639708084,
+          "peil_win": 1.3606257613066561,
+          "source_ids": [
+            "P"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.607773084175579,
+          "drnres": 227.41145161273866,
+          "infres": 760.0881459604619,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.3309781294986873,
+          "peil_win": 1.372885184461998,
+          "source_ids": [
+            "S"
+          ]
+        },
+        {
+          "allow_infiltration": true,
+          "dd": 80.0,
+          "dep": 1.1694170936197548,
+          "drnres": 1000.99983678837,
+          "infres": 3450.0648426937273,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 1.152459853284943,
+          "peil_win": 1.1694170936197548,
+          "source_ids": [
+            "T"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 0.9179860603159118,
+          "drnres": 122.48630402166945,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "drain_tube",
+          "peil_sum": 0.9179860603159118,
+          "peil_win": 0.9179860603159118,
+          "source_ids": [
+            "PIPE"
+          ]
+        },
+        {
+          "allow_infiltration": false,
+          "dd": 80.0,
+          "dep": 0.2383035036623937,
+          "drnres": 29.63482072053551,
+          "infres": 100000.0,
+          "level_series": null,
+          "medium": "open_channel",
+          "peil_sum": 0.2383035036623937,
+          "peil_win": 0.2383035036623937,
+          "source_ids": [
+            "MVG",
+            "OLF"
+          ]
+        }
+      ],
+      "status": "CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 394832.6348322675",
+      "fingerprint": "9cb9cae9ae6ace938d87735ec83cc52f12e6e0acc4128bb86cf1d21544833423",
+      "hru": "7940",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('H1',): 404872.31945060496",
+      "fingerprint": "30240260cb517277ee4241aeeb36228d91452776fdcf6a8cd094f3196b4341f9",
+      "hru": "7941",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('H1',): 139119.80776106747",
+      "fingerprint": "69328b7f4a275cf73855cbd18ee018eb5a0c5e87486bbfb53ed3a5b08c2ed953",
+      "hru": "7942",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP INFRES range overflow for ('H1',): 395986.64936839184",
+      "fingerprint": "91419d14f088b2d831e5b4b137bdc2d349ad4b415c057098d1172d15a43cd04c",
+      "hru": "7943",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('H1',): 169077.3554513715",
+      "fingerprint": "e257da9d0374f9b3c7a335545e48921fe833c6e74da04bdfdbfe6cf6b36583d0",
+      "hru": "7944",
+      "status": "FAIL_CLOSED"
+    },
+    {
+      "error": "SWAP DRARES range overflow for ('H1',): 215016.56254161854",
+      "fingerprint": "cea3b92595b1f05351c4413cda0996f138bd40bc8592b71fce203e58aa2da4dc",
+      "hru": "7945",
+      "status": "FAIL_CLOSED"
+    }
+  ],
+  "schema_version": 1,
+  "status": "QUALIFICATION_FAIL"
+}

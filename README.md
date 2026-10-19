@@ -1,5 +1,7 @@
 # LWKM
 
+Actuele uitvoeringsstand: [hoofdrapport 19 oktober 2026](docs/production/REPORT_20261019.md), [operationele handleiding](docs/production/RUNBOOK_20261019.md), [kwalificatie](docs/production/QUALIFICATION_20261019.md) en [machineleesbaar W00-W14-register](config/governance/lwkm-production-status-20261019.json).
+
 Werkrepository voor de verdere ontwikkeling en kwalificatie van het Landelijk Waterkwaliteitsmodel (LWKM).
 
 ## Huidige prioriteit

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "status": "QUALIFICATION_CANDIDATE_FAIL",
+  "hru_count": 47,
+  "protected_runner_failed_hru": 19,
+  "source_diagnostic_failed_hru": 2,
+  "production_admission": false
+}

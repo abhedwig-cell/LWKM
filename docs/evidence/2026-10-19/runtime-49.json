@@ -1,0 +1,3006 @@
+{
+  "case_count": 49,
+  "production_admitted": false,
+  "cases": [
+    {
+      "run_id": 7866,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.0166953640000429,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7866.bbc": "b83a6b47ca4195e24af79b193975c028e129609d7be266288b5d775e92ceecd3",
+          "7866.dra": "0c3d22000f683e34c90b84eba7ef7e10ceb2c8f2843fe8a329004eee2bf25f64",
+          "7866.met": "c698f01cf339eeb83d4ebf6bf90be7f55eef917fca286d845b8b71942c8cd09d",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "6691ef6893cc60fa2f2c4a04e51b616b25bca52076037265d6e0bccf60324891"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "d198eeac544aa5460bc9fd58dd16b36f77308d45fa841c477e293c84795b0a51",
+          "swap.log": "70fcd9dfa7a350274d7a54276ecc7858c3669ec229ebb99bb7db695310a349fa",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.475487544999851,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7866.bbc": "bf9f08aa1f4cd001523e43fb5534cceb5cf21fa4132e7c359323a66a324441f4",
+          "7866.dra": "0c3d22000f683e34c90b84eba7ef7e10ceb2c8f2843fe8a329004eee2bf25f64",
+          "7866.met": "c698f01cf339eeb83d4ebf6bf90be7f55eef917fca286d845b8b71942c8cd09d",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "e6782e4e5073900328cff70136bf240a1b6da083e42ca34e659217a00edcc11b"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "4ac8915722a4aefd197ab23d4f1c0315ef010f29c3032abba0ed39b933066a15",
+          "swap.log": "4580fac9ecaf063bb29abac3be8e36a4c5be5556f5b4eaaa25c494daa9e9add9",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "b51805aa78f11cacf9f9120ad406ff8ce526592af84f376f6873e987dfc3c0aa"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7867,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.03922061599951121,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7867.bbc": "6799e9fcb082ef842c29733efae0e4964b6960d08fbae2c00a3c4587026d26e7",
+          "7867.dra": "c8915f7db3102a9f4f1e10cbfb60086fb47146db66e9824f55abce91918cb03e",
+          "7867.met": "78e339d53dc397de179a6a1684dd84e46c0c0e5b1513c916b514f960a4933fc1",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "5f511232fba4f42e9f68aa42b04b34680c2cfd309c01772c703db8f3d99efd3d"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "61e23ad2f216a491579b4bf4b8fdbf6659fb24bc4fad109be9e884ce37088b5c",
+          "swap.log": "70fcd9dfa7a350274d7a54276ecc7858c3669ec229ebb99bb7db695310a349fa",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.307548542999939,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7867.bbc": "c504b70beec0620d7908bd7e5a6a714e1d643bfb4700c2710dac2fd9eee7b243",
+          "7867.dra": "c8915f7db3102a9f4f1e10cbfb60086fb47146db66e9824f55abce91918cb03e",
+          "7867.met": "78e339d53dc397de179a6a1684dd84e46c0c0e5b1513c916b514f960a4933fc1",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "33259d5326b3532c0c35fd324893ac6f581ae371a45d0fee3205341b02f6bd10"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "4ac8915722a4aefd197ab23d4f1c0315ef010f29c3032abba0ed39b933066a15",
+          "swap.log": "827267995a08c9cf15e01a6e42aacf40fa6130d03accf2240c4b1453c44ce8b0",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "84098ac40ce5f67bbba59fa0e51a5abfd37c60202be6e11e02ad122bf03bd24d"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7868,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.024626086000353098,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7868.bbc": "d137c4cd356bb6721230ac87dde5bfcd5a219128467c23cba6896d6825f97739",
+          "7868.dra": "f8395fda10e46324acb743e6daef8c74b75a3207f48d242ba0f234b5dfa41b33",
+          "7868.met": "054fc30f8f11e9ffa7148814f6d1d4a306f03938e423b1351e3f6f03513ca25c",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "6bcc63dbe620573127de93e03f50f8eeb830bbb4793988f47aa51066f311f27f"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "505a3bf2e6e4ad9bbca32b50f893d6a973f9939045bbae44ac2d01165a96744f",
+          "swap.log": "70fcd9dfa7a350274d7a54276ecc7858c3669ec229ebb99bb7db695310a349fa",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.394811600999674,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7868.bbc": "b09c04761c216ff0bcaf9c30c16975cbf06245e550896aab1672150f5a487dfd",
+          "7868.dra": "f8395fda10e46324acb743e6daef8c74b75a3207f48d242ba0f234b5dfa41b33",
+          "7868.met": "054fc30f8f11e9ffa7148814f6d1d4a306f03938e423b1351e3f6f03513ca25c",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "1699956e5320253bccccf3d913773c7b5cce23a7686097b5216cdca0eba5fb8f"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "4ac8915722a4aefd197ab23d4f1c0315ef010f29c3032abba0ed39b933066a15",
+          "swap.log": "c6c5ac91c63b0174ffb8cf01440da9bec54b2ab3682301aee24054ef9b54c2e2",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "418a7ac0ce4f6d17b91e5808cf2b0059bef7ca5963dcc3041d70d0b6fd92dd6d"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7869,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.04288532499958819,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7869.bbc": "08171419b5ff9a9c4fb9f1b4209d5e1c08bb27c36c52facfc7e076d64a0a2efb",
+          "7869.dra": "6b2ce2557142312630b0c735d6f9de20f0c1b86a5f2d60422dbe74cac1b01056",
+          "7869.met": "935743590c1845002143a41269a29ee7852c6c613ae8b4b2c51e7e2ba2e069b4",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "79883cf67f1307aabc9ce1d5360d80123a4bc9c08938ce2701e1ad98848a1e9f"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "2bfcbf1e557a285d9eaef74f77702e829aca75b4eea2f8d741315f5cdc0ddc89",
+          "swap.log": "70fcd9dfa7a350274d7a54276ecc7858c3669ec229ebb99bb7db695310a349fa",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.3126798720004444,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7869.bbc": "f09d42087231f8ac187ce0e4e4401c3b706fc93afe1dcba8b6e9b29dab6c62cd",
+          "7869.dra": "6b2ce2557142312630b0c735d6f9de20f0c1b86a5f2d60422dbe74cac1b01056",
+          "7869.met": "935743590c1845002143a41269a29ee7852c6c613ae8b4b2c51e7e2ba2e069b4",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "14eadea68abb9881f86425d471c257d6b18f051600f8e3d54d57c9786840edc9"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "4ac8915722a4aefd197ab23d4f1c0315ef010f29c3032abba0ed39b933066a15",
+          "swap.log": "11a423b19e9f88671d7bffada4a77e996531f6f79f656952d5d00fd3e430acf8",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "cf177fe424f96602a089a4a782f1e4d205356263ec5e96b74c9c3c7ec90b4dbb"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7870,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.02657440300026792,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7870.bbc": "df4f8909e93b8c644cf3d074252d9a4fd0b627b7ae06ebce5ecc8e947788ff86",
+          "7870.dra": "c75261f5a3e687e03e368f50bc57fab8e5b57ebfadb5451976073e520b301299",
+          "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "e7222193aea430ad8fb3a8c61ac78d8cb5b97ac577e74bdb11d346e2355f0baf"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "0a9837bc0c4698ba1e6211349063fc47a305832a65b2db1e0f24f83feef1509b",
+          "swap.log": "2418df91ccc2bb82d09b6f6d605a871e3b06019fcd78f96d06ead049ec16a662",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.144509162999384,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+          "7870.dra": "c75261f5a3e687e03e368f50bc57fab8e5b57ebfadb5451976073e520b301299",
+          "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "4c71cec83dc76daa8a74fe27809cd41179d6abc15d838bcea0dc32a37def6b31"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "79cac4564703fe1c8696e1f274d26f7befcfa2ff3fcb1ea3b16937c0834d6582",
+          "swap.log": "cc1d8bc881e5267c4c7ba5f7744ebc6b48e899921b4b8a572b1d48b602dbd748",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "5a243321431d8c6d6bf2b7fe9b417f4d9aec9117419d687f1f91a4a9244d073b"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7871,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.02151991699975042,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7871.bbc": "34a1b0abd3d083b817eee131d69e36de469d988862c06dd7c7c4dfb6f46c6a34",
+          "7871.dra": "776d172712d21559a076b32c4cb018b9da9a658f7fb58d0b67e511a44853d39a",
+          "7871.met": "07320ae5acd38afbf63e7f69b30be51c90647939db16feb64176f1042fec3eae",
+          "swap.swp": "e8fe658e23476f34cbc06c8f285fc96c3c758a7dee9c9a6fa6b5c23aa96c5dab",
+          "tulp.crp": "82d7670035e08292c9ec05ed52e46ea8ce42fd00e2f707fb2664c90275f03cda"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "132964902d21300ac79038748935eef88ef47ae374c37ebf34a206aaa26b439c",
+          "swap.log": "2418df91ccc2bb82d09b6f6d605a871e3b06019fcd78f96d06ead049ec16a662",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 1.381913187000464,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7871.bbc": "d41c02dfe8d21056ecc1607169bc5c80acbefd9670a0f301bcc582d28cbfeb5a",
+          "7871.dra": "776d172712d21559a076b32c4cb018b9da9a658f7fb58d0b67e511a44853d39a",
+          "7871.met": "07320ae5acd38afbf63e7f69b30be51c90647939db16feb64176f1042fec3eae",
+          "swap.swp": "e250b4b96c8d5f8e65c21c367574045a8d050507d41154241fb221b5921ee56c",
+          "tulp.crp": "82d7670035e08292c9ec05ed52e46ea8ce42fd00e2f707fb2664c90275f03cda"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.err": "528c184c0111e1b81bbbee9a8cf51e322dabbdc9a1bc2add2d0a5d9ff78efcd7",
+          "swap.log": "7118ce672b3e9b9bae46668508488802b58694437809ec6b6cd45c6a0decb941",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0",
+          "result_output.csv": "301f838e030744aa7b57294f34a893e3321a2bbd7bafc00425d89b8ef5ed3356"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7872,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.020411290000993176,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7872.bbc": "6506d6e64eac5f96a51eb9a6aed37ee66c47703ebc0826d11917a982306e5682",
+          "7872.dra": "645ebfec103b8ed90725346c49d1d2c7b282ac43556e2534abf5a08e5498aa45",
+          "7872.met": "8dddc4447f256d13c115cfb670541f0a88c9900f194bb4c9802b7867be31c626",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "13383ffb91974f9f52c88b3dabff153ed5a17128d330b4c4ed4ef227da616cec"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "e6dc9dd764cba4ef1382b16e68ec951dcfd7e7b2e9cd4200bd14eab0ec49d9f8",
+          "swap.log": "2418df91ccc2bb82d09b6f6d605a871e3b06019fcd78f96d06ead049ec16a662",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.351344691000122,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7872.bbc": "87657b0f29bed0a1edf337d47072e1edf0b2f646fde8757d90717d4fc05c80e6",
+          "7872.dra": "645ebfec103b8ed90725346c49d1d2c7b282ac43556e2534abf5a08e5498aa45",
+          "7872.met": "8dddc4447f256d13c115cfb670541f0a88c9900f194bb4c9802b7867be31c626",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "530fd30ee081642acb484fd08dc0e57f2db08c649f448479b91e84972be33f79"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "79cac4564703fe1c8696e1f274d26f7befcfa2ff3fcb1ea3b16937c0834d6582",
+          "swap.log": "e40c11730cb95de82475e272ea67441bc96b5896cb505e591ad84bd26ee1e5c1",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "b45e8f4439411738f55f12ee27fb598650d43167301e387d032edf8592960c99"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7873,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.037583491999612306,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7873.bbc": "75ab4c79203055f2564b850786554c80ab10bcaf1d7ceaace3a7d138c7eb4460",
+          "7873.dra": "1d99153c1d5a8df2329c98f76c2dbc6bb083d01849574a0ef79ee8b29fb78cd5",
+          "7873.met": "c2736b31d080f46302500db383a46d91a5607e57cd00c955d5b95b0495c54c00",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "068f1b0f7648af9a99bc2233092050f97f65766a772fc4ed7c0f05ff793afd28"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "3e62ffc1db77d8e486430eab0329675ed418cdb99f673f0e9154a89bacb3d22e",
+          "swap.log": "2418df91ccc2bb82d09b6f6d605a871e3b06019fcd78f96d06ead049ec16a662",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.4467044610009907,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7873.bbc": "652029775922247226ba2a385f754ec90fe51c33fda584a8608bafe5bc8a20f9",
+          "7873.dra": "1d99153c1d5a8df2329c98f76c2dbc6bb083d01849574a0ef79ee8b29fb78cd5",
+          "7873.met": "c2736b31d080f46302500db383a46d91a5607e57cd00c955d5b95b0495c54c00",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "7a439b9260968d0794d826b4418e0aa3791428b3c33aefcb86943d6fd140deb6"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "79cac4564703fe1c8696e1f274d26f7befcfa2ff3fcb1ea3b16937c0834d6582",
+          "swap.log": "ea0a3957c84154bb9b8b927625081dd90811e929a6a9139306a24950e986c972",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "8ed2c2e367406f027cf9d1b398f24dd73980ea413d5c7b9a1c141a9b7697af61"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7874,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.019706711000253563,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7874.bbc": "c55560af99f4cfe681b95ac8744a525d4580713d4209fc464a222ac529303158",
+          "7874.dra": "bf729729fcc760b0f737d701b4b50f8f8443730f49c5f298ee56134bdddfabbc",
+          "7874.met": "0ff540a4f2e8457fd6b7733c6e30f3364dc193ddeb98eb060bc2a99d694d286b",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "d82c31dff22db6f0b4482d262eb6464ad7f8bb5bb3d4a48021ba440f3e51b25c"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "d04900e84509511ffc665833688050ca927ae3cf6f428ead5f58b227b3dcd91d",
+          "swap.log": "e2139f507cdc2263162b7fba82e5f1c769ac89150ac0668b85126f6780b9f32e",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.074098297000091,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7874.bbc": "5586f61fd08bc23f61fa97d0e99826455de7f2274abfec8ec92d2e6c44a2b49c",
+          "7874.dra": "bf729729fcc760b0f737d701b4b50f8f8443730f49c5f298ee56134bdddfabbc",
+          "7874.met": "0ff540a4f2e8457fd6b7733c6e30f3364dc193ddeb98eb060bc2a99d694d286b",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "e3b6d9ac0bff909f3e0367b9446c2e0c5af64190bc0f84a224fcd71436d29748"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "9a4d585ca43801f2b96e77ad76b2bfbab2192108128fd113d2bed18f2c3583e8",
+          "swap.log": "df2fa6d991e1e9081c8906f65bb43da57373b939debf7869933185922cbe56c5",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "6ed9c90d045862a1bf084619547c28ea4115ee5c3deee6fac6cc0efa5abaafef"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7875,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.014802178999161697,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7875.bbc": "df1a31e31a443895ef0f34114381fa4fa717f54e0f1a429cca44b8232fc8939d",
+          "7875.dra": "94afd35fb959f3823a0a3a20473dd81db7ed611927f8c68103f57b178f1acfcc",
+          "7875.met": "0409522a532e0e875767b17a6736589c0a27fa2dbcb0923707f283345df82f07",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "1ae5206f323325a78036ea410c268c4a97284a9645cf1a1901d7038dcf936467"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "1ac67802c61ed030735a9329bf70f5f7dd3e690fe9ed61810168c6cfe32d1cb1",
+          "swap.log": "e9462c7656abee859ac40e8b4a2bb12cf6f3a37d0d0dc8dbc242cd2302949f28",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 7.91451442700054,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7875.bbc": "4b7ac7f515d01b8c6f7d5fcbeabda3908fdca34179c2b94ffb8217c1cad5e0e8",
+          "7875.dra": "94afd35fb959f3823a0a3a20473dd81db7ed611927f8c68103f57b178f1acfcc",
+          "7875.met": "0409522a532e0e875767b17a6736589c0a27fa2dbcb0923707f283345df82f07",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "a17ec998acbc1655ba36b77e8172619fe30f53d209776794566fcc69009027f4"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "f64ee69864e5c3442cf47a1db782e61f0ea0a130e7f9dcdede66313db56075cc",
+          "swap.log": "a5a8163a0982c318b152bcc59d29715edff762f09d7e5086b5551f4cb40c771f",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "5f56037d8c9c5d516a23cf9b07c4cbc51a7b853f33e52108121723f2d1c95592"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7876,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.027143457999045495,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7876.bbc": "f84e832d759423912f3bf522772d12c5a2b503993a3735ae547f2544325cec8f",
+          "7876.dra": "9a260b2b1e2c1c183802c273b1f57a0720090a578130260237ee44f10102a00b",
+          "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "a713de6a8be4876acac9a539d131aceb5c88b120ebb936a1aba7c04a1ac3835d"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "a2ed55d997e71e66f5509066ba51d6da71d2b644e5710826c8c317e77570a27a",
+          "swap.log": "e9462c7656abee859ac40e8b4a2bb12cf6f3a37d0d0dc8dbc242cd2302949f28",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.8585326390002592,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+          "7876.dra": "9a260b2b1e2c1c183802c273b1f57a0720090a578130260237ee44f10102a00b",
+          "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "5aeb15b40c3f03daf6a6b7dbe7b6659d4c6260b671ba8d98f42bfca9eadc6d08"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "82a7152990f45c0f156f0f53d9917911d86fd77c745b51ecfe2cbe2313595812",
+          "swap.log": "a66de7e75a250b6df55df96cd6c0dfe2674ee4d1d71a0b253a2ce0335731bb12",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "75bda490ef004e44dc28f9b1060bbd4d295fda92328bee7473af5079e2df3657"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7877,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.013724376000027405,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7877.bbc": "f8fa0aec43d5ece595b755a1ba78efa975bd46ede26c40cbc7487a51922600a8",
+          "7877.dra": "4c769dfc94d45d9f27aa4a93c850196689c598e71a17d5140e16fbb5fdf419b0",
+          "7877.met": "02530fa1b2453ec3dc7d19fa86d751d49de3e5d46a025ed5f77e4682d24ac655",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "692230240a29cd8da9a1670d74ccb7e7bcbaddb80a44bcf7f9623f186dac063e"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "da03baf0aa7e5d64a57ad05e3d3edce4e28daaf70b3d5f1b346b052e00d0a24e",
+          "swap.log": "e9462c7656abee859ac40e8b4a2bb12cf6f3a37d0d0dc8dbc242cd2302949f28",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 5.459389552001085,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7877.bbc": "bde6deddfe4a68bb445146c02063d8243383d9c2f868425b438161b13e77d5ba",
+          "7877.dra": "4c769dfc94d45d9f27aa4a93c850196689c598e71a17d5140e16fbb5fdf419b0",
+          "7877.met": "02530fa1b2453ec3dc7d19fa86d751d49de3e5d46a025ed5f77e4682d24ac655",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "45f5d4abfc7c385ab14a4f198e2f292f92780b1d09e4be3b3cf652b0c75a6f8f"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "bfa1212c775781dd7cc2dc9c380f3257a97a3ae85b9daf054b4db493fe1c003d",
+          "swap.log": "f10a4d7af9b93433ef89067b7c732182347d4241862856e41301ca973fd39794",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "731be5789323339934d2ec3fd269cd0cb0aceca0043e69ca667e7adb3669d92b"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7909,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.027005076999557787,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7909.bbc": "7bc450b6be81fc4abc695ce81ee4fe7f8d5dde783c53f2f2c6a0360af4ff0b97",
+          "7909.dra": "f35173602fc0df134eb978c847943689be6ece575703f12fb669c576e5455228",
+          "7909.met": "f2eb0b70184f45ff579b383d9fd4c7b59108f76cc6a8a51c09d9861aa90dbfa7",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "ffb19939685713e31cef2bd71cea216a1fea424adafe8ac6925b7bae8af3238a",
+          "swap.swp": "524e3ba737ae6fecdc9eb1751e55350a26b5196797a440636cc0defa6e11eda5"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "f2a25ef8381b995d2e2daf38bb2e7d6d27f6357b73bf5f191a5e71b436572eb0",
+          "swap.log": "f94620f7b3ca196cdf8e8de277001019b999f143bcd2be038c1e5183f2f9edc9",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.24139336599910166,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7909.bbc": "dc58fb2964df4c5ca335543fd38dfa1bee36dc2fea211a4b3bde3fb2b9058313",
+          "7909.dra": "f35173602fc0df134eb978c847943689be6ece575703f12fb669c576e5455228",
+          "7909.met": "f2eb0b70184f45ff579b383d9fd4c7b59108f76cc6a8a51c09d9861aa90dbfa7",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "ffb19939685713e31cef2bd71cea216a1fea424adafe8ac6925b7bae8af3238a",
+          "swap.swp": "4d6c13d15ca7831ff99ab3a4ba8bbab3ac624fe4586cd16dfa4389529fea2f49"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.err": "c4368f767f673b01293e2ccc1e5282557635e6dd008b02c0c390d8a9ad33ad5c",
+          "swap.log": "c0f49527ed5bdc344a01d92d213eea41c6c7bb9d280393540111332cf8a9d0bd",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0",
+          "result_output.csv": "b574b3feecaa3ac759040708830bce84007866a831c2c72593e97f075c44aa4a"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7910,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.02835027800028911,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7910.bbc": "6093f3b39b08f24f5cd8213e57f5f4596e045ff8dd5b9fff48c9f46f386a71d0",
+          "7910.dra": "effbbad5886b7d63f71797c718baf2f6fee122415d8e6b7dc416009978c3cd24",
+          "7910.met": "34cad3d16035eed31f4ab48e0acae4da179e6892d3bf26e90efedcb7eb354ff3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "ffb19939685713e31cef2bd71cea216a1fea424adafe8ac6925b7bae8af3238a",
+          "swap.swp": "893865ca274e7074e423a708882d270c456eab9f226cc4eae81ec016f3d63b7b"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "9243d39fb1e6fd6c75bf4c5e75622b4c9c5adccced49b252f6af428f71fcecf1",
+          "swap.log": "f94620f7b3ca196cdf8e8de277001019b999f143bcd2be038c1e5183f2f9edc9",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.17025102299885475,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7910.bbc": "13e73e382bf6966fe91bb1b1e7bcab8875d1e9a1ef52f3f13d1b4a8bdb77ee5f",
+          "7910.dra": "effbbad5886b7d63f71797c718baf2f6fee122415d8e6b7dc416009978c3cd24",
+          "7910.met": "34cad3d16035eed31f4ab48e0acae4da179e6892d3bf26e90efedcb7eb354ff3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "ffb19939685713e31cef2bd71cea216a1fea424adafe8ac6925b7bae8af3238a",
+          "swap.swp": "048027b0ddb5433db562ddff3041b55a34dccd2347edb4751435922cc45a2e67"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.err": "130b38d56acc3b464812143487da87a3783d490cb5884efac7abf34fb6116fd5",
+          "swap.log": "c0f49527ed5bdc344a01d92d213eea41c6c7bb9d280393540111332cf8a9d0bd",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0",
+          "result_output.csv": "3d3a46b4b1aeead43ea625bf1e4f0a8d7c06772666a380efc95db4b0ce73b30e"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7911,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.014779155000724131,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7911.bbc": "782fcf8f0609f9ef3ba0829496355e455cd0000b92f6fd676ae01b48a171f040",
+          "7911.dra": "2f4c12e1b5f09684e00ffa2b74151e79fa23e5eb9fd8fc0f267c0a0c2d8db4e6",
+          "7911.met": "64f9518400d2e3cbfb0b4ba3b17108953811a46fc80f5414ec72bfdbc78dfa4f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "ffb19939685713e31cef2bd71cea216a1fea424adafe8ac6925b7bae8af3238a",
+          "swap.swp": "0401de14097eff87cd2950b14b48dbc0fe737e9a9018ab648a14029bffb64b36"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "a6264fb4cb3f7d9687d112869675d9a92a180b8ebf6362b86b156cdd16d78a48",
+          "swap.log": "778ba20601a4b7d73e9dc0634a9a07d86df007798c4132265ca55d4dd9b87caf",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.1651152459999139,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7911.bbc": "35f0f9b3699a2c9f4f5670064811d398b0493fd6701956d998947d453798fadf",
+          "7911.dra": "2f4c12e1b5f09684e00ffa2b74151e79fa23e5eb9fd8fc0f267c0a0c2d8db4e6",
+          "7911.met": "64f9518400d2e3cbfb0b4ba3b17108953811a46fc80f5414ec72bfdbc78dfa4f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "ffb19939685713e31cef2bd71cea216a1fea424adafe8ac6925b7bae8af3238a",
+          "swap.swp": "b5a6e6b9b01bc43a9283dae59ec74ba4c0d881301066bc3dc023bb4155b676f0"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.err": "a328dba477d61bbf8780d5e852877b5fbd564c9e78dc42df25bac33cfc2d14af",
+          "swap.log": "a1f96eec360bdaea9aac53d28cb4b486980d2cbd15d65a2054206cc5732fa8f9",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0",
+          "result_output.csv": "159f6ece353da59fa406f255f14eac82cadc7a57e3c1588f4a677a4fd289ce84"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7912,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.013063112000963883,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7912.bbc": "e0b0b885acaa794ae3eb1a99f10639a01e389b1928bc3bc0e5f476dde82412a4",
+          "7912.dra": "3f099b2951c942b9d539d9fef467434b7b075de10a321b87442496d1e5a02cdb",
+          "7912.met": "b9096b6454e49e21f47e34620d5ccfd551463f936184c713063d21d3ce9159e2",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "6314a78e6b3fde1c5641c1f3357dc4ca8b8d214edc1d5ccadfe5fb3e4c2c1bf0"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "86b2266a75abd713a73d915fbbd56fa79e172ead07b6bfd769c988556d6d0dfb",
+          "swap.log": "778ba20601a4b7d73e9dc0634a9a07d86df007798c4132265ca55d4dd9b87caf",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 6.930658552999375,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7912.bbc": "7bb5bd96d9471b90d3d7baf0e835b3c6326e4de695739e59c443694c79d3143e",
+          "7912.dra": "3f099b2951c942b9d539d9fef467434b7b075de10a321b87442496d1e5a02cdb",
+          "7912.met": "b9096b6454e49e21f47e34620d5ccfd551463f936184c713063d21d3ce9159e2",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "fdd8dcfb34154a635d05cf3a185ff1a64c9887c21888c16538c8a9daacb4cdc0"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "3ae24d2603a4d0d690738695c042b438b3d8780a4da625cdd30359f0a18ed8d3",
+          "swap.log": "f17998cfee516259b0562ef2f8bdc28f725fce888c59b2e58e5ae7c44d39f018",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "ba48629c2498701dcd03867f8bf08ec21ecfef4704e18f8856e946ccb1755d2f"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7913,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.01367101600044407,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7913.bbc": "6da06b98159b535d66c0cea3b43c3ed917ad0163071dfa8905cfeb792896334b",
+          "7913.dra": "9faae92715bd26a3c87dfbea4c709b07ff9432b99f00440b2f30023ca5a75e0e",
+          "7913.met": "4cede999cd06d9c80c1d3a0b98e96cac5c756b4435490b8bf939d1c540f67892",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "3caf5b89c15ab52bb48561c91333da0cd656d96352248ffaba8070912a59101d"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "b8a2f9924396b4508e6c25e23257da91393dc2c0babeea23c9aadaae36d1be01",
+          "swap.log": "778ba20601a4b7d73e9dc0634a9a07d86df007798c4132265ca55d4dd9b87caf",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 6.04850327800159,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7913.bbc": "bf595e1c9121fd00832bbd2ca2d46f15c48319f7b7da7382323b059259aa8602",
+          "7913.dra": "9faae92715bd26a3c87dfbea4c709b07ff9432b99f00440b2f30023ca5a75e0e",
+          "7913.met": "4cede999cd06d9c80c1d3a0b98e96cac5c756b4435490b8bf939d1c540f67892",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "2ead6a1930d95bd2dc7395e92f0870173d736105c6a63ffb2f5a7cfabb50b965"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "ad931bd97d011ec1f43ce5d25f0658d4abdcad3b1adf5b37513f0b7378c066a4",
+          "swap.log": "a825a959977134e7b51fc0739aa11e1518e816a34c24cb2f36dc5dcbc65e5597",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "1fa855e29b7edcf545322e71733fc54fd3902cdda235058df3843d2f1972f743"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7914,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.040781681000225944,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7914.bbc": "8f5163dfc70b755d8b98dc2b66166f7c8db0261d0376bf24f1832a8f5fc065c3",
+          "7914.dra": "55b21fdb35f30a076ade93ef51cdc565973797b09401ea4e0447431d6b5ecb64",
+          "7914.met": "4e7ed9a549f6e5d00b0fcffc4e4327f4cec154aa5e695bcda5dddf42f2716791",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "a3f04a67b6c203e75ce9e2dcc9062ef2de2145ba7f83f04c577a0d13f07e6343"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "1b59d5ebc501270bf9ecd2b0af48bdabeabebfae15d96a218e8b640a1930f768",
+          "swap.log": "3309d4b883a7b9acde3b939614716046f0e504cb93a435345babe83fe1081667",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 5.466076439000972,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7914.bbc": "5257e814310871c5b476fc32b3ecfea59ca8b64183f8527a57cfed5fa6e5b1df",
+          "7914.dra": "55b21fdb35f30a076ade93ef51cdc565973797b09401ea4e0447431d6b5ecb64",
+          "7914.met": "4e7ed9a549f6e5d00b0fcffc4e4327f4cec154aa5e695bcda5dddf42f2716791",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "c3b092fe6aa261d3abe73c83a6f609d75127b905d05f261d82f859955af7bc68"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "3ae24d2603a4d0d690738695c042b438b3d8780a4da625cdd30359f0a18ed8d3",
+          "swap.log": "b3a0f81cc66ca969d279769d1ffc0aaa54acd50caca9e9ab40704158d98949cd",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "2826a090d1aa19e080ee129bcec3ad5724333dac4b6383e33670acb0803c26c1"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7915,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.014429033999476815,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7915.bbc": "ff947bbcbccb26a7a986ee262589e88588a5c8c9d220c5fac9b2264f3ca2ae0a",
+          "7915.dra": "78133059aae3aba1ac6aeaa78fa9782f34700feef0a1a73e4bd787dbd0f5b96d",
+          "7915.met": "4248376dd099ea59d69151d20b853610d24bed80e9aa7210e36afe47940d207e",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "35ca3fdc8176047a662e9757775ad1fb976ac6739ffbed50eef22a43c1f44542"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "904cf15d149e9e20c3843f6bf69e0154cfd1c8800bfea1023974cffc12b81319",
+          "swap.log": "932e934f6b37eebf1528f17fe90844a28c704e833030765212ca05cbb9a61147",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.7998728020011185,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7915.bbc": "0c2eceecc56e5971d911be3630e923adfb3e67a28069bf15fc89098c9ab07de8",
+          "7915.dra": "78133059aae3aba1ac6aeaa78fa9782f34700feef0a1a73e4bd787dbd0f5b96d",
+          "7915.met": "4248376dd099ea59d69151d20b853610d24bed80e9aa7210e36afe47940d207e",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "dca86b00f0fdd85fe1df48f1fb175de6a731f6869c90d1a9cbc28ad13b8fe3ee"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "8c83748a8feb80b07aca8c8bce82d567236efb05af6f08c38dfc8837404920c1",
+          "swap.log": "f973537c68ffac111c629df2ca1a7f7326c174da3a27a93f062026053af0acbe",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "ffdb6ce7e014330c6468a5c93b4daf0f8556a7baad4927692974c7d08f949292"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7916,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.0162245890005579,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7916.bbc": "c0b9d5e13feb9729c79f01992189099a23cd5a30a9540d469e5bf9653100e0f0",
+          "7916.dra": "39721b2aff1a3910677d3880ab3fb7afe8031b9f699a52b99e735508bb289502",
+          "7916.met": "b6fdeafa2c93817a22961cb945672d71f27c85d34c070cfe5e312907cfee43ff",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "d5853dad29cc60e375d5c68543d652493926336da3f2beefce887bf3eb28551d"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "655816a36d3d8b70da81de18f9d313fc8fb81a3271222f125ae06a505bae8a98",
+          "swap.log": "7bc2a381a001bf89bc3c03138925e19007ab57198a942c0af150c2f02c36e491",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.2450269979999575,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7916.bbc": "37b62318b078d4c99d5212b0ac647eaabad1ff949f64d213d15daeb837a8ba23",
+          "7916.dra": "39721b2aff1a3910677d3880ab3fb7afe8031b9f699a52b99e735508bb289502",
+          "7916.met": "b6fdeafa2c93817a22961cb945672d71f27c85d34c070cfe5e312907cfee43ff",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "a767030e4597856122d48291cc2ae075248cb209df252688b51ab12fdc86b31f"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "e3e2c98b09105ecad73483a04c1d5fd717fd2a36298a8cb2eaac7ea113b496a9",
+          "swap.log": "641eb8282148f960dcf21fe15a39277ee0e97c0019a19fc2525ad272159b68e1",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "31bdfa1b9618c444b098263e15003c5dae35e90b86eb4c801aff72a87987bfe5"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7917,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.030638349999208003,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7917.bbc": "cf6eec4660e92532429e4b250b247c6f3e50de906284ab1919500e813b0fa097",
+          "7917.dra": "7195d2bfee277e66a48ec21d826f5ac20a23d0c3372c4b3d4e95dc476ac21c20",
+          "7917.met": "dd35031317cbfb10eafacb900f21a228ea5b9869886770611b55264f64990774",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "41793ef7206be5c0705c72801ed195566375a1ec922a20e157f314caf57f0d89"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "0e599db86b79183632347c5f5a9e686c462c8c3534e0cf9655f1d3cb626d76d5",
+          "swap.log": "00f0771a099b3696ad93e1a907ba439265529df3e3d2a629a7d61c38809e5073",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.025987508999606,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7917.bbc": "f762c0f826c92cd650be8c21696b898e6bc49cd8ed42624a10742791f50bb4f5",
+          "7917.dra": "7195d2bfee277e66a48ec21d826f5ac20a23d0c3372c4b3d4e95dc476ac21c20",
+          "7917.met": "dd35031317cbfb10eafacb900f21a228ea5b9869886770611b55264f64990774",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "5a838cad96ac561d0af002c19c1ad5e873699313461f62ab9a4c1ff5c485f7a8"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "c03e1e5e5a746624855ceb798f3d12acf3577c894bece285cd998826b53d574d",
+          "swap.log": "d0257c3cce6c8c8a62523e31761cd79f2e7318976e2b3627dabd4674f2d7cb2c",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "c34673fa5c5fbbbb8ff949f32364026bf4566dc19ecdd289601667c9dbdbe5d0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7918,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.022015109001586097,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7918.bbc": "8526b8dee4b487560bcbaccf292fc645f9813dd44e2d1aac6de65da3efceb474",
+          "7918.dra": "b13159dd33c1059383b3a578f33484abcdad94033c9f59be428b0345bb51cf2c",
+          "7918.met": "e3785077f6e7948ec751138274d683acad0746c31dd3b49c6e8883d9ba08b5cb",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "cdba5e350c8134a1ff3228ed893f10f9a5eea8b3b9e2c5b0b383770a14e89140"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "c9e6fbd148ba4f40f1bbc42e735931950d5e19b8e6cdc1d19820ff6b8b58ce75",
+          "swap.log": "06900d561a15e5d21736f48296e6d0691bc987f9472c47486d2c20cd4e40ce76",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.255249259998891,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7918.bbc": "0417de1af15fc998bc4e001c8d2ada4bf950971313db0a33f2e2b16c65a19726",
+          "7918.dra": "b13159dd33c1059383b3a578f33484abcdad94033c9f59be428b0345bb51cf2c",
+          "7918.met": "e3785077f6e7948ec751138274d683acad0746c31dd3b49c6e8883d9ba08b5cb",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "9840bd779dd4008c82bb7438b9ff8bee8c81ad8889319264f35fae5f7230e8f8"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "33bdf8a70329b2eea5d2b95147d262c6af5386a0e78543f637ab7cb63cf6997c",
+          "swap.log": "09ceb6c1c979cda30e7cc8e0aea992e271f5afd26acea62fcd052abd659fcba8",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "b02df3fe97b8ed7d9c048e56f30e4a881ab59652515594f20740010e5929f7eb"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7919,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.01530361500044819,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7919.bbc": "78871e45f783031ca9da00029eb52cda6b7e7ece40b8d27053692684b3139252",
+          "7919.dra": "4ff61ddd4f373a2a2ef34c728adf179d4fe703853a57f5bdb18f0f70d1e87591",
+          "7919.met": "8b58c727779c944bb52dac0d46dcc17f41671bb7475a070fcfd9bd7ec2188311",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "94a681fb0ece22b4d6accf5c62b58599892e9ec27a2433b77a39b2ec8112703d"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "7b8400732cfec3f20a088af87db4abce83697f8d1a3d9cbb129c39558dde5cf8",
+          "swap.log": "77a6981d2fcec5d34cea4822a201a7d7736fa07e9325b6194dd59493d0e9fb7b",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.37387610100086,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7919.bbc": "30eb2fe55699bb07bb0bb56450ee6e21ef25b4c0158c9ef5dade23d5bd1b94eb",
+          "7919.dra": "4ff61ddd4f373a2a2ef34c728adf179d4fe703853a57f5bdb18f0f70d1e87591",
+          "7919.met": "8b58c727779c944bb52dac0d46dcc17f41671bb7475a070fcfd9bd7ec2188311",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "e7276a5345dc2b4b7fc35762a835dbb8a48beb27e19eb6a665d240064b736e9a"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "b25a8538dfa5d5fe763ec1e9e03e97570ee785b0a8771258e62c4282d121b5e1",
+          "swap.log": "3ed7678b3487e2539fc988f0aa93105834f1c4d59399d33906d42e0137fb277a",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "3414af591a13cf46d4307ef928f6a754078d07cd860f06fc860216294bcc2cae"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7920,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.014043880999452085,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7920.bbc": "076b7626ae9f18ea29edbc8c5204e1f2b75023fc88dc42070efac0cf33abd801",
+          "7920.dra": "2e3bece5f30ba9dc6114884145ca54809611495e7479000914b0d4c290f65f70",
+          "7920.met": "ca3f3bb1e36abf5a7d1b79564d7c4398d2190b48958c5b6a74988d2764696290",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "bcc22a02121b8c7b8f643aa927089780684361f9b9689e8aa04397dbd9837fa5"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "27eb4ff4c08460d48c53e04e8e9480a3d42f0db1d0db7b71608db5d1faa5df5a",
+          "swap.log": "764dbc6b1a69cfa705a9b58ed67e85d4d7672f127eb20dc06fec77b00da36a24",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.2112803229993006,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7920.bbc": "cc3848b85eb1fec58897faf0bdea02b9afc0a8b0c186a5f424f99c2d326122e7",
+          "7920.dra": "2e3bece5f30ba9dc6114884145ca54809611495e7479000914b0d4c290f65f70",
+          "7920.met": "ca3f3bb1e36abf5a7d1b79564d7c4398d2190b48958c5b6a74988d2764696290",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "503304f081d852f1bbb880716e9653f35c2dc16e8b73a87cd87b56166dbb5c76"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "beedfe63aa8e15887755799da9058c4612ed00200dfe7f176969f9a7877fa270",
+          "swap.log": "856f0292e666b32e2cd2c67c775b03c2f0a4b7696f6ec0c0e8ffbd525b86b1a6",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "0070548857b62e65992d0551997bc11e908d754c7a2469ada01f24fe310ef58d"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7921,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.01666563899925677,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7921.bbc": "aa5b7bb46dd723c6d0ea600d809956134373bf75bb94adaa6426a6c0a624e279",
+          "7921.dra": "cb0a8aab5b0ba71b5984a16054a61f2bcc4537a3e9db3cf2b15f22646ec168c7",
+          "7921.met": "55122106b646abc120316b85e0241d596de1092cf59176fe5479da305d1f0273",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "744212d00bcb64a727939866e65ff7592320d7537b3197c42b81d26e6ad322d1",
+          "vanggewas.crp": "fe10e9297d9bd7fc61e5f2a6e21f1ce1d5ba9991f1266630565a17f5ca992be6"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "4d72f2e53156b955444ef13015fb7c8601e3a1f98be56c201c768af68acbcccb",
+          "swap.log": "e77695a20ab6e63873460be4f3769e1b200a23080163d8cd4959e573a52a8737",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.6598353810004483,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7921.bbc": "666ee5d595d57e70c2c3bbaaf78bceaaab7e5c98d2836b8d53e63519d8e75550",
+          "7921.dra": "cb0a8aab5b0ba71b5984a16054a61f2bcc4537a3e9db3cf2b15f22646ec168c7",
+          "7921.met": "55122106b646abc120316b85e0241d596de1092cf59176fe5479da305d1f0273",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "cf41e433c17b7744575de7537eade621bfca6776766397f325f41ad55b8b42af",
+          "vanggewas.crp": "fe10e9297d9bd7fc61e5f2a6e21f1ce1d5ba9991f1266630565a17f5ca992be6"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "7ce9f349f8303a8931aceb794359066dfc685fd8116b5bc76758978c4c65bcb7",
+          "swap.log": "042c04a09c9bce7343596f588027ca81456802e4a8e7201b37fb38ff2e6b0e18",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "7e2db5b4d4edabf64343b1beb7513549143846d7fc7f48d79c6a456b8040f9bb"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7922,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.01472653599921614,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7922.bbc": "64a03a78debdaa4dc9576cc4c2cf8ed541a1a0157f6b55fe261723ac305ce24f",
+          "7922.dra": "a03092ef4ec0bce4c4467d48854e1624ef55ecaaafb4b290c72a5b99c13df622",
+          "7922.met": "aaf75ba317e6d5c454db71e0211d6dbc2505cc01b666ff4625754c56a659a80f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "ab6a43fd1677b54e6b9046375f0005e8aaf9717a1acdc4eccc39b531a500e418",
+          "vanggewas.crp": "fe10e9297d9bd7fc61e5f2a6e21f1ce1d5ba9991f1266630565a17f5ca992be6"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "87636a748be231fba3dec0710fd308b87d841e6f3c7b1869b3c21982770af94e",
+          "swap.log": "79399f46f677c153563172d3825826244de505cda82fa0c4240fea77fffe2a19",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.689458356999239,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7922.bbc": "2872d62cb47c7e2184c277eba838958df6111dc2e0bb674521e2ae763dbefdd3",
+          "7922.dra": "a03092ef4ec0bce4c4467d48854e1624ef55ecaaafb4b290c72a5b99c13df622",
+          "7922.met": "aaf75ba317e6d5c454db71e0211d6dbc2505cc01b666ff4625754c56a659a80f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "b0e5d6395dbb56e55a8051cb8f109c84e1a725b706e494ad1ceca32a32ee4644",
+          "vanggewas.crp": "fe10e9297d9bd7fc61e5f2a6e21f1ce1d5ba9991f1266630565a17f5ca992be6"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "a3e1e9584295f278bab3281d0970975a1a14e3afd81e5bec0fae2e28060a594d",
+          "swap.log": "a0bb58cf513acc78a6cf6a0950c384abe00b7d8a1ade07aeb54f06183f0c82d3",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "b464ac406a4111fecc7b47cf11bf6f68c27b0589cae4fb04a52d56b17293a64b"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7923,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.021903517999817268,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7923.bbc": "bf57ef0c270928147c5b62de4606df363409fdbd4d17cf52a444c159b49a1ca6",
+          "7923.dra": "50c8719f5f74077c02865d3eeec9e9bfc401fe0fcc49a9f3a74f4f6c807a3acc",
+          "7923.met": "275c78c5b2d01d99a7eee1d0911d794ad2fb6df8bb4a50ed562b978a3521a602",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "342270794d07ecd02ba904481e2331bf5bdda935812dff6d400e7804e20ff477",
+          "vanggewas.crp": "fe10e9297d9bd7fc61e5f2a6e21f1ce1d5ba9991f1266630565a17f5ca992be6"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "e6f46e30798e9c18cb31ab0856aacd3ead95b3e6f600458487e3266f0387c346",
+          "swap.log": "bddcae8b0ea76c36385b9c1876929309e8aac8192e8441b252676657da45a4ab",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.6232310220002546,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7923.bbc": "0ac2d0e7412af9d5294d78ce60ffee7b7d633bd383ac65c7aeda0af88ae3fe26",
+          "7923.dra": "50c8719f5f74077c02865d3eeec9e9bfc401fe0fcc49a9f3a74f4f6c807a3acc",
+          "7923.met": "275c78c5b2d01d99a7eee1d0911d794ad2fb6df8bb4a50ed562b978a3521a602",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "6312a9b3f47affc76c563cb948ee653c64a3ee1048d4493c3ba90356aa9de488",
+          "vanggewas.crp": "fe10e9297d9bd7fc61e5f2a6e21f1ce1d5ba9991f1266630565a17f5ca992be6"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "e67a904641df1d8cb626ef20eb392565ce71bbd8a4e23c442a53b32cd7c630e6",
+          "swap.log": "401df861f7f41416c8aa239cdd002769f3414b440c96478a1c4d6de10f5ad747",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "f2086357325bf7cbde786de5d7215c282adb04279e280db7d2d5a1b5b840e136"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7924,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.020063500998730888,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7924.bbc": "dbb5b8e6eb38dfb4f320754394c151cb4a166257d85bc40a6025adf543d6e754",
+          "7924.dra": "edfa0f1c9dbf02177ff3803765eded4c64ce055041e3878d38e804d4317fa924",
+          "7924.met": "c43eae23eb0700c341038ecc0ef2287deee0de486b3d40959c5eabeaa17e49a5",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "f4ad5cda6a8f0cbd4286ad6e2bb6311bef59412129aecc48da701e1195735e77"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "f81d95e66962a9cf0f8e2bd7163519204b28f97f11712a92bde45b5cc9bdf5ab",
+          "swap.log": "b27502f867dbacbe266a93187e228a440c84ad149f0f62e5f254caa222e81b6a",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.8397507660010888,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7924.bbc": "fda2ef555d9016a05de47f5ae9f81e80c9ff49f4ce88188bb2ebc721b807e936",
+          "7924.dra": "edfa0f1c9dbf02177ff3803765eded4c64ce055041e3878d38e804d4317fa924",
+          "7924.met": "c43eae23eb0700c341038ecc0ef2287deee0de486b3d40959c5eabeaa17e49a5",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "ec75619488480df8ae9b70d4ed389fff90783f6c858f459906ea096b8f8a04d6"
+        },
+        "output_sha256": {
+          "swap.wrn": "edb80c3b9ea40963c0dcae7cba50ff12adce3c53d9854d4043181483d04d8656",
+          "swap.ok": "e67a904641df1d8cb626ef20eb392565ce71bbd8a4e23c442a53b32cd7c630e6",
+          "swap.log": "ca0ed3e27de677fa03a46acb8e020b42302ae6cf1993c10ea1960ac0ebac6f18",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "a28db28e48b4e71622258d8120db43a2b1082d7731d7ee0ed72fa092ee9f3d6e"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7925,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.011882888000400271,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7925.bbc": "ad89731dae5f95a57b47e2d0cebfdec726cfca1fffb0a63c187f805665a9f466",
+          "7925.dra": "828a2f521c5a4322ddf47570556ce315c94c0a65e7e012ec3ce9adcf27fb4046",
+          "7925.met": "f57c7161ba303de34bb433f79d2621982d848de89b2fc71274cee42499fa49b9",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "d20ee2dbb4c7ba8e310b26de2e28409278aaf384596a5792d455ab805ba4a736"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "67ef333eb360e3d2b576d51aeca7d24b451bfbdcbfe8aa92d02e2b0ed3b2d9d4",
+          "swap.log": "c90d5f5d2f8fda76859721b25d6f2861d00570f3050bcc84395acd550b1a2647",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.433772925000085,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7925.bbc": "165f6390c684e11301bfc95a63f879fae4f1b93d16b8edf877688f687e2b5c83",
+          "7925.dra": "828a2f521c5a4322ddf47570556ce315c94c0a65e7e012ec3ce9adcf27fb4046",
+          "7925.met": "f57c7161ba303de34bb433f79d2621982d848de89b2fc71274cee42499fa49b9",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "0d2f4609798ae25b222ad2aaf77dcdc15dd64524d77c275126629e03f8496132"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "830da18084e0e1f57a8a471532be180b2877dbbb0c5fcca93c48d2092bec7ef0",
+          "swap.log": "372a1ec1b2e9b5670669e959117cf3aaeb5ea717fa6a2176fd450c08d73246ad",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "439166a2b4721e4420b3baae3eff88d4afa14a75c0a25947d09c37565309dfd1"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7926,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.01259715500054881,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7926.bbc": "1eb1d75611577eaa91070ed2cea747dfdece69ecb6f20df5a70ee89a56be6876",
+          "7926.dra": "094fca1159dd8b3b6637081670234a75c17aff393c9a721230eb29fe6d46bef9",
+          "7926.met": "9a2db44f2c2c1dcfe1df95e066275fd47f6d7bdde5ce40f212660ae927a4d8d7",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "50ab9b6a5a0a673f73643fe73015e51fd720e14f14cba65edda0a405bf00645f"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "98dbc51232ee4be4c976851ac8c2dd07c1d4693845d01c7aabb98bd6e0d7541c",
+          "swap.log": "0007b336d0ce553ab08a0bd7cbd52ded6890a00b76e05cca779409fed4c94ad5",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.990892931999042,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7926.bbc": "7b450e87dd52df3f98ed73757788426766807cf2347545fc09d7d55e579e97ae",
+          "7926.dra": "094fca1159dd8b3b6637081670234a75c17aff393c9a721230eb29fe6d46bef9",
+          "7926.met": "9a2db44f2c2c1dcfe1df95e066275fd47f6d7bdde5ce40f212660ae927a4d8d7",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "7a15c4fee3cb21c420917cff3ee72d28ccb8bada64e2540fb5321fffd7128fb2"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "e6fb4da25f101bb984fca3fd501ed0109b01a418c975aafd284324ddf8d3850b",
+          "swap.log": "5fc67b276af1e9cf52629e6b4f10abc9d6d69f1d139b2d77e06ce966679e11a9",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "50de9d91663bd08427de8dcfce1c4ebd40a85b1df61f912289be5d2dbee301b1"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7927,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.01751538300050015,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7927.bbc": "48e4bd73b05da5107c8fcfcde51e57689c6be73ee64309f1315cbc4eb51bc1a8",
+          "7927.dra": "ea9d86153ac422f4c7a6f9b4dff31f9a510b99fbe93afe02f3393f6c0475d705",
+          "7927.met": "3d0e5ecf6c53aaf7e6f6c3185754463171bec0c9504c557f9a1a98c8953bc34a",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "412edfecbc555812469c88ff095c9bab743bea3c523c7df5f367538746c79a52"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "e475a397fa5f304964858f9645734d064a13f54271eb622abf86b45b751b9937",
+          "swap.log": "27b3464c9d158dd73132c687ecdb2638bab8f49b7f58cec40a7d8e335f35896b",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.792035169000883,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7927.bbc": "f4acc772940dcfe8245346f7ef3e9bca5f90ee7bf44ded867514db20a3bae3d2",
+          "7927.dra": "ea9d86153ac422f4c7a6f9b4dff31f9a510b99fbe93afe02f3393f6c0475d705",
+          "7927.met": "3d0e5ecf6c53aaf7e6f6c3185754463171bec0c9504c557f9a1a98c8953bc34a",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "1519ddc0a6cff2ef4cafd9d09da379f0dc9419ae4b6d6a9186e7b832b46008b4"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "51cc174a04f16de97a47de012b13916f42d00ef776d8c1b969e8455cf7cf634a",
+          "swap.log": "154dc3172924f781d5526fbd0875f48dfcf134deaec66676bf8524396f226a3b",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "5b00a427079d6cbf515adaaf0318fe7df41ebebdfb6ea67eb0a68400feaf9bc3"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7928,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.013075942000796204,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7928.bbc": "49ab8b9f63394569c0332a24fc355f45034f5e36be92be1f8a28cc8578ece305",
+          "7928.dra": "79a1f0e625dff42593f03000e69d73c44eaa45f1b11429954a62c65758ce1ace",
+          "7928.met": "6df80c4eb096335182b1d095888453e79b0914ab335b06b6eaefbbca61878d25",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "f1f783e8ec8e1e8a5fbe846e8220b6ad4b322a825e7ad4f5aded3b95a8d27e95"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "c9f3cd52c364b48b8eab75795e507f6d29980eae11b8c044de3b2bf82d961997",
+          "swap.log": "27b3464c9d158dd73132c687ecdb2638bab8f49b7f58cec40a7d8e335f35896b",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.512453913999707,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7928.bbc": "28062a18d9e5c71c078f2ee6075d2c0a807b18d0eb8e6fd3ee083df1e8ba5b11",
+          "7928.dra": "79a1f0e625dff42593f03000e69d73c44eaa45f1b11429954a62c65758ce1ace",
+          "7928.met": "6df80c4eb096335182b1d095888453e79b0914ab335b06b6eaefbbca61878d25",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "42850aab6e13aa84f63288a65b8d2553a3c7143b37bbf6daa1e6fb8e5b38b493"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "b080343b98b0a3cb000569005571381bd6460d2b961a435dd133dc96e178bbc1",
+          "swap.log": "856953ea4cc2d964e5403206806001c829784892a2f7c44cc3409ac5237c1802",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "db9c6d21c25f8385e01a44d19ef8c4b609378d5b8061a1b8d487463dbe7d6149"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7929,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.01314460899993719,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7929.bbc": "5faf85f82d5c9f0e08b442cc6bf6c19034f479be23e66672da2ad72967a4c542",
+          "7929.dra": "02575c62a83de5a83cefb68fc4b24d7cd4bc6a09f55cfc1add713adb981032bb",
+          "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "3c9813c1af51a73d97c4900f170786fa12fa2980d2c5fc2fdf1ee1df93f99632"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "f14027ea95afe63c11bbcc61f5688ec54c989e86cc60d24d5f903f25d2da3bb4",
+          "swap.log": "c0bc4d9b1c5e01a57baa91ed3f57da06901a5a82cada95bc515b35bac298c4eb",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.890352729000369,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+          "7929.dra": "02575c62a83de5a83cefb68fc4b24d7cd4bc6a09f55cfc1add713adb981032bb",
+          "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "141db63ac8a79361767b2be31a575a6e0a319c248dbd4f28a7bdacbec88e5f63"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "e42a32cdf40541935d7fe600ec06f36b08321e506f635398c27205e21e13e2ed",
+          "swap.log": "5a45de06e1520fb055fc543f6bf31b9439eae3270a14fe7d7d4f66959a9be1be",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "742f9be2401001c469316311dac69c409c919bd82cc28c956cae64364af0cb4c"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7930,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.018316029001653078,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7930.bbc": "dde7a49c91af3fd33d2ff14281660fb3d6bd870b84e1ff3e732d1efc27810419",
+          "7930.dra": "2f3cb80f20e924c195498225abebcc02e7e0957feb47362803d022b8d97bda82",
+          "7930.met": "ca2dc3622c77a9178213fc6149861b40cba4a5d7524c81d3d2bd176f173ebf17",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "7c16c013138d4c27be35fcc97f77ed52ca31f29abde4eaffb34bf43dcdfcebda"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "46776fe0a3b2ec54e1358bbfd5c524cb462eb81617a4f010871856282464345f",
+          "swap.log": "48f19998cf541e85b5042f958de1d4c16e74923fbe28a579264793cdd658f172",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.259575019001204,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7930.bbc": "e480ecc6cd2bc29cd3ee370ae6bf5bdda235600e16696c6a39f1a7cafe362d2e",
+          "7930.dra": "2f3cb80f20e924c195498225abebcc02e7e0957feb47362803d022b8d97bda82",
+          "7930.met": "ca2dc3622c77a9178213fc6149861b40cba4a5d7524c81d3d2bd176f173ebf17",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "619af6edffa0670b1fa705360a1654462f6a9591b464a7cc5db605787e26eb97"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "e42a32cdf40541935d7fe600ec06f36b08321e506f635398c27205e21e13e2ed",
+          "swap.log": "f23ff5ed165e4db4aab793f9196391063d2c92cddb45a4ae47bce5b6b7bde1c5",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "080f1eca634cd5279554c89bb8abac149575ba1d418d6176bf38ba0012646ab2"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7931,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.02766390800024965,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7931.bbc": "a50a5544b44cccaf804b0021b86c05ae8f724695f7f7512d2ac3a2cdac8a08ec",
+          "7931.dra": "f3f6032d5c67d0bae8367f14b5988c6b8bd315d4631ffb3d5999069dd06284eb",
+          "7931.met": "a74ff9b02f6a2d44c23d53b3dd99d1e44beed5bf51866456ca718eb42f7b043b",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "2dd943c5a18c6523258da3c8c812f1db6d99cfb9368b8f6027bbdf049c2f770c"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "7d3a4819838ec088d89d764d2549fc3755d2a731e7b4cba7a41bc7169277826f",
+          "swap.log": "84422710b4ada68f4f88dd31c4eb94d4975079cb844b87d142b67a4f097c1fc8",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.6546626150011434,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7931.bbc": "5cf3eb69794735116a95fd49760f2f5a899d2fd62b60bc1d68bf3de71a72483b",
+          "7931.dra": "f3f6032d5c67d0bae8367f14b5988c6b8bd315d4631ffb3d5999069dd06284eb",
+          "7931.met": "a74ff9b02f6a2d44c23d53b3dd99d1e44beed5bf51866456ca718eb42f7b043b",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "fb8d741cddb8956b6ffc213ce3923375a8d83fc339d7e85ab35c62b74ee6f8ff"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "7c1447444a1ac5b11e73fd6ea113ff62288933e5b297a6bc9f811156a1a827df",
+          "swap.log": "17ed6bc93ee09b4a17500cf7a75db042f5f99efd57f354dca8ee7a4af0d47e7a",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "9cbdca5129c02cfbf6b90f697a8f6e737a12f9f820af879f6e891d8d94e27f4a"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7932,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.01934588600124698,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7932.bbc": "4d13e01979be8f1edb4fa847d6d55211d6c50f30ffec4ba67b2720444eae2c8d",
+          "7932.dra": "d3c6e1ad7ef22a65eabaf77883c3b908306f2c5d6f78f0935b34ef0f309dc87e",
+          "7932.met": "6d5a0963a3f6046fd2851937ce9733be2b2aa7a028538864c218bea7a912d033",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "6d1acd1e77c9a8809d43c8a1c51f55e30f9af5c61facb397c45a924b8aa1796b"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "e9ce791f8d6f074f6b59c7102ca5c4c66ffa125af595cf9da238df63cea9799c",
+          "swap.log": "84422710b4ada68f4f88dd31c4eb94d4975079cb844b87d142b67a4f097c1fc8",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.224512621000031,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7932.bbc": "69d9bc2aad6053229a44c8ba5f01175109442f3ab3efdae4a460bf072836b9d3",
+          "7932.dra": "d3c6e1ad7ef22a65eabaf77883c3b908306f2c5d6f78f0935b34ef0f309dc87e",
+          "7932.met": "6d5a0963a3f6046fd2851937ce9733be2b2aa7a028538864c218bea7a912d033",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "49c108b2272eae4888a2f69d1e4ba3dae9bc44bd7064d36c8df9b9e51b989e64"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "1e8ff4da517d5f8f77d4a2fabba28cefd6b01ccf9229cf4f00d3c3fd17c55ff7",
+          "swap.log": "801a58f75aef7da42422c07530ff246036d36fa29bc1ce7b3f2b6c49f563830f",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "c6a1fbb77aafb45101c649c189868dcf06cecaa0eadc9ea17cc4c37aebf5dbaa"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7933,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.013193908000175725,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7933.bbc": "44dce3e24bbcdbef12a579fc67cc9b701ea892a5a190a5e3868993435899142d",
+          "7933.dra": "fb3f16c405378ffb6a3841d2c833b38fadf4b390ef57b8f97865d22b81914c4f",
+          "7933.met": "a2f735d48ceeca9de8952b2a96a111289475ce44faa180e01bc1a0087e7d6962",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "9c5057f5e5c50ca7e5357a86811e104edda998d31129677e2ab49b35c6b853e6"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "776f935dc4ff373108cd8f1fe1f8b78ec501a89d5aae5578b3d139d0b9a8dcc9",
+          "swap.log": "cf110ffe8223c42023a72b2af3a95482267886f579370c65471c2b8e39e5ba40",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.157458321000377,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7933.bbc": "398941000ee6253176ab041b1b86673f8b2e192c3eda8a82222eafa9a8a5d395",
+          "7933.dra": "fb3f16c405378ffb6a3841d2c833b38fadf4b390ef57b8f97865d22b81914c4f",
+          "7933.met": "a2f735d48ceeca9de8952b2a96a111289475ce44faa180e01bc1a0087e7d6962",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "8d0c862241646dfedfc6e98cabf1975472a86e0b862237f4278911fa7cc8cb86"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "c8df4e9250c11c12e6b1093f1deec34f98363c02fecf93950d889e7cf3533934",
+          "swap.log": "05717b23e110e987bc52542cdfb2336af74e005bb38808fd3093484de4e61a09",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "41c3e4ea41bfd846ea1a78b41f53bfe58116fdef1ba45a9805f1ce1d9834fa3e"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7934,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.015994692001186195,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7934.bbc": "80fd123d155f3b4bd2a9ec29f75b5d1032ec91a86335ca02480d4644ab2349d0",
+          "7934.dra": "7628ffefcd1dc617c8b71d201d733cf05471cdfa6cad6a86c7d7ddc498145615",
+          "7934.met": "a385f1224b81c21a09e16d0cdc5e5257c2331828005d224b3b5a6a71f38d21b3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "e5bfcad83ad8b00abf679b9714651eaba351a763a9c58e8179bf5d981b33aae7"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "3d8fb55919f2ee673575f29495a330163a828ae054542326b7e92f731b2cbb86",
+          "swap.log": "cf110ffe8223c42023a72b2af3a95482267886f579370c65471c2b8e39e5ba40",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 4.453563863999079,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7934.bbc": "8bbead7a3d256c1fa7cc002e0091427418c2ac1432d4880ca8ed544cb91ac099",
+          "7934.dra": "7628ffefcd1dc617c8b71d201d733cf05471cdfa6cad6a86c7d7ddc498145615",
+          "7934.met": "a385f1224b81c21a09e16d0cdc5e5257c2331828005d224b3b5a6a71f38d21b3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "0c14217bff3447ece6365e170951602e7c7a152ba78a7209347ae74f48a319f9"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "c8df4e9250c11c12e6b1093f1deec34f98363c02fecf93950d889e7cf3533934",
+          "swap.log": "9de55d10bed2ca22748843ea585c20244a4256f9d568ebeda2144f3e59b867cd",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "6f8fd6e17e8a222856f13835db7f2eb304cc4de6b3eb818c5cede727a17bd90d"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7935,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.05017457200119679,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7935.bbc": "b0ba2f2e496929c6ee2b4abff7e993789b10c876e29b93db9b175585cadc40a1",
+          "7935.dra": "cb547f530452a2ed9f216e3df3e2064faff9362e0edaebf89df8dbc3d40b1138",
+          "7935.met": "3298835a92ac68079ae830f13b473e452f533046bdd26e24dcae4401b8f0a2da",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "3d5a82ab954cf38e99256dbfd2ca200354e60f009d18dbe048caec57669047e9"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "87b42175205e3cc615be65106f454bfde1002b3d95531c5227a75731651acaba",
+          "swap.log": "a2512281740405b7421c8a2bc8d46678eb38feef1bbe2e67d6be1050e521c640",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.0885696730001655,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7935.bbc": "8bd09b2ede4acde4968ede7bd556439659cf63a334529bf18d0330e1f69040f2",
+          "7935.dra": "cb547f530452a2ed9f216e3df3e2064faff9362e0edaebf89df8dbc3d40b1138",
+          "7935.met": "3298835a92ac68079ae830f13b473e452f533046bdd26e24dcae4401b8f0a2da",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "0a4077d7a1a982ed3932c22ae5138f379fa18cd5a9f331158447309db1aeea9b"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "c8df4e9250c11c12e6b1093f1deec34f98363c02fecf93950d889e7cf3533934",
+          "swap.log": "ffc0ae9280a6029062d5ea519333ef09ceb85e38f2138c67c13d5d97052597a7",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "f4278aecaff37e82d26e178ba9dcbcc513415d72ff3b7cabe61f348e8da32d3e"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7936,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.018357065000600414,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7936.bbc": "deafa56a29745dc26a5121025b679741316000486e3f13f448a472134b9efa52",
+          "7936.dra": "bf2fa4fcf582024ca95521a9d262ed30296add74b99dffde41b9b1eb0972f847",
+          "7936.met": "dc47748515ac0df470390c6276bba67975df56a9f973d53b9062160b02399ad3",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "c863b40acd432f2938c02ca4d05c6db29ad36c1411869991fc98da53c0d60436"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "26e4c583443c3fc8144eda3b14fa19a75599da886afa42f4ac2ff7720ee7ba75",
+          "swap.log": "a524212fd9ad9f3e7d740ba6a2880aec272423ebfe2d94ce575386e04ba503c1",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.2833312769998884,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7936.bbc": "f9c20310989148b99d07d4682cfb3baeea024c7af2e374cbb843d75969b6c1e1",
+          "7936.dra": "bf2fa4fcf582024ca95521a9d262ed30296add74b99dffde41b9b1eb0972f847",
+          "7936.met": "dc47748515ac0df470390c6276bba67975df56a9f973d53b9062160b02399ad3",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "588abb60185550f5ead7d7e02b2c909618a402cc94fd470ea395df5ba4c5ec8d"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "4429558d72c23c9285e13a7ca2472e5bfcf7881a1523ac53fe86fac28bb36095",
+          "swap.log": "16c564ffd191e41d73e088eac05966925c007d9d5c1ab40d668e710ebf281b90",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "dc94951907cd51bc11de85ed5688d0cb386e8d5c90d0bba2fbea8fa73a6a8214"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7937,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.012142043999119778,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7937.bbc": "827eea7433478819865a63cdd87267ea39ff5050c8c0cdcda168246e68dbd4dd",
+          "7937.dra": "f9cfe187b871fe16b7e03cbc8b02af81680cf44b551fe7e8b80a6d7e8893020e",
+          "7937.met": "62ec1296e3195aef2cd3fb51f3d4db3ce404181b174b98240689c8f305cd640c",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "3885887fb924ab6d4504986982e34030cb74534cc36bd50ca134b9501828da9e"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "20e3a61de66340959a9d43f3aed7f120cdd75ae44dc18569a34c8595befa487a",
+          "swap.log": "f6b1bb6954595c1cbc309b0f5bf6d36586adcde64cf24efe21b4329259cb6a6f",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.0577348569986498,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7937.bbc": "431ab5fd7d48948f02849acef294a014de6907a8b5897b427d14ded7cf4789a5",
+          "7937.dra": "f9cfe187b871fe16b7e03cbc8b02af81680cf44b551fe7e8b80a6d7e8893020e",
+          "7937.met": "62ec1296e3195aef2cd3fb51f3d4db3ce404181b174b98240689c8f305cd640c",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "b656685dee6fdff357169006a0c33a5d9e068c643225c86a62654cfff40a55b4"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "a928df4dc4acacf7707a7b0cedf418840442e413a5eb85fd7f06929894ab07d5",
+          "swap.log": "14f81346399fafcd5b3da47ed1caa03dadcc840d1ad1734a57bb95a172243d4a",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "8e8c55881b21c557c94c97fadb0a82211712814318d501894d9307462dad677e"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7938,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.012124677999963751,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7938.bbc": "88731372e1566fe1710d037f9ad46303519a959f23e8d10059d54807d54cda05",
+          "7938.dra": "3beaf8ba2a63213f953ca06317c4f02489384753dbd2380b35e644d9b5b8752f",
+          "7938.met": "96cb6934b0a488ce8f7457c298c608a43e29a70c04528263f5a6b6d4b22cd78a",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "9ca7ec272d4522281603707a79262534649440331e9bae475364a1dbe41303ac"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "acfce3a72873b12e070b86ecdcdd3a2241da6b4ac3dc213edd3db967e8906a34",
+          "swap.log": "b37ec8d3c2cced397b6d90780baf24d756fc89d8a7118af871f4ed6af04aa9b6",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.2355725039997196,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7938.bbc": "068eb3b443f479a4136b14dc9d6747f5aced0920fbef286732c13069d145c7a5",
+          "7938.dra": "3beaf8ba2a63213f953ca06317c4f02489384753dbd2380b35e644d9b5b8752f",
+          "7938.met": "96cb6934b0a488ce8f7457c298c608a43e29a70c04528263f5a6b6d4b22cd78a",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "9ffd1933ae613798dec725327cf5884e1c8dce777171992e6078561ecdca8bd0"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "c90d7e305688424e565657ba5f515d49d04d3eecb8dbd209eab910b15ba771aa",
+          "swap.log": "8f3720149520513d86c0077e04a77daa97c8951328c8304728c40e5642b8f3e1",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "108e3e30cf57a1d733f675b42805f986f716ec042545a7762ad3f7d7f3b350f4"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7939,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.013271081999846501,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7939.bbc": "3807a2c3f8a98bffabeaeec9afb753c3d70e6db27214c7a615633c41d319e0ff",
+          "7939.dra": "4df07cb84c0636087f7459e85b8085d1be6588c43789f926aa7fbb78073f8e91",
+          "7939.met": "cbb3c4d6611a2a24e93e39839301b8aa5fe2b9a154ca9b9d486649209b28aa11",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "e872a499be9fd59b2bbdf710ab100caa776f2d108bbe1f9ab895835c6c821499"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "0dc3eeab83674f2f77c4a856ffaeea5153037d9a70784a4f21be18c8c72d63c7",
+          "swap.log": "b37ec8d3c2cced397b6d90780baf24d756fc89d8a7118af871f4ed6af04aa9b6",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.295960573001139,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7939.bbc": "a0da77b8ba1f5ce784593aedd02f5d45da038ed3e3788284269b908b3b88e597",
+          "7939.dra": "4df07cb84c0636087f7459e85b8085d1be6588c43789f926aa7fbb78073f8e91",
+          "7939.met": "cbb3c4d6611a2a24e93e39839301b8aa5fe2b9a154ca9b9d486649209b28aa11",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "191981007be0e013eca4f131c512f2d1822abc331f1f67da5f3441d656da2904"
+        },
+        "output_sha256": {
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+          "swap.ok": "c90d7e305688424e565657ba5f515d49d04d3eecb8dbd209eab910b15ba771aa",
+          "swap.log": "acfd577c3b20fc323caafadc018473e0c2213b027295ae29ed7282c936005f8e",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "393441d90a1a0bb8bb34b8d5f8d44744bc57844b4579bd74444eaeec7d8556a5"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7940,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.025622826999097015,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7940.bbc": "923e2eeee7fd6faff9d691015d584a19fea98a1ee67c8b6e040673662ee85fb9",
+          "7940.dra": "0f450cd7f8fe4a5d73d04a30f61d4c6013b5179532cc0aab76267adcacdbec5b",
+          "7940.met": "a5fbe4a51d4637b3edae3ed62e144cec314d1b2fc1866aa9f923f146eec1743f",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "9c5bfc1cf8abe9719974b5d81083ce81dcad81a8760783788707f2915ff4afd0"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "433fcaa69360803db6af465895913ba0286273f420d7b97377ba83e328ddcc64",
+          "swap.log": "bfd797b1a6d816b101959f636151a7fccd1d470dae8dcb9c412630e5614f5bbd",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.06880745700073,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7940.bbc": "21b89761907d131774bf0091a42ff673955f9f9c186e33e5b770780f709fbf0d",
+          "7940.dra": "0f450cd7f8fe4a5d73d04a30f61d4c6013b5179532cc0aab76267adcacdbec5b",
+          "7940.met": "a5fbe4a51d4637b3edae3ed62e144cec314d1b2fc1866aa9f923f146eec1743f",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "c564f0a32c4064d6fb29a3b204eefb198b864304518193f7742563c1f2d6f2c2"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "ed1a68d4c0d50b7e33e48881aaab8c17b53f0d0e0b62e5648e27126e9b54ef27",
+          "swap.log": "29b3ec382a22ff80892c6fc56f984538c5c2d9cc8ba210dce206c34089947736",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "a00ca0a3ac45421ce0f1f625e5bcafb27d6b6be8423b7bbb96de2a5cc9a06e1e"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7941,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.019647041999633075,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7941.bbc": "76802c5902226592bff302208ded8a90000872094a9f5d2b235c20c6ce6ff527",
+          "7941.dra": "fa15669c7d0bc354263e8bbc06033228906d20ff046989b7bb42894fe3ff2008",
+          "7941.met": "58e314661d692ff3091d109fd4637193c3885616a36318176992e0229afc3caf",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "0283b9c1694c3f4cf551ff273668a12f5b8c112674129da148692645fa9b58be"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "03033798e7e6bf79bc772a7014cc90bf72c2b1d3feb1c2f808152565e1313f91",
+          "swap.log": "bfd797b1a6d816b101959f636151a7fccd1d470dae8dcb9c412630e5614f5bbd",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.5742066809998505,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7941.bbc": "d9a0f905f964647c239bc8c8d51f898bd1e3013ed8dc1c2f929da9c36976ba7e",
+          "7941.dra": "fa15669c7d0bc354263e8bbc06033228906d20ff046989b7bb42894fe3ff2008",
+          "7941.met": "58e314661d692ff3091d109fd4637193c3885616a36318176992e0229afc3caf",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "e9e3733eb877929fe29821c19ea77114b0b6d6e3b5fb4355b79ceda124049780"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "5bca98d375a4973e1e6b70dc618d3c9af23cdfdc2e3b9968259bf4339559659d",
+          "swap.log": "b099fae69969912207c7914d7873edbffffd4cf0df17c015d6f1e5e54dae8a9d",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "35eff35db3b4da5f063b4bc75b9f433098fbae7cbfcbdc4d62fbc5085ed59c26"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7942,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.027660637999360915,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7942.bbc": "f88f55bd76cfcbcb17846b330885151487636fa4a9e9f4a78ca7fd0c06095617",
+          "7942.dra": "c3caea41b7e4247e6b03e2954aab6a4429c57cf5f1999a71ee741b10ef9b80ed",
+          "7942.met": "df6e8ab8b65d40aea991b7301304cab1eac10f3415fae31aeca1de5598a10b5e",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "9b62922d208a2ae51a7f10688459ee0455225982d72a3da882e216e677ebd6f5"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "5db762b1a2f1f9d6c6a5fedfd3645aa0bf68ea5cc59a6638de5cd7a4565c150f",
+          "swap.log": "bc9a3a2d607483fdc77b14b6ce65e5805e94cb9e90f7a22c0704dca21821f149",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.0171158840003045,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7942.bbc": "bb8eaabc1021afd6a2a3d0b930997144bd3beff0d98e3df2b3b0cb4cc70bc510",
+          "7942.dra": "c3caea41b7e4247e6b03e2954aab6a4429c57cf5f1999a71ee741b10ef9b80ed",
+          "7942.met": "df6e8ab8b65d40aea991b7301304cab1eac10f3415fae31aeca1de5598a10b5e",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "2fbff73a33ded3104dda747115cedd37a8393d06a909c226a143a06e913bfaf9"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "5bca98d375a4973e1e6b70dc618d3c9af23cdfdc2e3b9968259bf4339559659d",
+          "swap.log": "33b4b6ec6e16cf56eb9b4c1faa08952a9b72bada8728ba92650b9a795f8a89de",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "d38ee83080718e08fc2873494f96e85d8c328da8c986fb9abff7ae8a38c84b6c"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7943,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.02083708200007095,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7943.bbc": "aaffb9a14cbc1696bdf6919851bad7fbdeeb9fc9b5cfe5b5e2a7f5e448e5968a",
+          "7943.dra": "ae6a16482e8ce94845557fbc9f07023fa7253f8c2004f59e077530e649d598ba",
+          "7943.met": "c7b69217d6e17500ae97077c12b54bf45412813b44e90529d10bd304b5b4bb51",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "9111b3376a7f49201bfa8acc72451a7f1735d4809c781ff1baac357a130e67fb"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "529ace9c4212188294b4d6db99da84733a702237d3137d3a8c43987afb6d9eb6",
+          "swap.log": "bc9a3a2d607483fdc77b14b6ce65e5805e94cb9e90f7a22c0704dca21821f149",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 3.3139437029985856,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7943.bbc": "d2df2da1b46c0675107fb110ee8f232dcd3ee3fa78952939bd84843236b51447",
+          "7943.dra": "ae6a16482e8ce94845557fbc9f07023fa7253f8c2004f59e077530e649d598ba",
+          "7943.met": "c7b69217d6e17500ae97077c12b54bf45412813b44e90529d10bd304b5b4bb51",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "1cfacba2eb2cc324185fc11204313be880f770180d51d323ba57427c133b5416"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "5bca98d375a4973e1e6b70dc618d3c9af23cdfdc2e3b9968259bf4339559659d",
+          "swap.log": "dcee53b852628f597b373863b5adbd971f9eb45319708bbc25862d06519255a3",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "d9dec00e0da41f9b8ac9f3f15c571a5176ef9d699e9503f17800847e953f1d9b"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7944,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.014464907000729,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7944.bbc": "a3726f369efab238f466234a96d8a1e4758e042b0b0b2e97a449ff4312e9c04c",
+          "7944.dra": "7379565b1ba7ff72b337cfc666463205d5e050073518a935e1b30ed8ab9656b9",
+          "7944.met": "50223c1a62e81d7b773da67a2396db36521a0a353c0f7ae8075b41f834db8db1",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "bc31c6d52a6d7cd067f2389f0523edf2bc5c68afc65415a0e01bde96e5664342"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "c033a1ff4d0f89c5bf6fed194c9afb093de135a1b2a0d0eb3e4740782049f888",
+          "swap.log": "4f9aecf9aa17f64a4de92debb04299d246858fd440d6a75561eb0cd067c30f97",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.8212437869988207,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7944.bbc": "b63239770867af9ce7a0d3a40d015bc707702da2e9af20114a279ffcdbdd6295",
+          "7944.dra": "7379565b1ba7ff72b337cfc666463205d5e050073518a935e1b30ed8ab9656b9",
+          "7944.met": "50223c1a62e81d7b773da67a2396db36521a0a353c0f7ae8075b41f834db8db1",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "5069d51419bb034520f45c12cdbc045daf3ee79859ddc2752504ad88b84f60cf"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "7898ba217971e0e090ab32febdf23033aa619e6b3ec0b8b8186679678b3720a6",
+          "swap.log": "cc69b0ff339e87c942ddc894a0f900e7b3e711f41564d4c6f2fbf42efe3f3be9",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "23cb5a239ff5a5da511ae73884af97efe13ebcd8a9edbbcd55bcca2ade5beddb"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    },
+    {
+      "run_id": 7945,
+      "raw_historical": {
+        "schema_version": 1,
+        "status": "EXECUTION_FAIL",
+        "production_admitted": false,
+        "elapsed_seconds": 0.02058062499963853,
+        "returncode": 0,
+        "normal_completion": false,
+        "output_rows": 0,
+        "output_error": "missing normal completion or output",
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7945.bbc": "ee1c1611d975cfe86381b9fd1274da5030af9af7d672a608d058e01c40b53cff",
+          "7945.dra": "ecea9a6c311c29211c2e1b7d32b415c74169fef90c7d3c86ebeeaf212ba20e41",
+          "7945.met": "e97c541298d7fc035605a720438688946fa8174f008230fad143b22c2feac1ee",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "f1306609d8ea06629e63018ce4fda4e403295b099fca09e87f62d21145acb98c"
+        },
+        "output_sha256": {
+          "swap.wrn": "e0f3f573caf4cdd7d43bc171d7096019c82394fa2cc397c0c0ecdb8517f04481",
+          "swap.err": "6f633d2b335697e55656721614bfd3f294ba3da0475678de59769b95bb6a4fe9",
+          "swap.log": "fbee960a7debca616f20491e053f751ed81343e47719d2644b18858561ade0a3",
+          "runtime.log": "9e7fda491acd48c022ba8a6deeb877198ac182fd5bfda1389e2f108de8c5efe0"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "modern_interface_compatibility": {
+        "schema_version": 1,
+        "status": "EXECUTION_PASS",
+        "production_admitted": false,
+        "elapsed_seconds": 2.247564725999837,
+        "returncode": 100,
+        "normal_completion": true,
+        "output_rows": 366,
+        "output_error": null,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "input_sha256": {
+          "7945.bbc": "4bd7551d32fbfc6fd31b52c7450c31f8d336946ace374e33f12d5aa314696990",
+          "7945.dra": "ecea9a6c311c29211c2e1b7d32b415c74169fef90c7d3c86ebeeaf212ba20e41",
+          "7945.met": "e97c541298d7fc035605a720438688946fa8174f008230fad143b22c2feac1ee",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "961fda2085f61de931f9c50cdd70dba7f82426d846b0aabd8cf77cba4bc47ab4"
+        },
+        "output_sha256": {
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+          "swap.ok": "ea09042ada21c20ee90cc4e3f15a8bc7ea2ca83279e644fd90aa52d4a2ab7716",
+          "swap.log": "d55933b2c42ab030e5a8dcd0d52aa1901f8bafe082fd7da437150274e58bde42",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "result_output.csv": "9ed4f1f83013d35f193732673fa3d1593742dc8e6dd256055764aef71c532142"
+        },
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        }
+      },
+      "production_admitted": false,
+      "bbc_policy": "FIRST_DIAGNOSTIC_COLUMN_EXPERIMENT_ONLY"
+    }
+  ]
+}

@@ -110,6 +110,8 @@ def main() -> int:
     ap.add_argument("--config", type=Path, default=Path("config/qa/HRU10242-current.json"))
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--keep-staging", action="store_true")
+    ap.add_argument("--base-svat", type=Path,
+                    help="Explicit richer baseline table with area and hydrology; never infer missing area")
     ns = ap.parse_args()
 
     ns.out.mkdir(parents=True, exist_ok=True)
@@ -156,7 +158,10 @@ def main() -> int:
     cfg = dict(base_cfg)
     cfg["data_root"] = "."
     cfg["inputs"] = dict(base_cfg["inputs"])
-    cfg["inputs"]["svat_base_table"] = str(staging / "base" / "SVAT_INFO.CSV")
+    cfg["inputs"]["svat_base_table"] = str(ns.base_svat.resolve() if ns.base_svat else staging / "base" / "SVAT_INFO.CSV")
+    if ns.base_svat:
+        inventory["explicit_base_svat"] = {"path": str(ns.base_svat.resolve()),
+                                            "sha256": sha256_file(ns.base_svat)}
     cfg["inputs"]["svat_table"] = str(staging / "current" / "SVAT_INFO_HRU.CSV")
     cfg["inputs"]["svat_hru_map"] = str(staging / "current" / "export_svat_HRU_NRU_10242.csv")
     cfg["inputs"]["hru_schema"] = str(staging / "current" / "export_HRUschema_10242.csv")

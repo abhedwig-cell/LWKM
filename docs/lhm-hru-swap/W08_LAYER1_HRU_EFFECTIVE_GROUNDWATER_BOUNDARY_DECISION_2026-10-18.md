@@ -1,4 +1,6 @@
-# W08 ontwerpbesluit: effectieve grondwaterrandvoorwaarde per HRU uit MODFLOW-laag 1
+# W08-GW-L1 ontwerpbesluit: effectieve grondwaterrandvoorwaarde per HRU uit MODFLOW-laag 1
+
+Naamgeving verduidelijkt op 2026-10-19: W08 blijft BBC; W08-GW-L1 is de expliciete subwerkstroom.
 
 Datum: 2026-10-18
 Status: vastgesteld conceptueel ontwerp; implementatie, pakketsemantiek en kwalificatie nog open.

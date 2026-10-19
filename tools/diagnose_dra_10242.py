@@ -15,6 +15,8 @@ import hashlib
 import json
 import re
 import tempfile
+import shutil
+from pathlib import PurePosixPath
 
 import numpy as np
 import pandas as pd
@@ -230,19 +232,34 @@ def _extract_bundle(zip_path: Path,root: Path) -> Path:
     target=root/zip_path.stem
     target.mkdir(parents=True,exist_ok=False)
     with ZipFile(zip_path) as z:
-        z.extractall(target)
+        seen=set()
+        for member in z.infolist():
+            name=member.filename.replace("\\", "/")
+            relative=PurePosixPath(name)
+            if relative.is_absolute() or ".." in relative.parts or ":" in name:
+                raise ValueError("unsafe source archive path")
+            if name in seen:
+                raise ValueError("duplicate normalized archive path")
+            seen.add(name)
+            output=target.joinpath(*relative.parts)
+            if member.is_dir() or name.endswith("/"):
+                output.mkdir(parents=True,exist_ok=True)
+            else:
+                output.parent.mkdir(parents=True,exist_ok=True)
+                with z.open(member) as src,output.open("wb") as dst:
+                    shutil.copyfileobj(src,dst)
     return target
 
 
 def _find_one(root: Path,name: str) -> Path:
-    matches=list(root.rglob(name))
+    matches=[p for p in root.rglob("*") if p.is_file() and p.name.casefold()==name.casefold()]
     if len(matches)!=1:
         raise ValueError(f"expected exactly one {name} below {root}, got {len(matches)}")
     return matches[0]
 
 
 def _find_optional_one(root: Path,name: str) -> Path | None:
-    matches=list(root.rglob(name))
+    matches=[p for p in root.rglob("*") if p.is_file() and p.name.casefold()==name.casefold()]
     if len(matches)>1:
         raise ValueError(f"expected at most one {name} below {root}, got {len(matches)}")
     return matches[0] if matches else None
@@ -257,7 +274,9 @@ def _month_key(path: Path) -> str:
 
 def _h1_stage_files(root: Path,start: str,end: str) -> list[Path]:
     pairs=[]
-    for p in root.rglob("peilh_*.idf"):
+    for p in root.rglob("*"):
+        if not p.is_file() or not re.fullmatch(r"peilh_\d{8}\.idf",p.name,re.I):
+            continue
         key=_month_key(p)
         if start<=key<=end:
             pairs.append((key,p))
@@ -776,7 +795,9 @@ def diagnose(
         )
     if using_snapshot:
         dqsat_table=_read_static04_snapshot(dqsat_snapshot)
-        dqsat_authority="STATIC04_PERSISTED_QUALIFIED_SNAPSHOT"
+        methods=set(dqsat_table["dqsat_method"].dropna()) if "dqsat_method" in dqsat_table else set()
+        dqsat_authority=("POSITIVE_MEMBER_MEDIAN_CANDIDATE" if methods=={"POSITIVE_MEMBER_MEDIAN_CANDIDATE"}
+                         else "STATIC04_PERSISTED_SNAPSHOT_REQUIRES_USE_SPECIFIC_QUALIFICATION")
     else:
         if schema_csv is None or dqsat_grid is None:
             raise ValueError("--schema and --dqsat-grid must be supplied together")
@@ -1055,7 +1076,8 @@ def diagnose(
         "representative_dqsat":{
             "authority":dqsat_authority,
             "hru_count":int(len(dqsat_table)),
-            "discriminating_from_legacy_majority_bfe":int(dqsat_table["discriminating"].sum()),
+            "discriminating_count":int(dqsat_table["discriminating"].sum()),
+            "discriminating_reference":("source_representative_dqsat" if "dqsat_method" in dqsat_table else "legacy_majority_bfe"),
         },
         "hru_expected":hru_count,
         "hru_completed":int(len(s)),

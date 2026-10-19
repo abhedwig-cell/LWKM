@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "PACKAGE_CANDIDATE_NOT_ADMITTED",
+  "run_id": 7876,
+  "profile_id": "LWKM_CURRENT_TEMPLATE_CANDIDATE_20261019",
+  "code_commit": "683d62c8b73caaf776b0d7da383457bca4b38cc5",
+  "assets": {
+    "7876.bbc": {
+      "sha256": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+      "qualification_id": "EXPERIMENTAL_INTERFACE_1971_NOT_PRODUCTION"
+    },
+    "7876.dra": {
+      "sha256": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+      "qualification_id": "EXPERIMENTAL_INTERFACE_1971_NOT_PRODUCTION"
+    },
+    "7876.met": {
+      "sha256": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+      "qualification_id": "EXPERIMENTAL_INTERFACE_1971_NOT_PRODUCTION"
+    },
+    "atmospheric_1975-2020.co2": {
+      "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+      "qualification_id": "EXPERIMENTAL_INTERFACE_1971_NOT_PRODUCTION"
+    },
+    "gras_maaien.crp": {
+      "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+      "qualification_id": "EXPERIMENTAL_INTERFACE_1971_NOT_PRODUCTION"
+    },
+    "swap.swp": {
+      "sha256": "5aeb15b40c3f03daf6a6b7dbe7b6659d4c6260b671ba8d98f42bfca9eadc6d08",
+      "qualification_id": "EXPERIMENTAL_INTERFACE_1971_NOT_PRODUCTION"
+    }
+  }
+}

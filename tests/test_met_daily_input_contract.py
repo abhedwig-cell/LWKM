@@ -8,7 +8,7 @@ def test_invalid_met_date(day,month,year):
         compose(1,day,month,year,1,1,DistrictDay(100,0,5,.8,2,2),4)
 
 @pytest.mark.parametrize("field,value",[
-    ("rad",-1.),("hum",1.2),("wind",-1.),("wet",25.),
+    ("rad",-1.),("hum",10.2),("wind",-1.),("wet",25.),
     ("tmin",float("nan")),
 ])
 def test_met_rejects_invalid_district_data(field,value):

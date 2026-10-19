@@ -24,7 +24,7 @@
       "interpretation": "Observed LWKM Flevoland correction. Standard LHM kwel output was postprocessed/edited by Deltares; exact upstream Deltares procedure remains a provenance gap. Current bound dataset is expected to contain 4677 changed SVATs."
     }
   ],
-  "hru_map": {"svat":"svat","hru":"HRU","cluster_donor":"svat_donor"},
+  "hru_map": {"svat":"svat_orig","hru":"HRU","cluster_donor":"svat_donor"},
   "hru_schema": {"hru":"HRU","representative_svat":"svat_repr"},
   "hru_backprojection_region_column": "LDGBclus_orig",
   "hru_backprojection": [

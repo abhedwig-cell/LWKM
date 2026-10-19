@@ -1,0 +1,1 @@
+The snapshot is POSITIVE_MEMBER_MEDIAN_CANDIDATE. The old diagnostic field named discriminating_from_legacy_majority_bfe actually counts differences from source_representative_dqsat in this run. Neither label grants production admission. Code now preserves the method and reference correctly.

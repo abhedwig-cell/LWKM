@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "profile_id": "LWKM_CURRENT_TEMPLATE_CANDIDATE_20261019",
+  "source_template_sha256": "ee0c23696fd5565a4b99eb81ce469a1be7c86494cfb20545dfba492820a5858a",
+  "candidate_policy": {
+    "LAT": 52.1,
+    "ALT": 1.9,
+    "ALTW": 10.0,
+    "DTMAX": 0.04,
+    "INLIST_CSV": "'WATBAL,ETTERMS,GWL'",
+    "SWSOLU": 0,
+    "SWITCH_SWSOLU_OPTION_1": false,
+    "SINAVE": -0.02,
+    "SINAMP": 0.0,
+    "SINMAX": 90.0
+  },
+  "production_admitted": false,
+  "bounds": [
+    "SWETR=1 requires separately qualified crop factors",
+    "Historical BBC diagnostic projection is research only",
+    "Table units and scalar types follow SWAP 4.3.1"
+  ],
+  "source_authority": "Recovered Template/wwl.swp; fixed LAT/ALT/ALTW and DTMAX observed in historical run 7876; adapter reviewed against distributed SWAP parser"
+}

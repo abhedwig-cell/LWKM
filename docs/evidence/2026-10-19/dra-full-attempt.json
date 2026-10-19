@@ -1,0 +1,10 @@
+{
+  "status": "STOPPED_AFTER_REFERENCE_SUBSET_FAILED_REQUIRED_GATES",
+  "production_admitted": false,
+  "scope": "10242 HRUs, monthly H1 stages 1970-2021",
+  "completed_population": false,
+  "reason": "49-case real-source qualification proves missing H1 infiltration factors and protected/SWAP interface failures. No production admission is possible without resolving these external semantic inputs and interface constraints; uncheckpointed all-period sensitivity sweep stopped. No all-population failure counts inferred.",
+  "user_cpu_seconds": 962.34,
+  "system_cpu_seconds": 14.99,
+  "replacement_evidence": "dra-49-1971/replay_summary.json"
+}
