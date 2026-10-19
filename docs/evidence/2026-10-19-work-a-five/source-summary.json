@@ -1,0 +1,29 @@
+{
+  "compared_lateral_cells": 427391,
+  "complete_research_hrus": 6,
+  "inputs": {
+    "../work-a/snapshot/audit.json": "f8d2153c0519d331267da29461ba4b753cbca4a61ea62c14036045d5fa57049a",
+    "../work-a/snapshot/cell-components-RESEARCH.csv.gz": "ceec37c0e26278181efdfa51bb8351aaf592247daf03d30009409278744b23d4",
+    "../work-a/snapshot/membership.csv.gz": "090d3fcc33e4126ba54d58c44c86c0a36662b4e1ff0785da745480e5c3234de3"
+  },
+  "limitations": [
+    "Cached prior research GHB, not the current server bdgghb daily product",
+    "One-day software regression; no complete modern MET pair"
+  ],
+  "max_cached_lateral_difference_m3_d": 4.374896889203228e-09,
+  "new_wel_ghb_reconstruction": false,
+  "operational_server_series_consumed": false,
+  "outputs": {
+    "3363.bbc": "e352676e4980839ee80948350c1569dbf7b01576dd07b574087750fe64acd7cb",
+    "3364.bbc": "bb7db717c55f9ca42181b2de97db3395e705d1b93da2b4b5c572cc1cfa95607e",
+    "3365.bbc": "dac6b0c868c7b229f231cff360a78289baba64b4aa36b6dec42caf26af8804aa",
+    "3366.bbc": "d67c71e6c72672093ad386ff2d69a900a2d22857ab2ffc077dc67eaf83904209",
+    "3367.bbc": "a6c8fa2105b8eb5fe67384ae0d0f8a5bac380f74bc5350e18066757ddac81cbc",
+    "3368.bbc": "ae738e5d6340f41c8a4abd8c549419d1978eee6298560cfd5b5d0d635b4f5d12",
+    "coverage.csv": "c917c6830986e536a8caf523f2cbce01af414dc22dee3c48fa2e6aa9bdfb8dfe",
+    "hru-five-components.csv": "71d92881b6064fed47411d260fc2e877445e5f9b2ba4a2668d0dc3e8df60a9b3"
+  },
+  "population": 10242,
+  "production_admitted": false,
+  "represented_cells": 427656
+}

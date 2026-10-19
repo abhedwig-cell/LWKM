@@ -52,3 +52,20 @@ python -m tools.process_daily_budget_plan --plan bound/processing-plan.json --ou
 ```
 
 De volgende stappen zijn de bestaande consumer-, C2-catalogus- en pakketbouwcommando's hierboven. Bestandstechnische Q4-verificatie en operationeel toegelaten reconstructiemethode zijn afzonderlijke beoordelingen. De WEL-beperkingen en GHB-datumdefinitie blijven zichtbaar; originele budgetten zijn geen voorwaarde.
+
+
+## Actuele vijfcomponentenroute
+
+De aanvullende authority is [Work A vijf componenten](../production/WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md). Er is geen aparte LAT-map nodig. Het volgende selecteert de bestaande samengevoegde FLF/FRF/FFF/GHB/WEL-reeksen in de vastgelegde mappen, met de bestaande teken-/ruimtelijke omzettingen. Voer geen reconstructiescripts uit.
+
+```powershell
+python -m tools.server.make_five_component_config --contract "$Out-contract.json" --output "$Out-five.json"
+python -m tools.server.bind_reconstructed_daily --config "$Out-five.json" --output "$Out-bound"
+if ($LASTEXITCODE -ne 0) { throw 'Daily binding incomplete: inspect binding-report.json' }
+python -m tools.server.collect_daily_consumers --plan "$Out-bound/collection-plan.json" --output "$Out-collected"
+python -m tools.process_daily_budget_plan --plan "$Out-bound/processing-plan.json" --output "$Out-daily"
+```
+
+`$Out-contract.json` is het hierboven beschreven gehashte processing-contract, zonder `intervals`, met de gekwalificeerde membership, referentiegeometrie, support, periode en reconstructieherkomst. De dagelijkse bronbindings worden door de binder toegevoegd. Periodekeuze binnen 1970-2022; begin met een gedeelde dag waarvoor ook MET volledig beschikbaar is. De generator veronderstelt geen origineel WEL/GHB-budget.
+
+De bestaande dubbele-middernacht-BBC is uitsluitend experimenteel voor variërende daggemiddelden: 98 echte modelproeven hebben het ontbreken van algemeen dagvolumebehoud aangetoond. De standaardconsumer weigert zulke reeksen. Constante eendaagse brongebonden BBC's zijn wel geproduceerd en de bestandskoppeling is getest. Zie het rapport voor de concrete modelbeperking en evidence. Dit vervangt eerdere omschrijvingen die alleen naar een nog te onderzoeken interpolatiebeleid verwezen.

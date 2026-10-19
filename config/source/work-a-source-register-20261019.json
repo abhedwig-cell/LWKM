@@ -52,6 +52,17 @@
     "ghb_path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_run_resultaten_totaal\\modflow\\bdgghb\\bdgghb_YYYYMMDD_l1.idf",
     "wel_directory": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_run_resultaten_totaal\\modflow\\bdgwel",
     "live_bytes_verified": false,
-    "source_class": "RECONSTRUCTED_OPERATIONAL"
+    "source_class": "RECONSTRUCTED_OPERATIONAL",
+    "period": [
+      "1970-01-01",
+      "2022-12-31"
+    ],
+    "lateral_components": [
+      "FRF",
+      "FFF"
+    ],
+    "authority": "docs/production/WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md",
+    "sign_rule": "SAVED_CURRENT_MINUS_PREVIOUS_COLUMN/ROW",
+    "full_server_daily_hashes_verified": false
   }
 }

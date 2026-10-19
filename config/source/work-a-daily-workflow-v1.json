@@ -27,7 +27,8 @@
       ],
       "outputs": [
         "daily_cell_csv",
-        "daily_hru_components_csv"
+        "daily_hru_components_csv",
+        "separate_FRF_FFF_components"
       ],
       "admission": false
     },
@@ -48,7 +49,7 @@
       "tool": "tools.daily_forcing.effective_bbc",
       "requires": [
         "DAILY_CELLS",
-        "constant_mean_interval_or_new_qualified_temporal_policy"
+        "constant_daily_flux_or_future_model_volume_qualified_variable_policy"
       ],
       "outputs": [
         "BBC"
@@ -71,5 +72,7 @@
   ],
   "missing_values": "FAIL_NO_IMPLICIT_ZERO_NO_HISTORICAL_FALLBACK",
   "default_et_policy": "owner_tulip_pm",
-  "owner_decision": "docs/production/WORK_A_OWNER_RECONSTRUCTED_PRODUCTS_20261019.md"
+  "owner_decision": "docs/production/WORK_A_OWNER_RECONSTRUCTED_PRODUCTS_20261019.md",
+  "effective_flux": "FLF + FRF_net + FFF_net + GHB + WEL",
+  "five_component_authority": "docs/production/WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md"
 }

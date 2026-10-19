@@ -1,0 +1,7 @@
+{
+  "hrus": 6,
+  "max_difference_mm_d": 4.336000003490881e-09,
+  "tolerance_mm_d": 1e-08,
+  "pass_comparison": true,
+  "limitation": "Existing cached research GHB re-encoded as float32; not server bdgghb collection"
+}
