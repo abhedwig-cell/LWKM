@@ -7,7 +7,12 @@ import pandas as pd
 from tools.hru_clustering import robust_scale
 
 class RScclustPartitioner:
-    """Compatibility backend using the historical R scclust package."""
+    """Direct-feature diagnostic backend, NOT the 31-Aug historical geometry.
+
+    That source passes the rows of an Euclidean distance matrix to distances(),
+    yielding distances between distance profiles. Use replay_hru_source.R for
+    actual source replay. Package identity alone is insufficient compatibility.
+    """
     def __init__(self,rscript="Rscript"): self.rscript=rscript
     def __call__(self,group:pd.DataFrame,min_size:int)->np.ndarray:
         with tempfile.TemporaryDirectory() as td:

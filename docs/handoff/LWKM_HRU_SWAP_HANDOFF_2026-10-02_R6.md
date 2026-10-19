@@ -1,5 +1,7 @@
 # LWKM LHM -> SVAT -> HRU -> SWAP handoff R6 — 2026-10-02
 
+Actuele aanvulling 19 oktober: Work B heeft de volledige R-afleiding werkelijk uitgevoerd. Alle 10.242 HRU-memberships, donoren, representanten en vergeleken schemawaarden zijn gelijk. Zie `docs/production/WORK_B_20261019.md`. De oudere open runtime-reproductieclaim hieronder is daarmee ingehaald; productie-admission blijft afgebakend.
+
 ## Authority and branch
 
 Repository:

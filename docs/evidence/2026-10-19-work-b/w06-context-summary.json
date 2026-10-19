@@ -1,0 +1,11 @@
+{
+  "binding_comparison_sha256": "22051927cd88b489f21cf7c57e31a62ad9039374c0e1235cb788e1b5f4127dd2",
+  "complete_upstream_lineage": false,
+  "failures": 0,
+  "production_admitted": false,
+  "replayed_same_members_and_attributes": 10242,
+  "runs": 10242,
+  "swps_identical_to_c2": 10242,
+  "typed_contexts": 10242,
+  "worksheets": 22
+}

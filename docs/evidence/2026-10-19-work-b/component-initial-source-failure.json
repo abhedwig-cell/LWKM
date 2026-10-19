@@ -1,0 +1,17 @@
+{
+  "affected_existing_hrus": 41,
+  "changed_svat": 277772,
+  "global_hru_id_reconciliation_required": true,
+  "outcomes": {
+    "unchanged": {
+      "log": "/dev/shm/lwkm-work-b/component/unchanged/execution.log",
+      "returncode": 1,
+      "status": "SOURCE_RUNTIME_FAILED"
+    }
+  },
+  "partial_replay_qualified": false,
+  "population": 427656,
+  "production_admitted": false,
+  "selected_svats": 1111,
+  "untouched_hrus": 10201
+}

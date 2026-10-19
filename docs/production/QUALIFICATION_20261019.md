@@ -1,5 +1,8 @@
 # Uitvoerings- en kwalificatierapport
 
+Actuele Work B-aanvulling: [volledige bronreplay en kwalificatie](WORK_B_20261019.md). De historische HRU10242-indeling is opnieuw berekend en gelijk; ruwe LHM-lineage en nieuwe datamodelgeneratie blijven afzonderlijke gates.
+Acceptatie Work B: 379 tests plus drie subtests; nul membership/donor/representanten/attribuutverschillen; 10.242 C2-identieke SWP's; controleer de snapshotgrens en de twee afzonderlijke incrementele proeven.
+
 Aanvulling dagelijkse bronvoorziening: [Work A](WORK_A_20261019.md). C2-resultaten blijven behouden; geen moderne forcing-admission.
 
 Actuele Work C2-aanvulling: [definitieve drainageregels en uitvoering](WORK_C2_20261019.md). Oudere resultaten hieronder blijven historische evidence.
