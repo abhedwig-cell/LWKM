@@ -314,6 +314,7 @@ def hru_average_backprojection(
     m = mapping.copy()
     m["_qa_svat"] = pd.to_numeric(m[map_svat], errors="coerce")
     m["_qa_hru"] = pd.to_numeric(m[map_hru], errors="coerce")
+
     schema = hru_schema.copy()
     schema["_qa_hru"] = pd.to_numeric(schema[schema_hru], errors="coerce")
 
@@ -438,6 +439,8 @@ def representation_effects(
     m["_qa_hru"] = pd.to_numeric(m[map_hru], errors="coerce")
 
     source_cols = [c for c in [maybe_col(base, x) for x in fields] if c]
+    if map_donor:
+        m["_qa_donor"] = pd.to_numeric(m[map_donor], errors="coerce")
     joined = m.merge(base[["_qa_svat", area_col] + source_cols], on="_qa_svat", how="left", validate="many_to_one")
 
     info = {
@@ -449,7 +452,6 @@ def representation_effects(
     rows = []
 
     if map_donor:
-        m["_qa_donor"] = pd.to_numeric(m[map_donor], errors="coerce")
         info["cluster_donor_diff_rows"] = int(
             (m["_qa_svat"].notna() & m["_qa_donor"].notna() & (m["_qa_svat"] != m["_qa_donor"])).sum()
         )

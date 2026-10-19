@@ -18,7 +18,7 @@ def sha256(path):
     return h.hexdigest()
 
 
-def assemble(run_id,assets,output_root,*,profile_id,code_commit,required_assets=None,file_keys=None,required_file_keys=()):
+def assemble(run_id,assets,output_root,*,profile_id,code_commit,required_assets=None,file_keys=None,required_file_keys=(),file_extensions=None):
     """assets: filename -> {path, sha256, qualification_id}."""
     run_id=str(run_id)
     if not run_id or not run_id.isdecimal():
@@ -35,11 +35,11 @@ def assemble(run_id,assets,output_root,*,profile_id,code_commit,required_assets=
     if file_keys is None:
         derived=set(required_package_assets(
             swp_source.read_text(encoding="utf-8"),
-            required_keys=required_file_keys))
+            required_keys=required_file_keys,file_extensions=file_extensions))
     else:
         derived=set(required_package_assets(
             swp_source.read_text(encoding="utf-8"),
-            file_keys=file_keys,required_keys=required_file_keys))
+            file_keys=file_keys,required_keys=required_file_keys,file_extensions=file_extensions))
     if required_assets is not None:
         derived.update(required_assets)
     if derived:

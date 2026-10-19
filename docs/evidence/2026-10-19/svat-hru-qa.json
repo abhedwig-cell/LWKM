@@ -1,0 +1,85 @@
+{
+  "dataset": {
+    "rows": 552705,
+    "unique_ids": 552705,
+    "duplicate_id_rows": 0,
+    "area_m2": 30970107222.0,
+    "missing_area_rows": 0,
+    "nonpositive_area_rows": 0
+  },
+  "selected_dataset": {
+    "rows": 427656,
+    "unique_ids": 427656,
+    "duplicate_id_rows": 0,
+    "area_m2": 25511141709.0,
+    "missing_area_rows": 0,
+    "nonpositive_area_rows": 0
+  },
+  "current_chain_dataset": {
+    "rows": 427656,
+    "unique_ids": 427656,
+    "duplicate_id_rows": 0,
+    "area_m2": 25511141709.0,
+    "missing_area_rows": 0,
+    "nonpositive_area_rows": 0
+  },
+  "qualification_union_rows": 20934,
+  "hru_mapping": {
+    "map_rows": 427656,
+    "mapped_unique_svat": 427656,
+    "mapped_unique_hru": 10242,
+    "missing_svat_in_base": 0,
+    "cluster_donor_diff_rows": 57880,
+    "unique_representative_svat": 10242,
+    "missing_representative_svat_rows": 0,
+    "rows": 427656,
+    "donor_changed_total": 57880,
+    "donor_changed_flagged": 20934,
+    "donor_changed_unflagged": 36946,
+    "flagged_total": 20934,
+    "flagged_with_same_donor": 0
+  },
+  "hru_average_backprojection": [
+    {
+      "variable": "GHG",
+      "status": "OK",
+      "source_table": "mapping",
+      "svat_column": "GHG_LHM43_orig",
+      "hru_average_column": "GHG_average",
+      "n_pairs": 427656,
+      "area_m2": 25511141709.0,
+      "weighted_mean_svat": 249.43343021555555,
+      "weighted_mean_hru_backprojected": 250.0133624165638,
+      "weighted_mean_delta": 0.5799322010082688,
+      "weighted_mae": 57.96773508015492,
+      "weighted_rmse": 225.06321738945636,
+      "p01_delta": -662.7110074626855,
+      "median_delta": 0.34752415458934927,
+      "p99_delta": 648.1856521739143,
+      "max_abs_delta": 8500.553191489362
+    },
+    {
+      "variable": "NettoKwel",
+      "status": "OK",
+      "source_table": "mapping",
+      "svat_column": "NettoKwel_LHM43_orig",
+      "hru_average_column": "NettoKwel_average",
+      "n_pairs": 427656,
+      "area_m2": 25511141709.0,
+      "weighted_mean_svat": -39.716166110318156,
+      "weighted_mean_hru_backprojected": -37.24163556254162,
+      "weighted_mean_delta": 2.4745305477765474,
+      "weighted_mae": 59.01568391322283,
+      "weighted_rmse": 117.3522785552572,
+      "p01_delta": -333.67414261019957,
+      "median_delta": 0.8137692307691999,
+      "p99_delta": 355.07255813953503,
+      "max_abs_delta": 9660.871428571429
+    }
+  ],
+  "guardrails": {
+    "correction_requires_explicit_authority": true,
+    "qualification_is_not_replacement": true,
+    "cluster_donor_is_not_hru_representative": true
+  }
+}

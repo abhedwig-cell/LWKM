@@ -1,0 +1,156 @@
+[
+  {
+    "logical_id": ".LHM2SWAP.zip.YBadLx",
+    "source_path": ".LHM2SWAP.zip.YBadLx",
+    "size_bytes": 209977344,
+    "sha256": "2b3ec8760d1636cae444fe1d5e32094b59ed53037fa0230670b98a468991c103",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".LHM2SWAP.zip.qjuuoj6i",
+    "source_path": ".LHM2SWAP.zip.qjuuoj6i",
+    "size_bytes": 452984832,
+    "sha256": "c3bff5dfd186abaa9ecabb3d9e93d3749f2d48827110127207871a80f020d2b9",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".LHM2SWAP.zip.qjuuoj6i.1JopRQ",
+    "source_path": ".LHM2SWAP.zip.qjuuoj6i.1JopRQ",
+    "size_bytes": 224395264,
+    "sha256": "0ff653f8407b8bc03407e0d573378191479d298f9bb7ea9fff66c794749a9e38",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".LHM2SWAP.zip.qjuuoj6i.Z9Cl39",
+    "source_path": ".LHM2SWAP.zip.qjuuoj6i.Z9Cl39",
+    "size_bytes": 186908672,
+    "sha256": "6f81f0df5c8fbec80c247ca36b62508889a3d26682420e49ffb0f8f383bb6be7",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".LHM2SWAP.zip.qjuuoj6i.pmNETw",
+    "source_path": ".LHM2SWAP.zip.qjuuoj6i.pmNETw",
+    "size_bytes": 326107136,
+    "sha256": "5aae83a3f0190a0eaaa2b82e203b80e4191f9a5b33cce7e34779e584b9cea62d",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "LHM2SWAP.zip",
+    "source_path": "LHM2SWAP.zip",
+    "size_bytes": 494961922,
+    "sha256": "e8387d6e366880b34e821fa7df9a2c0aaa5de8923c67116cb8bdf283b303b645",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "Datamodel_10242.xlsx",
+    "source_path": "LWKM/Datamodel_10242.xlsx",
+    "size_bytes": 7056025,
+    "sha256": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "LHM433_DRA_REMAINING_Q4.zip",
+    "source_path": "LWKM/LHM433_DRA_REMAINING_Q4.zip",
+    "size_bytes": 24517297,
+    "sha256": "6de1ccbdb646f809523fd3cbedd5143bc2a73470a1f48d0b04b13be93fa7a3a4",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "LHM433_H1_MVG_Q4.zip",
+    "source_path": "LWKM/LHM433_H1_MVG_Q4.zip",
+    "size_bytes": 64091261,
+    "sha256": "3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "Template.zip",
+    "source_path": "LWKM/Template.zip",
+    "size_bytes": 1860053,
+    "sha256": "f21a15697332184e9931487918243ebf195e8d214ae81c4ca698f9f865f4ef85",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "csv.zip",
+    "source_path": "LWKM/csv.zip",
+    "size_bytes": 89007134,
+    "sha256": "84ae4963145176767a00c67b968ace5b817002d5292fd9cab8d3933476e509e3",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "run_files(1).zip",
+    "source_path": "LWKM/run_files(1).zip",
+    "size_bytes": 20953239,
+    "sha256": "46f1fc6b6f4aa01265db950c8ca78f9c4714a97d11cfa4d8f0c66b4dea7a05e3",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".SVAT_INFO(1).CSV.amfckzk0",
+    "source_path": "LWKM-runtime-recovery/.SVAT_INFO(1).CSV.amfckzk0",
+    "size_bytes": 270073856,
+    "sha256": "0333b0c4998009ba4e2083dd92f06384092dbcb045b60fc476b7353a7be6f383",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".SVAT_INFO(1).CSV.amfckzk0.Rho4T3",
+    "source_path": "LWKM-runtime-recovery/.SVAT_INFO(1).CSV.amfckzk0.Rho4T3",
+    "size_bytes": 206045184,
+    "sha256": "99bce0ae82989f3a240947e77e01c4605ac1ca96082b4fda15057aa3bee7f900",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".SVAT_INFO(1).CSV.amfckzk0.Rho4T3.5WV5iN",
+    "source_path": "LWKM-runtime-recovery/.SVAT_INFO(1).CSV.amfckzk0.Rho4T3.5WV5iN",
+    "size_bytes": 182714368,
+    "sha256": "b07b92c704b32e3306fc871e909d7b30445fb59445fb91f8146fbe2dbf9fb18d",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".SVAT_INFO(1).CSV.amfckzk0.Rho4T3.5WV5iN.QEnHeV",
+    "source_path": "LWKM-runtime-recovery/.SVAT_INFO(1).CSV.amfckzk0.Rho4T3.5WV5iN.QEnHeV",
+    "size_bytes": 132382720,
+    "sha256": "66ffd4177494321148b87c34a3ef506fd3e9c06ad01fea687dae7a5044e2f5c4",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".SVAT_INFO(1).CSV.amfckzk0.uLUMB1",
+    "source_path": "LWKM-runtime-recovery/.SVAT_INFO(1).CSV.amfckzk0.uLUMB1",
+    "size_bytes": 54788096,
+    "sha256": "ddc20eb9445f11752fb80310b06a0412d61e47d01f11c87b07a8c9df343a29a8",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".SVAT_INFO(1).CSV.h1ITXf",
+    "source_path": "LWKM-runtime-recovery/.SVAT_INFO(1).CSV.h1ITXf",
+    "size_bytes": 232521728,
+    "sha256": "eb1620c7b66594e681d3fbd6028606704dcfec25ff12ba5e50de855b157db140",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": ".SVAT_INFO(1).CSV.h1ITXf.WdlYAe",
+    "source_path": "LWKM-runtime-recovery/.SVAT_INFO(1).CSV.h1ITXf.WdlYAe",
+    "size_bytes": 171442176,
+    "sha256": "0e5087fcf196e188a1df25e6a924b43924040ff626aeb8bce4eee681ffde562a",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "SVAT_INFO(1).CSV",
+    "source_path": "LWKM-runtime-recovery/SVAT_INFO(1).CSV",
+    "size_bytes": 371971445,
+    "sha256": "fd0ca2bd776b741ac513f6cbe219a50753ef45069080c885a172612bc427000f",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "grensvlak_NHIWQ_v2_fill.asc",
+    "source_path": "LWKM-runtime-recovery/grensvlak_NHIWQ_v2_fill.asc",
+    "size_bytes": 3521406,
+    "sha256": "e6f13f2308ec55089d384133296fd45e6f796eeefb81260ff8ffebef83f09c3a",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  },
+  {
+    "logical_id": "SWAP_4.3.1.zip",
+    "source_path": "SYMPHONICA/SWAP_4.3.1.zip",
+    "size_bytes": 8959314,
+    "sha256": "2b48353db6cdf00246a1e5c0dcaafc2c61858729fad18446a1dc66359ec2a360",
+    "status": "RECOVERED_BYTE_IDENTIFIED_NOT_PRODUCTION_ADMITTED"
+  }
+]

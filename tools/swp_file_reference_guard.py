@@ -40,7 +40,11 @@ def extract_references(swp_text, *, file_keys=DEFAULT_FILE_KEYS, required_keys=(
     return seen
 
 
-def required_package_assets(swp_text, *, file_keys=DEFAULT_FILE_KEYS, required_keys=()):
-    return sorted({"swap.swp",*extract_references(
+def required_package_assets(swp_text, *, file_keys=DEFAULT_FILE_KEYS, required_keys=(), file_extensions=None):
+    refs=extract_references(
         swp_text,file_keys=file_keys,required_keys=required_keys
-    ).values()})
+    )
+    extensions=file_extensions or {}
+    if set(extensions)-set(file_keys) or any(not re.fullmatch(r"\.[A-Za-z0-9]+",x) for x in extensions.values()):
+        raise ValueError("invalid explicit file extension policy")
+    return sorted({"swap.swp",*(value+extensions.get(key,"") for key,value in refs.items())})

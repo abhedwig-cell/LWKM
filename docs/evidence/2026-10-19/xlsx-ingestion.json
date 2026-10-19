@@ -1,0 +1,259 @@
+{
+  "source_sha256": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+  "sheets": {
+    "lu2crop": {
+      "rows": 44,
+      "columns": [
+        "soil2_id",
+        "luse_id",
+        "crop_id",
+        "crop_old"
+      ]
+    },
+    "Runs": {
+      "rows": 10242,
+      "columns": [
+        "run_id",
+        "scenario_id",
+        "bodem_id",
+        "soil2_id",
+        "lu_id",
+        "climate_id",
+        "SWBBCFILE",
+        "SWBOTB",
+        "dqsat",
+        "BBCFIL",
+        "DRFIL",
+        "METFIL",
+        "irrigation_id",
+        "solute_id",
+        "rotation_id",
+        "SWINCO",
+        "GWLI",
+        "RDS",
+        "PONDMX",
+        "RSRO",
+        "tempBot",
+        "glk",
+        "area",
+        "xc",
+        "yc",
+        "col",
+        "row",
+        "nusvat",
+        "TSTART",
+        "TEND",
+        "SWETR",
+        "soil_id",
+        "crop_id",
+        "croporg_id",
+        "dikte_id",
+        "COFANI",
+        "NUMNODNEW"
+      ]
+    },
+    "Irrigatie": {
+      "rows": 9,
+      "columns": [
+        "irrigation_id",
+        "solute_id",
+        "SCHEDULE",
+        "SWSOLU",
+        "CIRRS",
+        "CDRAIN"
+      ]
+    },
+    "Zoutprofiel": {
+      "rows": 12,
+      "columns": [
+        "solute_id",
+        "ZC",
+        "CML"
+      ]
+    },
+    "Output_org": {
+      "rows": 24,
+      "columns": [
+        "crop_id",
+        "INLIST_CSV"
+      ]
+    },
+    "Output": {
+      "rows": 24,
+      "columns": [
+        "crop_id",
+        "INLIST_CSV"
+      ]
+    },
+    "discretisatie_org": {
+      "rows": 3295,
+      "columns": [
+        "bodem_idx",
+        "ISUBLAY",
+        "ISOILLAY",
+        "HSUBLAY",
+        "NCOMP"
+      ]
+    },
+    "discretisatie": {
+      "rows": 65900,
+      "columns": [
+        "bodem_id",
+        "ISUBLAY",
+        "ISOILLAY",
+        "HSUBLAY_org",
+        "HSUBLAY",
+        "NCOMP_org",
+        "NCOMP_orgx",
+        "DIKTE",
+        "NCOMP",
+        "dikte_id"
+      ]
+    },
+    "DZNEW": {
+      "rows": 620,
+      "columns": [
+        "dikte_id",
+        "ICOMP",
+        "DZNEW"
+      ]
+    },
+    "eigenschappen": {
+      "rows": 1577,
+      "columns": [
+        "bodem_id",
+        "sfu",
+        "ISOILLAY",
+        "BDENS",
+        "PCLAY",
+        "PSILT",
+        "PSAND",
+        "ORGMAT",
+        "ORES",
+        "OSAT",
+        "ALFA",
+        "NPAR",
+        "KSATFIT",
+        "KSATEXM",
+        "LEXP",
+        "H_ENPR",
+        "LDIS",
+        "COFANI",
+        "ELAS"
+      ]
+    },
+    "Grasverlies": {
+      "rows": 158,
+      "columns": [
+        "soil_id",
+        "HMOW",
+        "HLOSSMOW",
+        "HGRZ",
+        "HLOSSGRZ"
+      ]
+    },
+    "Gewasmanagement": {
+      "rows": 1185,
+      "columns": [
+        "soil_id",
+        "crop_id",
+        "SWPREP",
+        "HPREP",
+        "HSOW"
+      ]
+    },
+    "Wortelzone": {
+      "rows": 1738,
+      "columns": [
+        "soil_id",
+        "croporg_id",
+        "RDS"
+      ]
+    },
+    "Gewasrotatie": {
+      "rows": 2700,
+      "columns": [
+        "climate_id",
+        "crop_id",
+        "rotation_id",
+        "CROPSTART",
+        "CROPEND",
+        "CROPNAME",
+        "CROPFIL",
+        "CROPTYPE"
+      ]
+    },
+    "GewasrotatieMax": {
+      "rows": 3416,
+      "columns": [
+        "climate_id_",
+        "crop_id_",
+        "rotation_id_",
+        "CROPSTART",
+        "CROPEND",
+        "CROPNAME",
+        "CROPFIL",
+        "CROPTYPE"
+      ]
+    },
+    "Gewasontwikkeling": {
+      "rows": 47,
+      "columns": [
+        "crop_id",
+        "scenario_id",
+        "SWSOW",
+        "SWGERM",
+        "SWHARV",
+        "DVSEND"
+      ]
+    },
+    "Gewasweerstand": {
+      "rows": 24,
+      "columns": [
+        "crop_id",
+        "RSOIL"
+      ]
+    },
+    "Scenario": {
+      "rows": 3,
+      "columns": [
+        "scenario_id",
+        "SWDRA",
+        "SWBOTB",
+        "GWLI",
+        "SWINCO"
+      ]
+    },
+    "DTmax": {
+      "rows": 79,
+      "columns": [
+        "soil_id",
+        "DTMAX"
+      ]
+    },
+    "Meteo": {
+      "rows": 2,
+      "columns": [
+        "climate_id",
+        "ATMOFIL"
+      ]
+    },
+    "bodem370_2_bofek2020": {
+      "rows": 370,
+      "columns": [
+        "bodem_id",
+        "soil_id",
+        "BOFEKnhi79"
+      ]
+    },
+    "dqsat": {
+      "rows": 19,
+      "columns": [
+        "dqsat",
+        "dikte",
+        "dikte_id"
+      ]
+    }
+  },
+  "cached_formula_cells": 337098
+}

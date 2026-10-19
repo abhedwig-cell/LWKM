@@ -270,11 +270,14 @@ def render_dra_explicit(
         )
         swdtyp = 1 if medium == "drain_tube" else 2
 
+        def real_token(value):
+            token=format(float(value),'.10g')
+            return token if any(c in token.lower() for c in '.ed') else token+'.0'
         lines += [
-            f"DRARES{sy} = {drnres:8.0f}",
-            f"INFRES{sy} = {infres:8.0f}",
+            f"DRARES{sy} = {real_token(drnres)}",
+            f"INFRES{sy} = {real_token(infres)}",
             f"SWALLO{sy} = {swallo_value}",
-            f"L{sy} = {spacing:8.0f}",
+            f"L{sy} = {real_token(spacing)}",
             f"ZBOTDR{sy} = {zbotdr:8.2f}",
             f"SWDTYP{sy} = {swdtyp}",
             " ",

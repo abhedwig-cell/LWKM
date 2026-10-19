@@ -1,0 +1,425 @@
+{
+  "schema_version": 2,
+  "as_of": "2026-10-19",
+  "baseline_commit": "4e6c5803b8d9f996c3331078ac72c6ece6db4a97",
+  "code_checkpoint": "See docs/evidence/2026-10-19/code-file-hashes.json and containing Git commit",
+  "streams": {
+    "A": {
+      "name": "Sources and postprocessing",
+      "owns": [
+        "W01",
+        "W02"
+      ],
+      "outputs": [
+        "source-register",
+        "Q4 manifests",
+        "derived raster identities"
+      ],
+      "contract": "Byte identity and semantics qualified separately; no ad hoc source promotion"
+    },
+    "B": {
+      "name": "SVAT, donor, HRU, context",
+      "owns": [
+        "W03",
+        "W04",
+        "W05",
+        "W06"
+      ],
+      "outputs": [
+        "membership",
+        "representatives",
+        "typed contexts"
+      ],
+      "contract": "Unique original SVAT membership; donor and representative remain separate"
+    },
+    "C": {
+      "name": "Hydrological boundaries",
+      "owns": [
+        "W07",
+        "W08",
+        "W08-GW-L1"
+      ],
+      "outputs": [
+        "physical seven-system DRA",
+        "BBC variants",
+        "daily component fluxes"
+      ],
+      "contract": "DRA excludes external groundwater; GW-L1 excludes MetaSWAP/storage/RIV/DRN"
+    },
+    "D": {
+      "name": "Direct generator and packages",
+      "owns": [
+        "W09",
+        "W10",
+        "W11"
+      ],
+      "outputs": [
+        "MET",
+        "SWP",
+        "package manifest"
+      ],
+      "contract": "Render typed science; explicit asset references; incremental identities"
+    },
+    "E": {
+      "name": "Integrated execution",
+      "owns": [
+        "W12",
+        "W13",
+        "W14"
+      ],
+      "outputs": [
+        "execution records",
+        "regression",
+        "admission evidence"
+      ],
+      "contract": "Package generated, execution successful and production admitted are independent"
+    },
+    "F": {
+      "name": "Documentation and handover",
+      "owns": [
+        "W00"
+      ],
+      "outputs": [
+        "architecture",
+        "runbook",
+        "report",
+        "Leo acceptance"
+      ],
+      "contract": "Evidence-bound claims and exact reproducible commands"
+    }
+  },
+  "steps": {
+    "W00": {
+      "name": "file_qualification_governance",
+      "status": "QUALIFIED_NOT_ADMITTED",
+      "depends_on": [],
+      "admission": "ZERO_UNTRACED_PRODUCTION_INPUTS",
+      "evidence": [
+        "docs/governance/LWKM_FILE_QUALIFICATION_POLICY_2026-10-02.md"
+      ],
+      "implementation_observed": "Recursive consumer-specific hash and lineage gate, candidate packaging remains separate",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Enforce admission authority across every production entrypoint",
+      "next_implementation": "Wire registry into complete production driver",
+      "command": "python -m pytest -q tests/test_file_qualification_gate.py"
+    },
+    "W01": {
+      "name": "lhm_server_provenance_freeze",
+      "status": "W01_OUTPUT_INVENTORIED_INPUT_CONFIG_AUTHORITY_PARTIAL",
+      "depends_on": [
+        "W00"
+      ],
+      "admission": "LHM_SOURCE_Q4_IMMUTABLE_SNAPSHOT",
+      "evidence": [
+        "docs/server/LHM_SOURCE_PROVENANCE_AND_COLLECTION_2026-10-02.md",
+        "config/source/lhm-server-source-spec-v1.yml",
+        "config/source/lhm-server-source-spec-v1.csv",
+        "config/source/nhi-server-source-spec-v1.csv",
+        "config/source/w01-lhm-authority-v1.yml",
+        "tools/server/lwkm_output_inventory.ps1",
+        "tools/server/lwkm_ini_provenance.ps1",
+        "docs/server/W01_LHM_SERVER_TOPOLOGY_DISCOVERY_2026-10-05.md",
+        "docs/server/W01_LHM_AUTHORITY_SPLIT_2026-10-05.md",
+        "docs/server/W01_OUTPUT_AUTHORITY_INVENTORY_RESULT_2026-10-05.md",
+        "docs/evidence/2026-10-05/w01-output-inventory-summary.json",
+        "config/source/w01-output-consumer-candidates-v1.yml",
+        "tools/server/lwkm_w01.ps1",
+        "tools/server/lwkm_w01.py",
+        "tools/lwkm_source_bundle.py",
+        "docs/server/W01_LHM_SERVER_EXECUTION_GUIDE_2026-10-02.md"
+      ],
+      "implementation_observed": "705 Q4 payload members rehashed; source inventory recovered",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Complete dynamic consumer-bound source set unavailable locally",
+      "next_implementation": "Collect only required daily dynamic products from authoritative server",
+      "command": "python -m tools.server.lwkm_w01 --help"
+    },
+    "W02": {
+      "name": "lhm_postprocessing",
+      "status": "QUALIFIED_NOT_ADMITTED",
+      "depends_on": [
+        "W01"
+      ],
+      "admission": "ZERO_UNEXPLAINED_NUMERICAL_DIFFERENCES",
+      "evidence": [
+        "docs/server/LHM433_PYTHON_POSTPROCESSING_MIGRATION_2026-09-30.md",
+        "tools/lhm_postprocess.py"
+      ],
+      "implementation_observed": "Deterministic raster compatibility core tested",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Real-period old/new postprocessing golden comparison absent",
+      "next_implementation": "Bind same-period raw budget and historical derived oracle",
+      "command": "python -m pytest -q tests/test_lhm_postprocess.py"
+    },
+    "W03": {
+      "name": "svat_basis_and_selection",
+      "status": "RECONSTRUCTED_NOT_QUALIFIED",
+      "depends_on": [
+        "W01",
+        "W02"
+      ],
+      "admission": "SVAT_POPULATION_PRODUCTION_ADMITTED",
+      "evidence": [],
+      "implementation_observed": "552705 base SVATs, 427656 selected, 25511141709 m2",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Full raw LHM lineage not admitted",
+      "next_implementation": "Reproduce selection from qualified raw snapshots",
+      "command": "python -m tools.run_current_data_reconstruction --csv-zip \"$CSV\" --lhm2swap-zip \"$LHM2SWAP\" --base-svat \"$SVAT_FULL\" --out \"$OUT/svat\" --keep-staging"
+    },
+    "W04": {
+      "name": "suspect_donor_assignment",
+      "status": "PARTIALLY_QUALIFIED",
+      "depends_on": [
+        "W03"
+      ],
+      "admission": "DONOR_ASSIGNMENT_PRODUCTION_ADMITTED",
+      "evidence": [],
+      "implementation_observed": "57880 donor changes; 20934 flagged; 36946 changed outside current flags",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Donor replacement cannot be inferred solely from current suspect rules",
+      "next_implementation": "Replay Piet procedure and qualify additional changed population",
+      "command": "python -m pytest -q tests/test_hru_clustering.py"
+    },
+    "W05": {
+      "name": "hru_construction",
+      "status": "PARTIALLY_QUALIFIED",
+      "depends_on": [
+        "W03",
+        "W04"
+      ],
+      "admission": "HRU_SCHEMATISATION_PRODUCTION_ADMITTED",
+      "evidence": [],
+      "implementation_observed": "427656 unique members, 10242 HRUs and representatives, no missing joins",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Existing partition reconstructed, upstream production lineage incomplete",
+      "next_implementation": "Deterministic replay from admitted selection and donor procedure",
+      "command": "python -m tools.run_hru_primary --help"
+    },
+    "W06": {
+      "name": "hru_context_assembly",
+      "status": "QUALIFIED_NOT_ADMITTED",
+      "depends_on": [
+        "W05"
+      ],
+      "admission": "HRU_CONTEXT_10242_PRODUCTION_ADMITTED",
+      "evidence": [
+        "docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md",
+        "tools/xlsx_datamodel.py"
+      ],
+      "implementation_observed": "22 worksheets; 10242 typed contexts; zero unresolved joins",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Upstream chain not admitted",
+      "next_implementation": "Bind workbook and lookup roles in file registry",
+      "command": "python -m pytest -q tests/test_swp_context.py tests/test_xlsx_datamodel.py"
+    },
+    "W07": {
+      "name": "dra_generation",
+      "status": "MODERN_SEVEN_SYSTEM_IMPLEMENTED_SOURCE_Q4_PARTIAL",
+      "depends_on": [
+        "W06"
+      ],
+      "admission": "DIRECT_DRA_PRODUCER_ADMITTED",
+      "evidence": [
+        "docs/lhm-hru-swap/P12-DRA-SOURCE-RUNTIME-PROVENANCE-2026-10-01.md",
+        "docs/lhm-hru-swap/P12-RUN-LINKED-PRODUCER-PROVENANCE-FOLLOWUP-2026-10-02.md",
+        "docs/lhm-hru-swap/P12-DRA-SEVEN-TO-FIVE-LEVEL-DESIGN-2026-10-06.md",
+        "docs/lhm-hru-swap/P12-DRA-LEVEL-ORDERING-RESOLUTION-2026-10-07.md",
+        "config/p12/dra-physical-systems-v2.yml",
+        "docs/evidence/2026-10-07/h1-mvg-file-semantic-audit.json",
+        "docs/evidence/2026-10-07/h1-source-exception-population-intersection.json",
+        "tools/dra_level_compression.py",
+        "tools/dra_package_guard.py",
+        "tools/diagnose_dra_activity_10242.py",
+        "tools/diagnose_dra_10242.py",
+        "tools/server/lwkm_collect_dra_remaining.ps1",
+        "docs/lhm-hru-swap/P12-DRA-LEVEL-ORDERING-RESOLUTION-2026-10-07.md",
+        "docs/server/W07_DRA_REMAINING_Q4_EXECUTION_GUIDE_2026-10-07.md"
+      ],
+      "implementation_observed": "705 source members reverified; 49 HRU/1971 replay: 2 source failures, 19 of 47 protected/interface failures; modern DRA example 7876 executed",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "H1 factors missing for 7870 and 7929; 19 protected/interface failures in remaining 47. Full-period population sensitivity run stopped after reference subset failed required gates; no full-population qualification claimed.",
+      "next_implementation": "Inspect replay and render only accepted levels; run SWAP DRA parser",
+      "command": "python -m tools.run_dra_end_to_end_qualification --relation \"$RELATION\" --schema \"$SCHEMA\" --h1-mvg-zip \"$H1\" --remaining-zip \"$REMAINING\" --dqsat-grid \"$DQSAT\" --output-dir \"$OUT/dra\" --stage-start 1970-01-01 --stage-end 2021-12-31 --expected-h1-sha256 3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa --expected-remaining-sha256 6de1ccbdb646f809523fd3cbedd5143bc2a73470a1f48d0b04b13be93fa7a3a4"
+    },
+    "W08": {
+      "name": "bbc_generation",
+      "status": "RECONSTRUCTED_NOT_QUALIFIED",
+      "depends_on": [
+        "W06",
+        "W02"
+      ],
+      "admission": "BBC_PRODUCTION_ADMITTED",
+      "evidence": [],
+      "implementation_observed": "Owner-approved qq candidate separate from diagnostic BBC",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Daily qualified head1/head2/c1 and numerical oracle not locally complete",
+      "next_implementation": "Qualified daily qq generation and sign/time/support test",
+      "command": "python -m pytest -q tests/test_bbc_qq_production_contract.py tests/test_build_bbc_met_daily.py",
+      "subworkstreams": {
+        "W08-GW-L1": {
+          "status": "IMPLEMENTED_UNIT_TESTED_NOT_ADMITTED",
+          "depends_on": [
+            "W01",
+            "W02",
+            "W05"
+          ],
+          "input_contract": {
+            "units": "m3/calendar_day",
+            "positive": "into_layer1",
+            "components": [
+              "flf",
+              "lat",
+              "ghb",
+              "wel"
+            ],
+            "full_cell_area_m2": 62500
+          },
+          "available_sources": "Design decision and limited layer-1 audit artifacts; complete qualified daily inputs not bound",
+          "open_problem": "Original package signs/time semantics and WEL estimate status unresolved for production",
+          "command": "python -m tools.groundwater_l1_boundary --cells \"$CELLS\" --membership \"$MEMBERSHIP\" --contract \"$CONTRACT\" --start \"$START\" --end \"$END\" --out \"$OUT/gw.csv\""
+        }
+      }
+    },
+    "W09": {
+      "name": "met_generation",
+      "status": "RECONSTRUCTED_NOT_QUALIFIED",
+      "depends_on": [
+        "W06"
+      ],
+      "admission": "MET_PRODUCTION_ADMITTED",
+      "evidence": [],
+      "implementation_observed": "Composition and daily guards; HUM repaired to vapour pressure kPa",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Modern full-domain daily source coverage and aggregation regression absent",
+      "next_implementation": "Build daily meteorology from qualified grids and districts",
+      "command": "python -m pytest -q tests/test_p12_met_producer.py tests/test_met_daily_input_contract.py"
+    },
+    "W10": {
+      "name": "direct_swp_rendering",
+      "status": "BLOCKED_BY_PROVENANCE",
+      "depends_on": [
+        "W06",
+        "W07",
+        "W08",
+        "W09"
+      ],
+      "admission": "DIRECT_SWP_RENDERER_ADMITTED",
+      "evidence": [
+        "docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md"
+      ],
+      "implementation_observed": "10242 SWPs rendered with current explicit profile; 49 comparisons retain differences",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "SWETR=1 cases need compatible crop factor assets; no broad profile admission",
+      "next_implementation": "Qualify crop-factor route without changing workbook ET choice",
+      "command": "python -m tools.build_modern_population --database \"$DB\" --template \"$TEMPLATE\" --output \"$OUT/population\" --oracles \"$ORACLES\""
+    },
+    "W11": {
+      "name": "per_hru_package_assembly",
+      "status": "NOT_STARTED_AS_FORMAL_GATE",
+      "depends_on": [
+        "W07",
+        "W08",
+        "W09",
+        "W10"
+      ],
+      "admission": "HRU_RUN_PACKAGE_ADMITTED",
+      "evidence": [],
+      "implementation_observed": "Atomic candidate assembler with explicit hash/reference guards",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "No complete modern 10242 component set",
+      "next_implementation": "Assemble only complete admitted assets; keep candidates explicitly separate",
+      "command": "python -m pytest -q tests/test_assemble_swap_package.py"
+    },
+    "W12": {
+      "name": "integrated_49_run_regression",
+      "status": "PARTIALLY_QUALIFIED",
+      "depends_on": [
+        "W11"
+      ],
+      "admission": "49_RUN_INTEGRATED_REGRESSION_ADMITTED",
+      "evidence": [
+        "config/p12/regression-oracle-v1.yml",
+        "config/p12/dra-49run-static04-expected-differences-v1.yml"
+      ],
+      "implementation_observed": "49 raw parser attempts and 49 one-year compatibility attempts",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "45 compatibility passes; 4 SWETR/crop-factor failures; 49 semantic differences remain",
+      "next_implementation": "Qualify 4 crop-factor assets and explain science differences",
+      "command": "python -m tools.qualify_49_runtime --database \"$DB\" --template \"$TEMPLATE\" --oracles \"$ORACLES\" --output \"$OUT/runtime49\" --executable \"$SWAP\" --library \"$RUNTIME_LIB\""
+    },
+    "W13": {
+      "name": "production_10242_build",
+      "status": "NOT_STARTED_AS_ADMISSION_GATE",
+      "depends_on": [
+        "W12"
+      ],
+      "admission": "LWKM_10242_BUILD_ADMITTED",
+      "evidence": [],
+      "implementation_observed": "10242 SWP directories and per-file identities; zero generation failures",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "Zero complete modern run packages",
+      "next_implementation": "Supply qualified DRA/MET/BBC/asset identities per HRU",
+      "command": "python -m tools.build_modern_population --database \"$DB\" --template \"$TEMPLATE\" --output \"$OUT/population\" --oracles \"$ORACLES\""
+    },
+    "W14": {
+      "name": "end_to_end_production_admission",
+      "status": "NOT_STARTED",
+      "depends_on": [
+        "W13"
+      ],
+      "admission": "LWKM_END_TO_END_PRODUCTION_ADMITTED",
+      "evidence": [],
+      "implementation_observed": "Operational pieces executed and evidence persisted",
+      "production_admitted": false,
+      "available_sources": "docs/evidence/2026-10-19/source-register.json",
+      "tests": "docs/evidence/2026-10-19/tests.log",
+      "current_evidence": "docs/evidence/2026-10-19/",
+      "open_problem": "No end-to-end production admission",
+      "next_implementation": "Close upstream gates and execute full modern chain",
+      "command": "python -m pytest -q tests"
+    }
+  },
+  "production_admitted": false
+}

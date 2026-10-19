@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "profile": "LWKM_CURRENT_TEMPLATE_CANDIDATE_20261019",
+  "run_count": 10242,
+  "elapsed_seconds": 60.68293325600098,
+  "unchanged_swp_reused": 10242,
+  "production_admitted": false,
+  "generated_swp_count": 10242,
+  "complete_packages": 0
+}

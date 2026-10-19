@@ -1,0 +1,20 @@
+[
+  {
+    "bundle": "LHM433_H1_MVG_Q4.zip",
+    "member_count": 681,
+    "payload_bytes": 4249475616,
+    "mismatches": [],
+    "manifest_sha256": "216af5086a83109abfcaa74b19c92535c354a79008ec958e0b7c0eb40fc32ebb",
+    "status": "BYTE_VERIFICATION_PASS",
+    "semantic_admission": false
+  },
+  {
+    "bundle": "LHM433_DRA_REMAINING_Q4.zip",
+    "member_count": 24,
+    "payload_bytes": 155137270,
+    "mismatches": [],
+    "manifest_sha256": "86589aa52f0a7300c051ca857228c12ce558764c5e8c6b29ee784b68e55c58d9",
+    "status": "BYTE_VERIFICATION_PASS",
+    "semantic_admission": false
+  }
+]

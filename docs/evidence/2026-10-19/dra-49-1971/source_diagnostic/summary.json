@@ -1,0 +1,296 @@
+{
+  "schema_version": 2,
+  "status": "DRA_POPULATION_DIAGNOSTIC_FAIL",
+  "source_identity": {
+    "relation_sha256": "425ba566a751da743ae0ab653916293ec48993510041f497850f0069d6f1e555",
+    "schema_sha256": null,
+    "dqsat_grid_sha256": null,
+    "dqsat_snapshot_sha256": "68b2b3d2d47ebf064434104e3b41dc1650a0f1bc4c4d5822811caf603eb538a9",
+    "h1_mvg_zip_sha256": "3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa",
+    "remaining_zip_sha256": "6de1ccbdb646f809523fd3cbedd5143bc2a73470a1f48d0b04b13be93fa7a3a4",
+    "remaining_zip_expected_sha256": "6de1ccbdb646f809523fd3cbedd5143bc2a73470a1f48d0b04b13be93fa7a3a4"
+  },
+  "representative_dqsat": {
+    "authority": "STATIC04_PERSISTED_QUALIFIED_SNAPSHOT",
+    "hru_count": 49,
+    "discriminating_from_legacy_majority_bfe": 13
+  },
+  "hru_expected": 49,
+  "hru_completed": 47,
+  "hru_failed": 2,
+  "membership_rows": 2117,
+  "h1_stage_date_start": "1971-01-01",
+  "h1_stage_date_end": "1971-12-01",
+  "h1_stage_date_count": 12,
+  "active_system_count_distribution": {
+    "5": 12,
+    "6": 21,
+    "7": 14
+  },
+  "zero_active_hru": 0,
+  "six_active_hru": 21,
+  "seven_active_hru": 14,
+  "h1_merge_event_count": 4,
+  "merge_cost_quantiles": {
+    "p50": 2.4371888165607644e-06,
+    "p90": 1.1578865454102724e-05,
+    "p95": 3.336024539281383e-05,
+    "p99": 5.921867138312854e-05,
+    "max": 6.86384423135841e-05
+  },
+  "merge_level_representation_tension": {
+    "drainage_infiltration_centroid_gap": {
+      "metric": "max absolute difference between drainage-equivalent and infiltration-equivalent merged level",
+      "unit": "m",
+      "acceptance_threshold": null,
+      "events_with_positive_gap": 18,
+      "all_merge_quantiles": {
+        "p50": 0.0,
+        "p90": 0.004868374818397907,
+        "p95": 0.0068670823219712795,
+        "p99": 0.010630286133277156,
+        "max": 0.011003560619854857
+      },
+      "h1_merge_quantiles": {
+        "p50": 0.000985033286189041,
+        "p90": 0.0017287726382394508,
+        "p95": 0.0017938497002341622,
+        "p99": 0.0018459113498299317,
+        "max": 0.001858926762228874
+      }
+    },
+    "source_activation_level_span": {
+      "metric": "max separation between the two physical prescribed levels collapsed into one SWAP level",
+      "unit": "m",
+      "acceptance_threshold": null,
+      "events_with_positive_span": 49,
+      "all_merge_quantiles": {
+        "p50": 0.04999991500854456,
+        "p90": 0.3647179921416717,
+        "p95": 1.2341006045601006,
+        "p99": 1.4241188244204814,
+        "max": 1.4614908468848167
+      },
+      "h1_merge_quantiles": {
+        "p50": 1.337448548316023,
+        "p90": 1.4381333328446073,
+        "p95": 1.449812089864712,
+        "p99": 1.4591550954807957,
+        "max": 1.4614908468848167
+      }
+    },
+    "bottom_depth_span": {
+      "metric": "absolute drainage-bottom depth separation of the merged source pair",
+      "unit": "m",
+      "acceptance_threshold": null,
+      "all_merge_quantiles": {
+        "p50": 0.04729726488086283,
+        "p90": 0.6588000400592117,
+        "p95": 0.8004887124086073,
+        "p99": 1.3208066956988147,
+        "max": 1.4549671707564376
+      }
+    }
+  },
+  "top_merge_pairs": [
+    {
+      "pair": "MVG | OLF",
+      "count": 30
+    },
+    {
+      "pair": "P | S",
+      "count": 9
+    },
+    {
+      "pair": "S | T",
+      "count": 6
+    },
+    {
+      "pair": "H1 | P",
+      "count": 4
+    }
+  ],
+  "hru_with_multiple_swap_levels": 47,
+  "hru_with_equal_L_ordering_tie": 47,
+  "hru_requiring_compression": 35,
+  "legacy_v038_high_resistance_deactivation": {
+    "threshold_days": 20000.0,
+    "hru_affected": 12,
+    "level_count": 14,
+    "modern_action": "REPORT_ONLY_DO_NOT_DEACTIVATE"
+  },
+  "swap_method3_interface_range_gate": {
+    "DRARES_days": [
+      1.0,
+      100000.0
+    ],
+    "INFRES_days": [
+      0.0,
+      100000.0
+    ],
+    "L_m": [
+      1.0,
+      100000.0
+    ],
+    "ZBOTDR_cm": [
+      -10000.0,
+      0.0
+    ],
+    "drares_underflow": {
+      "hru_count": 0,
+      "level_count": 0
+    },
+    "drares_overflow": {
+      "hru_count": 6,
+      "level_count": 7,
+      "maximum_days": 417962.68805665773
+    },
+    "infres_overflow": {
+      "hru_count": 15,
+      "level_count": 17,
+      "maximum_days": 4179626.818285284
+    },
+    "L_underflow": {
+      "hru_count": 0,
+      "level_count": 0
+    },
+    "L_overflow": {
+      "hru_count": 0,
+      "level_count": 0
+    },
+    "ZBOTDR_out_of_range": {
+      "hru_count": 0,
+      "level_count": 0
+    },
+    "required_for_production": "ZERO_INTERFACE_RANGE_VIOLATIONS",
+    "rule": "physical values are never silently clamped to SWAP parser ranges"
+  },
+  "ordering_candidate": "DEEPEST_FIRST_THEN_MEDIUM_THEN_LINEAGE",
+  "ordering_admission": "W07_DIAGNOSTIC_ORDERING_QUALIFIED_PRODUCTION_SENSITIVITY_OPEN",
+  "ordering_conditions": [
+    "DRAMET=3",
+    "SWINTFL=0",
+    "deterministic deepest-first/medium/lineage serialization is admitted for W07 diagnostic use",
+    "bounded SWDIVD ordering sensitivity remains required before production admission",
+    "indexed rapid macropore drainage must be absent or explicitly rebound after compression"
+  ],
+  "merge_event_count": 49,
+  "max_merge_cost": 6.86384423135841e-05,
+  "max_abs_drainage_conductance_error": 6.938893903907228e-18,
+  "max_abs_infiltration_conductance_error": 1.0842021724855044e-19,
+  "bottom_authority": {
+    "baseline_candidate": "LHM_EQUAL_SEASON_MEAN",
+    "reason": "equal six-month winter/summer weighting gives the least-squares static ZBOTDR candidate",
+    "production_admission": "NOT_GRANTED_PENDING_SENSITIVITY_AND_SWAP_RESPONSE",
+    "sensitivity_candidates": [
+      "LHM_DEEPEST",
+      "LHM_SHALLOWEST"
+    ],
+    "hru_grouping_sensitive": 3,
+    "historical_j_available_for_all_completed_hrus": true,
+    "historical_j_grouping_differs_from_lhm_mean": 20
+  },
+  "bottom_authority_comparison": {
+    "P": {
+      "seasonal_bottom_spread": {
+        "valid_member_rows": 813,
+        "different_gt_1e_6": 0,
+        "mean_abs_difference_m": 0.0,
+        "max_abs_difference_m": 0.0
+      },
+      "baseline_static_candidate": "equal_season_mean",
+      "historical_j": {
+        "available": true,
+        "comparison": {
+          "summer": {
+            "valid_member_rows": 813,
+            "different_gt_1e_6": 0,
+            "mean_abs_difference_m": 1.8328611554548163e-11,
+            "max_abs_difference_m": 1.4901161193847656e-08
+          },
+          "winter": {
+            "valid_member_rows": 813,
+            "different_gt_1e_6": 0,
+            "mean_abs_difference_m": 1.8328611554548163e-11,
+            "max_abs_difference_m": 1.4901161193847656e-08
+          },
+          "mean": {
+            "valid_member_rows": 813,
+            "different_gt_1e_6": 0,
+            "mean_abs_difference_m": 1.8328611554548163e-11,
+            "max_abs_difference_m": 1.4901161193847656e-08
+          }
+        }
+      }
+    },
+    "S": {
+      "seasonal_bottom_spread": {
+        "valid_member_rows": 1755,
+        "different_gt_1e_6": 0,
+        "mean_abs_difference_m": 0.0,
+        "max_abs_difference_m": 0.0
+      },
+      "baseline_static_candidate": "equal_season_mean",
+      "historical_j": {
+        "available": true,
+        "comparison": {
+          "summer": {
+            "valid_member_rows": 1755,
+            "different_gt_1e_6": 0,
+            "mean_abs_difference_m": 0.0,
+            "max_abs_difference_m": 0.0
+          },
+          "winter": {
+            "valid_member_rows": 1755,
+            "different_gt_1e_6": 0,
+            "mean_abs_difference_m": 0.0,
+            "max_abs_difference_m": 0.0
+          },
+          "mean": {
+            "valid_member_rows": 1755,
+            "different_gt_1e_6": 0,
+            "mean_abs_difference_m": 0.0,
+            "max_abs_difference_m": 0.0
+          }
+        }
+      }
+    },
+    "T": {
+      "seasonal_bottom_spread": {
+        "valid_member_rows": 1066,
+        "different_gt_1e_6": 214,
+        "mean_abs_difference_m": 0.02186249391705245,
+        "max_abs_difference_m": 0.5827499628067017
+      },
+      "baseline_static_candidate": "equal_season_mean",
+      "historical_j": {
+        "available": true,
+        "comparison": {
+          "summer": {
+            "valid_member_rows": 1066,
+            "different_gt_1e_6": 1066,
+            "mean_abs_difference_m": 0.21684025812764804,
+            "max_abs_difference_m": 0.6800012588500977
+          },
+          "winter": {
+            "valid_member_rows": 1066,
+            "different_gt_1e_6": 1049,
+            "mean_abs_difference_m": 0.19506040040323228,
+            "max_abs_difference_m": 0.6800012588500977
+          },
+          "mean": {
+            "valid_member_rows": 1066,
+            "different_gt_1e_6": 1066,
+            "mean_abs_difference_m": 0.20595032926544016,
+            "max_abs_difference_m": 0.6800012588500977
+          }
+        }
+      }
+    }
+  },
+  "outputs": {
+    "hru_summary": "hru_summary.csv",
+    "merge_events": "merge_events.csv",
+    "failures": "failures.csv"
+  }
+}

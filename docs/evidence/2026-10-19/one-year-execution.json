@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "EXECUTION_PASS",
+  "production_admitted": false,
+  "elapsed_seconds": 3.6846451649998926,
+  "returncode": 100,
+  "normal_completion": true,
+  "output_rows": 366,
+  "output_error": null,
+  "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+  "input_sha256": {
+    "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+    "7876.dra": "9a260b2b1e2c1c183802c273b1f57a0720090a578130260237ee44f10102a00b",
+    "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+    "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+    "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+    "swap.swp": "0a9a3bd6f32e1194acdf79ffc22907df19b264718e9cc67f0f50bed366177501"
+  },
+  "output_sha256": {
+    "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "swap.ok": "862bf8e3babb7105d731ca382e51020cf025a67a77e0abcb0c9dd3a338ac5a87",
+    "swap.log": "a20b1903eb852376cf13923fcfda6b5a2d6466e3f2a673cd8c3210a27da9bb7b",
+    "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+    "result_output.csv": "98be36ed438b7d96ff501cb55bef56b75ae6460f227c876b4bdb605fb7251ee7"
+  },
+  "runtime_library_sha256": {
+    "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+  }
+}
