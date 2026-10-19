@@ -519,6 +519,8 @@
     "report": "docs/production/WORK_A_20261019.md",
     "source_register": "config/source/work-a-source-register-20261019.json",
     "workflow": "config/source/work-a-daily-workflow-v1.json",
-    "production_admitted": false
+    "production_admitted": false,
+    "code_checkpoint": "e43216b3f4177b88b88519a9d400619b589e94ad",
+    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/6"
   }
 }

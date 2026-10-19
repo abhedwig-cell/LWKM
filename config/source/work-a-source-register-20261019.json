@@ -26,5 +26,25 @@
   "byte_qualified_files": 43,
   "semantic_admission": false,
   "outputs_reference": "docs/evidence/2026-10-19-work-a",
-  "generated_q4_bundle_sha256": "4d01363c43cddf7a81b2340fe179d6907f1bad2846eb9428176425d48e6f7814"
+  "generated_q4_bundle_sha256": "4d01363c43cddf7a81b2340fe179d6907f1bad2846eb9428176425d48e6f7814",
+  "reference_materials": [
+    {
+      "name": "LWKM_MF_L1_GHB_full_check_20200701.zip",
+      "library_file_id": "libfile_15550a09addc8191a6b7ebea5886bd3a",
+      "sha256": "74d1734c9ee9fd1983db9b3276961c5926fc2e5e7c9514212aec4e6f44580db4",
+      "qualification": "REFERENCE_ONLY_NOT_ORIGINAL_BUDGET_ADMISSION"
+    },
+    {
+      "name": "LWKM_MF_L1_tekenconventies_audit_20200701.md",
+      "library_file_id": "libfile_11f6048aa4e0819199d4a321d31efa4a",
+      "sha256": "73ec41f5f0b9c884e0b15dd747e2c272abfe1caba5eb23d131dfdde9e7bec9c8",
+      "qualification": "REFERENCE_ONLY_NOT_ORIGINAL_BUDGET_ADMISSION"
+    },
+    {
+      "name": "LWKM_MF_L1_Balance.cs",
+      "library_file_id": "libfile_32f50faf9a988191b900603daf8f59c8",
+      "sha256": "656b8c97885121221211e7e394648d3f74ab53da0f176008300842bef079a7eb",
+      "qualification": "REFERENCE_ONLY_NOT_ORIGINAL_BUDGET_ADMISSION"
+    }
+  ]
 }
