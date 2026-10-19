@@ -1,5 +1,7 @@
 # Uitvoerings- en kwalificatierapport
 
+Aanvulling dagelijkse bronvoorziening: [Work A](WORK_A_20261019.md). C2-resultaten blijven behouden; geen moderne forcing-admission.
+
 Actuele Work C2-aanvulling: [definitieve drainageregels en uitvoering](WORK_C2_20261019.md). Oudere resultaten hieronder blijven historische evidence.
 
 Actuele aanvulling: [Work C, uitvoering en kwalificatie](WORK_C_20261019.md). Onderstaande oorspronkelijke sessieresultaten blijven als historische context behouden.

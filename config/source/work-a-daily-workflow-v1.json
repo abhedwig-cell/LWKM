@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "scope": "W01 W02 W08-GW-L1 W09",
+  "stages": [
+    {
+      "id": "Q0_Q4",
+      "tool": "tools.server.collect_daily_consumers",
+      "requires": [
+        "exact_file_plan",
+        "control_files"
+      ],
+      "outputs": [
+        "objects",
+        "verified_bundle",
+        "manifest"
+      ],
+      "admission": "BYTE_IDENTITY_ONLY"
+    },
+    {
+      "id": "DAILY_CELLS",
+      "tool": "tools.process_daily_budget_plan",
+      "requires": [
+        "Q0_Q4",
+        "original_budget_semantics",
+        "membership",
+        "model_activity"
+      ],
+      "outputs": [
+        "daily_cell_csv",
+        "daily_hru_components_csv"
+      ],
+      "admission": false
+    },
+    {
+      "id": "MET",
+      "tool": "tools.daily_forcing.modern_met",
+      "requires": [
+        "complete_daily_weather",
+        "qualified_area_weights"
+      ],
+      "outputs": [
+        "MET"
+      ],
+      "admission": false
+    },
+    {
+      "id": "BBC",
+      "tool": "tools.daily_forcing.effective_bbc",
+      "requires": [
+        "DAILY_CELLS",
+        "constant_mean_interval_or_new_qualified_temporal_policy"
+      ],
+      "outputs": [
+        "BBC"
+      ],
+      "admission": false
+    },
+    {
+      "id": "CATALOGUE",
+      "tool": "tools.bind_daily_catalogue",
+      "requires": [
+        "MET",
+        "BBC",
+        "C2_nonforcing_assets"
+      ],
+      "outputs": [
+        "consumer_bound_catalogue"
+      ],
+      "admission": false
+    }
+  ],
+  "missing_values": "FAIL_NO_IMPLICIT_ZERO_NO_HISTORICAL_FALLBACK",
+  "default_et_policy": "owner_tulip_pm"
+}

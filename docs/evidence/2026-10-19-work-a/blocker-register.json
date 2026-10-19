@@ -1,0 +1,37 @@
+{
+  "closed": [
+    "Restartable selective Q0-Q4 implementation and actual 43-file replay",
+    "Strict MET serializer without historical rain/WET imputation",
+    "Geometry-safe partition mosaics and volume-rate integration",
+    "Real source internal-face cancellation check",
+    "C2 catalogue bridge without forcing fallback"
+  ],
+  "open": [
+    {
+      "id": "SERVER_ACCESS",
+      "reason": "Windows G drive is not mounted in this POSIX runtime; no authenticated server endpoint supplied",
+      "action": "Run delivered PowerShell/Python collector on the server"
+    },
+    {
+      "id": "ORIGINAL_WEL_GHB",
+      "reason": "WEL is an estimate; GHB is C times end-head, not original daily integrated budget; activity masks missing",
+      "action": "Bind exact layer1 budgets, activity and control files"
+    },
+    {
+      "id": "SIGN_UNITS_TIME",
+      "reason": "Earlier audit and later runner signs conflict; real replay supports saved sign only for this snapshot",
+      "action": "Verify original LIST, time discretisation, units and current source routes"
+    },
+    {
+      "id": "MODERN_MET",
+      "reason": "Only rain/ETref rasters and historical complete MET are available, no complete modern daily weather/assignment",
+      "action": "Bind actual six other daily fields, district/pixel assignment and unit metadata"
+    },
+    {
+      "id": "BBC_DAILY_MEAN_INTERFACE",
+      "reason": "SWAP linearly interpolates DATE2/QBOT2 point values; varying daily means cannot silently be nodal values",
+      "action": "Qualify a daily-mean preserving temporal interface/reconstruction"
+    }
+  ],
+  "production_admitted": false
+}
