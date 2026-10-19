@@ -1,0 +1,11 @@
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000
+10000
+{"policy": "LWKM_C2_OWNER_3143f4d_V1", "population": 10242, "candidates": 10213, "blocked": 29, "reused_checkpoints": 0, "elapsed_seconds": 279.6776998039968, "h1_missing_cells": 191, "h1_affected_hrus": 170, "production_admitted": false, "omitted_physical_contributions": 1815, "disabled_infiltration_contributions": 2905, "empty_drainage_hrus": 0}

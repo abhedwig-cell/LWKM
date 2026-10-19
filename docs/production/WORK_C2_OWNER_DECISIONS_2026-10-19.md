@@ -14,3 +14,7 @@ Dit document vervangt eerdere mondelinge DRARES-afkapregels, waaronder 1000000 d
 Strikt groter dan 100000; exact 100000 valt niet onder de weglating of infiltratie-uitschakelregel. Niet-positieve, niet-eindige of anderszins ongeldige waarden blijven fouten tenzij SWAP-broncode expliciet een andere semantiek onderbouwt.
 
 Voer na implementatie opnieuw de volledige 10242-HRU-diagnostiek en de relevante echte SWAP 4.3.1-regressies uit. Bewaar aantallen verwijderde bijdragen, gevolgen voor conductanties en hydraulische respons, originele bronnen, gewijzigde packages, fouten en een nieuwe blockerclassificatie. Geen production admission zonder kwalificatie.
+
+## Implementatievastlegging Work C2
+
+De besluiten zijn geïmplementeerd en uitgevoerd op de volledige populatie; zie [Work C2-rapport](WORK_C2_20261019.md). Broncodecheckpoint: `b40a43dab7d1fc932d004fa1b459b8a4288f50c0`, PR #5. Dit wijzigt de bovenstaande besluiten niet. Volledige productie-admission blijft afzonderlijk en gesloten.

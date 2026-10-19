@@ -1,0 +1,14 @@
+{
+  "blocked": 29,
+  "candidates": 10213,
+  "disabled_infiltration_contributions": 2905,
+  "elapsed_seconds": 279.6776998039968,
+  "empty_drainage_hrus": 0,
+  "h1_affected_hrus": 170,
+  "h1_missing_cells": 191,
+  "omitted_physical_contributions": 1815,
+  "policy": "LWKM_C2_OWNER_3143f4d_V1",
+  "population": 10242,
+  "production_admitted": false,
+  "reused_checkpoints": 0
+}

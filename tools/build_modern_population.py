@@ -10,7 +10,7 @@ from tools.swp_context import build_context
 from tools.swp_full_oracle import compare_text
 
 
-def build(database,template,output,oracles):
+def build(database,template,output,oracles,*,et_policy="datamodel"):
     output.mkdir(parents=True,exist_ok=True)
     raw=template.read_bytes()
     with sqlite3.connect(database) as con:
@@ -19,7 +19,7 @@ def build(database,template,output,oracles):
     rows=[];reg=[];start=time.monotonic();reused=0
     for i in ids:
         try:
-            s=render(raw,build_context(database,i))
+            s=render(raw,build_context(database,i),et_policy=et_policy)
             p=output/f'run_{i:05d}'/'swap.swp';p.parent.mkdir(exist_ok=True)
             encoded=s.encode('utf-8')
             if p.exists() and p.read_bytes()==encoded:
@@ -39,7 +39,7 @@ def build(database,template,output,oracles):
                                 'differences':[{'path':d.path,'expected':d.expected,'actual':d.actual} for d in diffs]})
                 except Exception as e:reg.append({'run_id':i,'status':'COMPARATOR_FAIL','error':str(e)})
         except Exception as e:rows.append({'run_id':i,'status':'FAILED','error':str(e)})
-    result={'schema_version':1,'profile':PROFILE_ID,'run_count':len(ids),
+    result={'schema_version':1,'profile':PROFILE_ID,'et_policy':et_policy,'run_count':len(ids),
             'elapsed_seconds':time.monotonic()-start,'unchanged_swp_reused':reused,
             'production_admitted':False,'rows':rows}
     (output/'build.json').write_text(json.dumps(result,indent=2)+'\n')
@@ -50,5 +50,6 @@ def build(database,template,output,oracles):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     for k in ('database','template','output','oracles'):p.add_argument('--'+k,type=Path,required=True)
-    a=p.parse_args();r=build(a.database,a.template,a.output,a.oracles)
+    p.add_argument('--et-policy',choices=['datamodel','penman_monteith','owner_tulip_pm'],default='datamodel')
+    a=p.parse_args();r=build(a.database,a.template,a.output,a.oracles,et_policy=a.et_policy)
     print(json.dumps({'run_count':r['run_count'],'failed':sum(x['status']=='FAILED' for x in r['rows'])}))

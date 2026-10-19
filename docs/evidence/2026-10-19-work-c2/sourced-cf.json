@@ -1,0 +1,233 @@
+{
+  "production_admitted": false,
+  "results": [
+    {
+      "execution": {
+        "elapsed_seconds": 4.453722240999923,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7909.bbc": "dc58fb2964df4c5ca335543fd38dfa1bee36dc2fea211a4b3bde3fb2b9058313",
+          "7909.dra": "2a279a2eb7f498624e308a5e2887fa8587a1e9c69c2c9f7ef0996cfbf87f49cc",
+          "7909.met": "f2eb0b70184f45ff579b383d9fd4c7b59108f76cc6a8a51c09d9861aa90dbfa7",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "7a49ac0612c5d1712f57f430fe55c14c294f2b5015c6c49d21e4b868e5472fe3"
+        },
+        "last_output_date": "1971-12-20",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 355,
+        "output_sha256": {
+          "result_output.csv": "8df05e1f70c50a251571f0fe178f20bcc9350feb773f36e37870822e1c4a84fa",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "1ca5de49b550d633417c429b08c93c946348cf85f8e110a243726934721861f6",
+          "swap.ok": "2d87190ae9d2b4a1738a23342c43e639d0388131ac301134fe1b772d22bb43e4",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "manifest": {
+        "assets": {
+          "7909.bbc": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "dc58fb2964df4c5ca335543fd38dfa1bee36dc2fea211a4b3bde3fb2b9058313"
+          },
+          "7909.dra": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "2a279a2eb7f498624e308a5e2887fa8587a1e9c69c2c9f7ef0996cfbf87f49cc"
+          },
+          "7909.met": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "f2eb0b70184f45ff579b383d9fd4c7b59108f76cc6a8a51c09d9861aa90dbfa7"
+          },
+          "atmospheric_1975-2020.co2": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+          },
+          "gras_beweiding.crp": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c"
+          },
+          "swap.swp": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "7a49ac0612c5d1712f57f430fe55c14c294f2b5015c6c49d21e4b868e5472fe3"
+          }
+        },
+        "code_commit": "sha256:09a2aaeef4892be94c2482df7245374554ee918ba784b894d35b24aae4e3351a",
+        "profile_id": "WORK_C_SOURCED_GRASS_CF_V1",
+        "run_id": 7909,
+        "schema_version": 1,
+        "status": "PACKAGE_CANDIDATE_NOT_ADMITTED"
+      },
+      "run_id": 7909,
+      "source_projection": {
+        "axis_rule": "CONSTANT_FUNCTION_INVARIANT_UNDER_DNR_TO_DVS",
+        "constant_cf": 1.0,
+        "parent_package_manifest_sha256": "7e51ac0054b298e147249c4e6bb2e4c088b3b55637fc42ce7be626975c4fc32a",
+        "production_admitted": false,
+        "source_file": "../extracted/Template/Template/Gewas/3.0.0/gras_beweiding.crp",
+        "source_header": "DNR CH CF",
+        "source_sha256": "cbb754a224d85954a70eb7026ed53a7cd9b2271f65234b51df3191a0381ac3fa"
+      }
+    },
+    {
+      "execution": {
+        "elapsed_seconds": 7.010196994997386,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7910.bbc": "13e73e382bf6966fe91bb1b1e7bcab8875d1e9a1ef52f3f13d1b4a8bdb77ee5f",
+          "7910.dra": "a4eb82b77883c82c8494ea5ece1df8e117f87f909eb98a7cb87ad59e629dc307",
+          "7910.met": "34cad3d16035eed31f4ab48e0acae4da179e6892d3bf26e90efedcb7eb354ff3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "c3b1cd68cfa0efe523dfb7cd5682ac8aee9b1d17c23aa7ee092b27501d92fc27"
+        },
+        "last_output_date": "1971-12-20",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 355,
+        "output_sha256": {
+          "result_output.csv": "ebb54ea365214213bf0b99207e05fa5ea5310c0954fb98bcc9782bac2dce4367",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "ec141179016d9ab51eea6ea947d0611307ee2b39a15975d20b5837b8f7fc49e5",
+          "swap.ok": "6dfa496bc7be56fbfb50c6c4c535b4830bd72ae6a4da3b70e23761ca5dbda54e",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "manifest": {
+        "assets": {
+          "7910.bbc": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "13e73e382bf6966fe91bb1b1e7bcab8875d1e9a1ef52f3f13d1b4a8bdb77ee5f"
+          },
+          "7910.dra": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "a4eb82b77883c82c8494ea5ece1df8e117f87f909eb98a7cb87ad59e629dc307"
+          },
+          "7910.met": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "34cad3d16035eed31f4ab48e0acae4da179e6892d3bf26e90efedcb7eb354ff3"
+          },
+          "atmospheric_1975-2020.co2": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+          },
+          "gras_beweiding.crp": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c"
+          },
+          "swap.swp": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "c3b1cd68cfa0efe523dfb7cd5682ac8aee9b1d17c23aa7ee092b27501d92fc27"
+          }
+        },
+        "code_commit": "sha256:09a2aaeef4892be94c2482df7245374554ee918ba784b894d35b24aae4e3351a",
+        "profile_id": "WORK_C_SOURCED_GRASS_CF_V1",
+        "run_id": 7910,
+        "schema_version": 1,
+        "status": "PACKAGE_CANDIDATE_NOT_ADMITTED"
+      },
+      "run_id": 7910,
+      "source_projection": {
+        "axis_rule": "CONSTANT_FUNCTION_INVARIANT_UNDER_DNR_TO_DVS",
+        "constant_cf": 1.0,
+        "parent_package_manifest_sha256": "d2b059214912c2713489f3650a73e5fe2296be7c1aee3caf7b1eb91ee63a53bc",
+        "production_admitted": false,
+        "source_file": "../extracted/Template/Template/Gewas/3.0.0/gras_beweiding.crp",
+        "source_header": "DNR CH CF",
+        "source_sha256": "cbb754a224d85954a70eb7026ed53a7cd9b2271f65234b51df3191a0381ac3fa"
+      }
+    },
+    {
+      "execution": {
+        "elapsed_seconds": 4.799429005001002,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7911.bbc": "35f0f9b3699a2c9f4f5670064811d398b0493fd6701956d998947d453798fadf",
+          "7911.dra": "7879d896c1cac3f6f68267c959077800082fb49bd28e0d4de02ae40648cedc56",
+          "7911.met": "64f9518400d2e3cbfb0b4ba3b17108953811a46fc80f5414ec72bfdbc78dfa4f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "570c44b68afb12420c0ae63305207157c2bf032dc43102fdb58d04e485de6681"
+        },
+        "last_output_date": "1971-12-20",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 355,
+        "output_sha256": {
+          "result_output.csv": "222fe7dde9b1d4b84d9c0d09d7fb3b96253a9214c9862bf3d9e34e5b45328708",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "c991f5aa0e4ff1e907bca402e812935fa4a3d5cddcb9dd0b0c09a905d9bd4c70",
+          "swap.ok": "5f847ab18ee3d45d89a5a26ec4308561bf3c2515aa7602228b497686de00809b",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "manifest": {
+        "assets": {
+          "7911.bbc": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "35f0f9b3699a2c9f4f5670064811d398b0493fd6701956d998947d453798fadf"
+          },
+          "7911.dra": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "7879d896c1cac3f6f68267c959077800082fb49bd28e0d4de02ae40648cedc56"
+          },
+          "7911.met": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "64f9518400d2e3cbfb0b4ba3b17108953811a46fc80f5414ec72bfdbc78dfa4f"
+          },
+          "atmospheric_1975-2020.co2": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+          },
+          "gras_beweiding.crp": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c"
+          },
+          "swap.swp": {
+            "qualification_id": "SOURCED_CF_RESEARCH_VARIANT_NOT_PRODUCTION",
+            "sha256": "570c44b68afb12420c0ae63305207157c2bf032dc43102fdb58d04e485de6681"
+          }
+        },
+        "code_commit": "sha256:09a2aaeef4892be94c2482df7245374554ee918ba784b894d35b24aae4e3351a",
+        "profile_id": "WORK_C_SOURCED_GRASS_CF_V1",
+        "run_id": 7911,
+        "schema_version": 1,
+        "status": "PACKAGE_CANDIDATE_NOT_ADMITTED"
+      },
+      "run_id": 7911,
+      "source_projection": {
+        "axis_rule": "CONSTANT_FUNCTION_INVARIANT_UNDER_DNR_TO_DVS",
+        "constant_cf": 1.0,
+        "parent_package_manifest_sha256": "67ba4ac940b0b2ba62286f77c3afbe7b7335af8e65353f77bfdd7dd1120c46e7",
+        "production_admitted": false,
+        "source_file": "../extracted/Template/Template/Gewas/3.0.0/gras_beweiding.crp",
+        "source_header": "DNR CH CF",
+        "source_sha256": "cbb754a224d85954a70eb7026ed53a7cd9b2271f65234b51df3191a0381ac3fa"
+      }
+    }
+  ]
+}

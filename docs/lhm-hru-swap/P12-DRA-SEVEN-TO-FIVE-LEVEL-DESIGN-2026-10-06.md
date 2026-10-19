@@ -1,5 +1,7 @@
 # DRA seven-physical-to-five-SWAP level design — 2026-10-06
 
+Aanvulling 2026-10-19: eigenaarbesluit 3143f4d wordt vóór compressie op individuele geaggregeerde systemen toegepast. DRARES >100000 vervalt; INFRES >100000 wordt drainage-only met SWALLO=3. H1-NODATA wordt per cel nul infiltratie. Herkomst, verwijderde conductantie en effecten blijven in de C2-checkpoints. Zie [Work C2](../production/WORK_C2_20261019.md).
+
 ## Problem statement
 
 The current active HRU-to-SWAP drainage implementation exposes only five systems:

@@ -44,9 +44,10 @@ def render(source_bytes, context, *, policy=None, et_policy="datamodel"):
         raise ValueError("unresolved typed context")
     values = {**context, **POLICY, **(policy or {})}
     values=deepcopy(values)
-    if et_policy not in ("datamodel", "penman_monteith"):
+    if et_policy not in ("datamodel", "penman_monteith", "owner_tulip_pm"):
         raise ValueError("unknown explicit ET policy")
-    if et_policy=="penman_monteith":
+    if et_policy=="penman_monteith" or (et_policy=="owner_tulip_pm" and
+            any(str(r["CROPNAME"]).strip("\'\"").lower()=="tulp" for r in context["TABLE_CROPROTATION"])):
         values["SWETR"]=0
     # SWAP rejects SWDIVIDE=1 with prescribed ETref (SWETR=1).
     # Keep the workbook ET choice; select the corresponding parser branch.

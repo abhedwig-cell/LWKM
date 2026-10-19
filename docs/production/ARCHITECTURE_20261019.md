@@ -1,5 +1,7 @@
 # LWKM productieketen: architectuur en contracten
 
+Actuele Work C2-aanvulling: [definitieve drainageregels en uitvoering](WORK_C2_20261019.md). Oudere resultaten hieronder blijven historische evidence.
+
 Actuele aanvulling: [Work C, uitvoering en kwalificatie](WORK_C_20261019.md). Onderstaande oorspronkelijke sessieresultaten blijven als historische context behouden.
 
 Versie 19 oktober 2026. Operationele reconstructie met uitgevoerde kandidaatberekeningen; geen nieuwe integrale production admission.

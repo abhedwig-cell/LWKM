@@ -256,13 +256,13 @@
         "docs/lhm-hru-swap/P12-DRA-LEVEL-ORDERING-RESOLUTION-2026-10-07.md",
         "docs/server/W07_DRA_REMAINING_Q4_EXECUTION_GUIDE_2026-10-07.md"
       ],
-      "implementation_observed": "8025 interface candidates, 2217 explicit blockers; 10242 hash-checked checkpoints reused",
+      "implementation_observed": "10213 serialized owner-rule DRA candidates; 10242 checkpoints reused",
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c/",
-      "open_problem": "170 H1 missing-source HRUs; 2039 resistance limits; 8 protected partitions",
-      "next_implementation": "See WORK_C_20261019.md exact external blockers and runbook commands",
+      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
+      "open_problem": "29 protected cases require six levels; five-level production gate remains closed",
+      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
       "command": "python -m tools.run_dra_end_to_end_qualification --relation \"$RELATION\" --schema \"$SCHEMA\" --h1-mvg-zip \"$H1\" --remaining-zip \"$REMAINING\" --dqsat-grid \"$DQSAT\" --output-dir \"$OUT/dra\" --stage-start 1970-01-01 --stage-end 2021-12-31 --expected-h1-sha256 3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa --expected-remaining-sha256 6de1ccbdb646f809523fd3cbedd5143bc2a73470a1f48d0b04b13be93fa7a3a4"
     },
     "W08": {
@@ -337,13 +337,13 @@
       "evidence": [
         "docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md"
       ],
-      "implementation_observed": "Explicit ET profile; sourced constant grass CF tested in 3 native ETref runs",
+      "implementation_observed": "Explicit owner_tulip_pm profile for 89 contexts; sourced grass CF tested",
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c/",
-      "open_problem": "Native tulip ETref CF missing; PM production policy requires scientific acceptance",
-      "next_implementation": "See WORK_C_20261019.md exact external blockers and runbook commands",
+      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
+      "open_problem": "Modern daily forcing and source-specific admission remain required",
+      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
       "command": "python -m tools.build_modern_population --database \"$DB\" --template \"$TEMPLATE\" --output \"$OUT/population\" --oracles \"$ORACLES\""
     },
     "W11": {
@@ -357,13 +357,13 @@
       ],
       "admission": "HRU_RUN_PACKAGE_ADMITTED",
       "evidence": [],
-      "implementation_observed": "Consumer-bound catalogue builder, complete closure, strict preflight, immutable incremental packages",
+      "implementation_observed": "49 complete consumer-bound owner-profile research packages, all incrementally reused",
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c/",
-      "open_problem": "Qualified daily per-HRU forcing bindings unavailable for population",
-      "next_implementation": "See WORK_C_20261019.md exact external blockers and runbook commands",
+      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
+      "open_problem": "10193 HRU-specific forcing catalogue bindings absent",
+      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
       "command": "python -m pytest -q tests/test_assemble_swap_package.py"
     },
     "W12": {
@@ -377,13 +377,13 @@
         "config/p12/regression-oracle-v1.yml",
         "config/p12/dra-49run-static04-expected-differences-v1.yml"
       ],
-      "implementation_observed": "49/49 PM reference, 29/29 new-DRA research runs, 3/3 sourced grass CF; 354 supported days",
+      "implementation_observed": "101 actual C2 SWAP 4.3.1 calculations pass; all water closures <=0.001 mm/d",
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c/",
-      "open_problem": "Research BBC projection and PM profile are not production admission",
-      "next_implementation": "See WORK_C_20261019.md exact external blockers and runbook commands",
+      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
+      "open_problem": "No full modern forcing or historical CF equivalence claimed",
+      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
       "command": "python -m tools.qualify_49_runtime --database \"$DB\" --template \"$TEMPLATE\" --oracles \"$ORACLES\" --output \"$OUT/runtime49\" --executable \"$SWAP\" --library \"$RUNTIME_LIB\""
     },
     "W13": {
@@ -394,13 +394,13 @@
       ],
       "admission": "LWKM_10242_BUILD_ADMITTED",
       "evidence": [],
-      "implementation_observed": "10242 SWPs; 8025 DRA candidates; 29 complete catalogue packages; 29 incrementally reused",
+      "implementation_observed": "10242 owner-profile SWPs; 10213 DRA files; 49 complete research packages",
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c/",
-      "open_problem": "10213 catalogue bindings absent; no complete modern forcing population",
-      "next_implementation": "See WORK_C_20261019.md exact external blockers and runbook commands",
+      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
+      "open_problem": "29 structural drainage blocks; population daily source bindings absent",
+      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
       "command": "python -m tools.build_modern_population --database \"$DB\" --template \"$TEMPLATE\" --output \"$OUT/population\" --oracles \"$ORACLES\""
     },
     "W14": {
@@ -411,13 +411,13 @@
       ],
       "admission": "LWKM_END_TO_END_PRODUCTION_ADMITTED",
       "evidence": [],
-      "implementation_observed": "81 successful bounded research calculations and numerical closure evidence",
+      "implementation_observed": "Bounded 49+49+3 research chain executed and archived",
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c/",
-      "open_problem": "Modern daily forcing and upstream scientific gates remain open",
-      "next_implementation": "See WORK_C_20261019.md exact external blockers and runbook commands",
+      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
+      "open_problem": "Modern forcing admission, protected representation and physical source assessment remain open",
+      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
       "command": "python -m pytest -q tests"
     }
   },
@@ -456,5 +456,37 @@
     "production_admitted": false,
     "code_checkpoint": "7129b978caa743270fcae1ef3543f81735a547b8",
     "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/4"
+  },
+  "work_c2": {
+    "baseline_commit": "3143f4d189de5bbc6b7459bce7cc69ac5be8388f",
+    "owner_decision": "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md",
+    "report": "docs/production/WORK_C2_20261019.md",
+    "evidence": "docs/evidence/2026-10-19-work-c2/",
+    "tests_passed": 354,
+    "population": {
+      "blocked": 29,
+      "candidates": 10213,
+      "changed_compressions": 3598,
+      "disabled_infiltration_records": 2905,
+      "max_policy_response_difference_mm_d_envelope_0_5m": 0.2707795934349319,
+      "newly_blocked": 8,
+      "omitted_physical_records": 1815,
+      "original_drares_overshoots": 1815,
+      "original_infres_overshoots": 4498,
+      "originally_blocked_resolved": 2196,
+      "population": 10242,
+      "production_admitted": false
+    },
+    "runtime": {
+      "all_water_closures_pass": true,
+      "calculations": 101,
+      "execution_pass": 101,
+      "maximum_water_error_mm_d": 0.0003097389993169525,
+      "period": "1971-01-01 through 1971-12-20",
+      "production_admitted": false
+    },
+    "production_admitted": false,
+    "code_checkpoint": "b40a43dab7d1fc932d004fa1b459b8a4288f50c0",
+    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/5"
   }
 }

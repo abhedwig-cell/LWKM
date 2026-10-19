@@ -1,0 +1,37 @@
+{
+  "owner_decision": "3143f4d189de5bbc6b7459bce7cc69ac5be8388f",
+  "closed": [
+    {
+      "id": "H1_SOURCE_NODATA",
+      "resolution": "Owner-authorized zero infiltration per missing cell; 191 cells in 170 HRUs"
+    },
+    {
+      "id": "DRA_INTERFACE_RESISTANCE",
+      "resolution": "1815 physical systems omitted, 2905 retained infiltration branches disabled before compression"
+    },
+    {
+      "id": "TULIP_ETREF_CF",
+      "resolution": "Explicit owner_tulip_pm modern variant; no historical CF reconstruction"
+    }
+  ],
+  "open": [
+    {
+      "id": "PROTECTED_SIX_LEVEL_REPRESENTATION",
+      "count": 29,
+      "evidence": "protected-partition-diagnostics.json",
+      "resolution": "Separate scientific design decision; five-level gate unchanged"
+    },
+    {
+      "id": "MODERN_DAILY_FORCING",
+      "unbound_catalogue_hrus": 10193,
+      "resolution": "Qualified per-HRU MET/BBC and FLF/LAT/GHB/WEL semantics; historical forcing remains research-only"
+    },
+    {
+      "id": "PHYSICAL_SOURCE_RESPONSE_REVIEW",
+      "example_hru": 1890,
+      "max_diagnostic_response_difference_mm_d": 0.2707795934349319,
+      "resolution": "Review representative heads and aggregated source levels before population admission"
+    }
+  ],
+  "production_admitted": false
+}

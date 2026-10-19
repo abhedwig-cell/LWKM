@@ -22,7 +22,7 @@ def build(database,template,catalogue,output,*,allow_research_inputs=False):
     data=json.loads(catalogue.read_text())
     if data.get('schema_version')!=1 or not data.get('profile_id'):
         raise ValueError('invalid package catalogue')
-    if data.get('et_policy') not in ('datamodel','penman_monteith'):
+    if data.get('et_policy') not in ('datamodel','penman_monteith','owner_tulip_pm'):
         raise ValueError('catalogue must explicitly select an ET policy')
     bound=data.get('runs',{})
     with sqlite3.connect(database) as c:ids=[int(x[0]) for x in c.execute('select run_id from Runs order by run_id')]
