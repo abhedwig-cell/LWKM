@@ -1,0 +1,2659 @@
+{
+  "end": "1971-12-20",
+  "et_policy": "owner_tulip_pm",
+  "expected_population": 10242,
+  "profile_id": "LWKM_C2_OWNER_RESEARCH_V1",
+  "runs": {
+    "7866": {
+      "assets": {
+        "7866.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7866_7866.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6597aad5b7dd18c85cce2e4b895329995be53af297bf3e62d795092fb3653843/run_07866/7866.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "bf9f08aa1f4cd001523e43fb5534cceb5cf21fa4132e7c359323a66a324441f4"
+        },
+        "7866.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7866_7866.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6597aad5b7dd18c85cce2e4b895329995be53af297bf3e62d795092fb3653843/run_07866/7866.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "619455abf3abb97c09bfad8cd2db4fb2b8fbf3bf5c1b397a616aacce14322631"
+        },
+        "7866.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7866_7866.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6597aad5b7dd18c85cce2e4b895329995be53af297bf3e62d795092fb3653843/run_07866/7866.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "c698f01cf339eeb83d4ebf6bf90be7f55eef917fca286d845b8b71942c8cd09d"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7866_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6597aad5b7dd18c85cce2e4b895329995be53af297bf3e62d795092fb3653843/run_07866/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7867": {
+      "assets": {
+        "7867.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7867_7867.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/5f71f2de36189053016853a75c266e400828feaebc1a8e2a319fc681bd8d178f/run_07867/7867.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "c504b70beec0620d7908bd7e5a6a714e1d643bfb4700c2710dac2fd9eee7b243"
+        },
+        "7867.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7867_7867.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/5f71f2de36189053016853a75c266e400828feaebc1a8e2a319fc681bd8d178f/run_07867/7867.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "5dcc94252b78c92662b6b4f04779d60acea1628785e7812e5a979a7fb513c9cf"
+        },
+        "7867.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7867_7867.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/5f71f2de36189053016853a75c266e400828feaebc1a8e2a319fc681bd8d178f/run_07867/7867.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "78e339d53dc397de179a6a1684dd84e46c0c0e5b1513c916b514f960a4933fc1"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7867_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/5f71f2de36189053016853a75c266e400828feaebc1a8e2a319fc681bd8d178f/run_07867/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7868": {
+      "assets": {
+        "7868.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7868_7868.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7feb4a0a5e03cec22c1942d51c3a7c00bb7166c71880035c06ee4babace2f289/run_07868/7868.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "b09c04761c216ff0bcaf9c30c16975cbf06245e550896aab1672150f5a487dfd"
+        },
+        "7868.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7868_7868.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7feb4a0a5e03cec22c1942d51c3a7c00bb7166c71880035c06ee4babace2f289/run_07868/7868.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "224496a728516104cf27ae2aa87a62d8cc6ee223bde06a21813d11c191226483"
+        },
+        "7868.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7868_7868.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7feb4a0a5e03cec22c1942d51c3a7c00bb7166c71880035c06ee4babace2f289/run_07868/7868.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "054fc30f8f11e9ffa7148814f6d1d4a306f03938e423b1351e3f6f03513ca25c"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7868_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7feb4a0a5e03cec22c1942d51c3a7c00bb7166c71880035c06ee4babace2f289/run_07868/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7869": {
+      "assets": {
+        "7869.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7869_7869.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/c29d0c60f97809a297ed5b3f64fdc7953d40269ed5a4be4a076fde984d63bc75/run_07869/7869.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f09d42087231f8ac187ce0e4e4401c3b706fc93afe1dcba8b6e9b29dab6c62cd"
+        },
+        "7869.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7869_7869.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/c29d0c60f97809a297ed5b3f64fdc7953d40269ed5a4be4a076fde984d63bc75/run_07869/7869.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "520a913d07eb0e346b99bda3aca0414356d3976578555c60604732ea4b7b057a"
+        },
+        "7869.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7869_7869.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/c29d0c60f97809a297ed5b3f64fdc7953d40269ed5a4be4a076fde984d63bc75/run_07869/7869.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "935743590c1845002143a41269a29ee7852c6c613ae8b4b2c51e7e2ba2e069b4"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7869_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/c29d0c60f97809a297ed5b3f64fdc7953d40269ed5a4be4a076fde984d63bc75/run_07869/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7870": {
+      "assets": {
+        "7870.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7870_7870.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6cc0f63bcaca176ecc9150269974301a40c1342a8c72c6229b8d963d30888f81/run_07870/7870.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185"
+        },
+        "7870.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7870_7870.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6cc0f63bcaca176ecc9150269974301a40c1342a8c72c6229b8d963d30888f81/run_07870/7870.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f"
+        },
+        "7870.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7870_7870.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6cc0f63bcaca176ecc9150269974301a40c1342a8c72c6229b8d963d30888f81/run_07870/7870.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7870_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6cc0f63bcaca176ecc9150269974301a40c1342a8c72c6229b8d963d30888f81/run_07870/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7871": {
+      "assets": {
+        "7871.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7871_7871.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/d3edcb96546d4648ff7c0524460a9abb7baceee2186ec651f9a538875b7a7370/run_07871/7871.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "d41c02dfe8d21056ecc1607169bc5c80acbefd9670a0f301bcc582d28cbfeb5a"
+        },
+        "7871.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7871_7871.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/d3edcb96546d4648ff7c0524460a9abb7baceee2186ec651f9a538875b7a7370/run_07871/7871.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "9129444fd2cadc55b1961c6a018b476c3a42b0befdb56ba3d9cdfb273806ef0b"
+        },
+        "7871.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7871_7871.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/d3edcb96546d4648ff7c0524460a9abb7baceee2186ec651f9a538875b7a7370/run_07871/7871.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "07320ae5acd38afbf63e7f69b30be51c90647939db16feb64176f1042fec3eae"
+        },
+        "tulp.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7871_tulp.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/d3edcb96546d4648ff7c0524460a9abb7baceee2186ec651f9a538875b7a7370/run_07871/tulp.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "82d7670035e08292c9ec05ed52e46ea8ce42fd00e2f707fb2664c90275f03cda"
+        }
+      }
+    },
+    "7872": {
+      "assets": {
+        "7872.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7872_7872.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/5468b604618f62be082f704b7b6728d13b19f49cef9e29539be6b8486cea4d5b/run_07872/7872.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "87657b0f29bed0a1edf337d47072e1edf0b2f646fde8757d90717d4fc05c80e6"
+        },
+        "7872.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7872_7872.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/5468b604618f62be082f704b7b6728d13b19f49cef9e29539be6b8486cea4d5b/run_07872/7872.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "45a88f3e001299ffd5da824cbec701fd62d80bbd225a8dcc5c21c5ed0df9ff3c"
+        },
+        "7872.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7872_7872.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/5468b604618f62be082f704b7b6728d13b19f49cef9e29539be6b8486cea4d5b/run_07872/7872.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "8dddc4447f256d13c115cfb670541f0a88c9900f194bb4c9802b7867be31c626"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7872_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/5468b604618f62be082f704b7b6728d13b19f49cef9e29539be6b8486cea4d5b/run_07872/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7873": {
+      "assets": {
+        "7873.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7873_7873.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/83e179d3a6d76f83de53bd0710eb5cad982c3d1126409e2661e589c44a744421/run_07873/7873.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "652029775922247226ba2a385f754ec90fe51c33fda584a8608bafe5bc8a20f9"
+        },
+        "7873.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7873_7873.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/83e179d3a6d76f83de53bd0710eb5cad982c3d1126409e2661e589c44a744421/run_07873/7873.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "44b8a50b19382c48bd060cb538612a4e6f87bf8cff68854edc94200afc9f6ea8"
+        },
+        "7873.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7873_7873.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/83e179d3a6d76f83de53bd0710eb5cad982c3d1126409e2661e589c44a744421/run_07873/7873.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "c2736b31d080f46302500db383a46d91a5607e57cd00c955d5b95b0495c54c00"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7873_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/83e179d3a6d76f83de53bd0710eb5cad982c3d1126409e2661e589c44a744421/run_07873/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7874": {
+      "assets": {
+        "7874.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7874_7874.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/487dde3d8d0973af786334bec9000729da4a9451909fc4268d67e94fb3d08c36/run_07874/7874.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "5586f61fd08bc23f61fa97d0e99826455de7f2274abfec8ec92d2e6c44a2b49c"
+        },
+        "7874.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7874_7874.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/487dde3d8d0973af786334bec9000729da4a9451909fc4268d67e94fb3d08c36/run_07874/7874.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "091b04ec44e8d279b1164da692c28e66d304ed4f3ef9a835d6face196b11b102"
+        },
+        "7874.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7874_7874.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/487dde3d8d0973af786334bec9000729da4a9451909fc4268d67e94fb3d08c36/run_07874/7874.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "0ff540a4f2e8457fd6b7733c6e30f3364dc193ddeb98eb060bc2a99d694d286b"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7874_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/487dde3d8d0973af786334bec9000729da4a9451909fc4268d67e94fb3d08c36/run_07874/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7874_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/487dde3d8d0973af786334bec9000729da4a9451909fc4268d67e94fb3d08c36/run_07874/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7875": {
+      "assets": {
+        "7875.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7875_7875.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0bb45583587c5047a23fb6144346669ad198cfe696b3898a189c1b0c3a523393/run_07875/7875.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "4b7ac7f515d01b8c6f7d5fcbeabda3908fdca34179c2b94ffb8217c1cad5e0e8"
+        },
+        "7875.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7875_7875.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0bb45583587c5047a23fb6144346669ad198cfe696b3898a189c1b0c3a523393/run_07875/7875.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "df93e82f8a18ad1e7d393886bf21ba02c3f4b7f460638b59b27b1220e331c9c6"
+        },
+        "7875.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7875_7875.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0bb45583587c5047a23fb6144346669ad198cfe696b3898a189c1b0c3a523393/run_07875/7875.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "0409522a532e0e875767b17a6736589c0a27fa2dbcb0923707f283345df82f07"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7875_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0bb45583587c5047a23fb6144346669ad198cfe696b3898a189c1b0c3a523393/run_07875/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7875_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0bb45583587c5047a23fb6144346669ad198cfe696b3898a189c1b0c3a523393/run_07875/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7876": {
+      "assets": {
+        "7876.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7876_7876.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/2f059e3a254a42a96c35acd1017729ea0ef4a99450ed76a35f7c955dd21f96d7/run_07876/7876.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64"
+        },
+        "7876.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7876_7876.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/2f059e3a254a42a96c35acd1017729ea0ef4a99450ed76a35f7c955dd21f96d7/run_07876/7876.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77"
+        },
+        "7876.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7876_7876.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/2f059e3a254a42a96c35acd1017729ea0ef4a99450ed76a35f7c955dd21f96d7/run_07876/7876.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7876_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/2f059e3a254a42a96c35acd1017729ea0ef4a99450ed76a35f7c955dd21f96d7/run_07876/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7876_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/2f059e3a254a42a96c35acd1017729ea0ef4a99450ed76a35f7c955dd21f96d7/run_07876/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7877": {
+      "assets": {
+        "7877.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7877_7877.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b696b2226c6425a62118d6be65dd5026cbe895261037f1e4224000363cb41b13/run_07877/7877.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "bde6deddfe4a68bb445146c02063d8243383d9c2f868425b438161b13e77d5ba"
+        },
+        "7877.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7877_7877.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b696b2226c6425a62118d6be65dd5026cbe895261037f1e4224000363cb41b13/run_07877/7877.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "1c0c03e33ffce75caebc5382d810c0b912b85025cfe53b18d7a03ba1e6840f18"
+        },
+        "7877.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7877_7877.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b696b2226c6425a62118d6be65dd5026cbe895261037f1e4224000363cb41b13/run_07877/7877.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "02530fa1b2453ec3dc7d19fa86d751d49de3e5d46a025ed5f77e4682d24ac655"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7877_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b696b2226c6425a62118d6be65dd5026cbe895261037f1e4224000363cb41b13/run_07877/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7877_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b696b2226c6425a62118d6be65dd5026cbe895261037f1e4224000363cb41b13/run_07877/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7909": {
+      "assets": {
+        "7909.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7909_7909.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07909/7909.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "dc58fb2964df4c5ca335543fd38dfa1bee36dc2fea211a4b3bde3fb2b9058313"
+        },
+        "7909.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7909_7909.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07909/7909.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2a279a2eb7f498624e308a5e2887fa8587a1e9c69c2c9f7ef0996cfbf87f49cc"
+        },
+        "7909.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7909_7909.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07909/7909.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f2eb0b70184f45ff579b383d9fd4c7b59108f76cc6a8a51c09d9861aa90dbfa7"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7909_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07909/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_beweiding.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7909_gras_beweiding.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07909/gras_beweiding.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c"
+        }
+      }
+    },
+    "7910": {
+      "assets": {
+        "7910.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7910_7910.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07910/7910.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "13e73e382bf6966fe91bb1b1e7bcab8875d1e9a1ef52f3f13d1b4a8bdb77ee5f"
+        },
+        "7910.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7910_7910.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07910/7910.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "a4eb82b77883c82c8494ea5ece1df8e117f87f909eb98a7cb87ad59e629dc307"
+        },
+        "7910.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7910_7910.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07910/7910.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "34cad3d16035eed31f4ab48e0acae4da179e6892d3bf26e90efedcb7eb354ff3"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7910_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07910/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_beweiding.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7910_gras_beweiding.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07910/gras_beweiding.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c"
+        }
+      }
+    },
+    "7911": {
+      "assets": {
+        "7911.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7911_7911.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07911/7911.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "35f0f9b3699a2c9f4f5670064811d398b0493fd6701956d998947d453798fadf"
+        },
+        "7911.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7911_7911.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07911/7911.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "7879d896c1cac3f6f68267c959077800082fb49bd28e0d4de02ae40648cedc56"
+        },
+        "7911.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7911_7911.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07911/7911.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "64f9518400d2e3cbfb0b4ba3b17108953811a46fc80f5414ec72bfdbc78dfa4f"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7911_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07911/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_beweiding.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7911_gras_beweiding.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/sourced-cf/packages/run_07911/gras_beweiding.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c"
+        }
+      }
+    },
+    "7912": {
+      "assets": {
+        "7912.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7912_7912.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/8eb428b7bd577dcd0992da443c5812a26ddc23b6328d1c4f1d38cad7e04d58bd/run_07912/7912.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "7bb5bd96d9471b90d3d7baf0e835b3c6326e4de695739e59c443694c79d3143e"
+        },
+        "7912.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7912_7912.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/8eb428b7bd577dcd0992da443c5812a26ddc23b6328d1c4f1d38cad7e04d58bd/run_07912/7912.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "44f4d01342559bac301f0f2a8913d9ddc70a42b0f572472c7f1913edad3be1f9"
+        },
+        "7912.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7912_7912.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/8eb428b7bd577dcd0992da443c5812a26ddc23b6328d1c4f1d38cad7e04d58bd/run_07912/7912.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "b9096b6454e49e21f47e34620d5ccfd551463f936184c713063d21d3ce9159e2"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7912_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/8eb428b7bd577dcd0992da443c5812a26ddc23b6328d1c4f1d38cad7e04d58bd/run_07912/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7912_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/8eb428b7bd577dcd0992da443c5812a26ddc23b6328d1c4f1d38cad7e04d58bd/run_07912/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7913": {
+      "assets": {
+        "7913.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7913_7913.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0dc3225fc5037522c5fa49d57000bbfb02d1a6627b62f970e2939f2b611a23e6/run_07913/7913.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "bf595e1c9121fd00832bbd2ca2d46f15c48319f7b7da7382323b059259aa8602"
+        },
+        "7913.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7913_7913.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0dc3225fc5037522c5fa49d57000bbfb02d1a6627b62f970e2939f2b611a23e6/run_07913/7913.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "3e478120079cc1e614372ca4d68fb0b3aa4eb85aa056937d85e0b8487c29033b"
+        },
+        "7913.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7913_7913.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0dc3225fc5037522c5fa49d57000bbfb02d1a6627b62f970e2939f2b611a23e6/run_07913/7913.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "4cede999cd06d9c80c1d3a0b98e96cac5c756b4435490b8bf939d1c540f67892"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7913_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0dc3225fc5037522c5fa49d57000bbfb02d1a6627b62f970e2939f2b611a23e6/run_07913/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7913_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0dc3225fc5037522c5fa49d57000bbfb02d1a6627b62f970e2939f2b611a23e6/run_07913/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7914": {
+      "assets": {
+        "7914.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7914_7914.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/600490aa7028ec6d13eeaa9baf44030b49088c5ec3c93327e01496f73ae2b152/run_07914/7914.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "5257e814310871c5b476fc32b3ecfea59ca8b64183f8527a57cfed5fa6e5b1df"
+        },
+        "7914.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7914_7914.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/600490aa7028ec6d13eeaa9baf44030b49088c5ec3c93327e01496f73ae2b152/run_07914/7914.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "4cec7e9d6adf855dee56d9e67851c1d4b5656c1c7f34f55dd8f606bc2affcd05"
+        },
+        "7914.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7914_7914.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/600490aa7028ec6d13eeaa9baf44030b49088c5ec3c93327e01496f73ae2b152/run_07914/7914.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "4e7ed9a549f6e5d00b0fcffc4e4327f4cec154aa5e695bcda5dddf42f2716791"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7914_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/600490aa7028ec6d13eeaa9baf44030b49088c5ec3c93327e01496f73ae2b152/run_07914/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7914_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/600490aa7028ec6d13eeaa9baf44030b49088c5ec3c93327e01496f73ae2b152/run_07914/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7915": {
+      "assets": {
+        "7915.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7915_7915.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b999edf3a9aa86c19ad9dc95e680712b119f80778eab02a1602a5b85cd8d2187/run_07915/7915.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "0c2eceecc56e5971d911be3630e923adfb3e67a28069bf15fc89098c9ab07de8"
+        },
+        "7915.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7915_7915.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b999edf3a9aa86c19ad9dc95e680712b119f80778eab02a1602a5b85cd8d2187/run_07915/7915.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "bb1f6fbdbfbb174cb4b3786d2bf930daed4ab4d2eda59806669f8feb5864e428"
+        },
+        "7915.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7915_7915.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b999edf3a9aa86c19ad9dc95e680712b119f80778eab02a1602a5b85cd8d2187/run_07915/7915.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "4248376dd099ea59d69151d20b853610d24bed80e9aa7210e36afe47940d207e"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7915_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b999edf3a9aa86c19ad9dc95e680712b119f80778eab02a1602a5b85cd8d2187/run_07915/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7915_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b999edf3a9aa86c19ad9dc95e680712b119f80778eab02a1602a5b85cd8d2187/run_07915/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7916": {
+      "assets": {
+        "7916.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7916_7916.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fca58055c9b5981722cce489b5aa1e0ba8ff6327845d286874ac679a9be6096/run_07916/7916.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "37b62318b078d4c99d5212b0ac647eaabad1ff949f64d213d15daeb837a8ba23"
+        },
+        "7916.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7916_7916.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fca58055c9b5981722cce489b5aa1e0ba8ff6327845d286874ac679a9be6096/run_07916/7916.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "a57d2abe630a6d05614c4dc4b09fdf9808f3297be071c02f1a0faf261253cf36"
+        },
+        "7916.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7916_7916.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fca58055c9b5981722cce489b5aa1e0ba8ff6327845d286874ac679a9be6096/run_07916/7916.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "b6fdeafa2c93817a22961cb945672d71f27c85d34c070cfe5e312907cfee43ff"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7916_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fca58055c9b5981722cce489b5aa1e0ba8ff6327845d286874ac679a9be6096/run_07916/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7916_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fca58055c9b5981722cce489b5aa1e0ba8ff6327845d286874ac679a9be6096/run_07916/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7917": {
+      "assets": {
+        "7917.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7917_7917.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/84422b79974fae63d70ec7d6945d2bd5ce33b3290b1245acf2b7198987a302ed/run_07917/7917.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f762c0f826c92cd650be8c21696b898e6bc49cd8ed42624a10742791f50bb4f5"
+        },
+        "7917.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7917_7917.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/84422b79974fae63d70ec7d6945d2bd5ce33b3290b1245acf2b7198987a302ed/run_07917/7917.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "db31e7c8020c47d20f398d75dcf380c998b344098ed5e2b93d8768db23bf7d49"
+        },
+        "7917.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7917_7917.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/84422b79974fae63d70ec7d6945d2bd5ce33b3290b1245acf2b7198987a302ed/run_07917/7917.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "dd35031317cbfb10eafacb900f21a228ea5b9869886770611b55264f64990774"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7917_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/84422b79974fae63d70ec7d6945d2bd5ce33b3290b1245acf2b7198987a302ed/run_07917/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7917_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/84422b79974fae63d70ec7d6945d2bd5ce33b3290b1245acf2b7198987a302ed/run_07917/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7918": {
+      "assets": {
+        "7918.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7918_7918.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4bc8d9ce641ed19780389383f5666b9ee87ac9dace6c4d51305acc090e3673f4/run_07918/7918.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "0417de1af15fc998bc4e001c8d2ada4bf950971313db0a33f2e2b16c65a19726"
+        },
+        "7918.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7918_7918.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4bc8d9ce641ed19780389383f5666b9ee87ac9dace6c4d51305acc090e3673f4/run_07918/7918.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "b54470af4c029c4c047dad2484f83aaab245a94ffd69c92a369ae02e9bbd2d8d"
+        },
+        "7918.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7918_7918.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4bc8d9ce641ed19780389383f5666b9ee87ac9dace6c4d51305acc090e3673f4/run_07918/7918.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "e3785077f6e7948ec751138274d683acad0746c31dd3b49c6e8883d9ba08b5cb"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7918_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4bc8d9ce641ed19780389383f5666b9ee87ac9dace6c4d51305acc090e3673f4/run_07918/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7918_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4bc8d9ce641ed19780389383f5666b9ee87ac9dace6c4d51305acc090e3673f4/run_07918/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7919": {
+      "assets": {
+        "7919.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7919_7919.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/dfa83595ffe2251ff865ce8b8c63b597147942daf5e3c1fb8d13122db527102c/run_07919/7919.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "30eb2fe55699bb07bb0bb56450ee6e21ef25b4c0158c9ef5dade23d5bd1b94eb"
+        },
+        "7919.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7919_7919.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/dfa83595ffe2251ff865ce8b8c63b597147942daf5e3c1fb8d13122db527102c/run_07919/7919.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "8fac053a61b2df349cf1b5912ff1dbcccf7a9fc35fb3aa904cf91919957ea6f0"
+        },
+        "7919.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7919_7919.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/dfa83595ffe2251ff865ce8b8c63b597147942daf5e3c1fb8d13122db527102c/run_07919/7919.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "8b58c727779c944bb52dac0d46dcc17f41671bb7475a070fcfd9bd7ec2188311"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7919_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/dfa83595ffe2251ff865ce8b8c63b597147942daf5e3c1fb8d13122db527102c/run_07919/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7919_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/dfa83595ffe2251ff865ce8b8c63b597147942daf5e3c1fb8d13122db527102c/run_07919/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7920": {
+      "assets": {
+        "7920.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7920_7920.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/868db37b8e6590fe703ed4a5c5743f855469baea45e523656871bfbe41aba50b/run_07920/7920.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "cc3848b85eb1fec58897faf0bdea02b9afc0a8b0c186a5f424f99c2d326122e7"
+        },
+        "7920.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7920_7920.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/868db37b8e6590fe703ed4a5c5743f855469baea45e523656871bfbe41aba50b/run_07920/7920.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "910694130c9993c53f3648104777966e430f097eab1de6588f5455d5b1103012"
+        },
+        "7920.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7920_7920.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/868db37b8e6590fe703ed4a5c5743f855469baea45e523656871bfbe41aba50b/run_07920/7920.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "ca3f3bb1e36abf5a7d1b79564d7c4398d2190b48958c5b6a74988d2764696290"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7920_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/868db37b8e6590fe703ed4a5c5743f855469baea45e523656871bfbe41aba50b/run_07920/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7920_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/868db37b8e6590fe703ed4a5c5743f855469baea45e523656871bfbe41aba50b/run_07920/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7921": {
+      "assets": {
+        "7921.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7921_7921.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/48793a210a2306b13ae2463ec889cbfefcf411f050a4869d5eafe9345f9f7a35/run_07921/7921.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "666ee5d595d57e70c2c3bbaaf78bceaaab7e5c98d2836b8d53e63519d8e75550"
+        },
+        "7921.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7921_7921.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/48793a210a2306b13ae2463ec889cbfefcf411f050a4869d5eafe9345f9f7a35/run_07921/7921.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "e3c7ec1bff30f0b0f9ad8ce93e1959d174ce471e9ed2eef3632cb66a7ff10d66"
+        },
+        "7921.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7921_7921.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/48793a210a2306b13ae2463ec889cbfefcf411f050a4869d5eafe9345f9f7a35/run_07921/7921.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "55122106b646abc120316b85e0241d596de1092cf59176fe5479da305d1f0273"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7921_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/48793a210a2306b13ae2463ec889cbfefcf411f050a4869d5eafe9345f9f7a35/run_07921/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "snijmais.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7921_snijmais.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/48793a210a2306b13ae2463ec889cbfefcf411f050a4869d5eafe9345f9f7a35/run_07921/snijmais.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4"
+        }
+      }
+    },
+    "7922": {
+      "assets": {
+        "7922.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7922_7922.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/9e8bd926146aadf09864a22589b90a359ca4cfd854c14c182b75ebe04478d1ca/run_07922/7922.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2872d62cb47c7e2184c277eba838958df6111dc2e0bb674521e2ae763dbefdd3"
+        },
+        "7922.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7922_7922.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/9e8bd926146aadf09864a22589b90a359ca4cfd854c14c182b75ebe04478d1ca/run_07922/7922.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "e54109ed08e13dfd452abc48588cac6099580039e9ad08b4756e780e09cd4b8e"
+        },
+        "7922.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7922_7922.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/9e8bd926146aadf09864a22589b90a359ca4cfd854c14c182b75ebe04478d1ca/run_07922/7922.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "aaf75ba317e6d5c454db71e0211d6dbc2505cc01b666ff4625754c56a659a80f"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7922_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/9e8bd926146aadf09864a22589b90a359ca4cfd854c14c182b75ebe04478d1ca/run_07922/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "snijmais.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7922_snijmais.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/9e8bd926146aadf09864a22589b90a359ca4cfd854c14c182b75ebe04478d1ca/run_07922/snijmais.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4"
+        }
+      }
+    },
+    "7923": {
+      "assets": {
+        "7923.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7923_7923.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/a98d5e2c202a89d4b59544610d89dfe3da998d37d36af0074fa430abac746fd7/run_07923/7923.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "0ac2d0e7412af9d5294d78ce60ffee7b7d633bd383ac65c7aeda0af88ae3fe26"
+        },
+        "7923.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7923_7923.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/a98d5e2c202a89d4b59544610d89dfe3da998d37d36af0074fa430abac746fd7/run_07923/7923.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "8164fae4c48284c3d545b1f24bec4d9f9baca56519f1beeafa4841330c5e0bf2"
+        },
+        "7923.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7923_7923.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/a98d5e2c202a89d4b59544610d89dfe3da998d37d36af0074fa430abac746fd7/run_07923/7923.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "275c78c5b2d01d99a7eee1d0911d794ad2fb6df8bb4a50ed562b978a3521a602"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7923_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/a98d5e2c202a89d4b59544610d89dfe3da998d37d36af0074fa430abac746fd7/run_07923/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "snijmais.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7923_snijmais.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/a98d5e2c202a89d4b59544610d89dfe3da998d37d36af0074fa430abac746fd7/run_07923/snijmais.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4"
+        }
+      }
+    },
+    "7924": {
+      "assets": {
+        "7924.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7924_7924.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6adcc935d85c928122a623372600fb902c2074ea6b18ffca021acf243d834416/run_07924/7924.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "fda2ef555d9016a05de47f5ae9f81e80c9ff49f4ce88188bb2ebc721b807e936"
+        },
+        "7924.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7924_7924.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6adcc935d85c928122a623372600fb902c2074ea6b18ffca021acf243d834416/run_07924/7924.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "c189d1b02418fd407baf47db66a3343339181fa3d890148b756604c092898e2e"
+        },
+        "7924.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7924_7924.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6adcc935d85c928122a623372600fb902c2074ea6b18ffca021acf243d834416/run_07924/7924.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "c43eae23eb0700c341038ecc0ef2287deee0de486b3d40959c5eabeaa17e49a5"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7924_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/6adcc935d85c928122a623372600fb902c2074ea6b18ffca021acf243d834416/run_07924/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7925": {
+      "assets": {
+        "7925.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7925_7925.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/3807086c738caba4290aa0f4be9dee96c55d5e0f67cd411e77cbdda1a5ceda8e/run_07925/7925.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "165f6390c684e11301bfc95a63f879fae4f1b93d16b8edf877688f687e2b5c83"
+        },
+        "7925.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7925_7925.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/3807086c738caba4290aa0f4be9dee96c55d5e0f67cd411e77cbdda1a5ceda8e/run_07925/7925.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "83d178c0a04d608697654baf62f438f795a8cdfeb150d543e0070bc5385aacdf"
+        },
+        "7925.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7925_7925.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/3807086c738caba4290aa0f4be9dee96c55d5e0f67cd411e77cbdda1a5ceda8e/run_07925/7925.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f57c7161ba303de34bb433f79d2621982d848de89b2fc71274cee42499fa49b9"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7925_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/3807086c738caba4290aa0f4be9dee96c55d5e0f67cd411e77cbdda1a5ceda8e/run_07925/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7926": {
+      "assets": {
+        "7926.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7926_7926.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/bd2eb05d27f4f0dcfe6b7cddf01914493cb7d0381f98b24be0e251decefdcc4e/run_07926/7926.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "7b450e87dd52df3f98ed73757788426766807cf2347545fc09d7d55e579e97ae"
+        },
+        "7926.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7926_7926.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/bd2eb05d27f4f0dcfe6b7cddf01914493cb7d0381f98b24be0e251decefdcc4e/run_07926/7926.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2d50ef62b86f32940193a2eee30f2b220c7c240a63588f4578b12c120d0cd889"
+        },
+        "7926.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7926_7926.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/bd2eb05d27f4f0dcfe6b7cddf01914493cb7d0381f98b24be0e251decefdcc4e/run_07926/7926.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "9a2db44f2c2c1dcfe1df95e066275fd47f6d7bdde5ce40f212660ae927a4d8d7"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7926_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/bd2eb05d27f4f0dcfe6b7cddf01914493cb7d0381f98b24be0e251decefdcc4e/run_07926/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7927": {
+      "assets": {
+        "7927.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7927_7927.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/55cfc9c3752262889fccf8ba6d4444173bea35359bf36bf62c4c4fc0edc40480/run_07927/7927.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f4acc772940dcfe8245346f7ef3e9bca5f90ee7bf44ded867514db20a3bae3d2"
+        },
+        "7927.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7927_7927.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/55cfc9c3752262889fccf8ba6d4444173bea35359bf36bf62c4c4fc0edc40480/run_07927/7927.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "fb5043115600bda255e8eda3037af77a4835d2bee2b8a5451bd6f5e0ddcdb715"
+        },
+        "7927.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7927_7927.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/55cfc9c3752262889fccf8ba6d4444173bea35359bf36bf62c4c4fc0edc40480/run_07927/7927.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "3d0e5ecf6c53aaf7e6f6c3185754463171bec0c9504c557f9a1a98c8953bc34a"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7927_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/55cfc9c3752262889fccf8ba6d4444173bea35359bf36bf62c4c4fc0edc40480/run_07927/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7927_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/55cfc9c3752262889fccf8ba6d4444173bea35359bf36bf62c4c4fc0edc40480/run_07927/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7928": {
+      "assets": {
+        "7928.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7928_7928.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fb08920ce488a1d88d381a314371051383addd403029181b099ebc478b657c6/run_07928/7928.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "28062a18d9e5c71c078f2ee6075d2c0a807b18d0eb8e6fd3ee083df1e8ba5b11"
+        },
+        "7928.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7928_7928.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fb08920ce488a1d88d381a314371051383addd403029181b099ebc478b657c6/run_07928/7928.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2bffa00ac5c03267cf946197984ea0bc6ab031d9aa5d69dfe94a5890014db43a"
+        },
+        "7928.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7928_7928.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fb08920ce488a1d88d381a314371051383addd403029181b099ebc478b657c6/run_07928/7928.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6df80c4eb096335182b1d095888453e79b0914ab335b06b6eaefbbca61878d25"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7928_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fb08920ce488a1d88d381a314371051383addd403029181b099ebc478b657c6/run_07928/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7928_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/7fb08920ce488a1d88d381a314371051383addd403029181b099ebc478b657c6/run_07928/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7929": {
+      "assets": {
+        "7929.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7929_7929.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/50b6f7ffda11ad4f5aef32b66912fd9b0ceb85f55387a402997e0d34468da43f/run_07929/7929.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16"
+        },
+        "7929.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7929_7929.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/50b6f7ffda11ad4f5aef32b66912fd9b0ceb85f55387a402997e0d34468da43f/run_07929/7929.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc"
+        },
+        "7929.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7929_7929.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/50b6f7ffda11ad4f5aef32b66912fd9b0ceb85f55387a402997e0d34468da43f/run_07929/7929.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7929_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/50b6f7ffda11ad4f5aef32b66912fd9b0ceb85f55387a402997e0d34468da43f/run_07929/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7929_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/50b6f7ffda11ad4f5aef32b66912fd9b0ceb85f55387a402997e0d34468da43f/run_07929/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7930": {
+      "assets": {
+        "7930.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7930_7930.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/990e3e5403d139fdf8d2841313a53f18defb361b59ba61e0d6bcab641af7486c/run_07930/7930.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "e480ecc6cd2bc29cd3ee370ae6bf5bdda235600e16696c6a39f1a7cafe362d2e"
+        },
+        "7930.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7930_7930.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/990e3e5403d139fdf8d2841313a53f18defb361b59ba61e0d6bcab641af7486c/run_07930/7930.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "1c2fd9aa64068f4c17d8e06811049efaa1998d52a4d74a7f605aa62b4e0e009b"
+        },
+        "7930.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7930_7930.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/990e3e5403d139fdf8d2841313a53f18defb361b59ba61e0d6bcab641af7486c/run_07930/7930.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "ca2dc3622c77a9178213fc6149861b40cba4a5d7524c81d3d2bd176f173ebf17"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7930_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/990e3e5403d139fdf8d2841313a53f18defb361b59ba61e0d6bcab641af7486c/run_07930/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7930_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/990e3e5403d139fdf8d2841313a53f18defb361b59ba61e0d6bcab641af7486c/run_07930/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7931": {
+      "assets": {
+        "7931.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7931_7931.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/de717c95a6030f4cbd6c9fa25365b8039f376dabbccfe4da628ce12ead41fb2d/run_07931/7931.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "5cf3eb69794735116a95fd49760f2f5a899d2fd62b60bc1d68bf3de71a72483b"
+        },
+        "7931.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7931_7931.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/de717c95a6030f4cbd6c9fa25365b8039f376dabbccfe4da628ce12ead41fb2d/run_07931/7931.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "ac6ff20078fdcd01881c28d0334aaabd4d7439dbf94453aa8b0312e02450e72a"
+        },
+        "7931.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7931_7931.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/de717c95a6030f4cbd6c9fa25365b8039f376dabbccfe4da628ce12ead41fb2d/run_07931/7931.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "a74ff9b02f6a2d44c23d53b3dd99d1e44beed5bf51866456ca718eb42f7b043b"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7931_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/de717c95a6030f4cbd6c9fa25365b8039f376dabbccfe4da628ce12ead41fb2d/run_07931/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7931_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/de717c95a6030f4cbd6c9fa25365b8039f376dabbccfe4da628ce12ead41fb2d/run_07931/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7932": {
+      "assets": {
+        "7932.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7932_7932.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f009ebf8563848aab79132c30b56a8ec313832df908215daf7c8898bbd0991be/run_07932/7932.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "69d9bc2aad6053229a44c8ba5f01175109442f3ab3efdae4a460bf072836b9d3"
+        },
+        "7932.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7932_7932.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f009ebf8563848aab79132c30b56a8ec313832df908215daf7c8898bbd0991be/run_07932/7932.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "7df00d01d3b43f1441dd30072575b4a659807e7d5394a3ccd5ebed33e9f3332c"
+        },
+        "7932.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7932_7932.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f009ebf8563848aab79132c30b56a8ec313832df908215daf7c8898bbd0991be/run_07932/7932.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6d5a0963a3f6046fd2851937ce9733be2b2aa7a028538864c218bea7a912d033"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7932_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f009ebf8563848aab79132c30b56a8ec313832df908215daf7c8898bbd0991be/run_07932/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7932_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f009ebf8563848aab79132c30b56a8ec313832df908215daf7c8898bbd0991be/run_07932/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7933": {
+      "assets": {
+        "7933.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7933_7933.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e5d93609c44bcff62fb58043fe041d2f0b2de8e4c57aa50ccac41ca1d4ec414c/run_07933/7933.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "398941000ee6253176ab041b1b86673f8b2e192c3eda8a82222eafa9a8a5d395"
+        },
+        "7933.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7933_7933.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e5d93609c44bcff62fb58043fe041d2f0b2de8e4c57aa50ccac41ca1d4ec414c/run_07933/7933.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "61fcfa6e18681c6df7d2751d947792ee09f501011582a2d9af17ada4a71e5303"
+        },
+        "7933.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7933_7933.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e5d93609c44bcff62fb58043fe041d2f0b2de8e4c57aa50ccac41ca1d4ec414c/run_07933/7933.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "a2f735d48ceeca9de8952b2a96a111289475ce44faa180e01bc1a0087e7d6962"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7933_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e5d93609c44bcff62fb58043fe041d2f0b2de8e4c57aa50ccac41ca1d4ec414c/run_07933/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7933_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e5d93609c44bcff62fb58043fe041d2f0b2de8e4c57aa50ccac41ca1d4ec414c/run_07933/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7934": {
+      "assets": {
+        "7934.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7934_7934.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f1ff8834ef976bb12fa5c179c20d79daa51c866c4a2d30b26e60b40caa679b07/run_07934/7934.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "8bbead7a3d256c1fa7cc002e0091427418c2ac1432d4880ca8ed544cb91ac099"
+        },
+        "7934.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7934_7934.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f1ff8834ef976bb12fa5c179c20d79daa51c866c4a2d30b26e60b40caa679b07/run_07934/7934.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "885e85dae96f6f40a766b72aaea3b670128a1e60135393143aa9976793d89021"
+        },
+        "7934.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7934_7934.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f1ff8834ef976bb12fa5c179c20d79daa51c866c4a2d30b26e60b40caa679b07/run_07934/7934.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "a385f1224b81c21a09e16d0cdc5e5257c2331828005d224b3b5a6a71f38d21b3"
+        },
+        "atmospheric_1975-2020.co2": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7934_atmospheric_1975-2020.co2",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f1ff8834ef976bb12fa5c179c20d79daa51c866c4a2d30b26e60b40caa679b07/run_07934/atmospheric_1975-2020.co2",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666"
+        },
+        "gras_maaien.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7934_gras_maaien.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/f1ff8834ef976bb12fa5c179c20d79daa51c866c4a2d30b26e60b40caa679b07/run_07934/gras_maaien.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259"
+        }
+      }
+    },
+    "7935": {
+      "assets": {
+        "7935.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7935_7935.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e083486fdbc5bd714611529de4738aae6542596b3e451afbb1743af96186e109/run_07935/7935.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "8bd09b2ede4acde4968ede7bd556439659cf63a334529bf18d0330e1f69040f2"
+        },
+        "7935.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7935_7935.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e083486fdbc5bd714611529de4738aae6542596b3e451afbb1743af96186e109/run_07935/7935.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "26906c720eda471e2e18a2d653b680c94ad80244ddbb8d96af8e99fecd7e8eb2"
+        },
+        "7935.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7935_7935.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e083486fdbc5bd714611529de4738aae6542596b3e451afbb1743af96186e109/run_07935/7935.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "3298835a92ac68079ae830f13b473e452f533046bdd26e24dcae4401b8f0a2da"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7935_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e083486fdbc5bd714611529de4738aae6542596b3e451afbb1743af96186e109/run_07935/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7936": {
+      "assets": {
+        "7936.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7936_7936.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/d2881e03435b947e156baf4d59313ca803826208c406802d249e8827812e2e72/run_07936/7936.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "f9c20310989148b99d07d4682cfb3baeea024c7af2e374cbb843d75969b6c1e1"
+        },
+        "7936.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7936_7936.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/d2881e03435b947e156baf4d59313ca803826208c406802d249e8827812e2e72/run_07936/7936.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "01fc9dc11f903310988b6d254a986cfac0310a7b688a2ba075e68d42114cc603"
+        },
+        "7936.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7936_7936.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/d2881e03435b947e156baf4d59313ca803826208c406802d249e8827812e2e72/run_07936/7936.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "dc47748515ac0df470390c6276bba67975df56a9f973d53b9062160b02399ad3"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7936_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/d2881e03435b947e156baf4d59313ca803826208c406802d249e8827812e2e72/run_07936/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7937": {
+      "assets": {
+        "7937.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7937_7937.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/68545a92c0df63c4d32bc782060e3e0eedf3ae9090dffff6945fcebca737c2c9/run_07937/7937.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "431ab5fd7d48948f02849acef294a014de6907a8b5897b427d14ded7cf4789a5"
+        },
+        "7937.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7937_7937.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/68545a92c0df63c4d32bc782060e3e0eedf3ae9090dffff6945fcebca737c2c9/run_07937/7937.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "46fec2df59b48f20406e803eb4a9cbdc3ca0c516cfaefac59d0e36b89c0dc580"
+        },
+        "7937.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7937_7937.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/68545a92c0df63c4d32bc782060e3e0eedf3ae9090dffff6945fcebca737c2c9/run_07937/7937.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "62ec1296e3195aef2cd3fb51f3d4db3ce404181b174b98240689c8f305cd640c"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7937_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/68545a92c0df63c4d32bc782060e3e0eedf3ae9090dffff6945fcebca737c2c9/run_07937/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7938": {
+      "assets": {
+        "7938.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7938_7938.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/ee642b243c6e706773df91e599309d881ab2591e2d4beb10a94eb9a9db101473/run_07938/7938.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "068eb3b443f479a4136b14dc9d6747f5aced0920fbef286732c13069d145c7a5"
+        },
+        "7938.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7938_7938.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/ee642b243c6e706773df91e599309d881ab2591e2d4beb10a94eb9a9db101473/run_07938/7938.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "4c2d0dd7d95005ec5102a9dab9449db0803d3c6dbd20385a4fcc3fbc25649b0a"
+        },
+        "7938.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7938_7938.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/ee642b243c6e706773df91e599309d881ab2591e2d4beb10a94eb9a9db101473/run_07938/7938.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "96cb6934b0a488ce8f7457c298c608a43e29a70c04528263f5a6b6d4b22cd78a"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7938_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/ee642b243c6e706773df91e599309d881ab2591e2d4beb10a94eb9a9db101473/run_07938/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7939": {
+      "assets": {
+        "7939.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7939_7939.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/ca29c8198135332ddb6015f8027b9573bcf03b696735a6efe208a44be5896b03/run_07939/7939.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "a0da77b8ba1f5ce784593aedd02f5d45da038ed3e3788284269b908b3b88e597"
+        },
+        "7939.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7939_7939.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/ca29c8198135332ddb6015f8027b9573bcf03b696735a6efe208a44be5896b03/run_07939/7939.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "5df140eab8f4d17b94ee2d748e306ef1a4876d3055fc2e50d586770282cdf09a"
+        },
+        "7939.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7939_7939.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/ca29c8198135332ddb6015f8027b9573bcf03b696735a6efe208a44be5896b03/run_07939/7939.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "cbb3c4d6611a2a24e93e39839301b8aa5fe2b9a154ca9b9d486649209b28aa11"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7939_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/ca29c8198135332ddb6015f8027b9573bcf03b696735a6efe208a44be5896b03/run_07939/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7940": {
+      "assets": {
+        "7940.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7940_7940.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b0c207b76960b994285c21dd0ca7a35d0c786ac985867b3f16cbf49bd3a7a210/run_07940/7940.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "21b89761907d131774bf0091a42ff673955f9f9c186e33e5b770780f709fbf0d"
+        },
+        "7940.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7940_7940.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b0c207b76960b994285c21dd0ca7a35d0c786ac985867b3f16cbf49bd3a7a210/run_07940/7940.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "ed04d096b3fec8d4e5ad8b039f39d45eda9baef574893439252e61b25837f1e8"
+        },
+        "7940.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7940_7940.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b0c207b76960b994285c21dd0ca7a35d0c786ac985867b3f16cbf49bd3a7a210/run_07940/7940.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "a5fbe4a51d4637b3edae3ed62e144cec314d1b2fc1866aa9f923f146eec1743f"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7940_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/b0c207b76960b994285c21dd0ca7a35d0c786ac985867b3f16cbf49bd3a7a210/run_07940/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7941": {
+      "assets": {
+        "7941.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7941_7941.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e3eb6fe49572a2d27f38116692c166dd0bf7afe3761763ae42384d6ab653c049/run_07941/7941.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "d9a0f905f964647c239bc8c8d51f898bd1e3013ed8dc1c2f929da9c36976ba7e"
+        },
+        "7941.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7941_7941.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e3eb6fe49572a2d27f38116692c166dd0bf7afe3761763ae42384d6ab653c049/run_07941/7941.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "af5713b86660c9e4853ac9fcc5b66f01608f10da675fc8b4c5564715b9c6111e"
+        },
+        "7941.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7941_7941.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e3eb6fe49572a2d27f38116692c166dd0bf7afe3761763ae42384d6ab653c049/run_07941/7941.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "58e314661d692ff3091d109fd4637193c3885616a36318176992e0229afc3caf"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7941_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e3eb6fe49572a2d27f38116692c166dd0bf7afe3761763ae42384d6ab653c049/run_07941/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7942": {
+      "assets": {
+        "7942.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7942_7942.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e69e4926b64a02f2a5a567d885d3e76f22a85d94714eecb48ec1ac242f4fdf08/run_07942/7942.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "bb8eaabc1021afd6a2a3d0b930997144bd3beff0d98e3df2b3b0cb4cc70bc510"
+        },
+        "7942.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7942_7942.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e69e4926b64a02f2a5a567d885d3e76f22a85d94714eecb48ec1ac242f4fdf08/run_07942/7942.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "ac79f69ec51ce1052e285cb91f270ccf524fac4a04244b8bd6478d24a2094f52"
+        },
+        "7942.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7942_7942.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e69e4926b64a02f2a5a567d885d3e76f22a85d94714eecb48ec1ac242f4fdf08/run_07942/7942.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "df6e8ab8b65d40aea991b7301304cab1eac10f3415fae31aeca1de5598a10b5e"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7942_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/e69e4926b64a02f2a5a567d885d3e76f22a85d94714eecb48ec1ac242f4fdf08/run_07942/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7943": {
+      "assets": {
+        "7943.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7943_7943.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/c80832b3adbbd58435cfefd8ecc5680baa42f75c1ead449dd6257144fdcf1d6c/run_07943/7943.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "d2df2da1b46c0675107fb110ee8f232dcd3ee3fa78952939bd84843236b51447"
+        },
+        "7943.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7943_7943.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/c80832b3adbbd58435cfefd8ecc5680baa42f75c1ead449dd6257144fdcf1d6c/run_07943/7943.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "833c92c104b681aed434f78f808d1d2cd0178f8fb2fa35776e8c0ea9ca4e0d71"
+        },
+        "7943.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7943_7943.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/c80832b3adbbd58435cfefd8ecc5680baa42f75c1ead449dd6257144fdcf1d6c/run_07943/7943.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "c7b69217d6e17500ae97077c12b54bf45412813b44e90529d10bd304b5b4bb51"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7943_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/c80832b3adbbd58435cfefd8ecc5680baa42f75c1ead449dd6257144fdcf1d6c/run_07943/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7944": {
+      "assets": {
+        "7944.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7944_7944.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0a3fdb605fc66c19830a61d62b805cfd46e463ee75bf340feb92e73811f086f4/run_07944/7944.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "b63239770867af9ce7a0d3a40d015bc707702da2e9af20114a279ffcdbdd6295"
+        },
+        "7944.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7944_7944.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0a3fdb605fc66c19830a61d62b805cfd46e463ee75bf340feb92e73811f086f4/run_07944/7944.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "6c7c18652d98d4bf8fdce681101787f8b7cef4e538edef599beab1766a04cd94"
+        },
+        "7944.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7944_7944.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0a3fdb605fc66c19830a61d62b805cfd46e463ee75bf340feb92e73811f086f4/run_07944/7944.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "50223c1a62e81d7b773da67a2396db36521a0a353c0f7ae8075b41f834db8db1"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7944_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/0a3fdb605fc66c19830a61d62b805cfd46e463ee75bf340feb92e73811f086f4/run_07944/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    },
+    "7945": {
+      "assets": {
+        "7945.bbc": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7945_7945.bbc",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4b1dbbd9824f7d3405f28ecb716152484e437bbcd2f441b3265367a77b6a8392/run_07945/7945.bbc",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "4bd7551d32fbfc6fd31b52c7450c31f8d336946ace374e33f12d5aa314696990"
+        },
+        "7945.dra": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7945_7945.dra",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4b1dbbd9824f7d3405f28ecb716152484e437bbcd2f441b3265367a77b6a8392/run_07945/7945.dra",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "b32c8536013d78eae4a3bdbdaabf6b72bb220bf755d9733e8e3c6f4eecd229b5"
+        },
+        "7945.met": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7945_7945.met",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4b1dbbd9824f7d3405f28ecb716152484e437bbcd2f441b3265367a77b6a8392/run_07945/7945.met",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "e97c541298d7fc035605a720438688946fa8174f008230fad143b22c2feac1ee"
+        },
+        "fictief.crp": {
+          "evidence_refs": [
+            "docs/evidence/2026-10-19-work-c2/",
+            "docs/production/WORK_C2_OWNER_DECISIONS_2026-10-19.md"
+          ],
+          "logical_id": "C2_RESEARCH_7945_fictief.crp",
+          "path": "/workspace/scratch/63a9f400f353/work-c2/modern-pm/objects/4b1dbbd9824f7d3405f28ecb716152484e437bbcd2f441b3265367a77b6a8392/run_07945/fictief.crp",
+          "qualification_status": "RESEARCH_CANDIDATE",
+          "semantic_contract": "OWNER_3143f4d_DRA; HISTORICAL_BBC_FIRST_COLUMN; NO_EXTRAPOLATION; SOURCED_GRASS_CF_WHERE_REQUIRED",
+          "sha256": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718"
+        }
+      }
+    }
+  },
+  "schema_version": 1,
+  "start": "1971-01-01"
+}

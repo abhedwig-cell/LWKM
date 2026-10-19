@@ -51,14 +51,18 @@ def build_one(run_id,oracle,database,template,output,drainage,*,mode='oracle',en
             if p.is_file() and p.suffix.lower() in ('.crp','.co2','.met','.dra'):
                 (staging/p.name).write_bytes(p.read_bytes())
         (staging/f'{run_id}.bbc').write_text(bbc)
+        render_policy={'TSTART':actual_start.isoformat(),'TEND':actual_end.isoformat()}
         if mode=='modern':
             record=json.loads((drainage/'hrus'/f'{run_id}.json').read_text())
             if record['status']!='DRA_INTERFACE_CANDIDATE':raise ValueError(record.get('error','blocked drainage'))
-            dra=render_dra_explicit(record['levels'],len(context['TABLE_SOILHYDRFUNC']),
-                actual_start.year,actual_end.year+1,0.0)
-            (staging/f'{run_id}.dra').write_text(dra)
+            if record['levels']:
+                dra=render_dra_explicit(record['levels'],len(context['TABLE_SOILHYDRFUNC']),
+                    actual_start.year,actual_end.year+1,0.0)
+                (staging/f'{run_id}.dra').write_text(dra)
+            else:
+                render_policy.update(SWDRA=0,SWITCH_SWDRA_OPTION_1=False)
         (staging/'swap.swp').write_text(render(template.read_bytes(),context,
-            policy={'TSTART':actual_start.isoformat(),'TEND':actual_end.isoformat()},et_policy=et_policy))
+            policy=render_policy,et_policy=et_policy))
         preflight=validate(staging)
         assets={name:{'path':str(staging/name),'sha256':sha256(staging/name),
                       'qualification_id':'RESEARCH_INPUT_NOT_PRODUCTION_ADMITTED'} for name in preflight['files']}

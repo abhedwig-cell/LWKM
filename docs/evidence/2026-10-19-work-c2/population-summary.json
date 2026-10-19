@@ -1,0 +1,14 @@
+{
+  "blocked": 29,
+  "candidates": 10213,
+  "changed_compressions": 3598,
+  "disabled_infiltration_records": 2905,
+  "max_policy_response_difference_mm_d_envelope_0_5m": 0.2707795934349319,
+  "newly_blocked": 8,
+  "omitted_physical_records": 1815,
+  "original_drares_overshoots": 1815,
+  "original_infres_overshoots": 4498,
+  "originally_blocked_resolved": 2196,
+  "population": 10242,
+  "production_admitted": false
+}

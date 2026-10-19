@@ -1,0 +1,3100 @@
+[
+  {
+    "hru": 4015,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2006.2372534070544,
+        "infres": 20062.372235117902,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 3442.526793874854,
+        "infres": 10431.898960851924,
+        "allow_infiltration": true,
+        "summer": 1.614960521714589,
+        "winter": 1.614960521714589
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 4213.6013287880905,
+        "infres": 12768.488367741282,
+        "allow_infiltration": true,
+        "summer": 0.7457603624520632,
+        "winter": 0.7457603624520632
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2541.7151485332242,
+        "infres": 7702.166810710734,
+        "allow_infiltration": true,
+        "summer": 1.1909322487093683,
+        "winter": 1.191501168535934
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 14413.793042775991,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.3655171279780212,
+        "winter": 1.3655171279780212
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 31.428572656250047,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.15000006630307156,
+        "winter": 0.15000006630307156
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "S"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 8686,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 119.55252020954536,
+        "infres": 1195.5251842807402,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 393.6904889878312,
+        "infres": 1193.0014343756889,
+        "allow_infiltration": true,
+        "summer": 2.6396971611615663,
+        "winter": 2.643565573858135
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1146.6153840485852,
+        "infres": 3474.591934806622,
+        "allow_infiltration": true,
+        "summer": 1.0926169476466372,
+        "winter": 1.1145727078030465
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2163.2440234936803,
+        "infres": 6555.284659194211,
+        "allow_infiltration": true,
+        "summer": 0.6575673070503011,
+        "winter": 0.6586123095936557
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 5407.935048837956,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0407938671919652,
+        "winter": 1.0407938671919652
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 40.50000158203132,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.22628931920528408,
+        "winter": 0.22628931920528408
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "H1"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 3887,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 44399.153139342845,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 12238.885747150322,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.2773330164250525,
+        "winter": 1.4990435460271645
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2919.132946351484,
+        "infres": 29191.329028530134,
+        "allow_infiltration": true,
+        "summer": 1.3057533213595902,
+        "winter": 1.3813677294893618
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 5141.89126615276,
+        "infres": 51418.911895326106,
+        "allow_infiltration": true,
+        "summer": 0.8840741849468078,
+        "winter": 0.8899282331078121
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 173.55945681889435,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0796086265564862,
+        "winter": 1.0796086265564862
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 32.22222348090283,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14999999247656928,
+        "winter": 0.14999999247656928
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 3880,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1950.3301478972585,
+        "infres": 19503.301188350753,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 26061.348715510765,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.4906012060901772,
+        "winter": 1.80651331444127
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1703.535723618093,
+        "infres": 17035.356982334328,
+        "allow_infiltration": true,
+        "summer": 1.6025804190985988,
+        "winter": 1.6956545505951068
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 31328.630617099254,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.3822147667228317,
+        "winter": 1.3895929939142764
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 134.8281926409153,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.1378104127908872,
+        "winter": 1.1378104127908872
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 60.00000234375009,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14999998649267046,
+        "winter": 0.14999998649267046
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 8611,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 30459.318127094517,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 35820.12407705712,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.6354339840968726,
+        "winter": 1.5128696452415398
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1199.7046031421266,
+        "infres": 3635.4683499095477,
+        "allow_infiltration": true,
+        "summer": 1.1077150703636998,
+        "winter": 1.1025031655952182
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 796.1709981352767,
+        "infres": 73551.14252620604,
+        "allow_infiltration": true,
+        "summer": 0.682256597416472,
+        "winter": 0.6780197604268415
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 2205.6242527162913,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.2000001087188723,
+        "winter": 0.2000001087188723
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 2132.3529411764707,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.1999999033703528,
+        "winter": 1.1999999033703528
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 31.071429785156294,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.23214265360151048,
+        "winter": 0.23214265360151048
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.00044031068739309385,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 8744,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 64702.36784911236,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 613.2726601750078,
+        "infres": 1858.4019266840685,
+        "allow_infiltration": true,
+        "summer": 2.7992530418660664,
+        "winter": 2.8508816596953106
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 474.2876830434147,
+        "infres": 1437.235346051261,
+        "allow_infiltration": true,
+        "summer": 1.798054738257754,
+        "winter": 1.8602849325762638
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 62039.36321073992,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 2.4685685091126395,
+        "winter": 2.4807779731942086
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 253.05573830592118,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.2000000156374444,
+        "winter": 0.2000000156374444
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 396.9578867550895,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.718274091054808,
+        "winter": 0.718274091054808
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 37.142858593750056,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.15000004931858613,
+        "winter": 0.15000004931858613
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.005580467843549531,
+      "groups": [
+        [
+          "P"
+        ],
+        [
+          "T"
+        ],
+        [
+          "S"
+        ],
+        [
+          "H1"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 3863,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 17703.577254606782,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 15644.539959430886,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.326211329132855,
+        "winter": 1.578611913742437
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2107.0467365906184,
+        "infres": 21070.467051931762,
+        "allow_infiltration": true,
+        "summer": 1.2052297122759739,
+        "winter": 1.3242166489491891
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 12691.498610647017,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0035540807786447,
+        "winter": 1.0102354928834174
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 1949.7302320635945,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999998855590817,
+        "winter": 0.19999998855590817
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 189.41848793963564,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0872242382899358,
+        "winter": 1.0872242382899358
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 35.58139673873552,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14999999713793744,
+        "winter": 0.14999999713793744
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0008800555273144466,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 3884,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 46441.60759026443,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 14482.92717316039,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 2.058004636253934,
+        "winter": 2.250357202589383
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1513.9079918285424,
+        "infres": 11931.742521859682,
+        "allow_infiltration": true,
+        "summer": 1.6318587805766767,
+        "winter": 1.7198934539410622
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 18610.445043230273,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.5314088222868183,
+        "winter": 1.5314088222868183
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 135.48735455506738,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.3954317406126806,
+        "winter": 1.3954317406126806
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 35.625001391601614,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.15000000011827797,
+        "winter": 0.15000000011827797
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 3890,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 18342.803487089528,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 11073.692926699197,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.6259480953161416,
+        "winter": 1.935499348701315
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2055.924041432556,
+        "infres": 20559.240107969006,
+        "allow_infiltration": true,
+        "summer": 1.4834778659171965,
+        "winter": 1.593162561746117
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 11442.580722720415,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.4431025675335807,
+        "winter": 1.4652245598961515
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 121.90097865900664,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.3037870169162804,
+        "winter": 1.3037870169162804
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 32.57142984375005,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14999997583798003,
+        "winter": 0.14999997583798003
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 2104,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 15244.396144057357,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 88969.51790852657,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.9096667052507401,
+        "winter": 1.110666669279337
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2566.7708977194698,
+        "infres": 7850.870698295385,
+        "allow_infiltration": true,
+        "summer": 1.34492618115299,
+        "winter": 1.3989822986687526
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 948.362728487977,
+        "infres": 8575.79598372802,
+        "allow_infiltration": true,
+        "summer": 0.9853145803516612,
+        "winter": 0.9865936226547789
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 3547.566021835302,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999976760632665,
+        "winter": 0.19999976760632665
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 518.4765381862821,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.8349788922929127,
+        "winter": 0.8349788922929127
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 30.625001196289105,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.2293701952358087,
+        "winter": 0.2293701952358087
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0002492239799575849,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "S"
+        ],
+        [
+          "P"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 7584,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 62476.83546584233,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 6310.254841413073,
+        "infres": 19121.983608079045,
+        "allow_infiltration": true,
+        "summer": 1.551989077924755,
+        "winter": 1.9357192376300545
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2077.9570298613894,
+        "infres": 6296.839234214543,
+        "allow_infiltration": true,
+        "summer": 0.8867805409378343,
+        "winter": 0.8926960991377627
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 85065.80612775599,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.3196354400496557,
+        "winter": 1.3196354400496557
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 3194.682509402414,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.20000003814697287,
+        "winter": 0.20000003814697287
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 135.95362401329425,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0276124152311303,
+        "winter": 1.0276124152311303
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 30.750001201171923,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.15000009524822233,
+        "winter": 0.15000009524822233
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0004721352553068113,
+      "groups": [
+        [
+          "P"
+        ],
+        [
+          "H1"
+        ],
+        [
+          "T"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 1371,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 54102.97242645924,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 42735.601937761145,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.5109623088763535,
+        "winter": 1.7343539252707254
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2795.5154079291433,
+        "infres": 27955.15366272718,
+        "allow_infiltration": true,
+        "summer": 1.5296243860689451,
+        "winter": 1.5960807115338391
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 17042.37196129119,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.1958752272875581,
+        "winter": 1.2029728929782144
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 164.86891960612658,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.3394271844532104,
+        "winter": 1.3394271844532104
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 35.00000136718755,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14236904153227808,
+        "winter": 0.14236904153227808
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 3878,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2176.107321865846,
+        "infres": 21761.07289439321,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 32950.051221085836,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 2.2378205922793613,
+        "winter": 2.393498424348598
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 863.8560981773326,
+        "infres": 6128.570043148419,
+        "allow_infiltration": true,
+        "summer": 1.5783406227277992,
+        "winter": 1.650180505705659
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 72891.93393118809,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.5504888716848835,
+        "winter": 1.571084848775164
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 144.5394590900105,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.139024906521888,
+        "winter": 1.139024906521888
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 55.38461754807701,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14999999016064863,
+        "winter": 0.14999999016064863
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 5989,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 5828.205603508257,
+        "infres": 58282.05516661227,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 44082.876068647216,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.5364514429378888,
+        "winter": 0.6081330231347422
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1536.2457956025626,
+        "infres": 10689.26640709294,
+        "allow_infiltration": true,
+        "summer": 0.6706317895668198,
+        "winter": 0.698796147071093
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 71855.58096073272,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.1266425527612196,
+        "winter": 1.134530011613719
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 300.3030872377008,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.20000000212279015,
+        "winter": 0.20000000212279015
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 218.5285245275799,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0842190195079182,
+        "winter": 1.0842190195079182
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 43.50000169921882,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.15149999516680837,
+        "winter": 0.15149999516680837
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.005360080634778261,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "S"
+        ],
+        [
+          "P"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 10080,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 10205.081612416183,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1545.776199332894,
+        "infres": 7442.307309111225,
+        "allow_infiltration": true,
+        "summer": 1.803396570995387,
+        "winter": 1.8082024042807938
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 828.5889209896939,
+        "infres": 4093.903405237539,
+        "allow_infiltration": true,
+        "summer": 1.2270082191047817,
+        "winter": 1.2316983122267757
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 448.79888836304787,
+        "infres": 12443.626559080652,
+        "allow_infiltration": true,
+        "summer": 0.6850022037884103,
+        "winter": 0.6864400798820677
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 2822.1304678844067,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999968164688692,
+        "winter": 0.19999968164688692
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 935.3591064867135,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.8710422699003278,
+        "winter": 0.8710422699003278
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 30.789474886924392,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.2069256301616368,
+        "winter": 0.2069256301616368
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 7.394000210681392e-05,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 9803,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 43885.15029296248,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 29413.675066011525,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.5348744012228386,
+        "winter": 1.537397111987755
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1258.0643225923216,
+        "infres": 12580.643038457025,
+        "allow_infiltration": true,
+        "summer": 1.3451282685856698,
+        "winter": 1.3461262932647329
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 32692.066953389036,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.9712113007107182,
+        "winter": 0.9712113007107182
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 1217.8871465808056,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999998232330327,
+        "winter": 0.19999998232330327
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 218.54176512946054,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0720031732103799,
+        "winter": 1.0720031732103799
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 37.50000146484381,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14999997231364248,
+        "winter": 0.14999997231364248
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.001448948889770224,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 939,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 54594.98691991838,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 10684.329632131383,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.516928781115838,
+        "winter": 1.6535874199443135
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1018.8086633431836,
+        "infres": 10188.086481617514,
+        "allow_infiltration": true,
+        "summer": 1.4960995121448786,
+        "winter": 1.5564203554453757
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 12680.044410141372,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0665138664380516,
+        "winter": 1.0766651891382872
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 1954.2831216803133,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.2000000061524656,
+        "winter": 0.2000000061524656
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 208.80720452746746,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.8774989749814245,
+        "winter": 0.8774989749814245
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 31.22449101562505,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.1499999911055273,
+        "winter": 0.1499999911055273
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0007739445937794514,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 8805,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2151.268115942029,
+        "infres": 21512.680838856362,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 24696.56007623029,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.5563736586829178,
+        "winter": 1.5563736586829178
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 311.4343718485842,
+        "infres": 3045.3808979670844,
+        "allow_infiltration": true,
+        "summer": 1.2519035356180022,
+        "winter": 1.2519035356180022
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 11524.258751438989,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.9421324848896425,
+        "winter": 0.9421324848896425
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 351.5247734852755,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999999262482862,
+        "winter": 0.19999999262482862
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 283.1605653591911,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.2002590101855661,
+        "winter": 1.2002590101855661
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 43.8461555588943,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.15769229941643198,
+        "winter": 0.15769229941643198
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.00417154888593676,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 3883,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 14026.08134801728,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 18915.578302768936,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.4824193769903926,
+        "winter": 1.6249251513589096
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 2057.411557732948,
+        "infres": 20574.11527075127,
+        "allow_infiltration": true,
+        "summer": 1.3300396670765007,
+        "winter": 1.399695458469877
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 15520.226500480725,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.129797921287538,
+        "winter": 1.1316235080123043
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 46905.113055437425,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.2000000455077,
+        "winter": 0.2000000455077
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 156.53189640874638,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.152036621480046,
+        "winter": 1.152036621480046
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 34.71428707031255,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14999998341117587,
+        "winter": 0.14999998341117587
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 3.6950132978838035e-05,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 6019,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 24983.48950663235,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 41839.60873185485,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.9647109074022187,
+        "winter": 1.2352776704034893
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 3315.466463627657,
+        "infres": 33154.66414223358,
+        "allow_infiltration": true,
+        "summer": 0.4490748387762241,
+        "winter": 0.4760871989740058
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 31303.447612827695,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.20758322166515614,
+        "winter": 0.20758322166515614
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 511.42604899806037,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999999971389767,
+        "winter": 0.19999999971389767
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 229.85130289402196,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.102965630462617,
+        "winter": 1.102965630462617
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 55.90909309303986,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.14939744233069094,
+        "winter": 0.14939744233069094
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.004495296964182484,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 8821,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 30072.94395931489,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 9441.36551280779,
+        "infres": 94413.65372120484,
+        "allow_infiltration": true,
+        "summer": 6.661000005960465,
+        "winter": 6.661000005960465
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 4895.196879371745,
+        "infres": 48951.96806427629,
+        "allow_infiltration": true,
+        "summer": 3.6955583095357305,
+        "winter": 3.6955583095357305
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1425.22675672817,
+        "infres": 12133.030294380973,
+        "allow_infiltration": true,
+        "summer": 1.9073767174957121,
+        "winter": 1.9073767174957121
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 217.73663838200753,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999993376594563,
+        "winter": 0.19999993376594563
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 353.77677344338696,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.9486661218442852,
+        "winter": 0.9486661218442852
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 31.578948601973735,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.17368412871109826,
+        "winter": 0.17368412871109826
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0029110319926262153,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 4027,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 3951.631510361659,
+        "infres": 39516.314514777616,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 33730.21290723281,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 2.396999972343445,
+        "winter": 2.471250014781952
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1247.2606215828619,
+        "infres": 10080.161929080587,
+        "allow_infiltration": true,
+        "summer": 1.8347739609561757,
+        "winter": 1.8401368725044338
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 857.1210996125578,
+        "infres": 9588.04333488007,
+        "allow_infiltration": true,
+        "summer": 1.055630524666501,
+        "winter": 1.0559422141634094
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 16579.07948391373,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999994263942777,
+        "winter": 0.19999994263942777
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 402.4262202043775,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.6401450968783082,
+        "winter": 0.6401450968783082
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 30.81081201435816,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.23039159863703976,
+        "winter": 0.23039159863703976
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 5.627096909193691e-05,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 5891,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 29976.630071956566,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 34944.167699586054,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.4010195078872947,
+        "winter": 1.4010195078872947
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1206.5838212855408,
+        "infres": 12065.83803306041,
+        "allow_infiltration": true,
+        "summer": 1.1212167992667585,
+        "winter": 1.1212167992667585
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 28336.12510185639,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.8408525475907528,
+        "winter": 0.8408525475907528
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 1737.819479387617,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.1999999463158106,
+        "winter": 0.1999999463158106
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 199.8285933772564,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.0756951290505228,
+        "winter": 1.0756951290505228
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 32.00000125000005,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.1499999940375487,
+        "winter": 0.1499999940375487
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0008877001715706555,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 8990,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 14444.444444444443,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 40383.00452496237,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.2749999532699585,
+        "winter": 1.2749999532699585
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 689.6640889521483,
+        "infres": 2779.3615426694923,
+        "allow_infiltration": true,
+        "summer": 1.1532529437878853,
+        "winter": 1.1620627289315546
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 599.3706206074148,
+        "infres": 3566.5517105661397,
+        "allow_infiltration": true,
+        "summer": 0.7442561742996266,
+        "winter": 0.7442561742996266
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 313.4936585990179,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.20000003078703474,
+        "winter": 0.20000003078703474
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 432.69484335305395,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.7716938854998696,
+        "winter": 0.7716938854998696
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 33.913044802989184,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.21086961002453514,
+        "winter": 0.21086961002453514
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0009574848003466732,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 3867,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 19252.765157888753,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 32644.926360611717,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.911629324767454,
+        "winter": 1.9748699364063813
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1978.816717702784,
+        "infres": 19788.166882161175,
+        "allow_infiltration": true,
+        "summer": 1.5502292277294554,
+        "winter": 1.6366883251911495
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 18013.352337981632,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.4060698243985423,
+        "winter": 1.441436735538334
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 1376.2801638095962,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.19999999427795415,
+        "winter": 0.19999999427795415
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 156.9248119234217,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.2348886052679184,
+        "winter": 1.2348886052679184
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 34.838711038306506,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.15322580094154806,
+        "winter": 0.15322580094154806
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0011262843088326133,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 8842,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 29076.557618304778,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 88.51031692222105,
+        "infres": 294.22933624437906,
+        "allow_infiltration": true,
+        "summer": 2.684437302104066,
+        "winter": 2.731562157213068
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 96.56323256258771,
+        "infres": 300.2414659032256,
+        "allow_infiltration": true,
+        "summer": 2.2703179870099532,
+        "winter": 2.2774509648631143
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 824.1686434760802,
+        "infres": 3938.655020560872,
+        "allow_infiltration": true,
+        "summer": 1.2042207113377748,
+        "winter": 1.207092203281448
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 698.9314034379047,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.122193231122009,
+        "winter": 1.122193231122009
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 43.95349008902623,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.17775084737844243,
+        "winter": 0.17775084737844243
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 8946,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 4779.077559699919,
+        "infres": 47790.77488486115,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1078.9991013076326,
+        "infres": 3269.6941164607942,
+        "allow_infiltration": true,
+        "summer": 1.2539649014891021,
+        "winter": 1.2546526296655935
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 981.8383276727187,
+        "infres": 2975.2675413877896,
+        "allow_infiltration": true,
+        "summer": 0.8250651723673427,
+        "winter": 0.8250651723673427
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 49756.302140234024,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.9723316862799699,
+        "winter": 0.9723316862799699
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 272.0021390016182,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.20000005597621828,
+        "winter": 0.20000005597621828
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 292.5170343794753,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.9109246049637646,
+        "winter": 0.9109246049637646
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 31.71428695312505,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.17083208204678124,
+        "winter": 0.17083208204678124
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0027277023173774596,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P"
+        ],
+        [
+          "S"
+        ],
+        [
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG",
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "hru": 9744,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 6957.973778919981,
+        "infres": 69579.73675238094,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 437.66314406915586,
+        "infres": 1326.2518990241992,
+        "allow_infiltration": true,
+        "summer": 0.49335156802326663,
+        "winter": 0.7181200638301501
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 1790.9250940604122,
+        "infres": 5427.045523925594,
+        "allow_infiltration": true,
+        "summer": 1.3570125570661864,
+        "winter": 1.3637213893711186
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 38091.72197822876,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.6677559696997464,
+        "winter": 0.6895047285755584
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 581.2563230671886,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 1.09752896569177,
+        "winter": 1.09752896569177
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 36.92307836538467,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.16664320323100457,
+        "winter": 0.16664320323100457
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "NO_COMPRESSION",
+      "max_error_m": 0.0,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "S"
+        ],
+        [
+          "P"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "T"
+        ],
+        [
+          "OLF"
+        ]
+      ]
+    }
+  },
+  {
+    "hru": 7737,
+    "error": "NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION",
+    "retained": [
+      {
+        "source": [
+          "H1"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 7306.807897725472,
+        "infres": 73068.0778884555,
+        "allow_infiltration": true,
+        "summer": 0.0,
+        "winter": 0.0
+      },
+      {
+        "source": [
+          "P"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 369.6008364064221,
+        "infres": 1120.002490060015,
+        "allow_infiltration": true,
+        "summer": 0.058266218983116416,
+        "winter": 0.058266218983116416
+      },
+      {
+        "source": [
+          "S"
+        ],
+        "hydraulic_class": "infiltration_capable_open",
+        "drnres": 616.8109687165343,
+        "infres": 1869.1240733535437,
+        "allow_infiltration": true,
+        "summer": 0.16678257454009626,
+        "winter": 0.16678257454009626
+      },
+      {
+        "source": [
+          "T"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 99011.81566784631,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.1487290378701411,
+        "winter": 0.1487290378701411
+      },
+      {
+        "source": [
+          "MVG"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 159.75063466750865,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.20000004982470515,
+        "winter": 0.20000004982470515
+      },
+      {
+        "source": [
+          "PIPE"
+        ],
+        "hydraulic_class": "pipe",
+        "drnres": 1033.03542090423,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.6444600794007281,
+        "winter": 0.6444600794007281
+      },
+      {
+        "source": [
+          "OLF"
+        ],
+        "hydraulic_class": "drain_only_open",
+        "drnres": 60.00000234375009,
+        "infres": 100000.0,
+        "allow_infiltration": false,
+        "summer": 0.07111839389801027,
+        "winter": 0.07111839389801027
+      }
+    ],
+    "minimum_tested_level_count": 6,
+    "diagnostic_audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.0254251609646538,
+      "groups": [
+        [
+          "H1"
+        ],
+        [
+          "P",
+          "S"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "MVG"
+        ],
+        [
+          "T"
+        ],
+        [
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "zip_sha256": "1a2d798994c2990b397f9349317e3a26f40662fbcff55c9ea484dd638af45151",
+  "evidence": [
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 65,
+      "text": "                               nrlevs, owltab, nowltab, geofac, drainl, swdtyp, swnrsrf, cofintfl, expintfl, drares, swallo, swliminf, infres, ipos"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 176,
+      "text": "                  qdrain(lev) = diffl(lev) / drares(lev)"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 179,
+      "text": "               if (swallo(lev) == 2) qdrain(lev) = 0.0d0"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 189,
+      "text": "               qdrain(lev) = diffl(lev) / infres(lev)"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 191,
+      "text": "               if (swallo(lev) == 3 .OR. zbotdr(lev) >= drainl(lev)) qdrain(lev) = 0.0d0"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 211,
+      "text": "                                nowltab, geofac, swdtyp, swnrsrf, cofintfl, expintfl, drares, swallo, swliminf, infres, ipos, drfil, swdivd, ksatcp,  &"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 362,
+      "text": "            cvar = 'drares'//trim(clev); call rdsdor (trim(cvar), 1.0d0, 1.0d5, drares(ilevel))"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 363,
+      "text": "            cvar = 'infres'//trim(clev); call rdsdor (trim(cvar), 0.0d0, 1.0d5, infres(ilevel))"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 364,
+      "text": "            cvar = 'swallo'//trim(clev); call rdsinr (trim(cvar), 1,     3,     swallo(ilevel))"
+    },
+    {
+      "member": "SWAP/drainage.f90",
+      "member_sha256": "48e4792acd0a129a6939008bd51e82f9fed4668fcf8d28d03da0bc6efe6944cc",
+      "line": 382,
+      "text": "         if (swallo(nrlevs) == 2 .AND. swnrsrf == 1) then"
+    },
+    {
+      "member": "SWAP/MOD_drainage.f90",
+      "member_sha256": "cb354ea13a099422c9f3b9c87a60ccbe440c0dd3c83ba0502108da8ca70ff255",
+      "line": 86,
+      "text": "   integer, dimension(madr),        save ::   swallo          = 0    ! Switch to allow all (1), only infiltration (2) or only drainage (3) for each drainage level"
+    },
+    {
+      "member": "SWAP/MOD_drainage.f90",
+      "member_sha256": "cb354ea13a099422c9f3b9c87a60ccbe440c0dd3c83ba0502108da8ca70ff255",
+      "line": 87,
+      "text": "   real(8), dimension(madr),        save ::   drares          = 0.d0 ! Array with drainage resistance (T) for each drainage level"
+    },
+    {
+      "member": "SWAP/MOD_drainage.f90",
+      "member_sha256": "cb354ea13a099422c9f3b9c87a60ccbe440c0dd3c83ba0502108da8ca70ff255",
+      "line": 88,
+      "text": "   real(8), dimension(madr),        save ::   infres          = 0.d0 ! Array with infiltration resistance (T) for each drainage level"
+    },
+    {
+      "member": "SWAP/MOD_drainage.f90",
+      "member_sha256": "cb354ea13a099422c9f3b9c87a60ccbe440c0dd3c83ba0502108da8ca70ff255",
+      "line": 138,
+      "text": "   ! public :: dramet, nrlevs, drfil, qdra, qdrtot, qdrain, swdivd, cofani, zbotdr, drares"
+    }
+  ],
+  "interpretation": "SWALLO=3 zeros infiltration after division by INFRES; positive unused placeholder 100000 avoids division by zero. DRARES valid 1..100000, INFRES 0..100000."
+}

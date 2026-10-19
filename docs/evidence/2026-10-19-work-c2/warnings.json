@@ -1,0 +1,590 @@
+[
+  {
+    "run_id": 7866,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7867,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7868,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7869,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7870,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7871,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7872,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7873,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7874,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7875,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7876,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7877,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7909,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7910,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7911,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7912,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7913,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7914,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7915,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7916,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7917,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7918,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7919,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7920,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7921,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7922,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7923,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7924,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7925,
+    "sha256": "edb80c3b9ea40963c0dcae7cba50ff12adce3c53d9854d4043181483d04d8656",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-11-19. Consider reduction of dtMin\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7926,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7927,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7928,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7929,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7930,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7931,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7932,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7933,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7934,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7935,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7936,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7937,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7938,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7939,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7940,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7941,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7942,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7943,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7944,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7945,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "modern-pm"
+  },
+  {
+    "run_id": 7866,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7867,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7868,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7869,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7870,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7871,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7872,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7873,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7874,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7875,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7876,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7877,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7909,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7910,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7911,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7912,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7913,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7914,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7915,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7916,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7917,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7918,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7919,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7920,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7921,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7922,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7923,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7924,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7925,
+    "sha256": "edb80c3b9ea40963c0dcae7cba50ff12adce3c53d9854d4043181483d04d8656",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-11-19. Consider reduction of dtMin\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7926,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7927,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7928,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7929,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7930,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7931,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7932,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7933,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7934,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7935,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7936,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7937,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7938,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7939,
+    "sha256": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from calcgwl:          0 Change of groundwater level exceeds criterion at 1971-01-02. Consider reduction of dtMin\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7940,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7941,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7942,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7943,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7944,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  },
+  {
+    "run_id": 7945,
+    "sha256": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+    "text": " WARNING from readswap: Simulation with additonal Ksat value (Ksatexm)\n WARNING from read_soiltemperature: Usage of ZH and TSOIL are deprecated, use TSOILTB instead\n",
+    "variant": "catalogue-executions"
+  }
+]
