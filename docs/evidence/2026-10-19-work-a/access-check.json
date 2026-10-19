@@ -1,0 +1,6 @@
+{
+  "os_name": "posix",
+  "windows_source_root_mounted": false,
+  "server_commands_executed": false,
+  "powershell_executed": false
+}

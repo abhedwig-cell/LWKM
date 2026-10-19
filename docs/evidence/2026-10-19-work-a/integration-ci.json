@@ -1,0 +1,8 @@
+{
+  "source_commit": "e43216b3f4177b88b88519a9d400619b589e94ad",
+  "pull_request": 6,
+  "workflow_run_id": 39267098589,
+  "conclusion": "success",
+  "url": "https://github.com/abhedwig-cell/LWKM/actions/runs/39267098589",
+  "scope": "Integrated unit tests; source replays local; no new modern SWAP run claimed"
+}

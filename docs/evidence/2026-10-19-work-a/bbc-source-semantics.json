@@ -1,0 +1,36 @@
+{
+  "source_zip_sha256": "1a2d798994c2990b397f9349317e3a26f40662fbcff55c9ea484dd638af45151",
+  "evidence": [
+    {
+      "member": "SWAP/boundbottom.f90",
+      "member_sha256": "5735f2b6e70408d304f6f5fa35ba659fb3422e03109630e27368933f5c10836e",
+      "line": 66,
+      "text": "qbot = afgen (qbotab,mabbc*2,t1900+dt)"
+    },
+    {
+      "member": "SWAP/boundbottom.f90",
+      "member_sha256": "5735f2b6e70408d304f6f5fa35ba659fb3422e03109630e27368933f5c10836e",
+      "line": 105,
+      "text": "if (sw4 == 1) qbot = qbot + afgen (qbotab,mabbc*2,t1900+dt)"
+    },
+    {
+      "member": "SWAP/boundbottom.f90",
+      "member_sha256": "5735f2b6e70408d304f6f5fa35ba659fb3422e03109630e27368933f5c10836e",
+      "line": 145,
+      "text": "qbot            = afgen (qbotab,mabbc*2,t1900+dt)"
+    },
+    {
+      "member": "SWAP/readswap.f90",
+      "member_sha256": "3ab42ae4ad9a76d96b01d90b173cf821a9add8514620a965bf31eaf874405cf2",
+      "line": 877,
+      "text": "call rdatim ('date2',dates,mabbc,ifnd)"
+    },
+    {
+      "member": "SWAP/readswap.f90",
+      "member_sha256": "3ab42ae4ad9a76d96b01d90b173cf821a9add8514620a965bf31eaf874405cf2",
+      "line": 878,
+      "text": "call rdfdor ('qbot2',-100.0d0,100.0d0,qboti,mabbc,ifnd)"
+    }
+  ],
+  "interpretation": "Dated point table evaluated through AFGEN at t1900+dt; not automatically daily integrated means"
+}

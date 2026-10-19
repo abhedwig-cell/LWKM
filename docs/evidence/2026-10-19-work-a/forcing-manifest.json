@@ -1,0 +1,448 @@
+{
+  "code_sha256": "28f2874664705251049ded3ac077dde37dbbc08693641fa7fcb075090af33098",
+  "files": [
+    {
+      "hru": 3363,
+      "kind": "BBC",
+      "production_admitted": false,
+      "qualification": "RESEARCH_ESTIMATED_WEL_DERIVED_GHB_UNRESOLVED_SIGNS",
+      "sha256": "15d14cbae2dd4bbacf7d0ae239a5dc691a48197b9f39d234fbe5c1a7b674bc63",
+      "source_sha256": "0a7918719ec84376b048de5a02cc518d5407e7483d7cd685ec64b370b7a8efb9"
+    },
+    {
+      "hru": 3364,
+      "kind": "BBC",
+      "production_admitted": false,
+      "qualification": "RESEARCH_ESTIMATED_WEL_DERIVED_GHB_UNRESOLVED_SIGNS",
+      "sha256": "43c9e966cc60b9928c175b60b8f9d71405eaff3cf0815b23238a724909755d3e",
+      "source_sha256": "0a7918719ec84376b048de5a02cc518d5407e7483d7cd685ec64b370b7a8efb9"
+    },
+    {
+      "hru": 3365,
+      "kind": "BBC",
+      "production_admitted": false,
+      "qualification": "RESEARCH_ESTIMATED_WEL_DERIVED_GHB_UNRESOLVED_SIGNS",
+      "sha256": "9ddedefc3e72f8609a65163573fdfef8276c7d5b00ed31a44b8ba7733e3cc9ab",
+      "source_sha256": "0a7918719ec84376b048de5a02cc518d5407e7483d7cd685ec64b370b7a8efb9"
+    },
+    {
+      "hru": 3366,
+      "kind": "BBC",
+      "production_admitted": false,
+      "qualification": "RESEARCH_ESTIMATED_WEL_DERIVED_GHB_UNRESOLVED_SIGNS",
+      "sha256": "d99c581491f468f136b7de0171732037bece5eb645d238ca5e43228ebd55b6a3",
+      "source_sha256": "0a7918719ec84376b048de5a02cc518d5407e7483d7cd685ec64b370b7a8efb9"
+    },
+    {
+      "hru": 3367,
+      "kind": "BBC",
+      "production_admitted": false,
+      "qualification": "RESEARCH_ESTIMATED_WEL_DERIVED_GHB_UNRESOLVED_SIGNS",
+      "sha256": "6cb38d7c154f2333837e8609c90d6c0d714f1b89ab743a2055d68b4a62f022c2",
+      "source_sha256": "0a7918719ec84376b048de5a02cc518d5407e7483d7cd685ec64b370b7a8efb9"
+    },
+    {
+      "hru": 3368,
+      "kind": "BBC",
+      "production_admitted": false,
+      "qualification": "RESEARCH_ESTIMATED_WEL_DERIVED_GHB_UNRESOLVED_SIGNS",
+      "sha256": "0375d957e1bbc365bc28e9a21f89cbf702694c36b618d9781cf8daf874a814e8",
+      "source_sha256": "0a7918719ec84376b048de5a02cc518d5407e7483d7cd685ec64b370b7a8efb9"
+    },
+    {
+      "hru": 7866,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "f3e645422f8362683707cdc3c2c2e3f3afc534f4f355fde2eab60761d8c22db8",
+      "source_sha256": "c698f01cf339eeb83d4ebf6bf90be7f55eef917fca286d845b8b71942c8cd09d"
+    },
+    {
+      "hru": 7867,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "77870f07a81b21e77163ee942764ef57f2562f834e39571adcfda7c5a00a4f0e",
+      "source_sha256": "78e339d53dc397de179a6a1684dd84e46c0c0e5b1513c916b514f960a4933fc1"
+    },
+    {
+      "hru": 7868,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "48fc5f23bf5af617e97c6398f14d33cb05f17899b7540c276288f59b343d5885",
+      "source_sha256": "054fc30f8f11e9ffa7148814f6d1d4a306f03938e423b1351e3f6f03513ca25c"
+    },
+    {
+      "hru": 7869,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "1992accf92124282fde44d18d0263ebdcba0c5791e15ee02f9d2a95e9d152e95",
+      "source_sha256": "935743590c1845002143a41269a29ee7852c6c613ae8b4b2c51e7e2ba2e069b4"
+    },
+    {
+      "hru": 7870,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "e8ab4e6d2c34512814348fd4db480c03baeb1ee5686aff87355f39e59724e81f",
+      "source_sha256": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a"
+    },
+    {
+      "hru": 7871,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "75a3c0d459aabdf22a990be377cc5dd1a2f40af41c89165693e9c8eb6e3375e0",
+      "source_sha256": "07320ae5acd38afbf63e7f69b30be51c90647939db16feb64176f1042fec3eae"
+    },
+    {
+      "hru": 7872,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "3dd6b0ad266027aefeb736a293d34708fe6187abf8520f903ed0ac00d7059689",
+      "source_sha256": "8dddc4447f256d13c115cfb670541f0a88c9900f194bb4c9802b7867be31c626"
+    },
+    {
+      "hru": 7873,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "db1ae12ea417cf2735dc719b8113c38bc12afcdb0e67be9e67f77ebfb9d45acf",
+      "source_sha256": "c2736b31d080f46302500db383a46d91a5607e57cd00c955d5b95b0495c54c00"
+    },
+    {
+      "hru": 7874,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "4eda3e7b69a88b8ec6e6f4f97ca9145f68504ff92806cacb84266cfbbcef39f1",
+      "source_sha256": "0ff540a4f2e8457fd6b7733c6e30f3364dc193ddeb98eb060bc2a99d694d286b"
+    },
+    {
+      "hru": 7875,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "6c45c10ec9c75cdf6291feb098fb9e6996694ded66cc8368314bc9d7863ec57c",
+      "source_sha256": "0409522a532e0e875767b17a6736589c0a27fa2dbcb0923707f283345df82f07"
+    },
+    {
+      "hru": 7876,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "cbbeda4e88f6c8f207a7ac425dc02395c6f30a0f28767dc686aa96d105b4b6cc",
+      "source_sha256": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027"
+    },
+    {
+      "hru": 7877,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "09451495524d6a520540f13d32e5e423912edefdf5f17bc09fc4d211643c7a49",
+      "source_sha256": "02530fa1b2453ec3dc7d19fa86d751d49de3e5d46a025ed5f77e4682d24ac655"
+    },
+    {
+      "hru": 7909,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "f2c0f63f94f6a84b42879c1fe15f4e4fed30c350dc3fa8d1a605f73400b68e20",
+      "source_sha256": "f2eb0b70184f45ff579b383d9fd4c7b59108f76cc6a8a51c09d9861aa90dbfa7"
+    },
+    {
+      "hru": 7910,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "7d18f5d3790589fbceb5d44feaad7dcb974b363a2acfbbe7fd0e1939e83faf9a",
+      "source_sha256": "34cad3d16035eed31f4ab48e0acae4da179e6892d3bf26e90efedcb7eb354ff3"
+    },
+    {
+      "hru": 7911,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "1691a8ef254c87b10e57c85bb3ebbfe942c77a9967223a291497ee36873791b2",
+      "source_sha256": "64f9518400d2e3cbfb0b4ba3b17108953811a46fc80f5414ec72bfdbc78dfa4f"
+    },
+    {
+      "hru": 7912,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "be0944880ec72576285a1b85e56a4d47399af5181e6e819ddd64ddd48ab7c686",
+      "source_sha256": "b9096b6454e49e21f47e34620d5ccfd551463f936184c713063d21d3ce9159e2"
+    },
+    {
+      "hru": 7913,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "ac276d0d03cd76f6f0563c4e5ac73422bc518120ae24de3c8fe275bf9037e213",
+      "source_sha256": "4cede999cd06d9c80c1d3a0b98e96cac5c756b4435490b8bf939d1c540f67892"
+    },
+    {
+      "hru": 7914,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "996d0a23a5e7301acea2e8ac8a7cf37db4775c47f47fb60d9ea21ad12d474ab8",
+      "source_sha256": "4e7ed9a549f6e5d00b0fcffc4e4327f4cec154aa5e695bcda5dddf42f2716791"
+    },
+    {
+      "hru": 7915,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "567a756ef4c0f08f512f21e53f5b79cc0ab7d0dd65fdaa6312158c80c8dc7aac",
+      "source_sha256": "4248376dd099ea59d69151d20b853610d24bed80e9aa7210e36afe47940d207e"
+    },
+    {
+      "hru": 7916,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "f8e1ed9371fa84d2f67c6995ad21ed06aa5375fce7427a90e191dcd0bb223051",
+      "source_sha256": "b6fdeafa2c93817a22961cb945672d71f27c85d34c070cfe5e312907cfee43ff"
+    },
+    {
+      "hru": 7917,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "5ecf6ea3ad1b3254ef1841df17e149a4eace929c2a3e5c83b3cc9b2eddbbb3c0",
+      "source_sha256": "dd35031317cbfb10eafacb900f21a228ea5b9869886770611b55264f64990774"
+    },
+    {
+      "hru": 7918,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "3f270fd03b938eb0d6307358fab65c07133f59fcb568a0c7e816f2b7d40630f0",
+      "source_sha256": "e3785077f6e7948ec751138274d683acad0746c31dd3b49c6e8883d9ba08b5cb"
+    },
+    {
+      "hru": 7919,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "99e371ee8565ec7a375de7847934d75cff8dd6dadf35d6e5bdebdef3aa5a4a10",
+      "source_sha256": "8b58c727779c944bb52dac0d46dcc17f41671bb7475a070fcfd9bd7ec2188311"
+    },
+    {
+      "hru": 7920,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "687be28bc6e5420e5f271c2b207cb6a7f8f2ac4378c4d7c24a1384ae38c13309",
+      "source_sha256": "ca3f3bb1e36abf5a7d1b79564d7c4398d2190b48958c5b6a74988d2764696290"
+    },
+    {
+      "hru": 7921,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "f83fa529b98b5e6629513c9dae465f46db4612554388714bb88baf1f916c2afe",
+      "source_sha256": "55122106b646abc120316b85e0241d596de1092cf59176fe5479da305d1f0273"
+    },
+    {
+      "hru": 7922,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "867dd11391444f7d5d3590124715aa8438bfbb03ded0ef6ec28c4ff06338f842",
+      "source_sha256": "aaf75ba317e6d5c454db71e0211d6dbc2505cc01b666ff4625754c56a659a80f"
+    },
+    {
+      "hru": 7923,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "ae724a47fc8df3f1b3b50aabd9356af85f86afa1ff80759464afa981f98e1ad1",
+      "source_sha256": "275c78c5b2d01d99a7eee1d0911d794ad2fb6df8bb4a50ed562b978a3521a602"
+    },
+    {
+      "hru": 7924,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "9b58f726e94dd665b92d17a2c86c29fb40936bb5de07e122a709bbac6961ece4",
+      "source_sha256": "c43eae23eb0700c341038ecc0ef2287deee0de486b3d40959c5eabeaa17e49a5"
+    },
+    {
+      "hru": 7925,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "621efbef259ab0783688c2f5eeb271a7635513f45dfaff9587f4d15bd976143c",
+      "source_sha256": "f57c7161ba303de34bb433f79d2621982d848de89b2fc71274cee42499fa49b9"
+    },
+    {
+      "hru": 7926,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "f1e3a74c0e0498ef5804c2d649d0b200499a174965f29b76aa5dde6495a4a754",
+      "source_sha256": "9a2db44f2c2c1dcfe1df95e066275fd47f6d7bdde5ce40f212660ae927a4d8d7"
+    },
+    {
+      "hru": 7927,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "045f483b3004eb189e119ae23b4243a0f3875ba499df491adce0334f6f100105",
+      "source_sha256": "3d0e5ecf6c53aaf7e6f6c3185754463171bec0c9504c557f9a1a98c8953bc34a"
+    },
+    {
+      "hru": 7928,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "54c410f0a301830bf700b42c4c1df39427518039bd91beda1cf2508237aa550c",
+      "source_sha256": "6df80c4eb096335182b1d095888453e79b0914ab335b06b6eaefbbca61878d25"
+    },
+    {
+      "hru": 7929,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "cf1c1e93cd92c94ee59d120e6e9d5096cc36a07c69ac7d99a025a28d768114ed",
+      "source_sha256": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171"
+    },
+    {
+      "hru": 7930,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "806380eb44c3b7d927277901fa81728d921c3fcfc6f5a347f4a0ba483c5fae0d",
+      "source_sha256": "ca2dc3622c77a9178213fc6149861b40cba4a5d7524c81d3d2bd176f173ebf17"
+    },
+    {
+      "hru": 7931,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "2abdf9e3e1ebd417b3caa8f4a49e7a1fb6ab10b94b6745f5d1ac84fbd04ab1b9",
+      "source_sha256": "a74ff9b02f6a2d44c23d53b3dd99d1e44beed5bf51866456ca718eb42f7b043b"
+    },
+    {
+      "hru": 7932,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "b5af09715ec8799787ed0fe0dae9a232ff9d17cf468fb25695222292f22a9087",
+      "source_sha256": "6d5a0963a3f6046fd2851937ce9733be2b2aa7a028538864c218bea7a912d033"
+    },
+    {
+      "hru": 7933,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "47d41c51cc1158b4b4e4a10f148f3cb50114fe49be375d22d0a7f3d3ad7d76ee",
+      "source_sha256": "a2f735d48ceeca9de8952b2a96a111289475ce44faa180e01bc1a0087e7d6962"
+    },
+    {
+      "hru": 7934,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "f77395f924cf4ec1907f133839a0b159c6f980cfaeb1e29b781bd79e286f5810",
+      "source_sha256": "a385f1224b81c21a09e16d0cdc5e5257c2331828005d224b3b5a6a71f38d21b3"
+    },
+    {
+      "hru": 7935,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "a5ef827ebd4f6776c045b08b6cda5cf9a23b108acdd47c77d7fcece6deea5623",
+      "source_sha256": "3298835a92ac68079ae830f13b473e452f533046bdd26e24dcae4401b8f0a2da"
+    },
+    {
+      "hru": 7936,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "54a64ae8f3cee587856a4f2604b72b92ef23fe23ab79926e898af09e5c736abd",
+      "source_sha256": "dc47748515ac0df470390c6276bba67975df56a9f973d53b9062160b02399ad3"
+    },
+    {
+      "hru": 7937,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "94fb9e19199397029203d63ee26134dd7fa6e0a65caf269d3fcfa211996bff18",
+      "source_sha256": "62ec1296e3195aef2cd3fb51f3d4db3ce404181b174b98240689c8f305cd640c"
+    },
+    {
+      "hru": 7938,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "88abd5d45a32f8bd7f9f613062a398562332706e52d4445c38afe29f86c78da4",
+      "source_sha256": "96cb6934b0a488ce8f7457c298c608a43e29a70c04528263f5a6b6d4b22cd78a"
+    },
+    {
+      "hru": 7939,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "f360b9163c1e33b9ae8d6801caf65b29b3f2dd9d90f16c461d0da1ac91e05d43",
+      "source_sha256": "cbb3c4d6611a2a24e93e39839301b8aa5fe2b9a154ca9b9d486649209b28aa11"
+    },
+    {
+      "hru": 7940,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "c8d8166b0d254f04b9b00f8628c7f1c636e7645d62ab9fa11aa8b3ad078dc700",
+      "source_sha256": "a5fbe4a51d4637b3edae3ed62e144cec314d1b2fc1866aa9f923f146eec1743f"
+    },
+    {
+      "hru": 7941,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "d4245b0220c2e59a457c8eafcce2171cc8bdb210cefbfe75691fc6cea5b4a431",
+      "source_sha256": "58e314661d692ff3091d109fd4637193c3885616a36318176992e0229afc3caf"
+    },
+    {
+      "hru": 7942,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "e97f1f07667a3e027330f578bfad06583bc81428256c052c5d5ea8c2bca1bc82",
+      "source_sha256": "df6e8ab8b65d40aea991b7301304cab1eac10f3415fae31aeca1de5598a10b5e"
+    },
+    {
+      "hru": 7943,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "e3cc5f09f7866c4ba9b50f23295802db5403cd2b05cf6b753ad61fc6c3619421",
+      "source_sha256": "c7b69217d6e17500ae97077c12b54bf45412813b44e90529d10bd304b5b4bb51"
+    },
+    {
+      "hru": 7944,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "055d08618352423727c8defe54d3a7d372782b1bcf28ea2adb59ca7c5b3dc457",
+      "source_sha256": "50223c1a62e81d7b773da67a2396db36521a0a353c0f7ae8075b41f834db8db1"
+    },
+    {
+      "hru": 7945,
+      "kind": "MET",
+      "production_admitted": false,
+      "qualification": "EXPLICIT_HISTORICAL_MET_SOURCE_REPLAY_NOT_MODERN_SERVER_MET",
+      "sha256": "80c300fdae8f2498d418e08959a3af489e4e36124912d91782e7d7553a8afd1c",
+      "source_sha256": "e97c541298d7fc035605a720438688946fa8174f008230fad143b22c2feac1ee"
+    }
+  ],
+  "modern_production_packages": 0,
+  "production_admitted": false,
+  "snapshot_audit_sha256": "f8d2153c0519d331267da29461ba4b753cbca4a61ea62c14036045d5fa57049a"
+}

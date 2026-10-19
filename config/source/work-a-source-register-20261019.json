@@ -1,0 +1,50 @@
+{
+  "authority_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_run_resultaten_totaal",
+  "live_server_access": false,
+  "source_archives": [
+    {
+      "name": "LWKM_MF_L1_BALANCE_INPUT_20200701.zip",
+      "library_file_id": "libfile_b115d73911bc8191849a86d8a969796b",
+      "sha256": "542de9435ace164843a27a92477c0bef9f0eafb87942364e3c2c9c70db9f07e5"
+    },
+    {
+      "name": "LWKM_MF_L1_balans_GHB_2020_2022.zip",
+      "library_file_id": "libfile_4976087faf948191a7bf155fa678a6ba",
+      "sha256": "29423a67b7f5142fa9e64248c333cd8002c31bea5c3121823aef1c8261ab56e5"
+    },
+    {
+      "name": "PRECIPITATION_2018.zip",
+      "library_file_id": "libfile_47eacd0536c48191b36f8231e744976a",
+      "sha256": "2fc0928e5ef4090aeec2170c6e21985abb1b393965883f87d16cf964721d05d3"
+    },
+    {
+      "name": "EVAPORATION_2018.zip",
+      "library_file_id": "libfile_6c7a563c4da88191815d54b8e2632010",
+      "sha256": "8a3ba7ca04c747bf40bbda1e1b6a8eccf539c0b931b899bb61c4287e550d31f9"
+    }
+  ],
+  "byte_qualified_files": 43,
+  "semantic_admission": false,
+  "outputs_reference": "docs/evidence/2026-10-19-work-a",
+  "generated_q4_bundle_sha256": "4d01363c43cddf7a81b2340fe179d6907f1bad2846eb9428176425d48e6f7814",
+  "reference_materials": [
+    {
+      "name": "LWKM_MF_L1_GHB_full_check_20200701.zip",
+      "library_file_id": "libfile_15550a09addc8191a6b7ebea5886bd3a",
+      "sha256": "74d1734c9ee9fd1983db9b3276961c5926fc2e5e7c9514212aec4e6f44580db4",
+      "qualification": "REFERENCE_ONLY_NOT_ORIGINAL_BUDGET_ADMISSION"
+    },
+    {
+      "name": "LWKM_MF_L1_tekenconventies_audit_20200701.md",
+      "library_file_id": "libfile_11f6048aa4e0819199d4a321d31efa4a",
+      "sha256": "73ec41f5f0b9c884e0b15dd747e2c272abfe1caba5eb23d131dfdde9e7bec9c8",
+      "qualification": "REFERENCE_ONLY_NOT_ORIGINAL_BUDGET_ADMISSION"
+    },
+    {
+      "name": "LWKM_MF_L1_Balance.cs",
+      "library_file_id": "libfile_32f50faf9a988191b900603daf8f59c8",
+      "sha256": "656b8c97885121221211e7e394648d3f74ab53da0f176008300842bef079a7eb",
+      "qualification": "REFERENCE_ONLY_NOT_ORIGINAL_BUDGET_ADMISSION"
+    }
+  ]
+}
