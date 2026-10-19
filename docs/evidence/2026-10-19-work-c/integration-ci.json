@@ -1,0 +1,8 @@
+{
+  "source_commit": "7129b978caa743270fcae1ef3543f81735a547b8",
+  "pull_request": 4,
+  "workflow_run_id": 39256140445,
+  "conclusion": "success",
+  "scope": "Integration unit tests; scientific production admission remains false",
+  "url": "https://github.com/abhedwig-cell/LWKM/actions/runs/39256140445"
+}

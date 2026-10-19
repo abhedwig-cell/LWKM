@@ -1,0 +1,1 @@
+{"status": "CANDIDATES_NOT_PRODUCTION_ADMITTED", "hru_count": 10242, "candidate_count": 8025, "blocked_count": 2217, "reused_checkpoints": 10242, "elapsed_seconds": 3.6615304300030402, "start": "1971-01-01", "end": "1972-01-01", "fingerprint": "6ff4db611136ce33b19f34d7bf02e572bde4b4a2f1d0a3665cc42b1512e50014", "production_admitted": false}

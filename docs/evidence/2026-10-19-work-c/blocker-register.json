@@ -1,0 +1,46 @@
+{
+  "baseline": "42813f9",
+  "blockers": [
+    {
+      "id": "H1_SOURCE_NODATA",
+      "category": "missing_source",
+      "affected_hrus": 170,
+      "reference_hrus": [
+        7870,
+        7929
+      ],
+      "resolution": "Qualified H1 factor values or explicit source-semantics decision",
+      "production_admitted": false
+    },
+    {
+      "id": "DRA_INTERFACE_RESISTANCE",
+      "category": "model_semantics",
+      "affected_hrus": 2039,
+      "resolution": "Scientific treatment of resistance beyond 100000 days; no silent capping",
+      "production_admitted": false
+    },
+    {
+      "id": "DRA_PROTECTED_PARTITION",
+      "category": "physical_representation",
+      "affected_hrus": 8,
+      "resolution": "Scientific representation decision preserving H1 and PIPE",
+      "production_admitted": false
+    },
+    {
+      "id": "TULIP_ETREF_CF",
+      "category": "missing_source_or_policy",
+      "reference_hrus": [
+        7871
+      ],
+      "resolution": "Sourced tulip CF or separate PM production acceptance",
+      "production_admitted": false
+    },
+    {
+      "id": "DAILY_CONSUMER_FORCING",
+      "category": "external_source",
+      "unbound_catalogue_hrus": 10213,
+      "resolution": "Per-HRU qualified daily MET and BBC with GW-L1/qq evidence; research bindings do not qualify production",
+      "production_admitted": false
+    }
+  ]
+}

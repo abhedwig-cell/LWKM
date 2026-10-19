@@ -1,0 +1,23 @@
+{
+  "algorithm": "work-c-primary-drainage-v2-interface-aware",
+  "code": {
+    "derive_representative_dqsat.py": "54bbb637d29d99fa247d575174825eaab47ae03dee6d86fceb6136231b23fd06",
+    "diagnose_dra_10242.py": "63a1eb5da861c5d326069fffec3964d58196b745aa466e511bda9269c4cbf983",
+    "dra_level_compression.py": "a46e13141e530cbd05ac2a57f785a25512dc0a88c4261258c29d7528596e94cc",
+    "dra_protected_compression.py": "d94b46c3007c9bd5d12814a7e7d33a85d2e9d7704881113f136d354647319718",
+    "generate_dra.py": "af0354dae30475b7e454c86b1b3e35199baa31d7e0ccc5d81916dfefd6bad54c",
+    "idf_reader.py": "e91f401191df404e9aa53eaadd46bad2805a4a6d8f747c1ab3c2be3f7dcd86c7",
+    "prepare_dra_positive_median_dqsat.py": "7e329773fd673ae2e031e5e9781eaf4f94675f9fe16e056560d589d4bac365da",
+    "work_c_drainage.py": "3ea60f468a63dca5b1f9e7925431762061d5150e7d86ae61b773d60a5030a53c"
+  },
+  "end": "1972-01-01",
+  "fingerprint": "6ff4db611136ce33b19f34d7bf02e572bde4b4a2f1d0a3665cc42b1512e50014",
+  "inputs": {
+    "LHM433_DRA_REMAINING_Q4.zip": "6de1ccbdb646f809523fd3cbedd5143bc2a73470a1f48d0b04b13be93fa7a3a4",
+    "LHM433_H1_MVG_Q4.zip": "3c27cb509dd6d60f5ae8b434fd1ba0f4aca10d81a1b1815b077c5b52a818abfa",
+    "export_HRUschema_10242.csv": "0ca8534216d1ab2944dcfee4c528926c7798fd967dcc58f760c88befd1c83997",
+    "export_svat_HRU_NRU_10242.csv": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4",
+    "grensvlak_NHIWQ_v2_fill.asc": "e6f13f2308ec55089d384133296fd45e6f796eeefb81260ff8ffebef83f09c3a"
+  },
+  "start": "1971-01-01"
+}

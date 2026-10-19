@@ -1,0 +1,175 @@
+[
+  {
+    "run_id": 7866,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 342317.93378817366",
+    "source_checkpoint_sha256": "5e4d8f1e068ad9fe9902e05ca218f39116907ac4de2779a3ff21aff026602e59",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 342317.93378817366"
+  },
+  {
+    "run_id": 7871,
+    "previous_error": "SWAP DRARES range overflow for ('T',): 272507.6002929407",
+    "source_checkpoint_sha256": "287be69a49248d3c7646ec5ebbc0a54b870ff2f17ee8c2c63369845132ec63f4",
+    "production_admitted": false,
+    "status": "RESOLVED_WITH_PERMITTED_PARTITION",
+    "audit": {
+      "status": "CANDIDATE_NOT_ADMITTED",
+      "max_error_m": 0.00023468648378870895,
+      "groups": [
+        [
+          "P"
+        ],
+        [
+          "S",
+          "T"
+        ],
+        [
+          "PIPE"
+        ],
+        [
+          "OLF"
+        ]
+      ],
+      "swap_interface_required": true,
+      "regional_limit_m": 0.1,
+      "surface_limit_m": 0.02
+    }
+  },
+  {
+    "run_id": 7872,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 248822.16937983438",
+    "source_checkpoint_sha256": "7ad968d5a8292bbf6b7be1ce2a036384dc0163c7e39adc15dbb02bce5caccb6d",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 248822.16937983438"
+  },
+  {
+    "run_id": 7873,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 174675.81889869407",
+    "source_checkpoint_sha256": "045d3e418738b42ab0586a7458343cefeefd2257999edf6938aa62876303c92c",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 174675.81889869407"
+  },
+  {
+    "run_id": 7927,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 118646.50853719993",
+    "source_checkpoint_sha256": "c53649fcb337f5394eb94fdaeff7b736deb7d77ff6a5c7f6dc599fded4356936",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 118646.50853719993"
+  },
+  {
+    "run_id": 7928,
+    "previous_error": "SWAP DRARES range overflow for ('H1',): 162483.189640233",
+    "source_checkpoint_sha256": "c2f4ba888ecee2d83b6f73118880759e889d03eda4a212e1c6fa5ba1f3011924",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP DRARES range overflow for ('H1',): 162483.189640233"
+  },
+  {
+    "run_id": 7930,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 338872.3026986443",
+    "source_checkpoint_sha256": "5b4051d6969c4fe9b569576bb670c620251fe4ebaf36e3ae5fb5751608a6cb2e",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 338872.3026986443"
+  },
+  {
+    "run_id": 7931,
+    "previous_error": "SWAP DRARES range overflow for ('H1',): 312500.0126818398",
+    "source_checkpoint_sha256": "db7fc21ff585f3af5d67c6c766df978c4c0999f831b50157ca8402f06c78f6ab",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP DRARES range overflow for ('H1',): 312500.0126818398"
+  },
+  {
+    "run_id": 7932,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 192275.64974125376",
+    "source_checkpoint_sha256": "ca4c840be3be851ac7d2c0d1f44898f50162d3786db4a2451cbf90378798e694",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 192275.64974125376"
+  },
+  {
+    "run_id": 7934,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 550158.4046534643",
+    "source_checkpoint_sha256": "d9ac102eef549a976a74116a3ca7b0a263eefa300a61ac4d7b4de324adf5a7b3",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 550158.4046534643"
+  },
+  {
+    "run_id": 7936,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 137710.57213510628",
+    "source_checkpoint_sha256": "1e561eaf25476f1da97aca0d0c987b241a676f1c38ffedbed50a71ce22b8e958",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 137710.57213510628"
+  },
+  {
+    "run_id": 7937,
+    "previous_error": "SWAP DRARES range overflow for ('H1',): 417962.68805665773",
+    "source_checkpoint_sha256": "6b3a0b62c4a1f3763bb1bc699a41216444edb1fbf4ffca90e0f13aaf2048762d",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP DRARES range overflow for ('H1',): 417962.68805665773"
+  },
+  {
+    "run_id": 7938,
+    "previous_error": "SWAP DRARES range overflow for ('H1',): 677459.7017186763",
+    "source_checkpoint_sha256": "960f6f3cacf74eee46dba5c31d09379c40c4684b8bab7fe7a13d79b761b57520",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP DRARES range overflow for ('H1',): 677459.7017186763"
+  },
+  {
+    "run_id": 7940,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 394832.6348322675",
+    "source_checkpoint_sha256": "85132e56ca0da4e9371dcf8c838561bcd3ae296275f0feabd64399e22668b5a8",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 394832.6348322675"
+  },
+  {
+    "run_id": 7941,
+    "previous_error": "SWAP DRARES range overflow for ('H1',): 404872.31945060496",
+    "source_checkpoint_sha256": "0a2416a7aee5009d80a2489e808ff107288a0978d5278b64ea70624886844d26",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP DRARES range overflow for ('H1',): 404872.31945060496"
+  },
+  {
+    "run_id": 7942,
+    "previous_error": "SWAP DRARES range overflow for ('H1',): 139119.80776106747",
+    "source_checkpoint_sha256": "4c5b92c1a4fc7d1d8fa7ce49811135e1a359b47883ea64113ffb5c9774f7327e",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP DRARES range overflow for ('H1',): 139119.80776106747"
+  },
+  {
+    "run_id": 7943,
+    "previous_error": "SWAP INFRES range overflow for ('H1',): 395986.64936839184",
+    "source_checkpoint_sha256": "ca93ddf2600fba9971d388a5b9e1d428ebd4f9ad395578e364148e0ffdb8b4a8",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP INFRES range overflow for ('H1',): 395986.64936839184"
+  },
+  {
+    "run_id": 7944,
+    "previous_error": "SWAP DRARES range overflow for ('H1',): 169077.3554513715",
+    "source_checkpoint_sha256": "d04e35c0952224988be3fffc1c1a9832e017df19afc9ca96715414f4fd09fb39",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP DRARES range overflow for ('H1',): 169077.3554513715"
+  },
+  {
+    "run_id": 7945,
+    "previous_error": "SWAP DRARES range overflow for ('H1',): 215016.56254161854",
+    "source_checkpoint_sha256": "e1cce256e07d42474445e8a10149f32e2f3a90c4b073648ae85d233598bf138d",
+    "production_admitted": false,
+    "status": "EXACT_REPRESENTATION_BLOCKED",
+    "error": "SWAP DRARES range overflow for ('H1',): 215016.56254161854"
+  }
+]

@@ -83,12 +83,13 @@ def atomic_json(path, obj):
             os.unlink(tmp)
 
 
-def run(source:Path,output:Path,*,regional_limit=0.10,surface_limit=0.02):
+def run(source:Path,output:Path,*,regional_limit=0.10,surface_limit=0.02,require_swap_interface=False):
     payload=json.loads(source.read_text(encoding="utf-8"))
     if payload.get("schema_version")!=1 or not isinstance(payload.get("hrus"),list):
         raise ValueError("expected schema_version=1 and hrus array")
     cfg={"algorithm":ALGORITHM_VERSION,"regional_limit_m":regional_limit,
          "surface_limit_m":surface_limit}
+    if require_swap_interface:cfg['swap_interface_required']=True
     if regional_limit<0 or surface_limit<0:
         raise ValueError("negative error limit")
     old={}
@@ -118,9 +119,9 @@ def run(source:Path,output:Path,*,regional_limit=0.10,surface_limit=0.02):
             continue
         try:
             physicals=[physical(x) for x in ordered]
-            levels,audit=select_protected_candidate(
-                physicals,regional_error_limit_m=regional_limit,
-                surface_error_limit_m=surface_limit)
+            kwargs={'regional_error_limit_m':regional_limit,'surface_error_limit_m':surface_limit}
+            if require_swap_interface:kwargs['require_swap_interface']=True
+            levels,audit=select_protected_candidate(physicals,**kwargs)
             # This is a parser-bound preflight, not SWAP rendering.
             rendered=[to_render_level(x) for x in levels]
             record={"hru":hid,"fingerprint":fingerprint,
@@ -152,9 +153,10 @@ def main():
     p.add_argument("--output-dir",type=Path,required=True)
     p.add_argument("--regional-limit-m",type=float,default=.10)
     p.add_argument("--surface-limit-m",type=float,default=.02)
+    p.add_argument("--require-swap-interface",action='store_true')
     a=p.parse_args()
     result=run(a.input,a.output_dir,regional_limit=a.regional_limit_m,
-               surface_limit=a.surface_limit_m)
+               surface_limit=a.surface_limit_m,require_swap_interface=a.require_swap_interface)
     print(json.dumps({k:result[k] for k in ("status","hru_count","failed_hru_count")}))
     return 1 if result["failed_hru_count"] else 0
 

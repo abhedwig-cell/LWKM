@@ -1,5 +1,7 @@
 # Overdracht aan Leo: acceptatie en herhaalbaarheid
 
+Actuele aanvulling: [Work C, uitvoering en kwalificatie](WORK_C_20261019.md). Onderstaande oorspronkelijke sessieresultaten blijven als historische context behouden.
+
 Dit is een overdrachtspakket; er is geen bericht aan Leo verstuurd.
 
 Gebruik deze documenten samen met de exacte Git-commit en docs/evidence/2026-10-19. De bronregisters identificeren de oorspronkelijke uploads. De bronbytes hoeven niet opnieuw handmatig te worden samengesteld.

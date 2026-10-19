@@ -1,0 +1,1531 @@
+[
+  {
+    "variant": "reference-final",
+    "run_id": 7866,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7866.bbc",
+        "7866.dra",
+        "7866.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7867,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7867.bbc",
+        "7867.dra",
+        "7867.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7868,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7868.bbc",
+        "7868.dra",
+        "7868.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7869,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7869.bbc",
+        "7869.dra",
+        "7869.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7870,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7870.bbc",
+        "7870.dra",
+        "7870.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7871,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7871.bbc",
+        "7871.dra",
+        "7871.met",
+        "swap.swp",
+        "tulp.crp"
+      ],
+      "fallow_days": 273,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7872,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7872.bbc",
+        "7872.dra",
+        "7872.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7873,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7873.bbc",
+        "7873.dra",
+        "7873.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7874,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7874.bbc",
+        "7874.dra",
+        "7874.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7875,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7875.bbc",
+        "7875.dra",
+        "7875.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7876,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7876.bbc",
+        "7876.dra",
+        "7876.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7877,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7877.bbc",
+        "7877.dra",
+        "7877.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7909,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7909.bbc",
+        "7909.dra",
+        "7909.met",
+        "atmospheric_1975-2020.co2",
+        "gras_beweiding.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7910,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7910.bbc",
+        "7910.dra",
+        "7910.met",
+        "atmospheric_1975-2020.co2",
+        "gras_beweiding.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7911,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7911.bbc",
+        "7911.dra",
+        "7911.met",
+        "atmospheric_1975-2020.co2",
+        "gras_beweiding.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7912,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7912.bbc",
+        "7912.dra",
+        "7912.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7913,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7913.bbc",
+        "7913.dra",
+        "7913.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7914,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7914.bbc",
+        "7914.dra",
+        "7914.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7915,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7915.bbc",
+        "7915.dra",
+        "7915.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7916,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7916.bbc",
+        "7916.dra",
+        "7916.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7917,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7917.bbc",
+        "7917.dra",
+        "7917.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7918,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7918.bbc",
+        "7918.dra",
+        "7918.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7919,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7919.bbc",
+        "7919.dra",
+        "7919.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7920,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7920.bbc",
+        "7920.dra",
+        "7920.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7921,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7921.bbc",
+        "7921.dra",
+        "7921.met",
+        "atmospheric_1975-2020.co2",
+        "snijmais.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 155,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7922,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7922.bbc",
+        "7922.dra",
+        "7922.met",
+        "atmospheric_1975-2020.co2",
+        "snijmais.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 155,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7923,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7923.bbc",
+        "7923.dra",
+        "7923.met",
+        "atmospheric_1975-2020.co2",
+        "snijmais.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 155,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7924,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7924.bbc",
+        "7924.dra",
+        "7924.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7925,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7925.bbc",
+        "7925.dra",
+        "7925.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7926,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7926.bbc",
+        "7926.dra",
+        "7926.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7927,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7927.bbc",
+        "7927.dra",
+        "7927.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7928,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7928.bbc",
+        "7928.dra",
+        "7928.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7929,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7929.bbc",
+        "7929.dra",
+        "7929.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7930,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7930.bbc",
+        "7930.dra",
+        "7930.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7931,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7931.bbc",
+        "7931.dra",
+        "7931.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7932,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7932.bbc",
+        "7932.dra",
+        "7932.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7933,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7933.bbc",
+        "7933.dra",
+        "7933.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7934,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7934.bbc",
+        "7934.dra",
+        "7934.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7935,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7935.bbc",
+        "7935.dra",
+        "7935.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7936,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7936.bbc",
+        "7936.dra",
+        "7936.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7937,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7937.bbc",
+        "7937.dra",
+        "7937.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7938,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7938.bbc",
+        "7938.dra",
+        "7938.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7939,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7939.bbc",
+        "7939.dra",
+        "7939.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7940,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7940.bbc",
+        "7940.dra",
+        "7940.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7941,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7941.bbc",
+        "7941.dra",
+        "7941.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7942,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7942.bbc",
+        "7942.dra",
+        "7942.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7943,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7943.bbc",
+        "7943.dra",
+        "7943.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7944,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7944.bbc",
+        "7944.dra",
+        "7944.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "reference-final",
+    "run_id": 7945,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7945.bbc",
+        "7945.dra",
+        "7945.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7867,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7867.bbc",
+        "7867.dra",
+        "7867.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7868,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7868.bbc",
+        "7868.dra",
+        "7868.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7869,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7869.bbc",
+        "7869.dra",
+        "7869.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7871,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7871.bbc",
+        "7871.dra",
+        "7871.met",
+        "swap.swp",
+        "tulp.crp"
+      ],
+      "fallow_days": 273,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7874,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7874.bbc",
+        "7874.dra",
+        "7874.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7875,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7875.bbc",
+        "7875.dra",
+        "7875.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7876,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7876.bbc",
+        "7876.dra",
+        "7876.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7877,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7877.bbc",
+        "7877.dra",
+        "7877.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7909,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7909.bbc",
+        "7909.dra",
+        "7909.met",
+        "atmospheric_1975-2020.co2",
+        "gras_beweiding.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7910,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7910.bbc",
+        "7910.dra",
+        "7910.met",
+        "atmospheric_1975-2020.co2",
+        "gras_beweiding.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7911,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7911.bbc",
+        "7911.dra",
+        "7911.met",
+        "atmospheric_1975-2020.co2",
+        "gras_beweiding.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7912,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7912.bbc",
+        "7912.dra",
+        "7912.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7913,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7913.bbc",
+        "7913.dra",
+        "7913.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7914,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7914.bbc",
+        "7914.dra",
+        "7914.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7915,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7915.bbc",
+        "7915.dra",
+        "7915.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7916,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7916.bbc",
+        "7916.dra",
+        "7916.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7917,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7917.bbc",
+        "7917.dra",
+        "7917.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7918,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7918.bbc",
+        "7918.dra",
+        "7918.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7919,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7919.bbc",
+        "7919.dra",
+        "7919.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7920,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7920.bbc",
+        "7920.dra",
+        "7920.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7921,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7921.bbc",
+        "7921.dra",
+        "7921.met",
+        "atmospheric_1975-2020.co2",
+        "snijmais.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 155,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7922,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7922.bbc",
+        "7922.dra",
+        "7922.met",
+        "atmospheric_1975-2020.co2",
+        "snijmais.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 155,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7923,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7923.bbc",
+        "7923.dra",
+        "7923.met",
+        "atmospheric_1975-2020.co2",
+        "snijmais.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 155,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7924,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7924.bbc",
+        "7924.dra",
+        "7924.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7925,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7925.bbc",
+        "7925.dra",
+        "7925.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7926,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7926.bbc",
+        "7926.dra",
+        "7926.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7933,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7933.bbc",
+        "7933.dra",
+        "7933.met",
+        "atmospheric_1975-2020.co2",
+        "gras_maaien.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 0,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7935,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7935.bbc",
+        "7935.dra",
+        "7935.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  },
+  {
+    "variant": "modern-v2",
+    "run_id": 7939,
+    "validation": {
+      "status": "PACKAGE_PREFLIGHT_PASS",
+      "production_admitted": false,
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "files": [
+        "7939.bbc",
+        "7939.dra",
+        "7939.met",
+        "fictief.crp",
+        "swap.swp"
+      ],
+      "fallow_days": 109,
+      "warnings": []
+    }
+  }
+]

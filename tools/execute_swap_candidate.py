@@ -20,7 +20,8 @@ def digest(p):
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
-def execute(executable, source, destination, *, timeout=300, library_path=None):
+def execute(executable, source, destination, *, timeout=300, library_path=None,
+            expected_start=None,expected_end=None):
     executable, source, destination = map(lambda x: Path(x).resolve(), (executable, source, destination))
     if destination.exists():
         raise FileExistsError(destination)
@@ -60,6 +61,10 @@ def execute(executable, source, destination, *, timeout=300, library_path=None):
             if not dates.is_monotonic_increasing or not dates.diff().dropna().eq(pd.Timedelta(days=1)).all():
                 raise ValueError('output calendar is not gap-free daily')
             first_date,last_date=str(frame.DATE.iloc[0]),str(frame.DATE.iloc[-1])
+            if expected_start is not None and first_date!=str(pd.Timestamp(expected_start).date()-pd.Timedelta(days=1)):
+                raise ValueError('output does not start at required initial day')
+            if expected_end is not None and last_date!=str(pd.Timestamp(expected_end).date()):
+                raise ValueError('output does not reach requested final day')
             numeric=frame.select_dtypes(include="number")
             import numpy as np
             if not rows or numeric.empty or not np.isfinite(numeric.to_numpy()).all():

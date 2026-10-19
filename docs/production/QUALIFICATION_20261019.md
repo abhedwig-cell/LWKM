@@ -1,5 +1,7 @@
 # Uitvoerings- en kwalificatierapport
 
+Actuele aanvulling: [Work C, uitvoering en kwalificatie](WORK_C_20261019.md). Onderstaande oorspronkelijke sessieresultaten blijven als historische context behouden.
+
 Bronbaseline: 4e6c5803b8d9f996c3331078ac72c6ece6db4a97. De exacte geteste codebytes staan in ../evidence/2026-10-19/code-file-hashes.json. Status: gedeeltelijk operationeel, geen integrale production admission.
 
 | Proef | Werkelijk resultaat | Begrenzing |
