@@ -8,6 +8,7 @@ from math import isfinite
 from tools.dra_level_compression import (
     PhysicalDrainageSystem, merge_systems,
     _validate_lineage, _validate_conductance_conservation,
+    to_render_level,
 )
 
 REGIONAL=frozenset(("P","S","T"))
@@ -52,7 +53,8 @@ def _merge_group(items):
 
 def select_protected_candidate(systems, *, max_levels=5,
                                regional_error_limit_m=0.10,
-                               surface_error_limit_m=0.02):
+                               surface_error_limit_m=0.02,
+                               require_swap_interface=False):
     """Return (levels, audit) or raise when no admissible candidate exists.
 
     Search is exhaustive over partitions of P/S/T and MVG/OLF. H1 and PIPE
@@ -70,7 +72,12 @@ def select_protected_candidate(systems, *, max_levels=5,
         raise ValueError("unknown physical source")
     if max_levels < 1:
         raise ValueError("max_levels must be positive")
-    if len(active)<=max_levels:
+    standalone_fits=True
+    if require_swap_interface:
+        try:
+            for s in active:to_render_level(s)
+        except ValueError:standalone_fits=False
+    if len(active)<=max_levels and standalone_fits:
         levels=sorted(active,key=lambda x:(-x.dep,x.medium,x.source_ids))
         _validate_lineage(active,levels,[])
         _validate_conductance_conservation(active,levels)
@@ -88,6 +95,7 @@ def select_protected_candidate(systems, *, max_levels=5,
         partitions=next_partitions
 
     best=None
+    unsupported=None
     for partition in partitions:
         if len(partition)>max_levels: continue
         if any(len(g)>1 and (
@@ -106,8 +114,15 @@ def select_protected_candidate(systems, *, max_levels=5,
             group_errors.append(err)
         else:
             key=(max(group_errors,default=0.0),sum(group_errors),tuple(sorted(tuple(sorted(g)) for g in partition)))
+            if require_swap_interface:
+                try:
+                    for level in levels:to_render_level(level)
+                except ValueError as exc:
+                    if unsupported is None or key<unsupported[0]:unsupported=(key,str(exc))
+                    continue
             if best is None or key<best[0]: best=(key,levels,partition,group_errors)
     if best is None:
+        if unsupported is not None:raise ValueError(unsupported[1])
         raise ValueError("NO_ACCEPTABLE_PROTECTED_FIVE_LEVEL_PARTITION")
     _,levels,partition,errors=best
     levels.sort(key=lambda x:(-x.dep,x.medium,x.source_ids))
@@ -115,5 +130,6 @@ def select_protected_candidate(systems, *, max_levels=5,
     _validate_conductance_conservation(active,levels)
     return levels,{"status":"CANDIDATE_NOT_ADMITTED","max_error_m":max(errors,default=0.0),
                    "groups":[list(x.source_ids) for x in levels],
+                   "swap_interface_required":require_swap_interface,
                    "regional_limit_m":regional_error_limit_m,
                    "surface_limit_m":surface_error_limit_m}

@@ -39,11 +39,15 @@ def prepare_template(source_bytes):
     return text
 
 
-def render(source_bytes, context, *, policy=None):
+def render(source_bytes, context, *, policy=None, et_policy="datamodel"):
     if context["issues"]:
         raise ValueError("unresolved typed context")
     values = {**context, **POLICY, **(policy or {})}
     values=deepcopy(values)
+    if et_policy not in ("datamodel", "penman_monteith"):
+        raise ValueError("unknown explicit ET policy")
+    if et_policy=="penman_monteith":
+        values["SWETR"]=0
     # SWAP rejects SWDIVIDE=1 with prescribed ETref (SWETR=1).
     # Keep the workbook ET choice; select the corresponding parser branch.
     values["SWDIVIDE"]=1 if int(values["SWETR"])==0 else 0

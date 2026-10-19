@@ -30,3 +30,13 @@ def test_normal_completion_with_output_gap_is_failure(tmp_path,monkeypatch):
         return SimpleNamespace(returncode=100,stdout=b'Swap normal completion!')
     monkeypatch.setattr('tools.execute_swap_candidate.subprocess.run',run)
     assert execute(binary,src,tmp_path/'run')['status']=='EXECUTION_FAIL'
+
+def test_finite_complete_marker_cannot_hide_short_output_period(tmp_path,monkeypatch):
+    src=tmp_path/'in';src.mkdir();(src/'swap.swp').write_text('test')
+    binary=tmp_path/'binary';binary.write_bytes(b'fixture')
+    def run(*a,**k):
+        (k['cwd']/'result_output.csv').write_text('DATE,GWL\n1970-12-31,-12.5\n1971-01-01,-13.0\n')
+        return SimpleNamespace(returncode=100,stdout=b'Swap normal completion!')
+    monkeypatch.setattr('tools.execute_swap_candidate.subprocess.run',run)
+    r=execute(binary,src,tmp_path/'run',expected_start='1971-01-01',expected_end='1971-01-02')
+    assert r['status']=='EXECUTION_FAIL' and 'final day' in r['output_error']

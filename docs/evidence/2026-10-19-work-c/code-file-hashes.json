@@ -1,0 +1,13 @@
+{
+  "tools/build_production_packages.py": "687f05f4d573a913d6942582ea0d1005d850d0f5914293dd47ee1fa3c772ff7d",
+  "tools/dra_protected_compression.py": "d94b46c3007c9bd5d12814a7e7d33a85d2e9d7704881113f136d354647319718",
+  "tools/execute_swap_candidate.py": "7ae6b1d76433d33f280cd7534c177891a6f3cc7944e7a05587f40cf3fe52092e",
+  "tools/modern_swp.py": "8dd2f3481adcf2cb934be2dea009a67d05ba9776bbe1a602ae34a7418997eeb7",
+  "tools/p12_met_producer.py": "248033d1a665449fbc9631b950f6e9ae70c8a6fca54ba656bca024b7efc9125f",
+  "tools/package_preflight.py": "3fd88998f60f397352a8bb2b5472f232d410c40c1d547320c0a5fd631a71e2cf",
+  "tools/run_dra_protected_population.py": "442c0384d26a982f9778e283b1096daf41aeeab2be5866b8bcaef247adf617ad",
+  "tools/work_c_crop_factor.py": "09a2aaeef4892be94c2482df7245374554ee918ba784b894d35b24aae4e3351a",
+  "tools/work_c_drainage.py": "3ea60f468a63dca5b1f9e7925431762061d5150e7d86ae61b773d60a5030a53c",
+  "tools/work_c_packages.py": "de99b02c857eb0d3cd6e622dce9e917c0f8362917adbe1f2df808ac761252f16",
+  "tools/work_c_report.py": "bebe8d3d255090a6ee56eb981533fb9f0e7da9a76ca3cebc9f5d6446955b4d09"
+}

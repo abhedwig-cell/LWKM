@@ -31,8 +31,9 @@ def compose(station:int,day:int,month:int,year:int,rain:float,etref:float,
     # with the daily input range 0..10. It is not relative humidity.
     if not 0<=district.hum<=10:
         raise ValueError("MET vapour pressure outside 0..10 kPa")
-    if not 0<=district.wet<=24 or not 0<=daily_max_wet<=24:
-        raise ValueError("MET WET duration outside 0..24 hours")
+    # SWRAIN=2 reads WET as the fraction of a day with rainfall.
+    if not 0<=district.wet<=1 or not 0<=daily_max_wet<=1:
+        raise ValueError("MET WET duration outside 0..1 day fraction")
     w=historical_wet_policy(rain,district.wet,daily_max_wet)
     return MetRecord(station,day,month,year,district.rad,district.tmin,district.tmax,
                      district.hum,district.wind,w.rain,max(etref,0.0),w.wet,w.source.value)

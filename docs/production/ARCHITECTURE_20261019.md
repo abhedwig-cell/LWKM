@@ -1,5 +1,7 @@
 # LWKM productieketen: architectuur en contracten
 
+Actuele aanvulling: [Work C, uitvoering en kwalificatie](WORK_C_20261019.md). Onderstaande oorspronkelijke sessieresultaten blijven als historische context behouden.
+
 Versie 19 oktober 2026. Operationele reconstructie met uitgevoerde kandidaatberekeningen; geen nieuwe integrale production admission.
 
 De keten begint bij de expliciet gekozen LHM433-bronbestanden en eindigt bij een gecontroleerd SWAP-resultaat. De repository definieert de transformaties. De feitelijke bronbytes worden geïdentificeerd met SHA-256 en hun oorspronkelijke rol. Een teruggevonden historisch invoerbestand is bruikbaar als oracle, maar wordt daarmee geen moderne bron.

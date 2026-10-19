@@ -1,0 +1,58 @@
+{
+  "execution": {
+    "schema_version": 1,
+    "status": "EXECUTION_PASS",
+    "production_admitted": false,
+    "elapsed_seconds": 2.4938090619980358,
+    "returncode": 100,
+    "normal_completion": true,
+    "output_rows": 355,
+    "first_output_date": "1970-12-31",
+    "last_output_date": "1971-12-20",
+    "output_error": null,
+    "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+    "input_sha256": {
+      "7871.bbc": "d41c02dfe8d21056ecc1607169bc5c80acbefd9670a0f301bcc582d28cbfeb5a",
+      "7871.dra": "ce5f72f7646149f1f50dedbdd55f1b900cd20519d7460a4df71cc5e4778cedba",
+      "7871.met": "07320ae5acd38afbf63e7f69b30be51c90647939db16feb64176f1042fec3eae",
+      "swap.swp": "e54e98b30a9e31126417103d83a156db8d9f8ddfc04f195b69629c55ef65a54d",
+      "tulp.crp": "82d7670035e08292c9ec05ed52e46ea8ce42fd00e2f707fb2664c90275f03cda"
+    },
+    "output_sha256": {
+      "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc",
+      "swap.ok": "e146eeb271fb417106f7b37fc63038bd52ca7fa8c16a924f6bf42757c86a3068",
+      "swap.log": "ef3517659c25c99871aa85dd75bf9e1188a86910f344c95d9e142fc3c658eb73",
+      "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+      "result_output.csv": "88da3b7b520ceeec2a6f7eb37f6b329b00a26ecc0414a2d59bc41a2ce2979778"
+    },
+    "runtime_library_sha256": {
+      "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+    }
+  },
+  "metrics": {
+    "run_id": 7871,
+    "variant": "standalone-catalogue-proof",
+    "start": "1971-01-01",
+    "end": "1971-12-20",
+    "days": 354,
+    "max_total_water_error_mm_d": 0.00020000000046982436,
+    "total_water_error_period_mm": 0.0019333749991908532,
+    "serialized_water_balance_pass": true,
+    "serialized_water_balance_tolerance_mm_d": 0.001,
+    "max_reported_baldev_mm": 1.36593e-05,
+    "mean_gwl_cm": -119.68220644067797,
+    "min_gwl_cm": -133.55316,
+    "max_gwl_cm": -99.0518,
+    "rain_mm": 544.8384,
+    "irrig_mm": 0.0,
+    "runoff_mm": 5.8866,
+    "eic_mm": 29.3961,
+    "epd_mm": 8.3892,
+    "eact_mm": 237.98045412800002,
+    "tact_mm": 55.608700000000006,
+    "drn_mm": 92.135612497,
+    "ssdi_mm": 0.0,
+    "bot_mm": -94.3887,
+    "total_et_mm": 331.374454128
+  }
+}

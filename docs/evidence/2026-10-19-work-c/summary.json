@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "baseline": "42813f9cfc9a1105fca593eb787eb7a8e30d6c7a",
+  "scope": "1971-01-01 through 1971-12-20, no BBC extrapolation",
+  "reference_packages": 49,
+  "reference_execution_pass": 49,
+  "modern_dra_packages": 29,
+  "modern_dra_execution_pass": 29,
+  "sourced_cf_execution_pass": 3,
+  "source_cf": 1.0,
+  "population_count": 10242,
+  "dra_candidate_count": 8025,
+  "dra_blocked_count": 2217,
+  "dra_failure_classes": {
+    "INFRES_LIMIT": 1127,
+    "DRARES_LIMIT": 912,
+    "MISSING_H1_FACTOR": 170,
+    "NO_PROTECTED_PARTITION": 8
+  },
+  "h1_missing_member_cells": 191,
+  "h1_affected_hrus": 170,
+  "maximum_independent_water_error_mm_d": 0.0003097389993169525,
+  "all_serialized_balance_checks_pass": true,
+  "scientific_production_admitted": false,
+  "native_etref_tulip": "NO_FACTORS; PM_VARIANT_EXECUTED_WITH_EXPLICIT_ET_POLICY"
+}

@@ -18,14 +18,14 @@ def test_bbc_rejects_missing_day():
         build_bbc_daily(m,h,h,start="2024-02-28",end="2024-02-29")
 
 def test_met_complete_daily_leap():
-    d=DistrictDay(100,1,5,.8,2,2)
-    records=[("2024-02-28",12,1.,1.,d,3.),("2024-02-29",12,0.,1.,d,3.)]
+    d=DistrictDay(100,1,5,.8,2,.2)
+    records=[("2024-02-28",12,1.,1.,d,.3),("2024-02-29",12,0.,1.,d,.3)]
     text=build_met_daily(records,start="2024-02-28",end="2024-02-29")
     assert len(text.strip().splitlines())==2
     assert "'12'" in text
 
 def test_met_rejects_duplicate_day():
-    d=DistrictDay(100,1,5,.8,2,2)
-    records=[("2024-02-28",12,1.,1.,d,3.),("2024-02-28",12,1.,1.,d,3.)]
+    d=DistrictDay(100,1,5,.8,2,.2)
+    records=[("2024-02-28",12,1.,1.,d,.3),("2024-02-28",12,1.,1.,d,.3)]
     with pytest.raises(ValueError,match="missing, duplicate"):
         build_met_daily(records,start="2024-02-28",end="2024-02-29")
