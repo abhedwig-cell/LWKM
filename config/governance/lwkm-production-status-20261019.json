@@ -485,6 +485,8 @@
       "period": "1971-01-01 through 1971-12-20",
       "production_admitted": false
     },
-    "production_admitted": false
+    "production_admitted": false,
+    "code_checkpoint": "b40a43dab7d1fc932d004fa1b459b8a4288f50c0",
+    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/5"
   }
 }

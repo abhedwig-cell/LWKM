@@ -1,0 +1,8 @@
+{
+  "source_commit": "b40a43dab7d1fc932d004fa1b459b8a4288f50c0",
+  "pull_request": 5,
+  "workflow_run_id": 39261860791,
+  "conclusion": "success",
+  "url": "https://github.com/abhedwig-cell/LWKM/actions/runs/39261860791",
+  "scope": "Integrated unit tests; 101 model runs executed locally; production admission remains closed"
+}
