@@ -2,7 +2,7 @@
   "schema_version": 2,
   "as_of": "2026-10-19",
   "baseline_commit": "4e6c5803b8d9f996c3331078ac72c6ece6db4a97",
-  "code_checkpoint": "See docs/evidence/2026-10-19/code-file-hashes.json and containing Git commit",
+  "code_checkpoint": "683d62c8b73caaf776b0d7da383457bca4b38cc5",
   "streams": {
     "A": {
       "name": "Sources and postprocessing",

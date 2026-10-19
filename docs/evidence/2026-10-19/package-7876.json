@@ -3,7 +3,7 @@
   "status": "PACKAGE_CANDIDATE_NOT_ADMITTED",
   "run_id": 7876,
   "profile_id": "LWKM_CURRENT_TEMPLATE_CANDIDATE_20261019",
-  "code_commit": "108ad1f-plus-tested-working-tree-see-code-file-hashes",
+  "code_commit": "683d62c8b73caaf776b0d7da383457bca4b38cc5",
   "assets": {
     "7876.bbc": {
       "sha256": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",

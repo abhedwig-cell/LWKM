@@ -1,0 +1,8 @@
+{
+  "tested_source_commit": "683d62c8b73caaf776b0d7da383457bca4b38cc5",
+  "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/3",
+  "code_identity_evidence": "code-file-hashes.json",
+  "local_tests": 329,
+  "subtests": 3,
+  "production_admitted": false
+}
