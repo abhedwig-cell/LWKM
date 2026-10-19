@@ -39,4 +39,4 @@ write.csv(data.frame(cluster=as.integer(cl)), args[2], row.names=FALSE)
 
 class NativePartitionerUnavailable:
     def __call__(self,group,min_size):
-        raise NotImplementedError("Native scclust-equivalent partitioner is not admitted; use RScclustPartitioner for historical compatibility.")
+        raise NotImplementedError("Native scclust-equivalent partitioner is not admitted; use replay_hru_source.R for historical source reproduction.")
