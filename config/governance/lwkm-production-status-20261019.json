@@ -453,6 +453,8 @@
       "native_etref_tulip": "NO_FACTORS; PM_VARIANT_EXECUTED_WITH_EXPLICIT_ET_POLICY"
     },
     "tests_passed": 345,
-    "production_admitted": false
+    "production_admitted": false,
+    "code_checkpoint": "7129b978caa743270fcae1ef3543f81735a547b8",
+    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/4"
   }
 }
