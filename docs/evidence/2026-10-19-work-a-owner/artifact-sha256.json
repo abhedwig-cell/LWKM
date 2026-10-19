@@ -1,0 +1,9 @@
+{
+  "docs/evidence/2026-10-19-work-a-owner/ghb-existing-product-provenance.txt": "a4a5f4580d4664368a1f644bbdbcbe78843dc477220913a505b2986d9e8138e4",
+  "docs/evidence/2026-10-19-work-a-owner/wel-existing-product-provenance.txt": "c51fd318e1f00c79b457b2dbda0a17ac955552834ddb321c8f36e47f211f176f",
+  "docs/evidence/2026-10-19-work-a-owner/tests.log": "0e326b9b1acd8da1674ef0f149eb3733f1f4e350602b5c942f5a28d8dc8f5709",
+  "docs/evidence/2026-10-19-work-a-owner/source-evidence.json": "ed2643f91e9324d63460c869c0476d9880f1d6e39cc9facce474f76840a0eacd",
+  "tools/process_daily_budget_plan.py": "0917ce79a7a3be39f08418529a9325835ce0694eeca638130f29e30472180606",
+  "tools/server/bind_reconstructed_daily.py": "a7b39da91459e8db73e5defdb0875bd60278c668223d1d32534a94f10b7f2628",
+  "tools/server/make_daily_collection_plan.py": "525edfcb908487df0a9c41e7fc4e6f227d7d0daa382df7912236806450f072a1"
+}

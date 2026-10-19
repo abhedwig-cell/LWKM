@@ -1,4 +1,4 @@
-"""Explicit original-budget bindings -> daily cell/HRU flux shards, one day in memory."""
+"""Explicit original or owner-accepted reconstructed raster bindings -> daily cell/HRU flux shards, one day in memory."""
 import argparse,json
 from pathlib import Path
 import numpy as np
@@ -29,15 +29,25 @@ def process(plan,output,*,allow_estimated_wel=False):
     # A source contract is mandatory, but does not itself grant admission.
     for key in ['signs_evidence','units_evidence','time_evidence','package_coverage_evidence']:
         bound(cfg[key])
-    if cfg['layer']!=1 or cfg['units']!='m3/day_rate' or cfg['ghb_provenance']!='ORIGINAL_BUDGET':raise ValueError('unresolved layer/units')
-    if cfg['wel_provenance']!='ORIGINAL_BUDGET' and not allow_estimated_wel:raise ValueError('estimated WEL requires explicit research opt-in')
+    if cfg['layer']!=1 or cfg['units']!='m3/day_rate':raise ValueError('unresolved layer/units')
+    accepted={'ORIGINAL_BUDGET','RECONSTRUCTED_OPERATIONAL'}
+    for role in ['ghb','wel']:
+        provenance=cfg[role+'_provenance']
+        if provenance=='RECONSTRUCTED_OPERATIONAL':
+            contract=cfg.get('reconstructed_products',{}).get(role,{})
+            if not contract.get('limitations') or not contract.get('method'):
+                raise ValueError('reconstructed product requires method and limitations: '+role)
+            bound(contract['evidence'])
+        elif provenance not in accepted and not (role=='wel' and allow_estimated_wel):
+            raise ValueError('unqualified '+role+' provenance; bind reconstructed operational contract')
     output.mkdir(parents=True,exist_ok=True);reports=[]
     for day in pd.date_range(cfg['start'],cfg['end']).strftime('%Y-%m-%d'):
         lo=pd.Timestamp(day);hi=lo+pd.Timedelta(days=1)
         records=[x for x in cfg['intervals'] if pd.Timestamp(x['start'])<hi and pd.Timestamp(x['end'])>lo]
         rates={k:[] for k in ['flf','lat','ghb','wel']}
         for rec in records:
-            if set(rec['components'])!={'flf','right','front','ghb','wel'}:raise ValueError('wrong component set; do not include RIV/DRN/STO/MSW')
+            roles=set(rec['components'])
+            if roles not in ({'flf','lat','ghb','wel'},{'flf','right','front','ghb','wel'}):raise ValueError('wrong component set; do not mix net LAT and faces or include RIV/DRN/STO/MSW')
             values={}
             for role,terms in rec['components'].items():
                 if not terms:raise ValueError('missing component terms')
@@ -56,7 +66,8 @@ def process(plan,output,*,allow_estimated_wel=False):
                         data=np.where(mask==0,0.,data)
                     arr+=data*term['positive_multiplier']
                 values[role]=arr
-            values['lat']=into_cell_from_faces(values.pop('right'),values.pop('front'))
+            if 'lat' not in values:
+                values['lat']=into_cell_from_faces(values.pop('right'),values.pop('front'))
             for role in rates:rates[role].append((max(pd.Timestamp(rec['start']),lo),min(pd.Timestamp(rec['end']),hi),values[role][rows,cols]))
         cells=pd.DataFrame(dict(date=day,cell_id=membership.cell_id))
         for role,intervals in rates.items():cells[role]=integrate_intervals(intervals,start=day,end=day)[day]
@@ -69,7 +80,7 @@ def process(plan,output,*,allow_estimated_wel=False):
                 temp=target.with_suffix('.partial');temp.write_bytes(data);temp.replace(target)
             row['files'][kind]=dict(path=str(target.resolve()),sha256=sha256(target),reused=reuse)
         reports.append(row)
-    result=dict(plan_sha256=sha256(plan),code_sha256=sha256(Path(__file__)),wel_provenance=cfg['wel_provenance'],production_admitted=False,days=reports)
+    result=dict(plan_sha256=sha256(plan),code_sha256=sha256(Path(__file__)),wel_provenance=cfg['wel_provenance'],ghb_provenance=cfg['ghb_provenance'],reconstructed_products=cfg.get('reconstructed_products',{}),production_admitted=False,days=reports)
     atomic_json(output/'manifest.json',result);return result
 
 if __name__=='__main__':

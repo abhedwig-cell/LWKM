@@ -1,0 +1,27 @@
+# Dagelijkse laag-1-GHB, vanaf 1970
+
+Deze zelfstandige procedure reconstrueert **uitsluitend GHB**, zonder andere MODFLOW-balansposten en zonder MetaSWAP-masker. De GHB-invoer is de statische `ghb_cond_l1.idf` en `ghb_head_l1.idf`; iedere dag gebruikt het corresponderende `head_YYYYMMDD000000_l1.IDF` (gecorrigeerde naamconventie, geen +1 dag).
+
+Voor iedere actieve head-cel:
+
+`bdgghb = GHB_conductantie * (GHB_externe_stijghoogte - MODFLOW_stijghoogte)` in **m³/d**. Positief is instroming in grondwater. Niet-GHB-cellen binnen het actieve modelgebied zijn nul, NoData-head-cellen blijven NoData. De uitkomst wordt in `LWKM_run_resultaten_totaal\modflow\bdgghb\bdgghb_YYYYMMDD_l1.idf` opgeslagen, als float32-IDF met oorspronkelijke rastergeometrie.
+
+## Direct uitvoeren vanuit CMD
+
+Pak deze ZIP uit in bijvoorbeeld `LWKM_tools\LWKM_BDGGHB_1970_FULL`:
+
+```
+powershell -NoProfile -ExecutionPolicy Bypass -File "run_bdgghb_l1.ps1"
+```
+
+Begint standaard op 1970-01-01 en detecteert automatisch de laatste beschikbare head-datum. Optioneel:
+
+```
+powershell -NoProfile -ExecutionPolicy Bypass -File "run_bdgghb_l1.ps1" -Start 1970-01-01 -End 2025-12-31 -Overwrite
+```
+
+**Geen `-Overwrite` nodig** bij eerste run. Onderbrekingen zijn hervatbaar: reeds bestaande dag-IDF's worden overgeslagen. Bij `-Overwrite` worden dag-IDF's opnieuw geschreven. Bij hervatten worden bestaande dag-IDF’s overgeslagen; het manifest wordt na de run atomair vernieuwd. De complete run schrijft een CSV-manifest in de `bdgghb` map met per dag status, dagfluxsom en headbron. Ontbrekende dag-heads worden niet op nul gezet: ze staan als `MISSING_HEAD` in het manifest en veroorzaken een foutmelding na verwerking van alle overige dagen. Met `-AllowMissing` accepteer je expliciet een gedeeltelijke historische dekking.
+
+## Kwalificatie
+
+Deze GHB-reconstructie gebruikt de opgegeven statische GHB-rasters, en is alleen historisch exact als deze parameters gedurende de hele periode daadwerkelijk gelijk bleven en de head-rasters bij de juiste balansdagen horen. Om GHB exact als MODFLOW-budgetpost te behandelen, moeten oorspronkelijke tijdsafhankelijke GHB-packages, eventuele overige GHB-systemen, en de datumdefinitie onafhankelijk worden getoetst. Het geringe residu van de balans voor 2020-07-01 is **geen** onafhankelijke bevestiging van de head-datumcorrectie.
