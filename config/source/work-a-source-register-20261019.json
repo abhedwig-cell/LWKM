@@ -46,5 +46,12 @@
       "sha256": "656b8c97885121221211e7e394648d3f74ab53da0f176008300842bef079a7eb",
       "qualification": "REFERENCE_ONLY_NOT_ORIGINAL_BUDGET_ADMISSION"
     }
-  ]
+  ],
+  "owner_reconstructed_route": {
+    "evidence": "docs/evidence/2026-10-19-work-a-owner/source-evidence.json",
+    "ghb_path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_run_resultaten_totaal\\modflow\\bdgghb\\bdgghb_YYYYMMDD_l1.idf",
+    "wel_directory": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_run_resultaten_totaal\\modflow\\bdgwel",
+    "live_bytes_verified": false,
+    "source_class": "RECONSTRUCTED_OPERATIONAL"
+  }
 }

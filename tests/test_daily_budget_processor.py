@@ -37,4 +37,57 @@ def test_unknown_active_values_are_not_zero_filled(tmp_path):
 
 def test_estimated_wel_not_accepted_without_optin(tmp_path):
     p=fixture(tmp_path);c=json.loads(p.read_text());c['wel_provenance']='ESTIMATED';p.write_text(json.dumps(c))
-    with pytest.raises(ValueError,match='estimated WEL'):process(p,tmp_path/'out')
+    with pytest.raises(ValueError,match='unqualified wel'):process(p,tmp_path/'out')
+
+
+def reconstructed_plan(tmp_path):
+    p=fixture(tmp_path);c=json.loads(p.read_text())
+    for role in ['wel','ghb']:
+        c[role+'_provenance']='RECONSTRUCTED_OPERATIONAL'
+        c.setdefault('reconstructed_products',{})[role]=dict(method='existing reconstruction',limitations=['Synthetic fixture; not original MODFLOW budget'],evidence=c['signs_evidence'])
+    # Already aggregated cell LAT: -7,+7 cancel within this HRU.
+    parts=c['intervals'][0]['components'];parts['lat']=parts.pop('right');parts.pop('front')
+    path=Path(parts['lat'][0]['partitions'][0]['path'])
+    data=bytearray(path.read_bytes());data[-8:]=struct.pack('<2f',-7,7);path.write_bytes(data)
+    parts['lat'][0]['partitions'][0]['sha256']=sha256(path)
+    p.write_text(json.dumps(c));return p
+
+
+def test_owner_accepted_reconstructed_direct_lat_and_identity(tmp_path):
+    p=reconstructed_plan(tmp_path);r=process(p,tmp_path/'out')
+    assert r['wel_provenance']=='RECONSTRUCTED_OPERATIONAL'
+    f=pd.read_csv(r['days'][0]['files']['hrus']['path'])
+    assert f.q_ext_m3_d.iloc[0]==5.
+    assert f.q_ext_mm_d.iloc[0]==pytest.approx(.04)
+    r=process(p,tmp_path/'out');assert all(f['reused'] for d in r['days'] for f in d['files'].values())
+    c=json.loads(p.read_text());Path(c['intervals'][0]['components']['wel'][0]['partitions'][0]['path']).write_bytes(b'changed')
+    with pytest.raises(ValueError,match='hash mismatch'):process(p,tmp_path/'out')
+
+
+def test_reconstructed_contract_and_no_double_lat(tmp_path):
+    p=reconstructed_plan(tmp_path);c=json.loads(p.read_text());saved=c['reconstructed_products'].pop('ghb');p.write_text(json.dumps(c))
+    with pytest.raises(ValueError,match='method and limitations'):process(p,tmp_path/'out')
+    c['reconstructed_products']['ghb']=saved
+    c['intervals'][0]['components']['right']=c['intervals'][0]['components']['lat'];p.write_text(json.dumps(c))
+    with pytest.raises(ValueError,match='mix net LAT'):process(p,tmp_path/'out')
+
+
+def test_existing_series_binding_and_missing_day(tmp_path):
+    from tools.server.bind_reconstructed_daily import bind
+    import shutil
+    p=reconstructed_plan(tmp_path);base=json.loads(p.read_text());sources={}
+    for role,terms in base.pop('intervals')[0]['components'].items():
+        root=tmp_path/role;root.mkdir()
+        for day in ['20200701','20200702']:
+            shutil.copyfile(terms[0]['partitions'][0]['path'],root/f'bdg{role}_{day}_l1.IDF')
+        sources[role]=dict(directory=str(root),pattern='*_{date}_l1.IDF',positive_multiplier=1,provenance='RECONSTRUCTED_OPERATIONAL',semantics_evidence='fixture only')
+    cfg=tmp_path/'bindings.json';cfg.write_text(json.dumps(dict(processing_contract=base,sources=sources,controls=[base['signs_evidence']])))
+    out=tmp_path/'bindings';r=bind(cfg,out);assert r['complete'] and r['files']==8
+    result=process(out/'processing-plan.json',tmp_path/'results');assert len(result['days'])==2
+    # Existing collection is fully reused; no reconstruction occurs.
+    from tools.server.collect_daily_consumers import collect
+    first=collect(out/'collection-plan.json',tmp_path/'collected')
+    second=collect(out/'collection-plan.json',tmp_path/'collected')
+    assert all(x['reused'] for x in second['files'])
+    (tmp_path/'ghb'/'bdgghb_20200702_l1.IDF').unlink()
+    r=bind(cfg,out);assert not r['complete'] and not (out/'processing-plan.json').exists()

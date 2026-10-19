@@ -4,7 +4,8 @@
     "Strict MET serializer without historical rain/WET imputation",
     "Geometry-safe partition mosaics and volume-rate integration",
     "Real source internal-face cancellation check",
-    "C2 catalogue bridge without forcing fallback"
+    "C2 catalogue bridge without forcing fallback",
+    "Original WEL/GHB budget requirement removed by explicit owner decision; existing reconstructed products are operational inputs"
   ],
   "open": [
     {
@@ -13,14 +14,9 @@
       "action": "Run delivered PowerShell/Python collector on the server"
     },
     {
-      "id": "ORIGINAL_WEL_GHB",
-      "reason": "WEL is an estimate; GHB is C times end-head, not original daily integrated budget; activity masks missing",
-      "action": "Bind exact layer1 budgets, activity and control files"
-    },
-    {
       "id": "SIGN_UNITS_TIME",
-      "reason": "Earlier audit and later runner signs conflict; real replay supports saved sign only for this snapshot",
-      "action": "Verify original LIST, time discretisation, units and current source routes"
+      "reason": "Per-file date, geometry, rate/sign and NODATA bindings for existing reconstructed daily series must be verified on server",
+      "action": "Use existing reconstruction provenance and actual IDFs; do not seek original WEL/GHB budgets"
     },
     {
       "id": "MODERN_MET",
@@ -33,5 +29,14 @@
       "action": "Qualify a daily-mean preserving temporal interface/reconstruction"
     }
   ],
-  "production_admitted": false
+  "production_admitted": false,
+  "superseded": [
+    {
+      "id": "ORIGINAL_WEL_GHB",
+      "reason": "WEL is an estimate; GHB is C times end-head, not original daily integrated budget; activity masks missing",
+      "action": "Bind exact layer1 budgets, activity and control files",
+      "decision": "docs/production/WORK_A_OWNER_RECONSTRUCTED_PRODUCTS_20261019.md",
+      "status": "CLOSED_BY_OWNER_ROUTE_DECISION"
+    }
+  ]
 }

@@ -21,7 +21,7 @@
       "tool": "tools.process_daily_budget_plan",
       "requires": [
         "Q0_Q4",
-        "original_budget_semantics",
+        "bound_existing_reconstructed_product_semantics",
         "membership",
         "model_activity"
       ],
@@ -70,5 +70,6 @@
     }
   ],
   "missing_values": "FAIL_NO_IMPLICIT_ZERO_NO_HISTORICAL_FALLBACK",
-  "default_et_policy": "owner_tulip_pm"
+  "default_et_policy": "owner_tulip_pm",
+  "owner_decision": "docs/production/WORK_A_OWNER_RECONSTRUCTED_PRODUCTS_20261019.md"
 }
