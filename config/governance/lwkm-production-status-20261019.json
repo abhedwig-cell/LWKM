@@ -521,6 +521,20 @@
     "workflow": "config/source/work-a-daily-workflow-v1.json",
     "production_admitted": false,
     "code_checkpoint": "e43216b3f4177b88b88519a9d400619b589e94ad",
-    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/6"
+    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/6",
+    "operational_source_policy": {
+      "wel": "RECONSTRUCTED_OPERATIONAL",
+      "ghb": "RECONSTRUCTED_OPERATIONAL",
+      "original_budget_required": false,
+      "decision": "docs/production/WORK_A_OWNER_RECONSTRUCTED_PRODUCTS_20261019.md",
+      "production_admitted": false
+    },
+    "owner_route_update": {
+      "tests_passed": 374,
+      "subtests_passed": 3,
+      "new_modern_swap_runs": 0,
+      "evidence": "docs/evidence/2026-10-19-work-a-owner/",
+      "original_wel_ghb_blocker_closed": true
+    }
   }
 }

@@ -1,0 +1,20 @@
+[
+  {
+    "archive": "LWKM_BDGGHB_1970_FULL.zip",
+    "sha256": "80e7811c1330bbc370e318d938c2d766a64321234deb0d82bc9107b1f4c122bf",
+    "member": "LWKM_BDGGHB_1970_FULL/README.md",
+    "member_sha256": "a4a5f4580d4664368a1f644bbdbcbe78843dc477220913a505b2986d9e8138e4",
+    "product_class": "RECONSTRUCTED_OPERATIONAL",
+    "reconstruction_executed": false,
+    "live_daily_idfs_accessed": false
+  },
+  {
+    "archive": "LWKM_WEL_L1_1980_2025_UITROL.zip",
+    "sha256": "6d8f2c048b6c7f0cf73adb101122a570789a33491e34bb39d61461c0a5adb185",
+    "member": "README.txt",
+    "member_sha256": "c51fd318e1f00c79b457b2dbda0a17ac955552834ddb321c8f36e47f211f176f",
+    "product_class": "RECONSTRUCTED_OPERATIONAL",
+    "reconstruction_executed": false,
+    "live_daily_idfs_accessed": false
+  }
+]

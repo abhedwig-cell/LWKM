@@ -9,3 +9,7 @@ Blokkeerpunten: live servertoegang; originele laag-1-WEL en GHB met activiteit, 
 De servercollectie is selectief en herstartbaar. Gebruik de oorspronkelijke bronmanifestpaden en bind de werkelijke controls. De G:-schijf was in Work niet gemount. PowerShell is niet op de server uitgevoerd. Bronarchieven zijn reeds aangeleverd en in het nieuwe bronregister met Library-ID/SHA-256 vastgelegd; vraag ze niet opnieuw.
 
 De strikte moderne route vult geen NODATA, ontbrekende duur of dagen op. Alleen een gehashte activiteitsmaskerbinding kan afwezigheid van een pakket bewijzen. `bind_daily_catalogue` verwijdert oude forcing en behoudt de C2-eigenaarprofielen voor niet-forcingassets. C2's 101 geslaagde runs en 10.213 DRA's blijven behouden. Production admission blijft gesloten.
+
+## Actueel projecteigenaarbesluit
+
+De eerdere eis voor oorspronkelijke dagelijkse WEL/GHB-budgetten is vervallen. Gebruik bestaande gereconstrueerde IDF-producten met hun beperkingen. Zie [het bindende besluit](../production/WORK_A_OWNER_RECONSTRUCTED_PRODUCTS_20261019.md). Eerdere meetresultaten blijven historische evidence.

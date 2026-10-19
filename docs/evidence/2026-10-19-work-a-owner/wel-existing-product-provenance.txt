@@ -1,0 +1,15 @@
+LWKM WEL L1 1980-2025 - operationele BENADERING, geen exact historisch MODFLOW-equivalent.
+
+Uitvoer: 1 IDF per dag op 1124x1300 rooster, in bestaande modflow/bdgwel map.
+Start met 3 dagen (standaard):
+powershell -NoProfile -ExecutionPolicy Bypass -File "run_wel_l1_1980_2025.ps1"
+Alle resterende jaren:
+powershell -NoProfile -ExecutionPolicy Bypass -File "run_wel_l1_1980_2025.ps1" -All
+Klein tijdvak:
+powershell -NoProfile -ExecutionPolicy Bypass -File "run_wel_l1_1980_2025.ps1" -Start 1980-01-01 -End 1980-01-31
+
+Rekenmethode: het gevalideerde, samengevoegde WEL-raster van 1979-12-31 is de ruimtelijke referentie. Voor zeven historisch variabele broncellen wordt de door bron-TXT tijdreeksen voorspelde wijziging sinds 1979-12-31 toegepast. Dit zijn constrained least-squares laag-1-celmodellen gekalibreerd met de hele periode 1970-1979 (0<=gewicht<=1). Alle andere cellen behouden voorlopig hun 1979-12-31 flux. Waarden na de laatste brondatum worden constant voortgezet. Voor vijf van zeven zijn individuele putgewichten niet uniek identificeerbaar. Runvarianten voor 1980-2025 kunnen verschillen, evenals niet gemodelleerde putten. Deze procedure levert dus een pragmatische GESCHATTE WEL reeks, geen exacte reconstructie van de werkelijk gebruikte WEL-invoer in alle latere runs. Niet als gevalideerde, historische modeluitvoer aanduiden. Alle IDFs zijn volledig, maar hebben onzekerheid die niet in IDF zelf is gecodeerd.
+
+Geen Python/NumPy benodigd op server. Er wordt uitsluitend een reeds aanwezige .NET compiler gebruikt. Originele jaren 1970-1979 worden niet gewijzigd. De standaardrun overschrijft niets. Voor volledige periode ~16802 dagen wordt veel schijfruimte gebruikt (~100 GB). Controleer capaciteit eerst. Opnieuw starten is mogelijk (bestaande bestanden worden overgeslagen). Het status-CSV wordt geappend; bestaande dagen worden niet opnieuw gelogd.
+
+De referentie-merge is eerder op 30 cellen gecontroleerd, maar deze extrapolatie voor 1980-2025 is NIET onafhankelijk geverifieerd. Beoordeling en onzekerheidsmarkering blijven nodig.
