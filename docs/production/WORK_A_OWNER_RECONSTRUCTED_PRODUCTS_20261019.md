@@ -18,7 +18,7 @@ Het bestaande WEL-uitrolpakket voor 1980-2025 schrijft naar `modflow\bdgwel`. De
 
 ## Uitvoeringsgrens en vervolg
 
-Deze Work-runtime heeft geen toegang tot de Windows G-schijf of een opgegeven serverendpoint. De exacte dagelijkse IDF-bytes en volledige reeksen kunnen hier daarom niet live worden gebonden. De locaties hierboven zijn onderbouwd door bestaande scripts, geen live geverifieerde bestandsaanwezigheid. Voor LAT blijft de daadwerkelijke bestaande nettorasterlocatie op de server aan te wijzen. Gebruik de serverhandleiding en nieuwe binder; geen nieuwe reconstructie is nodig.
+Deze Work-runtime heeft geen toegang tot de Windows G-schijf of een opgegeven serverendpoint. De exacte dagelijkse IDF-bytes en volledige reeksen kunnen hier daarom niet live worden gebonden. De locaties hierboven zijn onderbouwd door bestaande scripts, geen live geverifieerde bestandsaanwezigheid. De afzonderlijke LAT-mapvraag is vervallen door het aanvullende eigenaarbesluit: gebruik de bestaande FRF/FFF-reeksen en verwerkingsregels. Zie WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md. Gebruik de serverhandleiding en nieuwe binder; geen nieuwe reconstructie is nodig.
 
 De eerdere 43 Q4-bestanden, bronproeven en C2-resultaten blijven behouden. Er is met dit besluit geen nieuwe volledige moderne forcingcombinatie beschikbaar gekomen en geen nieuwe moderne SWAP-run uitgevoerd. Volledige meteorologie ontbreekt nog lokaal. Voor variërende dagelijkse BBC-gemiddelden is de SWAP-puntinterpolatie nog afzonderlijk te kwalificeren; de bestaande strikte guard blijft actief. Dit zijn afzonderlijke resterende uitvoeringsgrenzen, geen eisen om WEL/GHB opnieuw te reconstrueren.
 
