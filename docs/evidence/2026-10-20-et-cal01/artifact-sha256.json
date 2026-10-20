@@ -1,0 +1,15 @@
+{
+  "baseline-parity.json": "88aa6b5f1f0bbea90bce251a06112e7cbba1dc7e70f53496d1153d81d310ca63",
+  "boundary-controls.json": "c9e1f939a66ab81105dc0b8078738542f255d39aa6ba1035661da5cf1ba25a47",
+  "code-sha256.json": "c05a9019694642dc1faec64348a3963b547f53028c2896ff1dcddfb38b53dd30",
+  "execution-evidence.zip": "ff3016b73196f13014cd196bd1578f4772f15abc7045d3ca138ab5bebe8f967d",
+  "metrics.csv": "388302a390e944422845ceca6e1fcd016780f18e09c3cb4aa6384267d308bcdb",
+  "runs.json": "b6dfe184ba3089424e98d68e0b228bb8d1d2d2451e05114d0d4f84d29bf02d76",
+  "sensitivity.json": "2bdc783d7c33d70504a15bfafbfab4ceee8abc17af251049358ff6db9b8cac4f",
+  "source-audit.json": "d1a5cce87a0a33d1b0ad6951710c6f948f960f0cc90ac631f6628ff00f0be028",
+  "source-excerpts.txt": "64c282a3be2afefceecdf48c3954f3c42e7678b8105baa4afe35ee03d5039fbb",
+  "summary.json": "c3aa349f13203c3646c06f4d65c1781e3398db655f42f20cc3c8d0545c0e7e52",
+  "synthetic-fixtures.zip": "24e457ad6ae73f104d7ad45e22dc09ffb19e361f3844adc6fd4f0f3408847df3",
+  "synthetic-qualification.json": "74b42976e3bb9db26c109341623600d4de76ead2fd3155380e5b9ea782a42748",
+  "tests.log": "5d7092b99c42ec374faec169f6e36f7361408b42eb2780d865e8a92f596a1dd3"
+}
