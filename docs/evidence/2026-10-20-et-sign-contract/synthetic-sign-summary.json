@@ -1,0 +1,1261 @@
+{
+  "status": "SYNTHETIC_SIGN_CONTRACT_PASS",
+  "synthetic_only": true,
+  "new_swap_runs": 0,
+  "reports": {
+    "positive": {
+      "status": "SYNTHETIC_INTEGRATION_PASS",
+      "synthetic_only": true,
+      "real_reference_received": false,
+      "source_signs": {
+        "MSW_EBS": 1,
+        "MSW_EIC": 1,
+        "MSW_EPD": 1,
+        "MSW_ESP": 1,
+        "MSW_TACT": 1,
+        "MSW_TPOT": 1,
+        "PSSW": 1,
+        "PSGW": 1,
+        "BDGETACT": 1
+      },
+      "raw_source_tact_preserved": true,
+      "native_decades": 108,
+      "native_hrus": 3,
+      "received_hrus": 2,
+      "lossless_reception_and_reuse_pass": true,
+      "comparison": {
+        "objective": 0.025,
+        "data_loss": 1.2434632893374442e-31,
+        "regularization": 0.025,
+        "rmse_et_mm_day": 3.287537296313663e-16,
+        "period_bias_et_mm": -1.8118839761882555e-13,
+        "year_bias_mm": {
+          "2001": -6.039613253960852e-14,
+          "2002": -6.039613253960852e-14,
+          "2003": -6.039613253960852e-14
+        },
+        "season_bias_mm": {
+          "2001": -3.552713678800501e-14,
+          "2002": -3.552713678800501e-14,
+          "2003": -3.552713678800501e-14
+        },
+        "stress_model": 0.43723628889199173,
+        "stress_reference": 0.43723628889199173,
+        "components": {
+          "ET": {
+            "bias_mm": -1.8118839761882555e-13,
+            "rmse_mm_decade": 3.296778768694029e-15
+          },
+          "T": {
+            "bias_mm": -9.192646643896296e-14,
+            "rmse_mm_decade": 1.6500502304956147e-15
+          },
+          "E_SOIL": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          },
+          "E_IC": {
+            "bias_mm": -4.6629367034256575e-14,
+            "rmse_mm_decade": 4.3787786604777306e-16
+          },
+          "TPOT": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          },
+          "IRRIG": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          }
+        },
+        "psgw_reference_mm": 0.0,
+        "pssw_reference_mm": 0.0,
+        "bdgetact_residual_mm": 1.0799999999998544
+      },
+      "selection": {
+        "status": "BASELINE_RETAINED",
+        "chosen_parameters": {
+          "rsc_scale": 1.25,
+          "feddes_scale": 1.0
+        },
+        "applied_parameters": {
+          "rsc_scale": 1.0,
+          "feddes_scale": 1.0
+        },
+        "blocking_diagnostics": [
+          "unverified soil/drainage/bottom/management context",
+          "synthetic reference: no factual HRU calibration"
+        ],
+        "yearwise_winners": {
+          "2001": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          },
+          "2002": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          },
+          "2003": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          }
+        },
+        "near_optimal_profiles": [
+          {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          }
+        ],
+        "real_reference": false,
+        "production_admitted": false,
+        "candidates": [
+          {
+            "parameters": {
+              "rsc_scale": 1.0,
+              "feddes_scale": 1.0
+            },
+            "train": {
+              "objective": 1.8111069609279777,
+              "data_loss": 1.8111069609279777,
+              "by_year": {
+                "2001": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2001": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2001": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                },
+                "2002": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2002": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2002": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            },
+            "validation": {
+              "objective": 1.8111069609279777,
+              "data_loss": 1.8111069609279777,
+              "by_year": {
+                "2003": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2003": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2003": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            }
+          },
+          {
+            "parameters": {
+              "rsc_scale": 1.25,
+              "feddes_scale": 1.0
+            },
+            "train": {
+              "objective": 0.025,
+              "data_loss": 1.2434632893374442e-31,
+              "by_year": {
+                "2001": {
+                  "objective": 0.025,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.025,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2001": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2001": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                },
+                "2002": {
+                  "objective": 0.025,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.025,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2002": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2002": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            },
+            "validation": {
+              "objective": 1.2434632893374442e-31,
+              "data_loss": 1.2434632893374442e-31,
+              "by_year": {
+                "2003": {
+                  "objective": 1.2434632893374442e-31,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2003": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2003": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            }
+          }
+        ],
+        "receipt_sha256": "523c05bc91eacb2cca22f118c0b44ec340832b7989819bc48d004124709d4b7c",
+        "data_origin": "synthetic",
+        "semantic_review_sha256": "154deaedd8231853338f4cd958d318061956872e39135e25455d16d96396511f"
+      },
+      "production_admitted": false,
+      "code_sha256": {
+        "receive_et_reference.py": "48f682c3fb911bed4545c6f50d2f0822197508ee91579177dc14a245f7a1f711",
+        "prepare_et_pilot.py": "37e1c3324559a298baf5fd2384a1c8336ba046171a7e58404a4f076621e49e12",
+        "et_calibration.py": "ec6078c32873ca37a4bb06147fff6395d78e3d23498e4dc119dc9c925eee5884",
+        "qualify_et_reception.py": "5737a653885d78f357f1b4091053081d9a7bfaa2833e6f035c248dca67790641"
+      }
+    },
+    "negative_et_positive_gifts": {
+      "status": "SYNTHETIC_INTEGRATION_PASS",
+      "synthetic_only": true,
+      "real_reference_received": false,
+      "source_signs": {
+        "MSW_EBS": -1,
+        "MSW_EIC": -1,
+        "MSW_EPD": -1,
+        "MSW_ESP": -1,
+        "MSW_TACT": -1,
+        "MSW_TPOT": -1,
+        "PSSW": 1,
+        "PSGW": 1,
+        "BDGETACT": -1
+      },
+      "raw_source_tact_preserved": true,
+      "native_decades": 108,
+      "native_hrus": 3,
+      "received_hrus": 2,
+      "lossless_reception_and_reuse_pass": true,
+      "comparison": {
+        "objective": 0.025,
+        "data_loss": 1.2434632893374442e-31,
+        "regularization": 0.025,
+        "rmse_et_mm_day": 3.287537296313663e-16,
+        "period_bias_et_mm": -1.8118839761882555e-13,
+        "year_bias_mm": {
+          "2001": -6.039613253960852e-14,
+          "2002": -6.039613253960852e-14,
+          "2003": -6.039613253960852e-14
+        },
+        "season_bias_mm": {
+          "2001": -3.552713678800501e-14,
+          "2002": -3.552713678800501e-14,
+          "2003": -3.552713678800501e-14
+        },
+        "stress_model": 0.43723628889199173,
+        "stress_reference": 0.43723628889199173,
+        "components": {
+          "ET": {
+            "bias_mm": -1.8118839761882555e-13,
+            "rmse_mm_decade": 3.296778768694029e-15
+          },
+          "T": {
+            "bias_mm": -9.192646643896296e-14,
+            "rmse_mm_decade": 1.6500502304956147e-15
+          },
+          "E_SOIL": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          },
+          "E_IC": {
+            "bias_mm": -4.6629367034256575e-14,
+            "rmse_mm_decade": 4.3787786604777306e-16
+          },
+          "TPOT": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          },
+          "IRRIG": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          }
+        },
+        "psgw_reference_mm": 0.0,
+        "pssw_reference_mm": 0.0,
+        "bdgetact_residual_mm": 1.0799999999998544
+      },
+      "selection": {
+        "status": "BASELINE_RETAINED",
+        "chosen_parameters": {
+          "rsc_scale": 1.25,
+          "feddes_scale": 1.0
+        },
+        "applied_parameters": {
+          "rsc_scale": 1.0,
+          "feddes_scale": 1.0
+        },
+        "blocking_diagnostics": [
+          "unverified soil/drainage/bottom/management context",
+          "synthetic reference: no factual HRU calibration"
+        ],
+        "yearwise_winners": {
+          "2001": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          },
+          "2002": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          },
+          "2003": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          }
+        },
+        "near_optimal_profiles": [
+          {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          }
+        ],
+        "real_reference": false,
+        "production_admitted": false,
+        "candidates": [
+          {
+            "parameters": {
+              "rsc_scale": 1.0,
+              "feddes_scale": 1.0
+            },
+            "train": {
+              "objective": 1.8111069609279777,
+              "data_loss": 1.8111069609279777,
+              "by_year": {
+                "2001": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2001": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2001": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                },
+                "2002": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2002": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2002": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            },
+            "validation": {
+              "objective": 1.8111069609279777,
+              "data_loss": 1.8111069609279777,
+              "by_year": {
+                "2003": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2003": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2003": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            }
+          },
+          {
+            "parameters": {
+              "rsc_scale": 1.25,
+              "feddes_scale": 1.0
+            },
+            "train": {
+              "objective": 0.025,
+              "data_loss": 1.2434632893374442e-31,
+              "by_year": {
+                "2001": {
+                  "objective": 0.025,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.025,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2001": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2001": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                },
+                "2002": {
+                  "objective": 0.025,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.025,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2002": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2002": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            },
+            "validation": {
+              "objective": 1.2434632893374442e-31,
+              "data_loss": 1.2434632893374442e-31,
+              "by_year": {
+                "2003": {
+                  "objective": 1.2434632893374442e-31,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2003": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2003": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            }
+          }
+        ],
+        "receipt_sha256": "6edb6c5816e3f3d9dde9ec234bda8e9a34b025dcfad056727ed5aa6f94a961b3",
+        "data_origin": "synthetic",
+        "semantic_review_sha256": "778933b6f9a3e5bcf611ad77681d542c588a1c848f4e985f42353f7b1d542a77"
+      },
+      "production_admitted": false,
+      "code_sha256": {
+        "receive_et_reference.py": "48f682c3fb911bed4545c6f50d2f0822197508ee91579177dc14a245f7a1f711",
+        "prepare_et_pilot.py": "37e1c3324559a298baf5fd2384a1c8336ba046171a7e58404a4f076621e49e12",
+        "et_calibration.py": "ec6078c32873ca37a4bb06147fff6395d78e3d23498e4dc119dc9c925eee5884",
+        "qualify_et_reception.py": "5737a653885d78f357f1b4091053081d9a7bfaa2833e6f035c248dca67790641"
+      }
+    },
+    "all_negative": {
+      "status": "SYNTHETIC_INTEGRATION_PASS",
+      "synthetic_only": true,
+      "real_reference_received": false,
+      "source_signs": {
+        "MSW_EBS": -1,
+        "MSW_EIC": -1,
+        "MSW_EPD": -1,
+        "MSW_ESP": -1,
+        "MSW_TACT": -1,
+        "MSW_TPOT": -1,
+        "PSSW": -1,
+        "PSGW": -1,
+        "BDGETACT": -1
+      },
+      "raw_source_tact_preserved": true,
+      "native_decades": 108,
+      "native_hrus": 3,
+      "received_hrus": 2,
+      "lossless_reception_and_reuse_pass": true,
+      "comparison": {
+        "objective": 0.025,
+        "data_loss": 1.2434632893374442e-31,
+        "regularization": 0.025,
+        "rmse_et_mm_day": 3.287537296313663e-16,
+        "period_bias_et_mm": -1.8118839761882555e-13,
+        "year_bias_mm": {
+          "2001": -6.039613253960852e-14,
+          "2002": -6.039613253960852e-14,
+          "2003": -6.039613253960852e-14
+        },
+        "season_bias_mm": {
+          "2001": -3.552713678800501e-14,
+          "2002": -3.552713678800501e-14,
+          "2003": -3.552713678800501e-14
+        },
+        "stress_model": 0.43723628889199173,
+        "stress_reference": 0.43723628889199173,
+        "components": {
+          "ET": {
+            "bias_mm": -1.8118839761882555e-13,
+            "rmse_mm_decade": 3.296778768694029e-15
+          },
+          "T": {
+            "bias_mm": -9.192646643896296e-14,
+            "rmse_mm_decade": 1.6500502304956147e-15
+          },
+          "E_SOIL": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          },
+          "E_IC": {
+            "bias_mm": -4.6629367034256575e-14,
+            "rmse_mm_decade": 4.3787786604777306e-16
+          },
+          "TPOT": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          },
+          "IRRIG": {
+            "bias_mm": 0.0,
+            "rmse_mm_decade": 0.0
+          }
+        },
+        "psgw_reference_mm": 0.0,
+        "pssw_reference_mm": 0.0,
+        "bdgetact_residual_mm": 1.0799999999998544
+      },
+      "selection": {
+        "status": "BASELINE_RETAINED",
+        "chosen_parameters": {
+          "rsc_scale": 1.25,
+          "feddes_scale": 1.0
+        },
+        "applied_parameters": {
+          "rsc_scale": 1.0,
+          "feddes_scale": 1.0
+        },
+        "blocking_diagnostics": [
+          "unverified soil/drainage/bottom/management context",
+          "synthetic reference: no factual HRU calibration"
+        ],
+        "yearwise_winners": {
+          "2001": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          },
+          "2002": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          },
+          "2003": {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          }
+        },
+        "near_optimal_profiles": [
+          {
+            "rsc_scale": 1.25,
+            "feddes_scale": 1.0
+          }
+        ],
+        "real_reference": false,
+        "production_admitted": false,
+        "candidates": [
+          {
+            "parameters": {
+              "rsc_scale": 1.0,
+              "feddes_scale": 1.0
+            },
+            "train": {
+              "objective": 1.8111069609279777,
+              "data_loss": 1.8111069609279777,
+              "by_year": {
+                "2001": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2001": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2001": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                },
+                "2002": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2002": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2002": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            },
+            "validation": {
+              "objective": 1.8111069609279777,
+              "data_loss": 1.8111069609279777,
+              "by_year": {
+                "2003": {
+                  "objective": 1.8111069609279777,
+                  "data_loss": 1.8111069609279777,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 1.0615436872781074,
+                  "period_bias_et_mm": -352.1292935218682,
+                  "year_bias_mm": {
+                    "2003": -352.12929352186814
+                  },
+                  "season_bias_mm": {
+                    "2003": -245.94334270512056
+                  },
+                  "stress_model": 0.6784207365097095,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.823292178411224
+                    },
+                    "T": {
+                      "bias_mm": -352.1292935218682,
+                      "rmse_mm_decade": 10.82329217841122
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            }
+          },
+          {
+            "parameters": {
+              "rsc_scale": 1.25,
+              "feddes_scale": 1.0
+            },
+            "train": {
+              "objective": 0.025,
+              "data_loss": 1.2434632893374442e-31,
+              "by_year": {
+                "2001": {
+                  "objective": 0.025,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.025,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2001": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2001": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                },
+                "2002": {
+                  "objective": 0.025,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.025,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2002": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2002": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            },
+            "validation": {
+              "objective": 1.2434632893374442e-31,
+              "data_loss": 1.2434632893374442e-31,
+              "by_year": {
+                "2003": {
+                  "objective": 1.2434632893374442e-31,
+                  "data_loss": 1.2434632893374442e-31,
+                  "regularization": 0.0,
+                  "rmse_et_mm_day": 3.287537296313663e-16,
+                  "period_bias_et_mm": -6.039613253960852e-14,
+                  "year_bias_mm": {
+                    "2003": -6.039613253960852e-14
+                  },
+                  "season_bias_mm": {
+                    "2003": -3.552713678800501e-14
+                  },
+                  "stress_model": 0.4372362888919916,
+                  "stress_reference": 0.4372362888919916,
+                  "components": {
+                    "ET": {
+                      "bias_mm": -6.039613253960852e-14,
+                      "rmse_mm_decade": 3.296778768694029e-15
+                    },
+                    "T": {
+                      "bias_mm": -3.064215547965432e-14,
+                      "rmse_mm_decade": 1.6500502304956147e-15
+                    },
+                    "E_SOIL": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "E_IC": {
+                      "bias_mm": -1.554312234475219e-14,
+                      "rmse_mm_decade": 4.3787786604777306e-16
+                    },
+                    "TPOT": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    },
+                    "IRRIG": {
+                      "bias_mm": 0.0,
+                      "rmse_mm_decade": 0.0
+                    }
+                  },
+                  "psgw_reference_mm": 0.0,
+                  "pssw_reference_mm": 0.0,
+                  "bdgetact_residual_mm": 0.35999999999995147
+                }
+              }
+            }
+          }
+        ],
+        "receipt_sha256": "b8c4e95c8490ba30e62a59c85cf37b07c9a289071bba652fd2378e14504478d3",
+        "data_origin": "synthetic",
+        "semantic_review_sha256": "d6b6e1c45ded4cd86d36b99b85b780c26745ed8af3f43a4c6ab1aefcc88a1436"
+      },
+      "production_admitted": false,
+      "code_sha256": {
+        "receive_et_reference.py": "48f682c3fb911bed4545c6f50d2f0822197508ee91579177dc14a245f7a1f711",
+        "prepare_et_pilot.py": "37e1c3324559a298baf5fd2384a1c8336ba046171a7e58404a4f076621e49e12",
+        "et_calibration.py": "ec6078c32873ca37a4bb06147fff6395d78e3d23498e4dc119dc9c925eee5884",
+        "qualify_et_reception.py": "5737a653885d78f357f1b4091053081d9a7bfaa2833e6f035c248dca67790641"
+      }
+    }
+  }
+}
