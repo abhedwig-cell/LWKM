@@ -13,8 +13,9 @@ from tools.run_dra_protected_population import atomic_json
 
 def bind(config,output):
     cfg=json.loads(config.read_text());base=cfg['processing_contract']
+    if pd.Timestamp(base['end'])<pd.Timestamp(base['start']):raise ValueError('reversed binding period')
     dates=pd.date_range(base['start'],base['end']).strftime('%Y%m%d')
-    if set(cfg['sources'])!={'flf','lat','ghb','wel'}:raise ValueError('bind exactly FLF LAT GHB WEL')
+    if set(cfg['sources']) not in ({'flf','lat','ghb','wel'},{'flf','frf','fff','ghb','wel'}):raise ValueError('bind FLF FRF FFF GHB WEL, or explicit net LAT')
     for role,source in cfg['sources'].items():
         if '{date}' not in source['pattern'] or Path(source['pattern']).is_absolute() or '..' in Path(source['pattern']).parts:
             raise ValueError('component pattern must be relative and date selective')
@@ -37,7 +38,7 @@ def bind(config,output):
                 if tokens!=[day]:raise ValueError('ambiguous/wrong filename date: '+str(p))
                 b=dict(path=str(p.resolve()),sha256=sha256(p));partitions.append(b)
                 items.append(dict(**b,logical_id=role+'_'+p.name,role=role,date=pd.Timestamp(day).date().isoformat(),layer=1,package=role.upper(),units=base['units'],consumer='W08-GW-L1',semantics_evidence=source['semantics_evidence'],provenance=source['provenance']))
-            components[role]=[dict(layer=1,positive_multiplier=source['positive_multiplier'],partitions=partitions)]
+            components[role]=[dict(layer=1,positive_multiplier=source['positive_multiplier'],spatial_operation=source.get('spatial_operation','CELL_NET'),partitions=partitions)]
         intervals.append(dict(start=pd.Timestamp(day).isoformat(),end=(pd.Timestamp(day)+pd.Timedelta(days=1)).isoformat(),components=components))
     output.mkdir(parents=True,exist_ok=True)
     atomic_json(output/'collection-plan.json',dict(schema_version=1,items=items,controls=cfg['controls']))

@@ -65,3 +65,5 @@ De recursive W00-gate controleert status, consument, identiteit, bronbewijs en o
 Historische equivalentie en moderne fysische geschiktheid hebben afzonderlijke gates. Onverklaarde verschillen blijven zichtbaar. Moderne ontwikkeling mag een eigen versieprofiel gebruiken en onderzoek uitvoeren met expliciet geclassificeerde bronbestanden, maar mag die uitkomsten niet stilzwijgend als admitted produceren.
 
 Voor het moderne pakketprofiel is de betekenis van bestandsstammen expliciet: DRFIL krijgt .dra en BBCFIL krijgt .bbc; METFIL bevat de extensie zelf. Dit gebeurt via een versiegebonden extensiebeleid, niet door willekeurige bestandszoekacties.
+
+Actuele Work A-aanvulling: [bestaande FRF/FFF-authority, zes geproduceerde HRU-randvoorwaarden en de 98 echte BBC-interfaceproeven](WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md). De variërende BBC-route is na modeltoets niet toegelaten voor dagvolumebehoud; volledige moderne forcing blijft afhankelijk van de bestaande dagelijkse serverproducten en MET.

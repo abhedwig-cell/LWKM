@@ -5,7 +5,8 @@
     "Geometry-safe partition mosaics and volume-rate integration",
     "Real source internal-face cancellation check",
     "C2 catalogue bridge without forcing fallback",
-    "Original WEL/GHB budget requirement removed by explicit owner decision; existing reconstructed products are operational inputs"
+    "Original WEL/GHB budget requirement removed by explicit owner decision; existing reconstructed products are operational inputs",
+    "Existing FRF/FFF sign/spatial implementation bound to archived C# authority, verified on 427391 real cells; no original face analysis reopened"
   ],
   "open": [
     {
@@ -15,8 +16,8 @@
     },
     {
       "id": "SIGN_UNITS_TIME",
-      "reason": "Per-file date, geometry, rate/sign and NODATA bindings for existing reconstructed daily series must be verified on server",
-      "action": "Use existing reconstruction provenance and actual IDFs; do not seek original WEL/GHB budgets"
+      "reason": "Existing saved sign and spatial rules are bound; per-file identity/date/geometry still requires server collection",
+      "action": "Use five-component binder against existing reconstructed merged directories; no new face analysis"
     },
     {
       "id": "MODERN_MET",
@@ -25,8 +26,9 @@
     },
     {
       "id": "BBC_DAILY_MEAN_INTERFACE",
-      "reason": "SWAP linearly interpolates DATE2/QBOT2 point values; varying daily means cannot silently be nodal values",
-      "action": "Qualify a daily-mean preserving temporal interface/reconstruction"
+      "reason": "98 real SWAP runs confirm duplicate-midnight steps do not generally preserve imposed daily water volumes with stock 4.3.1 adaptive timesteps; maximum error 1.1511 mm/day",
+      "action": "Qualify a model-consistent temporal interface; default rejects varying series, explicit experimental route only",
+      "evidence": "docs/evidence/2026-10-19-work-a-five/bbc-step-experiment-summary.json"
     }
   ],
   "production_admitted": false,
@@ -38,5 +40,6 @@
       "decision": "docs/production/WORK_A_OWNER_RECONSTRUCTED_PRODUCTS_20261019.md",
       "status": "CLOSED_BY_OWNER_ROUTE_DECISION"
     }
-  ]
+  ],
+  "latest_authority": "docs/production/WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md"
 }

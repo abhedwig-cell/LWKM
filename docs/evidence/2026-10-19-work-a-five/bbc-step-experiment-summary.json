@@ -1,0 +1,3888 @@
+{
+  "cases": 98,
+  "cases_detail": [
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.28537919000154943,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7927.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7927.dra": "fb5043115600bda255e8eda3037af77a4835d2bee2b8a5451bd6f5e0ddcdb715",
+          "7927.met": "3d0e5ecf6c53aaf7e6f6c3185754463171bec0c9504c557f9a1a98c8953bc34a",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "941eceec29e658a80b5ca44c8bd73bc0a47263beb28aa704faf284ce2c9c3183"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "3ac5917865819c8391bad9fe424abe04cc39b74fabae2ca6cfe8cf0951b88d45",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "1e383ba232a6a8073095979d3b8ca0992d6c84365ce4ec3c56af8ce1ef55646f",
+          "swap.ok": "b80dbd0b039105ea5ebb5a295f214ab3cd2c29899e433580bdf1cd60ab355bc3",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7927,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 3.9097500000000005e-07,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.22595562700007576,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7927.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7927.dra": "fb5043115600bda255e8eda3037af77a4835d2bee2b8a5451bd6f5e0ddcdb715",
+          "7927.met": "3d0e5ecf6c53aaf7e6f6c3185754463171bec0c9504c557f9a1a98c8953bc34a",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "8849b1a7058ad717d03705d255789a66fbd15b065e25025bc7abad47917d0489"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "04607617b40dddca739dcd34c7ef81df9c1fbb4e3efced52a353867286d21d88",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "ba39c588454d2aa241e031a0ed2c4a98ea518657b816960a91be45117060b017",
+          "swap.ok": "b80dbd0b039105ea5ebb5a295f214ab3cd2c29899e433580bdf1cd60ab355bc3",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7927,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.9248800000000002e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2766463539992401,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7932.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7932.dra": "7df00d01d3b43f1441dd30072575b4a659807e7d5394a3ccd5ebed33e9f3332c",
+          "7932.met": "6d5a0963a3f6046fd2851937ce9733be2b2aa7a028538864c218bea7a912d033",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "96104326aa2f5c9117157faf5914d2529bfca87de4dd60eabe6075db2c09d5c7"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "6d37ae7807bd67a02769ade77a12e94202a3c9ad24933ba6d01fcf76bddeb6a5",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "ce506b5e0f8727fb2bf644ffb1e773da46587c1ac7fc911af217f8ba4f6caeb9",
+          "swap.ok": "b80dbd0b039105ea5ebb5a295f214ab3cd2c29899e433580bdf1cd60ab355bc3",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7932,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.34275e-07,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.2211070240009576,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7932.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7932.dra": "7df00d01d3b43f1441dd30072575b4a659807e7d5394a3ccd5ebed33e9f3332c",
+          "7932.met": "6d5a0963a3f6046fd2851937ce9733be2b2aa7a028538864c218bea7a912d033",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "6ebfdf03b79c1ac970e8ab398f7c819706e3256bf39199faef57a10c9652ce18"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "02caec768925e50596d5e9cd1aebf0435d5b97b0695b1cdf19d9ec7cff7725ab",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "f2e2d17498366a63e6bcd31a66464c27ac27cfd0c479f4aae4013515a9aa91e4",
+          "swap.ok": "b80dbd0b039105ea5ebb5a295f214ab3cd2c29899e433580bdf1cd60ab355bc3",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7932,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.59805e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.23927643299975898,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7871.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7871.dra": "9129444fd2cadc55b1961c6a018b476c3a42b0befdb56ba3d9cdfb273806ef0b",
+          "7871.met": "07320ae5acd38afbf63e7f69b30be51c90647939db16feb64176f1042fec3eae",
+          "swap.swp": "351d5a296bfaa3165ac05f97ae5cbf98946e4ef3aaa5d4064047ed49f544ced1",
+          "tulp.crp": "82d7670035e08292c9ec05ed52e46ea8ce42fd00e2f707fb2664c90275f03cda"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "4682195b939ea083aab2c57f9c9091155f0ecd68d50f70ce5656ebd5dfa02fb7",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "90528b6f8d564c446228f6cc2234cfb3fb939767274ff8612fde772370d52340",
+          "swap.ok": "b80dbd0b039105ea5ebb5a295f214ab3cd2c29899e433580bdf1cd60ab355bc3",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7871,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.8921799999999995e-06,
+      "max_daily_volume_error_mm": 0.20000000000000018,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.26944073400227353,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7871.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7871.dra": "9129444fd2cadc55b1961c6a018b476c3a42b0befdb56ba3d9cdfb273806ef0b",
+          "7871.met": "07320ae5acd38afbf63e7f69b30be51c90647939db16feb64176f1042fec3eae",
+          "swap.swp": "22de1c0835dc95d7e9e9962dce6adeaa72c445b2141312f8ecf24274e4947486",
+          "tulp.crp": "82d7670035e08292c9ec05ed52e46ea8ce42fd00e2f707fb2664c90275f03cda"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "382ae944d38aa313d2d5c9434763ea7444d1bf274188cb6a982340f8145603cb",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "91f6d568a668c46fa301b433d0e596d1cbc8fad589179152aa901d2b888f6cd7",
+          "swap.ok": "b80dbd0b039105ea5ebb5a295f214ab3cd2c29899e433580bdf1cd60ab355bc3",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7871,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.77535e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2718940190025023,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7913.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7913.dra": "3e478120079cc1e614372ca4d68fb0b3aa4eb85aa056937d85e0b8487c29033b",
+          "7913.met": "4cede999cd06d9c80c1d3a0b98e96cac5c756b4435490b8bf939d1c540f67892",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "3678eff9f58ca3a8641af6249b1279438dfe26c07e5cbf75d3209196dd0b1121"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "c45f22b394f4e5e4f4dea06a5fe521c759de120938302fe5a1c876388b3034f2",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "6497f11a5c4c02f07fb0df661d8c63327e418f87b82744733bfaff4ec02de9d8",
+          "swap.ok": "b80dbd0b039105ea5ebb5a295f214ab3cd2c29899e433580bdf1cd60ab355bc3",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7913,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.3977e-07,
+      "max_daily_volume_error_mm": 0.057700000000000085,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.22666943400327,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7913.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7913.dra": "3e478120079cc1e614372ca4d68fb0b3aa4eb85aa056937d85e0b8487c29033b",
+          "7913.met": "4cede999cd06d9c80c1d3a0b98e96cac5c756b4435490b8bf939d1c540f67892",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "6707ea2d26f6a85d249d6020afd8a3ea7058af01a2148b794cc7a927f48484d6"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "4f24b292c212fd4d672a871486f2a1b8bfbddfdef8f6ee43f5d1c7f9b4e18248",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "cf7b823fc45cb6d10c74a4900b47809ceb7feafbccebcdd5de7d4ff2fe446445",
+          "swap.ok": "b80dbd0b039105ea5ebb5a295f214ab3cd2c29899e433580bdf1cd60ab355bc3",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7913,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.0332e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2003898359980667,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7934.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7934.dra": "885e85dae96f6f40a766b72aaea3b670128a1e60135393143aa9976793d89021",
+          "7934.met": "a385f1224b81c21a09e16d0cdc5e5257c2331828005d224b3b5a6a71f38d21b3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "27a9e52be39953757c8e7865111fe988f4a6206075e56d3a75173bd2441ea2de"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "f2b16dbcfc6e2a385dbd7260caf9be94f1d46bdf7c54286a14f14ef9bce16a42",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "22c1e3d3bf92635fc84b2cf52a1f0cb98275cbc2354b673fd8597fc4b9af9a93",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7934,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 8.756550000000001e-07,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.14792459900127142,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7934.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7934.dra": "885e85dae96f6f40a766b72aaea3b670128a1e60135393143aa9976793d89021",
+          "7934.met": "a385f1224b81c21a09e16d0cdc5e5257c2331828005d224b3b5a6a71f38d21b3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "3a0ae8b33d9a1bcd2feefc2ca4d3cae4f756f33edc7b4e46147446733764f2ea"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "61ce48d27ddf61be57e39054f68bd90e57b873df60b399c5bdd5855e50ec7450",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "b41f5640b2b14576c2c312a88ff6df0281df864043ab607964299a7826e1d158",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7934,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.40074e-06,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.20629389399982756,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7916.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7916.dra": "a57d2abe630a6d05614c4dc4b09fdf9808f3297be071c02f1a0faf261253cf36",
+          "7916.met": "b6fdeafa2c93817a22961cb945672d71f27c85d34c070cfe5e312907cfee43ff",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "64f2d49458684f3949d304c063f88ec0829abf965c9654a401f3c454a44793c8"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "218aa89bb01fb1638b3ecae674d4490d5a982b4c91dff83da99c906b6e46631b",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "25eff708e181682501b58dc6b76306bba51bf856431a09d088aa64cc306902a5",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7916,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.11044e-07,
+      "max_daily_volume_error_mm": 0.005900000000000016,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.1595954120020906,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7916.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7916.dra": "a57d2abe630a6d05614c4dc4b09fdf9808f3297be071c02f1a0faf261253cf36",
+          "7916.met": "b6fdeafa2c93817a22961cb945672d71f27c85d34c070cfe5e312907cfee43ff",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "b90a317bd8fcb3ae91806eb9a40aeab212e1f80e7e0f85ef866236e5c972595d"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "24454a79af7fd53ad25753177f4d6daec0b4017bcc6e6f8765f8290c50cd5927",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "da59144ad006772e0fe768ee18a0d9fa4c3a7a01d8a4f5bedbbf7468513b8185",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7916,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 6.395350000000001e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.170024850001937,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7924.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7924.dra": "c189d1b02418fd407baf47db66a3343339181fa3d890148b756604c092898e2e",
+          "7924.met": "c43eae23eb0700c341038ecc0ef2287deee0de486b3d40959c5eabeaa17e49a5",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "4c73f885b7912037b54e859f01e52165399b3edd168f07e14f70f60779987081"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "80d67766fc665620eda7ed7127fbdde4edc0b5d3cb7304e2f73b4dd839d8576f",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "bab340133d20be4a5c85e31358c91a882d53fb216028fa649b2df5db3cf3c741",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7924,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.42587e-07,
+      "max_daily_volume_error_mm": 0.1200000000000001,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.15390776000276674,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7924.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7924.dra": "c189d1b02418fd407baf47db66a3343339181fa3d890148b756604c092898e2e",
+          "7924.met": "c43eae23eb0700c341038ecc0ef2287deee0de486b3d40959c5eabeaa17e49a5",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "3492f52af5237988da3dd6352a34130cffddef69ef90f927e457b135f469cf24"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "f76d35f71d1c6a4a2b8032be10bae20c8147caa6d9835b95118afd3f7f95dc77",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "f2299da89494b03ec37f2e9c1475540bb2125bca81eeaacb1663b5c9f9337979",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7924,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.8407799999999998e-08,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2007319100011955,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7914.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7914.dra": "4cec7e9d6adf855dee56d9e67851c1d4b5656c1c7f34f55dd8f606bc2affcd05",
+          "7914.met": "4e7ed9a549f6e5d00b0fcffc4e4327f4cec154aa5e695bcda5dddf42f2716791",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "28ca91b4fa444d08a50381f3e0e6dfa3c8fe567b9898f2e75e9b6e551dbd26b0"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "51c5e12c00599a1c2baaf2cb028bef4279fb01d255516bfefb0d1d1a4b9c64b5",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "0a2ad94b92675059f8708a281a46cd83d926a28b490ab292124497c98f23f369",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7914,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.3098799999999998e-07,
+      "max_daily_volume_error_mm": 0.010700000000000376,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.17727154000021983,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7914.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7914.dra": "4cec7e9d6adf855dee56d9e67851c1d4b5656c1c7f34f55dd8f606bc2affcd05",
+          "7914.met": "4e7ed9a549f6e5d00b0fcffc4e4327f4cec154aa5e695bcda5dddf42f2716791",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "f4ce0074a26ee63d9812360153ab7cf7fdb994956689215c7c0be80d379c0cde"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "3ddfc4a92136d218049d0aaea2922415804bf9cf673502b9d762c5412cd41491",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "0690f6ae1b2ca2690bf7af895d62a5fda7607db7acfcf6b42196ee7d10921328",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7914,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.74189e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.21215656599815702,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7876.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+          "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "e49b4f1f4597c8966af6331e70013f5e24b86d7f3a907f3247e0c7a2b42fad5f"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "b84e46b0b3492605407bdeeec6f58e04884a2d35bb0b22160b192cac874cda83",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "873e1340d0031a8ead47d4ebf702c960be2e71f56459cf55856d6c79631dcfdf",
+          "swap.ok": "5efeb556dfd2efc96c07ac675a2942ca2bb4d2bfe95831494ed1fcfebc019e02",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7876,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 3.2279099999999997e-07,
+      "max_daily_volume_error_mm": 0.1131000000000002,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.2172159969995846,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7876.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+          "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "2fb0532f61fc28a0ae7ec9db2b7622518a7026829a2e007e352182410021b67c"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "1802b5284a52f28b795f0d9ed8457691c41f538c37a266e6335d6d6f430fe9cd",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "74bd300d43d346b4ffed4e3b06c0ad0452dd06afb98410517e063065f29652e5",
+          "swap.ok": "2974bdcd2ea807787e08be88038c5e165b50758dc22f4e955cd7cfdd9b585c24",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7876,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.02404e-07,
+      "max_daily_volume_error_mm": 0.5772999999999997,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.24407443100062665,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7939.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7939.dra": "5df140eab8f4d17b94ee2d748e306ef1a4876d3055fc2e50d586770282cdf09a",
+          "7939.met": "cbb3c4d6611a2a24e93e39839301b8aa5fe2b9a154ca9b9d486649209b28aa11",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "57ac04c4fb12f0f0529251dab5eb06721d35f7a1d1b6f196a0e5aeae9ec02ab2"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "c8177ca080aa78dc16fdf15c1d5bfbc7cecd9d9a0ddbed263c792f6e8c3b24a5",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "17119ae6dddcb784567ae402bc603505c9386c18fa362573d501f2a082c82359",
+          "swap.ok": "2974bdcd2ea807787e08be88038c5e165b50758dc22f4e955cd7cfdd9b585c24",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7939,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.95613e-07,
+      "max_daily_volume_error_mm": 0.06000000000000005,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.15024181700209738,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7939.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7939.dra": "5df140eab8f4d17b94ee2d748e306ef1a4876d3055fc2e50d586770282cdf09a",
+          "7939.met": "cbb3c4d6611a2a24e93e39839301b8aa5fe2b9a154ca9b9d486649209b28aa11",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "c9d36c79a836a45b919c66e20151cd2d12fb5902c826d49f4ce72127631fd1e7"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "47bb64b6e4ad40aa172e5f5f0589810112adb096732ee2d0ba39be9b740e44c2",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "2c38413e3ecf43e279b92086e847df49c4f8f87d061ad524882a9f13970fae07",
+          "swap.ok": "2974bdcd2ea807787e08be88038c5e165b50758dc22f4e955cd7cfdd9b585c24",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7939,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.924189999999999e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.260250993000227,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7915.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7915.dra": "bb1f6fbdbfbb174cb4b3786d2bf930daed4ab4d2eda59806669f8feb5864e428",
+          "7915.met": "4248376dd099ea59d69151d20b853610d24bed80e9aa7210e36afe47940d207e",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "09e98ff0dfec2737974645c3364e4faf904b6e472476ac74e9c6c00f788a7ef9"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "4c662f6d838981784af2029cfa085e2ee73c9b45aee11a97cd39121d6b763168",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "080f532b137d8ae53fbe899573fe912b2d3a957f28d512af6e009ec512dc3985",
+          "swap.ok": "2974bdcd2ea807787e08be88038c5e165b50758dc22f4e955cd7cfdd9b585c24",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7915,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 4.83483e-07,
+      "max_daily_volume_error_mm": 0.0046000000000003816,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.15969838999808417,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7915.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7915.dra": "bb1f6fbdbfbb174cb4b3786d2bf930daed4ab4d2eda59806669f8feb5864e428",
+          "7915.met": "4248376dd099ea59d69151d20b853610d24bed80e9aa7210e36afe47940d207e",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "92cc783fecbcfa4bad49e7cbc6035c02a5370dfef23ccdb5fccda4d6cd25c253"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a6526365f92a954f8c44755694eb49d1c299c3fe42c2f531356d5cca28aee482",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "7930a9682ba11a73d9a34eb42fe64c0e63c9cd41850f9e8f2781fcc56c6b68cb",
+          "swap.ok": "2974bdcd2ea807787e08be88038c5e165b50758dc22f4e955cd7cfdd9b585c24",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7915,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.43497e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.32827059799819835,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7931.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7931.dra": "ac6ff20078fdcd01881c28d0334aaabd4d7439dbf94453aa8b0312e02450e72a",
+          "7931.met": "a74ff9b02f6a2d44c23d53b3dd99d1e44beed5bf51866456ca718eb42f7b043b",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "cbd1c2798ae4397d61e5f816187572d3f338b47e3ae105c56c28065378d4e987"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "8cb00514fddfe603a7d5721a5032268f3d8b4470af8211553232b3bef8d93bf6",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "a7daf8af4618cff91f56623011fed2b46d46b47a9233964f871bb82ae1681fd8",
+          "swap.ok": "2974bdcd2ea807787e08be88038c5e165b50758dc22f4e955cd7cfdd9b585c24",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7931,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.01896e-07,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.19244031500056735,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7931.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7931.dra": "ac6ff20078fdcd01881c28d0334aaabd4d7439dbf94453aa8b0312e02450e72a",
+          "7931.met": "a74ff9b02f6a2d44c23d53b3dd99d1e44beed5bf51866456ca718eb42f7b043b",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "6361d4e5e497cab21c1392df0436c05c6d6c216a002aafbaa63d3f0b4e0d57d5"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "942669f9eef7b109b99f718744f4f985ea6fe0fbfb3c98ca03dc4cfaa52ca07f",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "65ac746a8657e000ac030da038b2632bb5a7bfbf7f99fa6f7e6d5c0966d33900",
+          "swap.ok": "2974bdcd2ea807787e08be88038c5e165b50758dc22f4e955cd7cfdd9b585c24",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7931,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.30645e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.19055945700165466,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7869.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7869.dra": "520a913d07eb0e346b99bda3aca0414356d3976578555c60604732ea4b7b057a",
+          "7869.met": "935743590c1845002143a41269a29ee7852c6c613ae8b4b2c51e7e2ba2e069b4",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "0b06e7dbea282ef0799ea8df263f35ab3ca832c8ed660fb2a7f16b27f914ad56"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a45319bb22fd8bf44d46c2e5f2b1c39b5e3f74b7a5c8db6cbbf00095df6e9e9f",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "4d79bbc581e6929764b48cc3d550337877abdfdc2ff276df5b4d2af6a38bbd56",
+          "swap.ok": "2974bdcd2ea807787e08be88038c5e165b50758dc22f4e955cd7cfdd9b585c24",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7869,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 4.67211e-07,
+      "max_daily_volume_error_mm": 0.20000000000000018,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.1545247180001752,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7869.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7869.dra": "520a913d07eb0e346b99bda3aca0414356d3976578555c60604732ea4b7b057a",
+          "7869.met": "935743590c1845002143a41269a29ee7852c6c613ae8b4b2c51e7e2ba2e069b4",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "fd78b7de794173ce98adafbbfdd4ea951a3bf655f4a44ab1790e422374b859a0"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "fd0dc819cde13c4e44aa6f91d4febb79902a768efad390194b81bf9822ba82be",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "52cfd65b2c9fe9df70a26638a10b0486f6b870497883c79f95ec68f975050701",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7869,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.39203e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.38180115099748946,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7912.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7912.dra": "44f4d01342559bac301f0f2a8913d9ddc70a42b0f572472c7f1913edad3be1f9",
+          "7912.met": "b9096b6454e49e21f47e34620d5ccfd551463f936184c713063d21d3ce9159e2",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "1b100e5c377e9015a57a62f847bfabbd187e90e264938f3804c9bd9bfc9b49d4"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "3d489b231e82e3af7e2ac1db4153b9c1c51a0c714e25b178da5b292a917bcacd",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "b4bf590f46368a0c008155bcbad649c97a982500891200d87480f7f37b62b7db",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7912,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.8505900000000002e-08,
+      "max_daily_volume_error_mm": 0.1192000000000002,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.22269365399915841,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7912.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7912.dra": "44f4d01342559bac301f0f2a8913d9ddc70a42b0f572472c7f1913edad3be1f9",
+          "7912.met": "b9096b6454e49e21f47e34620d5ccfd551463f936184c713063d21d3ce9159e2",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "a61bd3def7bb4ef99d0d05a17b3b3edec1592ecdea055cd05a514c591f3335ee"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "120e226f6fb3828115773afc28403f62d3ca05b76c44b2db16ad1cb2893c475e",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "0cede99c3a325cbf02b533c48dd4863e2fdc596817804ee5e6ea6e17bee22845",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7912,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.24469e-07,
+      "max_daily_volume_error_mm": 0.3432999999999997,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2766322969982866,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7940.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7940.dra": "ed04d096b3fec8d4e5ad8b039f39d45eda9baef574893439252e61b25837f1e8",
+          "7940.met": "a5fbe4a51d4637b3edae3ed62e144cec314d1b2fc1866aa9f923f146eec1743f",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "89dd8809bacb43571413ef6932374dd639a3e7e801da2da0d371e6cfbdaaafcf"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "6e6dca38f79003ccbd6f0c34572f151e763b650c8dd58b6fc88c24d6abd11ea0",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "246ad1a0b672703a472a86be41b833e61633144e5039601df63a133cce7ddcb4",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7940,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 4.551619999999999e-08,
+      "max_daily_volume_error_mm": 0.04999999999999982,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.20749758500096505,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7940.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7940.dra": "ed04d096b3fec8d4e5ad8b039f39d45eda9baef574893439252e61b25837f1e8",
+          "7940.met": "a5fbe4a51d4637b3edae3ed62e144cec314d1b2fc1866aa9f923f146eec1743f",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "bec9fce67d7d783dc35341eacf84f168c603f3fdd2ff601b08979eedbeca8e2f"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "31c72b09e0aa3b04e96278d4748d78d9518d30246a65f4442e94d994298920b5",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "91d527f54435b8fd20bb7980af4a0298f1fefc47d2cfb3b1e57542fb1a8246e3",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7940,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.05598e-09,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.22151961899726302,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7874.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7874.dra": "091b04ec44e8d279b1164da692c28e66d304ed4f3ef9a835d6face196b11b102",
+          "7874.met": "0ff540a4f2e8457fd6b7733c6e30f3364dc193ddeb98eb060bc2a99d694d286b",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "ca76e4f67afaba0230e0a48e6290b0b049398223b36676add44179844373abe1"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "8a78ebb54e49276573f4b0de11de21bbaf83966ff4702fc6a2eb3607fb77050e",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "23d9dec341f2e7c64c74bc91c29e2752edde28b33663c64319d56a4a78547767",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7874,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.13566e-07,
+      "max_daily_volume_error_mm": 0.1200000000000001,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.2830834500018682,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7874.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7874.dra": "091b04ec44e8d279b1164da692c28e66d304ed4f3ef9a835d6face196b11b102",
+          "7874.met": "0ff540a4f2e8457fd6b7733c6e30f3364dc193ddeb98eb060bc2a99d694d286b",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "f36491436c1345431cba3eb8a1a9d2554ec3a1b6462f38296db3d350a3a5ccaa"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "75f73b623ea85273bec62636dd6c70e14192027f9df2442a8d773d60053817ee",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "1525d1a2d2bc0a96bbba3c766d98f8517566cb82a10ee039e4208561c2dc078d",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7874,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.29595e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.3206744630006142,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7942.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7942.dra": "ac79f69ec51ce1052e285cb91f270ccf524fac4a04244b8bd6478d24a2094f52",
+          "7942.met": "df6e8ab8b65d40aea991b7301304cab1eac10f3415fae31aeca1de5598a10b5e",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "5c58dc3d73d2347061c7f3e6bbd3333a166d988839ec3fa1a530f18191c2f045"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "1f9b0838993c497ef634f1bd2c65cc3d4f763fe265119d09ed39af57c68c178f",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "8e627b79a539a0991ef81dc09a976e6be9e1370364f982cae71049b34efa3d00",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7942,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.22229e-07,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.2798033690014563,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7942.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7942.dra": "ac79f69ec51ce1052e285cb91f270ccf524fac4a04244b8bd6478d24a2094f52",
+          "7942.met": "df6e8ab8b65d40aea991b7301304cab1eac10f3415fae31aeca1de5598a10b5e",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "a3a39a993cc8dbdadc90ee1ac9a7f0ae117b5a973b27b3c789606ba2ff829cff"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "74715383c17a527d3f0bdc6d285f139000c09e040f3994b5625902b1df6ecc31",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "e9ccfa459e4d400b8b941f5325cae3be085b60d67af8ee3fa0e7a1171b940c86",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7942,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.3657099999999999e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2338197900025989,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7923.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7923.dra": "8164fae4c48284c3d545b1f24bec4d9f9baca56519f1beeafa4841330c5e0bf2",
+          "7923.met": "275c78c5b2d01d99a7eee1d0911d794ad2fb6df8bb4a50ed562b978a3521a602",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "a85c55de30cc6a8423cc84024022563e0239d18c103c2472a248b40af8090d4b"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "d0c0ea75afbe222a386e07c1e820390a87d5747add34ce7246071a891eb98537",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "98c1a2200e5d44f3feff1b68c727f32d835660deb5aab457a0d2e9d081e7b7f7",
+          "swap.ok": "40857f3840f3757792fe3be32237d22e25bccf0f80ca821340678a8e41b8953d",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7923,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.10058e-05,
+      "max_daily_volume_error_mm": 8.000000000000008e-07,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.22920455500207026,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7923.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7923.dra": "8164fae4c48284c3d545b1f24bec4d9f9baca56519f1beeafa4841330c5e0bf2",
+          "7923.met": "275c78c5b2d01d99a7eee1d0911d794ad2fb6df8bb4a50ed562b978a3521a602",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "158f88031edde4e17dbd5304e5607037c4b60f19b2c072cfea23f9d1a0c317ad"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "1957503a5159a4b5415105bf16132c90df4bc638cfeef6998278aebdc3c610bf",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "15bbab5836dc99bf6034a0ea894ae9a2e176fccb27cdeb9d21441e43e65ea89a",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7923,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 8.49823e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.27100204700036556,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7929.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+          "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "aa9b19969f070fb3f215b890a75680f38896f9fcdcc6c1d29a5528d0ad6ac7b8"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "e31abbadf9db299a6dff998a34aa51b89eda7688edb4803f80391e1fdda03619",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "5f9bdb31fbdd4d0a81646e9d71a69d05179f1ad84eda84e4bb8eb0ea097fa52e",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7929,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 4.78992e-07,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.1662699260014051,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7929.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+          "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "0c214952256ed28f0c5a5c8688c7864c01d80ed67f3560ce066f021348216314"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "2ef01043579c6806647df33d60ff1c6d0f0775ddbb7c971c4c51ed97a53a7604",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "f92ddfd3ae1b84dc30012a8b51b38d8cb5e9f66db967a81863e3e1a69f917b28",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7929,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 8.30153e-08,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.23082866099866806,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7933.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7933.dra": "61fcfa6e18681c6df7d2751d947792ee09f501011582a2d9af17ada4a71e5303",
+          "7933.met": "a2f735d48ceeca9de8952b2a96a111289475ce44faa180e01bc1a0087e7d6962",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "a2a8faa28df489fa45ed39446e1f8da9646ace73eb8670a2eecac62d7c1d06ee"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "0ef4543a10ca50b273a1f7d92e8ee7f1709608885f245ae3f68ec53627160f40",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "feea756dddd6d0037a1eecb2cb95931027b68b5c0522a9c046ff0c83518f5bda",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7933,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.26374e-06,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.16525774900219403,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7933.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7933.dra": "61fcfa6e18681c6df7d2751d947792ee09f501011582a2d9af17ada4a71e5303",
+          "7933.met": "a2f735d48ceeca9de8952b2a96a111289475ce44faa180e01bc1a0087e7d6962",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "e34b9be96c5f5bb16c1f3dd9e9ea38393becdfee0d9e809e8e61d8d8a5573b47"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "75d8635e25e7e606c06be0a1e706f9de2f9c6ed7781f7c3cd1fbe83cfb5bb779",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "8a113b5ae17fee380e6abe2727fd6ff69a6c65311f4996a09b51c4d39a047c5a",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7933,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.65482e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.29368691299896454,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7930.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7930.dra": "1c2fd9aa64068f4c17d8e06811049efaa1998d52a4d74a7f605aa62b4e0e009b",
+          "7930.met": "ca2dc3622c77a9178213fc6149861b40cba4a5d7524c81d3d2bd176f173ebf17",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "7809834345f6e4a09bb96f09d933e637a3cc52432ed966df6f9dae39b5f4b3c2"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a1c377938ea4aef05176b43bac60f5fca6216f16cb4e01453cc4898fa5d06f73",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "454d14cdd03e14a30818b65cfd924a098350658fc1cb7e95cc17d108435e39b0",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7930,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.3362899999999999e-07,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.16200288199979695,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7930.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7930.dra": "1c2fd9aa64068f4c17d8e06811049efaa1998d52a4d74a7f605aa62b4e0e009b",
+          "7930.met": "ca2dc3622c77a9178213fc6149861b40cba4a5d7524c81d3d2bd176f173ebf17",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "a3954ab25918a42ba740f6d7854ca5b74f191cb9c1bfc2c80424cf2af8a8b9d7"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "dcc77c4a61f0b7947447c59e19a72042a894e76c39e07b6d2ddf22ffe8e44ac7",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "7c8db6fb527aa00469c46cf508c451d98240d8e7402a698f662eae9d81407613",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7930,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.71793e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.21595228600199334,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7917.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7917.dra": "db31e7c8020c47d20f398d75dcf380c998b344098ed5e2b93d8768db23bf7d49",
+          "7917.met": "dd35031317cbfb10eafacb900f21a228ea5b9869886770611b55264f64990774",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "f755f78af7de4bd42c24aea7370be553b6700b3f2528b3fb8db015744ead93b6"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a7210d5d662ca761f4f0fa434254a2eec15d305553d0d585c9f652249f8f9012",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "98ffcdaebb3d695dfdae06bc726486f76ab5ab1c84bd33f885efaedf2e0439f0",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7917,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.27494e-07,
+      "max_daily_volume_error_mm": 0.0039000000000002366,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.1720931730014854,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7917.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7917.dra": "db31e7c8020c47d20f398d75dcf380c998b344098ed5e2b93d8768db23bf7d49",
+          "7917.met": "dd35031317cbfb10eafacb900f21a228ea5b9869886770611b55264f64990774",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "b4d3c1c6b9eec1a4a97f5cf192101f202a5695104a8154bbb6cdc06696c547b2"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "2c0d08aa006cd1c778536baa4733f0e3720e45283bf98139cfbe8d8fce33783d",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "98e397bb059754ce6e3a0be8c14d00c0ccbaceb4278268ed2ee30d35e04851cf",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7917,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.20882e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.18670720199952484,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7873.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7873.dra": "44b8a50b19382c48bd060cb538612a4e6f87bf8cff68854edc94200afc9f6ea8",
+          "7873.met": "c2736b31d080f46302500db383a46d91a5607e57cd00c955d5b95b0495c54c00",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "6d8ad60c533c732c9bba18710e2531d5a2e73fdf41b8ac0c00336983008cf4b5"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "cb4cc1b811da8788592323b1bfc44281bffda33514675c213e6ad1aefc7fcfc9",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "feae6f5d90dfff92b7eb6e93f8733c6bd18410039339081a00fa4eb36015493f",
+          "swap.ok": "aee205107e577cf3ad2ad0c5bdacabb2793f5e6908d6bec45fb1fa3486580c88",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7873,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.79474e-07,
+      "max_daily_volume_error_mm": 0.20000000000000018,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.17503373699946678,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7873.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7873.dra": "44b8a50b19382c48bd060cb538612a4e6f87bf8cff68854edc94200afc9f6ea8",
+          "7873.met": "c2736b31d080f46302500db383a46d91a5607e57cd00c955d5b95b0495c54c00",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "fb5c5635aaeb006c07b03efb1360ebcbb23ebdd4f01751235fa792fa36825f9c"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "14055c47f72491069981a07a10b6a8e9de5888819eb9c7efb1461ae0a233e4ea",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "2127620c657903774e86cd8e909cf941fbaba2ea12f56af0f65763ca323b8d6b",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7873,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.5034999999999996e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.21628598299867008,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7945.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7945.dra": "b32c8536013d78eae4a3bdbdaabf6b72bb220bf755d9733e8e3c6f4eecd229b5",
+          "7945.met": "e97c541298d7fc035605a720438688946fa8174f008230fad143b22c2feac1ee",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "1b83d6cfc17eb41d9f2f155071fe2fe1011d94912e552d1e9318ff5734f4eb9a"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "1d0f9d994203ec991aada8b770731b2361099135ce8183059447508242ce3fa2",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "fb9b5d190f58ee32151d4a906c3a9e3d0859ecb97a2ae6b1460157fd1c3116e6",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7945,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 9.74532e-08,
+      "max_daily_volume_error_mm": 0.04999999999999982,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.19984374300111085,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7945.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7945.dra": "b32c8536013d78eae4a3bdbdaabf6b72bb220bf755d9733e8e3c6f4eecd229b5",
+          "7945.met": "e97c541298d7fc035605a720438688946fa8174f008230fad143b22c2feac1ee",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "b0a79375d4014126ee5a684a65bb830604c4f8d2392e1d18fb5a6e662fb37003"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "ecefd3541b4bbafdbea99896bcadb72a62336741300159a4d9595fed09c82884",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "9f724048508251170f809d01cf528821021907d606ac5f95a1ea2a4f7bd86261",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7945,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 9.085559999999999e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.215467574998911,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7928.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7928.dra": "2bffa00ac5c03267cf946197984ea0bc6ab031d9aa5d69dfe94a5890014db43a",
+          "7928.met": "6df80c4eb096335182b1d095888453e79b0914ab335b06b6eaefbbca61878d25",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "5e4080b0b52c9f88c431534c1fcc978f9fa942b2df40718e3abc2543a62b5ae7"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "92570ba87fcfa2455d80d80c753bb1a3ac851e33e06e9a8513560ad6090522c7",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "b69c3958ed44788c7e7e6509aa07c2a39adbbc003f08acfd9ca3e8d81c69900c",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7928,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 6.18226e-07,
+      "max_daily_volume_error_mm": 0.1499999999999999,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.1632779940009641,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7928.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7928.dra": "2bffa00ac5c03267cf946197984ea0bc6ab031d9aa5d69dfe94a5890014db43a",
+          "7928.met": "6df80c4eb096335182b1d095888453e79b0914ab335b06b6eaefbbca61878d25",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "25142cf5d510e4b2c5a59b76d51bfda77d8739d68dcce5d8d07d3e17ee4b21b8"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "ee3df36ccfc25630d9f07c306343dbad1f2c6cf553db2813ca1c053024ee4c43",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "887d2395ceeb1f18e542cc08edc6c8e5b701bf06161dfd5c4d2897ba9b51ba8c",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7928,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.23016e-08,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.17281754000214278,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7941.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7941.dra": "af5713b86660c9e4853ac9fcc5b66f01608f10da675fc8b4c5564715b9c6111e",
+          "7941.met": "58e314661d692ff3091d109fd4637193c3885616a36318176992e0229afc3caf",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "55f921110d298d9ba159aa549b534c074c28faff49feb8d06d1bcd811c1355cf"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "f7e37d0569b1d32d85bd13024bbf97a84567b272f362fcb0eab5b0ebdf0e4260",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "5e96a4b2dd9b0b898893cf5348716678c42f70ae8bb4b95f4f15fbcaede2a849",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7941,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 6.27158e-08,
+      "max_daily_volume_error_mm": 0.06000000000000005,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.15115620200231206,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7941.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7941.dra": "af5713b86660c9e4853ac9fcc5b66f01608f10da675fc8b4c5564715b9c6111e",
+          "7941.met": "58e314661d692ff3091d109fd4637193c3885616a36318176992e0229afc3caf",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "b5928aab78de29c592785b4496723b7c6421398092a3a0d5c3c1b1c429ec14c5"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "2334d6c86dc79b6f8daa95ba8ee7547fa7369a163cc1271fa9bb49a8d172014c",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "385d665051630b1aff93887c187c8d3618083e34e9529169e05f39485604b73d",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7941,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.19439e-09,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.17755401199974585,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7870.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+          "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "5a7647cf85b702076e5af9a2bbf7cf09cd7a4401ef831346553759a45872156c"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "ab37bc05120f5124ca92ac25ce0484dae76c94de4594d9801a362cf0bbef0024",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "c1ee99f05535aaf9c2160d80161c8cd6b611aebdc51dfb5b2b478faccba72c87",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7870,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.9081e-07,
+      "max_daily_volume_error_mm": 0.17200000000000015,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.16225982399919303,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7870.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+          "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "262567cd9a5f971880a98718e8610a496355b8099c04f09fe173fe558c1fd8d3"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "52800a7aa0d253fa5c67c79d9c449ec4bdbda4071146496bbe57c04667a56b26",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "af149fc61ed0c25b88e7748ac880f4b33832702f86aa2d7862eb009201aeb3a8",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7870,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 3.0776e-08,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.18725776099745417,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7925.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7925.dra": "83d178c0a04d608697654baf62f438f795a8cdfeb150d543e0070bc5385aacdf",
+          "7925.met": "f57c7161ba303de34bb433f79d2621982d848de89b2fc71274cee42499fa49b9",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "2bd29d3b58a5ca1e61c278241fc7feff2862e0710b8867ed8836aab785ba05d5"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "1710792bb5a90dd610e00f444b68a38ae00e864f8a798e8056e183ab7cd291d9",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "d88903a6d714276492ba67ce0cf70f9883685afa823034d3c7bf93f0f7f18123",
+          "swap.ok": "b0f7680c226b34b97c081653865252d0691338688befe6a1b396c2df9e4ca192",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7925,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.7671e-07,
+      "max_daily_volume_error_mm": 0.1200000000000001,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.2748779520006792,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7925.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7925.dra": "83d178c0a04d608697654baf62f438f795a8cdfeb150d543e0070bc5385aacdf",
+          "7925.met": "f57c7161ba303de34bb433f79d2621982d848de89b2fc71274cee42499fa49b9",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "26a820085b9e52b8a6f2963981e5a3418475052c1ed78caeaa7a28e9b5f81563"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "e036d6ef169f79557887103e694d3624f971907986f4a7e9fd9ea7656f2f17bc",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "9615e78ad099cb4987411d8e1a7280a9b8c504540a2c1324f5007148c4955d6e",
+          "swap.ok": "1749fd0cba3d1c226f53b9c4e54638cdeef99bd4b067d8caee9d676348f94f0a",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7925,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.38432e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.6486967040000309,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7944.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7944.dra": "6c7c18652d98d4bf8fdce681101787f8b7cef4e538edef599beab1766a04cd94",
+          "7944.met": "50223c1a62e81d7b773da67a2396db36521a0a353c0f7ae8075b41f834db8db1",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "61cce3bd95ee77fbbfe0f71bfb4041b6476851fb15673c383598b5dc84d0c526"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "84e7a7d35e9838ab788e720555daadef62c27d9b75528bb588b564b95e1f9487",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "600b95118c1e253315ef822ab26f72f6e74f11258118d6ac7397ea15b8a3c21d",
+          "swap.ok": "1749fd0cba3d1c226f53b9c4e54638cdeef99bd4b067d8caee9d676348f94f0a",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7944,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.67184e-07,
+      "max_daily_volume_error_mm": 0.04999999999999982,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.9611434869984805,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7944.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7944.dra": "6c7c18652d98d4bf8fdce681101787f8b7cef4e538edef599beab1766a04cd94",
+          "7944.met": "50223c1a62e81d7b773da67a2396db36521a0a353c0f7ae8075b41f834db8db1",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "635efa126f4395ca7ccd835b5637d5065b17109ad53966d900eac1b2f7e71ff0"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a268c6b5af9a1d5f41838e4bf04ea5ba55e7f2ffc5b4bf14a521e4ad6a5a5400",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "9f88787712a8cc8a87f160f623868e7294c5e702d9d32de57a56ce8e80849743",
+          "swap.ok": "aecefde4c473b28a27b5ac4d591519ef169a28faf73c327a5317078a5356999d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7944,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.53767e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.7248554009966028,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7921.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7921.dra": "e3c7ec1bff30f0b0f9ad8ce93e1959d174ce471e9ed2eef3632cb66a7ff10d66",
+          "7921.met": "55122106b646abc120316b85e0241d596de1092cf59176fe5479da305d1f0273",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "96007a26952e8c505e93606eb925502751ad2c49ff7adc496685d4a317fedbfc"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "7c21030aca13fac92cef2188e0be27521ebc68c25929456c14edea717198c185",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "ec64a54aca544f0e22a5c2d1d98c0a7f10f922bf51a8a815dc584bfec3bf1a5b",
+          "swap.ok": "b1c606691d8eca9b1c2e10bd77dceab7e4cfd7352c9758c5a0c2cbe07e1c6bb1",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7921,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.16793e-05,
+      "max_daily_volume_error_mm": 8.000000000000008e-07,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.6624771839997265,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7921.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7921.dra": "e3c7ec1bff30f0b0f9ad8ce93e1959d174ce471e9ed2eef3632cb66a7ff10d66",
+          "7921.met": "55122106b646abc120316b85e0241d596de1092cf59176fe5479da305d1f0273",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "5716e0fd828dc8800891be366873045da8b4cb4c91d8b75c26a32c1d287ed628"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "5d5d7717dcaadf5cb33117e65ae201b42bd401946f7ce17b2aedcbada75ee491",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "fe6e37324b3be4682286ab53ac9f08b956e7ee2b27c6a6f95929cc637aecb7b0",
+          "swap.ok": "aecefde4c473b28a27b5ac4d591519ef169a28faf73c327a5317078a5356999d",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7921,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.23606e-06,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.7463514379996923,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7867.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7867.dra": "5dcc94252b78c92662b6b4f04779d60acea1628785e7812e5a979a7fb513c9cf",
+          "7867.met": "78e339d53dc397de179a6a1684dd84e46c0c0e5b1513c916b514f960a4933fc1",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "ece288a58c3cb790511432ccaf349446f2a635935dffe3da2d6a38446dd22c11"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "0547959c462881abea350252e726146c4f4460773261eaea1ecee44ae0795305",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "7275fc46d61ba754a011db68e3241abb3f1722bde408e3564826fd76a380cbab",
+          "swap.ok": "b1c606691d8eca9b1c2e10bd77dceab7e4cfd7352c9758c5a0c2cbe07e1c6bb1",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7867,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.92684e-07,
+      "max_daily_volume_error_mm": 0.20000000000000018,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.582815601999755,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7867.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7867.dra": "5dcc94252b78c92662b6b4f04779d60acea1628785e7812e5a979a7fb513c9cf",
+          "7867.met": "78e339d53dc397de179a6a1684dd84e46c0c0e5b1513c916b514f960a4933fc1",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "1b32b2563f963b49dd9ec75f6e83b78ee887e971a6c3159b06e9d07b3933aed7"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "b054af0541cec63c8e7c43a63ead4a9a5e2dcf35fabc1d9f542b75b4485670e2",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "31d875df5bab23ae1d35bfcbaec7483212904f21bbfffa50012e3c8e95a8395b",
+          "swap.ok": "aecefde4c473b28a27b5ac4d591519ef169a28faf73c327a5317078a5356999d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7867,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 4.2842199999999997e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 1.186525470999186,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7919.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7919.dra": "8fac053a61b2df349cf1b5912ff1dbcccf7a9fc35fb3aa904cf91919957ea6f0",
+          "7919.met": "8b58c727779c944bb52dac0d46dcc17f41671bb7475a070fcfd9bd7ec2188311",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "c90011e28244d2dee515967817d6da3b14f9dbfcf340a1319c0fe27d7872313d"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "3566d8a89c3c4bd04643e389a4e8f94670d4248dc4bc93e001608ad18f893a28",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "144e28ad4b30810d290af88d4f4076a507e1c62156985703c396b229000ba7a7",
+          "swap.ok": "aecefde4c473b28a27b5ac4d591519ef169a28faf73c327a5317078a5356999d",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7919,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.05099e-06,
+      "max_daily_volume_error_mm": 0.009300000000000086,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.5383445890001894,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7919.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7919.dra": "8fac053a61b2df349cf1b5912ff1dbcccf7a9fc35fb3aa904cf91919957ea6f0",
+          "7919.met": "8b58c727779c944bb52dac0d46dcc17f41671bb7475a070fcfd9bd7ec2188311",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "98235952824d55a5bd74e8b3440767f25816f4594553565c435b3198e4535edd"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "7b8b4cf352f64682bec3bb0b791bc4f88dd4b10f28f00c8b017b869c976c2646",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "702faab4c495dbf99c5654a3d0439b995caa4d3a5501a0f55e228345f58a7435",
+          "swap.ok": "3427381047b64470c2b2c25cd52a39b53ad71c233ba5655177dfedd2fc67528a",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7919,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 8.8037e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.47801913100192905,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7943.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7943.dra": "833c92c104b681aed434f78f808d1d2cd0178f8fb2fa35776e8c0ea9ca4e0d71",
+          "7943.met": "c7b69217d6e17500ae97077c12b54bf45412813b44e90529d10bd304b5b4bb51",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "a34049b562e1a3d874d9041a95e389f90658acb9743c5986a22cf02e04a6a6f3"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "91f4cb16c5a55da7acc9f7578e2abd3762d9ecc3c76395f07b04dcdfe5f9ccaf",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "6f1a8d9b331cf5024dc1545b5d5c0578581ba885534d445925d1494572bc9c57",
+          "swap.ok": "3427381047b64470c2b2c25cd52a39b53ad71c233ba5655177dfedd2fc67528a",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7943,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.41771e-07,
+      "max_daily_volume_error_mm": 0.06000000000000005,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.2547768199983693,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7943.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7943.dra": "833c92c104b681aed434f78f808d1d2cd0178f8fb2fa35776e8c0ea9ca4e0d71",
+          "7943.met": "c7b69217d6e17500ae97077c12b54bf45412813b44e90529d10bd304b5b4bb51",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "9ba845c7ec415fff8fdef476dbcffc34a221f6fd6df1c2e3df223f47f67cc3ea"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "d7cd3766155f11b016f2ff587d5b3c58c37a7b896b58f3f843490ff21a1a1ffd",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "d9cab670400a3fc022b1c4e4acd04761148f04a374c311e2f3715a46d67c252e",
+          "swap.ok": "c82423d1886f320ce6821ae9935ef2f4743361af339b57a12b94846315c37741",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7943,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.8660000000000004e-08,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.31986354000036954,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7920.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7920.dra": "910694130c9993c53f3648104777966e430f097eab1de6588f5455d5b1103012",
+          "7920.met": "ca3f3bb1e36abf5a7d1b79564d7c4398d2190b48958c5b6a74988d2764696290",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "16b72e73ab4e24d3631856ed399aa6ace2517bfd8590e0a2a2518f7fc40289cc"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "0c06ba69bf93801365bc7c79aa5f5a8eb2edf4db87fd3229deb04a44075eb6aa",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "ea7e28bc8e0101f3eeece6eb957e66a6579ad9219d63c306677a8280aec794d3",
+          "swap.ok": "3427381047b64470c2b2c25cd52a39b53ad71c233ba5655177dfedd2fc67528a",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7920,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.13957e-05,
+      "max_daily_volume_error_mm": 0.007600000000000051,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.255925944999035,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7920.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7920.dra": "910694130c9993c53f3648104777966e430f097eab1de6588f5455d5b1103012",
+          "7920.met": "ca3f3bb1e36abf5a7d1b79564d7c4398d2190b48958c5b6a74988d2764696290",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "9d51b345802956577b10f72139b6d9a82d8100551fa543933b3b06503c674219"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "de0a572677eadaaeb16d043376b1f5a403b7bc1571c0c0bc68ec83cf28fc30c1",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "424d2d9b5835eaf90c02b6cbea280481bdac846fc61570b5424eba3a8a28e056",
+          "swap.ok": "c82423d1886f320ce6821ae9935ef2f4743361af339b57a12b94846315c37741",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7920,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.07195e-06,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.3080338030013081,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7936.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7936.dra": "01fc9dc11f903310988b6d254a986cfac0310a7b688a2ba075e68d42114cc603",
+          "7936.met": "dc47748515ac0df470390c6276bba67975df56a9f973d53b9062160b02399ad3",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "69d0641220c2bfde0a7d14bfc7684b18309402fc3dfaa2337932d3d57787d190"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "68c87d174f3fb3d77b9a6ba7a7685e37b43c5eb220466f78a515de8139c4cbd1",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "a7ae365e8af0a620b0a93d7eea8d9558f3098867a153630a7048d22115eb9d3d",
+          "swap.ok": "3427381047b64470c2b2c25cd52a39b53ad71c233ba5655177dfedd2fc67528a",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7936,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.49251e-07,
+      "max_daily_volume_error_mm": 0.04999999999999982,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.19377834699844243,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7936.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7936.dra": "01fc9dc11f903310988b6d254a986cfac0310a7b688a2ba075e68d42114cc603",
+          "7936.met": "dc47748515ac0df470390c6276bba67975df56a9f973d53b9062160b02399ad3",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "f15b5b3bb14c157a5b6ae3649a0fc96b1a756b099b287add9dd212462ea3f1b4"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "749a80fbc70684315e3c84f36f8d9e82b9a80b82187d8960a1ad32a8bd2260c6",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "136610e818c8caf94e35f00c9c4cac7ba06f9c105195ba15907ca8c7bc453f9e",
+          "swap.ok": "c82423d1886f320ce6821ae9935ef2f4743361af339b57a12b94846315c37741",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7936,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 4.26167e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2601221719996829,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7875.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7875.dra": "df93e82f8a18ad1e7d393886bf21ba02c3f4b7f460638b59b27b1220e331c9c6",
+          "7875.met": "0409522a532e0e875767b17a6736589c0a27fa2dbcb0923707f283345df82f07",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "8664e481f26bb8d8dbb61436e177300fa9658970d4b96d53685b280bf85fbe87"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "682d4a5602b572da4e4c97fb3d21b322bd39f23fbc046813516a36e95c9ed058",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "6baa2853da194a9712f93366adb8cf335cf87315b5999fd029d04860c22d946b",
+          "swap.ok": "c82423d1886f320ce6821ae9935ef2f4743361af339b57a12b94846315c37741",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7875,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.613959999999999e-07,
+      "max_daily_volume_error_mm": 0.18270000000000008,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.167773818000569,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7875.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7875.dra": "df93e82f8a18ad1e7d393886bf21ba02c3f4b7f460638b59b27b1220e331c9c6",
+          "7875.met": "0409522a532e0e875767b17a6736589c0a27fa2dbcb0923707f283345df82f07",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "ac09c0442bc0a7d6df2babd1353eb7ba5c1f6e4110e6039778b35deacc15fcb3"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "f112c1fa77b96fb1f0c85955df26ba52b049a0c0af09eb2712543964dc8857d1",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "50326a8dba906cb7d6449280d3b186f811accb9d04a3b148dcdc81c7e8956d4d",
+          "swap.ok": "c82423d1886f320ce6821ae9935ef2f4743361af339b57a12b94846315c37741",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7875,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 3.3744299999999996e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2753861230012262,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7935.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7935.dra": "26906c720eda471e2e18a2d653b680c94ad80244ddbb8d96af8e99fecd7e8eb2",
+          "7935.met": "3298835a92ac68079ae830f13b473e452f533046bdd26e24dcae4401b8f0a2da",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "1aa2bd0dedc3fbf5f7f979b70120def527f6b24fb74253825318c50c2b05776a"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "1fe3a9d84e8575a8666056aae2c3fa90e7bad823e410c5e0b73c17b509413607",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "22f08e234e9de9b410450f2120a1c47e5884f67adacb653767d7cef2934ece19",
+          "swap.ok": "c82423d1886f320ce6821ae9935ef2f4743361af339b57a12b94846315c37741",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7935,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.5659499999999998e-07,
+      "max_daily_volume_error_mm": 0.06000000000000005,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.32071390000055544,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7935.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7935.dra": "26906c720eda471e2e18a2d653b680c94ad80244ddbb8d96af8e99fecd7e8eb2",
+          "7935.met": "3298835a92ac68079ae830f13b473e452f533046bdd26e24dcae4401b8f0a2da",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "2d603295012e28cdcc14c0010cb02d35bb9dee619725062b415619411e82e294"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "9c92921649f3f40c634348be3a33971465d1adcc48fe4cc7efbfacac27539aec",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "2c932834e0dce3586c33f5e4391ddad638c09704c186624dd0f5f694778945d3",
+          "swap.ok": "1a0e1b3fd61a156b555d3515515d1100d87ebe5b646a75cb694bba02cb4d3e41",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7935,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.00672e-06,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.23779568999816547,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7868.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7868.dra": "224496a728516104cf27ae2aa87a62d8cc6ee223bde06a21813d11c191226483",
+          "7868.met": "054fc30f8f11e9ffa7148814f6d1d4a306f03938e423b1351e3f6f03513ca25c",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "f18535922ecaccd4bea59599d8eb315d9a3eaeb8952539b68b3a9306462ea34a"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "331311dc691e944582d689f0c37d4ba3533ee691a5eac5b73d2eab6f460da410",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "12b9fce24965b8fd0570b5b174cb7b27570e5e56aeba4a51ceae99f84031f0ea",
+          "swap.ok": "c82423d1886f320ce6821ae9935ef2f4743361af339b57a12b94846315c37741",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7868,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.21185e-07,
+      "max_daily_volume_error_mm": 0.20000000000000018,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.28200251499947626,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7868.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7868.dra": "224496a728516104cf27ae2aa87a62d8cc6ee223bde06a21813d11c191226483",
+          "7868.met": "054fc30f8f11e9ffa7148814f6d1d4a306f03938e423b1351e3f6f03513ca25c",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "097e66ea4fb05a84e0cacc90f8495fdb3c48ba57f6b15a17fdf38d0633fddee4"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a9c46235f825a0b791a4fe541f30217858241543ffdaa69be810fadc26dd18a5",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "54c02a47319cf5d9816ab03fa7d22243ec82158fbcaf958055de26313014b6d9",
+          "swap.ok": "1a0e1b3fd61a156b555d3515515d1100d87ebe5b646a75cb694bba02cb4d3e41",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7868,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 3.05479e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2582874330000777,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7937.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7937.dra": "46fec2df59b48f20406e803eb4a9cbdc3ca0c516cfaefac59d0e36b89c0dc580",
+          "7937.met": "62ec1296e3195aef2cd3fb51f3d4db3ce404181b174b98240689c8f305cd640c",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "4afbda22901149c70e7ddd245b13d03aec08a8d1c568bcc8608853f82e67adaa"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "ec03874cec5c058b5587881e1bc8a107821427492712a498c7bcf8cd6a533541",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "4aa1746d3af71dc30753d4527254f06729b700356e789522c2167b3ec266a80e",
+          "swap.ok": "c82423d1886f320ce6821ae9935ef2f4743361af339b57a12b94846315c37741",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7937,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.04621e-07,
+      "max_daily_volume_error_mm": 0.06000000000000005,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.2685857169999508,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7937.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7937.dra": "46fec2df59b48f20406e803eb4a9cbdc3ca0c516cfaefac59d0e36b89c0dc580",
+          "7937.met": "62ec1296e3195aef2cd3fb51f3d4db3ce404181b174b98240689c8f305cd640c",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "4b15f1a68d0ccd79e09fc9f4cd98572898a888a6e794eed73483b0667d818b84"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "37d171d3018f7e4c42b579711688f753a23faaa5bf9c56b4ee6586730b87f31b",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "a0e6300e363d3ac04d7da2bd07b33ad095f789c9d2861db29abe2673090cabb9",
+          "swap.ok": "1a0e1b3fd61a156b555d3515515d1100d87ebe5b646a75cb694bba02cb4d3e41",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7937,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.05209e-06,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.4355578520007839,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7938.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7938.dra": "4c2d0dd7d95005ec5102a9dab9449db0803d3c6dbd20385a4fcc3fbc25649b0a",
+          "7938.met": "96cb6934b0a488ce8f7457c298c608a43e29a70c04528263f5a6b6d4b22cd78a",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "04c4c17d9f0cdca20e56a32acbc7553f44ad74ecf1bdf12173e1b6c58f57fdb9"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "f7999e9cdcd6a7365ebf5aecf3c3ed1233aefad710c6303476f690e3f45769af",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "5695e9fabbf56b35cfdaa2763377a1105365ba79d90b52132094520ca4dbeb59",
+          "swap.ok": "1a0e1b3fd61a156b555d3515515d1100d87ebe5b646a75cb694bba02cb4d3e41",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7938,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.5879700000000002e-07,
+      "max_daily_volume_error_mm": 0.06000000000000005,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.3240986359996896,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7938.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7938.dra": "4c2d0dd7d95005ec5102a9dab9449db0803d3c6dbd20385a4fcc3fbc25649b0a",
+          "7938.met": "96cb6934b0a488ce8f7457c298c608a43e29a70c04528263f5a6b6d4b22cd78a",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "a4ccc04908588dd54d1f4a998946aafa6d51298e22116dc27b095b862adedeae"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "938a3810a0ee5bf89f86f856b022c653c25dbf70eed29ab7f129b39c74f5bc3c",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "9bbee6e55fbb0c00fff26b9cdd33fe50b0c75a08550e7c9798ea6fec4249facc",
+          "swap.ok": "594111e7f5b0cdeba7dbe6ab2583d1253ec8282b301b1bbf5819be25f164e5d6",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7938,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.4997299999999998e-06,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.5307929750015319,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7911.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7911.dra": "7879d896c1cac3f6f68267c959077800082fb49bd28e0d4de02ae40648cedc56",
+          "7911.met": "64f9518400d2e3cbfb0b4ba3b17108953811a46fc80f5414ec72bfdbc78dfa4f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "3304b81738f429a1f5147166ea1cdd9e02a5aca38cbbb22798bf08a834413e9e"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "2617d7a6da632e5ec6ba09ef61596cf63102a96c480cf9492580459a1e09dbf1",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "ed941aabaac43e05242ed4a9fe3d29285f8087b542a43a4d99dd0ddb667e8247",
+          "swap.ok": "594111e7f5b0cdeba7dbe6ab2583d1253ec8282b301b1bbf5819be25f164e5d6",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7911,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.55361e-07,
+      "max_daily_volume_error_mm": 0.1200000000000001,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.17824244599978556,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7911.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7911.dra": "7879d896c1cac3f6f68267c959077800082fb49bd28e0d4de02ae40648cedc56",
+          "7911.met": "64f9518400d2e3cbfb0b4ba3b17108953811a46fc80f5414ec72bfdbc78dfa4f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "d660b3385bdd9fe1a8ef102cbd53e826e70856fd799504a8494320a2626e63b9"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "2a36070545c4628dd4e9601059aaf384d6269a3c512ef69270b09e160aeefda8",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "8af7713b8d3807feaafc7fbe8987918c8bf2609b908e50b43cd6d68906af34e8",
+          "swap.ok": "594111e7f5b0cdeba7dbe6ab2583d1253ec8282b301b1bbf5819be25f164e5d6",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7911,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.0433e-06,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.6392667670006631,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7910.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7910.dra": "a4eb82b77883c82c8494ea5ece1df8e117f87f909eb98a7cb87ad59e629dc307",
+          "7910.met": "34cad3d16035eed31f4ab48e0acae4da179e6892d3bf26e90efedcb7eb354ff3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "e08f8656b989c539e9ecd5e1001d7ae0ece39c398aa1dae16f9da61c9c46074d"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "bf0e995de841dc750545924a48a3a270ad6f33de4e7463761210d9f0db4cde7f",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "900873febfd31c6466990475186ab2c4a804d8c1e4d7fd04f8de520eeebef856",
+          "swap.ok": "594111e7f5b0cdeba7dbe6ab2583d1253ec8282b301b1bbf5819be25f164e5d6",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7910,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 6.897660000000001e-07,
+      "max_daily_volume_error_mm": 0.06510000000000016,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.5865430970006855,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7910.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7910.dra": "a4eb82b77883c82c8494ea5ece1df8e117f87f909eb98a7cb87ad59e629dc307",
+          "7910.met": "34cad3d16035eed31f4ab48e0acae4da179e6892d3bf26e90efedcb7eb354ff3",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "ee2b57524373c4b83341a7c26b5494363faefe3741d33e6ae9b1c084efa067a5"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "4fdb41a76b35f9565aa437549a4dd74a3f73dbd6649ba71414b2a15c3b02f495",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "35e9ee8173ac9af95ad62a94109f51f0052e2e7d7d652eb9c5680c087bea848a",
+          "swap.ok": "026e5f613d345eb5a7c54370db55eb596a7ac5ed2379d048a7287ad6778b3257",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7910,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.51009e-07,
+      "max_daily_volume_error_mm": 1.0725,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.5596721450019686,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7872.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7872.dra": "45a88f3e001299ffd5da824cbec701fd62d80bbd225a8dcc5c21c5ed0df9ff3c",
+          "7872.met": "8dddc4447f256d13c115cfb670541f0a88c9900f194bb4c9802b7867be31c626",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "ba266e74af5f65bf597a736d5fe0ce82e5b677c79f271303e0eb3a1910190efd"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "677b16797fbbd04a3cf65623a86651a9fc13c7ae33ce4a00952ca7a015d16e2c",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "d16be2ea166ddf2543237f60b950451ecef72677abd5d207baec85c89faac168",
+          "swap.ok": "594111e7f5b0cdeba7dbe6ab2583d1253ec8282b301b1bbf5819be25f164e5d6",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7872,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.7909799999999998e-07,
+      "max_daily_volume_error_mm": 0.20000000000000018,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.3569887009980448,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7872.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7872.dra": "45a88f3e001299ffd5da824cbec701fd62d80bbd225a8dcc5c21c5ed0df9ff3c",
+          "7872.met": "8dddc4447f256d13c115cfb670541f0a88c9900f194bb4c9802b7867be31c626",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "87d1dfe0f1341ff806ceb79bfef9100d03165c1a338f6eac6d5e3a42899bb58a"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a78d13a950fbe008cfec60c8d7f68761d21f8beace683b98235eeeaa8120e550",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "52f5f63c2687a15fc2d585724c0878eba7252a1c2f194c1ee0aa0e52714b106b",
+          "swap.ok": "026e5f613d345eb5a7c54370db55eb596a7ac5ed2379d048a7287ad6778b3257",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7872,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 9.78444e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.610307296999963,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7926.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7926.dra": "2d50ef62b86f32940193a2eee30f2b220c7c240a63588f4578b12c120d0cd889",
+          "7926.met": "9a2db44f2c2c1dcfe1df95e066275fd47f6d7bdde5ce40f212660ae927a4d8d7",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "12e0f344a37e7e9b22886c6cea334abe293a6172ab85008dcf988282415812ae"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "c1d727e3788c484bf84b1ddb7ef21e7f9f102b67e996d876d8292444d9ff55dd",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "162c90d2d2b8eb958adbea3f3e24be1835196c7022e7c6c0d9c32c92c61f7fd0",
+          "swap.ok": "594111e7f5b0cdeba7dbe6ab2583d1253ec8282b301b1bbf5819be25f164e5d6",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7926,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.91555e-07,
+      "max_daily_volume_error_mm": 0.1200000000000001,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.36420671900123125,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7926.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7926.dra": "2d50ef62b86f32940193a2eee30f2b220c7c240a63588f4578b12c120d0cd889",
+          "7926.met": "9a2db44f2c2c1dcfe1df95e066275fd47f6d7bdde5ce40f212660ae927a4d8d7",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "ce0fec7bdee73676c74865be46ad83636f776887730101204591b53bdf204c62"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a841c97b7b4932754e41a09d5e5cfee8b223d43545b34d7f64a89d2bb2e15ad8",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "d2ee19305d5561b7002b684c27fe04f5ba1857c467b260363cddabd481de1c29",
+          "swap.ok": "026e5f613d345eb5a7c54370db55eb596a7ac5ed2379d048a7287ad6778b3257",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7926,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 4.96429e-08,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.2386710220016539,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7909.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7909.dra": "2a279a2eb7f498624e308a5e2887fa8587a1e9c69c2c9f7ef0996cfbf87f49cc",
+          "7909.met": "f2eb0b70184f45ff579b383d9fd4c7b59108f76cc6a8a51c09d9861aa90dbfa7",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "ed75bd9bfda6a1785c61bf6ef868a5ecdb13887988945b9239dd2f2274da3013"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "a4def41b383aeade69f8404ffad4e30daebd3af330b6ec4f759f3161f386eb9f",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "8e0363b224fe124bed89d2a44e2e735697029ccd6161551d0fb36b750902d185",
+          "swap.ok": "026e5f613d345eb5a7c54370db55eb596a7ac5ed2379d048a7287ad6778b3257",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7909,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 5.26089e-07,
+      "max_daily_volume_error_mm": 0.1200000000000001,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.5925502230020356,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7909.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7909.dra": "2a279a2eb7f498624e308a5e2887fa8587a1e9c69c2c9f7ef0996cfbf87f49cc",
+          "7909.met": "f2eb0b70184f45ff579b383d9fd4c7b59108f76cc6a8a51c09d9861aa90dbfa7",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_beweiding.crp": "f640e8c7c4132e66b543a8723305c03a020fce5f3d551c81861920129187744c",
+          "swap.swp": "e8076b5a21aec5da295e2942b52ed126227c5ad23340d2d81b705134769038fa"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "18eb6d24ba6f6188b240792f36470959906459571bb37114ac4cb7551e1dcf99",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "e3c2621007cbb05a5c91e6d349eea7a664a91922c28fc5d537c18325086f9047",
+          "swap.ok": "147a954dac78d4307b500d34975553c2ba348759a674095343f153ed30eb4efd",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7909,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 6.27472e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.5403204289978021,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7877.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7877.dra": "1c0c03e33ffce75caebc5382d810c0b912b85025cfe53b18d7a03ba1e6840f18",
+          "7877.met": "02530fa1b2453ec3dc7d19fa86d751d49de3e5d46a025ed5f77e4682d24ac655",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "8b917efb014e56d1b50e8f5c67021ee6405819b89e99366049f046a534651400"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "6f36d6b98023fbe8b5d584772226f809559f6aeab52aa9ac0bd3117a4eff03a7",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "ef83b93f02aa0dd0aa1749f7984589dd95e5812e38abb3e8f48f7a1f9cc99141",
+          "swap.ok": "147a954dac78d4307b500d34975553c2ba348759a674095343f153ed30eb4efd",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7877,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.9396399999999998e-07,
+      "max_daily_volume_error_mm": 0.06440000000000001,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.16737957700024708,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7877.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7877.dra": "1c0c03e33ffce75caebc5382d810c0b912b85025cfe53b18d7a03ba1e6840f18",
+          "7877.met": "02530fa1b2453ec3dc7d19fa86d751d49de3e5d46a025ed5f77e4682d24ac655",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "3333ded8a1bd2c09886e95027c9554b2ea326ce89d31985ecfe2065055111751"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "1ad489947053bb4104d003ec34e9e94dfaa2b3555afa69e108e1a9f93751bef4",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "7ab3e377f7b56e359bd5cae6288277274c04a0a36cf81cbd215efbbec50a698f",
+          "swap.ok": "c448f461863d29642f844a62cda94569e080e639e6604293b64aece49835edfd",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7877,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.4263e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.4893606420009746,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7922.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7922.dra": "e54109ed08e13dfd452abc48588cac6099580039e9ad08b4756e780e09cd4b8e",
+          "7922.met": "aaf75ba317e6d5c454db71e0211d6dbc2505cc01b666ff4625754c56a659a80f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "e4071a839094d91c84e893b2e067972a53141fced37fdd997c66e3f858c8e778"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "1b8ef22fe76f279a49c74c2f0ab8588a696832b190fcf31e2c07a7a8d99f3159",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "d8c3b8271451b7b1c2cb7f7024be6971a13deb218833800f79996a4c60efa246",
+          "swap.ok": "c448f461863d29642f844a62cda94569e080e639e6604293b64aece49835edfd",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7922,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.85257e-05,
+      "max_daily_volume_error_mm": 0.1200000000000001,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.19686563399955048,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7922.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7922.dra": "e54109ed08e13dfd452abc48588cac6099580039e9ad08b4756e780e09cd4b8e",
+          "7922.met": "aaf75ba317e6d5c454db71e0211d6dbc2505cc01b666ff4625754c56a659a80f",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "snijmais.crp": "3f5f17e4b9ab3aee6dc5fb217da0f10f620f986e37c480eb46d404dc7b21b6c4",
+          "swap.swp": "de666cebf8c50e64659cdfc8c0ec7b8cad8c8679ec3be5b1e0df8429d0e09217"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "5a74b702853915d697571a29f66c388741ffc8e12daafd99933621b4d8b4cb5d",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "9c35e5f4d4ae53e4369f993c4024ffd777cb27cb9a1e4f8a6a70899e66540845",
+          "swap.ok": "c448f461863d29642f844a62cda94569e080e639e6604293b64aece49835edfd",
+          "swap.wrn": "02190f1c114a5899a27372c9ca65b2d44e2a1a8c6737a16f11fc061d23f284bc"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7922,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 1.10198e-06,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.3575354700005846,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7918.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7918.dra": "b54470af4c029c4c047dad2484f83aaab245a94ffd69c92a369ae02e9bbd2d8d",
+          "7918.met": "e3785077f6e7948ec751138274d683acad0746c31dd3b49c6e8883d9ba08b5cb",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "b5ba93588bb804423f1618c7f0423ae243c84e36a1c5c627c24d333081ad7ad8"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "8b1d2035e150d2b32082547bc2aa80d4c589212c9d01db2d6c57f56fba82b6ca",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "07fe0f143538723b346baefed28ffc4d1f2bc4f0eea81524623054d1f396fbb9",
+          "swap.ok": "147a954dac78d4307b500d34975553c2ba348759a674095343f153ed30eb4efd",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7918,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 2.1300099999999998e-06,
+      "max_daily_volume_error_mm": 0.004699999999999704,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.1800698340011877,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7918.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7918.dra": "b54470af4c029c4c047dad2484f83aaab245a94ffd69c92a369ae02e9bbd2d8d",
+          "7918.met": "e3785077f6e7948ec751138274d683acad0746c31dd3b49c6e8883d9ba08b5cb",
+          "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+          "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+          "swap.swp": "154cb2b5419a19077384f91e9f9c35acd231faa265fc0f33602c10917b57270b"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "58ec4361f481f29cc0d7df4f038a055d3e2aa9533733e042404c5bf84baa71c2",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "47a4b517158c5ceb50869359f5c9e306a449a09d6b9fdb2354ba08ac04b1de81",
+          "swap.ok": "c448f461863d29642f844a62cda94569e080e639e6604293b64aece49835edfd",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7918,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 7.19495e-07,
+      "max_daily_volume_error_mm": 1.1511,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 0.04,
+      "execution": {
+        "elapsed_seconds": 0.42003033999935724,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7866.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7866.dra": "619455abf3abb97c09bfad8cd2db4fb2b8fbf3bf5c1b397a616aacce14322631",
+          "7866.met": "c698f01cf339eeb83d4ebf6bf90be7f55eef917fca286d845b8b71942c8cd09d",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "05505291999d0218a2a07409abe1f7bb2506c7eadb08c69721fe2229942579d0"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "9a5c503bededc68ac2e69eed1732f6138868368d7db9665fa57e88bc56c3241d",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "7c84c16fc8346cfe99a4b914f893bea4f986052c713f1d7a7ef2dfc4597facec",
+          "swap.ok": "c448f461863d29642f844a62cda94569e080e639e6604293b64aece49835edfd",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7866,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 3.28311e-07,
+      "max_daily_volume_error_mm": 0.20000000000000018,
+      "modern_source_run": false,
+      "volume_pass": false
+    },
+    {
+      "dtmax": 1.0,
+      "execution": {
+        "elapsed_seconds": 0.18469560599987744,
+        "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+        "first_output_date": "1970-12-31",
+        "input_sha256": {
+          "7866.bbc": "3c8515ac98f73127971b77023e65c362dcc60b8fde2c98cb78f7190d8995a01c",
+          "7866.dra": "619455abf3abb97c09bfad8cd2db4fb2b8fbf3bf5c1b397a616aacce14322631",
+          "7866.met": "c698f01cf339eeb83d4ebf6bf90be7f55eef917fca286d845b8b71942c8cd09d",
+          "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+          "swap.swp": "9fc6b1f1f970e6fc39942b212ee2e23b196a8cceee84e4b306a5e6a3c5089674"
+        },
+        "last_output_date": "1971-01-08",
+        "normal_completion": true,
+        "output_error": null,
+        "output_rows": 9,
+        "output_sha256": {
+          "result_output.csv": "2059593274270a3dc7e367850676ca7458a4d83323d65aabd64382338ccdf029",
+          "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+          "swap.log": "4364cc82f72c9268ef4ed61d3bbe315cd9d69c9bd9d5cb3f4003da39b82dd5f4",
+          "swap.ok": "c448f461863d29642f844a62cda94569e080e639e6604293b64aece49835edfd",
+          "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79"
+        },
+        "production_admitted": false,
+        "returncode": 100,
+        "runtime_library_sha256": {
+          "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+        },
+        "schema_version": 1,
+        "status": "EXECUTION_PASS"
+      },
+      "hru_id": 7866,
+      "interface_experiment": true,
+      "max_balance_deviation_mm": 9.618100000000001e-07,
+      "max_daily_volume_error_mm": 1.6940658945086007e-21,
+      "modern_source_run": false,
+      "volume_pass": true
+    }
+  ],
+  "code_sha256": "f9c6484daabd03959d5d6b84ee25a05f0e397b6eecdfd982b5f506d598b0b49c",
+  "max_balance_deviation_mm": 2.85257e-05,
+  "max_daily_volume_error_mm": 1.1511,
+  "model_pass": 98,
+  "production_admitted": false,
+  "synthetic_interface_only": true,
+  "volume_pass": 45
+}

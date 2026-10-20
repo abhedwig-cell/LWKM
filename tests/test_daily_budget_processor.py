@@ -91,3 +91,37 @@ def test_existing_series_binding_and_missing_day(tmp_path):
     assert all(x['reused'] for x in second['files'])
     (tmp_path/'ghb'/'bdgghb_20200702_l1.IDF').unlink()
     r=bind(cfg,out);assert not r['complete'] and not (out/'processing-plan.json').exists()
+
+
+def test_five_saved_components_follow_existing_authority_and_preserve_components(tmp_path):
+    p=reconstructed_plan(tmp_path);c=json.loads(p.read_text());parts=c['intervals'][0]['components']
+    parts['frf']=parts.pop('lat');parts['frf'][0]['spatial_operation']='SAVED_CURRENT_MINUS_PREVIOUS_COLUMN'
+    # The existing fixture net raster is reused as saved faces solely for this
+    # numerical test: current-minus-previous gives -7,14 => +7 group boundary.
+    parts['fff']=parts['flf'].copy()
+    parts['fff']=[dict(**parts['flf'][0],spatial_operation='SAVED_CURRENT_MINUS_PREVIOUS_ROW')]
+    p.write_text(json.dumps(c));r=process(p,tmp_path/'out')
+    f=pd.read_csv(r['days'][0]['files']['hrus']['path'])
+    assert f.frf_net_m3_d.iloc[0]==7.
+    assert f.fff_net_m3_d.iloc[0]==3.
+    assert f.lat_net_m3_d.iloc[0]==10.
+    assert f.q_ext_m3_d.iloc[0]==15.
+    cells=pd.read_csv(r['days'][0]['files']['cells']['path'])
+    assert cells.frf.tolist()==[-7.,14.]
+    assert cells.fff.tolist()==[1.,2.]
+
+
+def test_saved_spatial_operation_cannot_be_assigned_to_wrong_role(tmp_path):
+    p=reconstructed_plan(tmp_path);c=json.loads(p.read_text());c['intervals'][0]['components']['lat'][0]['spatial_operation']='SAVED_CURRENT_MINUS_PREVIOUS_COLUMN';p.write_text(json.dumps(c))
+    with pytest.raises(ValueError,match='wrong reconstructed'):process(p,tmp_path/'out')
+
+
+def test_five_component_server_locations_and_existing_rules(tmp_path):
+    from tools.server.make_five_component_config import make
+    p=reconstructed_plan(tmp_path);out=tmp_path/'five-config.json';make(p,out)
+    c=json.loads(out.read_text());assert set(c['sources'])=={'flf','frf','fff','ghb','wel'}
+    assert c['sources']['ghb']['directory'].endswith('modflow\\bdgghb')
+    assert c['sources']['frf']['spatial_operation']=='SAVED_CURRENT_MINUS_PREVIOUS_COLUMN'
+    assert c['sources']['fff']['spatial_operation']=='SAVED_CURRENT_MINUS_PREVIOUS_ROW'
+    c=json.loads(p.read_text());c['end']='2023-01-01';p.write_text(json.dumps(c))
+    with pytest.raises(ValueError,match='1970-2022'):make(p,out)

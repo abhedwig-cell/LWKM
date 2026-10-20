@@ -552,6 +552,27 @@
       "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/7",
       "ci_run": 39272484137,
       "ci_conclusion": "success"
+    },
+    "five_component_update": {
+      "authority": "docs/production/WORK_A_FIVE_COMPONENT_AUTHORITY_20261019.md",
+      "source_replay_hrus": 6,
+      "source_replay_population": 10242,
+      "source_replay_members": 427656,
+      "source_replay_compared_lateral_cells": 427391,
+      "source_replay_max_lateral_difference_m3_d": 4.374896889203228e-09,
+      "model_interface_runs": 98,
+      "model_interface_completion_pass": 98,
+      "daily_volume_pass": 45,
+      "max_daily_volume_error_mm": 1.1511,
+      "operational_modern_runs": 0,
+      "production_admitted": false,
+      "tests_passed": 378,
+      "subtests_passed": 3,
+      "evidence": "docs/evidence/2026-10-19-work-a-five",
+      "code_checkpoint": "be77effec2d7022eb0036d99aab298e7a2aef156",
+      "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/9",
+      "ci_run": 39274783800,
+      "ci_conclusion": "success"
     }
   },
   "work_b": {
