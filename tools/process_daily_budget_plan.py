@@ -1,5 +1,5 @@
 """Explicit original or owner-accepted reconstructed raster bindings -> daily cell/HRU flux shards, one day in memory."""
-import argparse,json
+import argparse,json,sys,hashlib
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -41,9 +41,33 @@ def process(plan,output,*,allow_estimated_wel=False):
         elif provenance not in accepted and not (role=='wel' and allow_estimated_wel):
             raise ValueError('unqualified '+role+' provenance; bind reconstructed operational contract')
     output.mkdir(parents=True,exist_ok=True);reports=[]
+    by_day={}
+    for rec in cfg['intervals']:
+        left=max(pd.Timestamp(rec['start']),pd.Timestamp(cfg['start']))
+        right=min(pd.Timestamp(rec['end']),pd.Timestamp(cfg['end'])+pd.Timedelta(days=1))
+        if right<=left:continue
+        for stamp in pd.date_range(left.floor('D'),(right-pd.Timedelta(nanoseconds=1)).floor('D')).strftime('%Y-%m-%d'):
+            by_day.setdefault(stamp,[]).append(rec)
+    if getattr(sys,'frozen',False):code_identity={'executable':sha256(Path(sys.executable))}
+    else:code_identity={n:sha256(Path(__file__).with_name(n)) for n in ['process_daily_budget_plan.py','modflow_daily_rasters.py','groundwater_l1_boundary.py','idf_reader.py']}
+    static={k:v for k,v in cfg.items() if k not in ['intervals','start','end']}
+
     for day in pd.date_range(cfg['start'],cfg['end']).strftime('%Y-%m-%d'):
         lo=pd.Timestamp(day);hi=lo+pd.Timedelta(days=1)
-        records=[x for x in cfg['intervals'] if pd.Timestamp(x['start'])<hi and pd.Timestamp(x['end'])>lo]
+        records=by_day.get(day,[])
+        for rec in records:
+            for terms in rec['components'].values():
+                for term in terms:
+                    for item in term['partitions']:bound(item)
+                    if term.get('activity_mask'):bound(term['activity_mask'])
+        identity=hashlib.sha256(json.dumps(dict(static=static,records=records,day=day,code=code_identity),sort_keys=True).encode()).hexdigest()
+        checkpoint=output/(day+'-checkpoint.json')
+        cached=json.loads(checkpoint.read_text()) if checkpoint.exists() else {}
+        if cached.get('identity')==identity and all(Path(meta['path']).is_file() and sha256(Path(meta['path']))==meta['sha256'] for meta in cached.get('row',{}).get('files',{}).values()) and set(cached.get('row',{}).get('files',{}))=={'cells','hrus'}:
+            row=cached['row']
+            for meta in row['files'].values():meta['reused']=True
+            reports.append(row);continue
+
         if records and any(set(x['components'])!=set(records[0]['components']) for x in records):raise ValueError('mixed component modes within day')
         five=all(set(x['components'])=={'flf','frf','fff','ghb','wel'} for x in records) and bool(records)
         rates={k:[] for k in (['flf','frf','fff','ghb','wel'] if five else ['flf','lat','ghb','wel'])}
@@ -98,8 +122,9 @@ def process(plan,output,*,allow_estimated_wel=False):
             if not reuse:
                 temp=target.with_suffix('.partial');temp.write_bytes(data);temp.replace(target)
             row['files'][kind]=dict(path=str(target.resolve()),sha256=sha256(target),reused=reuse)
+        atomic_json(checkpoint,dict(identity=identity,row=row))
         reports.append(row)
-    result=dict(plan_sha256=sha256(plan),code_sha256=sha256(Path(__file__)),wel_provenance=cfg['wel_provenance'],ghb_provenance=cfg['ghb_provenance'],reconstructed_products=cfg.get('reconstructed_products',{}),production_admitted=False,days=reports)
+    result=dict(plan_sha256=sha256(plan),code_sha256=code_identity,wel_provenance=cfg['wel_provenance'],ghb_provenance=cfg['ghb_provenance'],reconstructed_products=cfg.get('reconstructed_products',{}),production_admitted=False,days=reports)
     atomic_json(output/'manifest.json',result);return result
 
 if __name__=='__main__':

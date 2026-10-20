@@ -109,6 +109,7 @@ def day(weights,members,arrays,g,day_id,source_hashes=None):
     fallback=(p>0)&(~np.isfinite(raw)|(raw<=0))
     summary=dict(date=day_id,nearest_valid_svat_values=len(audit),fallback_svat_count=int(fallback.sum()),
                  fallback_area_m2=float(members.area_m2.to_numpy()[fallback].sum()),
+                 rain_zero_duration_corrected_svat_count=int(((p==0)&np.isfinite(raw)&(raw>0)).sum()),
                  wind_measurement_height_m=10,production_admitted=False)
     return out,pd.DataFrame(audit),summary
 
@@ -134,7 +135,7 @@ def run(plan,output):
         paths={k:bound(v) for k,v in bindings.items()}
         hashes={k:bindings[k]['sha256'] for k in paths}
         identity={'inputs':hashes,'members':cfg['members']['sha256'],'weights':weight_hash,
-                  'geometry':g,'code':code_hash,'date':stamp,'units':cfg['units']}
+                  'geometry':g,'transforms':cfg.get('transforms',{}),'code':code_hash,'date':stamp,'units':cfg['units']}
         target=output/(stamp+'.csv');marker=output/(stamp+'.json');qa=output/(stamp+'-qa.csv')
         cached=json.loads(marker.read_text()) if marker.exists() else {}
         reuse=cached.get('identity')==identity and target.exists() and qa.exists() and cached.get('sha256')==sha(target) and cached.get('qa_sha256')==sha(qa)
@@ -142,8 +143,14 @@ def run(plan,output):
             arrays={}
             for k,p in paths.items():
                 gh=header(p)
-                if geometry(gh)!=geometry(g) or gh['nodata_value']!=g['nodata_value']:raise ValueError('different geometry requires separate support: '+k)
-                arrays[k]=np.loadtxt(p,skiprows=6)
+                if geometry(gh)!=geometry(g):raise ValueError('different geometry requires separate support: '+k)
+                a=np.loadtxt(p,skiprows=6).reshape(int(g['nrows']),int(g['ncols']))
+                a[a==gh['nodata_value']]=np.nan
+                if k in cfg.get('transforms',{}):
+                    t=cfg['transforms'][k];valid=np.isfinite(a)&(a!=g['nodata_value'])
+                    if not np.isfinite([t['scale'],t['offset']]).all() or t['scale']<=0 or not t.get('input_unit') or not t.get('evidence'):raise ValueError('unbound raster conversion')
+                    a[valid]=a[valid]*t['scale']+t['offset']
+                arrays[k]=a
             frame,audit,summary=day(weights,ms,arrays,g,stamp,hashes)
             frame.to_csv(target.with_suffix('.partial'),index=False,float_format='%.12g');target.with_suffix('.partial').replace(target)
             audit.to_csv(qa,index=False)

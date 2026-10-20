@@ -1,6 +1,7 @@
 """Export the existing five-component Work A HRU shards as compact transfers."""
 import argparse
 import json
+import sys
 from pathlib import Path
 import shutil
 import pandas as pd
@@ -22,7 +23,7 @@ def export(manifest,population,output):
     if not files:raise ValueError('no daily products')
     shutil.copyfile(manifest,output/'source-manifest.json')
     result=dict(schema_version=1,product_kind='BBC',dataset_id='WORK_A_FIVE_COMPONENT_HRU_DAILY',population_sha256=population['sha256'],
-                source_manifest_sha256=sha256(manifest),source_manifest_path='source-manifest.json',producer_sha256=sha256(Path(__file__)),
+                source_manifest_sha256=sha256(manifest),source_manifest_path='source-manifest.json',producer_sha256=sha256(Path(sys.executable) if getattr(sys,'frozen',False) else Path(__file__)),
                 units='mm/day_positive_into_L1',start=min(r['date'] for r in files),end=max(r['date'] for r in files),
                 hru_ids=list(map(int,ids)),status='RESEARCH_CANDIDATE',files=files,
                 upstream_provenance={k:cfg[k] for k in ['wel_provenance','ghb_provenance','reconstructed_products'] if k in cfg})

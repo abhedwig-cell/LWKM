@@ -27,7 +27,11 @@ def fixture(root,n=2):
             for name in NAMES:
                 path=root/(date+'_'+name+'.idf');path.write_bytes((date+name).encode())
                 w.writerow([date,name,path.name])
-    base='LWKM-MSW-HRU-1.0.0\n'+''.join(k+'='+'a'*64+'\n' for k in ['exe','area','mapping'])+'sources='+sha(src)+'\nunits=m3/m2_per_decade;factor=1000;sign=source;missing=blank_strict_support\n'
+    data=root.parent/'data';data.mkdir(exist_ok=True)
+    (data/'area_svat.inp').write_text(''.join(f'{i*2+j} {50*i} 0 0 0 0 0 0 0 125 125 0 0 0\n' for i in range(1,n+1) for j in [0,1]))
+    (data/'svat_hru.csv').write_text('svat_orig,HRU,x,y\n'+''.join(f'{i*2+j},{i},125,125\n' for i in range(1,n+1) for j in [0,1]))
+    exe=root.parent/'lwkm_metaswap_hru.exe';exe.write_bytes(b'synthetic producer identity')
+    base='LWKM-MSW-HRU-1.0.0\nexe='+sha(exe)+'\narea='+sha(data/'area_svat.inp')+'\nmapping='+sha(data/'svat_hru.csv')+'\nsources='+sha(src)+'\nunits=m3/m2_per_decade;factor=1000;sign=source;missing=blank_strict_support\n'
     (root/'run_identity.txt').write_text(base)
     (root/'hru_support.csv').write_text('hru_id,svats,area_m2\n'+''.join(f'{i},2,{100*i}\n' for i in range(1,n+1)))
     for date,days in [('20200220',10),('20200229',9)]:
@@ -59,15 +63,19 @@ def test_compact_full_population_configured_partial_year(reducer,tmp_path):
     report=verify(dest)
     assert report['production_admitted'] is False and report['decades']==2
 
-@pytest.mark.parametrize('damage',['source','output','missing_hru','duplicate','derived','nan','coverage','period_gap','marker_identity'])
+@pytest.mark.parametrize('damage',['source','output','missing_hru','duplicate','derived','nan','coverage','period_gap','marker_identity','area_input','mapping_input','producer_input','support'])
 def test_reject_corrupt_or_inconsistent_products(reducer,tmp_path,damage):
     root=tmp_path/'out';src=fixture(root);dest=tmp_path/'compact';d='20200229';p=root/(d+'.csv')
-    if damage=='source':(root/(d+'_MSW_EBS.idf')).write_text('changed')
+    if damage in ['area_input','mapping_input','producer_input']:
+        path={'area_input':root.parent/'data/area_svat.inp','mapping_input':root.parent/'data/svat_hru.csv','producer_input':root.parent/'lwkm_metaswap_hru.exe'}[damage]
+        path.write_bytes(path.read_bytes()+b'changed')
+    elif damage=='support':(root/'hru_support.csv').write_text('hru_id,svats,area_m2\n1,2,101\n2,2,200\n')
+    elif damage=='source':(root/(d+'_MSW_EBS.idf')).write_text('changed')
     elif damage=='output':p.write_text(p.read_text()+'corrupted\n')
     elif damage=='period_gap':
         src.write_text(src.read_text().replace('20200229','20200320'))
     elif damage=='marker_identity':
-        q=root/(d+'.sha256');q.write_text(q.read_text().replace('area='+'a'*64,'area='+'b'*64))
+        q=root/(d+'.sha256');q.write_text(q.read_text().replace('area=', 'area=bad'))
     else:
         data=list(csv.reader(p.open()))
         if damage=='missing_hru':data.pop()

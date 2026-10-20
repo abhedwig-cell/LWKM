@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "as_of": "2026-10-19",
+  "as_of": "2026-10-20",
   "baseline_commit": "4e6c5803b8d9f996c3331078ac72c6ece6db4a97",
   "code_checkpoint": "683d62c8b73caaf776b0d7da383457bca4b38cc5",
   "streams": {
@@ -137,9 +137,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-a/",
-      "open_problem": "Native server unavailable; current 2020-2022 INI/LIST and exact WEL/GHB missing",
-      "next_implementation": "Collect only required daily dynamic products from authoritative server",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Existing reconstructed daily products accepted; complete current server receipt unavailable",
+      "next_implementation": "Receive compact products and preserve source lineage; no original WEL/GHB budget prerequisite",
       "command": "python -m tools.server.lwkm_w01 --help"
     },
     "W02": {
@@ -157,9 +157,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-a/",
-      "open_problem": "Original budget units/sign/time/package coverage not fully qualified",
-      "next_implementation": "Bind same-period raw budget and historical derived oracle",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Full current source-bound daily processing pending; existing reconstruction/sign authority preserved",
+      "next_implementation": "Use existing five-component processing with content-verified daily checkpoints",
       "command": "python -m pytest -q tests/test_lhm_postprocess.py"
     },
     "W03": {
@@ -291,9 +291,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-a/",
-      "open_problem": "Original WEL/GHB and varying-daily-mean BBC temporal policy missing",
-      "next_implementation": "Qualified daily qq generation and sign/time/support test",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Full real daily five-component forcing unavailable; ordinary daily means accepted",
+      "next_implementation": "Consume existing owner-approved daily products; no new daily-volume correction",
       "command": "python -m pytest -q tests/test_bbc_qq_production_contract.py tests/test_build_bbc_met_daily.py",
       "subworkstreams": {
         "W08-GW-L1": {
@@ -332,9 +332,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-a/",
-      "open_problem": "Complete modern six other meteorological fields, assignment and units absent",
-      "next_implementation": "Build daily meteorology from qualified grids and districts",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Real full-period meteorology and raw source-unit bindings unverified",
+      "next_implementation": "Use fixed owner-area weights, offline standalone consumer and explicit conversion bindings",
       "command": "python -m pytest -q tests/test_p12_met_producer.py tests/test_met_daily_input_contract.py"
     },
     "W10": {
@@ -374,9 +374,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
-      "open_problem": "10193 HRU-specific forcing catalogue bindings absent",
-      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Real daily forcing pending; 29 drainage exceptions and four apple CF cases retained",
+      "next_implementation": "Run source-bound D1 reception and candidate package workflow",
       "command": "python -m pytest -q tests/test_assemble_swap_package.py"
     },
     "W12": {
@@ -411,9 +411,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
-      "open_problem": "29 structural drainage blocks; population daily source bindings absent",
-      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "29 protected drainage exceptions, four apple CF cases and real full-period forcing QA remain",
+      "next_implementation": "Keep synthetic integration separate from real whole-period execution and physical validation",
       "command": "python -m tools.build_modern_population --database \"$DB\" --template \"$TEMPLATE\" --output \"$OUT/population\" --oracles \"$ORACLES\""
     },
     "W14": {
@@ -630,5 +630,20 @@
     "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/8",
     "integrated_base": "b846dfbedbc60e4b0164210c7fef2142be801d5b",
     "integrated_tests_passed": 382
+  },
+  "work_d1": {
+    "status": "TECHNICAL_INTEGRATION_CANDIDATE",
+    "branch": "work/lwkm-work-d1-20261020",
+    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/11",
+    "integrated_heads": {
+      "shared": "212d8c7e9396d62c45f3b26cddd6cefea1cc778d",
+      "work_b": "1a9e8eef340926ecc45bd7e7a8d3260e3344b6d8",
+      "metaswap": "4ab5eb139bd412652081e4b2bce64d9c7b9469f4"
+    },
+    "contract": "config/production/work-d1-contract-v1.json",
+    "blocker_register": "docs/evidence/2026-10-20-work-d1/blockers.json",
+    "real_server_outputs_read": false,
+    "new_real_forcing_runs": 0,
+    "production_admitted": false
   }
 }

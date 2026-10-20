@@ -1,0 +1,98 @@
+{
+  "as_of": "2026-10-20",
+  "production_admitted": false,
+  "blockers": [
+    {
+      "id": "D1-MSW-REAL",
+      "scope": "MetaSWAP scientific acceptance",
+      "status": "EXTERNAL_DATA_UNAVAILABLE",
+      "detail": "Owner reports completed server output larger than 1 GB; real CSV/QC/source markers not read in D1.",
+      "next_step": "Run delivered compact acceptor later; inspect actual coverage, signs and component/BDGETACT residuals."
+    },
+    {
+      "id": "D1-MET-REAL",
+      "scope": "Full 1970-2022 meteorology",
+      "status": "EXTERNAL_DATA_UNAVAILABLE",
+      "detail": "New WIND/WET_RAW and complete LHM rasters have not been read for the full production period.",
+      "next_step": "Bind existing completed products; qualify daily geometry, units, station lineage, spatial replacements and full period."
+    },
+    {
+      "id": "D1-MET-UNITS",
+      "scope": "Raw LHM unit/source contract",
+      "status": "SOURCE_BINDING_UNVERIFIED",
+      "detail": "Inventory establishes paths, including FG as configured vapp, but not physical units/scales. No unverified raw unit is defaulted to a canonical unit.",
+      "next_step": "Use existing producer metadata to bind explicit conversions; do not infer vapour pressure or wind solely from FG naming."
+    },
+    {
+      "id": "D1-GW-REAL",
+      "scope": "Full daily FLF/FRF/FFF/GHB/WEL receipt",
+      "status": "EXTERNAL_DATA_UNAVAILABLE",
+      "detail": "Existing reconstruction and signs accepted; full actual daily series has not been consumed in D1.",
+      "next_step": "Use existing five-component binder and standalone daily-budget consumer; preserve individual provenance."
+    },
+    {
+      "id": "D1-DRA-29",
+      "scope": "Protected drainage representation",
+      "status": "PRESERVED_EXCEPTION",
+      "hru_count": 29,
+      "evidence": "docs/evidence/2026-10-19-work-c2/remaining-blockers.json",
+      "detail": "These cases require six protected levels. No fallback or new compression."
+    },
+    {
+      "id": "D1-APPLE-CF",
+      "scope": "Apple ETref route",
+      "status": "SCIENTIFIC_INPUT_UNQUALIFIED",
+      "hrus": [
+        4243,
+        4244,
+        4245,
+        4246
+      ],
+      "detail": "Original crop files use resistance route; the four ETref cases lack a qualified crop factor. No owner-approved apple PM override.",
+      "next_step": "Resolve crop-factor authority or obtain an explicit scientific route decision. Do not fabricate factors."
+    },
+    {
+      "id": "D1-ENGINE",
+      "scope": "New local SWAP 4.3.1 execution",
+      "status": "RUNTIME_NOT_MATERIALIZED",
+      "detail": "Authenticated Library helper could not retrieve SWAP_4.3.1.zip: HTTP 403 during hosted tool-list call. Tools(2).zip is accessible, but its executable is 4.2.261 and was not substituted.",
+      "preserved_calculations": 101,
+      "next_step": "Use the already identified exact 4.3.1 engine/runtime when available; preserve C2 results and avoid repeating unchanged runs."
+    },
+    {
+      "id": "D1-RAW-ENRICH",
+      "scope": "Full raw LHM to changed-HRU enrichment",
+      "status": "PRESERVED_SCIENTIFIC_GATE",
+      "detail": "Work B exact recovered-snapshot replay remains qualified. Full raw active/static/flag lineage and regeneration of changed enrichment are not newly admitted. control_runs(2).zip was retrieved without a reupload request; availability alone does not close these gates."
+    },
+    {
+      "id": "D1-ANIMO",
+      "scope": "SWAP output to ANIMO",
+      "status": "SEPARATE_CONTRACT_NOT_ADMITTED",
+      "detail": "Output selection, profile/layer mapping, units and flux/state transfer require a separate executed ANIMO qualification. D1 does not assert that normal SWAP completion proves ANIMO readiness."
+    },
+    {
+      "id": "D1-PHYSICS",
+      "scope": "Whole-period production admission",
+      "status": "NOT_ADMITTED",
+      "detail": "National D1 forcing is synthetic. No real modern full-period SWAP calculation or ET calibration is claimed."
+    }
+  ],
+  "closed_or_accepted": [
+    {
+      "topic": "Original WEL/GHB absence",
+      "authority": "WORK_A_OWNER_RECONSTRUCTED_PRODUCTS_20261019.md",
+      "status": "NOT_A_BLOCKER"
+    },
+    {
+      "topic": "BBC daily volume preservation",
+      "authority": "WORK_A_BBC_DAILY_MEAN_TIMING_DECISION_2026-10-20.md",
+      "status": "OWNER_ACCEPTED_APPROXIMATION_NO_EXTRA_CORRECTION"
+    },
+    {
+      "topic": "W09 area authority",
+      "authority": "W09_SVAT_AREA_AUTHORITY_DECISION_2026-10-20.md",
+      "status": "OWNER_AREA_AUTHORITY_CONFIRMED"
+    }
+  ]
+}

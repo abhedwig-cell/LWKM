@@ -17,7 +17,7 @@ def verify(directory):
         if name in entries:raise ValueError('duplicate compact asset')
         if sha256(relative(directory,name))!=digest:raise ValueError('compact SHA256 mismatch: '+name)
         entries[name]=digest
-    expected={'annual_hru.csv','seasonal_population.csv','decadal_population.csv','source_hashes.csv','decadal_qa.csv','acceptance.txt','producer_identity.txt'}
+    expected={'annual_hru.csv','seasonal_population.csv','decadal_population.csv','source_hashes.csv','decadal_qa.csv','acceptance.txt','producer_identity.txt','hru_support.csv'}
     if set(entries)!=expected:raise ValueError('incomplete compact contract')
     status=dict(line.split('=',1) for line in (directory/'acceptance.txt').read_text().splitlines())
     if status.get('production_admitted')!='false' or status.get('status')!='STRUCTURALLY_VERIFIED_CANDIDATE':raise ValueError('unsupported compact status')

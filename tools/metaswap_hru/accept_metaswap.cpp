@@ -26,7 +26,7 @@ using V=std::array<double,15>;
 const std::array<std::string,15> names={"MSW_EBS","MSW_EIC","MSW_EPD","MSW_ESP","MSW_TACT","MSW_TPOT","PSSW","PSGW","BDGETACT","E_SOIL_POND","E_INTERCEPTION_SPRINKLING","T_ACTUAL","ET_ACTUAL","IRR_TOTAL","BDGETACT_MINUS_ET"};
 void check(bool b,const std::string&s){if(!b)throw std::runtime_error(s);}
 std::string text(const fs::path&p){std::ifstream f(p,std::ios::binary);check(bool(f),"Missing file: "+p.string());return {std::istreambuf_iterator<char>(f),{}};}
-std::vector<std::string> csv(std::string s){std::vector<std::string> v;std::string z;bool q=false;for(size_t i=0;i<s.size();++i){char c=s[i];if(c=='"'){if(q&&i+1<s.size()&&s[i+1]=='"'){z+=c;++i;}else q=!q;}else if(c==','&&!q){v.push_back(z);z.clear();}else if(c!='\r')z+=c;}check(!q,"Unterminated CSV quote");v.push_back(z);return v;}
+std::vector<std::string> csv(std::string s){if(s.substr(0,3)=="\xef\xbb\xbf")s.erase(0,3);std::vector<std::string> v;std::string z;bool q=false;for(size_t i=0;i<s.size();++i){char c=s[i];if(c=='"'){if(q&&i+1<s.size()&&s[i+1]=='"'){z+=c;++i;}else q=!q;}else if(c==','&&!q){v.push_back(z);z.clear();}else if(c!='\r')z+=c;}check(!q,"Unterminated CSV quote");v.push_back(z);return v;}
 int integer(const std::string&s){size_t p;int v=std::stoi(s,&p);check(p==s.size(),"Invalid integer");return v;}
 double real(const std::string&s){size_t p;double v=std::stod(s,&p);check(p==s.size()&&std::isfinite(v),"Invalid/nonfinite number");return v;}
 bool digest(const std::string&s){return s.size()==64&&s.find_first_not_of("0123456789abcdef")==std::string::npos;}
@@ -56,7 +56,7 @@ int main(int argc,char**argv){try{
  check(fs::absolute(root)!=fs::absolute(dest),"Output and compact directory must differ");fs::create_directories(dest);
  // Remove previous success marker before inspecting a new candidate.
  fs::remove(dest/"COMPLETE.txt");fs::remove(dest/"SHA256SUMS.txt");
- auto base=text(root/"run_identity.txt");check(base.rfind("LWKM-MSW-HRU-1.0.0",0)==0,"Unsupported producer");auto bk=kv(base);
+ auto base=text(root/"run_identity.txt");check(base.substr(0,base.find_first_of("\r\n"))=="LWKM-MSW-HRU-1.0.0","Unsupported producer");auto bk=kv(base);
  check(bk["sources"]==hash(cfg),"Configured inventory hash mismatch");for(auto k:{"exe","area","mapping","sources"})check(digest(bk[k]),"Missing/invalid producer identity");
  check(bk["units"]=="m3/m2_per_decade;factor=1000;sign=source;missing=blank_strict_support","Unknown amount/sign/missing contract");
  std::map<std::string,std::map<std::string,std::string>> periods;std::istringstream input(text(cfg));std::string s;std::getline(input,s);check(csv(s)==std::vector<std::string>({"date","variable","relative_path"}),"Invalid configuration header");
@@ -65,7 +65,20 @@ int main(int argc,char**argv){try{
  for(auto &[d,p]:periods){int y=integer(d.substr(0,4)),m=integer(d.substr(4,2)),z=integer(d.substr(6,2));check(y>=1900&&y<=2200&&m>=1&&m<=12,"Invalid year/month");check(z==10||z==20||z==monthdays(y,m),"Invalid decade end");check(p.size()==9,"Missing configured variables");check(prev.empty()||next(prev)==d,"Configured decade gap");prev=d;}
  std::vector<double> area(nh+1);std::vector<int> support(nh+1);std::istringstream sup(text(root/"hru_support.csv"));std::getline(sup,s);check(csv(s)==std::vector<std::string>({"hru_id","svats","area_m2"}),"Invalid support header");
  while(std::getline(sup,s)){auto r=csv(s);check(r.size()==3,"Invalid support");int h=integer(r[0]);check(h>=1&&h<=nh&&!support[h],"Duplicate/unknown support HRU");support[h]=integer(r[1]);area[h]=real(r[2]);check(support[h]>0&&area[h]>0,"Invalid support area/count");}
+
  for(int h=1;h<=nh;++h)check(support[h]>0,"Missing support HRU");
+ const fs::path inputs=root.parent_path()/"data";
+ check(hash(inputs/"area_svat.inp")==bk["area"],"Original area input hash mismatch");
+ check(hash(inputs/"svat_hru.csv")==bk["mapping"],"Original membership input hash mismatch");
+ check(hash(root.parent_path()/"lwkm_metaswap_hru.exe")==bk["exe"],"Producer executable hash mismatch");
+ std::map<int,double> original_area;std::istringstream ai(text(inputs/"area_svat.inp"));
+ while(std::getline(ai,s)){if(s.empty()||s[0]=='*'||s[0]=='!')continue;std::istringstream row(s);int id;double a;check(bool(row>>id>>a)&&id>0&&std::isfinite(a)&&a>0,"Invalid original area");check(original_area.emplace(id,a).second,"Duplicate original area SVAT");}
+ std::vector<int> count(nh+1);std::vector<double> recomputed(nh+1);std::set<int> svats;
+ std::istringstream mapping(text(inputs/"svat_hru.csv"));std::getline(mapping,s);auto mh=csv(s);
+ auto field=[&](std::string name){auto it=std::find(mh.begin(),mh.end(),name);check(it!=mh.end(),"Missing original mapping column");return it-mh.begin();};auto si=field("svat_orig"),hi=field("HRU");
+ while(std::getline(mapping,s)){if(s.empty())continue;auto r=csv(s);check(r.size()==mh.size(),"Bad original membership row");int id=integer(r[si]),h=integer(r[hi]);check(h>=1&&h<=nh&&svats.insert(id).second&&original_area.count(id),"Invalid/duplicate original membership");++count[h];recomputed[h]+=original_area.at(id);}
+ for(int h=1;h<=nh;++h)check(count[h]==support[h]&&std::abs(recomputed[h]-area[h])<=1e-6+1e-12*area[h],"HRU support differs from original inputs");
+
  std::ofstream annual(dest/"annual_hru.csv"),seasonal(dest/"seasonal_population.csv"),decades(dest/"decadal_population.csv"),lineage(dest/"source_hashes.csv"),quality(dest/"decadal_qa.csv");
  for(auto f:{&annual,&seasonal,&decades,&lineage,&quality}){check(bool(*f),"Cannot write compact products");*f<<std::setprecision(12);}
  header(annual,"hru_id,year,configured_decades,full_calendar_year");header(seasonal,"year,season,configured_decades,expected_hru_decades");header(decades,"decade_end,days,expected_hrus");
@@ -85,21 +98,23 @@ int main(int argc,char**argv){try{
   Sum dec;std::set<int> seen;int bad=0,nres=0,nover=0;double rsum=0,rarea=0,rmax=0;
   std::istringstream f(text(root/(d+".csv")));std::getline(f,s);auto columns=csv(s);std::vector<std::string> expected={"hru_id","days","complete"};for(auto &n:names)expected.push_back(n);for(int j=0;j<9;++j)expected.push_back("coverage_"+names[j]);check(columns==expected,"Unknown CSV output contract");
   while(std::getline(f,s)){auto r=csv(s);check(r.size()==expected.size(),"Wrong output columns");int h=integer(r[0]);check(h>=1&&h<=nh&&seen.insert(h).second,"Duplicate/unknown HRU");check(integer(r[1])==nd,"Wrong decade length");int complete=integer(r[2]);check(complete==0||complete==1,"Invalid complete flag");V v{};std::array<bool,15> ok{};bool full=true;
-   for(int j=0;j<15;++j){ok[j]=!r[3+j].empty();if(ok[j])v[j]=real(r[3+j]);if(j<9){double coverage=real(r[18+j]);check(coverage>=0&&coverage<=1,"Coverage outside 0..1");check(ok[j]?(coverage>=1-1e-9):(coverage<1),"Value/coverage mismatch");full=full&&ok[j];}}
+   for(int j=0;j<15;++j){ok[j]=!r[3+j].empty();if(ok[j])v[j]=real(r[3+j]);if(j<9){double coverage=real(r[18+j]);check(coverage>=0&&coverage<=1,"Coverage outside 0..1");check(ok[j]?(coverage>=1-1e-9):(coverage<=1),"Value/coverage mismatch");full=full&&ok[j];}}
    check(complete==int(full),"Complete flag mismatch");if(!full){++bad;++missing;}
    const std::array<std::vector<int>,6> terms={std::vector<int>{0,2},std::vector<int>{1,3},std::vector<int>{4},std::vector<int>{0,1,2,3,4},std::vector<int>{6,7},std::vector<int>{8,0,1,2,3,4}};
    for(int k=0;k<6;++k){bool valid=true;double value=0;for(size_t i=0;i<terms[k].size();++i){int j=terms[k][i];valid=valid&&ok[j];value+=(k==5&&i>0?-1:1)*v[j];}check(ok[9+k]==valid,"Derived missing-value propagation");if(valid)check(std::abs(value-v[9+k])<=1e-6+1e-8*std::abs(value),"Derived component arithmetic mismatch");}
    if(ok[14]){double rabs=std::abs(v[14]);++nres;++compared;rsum+=v[14]*area[h];rarea+=area[h];rmax=std::max(rmax,rabs);maxres=std::max(maxres,rabs);if(rabs>1e-4){++nover;++over;}}
    years[h].add(v,ok);dec.add(v,ok,area[h]);seasons[sk].add(v,ok,area[h]);
   }
+  check(hash(root/(d+".csv"))==mk["output"]&&text(root/(d+".sha256"))==marker,"Product changed during acceptance");
   check(int(seen.size())==nh,"Missing HRUs in decade: "+d);emit(decades,d+","+std::to_string(nd)+","+std::to_string(nh),dec,true);
   quality<<d<<","<<nh-bad<<","<<bad<<","<<nres<<",";if(nres)quality<<rsum/rarea;quality<<","<<rmax<<","<<nover<<"\n";
  }
  flush();for(auto &[key,su]:seasons)emit(seasonal,key+","+std::to_string(su.periods/nh)+","+std::to_string(su.periods),su,true,double(su.periods/nh));
  for(auto f:{&annual,&seasonal,&decades,&lineage,&quality}){f->close();check(bool(*f),"Compact write failure");}
  std::ofstream status(dest/"acceptance.txt");status<<"status=STRUCTURALLY_VERIFIED_CANDIDATE\nproduction_admitted=false\nsource_rehash_verified="<<int(verify)<<"\nconfigured_first="<<periods.begin()->first<<"\nconfigured_last="<<periods.rbegin()->first<<"\ndecades="<<periods.size()<<"\nhru_count="<<nh<<"\nincomplete_hru_decades="<<missing<<"\net_comparison_rows="<<compared<<"\nresidual_above_diagnostic_0.0001mm="<<over<<"\nmax_abs_residual_mm="<<std::setprecision(12)<<maxres<<"\nseason_definition=calendar_year_DJF_MAM_JJA_SON\nscientific_status=PENDING_REAL_DATA_INTERPRETATION\n";status.close();
+ fs::copy_file(root/"hru_support.csv",dest/"hru_support.csv",fs::copy_options::overwrite_existing);
  std::ofstream identity(dest/"producer_identity.txt");identity<<base;identity.close();
- std::ofstream sums(dest/"SHA256SUMS.txt");for(auto n:{"annual_hru.csv","seasonal_population.csv","decadal_population.csv","source_hashes.csv","decadal_qa.csv","acceptance.txt","producer_identity.txt"})sums<<hash(dest/n)<<"  "<<n<<"\n";sums.close();check(bool(sums),"Manifest write failed");
+ std::ofstream sums(dest/"SHA256SUMS.txt");for(auto n:{"annual_hru.csv","seasonal_population.csv","decadal_population.csv","source_hashes.csv","decadal_qa.csv","acceptance.txt","producer_identity.txt","hru_support.csv"})sums<<hash(dest/n)<<"  "<<n<<"\n";sums.close();check(bool(sums),"Manifest write failed");
  std::ofstream done(dest/"COMPLETE.txt");done<<"sha256_manifest="<<hash(dest/"SHA256SUMS.txt")<<"\n";done.close();check(bool(done),"Completion write failed");
  std::cout<<"COMPACT_READY "<<dest.string()<<"; production_admitted=false"<<std::endl;return missing?2:0;
  }catch(const std::exception&e){std::cerr<<"ERROR: "<<e.what()<<std::endl;return 1;}}

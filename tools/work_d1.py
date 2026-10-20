@@ -67,13 +67,16 @@ def forcing(accepted,database,output):
                 wind_measurement_height_m=10,bbc_policy='OWNER_DAILY_MEAN_NODES_20261020')
     atomic_json(output/'manifest.json',report);return report
 
-def build_packages(contexts,template,dra_bundle,asset_catalogue,pairs,output,*,expected_population=10242):
+def build_packages(contexts,template,dra_bundle,asset_catalogue,pairs,output,*,expected_population=10242,dra_checkpoints=None):
     """Reuse Work B contexts and exact C2 DRA bytes; no legacy forcing fallback."""
     with gzip.open(contexts,'rt') as f:records=[json.loads(line) for line in f]
     ids=[r['run_id'] for r in records]
     if ids!=list(range(1,expected_population+1)):raise ValueError('Work B population identity mismatch')
     with gzip.open(dra_bundle,'rt') as f:dras={int(r['hru']):r for r in map(json.loads,f)}
     if set(dras)-set(ids):raise ValueError('DRA outside HRU population')
+    checkpoints={}
+    if dra_checkpoints is not None:
+        with gzip.open(dra_checkpoints,'rt') as f:checkpoints={int(r['hru']):r for r in map(json.loads,f)}
     assets_by_hru=json.loads(asset_catalogue.read_text())['runs']
     inputs={r['hru_id']:r for r in pairs['runs']};rows=[]
     if set(inputs)-set(ids):raise ValueError('forcing outside Work B population')
@@ -93,7 +96,11 @@ def build_packages(contexts,template,dra_bundle,asset_catalogue,pairs,output,*,e
                     if Path(name).name!=name or '\\' in name or ':' in name:raise ValueError('unsafe asset name')
                     shutil.copyfile(bound(meta),stage/name)
                 for name,meta in inputs[hid]['assets'].items():shutil.copyfile(bound(meta),stage/name)
-                (stage/f'{hid}.dra').write_text(d['text'])
+                dra_text=d['text']
+                if dra_checkpoints is not None:
+                    from tools.dra_period import render_period
+                    dra_text=render_period(checkpoints[hid],len(ctx['TABLE_SOILHYDRFUNC']),pairs['start'],pairs['end'])
+                (stage/f'{hid}.dra').write_text(dra_text)
                 swp=render(template.read_bytes(),ctx,policy={'TSTART':pairs['start'],'TEND':pairs['end'],'ALTW':10.},et_policy='owner_tulip_pm')
                 (stage/'swap.swp').write_text(swp)
                 # Fixed irrigation is disabled in the source template. Nature
@@ -109,8 +116,8 @@ def build_packages(contexts,template,dra_bundle,asset_catalogue,pairs,output,*,e
                 preflight=validate(stage)
                 assets={name:dict(path=str(stage/name),sha256=sha256(stage/name),qualification_id='D1_BOUND_RESEARCH_CANDIDATE') for name in preflight['files']}
                 identity=dict(hru_id=hid,context=record,inputs={n:m['sha256'] for n,m in assets.items()},
-                              is_nature=nature,source_manifests=pairs['source_manifests'],
-                              code={n:sha256(Path(__file__).with_name(n)) for n in ['work_d1.py','modern_swp.py','package_preflight.py','assemble_swap_package.py']})
+                              is_nature=nature,dra_checkpoint=checkpoints.get(hid),source_manifests=pairs['source_manifests'],
+                              code={n:sha256(Path(__file__).with_name(n)) for n in ['work_d1.py','modern_swp.py','package_preflight.py','assemble_swap_package.py','dra_period.py','generate_dra.py']})
                 fingerprint=hashlib.sha256(canonical(identity).encode()).hexdigest()
                 target=output/'objects'/fingerprint/f'run_{hid:05d}';reuse=target.exists()
                 if reuse:
@@ -132,13 +139,28 @@ def run(plan,output):
     cfg=json.loads(plan.read_text())
     if cfg.get('mode')!='RESEARCH_ONLY':raise ValueError('D1 does not grant production admission')
     output.mkdir(parents=True,exist_ok=True);received=[]
+    (output/'workflow.json').unlink(missing_ok=True)
     for role in ['met','bbc']:
-        meta=cfg[role];manifest=bound(meta['manifest'])
-        report=receive(manifest,Path(meta['source']),output/('import-'+role))
-        if report['errors']:raise ValueError('incoming '+role+' blocked; see import-report.json')
-        received.append(json.loads((output/('import-'+role)/'accepted-manifest.json').read_text()))
+        metas=cfg[role] if isinstance(cfg[role],list) else [cfg[role]]
+        chunks=[]
+        for meta in metas:
+            manifest=bound(meta['manifest']);dest=output/('import-'+role)/sha256(manifest)
+            report=receive(manifest,Path(meta['source']),dest)
+            if report['errors']:raise ValueError('incoming '+role+' blocked; see import-report.json')
+            chunks.append(json.loads((dest/'accepted-manifest.json').read_text()))
+        if not chunks:raise ValueError('no received daily products: '+role)
+        combined=dict(chunks[0]);files=[]
+        for chunk in chunks:
+            for key in ['dataset_id','population_sha256','source_manifest_sha256','producer_sha256','hru_ids','units','product_kind']:
+                if chunk[key]!=combined[key]:raise ValueError('mixed transfer identity: '+key)
+            files.extend(chunk['files'])
+        files.sort(key=lambda x:x['date'])
+        combined.update(start=cfg.get('start',min(c['start'] for c in chunks)),end=cfg.get('end',max(c['end'] for c in chunks)),files=files)
+        expected=pd.date_range(combined['start'],combined['end']).strftime('%Y-%m-%d').tolist()
+        if [x['date'] for x in files]!=expected:raise ValueError('missing/duplicate chunk days: '+role)
+        received.append(combined)
     pairs=forcing(received,output/'daily.sqlite',output/'forcing')
-    result=build_packages(*(bound(cfg[k]) for k in ['contexts','template','dra_bundle','asset_catalogue']),pairs,output/'packages',expected_population=cfg.get('expected_population',10242))
+    result=build_packages(*(bound(cfg[k]) for k in ['contexts','template','dra_bundle','asset_catalogue']),pairs,output/'packages',expected_population=cfg.get('expected_population',10242),dra_checkpoints=bound(cfg['dra_checkpoints']) if cfg.get('dra_checkpoints') else None)
     if cfg.get('execute'):
         from tools.execute_catalogue_packages import run as execute
         execute(output/'packages/build-status.json',output/'executions',bound(cfg['engine']),Path(cfg['runtime_library']))

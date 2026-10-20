@@ -62,7 +62,7 @@ def qualify(workbook,templates,output):
     with zipfile.ZipFile(templates) as z:(output/'wwl.swp').write_bytes(z.read('Template/wwl.swp'))
     plan=dict(mode='RESEARCH_ONLY',met=dict(manifest=binding(output/'met/transfer.json'),source=str((output/'met').resolve())),
               bbc=dict(manifest=binding(gw/'transfer.json'),source=str(gw.resolve())),contexts=binding(contexts),template=binding(output/'wwl.swp'),
-              dra_bundle=binding(ROOT/'docs/evidence/2026-10-19-work-c2/all-dra-files.jsonl.gz'),asset_catalogue=binding(output/'assets/catalogue.json'))
+              dra_bundle=binding(ROOT/'docs/evidence/2026-10-19-work-c2/all-dra-files.jsonl.gz'),dra_checkpoints=binding(ROOT/'docs/evidence/2026-10-19-work-c2/drainage-checkpoints.jsonl.gz'),asset_catalogue=binding(output/'assets/catalogue.json'))
     p=output/'workflow-plan.json';atomic_json(p,plan)
     first=workflow(p,output/'chain');atomic_json(output/'initial-build.json',first)
     second=workflow(p,output/'chain')

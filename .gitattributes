@@ -1,0 +1,4 @@
+
+# Immutable source fixtures retain their original bytes and CRLF.
+tests/fixtures/d1/wwl.swp binary
+docs/evidence/2026-10-20-work-d1/meteo_*.csv binary
