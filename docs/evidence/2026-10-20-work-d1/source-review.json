@@ -1,0 +1,419 @@
+{
+  "date": "2026-10-20",
+  "reviewed_head": "239a422fe677ba464dc4bfb56661ed759f3c64ee",
+  "tested_code_commit": "b3a75f85d3fa81f5a0dfb4d668e3c86d334276ac",
+  "code_files_verified": 57,
+  "existing_evidence_files_verified": 29,
+  "production_admitted": false,
+  "reviews": {
+    "github_review_submissions": 0,
+    "github_review_threads": 0,
+    "independent_human_review_claimed": false
+  },
+  "scope": [
+    "source and output hash checks",
+    "population and daily coverage checks",
+    "source conversions and nearest valid cell policy",
+    "rain/WET correction before aggregation",
+    "owner daily mean BBC route",
+    "C2 period serialization",
+    "content-addressed reception and package restart",
+    "nature irrigation and explicit tulip PM route"
+  ],
+  "code_change_required": false,
+  "ci": {
+    "39468193369": "success",
+    "39468193422": "success",
+    "39468193144": "success"
+  },
+  "apple": {
+    "status": "SCIENTIFIC_INPUT_UNQUALIFIED",
+    "archive_sha256": "f21a15697332184e9931487918243ebf195e8d214ae81c4ca698f9f865f4ef85",
+    "workbook_sha256": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+    "templates": [
+      {
+        "archive_member": "Template/Gewas/3.0.0/appelbomen.crp",
+        "sha256": "89e313cc5627614dcffd349c5212e8f2b40becd12e3d04042dda11df757b32a7",
+        "scalars": {
+          "SWCF": 2.0,
+          "ALBEDO": 0.23,
+          "RSC": 144.0,
+          "RSW": 0.0
+        },
+        "active_factor_table": [],
+        "active_table_headers": [
+          "DVS     CH"
+        ]
+      },
+      {
+        "archive_member": "Template/Gewas/appelbomen.crp",
+        "sha256": "0cf63b29118ff0cf00682e241b210fa4a34959a59c2ed4be753fc122bac43155",
+        "scalars": {
+          "SWCF": 2.0,
+          "ALBEDO": 0.23,
+          "RSC": 201.3,
+          "RSW": 0.0
+        },
+        "active_factor_table": [],
+        "active_table_headers": [
+          "CHTB ="
+        ]
+      }
+    ],
+    "runs": [
+      {
+        "run_id": 4243,
+        "SWETR": 1,
+        "crop_id": 21,
+        "irrigation_id": 0,
+        "rotation_id": "max",
+        "climate_id": "__"
+      },
+      {
+        "run_id": 4244,
+        "SWETR": 1,
+        "crop_id": 21,
+        "irrigation_id": 1,
+        "rotation_id": "max",
+        "climate_id": "__"
+      },
+      {
+        "run_id": 4245,
+        "SWETR": 1,
+        "crop_id": 21,
+        "irrigation_id": 0,
+        "rotation_id": "max",
+        "climate_id": "__"
+      },
+      {
+        "run_id": 4246,
+        "SWETR": 1,
+        "crop_id": 21,
+        "irrigation_id": 0,
+        "rotation_id": "max",
+        "climate_id": "__"
+      }
+    ],
+    "sheet_headers": {
+      "lu2crop": [
+        "soil2_id",
+        "luse_id",
+        "crop_id",
+        "crop_old"
+      ],
+      "Runs": [
+        "run_id",
+        "scenario_id",
+        "bodem_id",
+        "soil2_id",
+        "lu_id",
+        "climate_id",
+        "SWBBCFILE",
+        "SWBOTB",
+        "dqsat",
+        "BBCFIL",
+        "DRFIL",
+        "METFIL",
+        "irrigation_id",
+        "solute_id",
+        "rotation_id",
+        "SWINCO",
+        "GWLI",
+        "RDS",
+        "PONDMX",
+        "RSRO",
+        "tempBot",
+        "glk",
+        "area",
+        "xc",
+        "yc",
+        "col",
+        "row",
+        "nusvat",
+        "TSTART",
+        "TEND",
+        "SWETR",
+        "soil_id",
+        "crop_id",
+        "croporg_id",
+        "dikte_id",
+        "COFANI",
+        "NUMNODNEW"
+      ],
+      "Irrigatie": [
+        "irrigation_id",
+        "solute_id",
+        "SCHEDULE",
+        "SWSOLU",
+        "CIRRS",
+        "CDRAIN"
+      ],
+      "Zoutprofiel": [
+        "solute_id",
+        "ZC",
+        "CML"
+      ],
+      "Output_org": [
+        "crop_id",
+        "INLIST_CSV"
+      ],
+      "Output": [
+        "crop_id",
+        "INLIST_CSV"
+      ],
+      "discretisatie_org": [
+        "bodem_idx",
+        "ISUBLAY",
+        "ISOILLAY",
+        "HSUBLAY",
+        "NCOMP"
+      ],
+      "discretisatie": [
+        "bodem_id",
+        "ISUBLAY",
+        "ISOILLAY",
+        "HSUBLAY_org",
+        "HSUBLAY",
+        "NCOMP_org",
+        "NCOMP_orgx",
+        "DIKTE",
+        "NCOMP",
+        "dikte_id"
+      ],
+      "DZNEW": [
+        "dikte_id",
+        "ICOMP",
+        "DZNEW"
+      ],
+      "eigenschappen": [
+        "bodem_id",
+        "sfu",
+        "ISOILLAY",
+        "BDENS",
+        "PCLAY",
+        "PSILT",
+        "PSAND",
+        "ORGMAT",
+        "ORES",
+        "OSAT",
+        "ALFA",
+        "NPAR",
+        "KSATFIT",
+        "KSATEXM",
+        "LEXP",
+        "H_ENPR",
+        "LDIS",
+        "COFANI",
+        "ELAS"
+      ],
+      "Grasverlies": [
+        "soil_id",
+        "HMOW",
+        "HLOSSMOW",
+        "HGRZ",
+        "HLOSSGRZ"
+      ],
+      "Gewasmanagement": [
+        "soil_id",
+        "crop_id",
+        "SWPREP",
+        "HPREP",
+        "HSOW"
+      ],
+      "Wortelzone": [
+        "soil_id",
+        "croporg_id",
+        "RDS",
+        null
+      ],
+      "Gewasrotatie": [
+        "climate_id",
+        "crop_id",
+        "rotation_id",
+        "CROPSTART",
+        "CROPEND",
+        "CROPNAME",
+        "CROPFIL",
+        "CROPTYPE"
+      ],
+      "GewasrotatieMax": [
+        "climate_id_",
+        "crop_id_",
+        "rotation_id_",
+        "CROPSTART",
+        "CROPEND",
+        "CROPNAME",
+        "CROPFIL",
+        "CROPTYPE"
+      ],
+      "Gewasontwikkeling": [
+        "crop_id",
+        "scenario_id",
+        "SWSOW",
+        "SWGERM",
+        "SWHARV",
+        "DVSEND"
+      ],
+      "Gewasweerstand": [
+        "crop_id",
+        "RSOIL"
+      ],
+      "Scenario": [
+        "scenario_id",
+        "SWDRA",
+        "SWBOTB",
+        "GWLI",
+        "SWINCO"
+      ],
+      "DTmax": [
+        "soil_id",
+        "DTMAX"
+      ],
+      "Meteo": [
+        "climate_id",
+        "ATMOFIL"
+      ],
+      "bodem370_2_bofek2020": [
+        "bodem_id",
+        "soil_id",
+        "BOFEKnhi79"
+      ],
+      "dqsat": [
+        "dqsat",
+        "dikte",
+        "dikte_id"
+      ]
+    },
+    "conclusion": "Both original apple templates use height/resistance and lack an active CF table. RSC differs (144.0 versus 201.3 s/m). No constant-factor projection or unapproved PM override is justified."
+  },
+  "meteorology": {
+    "status": "SOURCE_BINDING_UNVERIFIED",
+    "control_archive_sha256": "f1c6d793e54ef2390d673ef543a7800d0e2bfaf44a887aa4ee2811c9080b7bea",
+    "controls": [
+      {
+        "archive_member": "control_run_1970_1979/nhi_py/control_run_1970_1979.ini",
+        "sha256": "219cd4990ae4b45a43325309be741231cc6c516824650918bae52532ad6d23c5",
+        "meteorology_aliases": [
+          "%prec% = %(%moddata%)s\\meteo\\RD1",
+          "%evap% = %(%moddata%)s\\meteo\\EV24",
+          "%tmin% = %(%moddata%)s\\meteo\\TN",
+          "%tmax% = %(%moddata%)s\\meteo\\TX",
+          "%radiation% = %(%moddata%)s\\meteo\\Q",
+          "%humidity% = %(%moddata%)s\\meteo\\UG",
+          "%vapp% = %(%moddata%)s\\meteo\\FG"
+        ]
+      },
+      {
+        "archive_member": "control_run_1980_1989/nhi_py/control_run_1980_1989.ini",
+        "sha256": "bd97c56dd925bf606a50cdc56d9b997600941aa035ba55de3626459d315b9487",
+        "meteorology_aliases": [
+          "%prec% = %(%moddata%)s\\meteo\\RD1",
+          "%evap% = %(%moddata%)s\\meteo\\EV24",
+          "%tmin% = %(%moddata%)s\\meteo\\TN",
+          "%tmax% = %(%moddata%)s\\meteo\\TX",
+          "%radiation% = %(%moddata%)s\\meteo\\Q",
+          "%humidity% = %(%moddata%)s\\meteo\\UG",
+          "%vapp% = %(%moddata%)s\\meteo\\FG"
+        ]
+      },
+      {
+        "archive_member": "control_run_1990_1999/nhi_py/control_run_1990_1999.ini",
+        "sha256": "fb8f78a378613c1dfc4322769dc7829470012d4ebbe17fc49e891f54e24b2c04",
+        "meteorology_aliases": [
+          "%prec% = %(%moddata%)s\\meteo\\RD1",
+          "%evap% = %(%moddata%)s\\meteo\\EV24",
+          "%tmin% = %(%moddata%)s\\meteo\\TN",
+          "%tmax% = %(%moddata%)s\\meteo\\TX",
+          "%radiation% = %(%moddata%)s\\meteo\\Q",
+          "%humidity% = %(%moddata%)s\\meteo\\UG",
+          "%vapp% = %(%moddata%)s\\meteo\\FG"
+        ]
+      },
+      {
+        "archive_member": "control_run_2000_2009/nhi_py/control_run_2000_2009.ini",
+        "sha256": "fb8f78a378613c1dfc4322769dc7829470012d4ebbe17fc49e891f54e24b2c04",
+        "meteorology_aliases": [
+          "%prec% = %(%moddata%)s\\meteo\\RD1",
+          "%evap% = %(%moddata%)s\\meteo\\EV24",
+          "%tmin% = %(%moddata%)s\\meteo\\TN",
+          "%tmax% = %(%moddata%)s\\meteo\\TX",
+          "%radiation% = %(%moddata%)s\\meteo\\Q",
+          "%humidity% = %(%moddata%)s\\meteo\\UG",
+          "%vapp% = %(%moddata%)s\\meteo\\FG"
+        ]
+      },
+      {
+        "archive_member": "control_run_2010_2019/nhi_py/control_run_2010_2019.ini",
+        "sha256": "bd97c56dd925bf606a50cdc56d9b997600941aa035ba55de3626459d315b9487",
+        "meteorology_aliases": [
+          "%prec% = %(%moddata%)s\\meteo\\RD1",
+          "%evap% = %(%moddata%)s\\meteo\\EV24",
+          "%tmin% = %(%moddata%)s\\meteo\\TN",
+          "%tmax% = %(%moddata%)s\\meteo\\TX",
+          "%radiation% = %(%moddata%)s\\meteo\\Q",
+          "%humidity% = %(%moddata%)s\\meteo\\UG",
+          "%vapp% = %(%moddata%)s\\meteo\\FG"
+        ]
+      },
+      {
+        "archive_member": "control_run_2020_2023/nhi_py/control_run_2020_2023.ini",
+        "sha256": "348c141a037e99826134d8010d21d9a85756d84653f11c509eb6eb51123f3f23",
+        "meteorology_aliases": [
+          "%prec% = %(%moddata%)s\\meteo\\RD1",
+          "%evap% = %(%moddata%)s\\meteo\\EV24",
+          "%tmin% = %(%moddata%)s\\meteo\\TN",
+          "%tmax% = %(%moddata%)s\\meteo\\TX",
+          "%radiation% = %(%moddata%)s\\meteo\\Q",
+          "%humidity% = %(%moddata%)s\\meteo\\UG",
+          "%vapp% = %(%moddata%)s\\meteo\\FG"
+        ]
+      },
+      {
+        "archive_member": "control_run_2023_2024/nhi_py/control_run_2023_2024.ini",
+        "sha256": "99187c4fb2922a6efcd513dcc7cc42f125c4f24953e98dc8cce7dfa83987630d",
+        "meteorology_aliases": [
+          "%prec% = %(%moddata%)s\\meteo\\RD1",
+          "%evap% = %(%moddata%)s\\meteo\\EV24",
+          "%tmin% = %(%moddata%)s\\meteo\\TN",
+          "%tmax% = %(%moddata%)s\\meteo\\TX",
+          "%radiation% = %(%moddata%)s\\meteo\\Q",
+          "%humidity% = %(%moddata%)s\\meteo\\UG",
+          "%vapp% = %(%moddata%)s\\meteo\\FG"
+        ]
+      },
+      {
+        "archive_member": "control_run_2025_2025/nhi_py/control_run_2025_2025.ini",
+        "sha256": "87df71e0384c65a973a30b7cce09f64fb9e07ecd3fb2b9245355486e32bd5126",
+        "meteorology_aliases": [
+          "%prec% = %(%moddata%)s\\meteo\\RD1",
+          "%evap% = %(%moddata%)s\\meteo\\EV24",
+          "%tmin% = %(%moddata%)s\\meteo\\TN",
+          "%tmax% = %(%moddata%)s\\meteo\\TX",
+          "%radiation% = %(%moddata%)s\\meteo\\Q",
+          "%humidity% = %(%moddata%)s\\meteo\\UG",
+          "%vapp% = %(%moddata%)s\\meteo\\FG"
+        ]
+      }
+    ],
+    "server_audit_sha256": "52f1dbe3b9836b4bf3b4a05647451a882576d3ffd6a395998715d917fe0e9ffa",
+    "server_audit_members": [
+      {
+        "archive_member": "LWKM_SERVER_AUDIT_20261020_131748/audit_metadata.json",
+        "sha256": "15a3bb58a7b6efcedf3ae0209d2736bdecde407139ecfb47b5b816256cb6c6c9",
+        "retained_path": "docs/evidence/2026-10-20-work-d1/source-review/server-audit/audit_metadata.json"
+      },
+      {
+        "archive_member": "LWKM_SERVER_AUDIT_20261020_131748/checks.csv",
+        "sha256": "b35293aa6552d802472a106d6db61b90c175df5dc6704bc53afdc13fc3205f73",
+        "retained_path": "docs/evidence/2026-10-20-work-d1/source-review/server-audit/checks.csv"
+      },
+      {
+        "archive_member": "LWKM_SERVER_AUDIT_20261020_131748/directory_inventory.csv",
+        "sha256": "c0ca2674ac23133b9eb21e315acb254c953de89bb240a58fb6c009e9dc4a28a7",
+        "retained_path": "docs/evidence/2026-10-20-work-d1/source-review/server-audit/directory_inventory.csv"
+      }
+    ],
+    "conclusion": "Existing control files bind vapp to FG but do not establish physical units or producer scale. Server audit reports path presence/counts only and contains no meteorology producer unit evidence. No raw LHM conversion is admitted.",
+    "retained_decision": "KNMI WIND in m/s at 10 m and WET_RAW as daily fraction remain owner-bound; other raster units require actual producer metadata."
+  }
+}

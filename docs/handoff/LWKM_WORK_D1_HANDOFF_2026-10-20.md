@@ -15,3 +15,9 @@ Voor hervatting: ontvang eerst de echte compacte MetaSWAP-export en de brongebon
 Voor een nieuwe complete 4.3.1-run is de reeds geïdentificeerde juiste engine/runtime nodig. De helperroute naar SWAP_4.3.1.zip faalde in deze sessie met HTTP 403. De teruggevonden Tools(2).zip-executable is aantoonbaar 4.2.261 en is niet gebruikt als vervanger. De bestaande modelkwalificatie blijft geldig binnen haar oorspronkelijke scope.
 
 Grote echte serverarchieven zijn niet opnieuw gevraagd. Workbook, Template.zip, control_runs(2).zip en METEO_INVENTORY.zip konden uit bestaande verwijzingen worden verkregen. Dat sluit geen inhoudelijke Work B-enrichmentgate zonder toets. De bronidentiteiten en beperkte inventarisevidence zijn opgeslagen; grote rasterpayloads zijn niet gekopieerd.
+
+## Vervolgreview op 20 oktober
+
+De implementatie is opnieuw langs bronbinding, populatie/dekking, MET/BBC-semantiek, drainageperiode en herstartpaden beoordeeld. De opgeslagen codehashes en alle oorspronkelijke D1-evidencehashes zijn opnieuw gecontroleerd. De drie CI-runs op de definitief geteste code staan op success; er zijn geen GitHub-reviewthreads. Dit is een technische zelfreview, geen onafhankelijke wetenschappelijke toelating. Er was geen codewijziging nodig.
+
+De [bronreview](../evidence/2026-10-20-work-d1/source-review.json) legt beide appeltemplates, de vier workbookrijen en alle acht bestaande control-INI-identiteiten vast. Beide appeltemplates missen een CF-tabel en verschillen in RSC (144,0 tegenover 201,3 s/m). De control-INI-bestanden koppelen vapp aan FG zonder een aantoonbare eenheid/schaal. Het oorspronkelijke serverauditpakket is nu gelezen en compact behouden; het bevat pad- en aantallenevidence, geen meteorologische producentmetadata. Deze twee gates blijven dus onderbouwd open. Historische Work A-verslagen verwijzen nu expliciet naar de latere BBC- en WET-besluiten.

@@ -21,7 +21,9 @@
       "scope": "Raw LHM unit/source contract",
       "status": "SOURCE_BINDING_UNVERIFIED",
       "detail": "Inventory establishes paths, including FG as configured vapp, but not physical units/scales. No unverified raw unit is defaulted to a canonical unit.",
-      "next_step": "Use existing producer metadata to bind explicit conversions; do not infer vapour pressure or wind solely from FG naming."
+      "next_step": "Use existing producer metadata to bind explicit conversions; do not infer vapour pressure or wind solely from FG naming.",
+      "additional_evidence": "docs/evidence/2026-10-20-work-d1/source-review.json",
+      "review_detail": "All eight existing control INIs and the 13:17 server audit examined. Alias vapp -> FG is confirmed; a physical unit/scale contract is not established."
     },
     {
       "id": "D1-GW-REAL",
@@ -49,7 +51,9 @@
         4246
       ],
       "detail": "Original crop files use resistance route; the four ETref cases lack a qualified crop factor. No owner-approved apple PM override.",
-      "next_step": "Resolve crop-factor authority or obtain an explicit scientific route decision. Do not fabricate factors."
+      "next_step": "Resolve crop-factor authority or obtain an explicit scientific route decision. Do not fabricate factors.",
+      "additional_evidence": "docs/evidence/2026-10-20-work-d1/source-review.json",
+      "review_detail": "Both original apple templates lack active CF; source RSC values are 144.0 and 201.3 s/m. Workbook confirms SWETR=1 for all four. No source-compatible constant projection found."
     },
     {
       "id": "D1-ENGINE",

@@ -1,5 +1,7 @@
 # Work A: bestaande vijf fluxproducten en uitvoering
 
+**Historisch uitvoeringsverslag.** Voor de actuele consumer en toelating gelden [het productiehandboek](ARCHITECTURE_20261019.md), [het runbook](RUNBOOK_20261019.md) en de latere eigenaarbesluiten. De oude standaardweigering van variërende BBC-daggemiddelden is vervangen door [het besluit van 20 oktober](WORK_A_BBC_DAILY_MEAN_TIMING_DECISION_2026-10-20.md). Voor WET gelden de latere nulregen/positieve-duur/0,1-regels; oorspronkelijke WEL/GHB-afwezigheid is geen actuele blokkade. De oorspronkelijke proefresultaten hieronder blijven ongewijzigd.
+
 Het aanvullende projecteigenaarbesluit van 19 oktober 2026 bindt de bestaande dagelijkse FLF-, FRF-, FFF-, GHB- en WEL-producten. WEL en GHB staan in `LWKM_run_resultaten_totaal/modflow/bdgwel` en `bdgghb`, met aangewezen periode 1970-2022. Dit is een bronaanwijzing van de eigenaar, geen claim dat deze runtime alle dagelijkse bytes heeft geverifieerd. Er is geen reconstructie opnieuw uitgevoerd en geen analyse van oorspronkelijke MODFLOW-face-semantiek heropend.
 
 ## Vastgelegde authority
