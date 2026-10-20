@@ -1,0 +1,17 @@
+[
+  {
+    "hru": 7870,
+    "max_abs_numeric_output_difference": 0.0,
+    "exact_dates": true
+  },
+  {
+    "hru": 7876,
+    "max_abs_numeric_output_difference": 0.0,
+    "exact_dates": true
+  },
+  {
+    "hru": 7929,
+    "max_abs_numeric_output_difference": 0.0,
+    "exact_dates": true
+  }
+]

@@ -1,0 +1,366 @@
+
+SWAP 4.3.1 original distribution, MOD_meteo.f90, lines 1328-1396
+1328:       ! interception storage
+1329:       if (sw_inter /= 3) then
+1330:      
+1331:          ! interception based on daily fluxes
+1332:          if (swrain == 0) then
+1333:             aintcdt = aintc
+1334:          else
+1335:             if (isua == 0) then
+1336:                if (grai + gird > 0.d0) then
+1337:                   aintcdt = (graidt + gird) *  aintc / (grai + gird)
+1338:                else
+1339:                   aintcdt = 0.d0
+1340:                end if   
+1341:             else
+1342:                if (grai > 0.d0) then
+1343:                   aintcdt = graidt * aintc / grai
+1344:                else
+1345:                   aintcdt = 0.d0
+1346:                end if   
+1347:             end if
+1348:          end if    
+1349:      
+1350:       else
+1351:          
+1352:          ! calculate interception, method Rutter
+1353:          call Rutter ()
+1354: 
+1355:       end if
+1356: 
+1357:       ! divide interception into rain part and irrigation part
+1358:       ! and calculate net rain and net sprinkling irrigation      
+1359:       if (aintcdt < small) then
+1360:          nraidt = graidt
+1361:          nird = gird
+1362:       else
+1363:          if (graidt + gird > small) then
+1364:             if (isua == 0) then
+1365:                nraidt = graidt - aintcdt * (graidt / (graidt + gird))
+1366:                nird = gird - aintcdt * (gird / (graidt + gird))
+1367:             else
+1368:                nraidt = graidt - aintcdt
+1369:                nird = gird
+1370:             end if
+1371:          else
+1372:             nraidt = 0.d0
+1373:             nird = 0.d0
+1374:          end if
+1375:       end if
+1376:      
+1377:       ! soil evaporation rate of current time step
+1378:       call reduceva (nraidt)
+1379:      
+1380:       ! calculate fraction of the day or period the crop is wet
+1381:       if (swmetdetail == 0) then
+1382:          if (sw_inter == 1 .OR. sw_inter == 2) then
+1383:             if (eintc < 0.001d0) then
+1384:                wfrac = 0.d0
+1385:             else
+1386:                wfrac = max(min(aintc / eintc, 1.d0), 0.d0)
+1387:             end if
+1388:          end if
+1389:       end if
+1390: 
+1391:       ! reduce transpiration and evaporation according to wfrac, the fraction of time that there is interception transpiration
+1392:       ptra = wfrac * ptra_wet + (1 - wfrac) * ptra_dry
+1393:      
+1394:       return
+1395:    end subroutine ProcessMeteoDT
+1396:    
+
+SWAP 4.3.1 original distribution, MOD_meteo.f90, lines 1410-1480
+1410:      
+1411:       ! in case reference evapotranspiration is input
+1412:       if (swmetdetail == 0 .AND. swetr == 1) then
+1413: 
+1414:          ! evaporation of bare soil
+1415:          es0 = etr * (1.d0 - vcover)
+1416:          if (swcfbs == 1) es0 = etr * (1.d0 - vcover) * cfbs
+1417:        
+1418:          ! evaporation of ponding layer
+1419:          ep0 = etr * (1.d0 - vcover) * cfevappond
+1420:        
+1421:          if (fl_cropemergence) then
+1422:             et0 = etr * vcover * cf
+1423:             ew0 = etr * vcover * cf
+1424:          else
+1425:             et0 = 0.d0
+1426:             ew0 = 0.d0
+1427:          end if
+1428: 
+1429:       ! in case reference evapotranspiration must be calculated
+1430:       else if (swmetdetail == 1 .OR. swetr == 0) then
+1431: 
+1432:          ! evapotranspiration using Penman-Monteith: et0, ew0, es0 (mm/d)
+1433:          et0 = 0.0d0
+1434:          ew0 = 0.0d0
+1435:          ep0 = 0.0d0
+1436:          es0 = 0.0d0
+1437:          call penmon (daynr,swcfbs,rsoil,vcover)
+1438: 
+1439:          if (swdivide == 0) then
+1440: 
+1441:             ! evaporation of bare soil
+1442:             if (swcfbs == 1) es0 = es0 * cfbs
+1443: 
+1444:             if (fl_cropemergence) then
+1445:                if (swcf == 1) then
+1446:                   et0 = et0 * cf
+1447:                   ew0 = ew0 * cf
+1448:                   ep0 = ep0 * cfevappond
+1449:                end if
+1450:             else
+1451:                et0 = 0.0d0
+1452:                ew0 = 0.0d0
+1453:             end if
+1454: 
+1455:          end if
+1456: 
+1457:       end if
+1458: 
+1459:       ! ponding evaporation according to PM or ETref
+1460:       epond = max(0.d0, ep0 * 0.1d0)
+1461:       
+1462:       ! potential soil evaporation according to PM or ETref
+1463:       peva = max(0.d0, es0 * 0.1d0)
+1464:     
+1465:       ! potential transpiration according to PM-direct
+1466:       ptra_dry = max(et0 * 0.1d0, 0.d0)
+1467: 
+1468:       ! correction of potential transpiration as a function of atmospheric CO2 concentration
+1469:       if (fl_cropemergence) then
+1470:          ptra_dry = fco2tra * ptra_dry
+1471:       end if
+1472:       
+1473:       ! potential transpiration (while wet canopy)
+1474:       if (ew0 > 0.d0) then
+1475:          ptra_wet = (ptra_dry / (ptra_dry + ew0 * 0.1d0)) * ptra_dry
+1476:          eintc = (ew0 * 0.1d0 / (ptra_dry + ew0 * 0.1d0)) * ew0 * 0.1d0
+1477:       else
+1478:          ptra_wet = 0.d0
+1479:          eintc = 0.d0
+1480:       end if
+
+SWAP 4.3.1 original distribution, MOD_meteo.f90, lines 1910-2005
+1910:       ! aerodynamic resistance for dry and wet crop
+1911:       rac = raero(chplant, ud, zact, zh)
+1912:       raw = rac
+1913: 
+1914:       ! aerodynamic resistance for bare wet soil with a crop height set to 0.1 cm
+1915:       ras = raero(chsoil, ud, zact, zh)
+1916: 
+1917:       ! surface resistance of wet soil [s/m]
+1918:       if (swdivide == 0) then
+1919: 
+1920:          rss = 0.d0
+1921: 
+1922:          ! modified psychrometric constant [kPa/C] - soil, crop & wet crop 
+1923:          gammos = gamma * (1.d0 + rss / ras)
+1924:          gammoc = gamma * (1.d0 + rsc / rac)
+1925:          gammow = gamma * (1.d0 + rsw / raw)
+1926:      
+1927:          ! aerodynamic term of the pm equation [mm/d] - soil, crop & wet crop
+1928:          con_tmp = (86.4d0 * rho * cp * vpd) / lambda
+1929:          etaers = con_tmp / ((delta + gammos) * ras)
+1930:          etaerc = con_tmp / ((delta + gammoc) * rac)
+1931:          etaerw = con_tmp / ((delta + gammow) * raw)
+1932: 
+1933:          ! radiation term of the pm equation [mm/d] - soil, crop & wet crop
+1934:          con_tmp = delta * dble(n_metdetail) / lambda
+1935:          etrads = con_tmp * (rns - rnl - gs) / (delta + gammos)
+1936:          etradc = con_tmp * (rnc - rnl - gc) / (delta + gammoc)
+1937:          etradw = con_tmp * (rnw - rnl - gw) / (delta + gammow)
+1938: 
+1939:          ! sum of both terms [mm/d] - soil, crop & wet crop
+1940:          if (swcf == 1 .AND. swcfbs == 1) then
+1941:             es0 = max(0.d0, (etaerc + etradc) * (1.d0 - vcover))
+1942:          else   
+1943:             es0 = max(0.d0, (etaers + etrads) * (1.d0 - vcover))
+1944:          end if
+1945:         
+1946:          et0 = max(0.d0, (etaerc + etradc) * vcover)
+1947:          ew0 = max(0.d0, (etaerw + etradw) * vcover)
+1948:          ep0 = max(0.d0, (etaerw + etradw) * (1.d0 - vcover))
+1949: 
+1950:       else
+1951: 
+1952:          ! PMdirect: potential transpiration Tdirect and potential evaporation Edirect
+1953:         
+1954:          ! apply specified soil resistance
+1955:          rss = rsoil 
+1956: 
+1957:          ! adjust aerodynamic resistances
+1958:          if (vcover > 1.d-6) then
+1959:             rac = rac / vcover
+1960:          else
+1961:             rac = 1.d12
+1962:          end if
+1963:          raw = rac
+1964: 
+1965:          if ((1.d0 - vcover) > 1.d-6) then
+1966:             ras = ras / (1.d0 - vcover)
+1967:          else
+1968:             ras = 1.d12
+1969:          end if
+1970: 
+1971:          ! effective leaf area index
+1972:          LAIeff = lai / (0.3d0 * lai + 1.2d0)
+1973: 
+1974:          ! modified psychrometric constant [kPa/c] - crop, wet crop & pond layer 
+1975:          gammos = vlarge
+1976:          if (ras > small) gammos = gamma * (1.d0+rss/ras)
+1977:          gammoc = vlarge
+1978:          if ((rac*LAIeff) > small) gammoc = gamma*(1.d0+rsc/(rac*LAIeff))
+1979:          gammow = vlarge
+1980:          if ((raw*LAIeff) > small) gammow = gamma*(1.d0+rsw/(raw*LAIeff))
+1981:          gammop = vlarge
+1982:          if (ras > small) gammop = gamma
+1983: 
+1984:          ! aerodynamic term of the pm equation [mm/d] - crop, wet crop & pond layer
+1985:          con_tmp = (86.4d0 * rho * cp * vpd / lambda)
+1986:          etaers = con_tmp / ((delta+gammos) * ras)
+1987:          etaerc = con_tmp / ((delta+gammoc) * rac)
+1988:          etaerw = con_tmp / ((delta+gammow) * raw)
+1989:          etaerp = con_tmp / ((delta+gammop) * ras)
+1990: 
+1991:          ! radiation term of the pm equation [mm/d] - crop, wet crop & pond layer
+1992:          con_tmp = delta * dble(n_metdetail) / lambda
+1993:          etrads = con_tmp * (rns - rnl - gs) * (1.d0 - vcover) / (delta + gammos)
+1994:          etradc = con_tmp * (rnc - rnl - gc) * vcover / (delta + gammoc)
+1995:          etradw = con_tmp * (rnw - rnl - gw) * vcover / (delta + gammow)
+1996:          etradp = con_tmp * (rnp - rnl - gs) * (1.d0 - vcover) / (delta + gammop)
+1997: 
+1998:          ! sum of both terms [mm/d] - crop, wet crop & pond layer
+1999:          es0 = max(0.d0, etaers + etrads)
+2000:          et0 = max(0.d0, etaerc + etradc)
+2001:          ew0 = max(0.d0, etaerw + etradw)
+2002:          ep0 = max(0.d0, etaerp + etradp)
+2003:       end if
+2004: 
+2005:       return
+
+SWAP 4.3.1 original distribution, rootextraction.f90, lines 365-374
+365: ! --- calculating critical point hlim3 according to feddes
+366:    if (ptra < adcrl) then
+367:       hlim3 = hlim3l
+368:    else if (ptra <= adcrh) then
+369:       hlim3 = hlim3h + ((adcrh - ptra) / (adcrh - adcrl)) * (hlim3l - hlim3h)
+370:    else
+371:       hlim3 = hlim3h
+372:    end if
+373: 
+374: ! === COMBINATION OF OXYGEN, DROUGHT, SALT AND FROST STRESS ====
+
+SWAP 4.3.1 original distribution, rootextraction.f90, lines 419-432
+419:          end if
+420: 
+421:       end if
+422: 
+423: ! ---   reduction due to drought stress
+424:       ! Feddes linear reduction based on pressure head
+425:       if (h(node) < hlim4) then
+426:          alpdry = 0.0d0
+427:       else if (h(node) <= hlim3) then
+428:          alpdry = (hlim4 - h(node)) / (hlim4 - hlim3)
+429:       end if
+430: 
+431: ! ---   reduction due to salt stress
+432:         ! reduction according to Maas and Hoffman linear reduction function
+
+SWAP 4.3.1 original distribution, boundtop.f90, lines 90-115
+90: 
+91: ! --- This only occurs if RH is 100% in SWAPS, never used for SWAP
+92:          ksurf = k(1)
+93:       end if
+94:       k1Atm = hcomean(swkmean,ksurf,k(1),dz(1),dz(1), 0, hAtm, h(1))
+95: 
+96: ! --- maximum evaporation rate according to Darcy
+97:       Emax = -k1Atm * ((hatm-h(1))/disnod(1)+1.0d0)
+98:       
+99: ! --- determine ponding and reduced soil evaporation rate
+100:       if (pondm1 > 1.0d-10) then
+101:          reva = 0.d0
+102:          epd = epond
+103:       else
+104:          if (swredu == 0) then
+105:            reva = min(peva,max(0.0d0,Emax))
+106:          else
+107:            reva = min(empreva,max(0.0d0,Emax))
+108:          end if
+109:          epd = 0.d0
+110:       end if
+111: 
+112: !     H I G H   A T M O S P H E R I C   D E M A N D
+113: !     flux through ground surface based on precipitation - evaporation 
+114: !     and remaining ponding of previous timestep
+115:       q0 = (nraidt+nird+melt)*(1.0d0-ArMpSs) + runon - reva - epd
+
+SWAP 4.3.1 original distribution, integral.f90, lines 291-315
+291:       iqredsol_day = iqredsol_day + qredsolsum*dt
+292:       iqrot_day    = iqrot_day + qrotts
+293:       iptra_day    = iptra_day + ptra * dt
+294:       
+295:       ialpwet_day = ialpwet_day + alpwetnoddrz * dt
+296:       ialpdry_day = ialpdry_day + alpdrynodrtz * dt
+297: 
+298:       if (sw_inter /= 3) then
+299:          iintc  = iintc + aintcdt * dt
+300:       else
+301:          iintc  = iintc + crsflx_out * dt
+302:       end if
+303: 
+304:       iptra  = iptra + ptrats
+305:       iepd   = iepd + epdts
+306:       ipeva  = ipeva + pevats
+307:       ievap  = ievap + revats
+308:       iruno  = iruno + runots
+309:       irunon = irunon + runon*dt
+310:       igrai  = igrai + graidt*dt
+311:       igird  = igird + gird*dt
+312:       inrai  = inrai + nraidt*dt
+313:       inird  = inird + nird*dt
+314:       iqbot  = iqbot + qbotts
+315:       if (qbotts < 0.0d0) then
+
+SWAP 4.3.1 original distribution, swap_csv_output.f90, lines 468-490
+468:       if (name == 'RAIN')         value = igrai + isnrai
+469:       if (name == 'RAIN_NET')     value = inrai
+470:       if (name == 'SNOW')         value = igsnow
+471:       if (name == 'IRRIG')        value = igird
+472:       if (name == 'IRRIG_NET')    value = inird
+473:       if (name == 'RUNON')        value = irunon
+474:       if (name == 'RUNOFF')       value = iruno
+475:       if (name == 'EIC')          value = iintc
+476:       if (name == 'EPD')          value = iepd
+477:       if (name == 'EPOT')         value = ipeva
+478:       if (name == 'EACT')         value = ievap
+479:       if (name == 'ESUBLIM')      value = isubl
+480:       if (name == 'TOP_IN')       value = iqtdo
+481:       if (name == 'TOP_OUT')      value = iqtup
+482:       if (name == 'TOP')          value = iqtdo + iqtup
+483:       
+484: 
+485:       ! fluxes side
+486:       if (name == 'TPOT')         value = iptra
+487:       if (name == 'TACT')         value = iqrot
+488:       if (name == 'TREDDRY')      value = iqreddry
+489:       if (name == 'TREDWET')      value = iqredwet
+490:       if (name == 'TREDSOL')      value = iqredsol
+
+SWAP 4.3.1 original distribution, irrigation.f90, lines 349-362
+349:             ! for some options some constants can be computed once (per crop) and stored
+350:             if (tcs > 1) then
+351:                call rdsdor ('hlim3h',-10000.0d0,100.0d0,hlim3h)
+352:                call rdsdor ('hlim3l',-10000.0d0,100.0d0,hlim3l)
+353:                call rdsdor ('hlim4' ,-20000.0d0,100.0d0,hlim4)
+354:                phme = (hlim3l + hlim3h) * 0.5d0
+355:                phhi = hlim4
+356:                do i = 1, numlay
+357:                   node     = botcom(i)    ! bottom most compartment per soil layer
+358:                   wclos(i) = watcon(node,phlo)
+359:                   wcmes(i) = watcon(node,phme)
+360:                   wchis(i) = watcon(node,phhi)
+361:                end do
+362:             end if

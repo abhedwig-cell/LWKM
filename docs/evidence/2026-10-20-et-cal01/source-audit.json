@@ -1,0 +1,43 @@
+{
+  "library_source": "SWAP_4.3.1.zip, libfile_e8176d305b348191baa0dfa2c0a6b714",
+  "archive_sha256": "2b48353db6cdf00246a1e5c0dcaafc2c61858729fad18446a1dc66359ec2a360",
+  "engine_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+  "source_archive_sha256": "1a2d798994c2990b397f9349317e3a26f40662fbcff55c9ea484dd638af45151",
+  "source_files_sha256": {
+    "MOD_meteo.f90": "5a095c16ec82fa544f7dd20ba568ba3a2b72906bff7dd3505af16e6722d86822",
+    "rootextraction.f90": "8b7b2846618a8f82f3ed676c2c489d2d34be8c44b0a0d952f7f22ff09af78cd5",
+    "boundtop.f90": "69d0d4703af64212d7200898f12568853d015cea29cb45f81915bece15b63c04",
+    "integral.f90": "bd37ebe5014f14ab2ff961a336cfa284266102d510617feef1c00f6616c64174",
+    "swap_csv_output.f90": "4dd5dd58f66e7ed521ea42cd6a33d54c2d7c8ecac07b9e1fa0496e09b1df71f9",
+    "interface_plant.f90": "2295a17a9597f016ed8ec538eede7c9400da0819914e96f7d641597ce71f64df",
+    "wofost.f90": "3f7daf222835c9b4b395feaa665614e8aef88a03125cdec9e0776ca793c6271b",
+    "irrigation.f90": "65830c1e030be8030995547729d9298e6352778f132e5195af2962baa38a3bf1",
+    "swap_main.f90": "6cb51432fb86299438e0a244939a045673574dd605f2b1125c79ca977f935be5"
+  },
+  "runtime_wheel": {
+    "intel_cmplr_lib_rt-2026.2.0-py2.py3-none-manylinux_2_28_x86_64.whl": "9f713083073a820d2496a6da8e8d4f3482aba6640f74521d25ea48dcebe72748"
+  },
+  "runtime_libraries": {
+    "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b",
+    "libintlc.so.5": "f16c5e1cad3b3363903afca39def3bfa42dd4f41e8c892fea019103767f1a089",
+    "libintlc.so": "0c04d3b61ba90894ab860f1c76bf38fedb24fdede5adbd667ac3140bd288e9e0",
+    "libxptifw.so": "e86145b0ca073c019b791d59ad877d49df7165c9190b1ec300f0b073914e9ddd",
+    "libxptifw.so.1": "e86145b0ca073c019b791d59ad877d49df7165c9190b1ec300f0b073914e9ddd",
+    "libqkmalloc.so": "ae9cab245ad593ebc22324b5f25c8621e6153fa2dcfa9259b2cba9047bcbb31f",
+    "libxptifw.so.1.0.1": "e86145b0ca073c019b791d59ad877d49df7165c9190b1ec300f0b073914e9ddd",
+    "icx-lto.so": "9da0cef9864a5c974983459bb05138eb2019cac81ad4b1b9c337c179213db34f",
+    "libze_trace_collector.so": "a00f737a911f1bf1cb177daca5d41d15442d2a8da3cec396d33ce8548ace91a7",
+    "libsvml.so": "b2cf661fb044dc02d5901113841a294c3a95ce62a38270a396ed8b52680f9ba8",
+    "libirng.so": "8e014b69e3c1ea2235c1f98bd70eb1083d35bd39a793f521230c96e865b38db6",
+    "libirc.so": "b5abad56eade71b1a65e841d646ba192ff625ff7d82b28bea74c38d81d66cbb6"
+  },
+  "C2_original_engine_and_libimf_hash_match": true,
+  "input_restoration": "qualify_et_cal01.restore verifies each original C2 input hash; 7876 MET from Work C complete-example-7876",
+  "base_commit": "ee44a4c168c3b5cb163686f7333fe7aee47d766f",
+  "prior_review": [
+    "docs/production/WORK_B_20261019.md",
+    "docs/production/WORK_C2_20261019.md",
+    "docs/production/ET_DECADE_HRU_REFERENCE_CONTRACT_2026-10-20.md",
+    "docs/handoff/LWKM_WORK_D1_HANDOFF_2026-10-20.md"
+  ]
+}

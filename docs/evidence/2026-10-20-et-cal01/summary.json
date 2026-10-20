@@ -1,0 +1,35 @@
+{
+  "status": "REAL_SWAP_RESEARCH_QUALIFIED",
+  "production_admitted": false,
+  "real_metaswap_received": false,
+  "runs": 30,
+  "all_executions_pass": true,
+  "all_balances_pass": true,
+  "max_balance_error_mm_day": 0.0002999999992370217,
+  "total_engine_seconds": 107.4853681210152,
+  "period": "1971-01-01/1971-12-20",
+  "baseline_parity": [
+    {
+      "hru": 7870,
+      "max_abs_numeric_output_difference": 0.0,
+      "exact_dates": true
+    },
+    {
+      "hru": 7876,
+      "max_abs_numeric_output_difference": 0.0,
+      "exact_dates": true
+    },
+    {
+      "hru": 7929,
+      "max_abs_numeric_output_difference": 0.0,
+      "exact_dates": true
+    }
+  ],
+  "limitations": [
+    "one truncated historical year",
+    "two grass profiles and one arable profile only",
+    "no irrigated, maize or nature validation",
+    "no independent-year validation or factual HRU calibration"
+  ],
+  "boundary_control_runs": 2
+}

@@ -1,0 +1,1942 @@
+[
+  {
+    "hru": 7870,
+    "experiment": 0,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.9197618540056283,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "2f74dd4fde8717678de45a089fc8262a6da7349f56785b5e34fd5f50e6142be6",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "07b9fd7f408a88faeb931da5ca7a78273a6794fb538622798d077db503d790b5",
+        "swap.log": "c34f3c39f0fee8e1572f43a3750d9816193544e0521d714bd39da3a5b91c3f51",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "6ec0dd3dcc9d81a37bb3fbdcc07b1db374e47dd831f5f4d89d482ae16a10fcc6"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000087588843,
+      "total_water_error_period_mm": 0.000674489000406335,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 3.5494199999999996e-05,
+      "mean_gwl_cm": -152.80532562146894,
+      "min_gwl_cm": -198.36061,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.975948781,
+      "eic_mm": 40.628663431999996,
+      "epd_mm": 4.223713298,
+      "eact_mm": 172.69779999999997,
+      "tact_mm": 197.4378,
+      "drn_mm": 20.104699999999987,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80359999999999,
+      "total_et_mm": 414.98797672999996
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": 1,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.7427701039996464,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "3edc71916bf08a63d3490c77ace8371bd2fffe2ab1cdb61939c43999653ddbba",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "82d4099032628ca9bb602e5151f0870ebd901af51340590b88f4c8d04780adc6",
+        "swap.log": "a28431af4c7da0011d288635689e72d8ee8a99776b6a4dd5106d5570b66f4edf",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "8f1a65ba1bac6e46fca644fc2c25df546f7f90b31c0fa317c34c36e44ed5a164"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.0002999999992370217,
+      "total_water_error_period_mm": 0.00026546399996626655,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 3.5416499999999995e-05,
+      "mean_gwl_cm": -152.85457556497175,
+      "min_gwl_cm": -198.40586,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.9775578060000001,
+      "eic_mm": 40.628663431999996,
+      "epd_mm": 4.157913298,
+      "eact_mm": 172.7317,
+      "tact_mm": 197.6655,
+      "drn_mm": 20.103199999999987,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80369999999999,
+      "total_et_mm": 415.18377673
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": 2,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.7631882099958602,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "10c1876a33f1af2acef048555affafaab819cc069cc58e6f83ecb355e65648f2",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "048b850b93d24bd8a51714240f5970572700c1960ceab061efa4b880a2824a30",
+        "swap.log": "fede14109929a5d4227617a332f9a85d013e8a468e3c1baedc0533e8dd59695e",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "8c687b616c9272e56b05e6ad3e4160b136e8a60cba4e4b8c6b1e109fdbd98a27"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00019999999974540383,
+      "total_water_error_period_mm": 0.00043899000071307565,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 3.53452e-05,
+      "mean_gwl_cm": -152.91263485875706,
+      "min_gwl_cm": -198.4513,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.97808428,
+      "eic_mm": 40.628663431999996,
+      "epd_mm": 4.169513298,
+      "eact_mm": 172.77270000000001,
+      "tact_mm": 197.8419,
+      "drn_mm": 20.10049999999999,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80379999999998,
+      "total_et_mm": 415.41277673
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": 3,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.805258080996282,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "ec803c776c1fc8fc4384d99f8e4e359c00d83611de1fead3d620bccbd10e7323",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "edfa58ff235ce6ca004099e87b44f0500982fdfb0413f363d9dcd43f00ca7d43",
+        "swap.log": "5c9b316d2b7b2aeade520d2f9bfe2b2cac04c6dc2ee45c005a9572080b41c8cd",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "11fc31daa39f1f882086e1d7b67eebdc29be187a82d0982c97ca460d01ec478a"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.0002000000006509295,
+      "total_water_error_period_mm": 0.0014871329997967302,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 8.45934e-06,
+      "mean_gwl_cm": -148.25889805084745,
+      "min_gwl_cm": -193.74626,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.9772000000000001,
+      "eic_mm": 41.31516343199999,
+      "epd_mm": 4.581913298,
+      "eact_mm": 172.69289999999998,
+      "tact_mm": 187.77909999999997,
+      "drn_mm": 21.93403613700001,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80369999999999,
+      "total_et_mm": 406.36907672999996
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": 4,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.8098102700023446,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "768a08a98b40b6d907f2c4c8ce1be4897e6fa22a3b3ebfea187cb90ac0a76718",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "71fa7a2f4f0e064a0761c0475e9c7dc7190b9e65f6fde848bdd1818425fe14df",
+        "swap.log": "b52ac8a273b2b0b0d2bc0f323942ef3f4ffec4044146cdfbe0a26c8ab5680198",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "5acfc6849741c087124f17048605f08dac4ba46b9ad4018a7a756d19315b2216"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000093209347,
+      "total_water_error_period_mm": 0.0012492239999054022,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 8.5492e-06,
+      "mean_gwl_cm": -148.31353940677965,
+      "min_gwl_cm": -193.80793,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.977737909,
+      "eic_mm": 41.31516343199999,
+      "epd_mm": 4.278913298,
+      "eact_mm": 172.8902,
+      "tact_mm": 187.9941,
+      "drn_mm": 21.89183613700001,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80379999999998,
+      "total_et_mm": 406.47837673
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": 5,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.804938264998782,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "58410ccccaf92755e50f06891b1484abbc5849cb50673d6070e9123a86a1e01d",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "9ffe86944b02118358479ad8c8ec428db95b9d4b41f56a5a1c0f2d0cda07c2ea",
+        "swap.log": "fe3afe7bc1eab851209bdc3944f533847fb8e9d2b0c476b6b54e149276eade83",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "44ed43ac28a73c91bc48799096bd6f03dd22031cc654427137699a698f4aa831"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000105949156,
+      "total_water_error_period_mm": 0.0009536759999018325,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 8.60043e-06,
+      "mean_gwl_cm": -148.40735607344632,
+      "min_gwl_cm": -193.82833,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.9781000000000001,
+      "eic_mm": 41.31516343199999,
+      "epd_mm": 4.411346754999999,
+      "eact_mm": 172.6087,
+      "tact_mm": 188.39329999999995,
+      "drn_mm": 21.79753613700001,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80369999999999,
+      "total_et_mm": 406.7285101869999
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": 6,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.866458620002959,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "11430a7885b8944abc8cd6c4ba1acbd0ccd73089e5c0548253210b957bf37042",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "18fa7929bfd20a0dbc5ac74f89cde2700a72ca754442b74894cac7d93097df8c",
+        "swap.log": "e43e86c3a829ad8200909fe268471c4122d034bdbb3dbc0a20b7b8cbca2151f8",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "ee88baf9e0c060bb647fdf9d99cc4c5f65f669ae03da28c89ba329fd27c1eae9"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000051006994,
+      "total_water_error_period_mm": 0.0011232700007331176,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.34893e-05,
+      "mean_gwl_cm": -143.23867302259887,
+      "min_gwl_cm": -187.99649,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.9497,
+      "eic_mm": 41.830963432,
+      "epd_mm": 4.421913298000001,
+      "eact_mm": 172.4719,
+      "tact_mm": 178.79089999999997,
+      "drn_mm": 29.439200000000003,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80379999999998,
+      "total_et_mm": 397.51567673
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": 7,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.8602137160050916,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "69b29bb585de0768014db1e98936052d500a5a1ef2ae759cd03f43e6e1ea6a3f",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "1af0e28576d97db98bbd6d64be9af1ca2050e57eef574a64ed12aa8c581dc5a6",
+        "swap.log": "31119703f3a5f7516097a59b815fa4c9bb9c7451ac58a7b6f371b8697ef5f99e",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "4c9a49a9d7ef03dc91c7731419d93b0a1a7b80473bbd991649dd16b72a102fa2"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.000200000000443179,
+      "total_water_error_period_mm": 0.0011232699998559026,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.73885e-05,
+      "mean_gwl_cm": -143.33667155367232,
+      "min_gwl_cm": -188.0209,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 1.0027,
+      "eic_mm": 41.830963432,
+      "epd_mm": 4.731313298000001,
+      "eact_mm": 172.41860000000003,
+      "tact_mm": 178.9729,
+      "drn_mm": 28.954300000000003,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80379999999998,
+      "total_et_mm": 397.95377673
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": 8,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.8073141799977748,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "041adc84a03640550ee3a64cefe6d9734d4351a9c8de1bf3ed6a5db474c24efe",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "845c2f581dae8adfcce948b48e83346f7641f5dddd606aa6ac5fc1bb63a61240",
+        "swap.log": "ab5927f430c5264da528576961d58bae1bc73b005c0ddfd041bb2b4fd1b78b9c",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "1135d9011986ffbc03de6a27d1589aa41beb13fb33cffcd164e7aaedb882167b"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.000200000000443179,
+      "total_water_error_period_mm": 0.0011441744007392209,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.3458e-05,
+      "mean_gwl_cm": -143.31694850282489,
+      "min_gwl_cm": -188.03548,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 1.0015,
+      "eic_mm": 41.830963432,
+      "epd_mm": 4.5083923936,
+      "eact_mm": 172.50280000000004,
+      "tact_mm": 179.1659,
+      "drn_mm": 28.9031,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80379999999998,
+      "total_et_mm": 398.0080558256
+    }
+  },
+  {
+    "hru": 7870,
+    "experiment": "offgrid",
+    "parameters": {
+      "rsc_scale": 1.125,
+      "feddes_scale": 0.875
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 2.8641911550002987,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7870.bbc": "81a665659dd762e4c5eb9851e4f61941e9b298a5f533dbe857e1c05cb34c6185",
+        "7870.dra": "27ea8238464f6290216063861eaec3aaa15d45e0827a1e22415aa000411a248f",
+        "7870.met": "6826ffadd78b2af1c637e757bdbd2b2373c3f578ecd14a4a77b0b44337d6139a",
+        "fictief.crp": "a3a3e5549c0c88c572adb10a858c98a22d42f86b75eb50f1fd8a1e7343511148",
+        "swap.swp": "c95b08479760c7c48b9309a6c51c62df45dd2a8ae6702021020f126dc7e93bd4"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "b4ab88373c3c2f0d7d85801e70f93f156d553d5bd40d9f43865d90a9c4f913a5",
+        "swap.log": "e7175283c683168d445dcecfdadbbd16fbb2c57a639e08cf593c8932699776b8",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "515101c2f91b444073a18d1fc898103be98bafb19b7c2a3a1f2a96222efaeba1"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7870",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000103645443,
+      "total_water_error_period_mm": 0.0002777400002605592,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 4.77372e-05,
+      "mean_gwl_cm": -145.6413868079096,
+      "min_gwl_cm": -190.91886,
+      "max_gwl_cm": -46.92981,
+      "rain_mm": 546.8564,
+      "irrig_mm": 0.0,
+      "runoff_mm": 1.0066179749999997,
+      "eic_mm": 41.587663432,
+      "epd_mm": 4.476640853,
+      "eact_mm": 172.0498,
+      "tact_mm": 183.8822,
+      "drn_mm": 25.0005,
+      "ssdi_mm": 0.0,
+      "bot_mm": -105.80369999999999,
+      "total_et_mm": 401.996304285
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 0,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.3564597949953168,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "83837d67e58d15d7271c4aab93bd06696dba029a64cb34d6c3dab1ff413dc8e7",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "1d465cb4dbd26362ff7c9b1e37b31e83119202e9780b4a8ecbd320226e544a5d",
+        "swap.log": "da74aa8cfcb4d5a4ae82f7649c4ab282658bc04eafdee329c01553bcf1e45f42",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "d6663af6be61147c8a37f30cef0622cdb17b36c60a5e638623732f62bdf65cfd"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00028052999879256413,
+      "total_water_error_period_mm": -0.0008153474998409162,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 3.52653e-05,
+      "mean_gwl_cm": -87.82240141242936,
+      "min_gwl_cm": -132.77561,
+      "max_gwl_cm": -24.33896,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.274314289,
+      "epd_mm": 0.0,
+      "eact_mm": 126.119081037,
+      "tact_mm": 337.09321947,
+      "drn_mm": 121.4194860065,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.98688545499999,
+      "total_et_mm": 518.486614796
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 1,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.332046107003407,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "0e16bdc70b28029f193f2f6a9fab26e10a0ab0e16daff0ea6d4b9463b3917b95",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "88c9e661152eae968bb7f1aa68ddb50772448297184a1ac001c5b0c9a706219b",
+        "swap.log": "da2deb629e89b5412b9b50a013a5c125f95a751cea4dbd1a6e8d44f2e06e10b9",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "07c4e9fd6a23fc58372fcfea446e74ad12f8d5123088521343acf17b2049fdf5"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00028052999879256413,
+      "total_water_error_period_mm": -0.0008153474998409162,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 3.52653e-05,
+      "mean_gwl_cm": -87.82240141242936,
+      "min_gwl_cm": -132.77561,
+      "max_gwl_cm": -24.33896,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.274314289,
+      "epd_mm": 0.0,
+      "eact_mm": 126.119081037,
+      "tact_mm": 337.09321947,
+      "drn_mm": 121.4194860065,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.98688545499999,
+      "total_et_mm": 518.486614796
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 2,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.3438716669988935,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "7bbe1ea05a2fa163ba4d1534de846c941ab3fff22718ce7ebd8b98e39f8510e1",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "ebd7f50f2b6352b074cff0abf23ff528fa0a681aee45b8ee3546681575f9f1f4",
+        "swap.log": "0a5bccce639793b70fc9a99801351b6610c3aa0f031a02e863a461ebec744300",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "cef8f950d8ac28c286056c75d60ae200f819d88b56bfa4d86c3f2fcdba6edf38"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00028052999879256413,
+      "total_water_error_period_mm": -0.0008153474998409162,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 3.52653e-05,
+      "mean_gwl_cm": -87.82240141242936,
+      "min_gwl_cm": -132.77561,
+      "max_gwl_cm": -24.33896,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.274314289,
+      "epd_mm": 0.0,
+      "eact_mm": 126.119081037,
+      "tact_mm": 337.09321947,
+      "drn_mm": 121.4194860065,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.98688545499999,
+      "total_et_mm": 518.486614796
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 3,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.3809594580015983,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "ee9bd7d0bd98e500d38bb221e4877afe7b94f7b226fe9d73401a764c208eac90",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "b9a0021a1bcfc138cc48b089acf1ff4e8900bc45ed34400d45d5459b0505340a",
+        "swap.log": "d75ce5d388a2239ec5b6c2deaf26513ae0771018642823587d5e7dbbe27d1eae",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "095519b21c569bc2d3bd038c81436a1e7659c92331c37ea5d0c73e1f92706608"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.0002000000005930591,
+      "total_water_error_period_mm": 0.00012757799965483138,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 1.3515000000000002e-05,
+      "mean_gwl_cm": -85.3151079096045,
+      "min_gwl_cm": -129.27555,
+      "max_gwl_cm": -24.29386,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.61131428899999,
+      "epd_mm": 0.0,
+      "eact_mm": 125.78508103700001,
+      "tact_mm": 323.74326255100004,
+      "drn_mm": 131.7183,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.98658545500001,
+      "total_et_mm": 505.13965787700005
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 4,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.304986651004583,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "70f013278622c0823f6cf16434f7dd0545503f4866b250522f87970b517b218a",
+        "swap.log": "6f2c156e78f62b3ec1f54b64d6fd86afac7ec75200228e95e9f1985a2054955b",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "81d490171d2da05e8c1b6d0d1c2d2552d52e8c94546ba046b90961c2fc90c337"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.0002000000005930591,
+      "total_water_error_period_mm": 0.00012757799965483138,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 1.3515000000000002e-05,
+      "mean_gwl_cm": -85.3151079096045,
+      "min_gwl_cm": -129.27555,
+      "max_gwl_cm": -24.29386,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.61131428899999,
+      "epd_mm": 0.0,
+      "eact_mm": 125.78508103700001,
+      "tact_mm": 323.74326255100004,
+      "drn_mm": 131.7183,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.98658545500001,
+      "total_et_mm": 505.13965787700005
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 5,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.2993266220000805,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "4e90e014106f9048e7f011492f5fac1db4dff9a2f6880fd7cc178e937cf5cebf",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "1da23cdd4acde4d23dc6d60b5a56d9cec64fb7c1387767cf63e1da934bc7d56f",
+        "swap.log": "ef115f09c0ec8a8642b71c6338c3673468be0faa62db771dd3947b0d98c2b79d",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "f38faaf24211da90f64b402122e561c92b2c792ecf85139a3a22b95f44109cae"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.0002000000005930591,
+      "total_water_error_period_mm": 0.00012757799965483138,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 1.3515000000000002e-05,
+      "mean_gwl_cm": -85.3151079096045,
+      "min_gwl_cm": -129.27555,
+      "max_gwl_cm": -24.29386,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.61131428899999,
+      "epd_mm": 0.0,
+      "eact_mm": 125.78508103700001,
+      "tact_mm": 323.74326255100004,
+      "drn_mm": 131.7183,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.98658545500001,
+      "total_et_mm": 505.13965787700005
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 6,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.2176027440000325,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "3fc273a3f894be747be36fe5aad84fd699fc8586e6cc70e03f6c86d7ae336017",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "3c3162a405f1bcf533b3e9b6ea0eeb4c99f737ac05b4f230d8d1ace5ba658cf7",
+        "swap.log": "dbf072433c5878898ddf0a6899f9c4ff30c54c1372fe05f4d79c3cb83a1ab4e2",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "de4240b666ba429190f5f31d7b8224339857da2dbfb66123e4350935053cd387"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000080289126,
+      "total_water_error_period_mm": 0.0005391159997516874,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.5265599999999997e-05,
+      "mean_gwl_cm": -83.21709257062146,
+      "min_gwl_cm": -126.35091,
+      "max_gwl_cm": -24.25828,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.91821428899999,
+      "epd_mm": 0.0,
+      "eact_mm": 125.89188103699999,
+      "tact_mm": 311.534812284,
+      "drn_mm": 141.54493542900002,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.986682155,
+      "total_et_mm": 493.34490760999995
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 7,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.3409580150037073,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "76843fd13920ecac42da06bc43f110a62197aa05a7444cae967b55365599b228",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "caaa9b28e475597f99f094848c277309e66472e0e0bffcdbb282e66de6c6c697",
+        "swap.log": "62ec33eb002c85e800d899b47e8545cc01ace5251bae659e20245648bb580ac6",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "392084aa61056494c87f500089cf66ea0665405ebdb83427cdd91ab58aa04aee"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000080289126,
+      "total_water_error_period_mm": 0.0005391159997516874,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.5265599999999997e-05,
+      "mean_gwl_cm": -83.21709257062146,
+      "min_gwl_cm": -126.35091,
+      "max_gwl_cm": -24.25828,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.91821428899999,
+      "epd_mm": 0.0,
+      "eact_mm": 125.89188103699999,
+      "tact_mm": 311.534812284,
+      "drn_mm": 141.54493542900002,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.986682155,
+      "total_et_mm": 493.34490760999995
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": 8,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.3761660769960145,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "3c998e66bb3949801db8b738a920848437b0f160ed40a5ca801b1d79d016f5c1",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "b416aac189d0fc5aa1b8b2ee48d34c7c5383f06fa8e2b27d04284cb7ae833e8d",
+        "swap.log": "d54672d1640a250ad620fae2636edb84f745a2b8a37f6c45d447bf4248ef0d48",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "786db53046e8517fa37f66077aee1b7cdec689ee7b44e0324985fb8ac32af4e6"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000080289126,
+      "total_water_error_period_mm": 0.0005391159997516874,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.5265599999999997e-05,
+      "mean_gwl_cm": -83.21709257062146,
+      "min_gwl_cm": -126.35091,
+      "max_gwl_cm": -24.25828,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.91821428899999,
+      "epd_mm": 0.0,
+      "eact_mm": 125.89188103699999,
+      "tact_mm": 311.534812284,
+      "drn_mm": 141.54493542900002,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.986682155,
+      "total_et_mm": 493.34490760999995
+    }
+  },
+  {
+    "hru": 7876,
+    "experiment": "offgrid",
+    "parameters": {
+      "rsc_scale": 1.125,
+      "feddes_scale": 0.875
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.350704650001717,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7876.bbc": "7e1469ecf6342d979803f49476f2dd819baa45ee68faedb4acf5102943fb2f64",
+        "7876.dra": "81c94720a5b0112a874b529f77026b81c09ca1d0bda935951b7ab52f13a07d77",
+        "7876.met": "4d16b7e884c06de9e424d62cfcbf70bb2d2b0288c93bcc3102d6bed7c06e4027",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "307e7fb6bd7cc914567921a387be12db27022606811ca287eb6a53e49768ef78",
+        "swap.swp": "38254e125bcdfd3abd5b3e9a5a3521cd441676a74cef555c765ad463303a8a8f"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "9189a8336f272005f5adb58ff774d678af29aac23c08dcd5ed986101bf7ba26e",
+        "swap.log": "cbde1e77e74de695fd6f839989ab7c9789ee3e4dd37fd356c860fc83de7af4bd",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "75daaac554ddba81a4a52ec5277fbe10fe9178f8bc04f5483ec4dbb81f5c9cf6"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7876",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000071962454,
+      "total_water_error_period_mm": 0.0004534739992330221,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 1.72641e-05,
+      "mean_gwl_cm": -84.23460519774011,
+      "min_gwl_cm": -127.80592,
+      "max_gwl_cm": -24.27484,
+      "rain_mm": 520.5386,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.0,
+      "eic_mm": 55.767714289,
+      "epd_mm": 0.0,
+      "eact_mm": 125.85398103700001,
+      "tact_mm": 317.50793665500004,
+      "drn_mm": 136.61100000000002,
+      "ssdi_mm": 0.0,
+      "bot_mm": 110.985685455,
+      "total_et_mm": 499.12963198100005
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 0,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.97404244900099,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "83837d67e58d15d7271c4aab93bd06696dba029a64cb34d6c3dab1ff413dc8e7",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "8a3866ad95ead21833d91d7349ddbb3ccc06fdb3a2de91460a68d91f668e7f24",
+        "swap.log": "5cc14ae88b48bfb1365371ee22780f9849883addfe0147f1bc6405da55741636",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "f6d16f2e99ea93c76ac97513a7d0d21b86b95fbc46756265ca06e6b67951fa1a"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00019999999936209933,
+      "total_water_error_period_mm": 0.002331103999972141,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 3.3292e-05,
+      "mean_gwl_cm": -107.36723711864407,
+      "min_gwl_cm": -138.73939,
+      "max_gwl_cm": -50.98612,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.553,
+      "eic_mm": 64.92670000000001,
+      "epd_mm": 2.416268896,
+      "eact_mm": 127.1396,
+      "tact_mm": 370.1654,
+      "drn_mm": 58.77419999999999,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 564.647968896
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 1,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 4.27499400999659,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "0e16bdc70b28029f193f2f6a9fab26e10a0ab0e16daff0ea6d4b9463b3917b95",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "2a1de5d159a005e49d1aa69f591ae52fe45a32f7c50656051d53c761a6fe8a79",
+        "swap.log": "46fd001ae7112419947f733bd3f01ca10688275f289b296a0c9d617ea928b2cb",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "54f16e726ad7dcdfd5fe4c3ef41fd0d494ca122f8ae7a176096911c205b11325"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000227227144,
+      "total_water_error_period_mm": 0.001601128999682462,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.3781300000000002e-05,
+      "mean_gwl_cm": -107.3772140677966,
+      "min_gwl_cm": -138.75334,
+      "max_gwl_cm": -50.98612,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.679607122,
+      "eic_mm": 64.93719999999999,
+      "epd_mm": 2.3890917489999994,
+      "eact_mm": 127.0729,
+      "tact_mm": 370.26009999999997,
+      "drn_mm": 58.768600000000006,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 564.659291749
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 2,
+    "parameters": {
+      "rsc_scale": 0.75,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 4.172622452002543,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "7bbe1ea05a2fa163ba4d1534de846c941ab3fff22718ce7ebd8b98e39f8510e1",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "9e4e712fa334aabbf7355fcf4d3102bcf54c43827a5ae37741e7208f8480ec0f",
+        "swap.log": "dc787d840bfcfae406d7adf19a9ba2eeb9811a4fdf909e18e5fdd4d54256e5ee",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "78b31192dc7f50fe7e9c48009d8664e9d23e0d3ffd676d9a8b9adb8a46fe19dd"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000097941673,
+      "total_water_error_period_mm": 0.0014311039999867145,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 3.8289300000000006e-05,
+      "mean_gwl_cm": -107.34982943502824,
+      "min_gwl_cm": -138.72543,
+      "max_gwl_cm": -50.98612,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.6173,
+      "eic_mm": 64.90809999999999,
+      "epd_mm": 2.383868896,
+      "eact_mm": 127.0612,
+      "tact_mm": 370.0611,
+      "drn_mm": 58.7932,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 564.414268896
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 3,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.8376795060030418,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "ee9bd7d0bd98e500d38bb221e4877afe7b94f7b226fe9d73401a764c208eac90",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "2aeac468ecee3a7a67732899a41a958d9a82d8475e0f8d1021a956bbe552854e",
+        "swap.log": "fb1f9da8ff9f83fee58ccc898f747ba6c57b3bba7f755a4920a9c7c68efd5372",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "f630bd86050e635b63ca0db6ed745b73743b7a361a1ac0be1448de797540fd75"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020494099685686162,
+      "total_water_error_period_mm": 0.0008982159971957643,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 7.30272e-06,
+      "mean_gwl_cm": -104.72960101694916,
+      "min_gwl_cm": -134.46103,
+      "max_gwl_cm": -51.02741,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.5679,
+      "eic_mm": 65.37729999999999,
+      "epd_mm": 2.5440103800000005,
+      "eact_mm": 127.88560000000001,
+      "tact_mm": 352.0632,
+      "drn_mm": 62.404791403999994,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 547.87011038
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 4,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.9057692830028827,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "2b1c328a58fecf06a99805d2d8eb6072045dc8467e112e1b89ee6d9cded56259",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "7ea617e32a012b08e160d700a69949e54c956b110f334931620a6d7cbd71c90a",
+        "swap.log": "48af9f55f756f2a9ee9e6a9f0c12f21ad681cc0834de6946b8b61000a3c3d81a",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "5adfb31de46fbb27abe615d9659fecafdb834199de1cae4c26b8563f69464250"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020494099685686162,
+      "total_water_error_period_mm": 0.0007982159980676751,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 7.34893e-06,
+      "mean_gwl_cm": -104.7109515536723,
+      "min_gwl_cm": -134.43944,
+      "max_gwl_cm": -51.02741,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.5376000000000001,
+      "eic_mm": 65.3871,
+      "epd_mm": 2.52111038,
+      "eact_mm": 127.76620000000001,
+      "tact_mm": 352.12109999999996,
+      "drn_mm": 62.427491404,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 547.79551038
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 5,
+    "parameters": {
+      "rsc_scale": 1.0,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.9364056159975007,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "4e90e014106f9048e7f011492f5fac1db4dff9a2f6880fd7cc178e937cf5cebf",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "8931932d294d984de07c94f46ffad8f1c957d8be1f96ddbab39461eda10af08e",
+        "swap.log": "f700180b184fb606a906f193d3d2b7c1f50218bf07230a34c15cdd103698f5a6",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "b67a7c286abda664e68c636683742c417ca37a838ee7d27d44618c33fab4f2c9"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020494099685686162,
+      "total_water_error_period_mm": -0.0006979600027956848,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 7.43652e-06,
+      "mean_gwl_cm": -104.89572228813559,
+      "min_gwl_cm": -134.71979,
+      "max_gwl_cm": -51.02741,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.4930961760000001,
+      "eic_mm": 65.6706,
+      "epd_mm": 2.43211038,
+      "eact_mm": 128.5252,
+      "tact_mm": 352.6261,
+      "drn_mm": 62.20409140400001,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 549.2540103800001
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 6,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 0.75
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 4.324685874002171,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "3fc273a3f894be747be36fe5aad84fd699fc8586e6cc70e03f6c86d7ae336017",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "6fc29051189a484d78c35f154a1969a4f16a9adf53f2f9cc33628cd6a681840d",
+        "swap.log": "da0d530552d4a91f9abc2650afeb8c502082cea7c506a47147da2f7775fefbd5",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "daf54ce338e00c0c5b73878122ab21b96939346ccc61f4cea3cdec7b36be7cc5"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000086450864,
+      "total_water_error_period_mm": 1.6359697772444504e-05,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.59401e-05,
+      "mean_gwl_cm": -102.10086177966103,
+      "min_gwl_cm": -130.51423,
+      "max_gwl_cm": -50.58762,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.6809829363,
+      "eic_mm": 65.6916,
+      "epd_mm": 2.5978999999999997,
+      "eact_mm": 128.3222,
+      "tact_mm": 335.37800000000004,
+      "drn_mm": 67.447800704,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 531.9897000000001
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 7,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 1.0
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 4.015665765997255,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "76843fd13920ecac42da06bc43f110a62197aa05a7444cae967b55365599b228",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "7ead9f1c75a389ea6e13700029f3f7e321ec2a56a08d6d420fb61451157c2b9a",
+        "swap.log": "4db77ea6e627850a60007f585e192fd0fac2a92edce640ce1e684ec11091913b",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "005df2da416e8caec65ddb9a25d1c4b5fc4046b38ce9306bc585c723f49fabee"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000123254758,
+      "total_water_error_period_mm": 0.00019929599669960517,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.59355e-05,
+      "mean_gwl_cm": -102.10598604519774,
+      "min_gwl_cm": -130.49773,
+      "max_gwl_cm": -50.58762,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.7555000000000001,
+      "eic_mm": 65.6947,
+      "epd_mm": 2.5709999999999997,
+      "eact_mm": 128.3149,
+      "tact_mm": 335.48249999999996,
+      "drn_mm": 67.415400704,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 532.0631
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": 8,
+    "parameters": {
+      "rsc_scale": 1.25,
+      "feddes_scale": 1.25
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 3.9551540899992688,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "3c998e66bb3949801db8b738a920848437b0f160ed40a5ca801b1d79d016f5c1",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "55c53143238d3321921d679ce8ea6e21ae8b0924e0e1087fae4e9fb0da1b0696",
+        "swap.log": "4309d7b5dcc4682e8002fc3f469e5a7fed355e2d3b0b2037de5671f1435dc999",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "161f28da11dbafa61dc7dcaeb45660c6ebcd7bd40c4278b972f76e63d67826e6"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020000000248182603,
+      "total_water_error_period_mm": 0.001599296000991948,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 2.6004199999999997e-05,
+      "mean_gwl_cm": -102.09705381355931,
+      "min_gwl_cm": -130.49069,
+      "max_gwl_cm": -50.58762,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.6588999999999999,
+      "eic_mm": 65.71430000000001,
+      "epd_mm": 2.5944000000000003,
+      "eact_mm": 128.25770000000003,
+      "tact_mm": 335.5716,
+      "drn_mm": 67.42950070400002,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 532.138
+    }
+  },
+  {
+    "hru": 7929,
+    "experiment": "offgrid",
+    "parameters": {
+      "rsc_scale": 1.125,
+      "feddes_scale": 0.875
+    },
+    "execution": {
+      "schema_version": 1,
+      "status": "EXECUTION_PASS",
+      "production_admitted": false,
+      "elapsed_seconds": 4.05414043100609,
+      "returncode": 100,
+      "normal_completion": true,
+      "output_rows": 355,
+      "first_output_date": "1970-12-31",
+      "last_output_date": "1971-12-20",
+      "output_error": null,
+      "executable_sha256": "e3b45c1fe66a614c1caead4b2fc0684a09165672a32d8d3bf4eac00498767862",
+      "input_sha256": {
+        "7929.bbc": "c33691f2a164cb4673c373d01529c5a34d53c3505fca050e4e2b6941d2858d16",
+        "7929.dra": "774bd4c801145dc0710da8b9446d6e00073ecb158d437f665411ef2dff245bbc",
+        "7929.met": "dcd1f90134fbd7cc970fd87bbf934f1e3762b7ba0ae99863874e688403a37171",
+        "atmospheric_1975-2020.co2": "6eb2053d62dd15af8c90591ec3470e5f950fab93bc4d358ab6cce7e4ab012666",
+        "gras_maaien.crp": "307e7fb6bd7cc914567921a387be12db27022606811ca287eb6a53e49768ef78",
+        "swap.swp": "070527c82494ebcf2b41618d3b1731611884f0afdd5738d470f0f2a99f464a21"
+      },
+      "output_sha256": {
+        "swap.wrn": "888be98b94e8dfbb75a85c1e9b4dbcf3c20f99e153492aadf1a885cb40656e79",
+        "result_output.csv": "170d36471ce44967dc9bbaf02e11d052c33007c8768f0cac47831bd0a3b55a44",
+        "swap.log": "be4b1bb5604a4ba2ddd784b1ee5db975c360df5fe3bab7e601847e9559651f95",
+        "runtime.log": "f01927a1c22d7aca811e757171a1a52134451ce15e6bec882faf6fbbb2213ba0",
+        "swap.ok": "13aa7d627caa401663423040ee417f2faddfbadeaa7a194c2df746be89c37685"
+      },
+      "runtime_library_sha256": {
+        "libimf.so": "352cc8d53ceca3a9d50a14479297aff23af0f3d773f073dfe6597e66de8f0b9b"
+      }
+    },
+    "metrics": {
+      "run_id": "7929",
+      "variant": "ET-CAL01",
+      "start": "1971-01-01",
+      "end": "1971-12-20",
+      "days": 354,
+      "max_total_water_error_mm_d": 0.00020872600108204353,
+      "total_water_error_period_mm": -0.00030872600063723034,
+      "serialized_water_balance_pass": true,
+      "serialized_water_balance_tolerance_mm_d": 0.001,
+      "max_reported_baldev_mm": 1.54889e-05,
+      "mean_gwl_cm": -103.34287937853108,
+      "min_gwl_cm": -132.42704,
+      "max_gwl_cm": -51.14067,
+      "rain_mm": 522.899,
+      "irrig_mm": 0.0,
+      "runoff_mm": 0.6272,
+      "eic_mm": 65.55140872599999,
+      "epd_mm": 2.5539999999999994,
+      "eact_mm": 127.84800000000001,
+      "tact_mm": 343.5818999999999,
+      "drn_mm": 64.6846,
+      "ssdi_mm": 0.0,
+      "bot_mm": 64.2179,
+      "total_et_mm": 539.5353087259999
+    }
+  }
+]
