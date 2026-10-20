@@ -1,0 +1,63 @@
+{
+  "R_executable_sha256": "eb3593fece43a6706946118b22a8126cdbdcb7bcaf96a4206873b2c07a1a1717",
+  "libR_sha256": "c3973222c01601bd485c9378d0b63a4cfa75bd3799a90aebb5131dc5d9dad479",
+  "packages": {
+    "Hmisc": {
+      "DESCRIPTION_sha256": "2c44ec84e51c7d2a4432582bb6dc9b7a3183cfc598aabd16e46d5af49b9e7f35",
+      "shared_objects": {
+        "libs/Hmisc.so": "471c8c35980f513c67a434c6eb448c5ab4cab57cdc626c56d6d7f846cb7dd0ec"
+      }
+    },
+    "RANN": {
+      "DESCRIPTION_sha256": "ab0571a4268bff193067d61da9ec7fc6992cc17f15731c255fa49e871bdf54da",
+      "shared_objects": {
+        "libs/RANN.so": "f844e5969e6c3a815a2a83d00dbbdec1749c8f0bb6039bc37f3cbd06e0d505e6"
+      }
+    },
+    "data.table": {
+      "DESCRIPTION_sha256": "659295cbdb6f4656cdbae7613fabced71f7a0baaca8d48d86a7dbbf4266204f1",
+      "shared_objects": {
+        "libs/data_table.so": "34ae3c0fef9c7b9336886c630cd48c438442fa18431f39b70e02ce1499d25b14"
+      }
+    },
+    "distances": {
+      "DESCRIPTION_sha256": "f23fca4c2bb6fe0f26e4ec4d194957d6ab54e6c6a32ef41d57211ce941dc818d",
+      "shared_objects": {
+        "libs/distances.so": "d727ef5293d5eed4fc25d7cf3ceca505aadc4a04134287d78bfa90e8ba495d7f"
+      }
+    },
+    "dplyr": {
+      "DESCRIPTION_sha256": "dee91edb9b79acc277adef5cf689e4ec9f947085308e743c465bb4e983486ca7",
+      "shared_objects": {
+        "libs/dplyr.so": "02eae017f7d7ad77f39b71caeaecc36d785d8ff7e2f43198c9e5417711505972"
+      }
+    },
+    "purrr": {
+      "DESCRIPTION_sha256": "7186ccc4ae4532206f1d780aac49d1b58dbe45f71ffe956517930716b32c1df9",
+      "shared_objects": {
+        "libs/purrr.so": "b3b4ebdd88329c620f3ac04e9e1ef8bcc7212b9505dec1b8c604e521da4c3dda"
+      }
+    },
+    "rio": {
+      "DESCRIPTION_sha256": "8b8a88c4b5037df2f2f4b8fa9a1c40863d7202113bb3d05474fface6400eda7b",
+      "shared_objects": {}
+    },
+    "scales": {
+      "DESCRIPTION_sha256": "b90c45198df08d963f30d7994781df6a458f2242558efa5de791965a1d0a2e2a",
+      "shared_objects": {}
+    },
+    "scclust": {
+      "DESCRIPTION_sha256": "e8338da6e581d1c1c9b13cb8270581d5e2f66300b01e36b58ea3fe78fdd889a1",
+      "shared_objects": {
+        "libs/scclust.so": "d1dfd8491b65f93cb8703b12f73bd5bffc671ad1ae6d6a3d06498d53822b7e04"
+      }
+    },
+    "tidyr": {
+      "DESCRIPTION_sha256": "5df25248ed3b2f0e9c61df37b7f486e70f4e6fea300ca0847f18c323171ebe23",
+      "shared_objects": {
+        "libs/tidyr.so": "ff5c312a9db342c500ae57e3184b1fc1b8c40ac75a7d72bad779bcf34d2f3512"
+      }
+    }
+  },
+  "scope": "Observed execution identity; package versions in r-replay-R-session.txt; not cross-platform binary equivalence"
+}

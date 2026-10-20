@@ -1,0 +1,259 @@
+{
+  "cached_formula_cells": 337098,
+  "sheets": {
+    "DTmax": {
+      "columns": [
+        "soil_id",
+        "DTMAX"
+      ],
+      "rows": 79
+    },
+    "DZNEW": {
+      "columns": [
+        "dikte_id",
+        "ICOMP",
+        "DZNEW"
+      ],
+      "rows": 620
+    },
+    "Gewasmanagement": {
+      "columns": [
+        "soil_id",
+        "crop_id",
+        "SWPREP",
+        "HPREP",
+        "HSOW"
+      ],
+      "rows": 1185
+    },
+    "Gewasontwikkeling": {
+      "columns": [
+        "crop_id",
+        "scenario_id",
+        "SWSOW",
+        "SWGERM",
+        "SWHARV",
+        "DVSEND"
+      ],
+      "rows": 47
+    },
+    "Gewasrotatie": {
+      "columns": [
+        "climate_id",
+        "crop_id",
+        "rotation_id",
+        "CROPSTART",
+        "CROPEND",
+        "CROPNAME",
+        "CROPFIL",
+        "CROPTYPE"
+      ],
+      "rows": 2700
+    },
+    "GewasrotatieMax": {
+      "columns": [
+        "climate_id_",
+        "crop_id_",
+        "rotation_id_",
+        "CROPSTART",
+        "CROPEND",
+        "CROPNAME",
+        "CROPFIL",
+        "CROPTYPE"
+      ],
+      "rows": 3416
+    },
+    "Gewasweerstand": {
+      "columns": [
+        "crop_id",
+        "RSOIL"
+      ],
+      "rows": 24
+    },
+    "Grasverlies": {
+      "columns": [
+        "soil_id",
+        "HMOW",
+        "HLOSSMOW",
+        "HGRZ",
+        "HLOSSGRZ"
+      ],
+      "rows": 158
+    },
+    "Irrigatie": {
+      "columns": [
+        "irrigation_id",
+        "solute_id",
+        "SCHEDULE",
+        "SWSOLU",
+        "CIRRS",
+        "CDRAIN"
+      ],
+      "rows": 9
+    },
+    "Meteo": {
+      "columns": [
+        "climate_id",
+        "ATMOFIL"
+      ],
+      "rows": 2
+    },
+    "Output": {
+      "columns": [
+        "crop_id",
+        "INLIST_CSV"
+      ],
+      "rows": 24
+    },
+    "Output_org": {
+      "columns": [
+        "crop_id",
+        "INLIST_CSV"
+      ],
+      "rows": 24
+    },
+    "Runs": {
+      "columns": [
+        "run_id",
+        "scenario_id",
+        "bodem_id",
+        "soil2_id",
+        "lu_id",
+        "climate_id",
+        "SWBBCFILE",
+        "SWBOTB",
+        "dqsat",
+        "BBCFIL",
+        "DRFIL",
+        "METFIL",
+        "irrigation_id",
+        "solute_id",
+        "rotation_id",
+        "SWINCO",
+        "GWLI",
+        "RDS",
+        "PONDMX",
+        "RSRO",
+        "tempBot",
+        "glk",
+        "area",
+        "xc",
+        "yc",
+        "col",
+        "row",
+        "nusvat",
+        "TSTART",
+        "TEND",
+        "SWETR",
+        "soil_id",
+        "crop_id",
+        "croporg_id",
+        "dikte_id",
+        "COFANI",
+        "NUMNODNEW"
+      ],
+      "rows": 10242
+    },
+    "Scenario": {
+      "columns": [
+        "scenario_id",
+        "SWDRA",
+        "SWBOTB",
+        "GWLI",
+        "SWINCO"
+      ],
+      "rows": 3
+    },
+    "Wortelzone": {
+      "columns": [
+        "soil_id",
+        "croporg_id",
+        "RDS"
+      ],
+      "rows": 1738
+    },
+    "Zoutprofiel": {
+      "columns": [
+        "solute_id",
+        "ZC",
+        "CML"
+      ],
+      "rows": 12
+    },
+    "bodem370_2_bofek2020": {
+      "columns": [
+        "bodem_id",
+        "soil_id",
+        "BOFEKnhi79"
+      ],
+      "rows": 370
+    },
+    "discretisatie": {
+      "columns": [
+        "bodem_id",
+        "ISUBLAY",
+        "ISOILLAY",
+        "HSUBLAY_org",
+        "HSUBLAY",
+        "NCOMP_org",
+        "NCOMP_orgx",
+        "DIKTE",
+        "NCOMP",
+        "dikte_id"
+      ],
+      "rows": 65900
+    },
+    "discretisatie_org": {
+      "columns": [
+        "bodem_idx",
+        "ISUBLAY",
+        "ISOILLAY",
+        "HSUBLAY",
+        "NCOMP"
+      ],
+      "rows": 3295
+    },
+    "dqsat": {
+      "columns": [
+        "dqsat",
+        "dikte",
+        "dikte_id"
+      ],
+      "rows": 19
+    },
+    "eigenschappen": {
+      "columns": [
+        "bodem_id",
+        "sfu",
+        "ISOILLAY",
+        "BDENS",
+        "PCLAY",
+        "PSILT",
+        "PSAND",
+        "ORGMAT",
+        "ORES",
+        "OSAT",
+        "ALFA",
+        "NPAR",
+        "KSATFIT",
+        "KSATEXM",
+        "LEXP",
+        "H_ENPR",
+        "LDIS",
+        "COFANI",
+        "ELAS"
+      ],
+      "rows": 1577
+    },
+    "lu2crop": {
+      "columns": [
+        "soil2_id",
+        "luse_id",
+        "crop_id",
+        "crop_old"
+      ],
+      "rows": 44
+    }
+  },
+  "source_sha256": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8"
+}

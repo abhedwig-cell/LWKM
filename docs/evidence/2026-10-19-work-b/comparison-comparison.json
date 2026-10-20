@@ -1,0 +1,23 @@
+{
+  "donor_changes": 0,
+  "extra_candidate_hrus": 0,
+  "hru_label_changes": 0,
+  "identical_hrus": 10242,
+  "missing_reference_hrus": 0,
+  "partition": {
+    "candidate_hrus": 10242,
+    "candidate_only_member_sets": 0,
+    "candidate_svats": 427656,
+    "exact_partition_equal": true,
+    "reference_hrus": 10242,
+    "reference_only_member_sets": 0,
+    "reference_svats": 427656,
+    "same_svat_universe": true,
+    "shared_hru_member_sets": 10242
+  },
+  "production_admitted": false,
+  "representative_changes_with_same_members": 0,
+  "same_member_hrus": 10242,
+  "same_members_changed_attributes": 0,
+  "svats_with_changed_membership": 0
+}

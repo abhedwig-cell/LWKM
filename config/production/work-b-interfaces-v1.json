@@ -1,0 +1,37 @@
+{
+  "evidence": "docs/evidence/2026-10-19-work-b/interfaces/interfaces.json",
+  "input_admission": "RECONSTRUCTION_ONLY",
+  "interfaces": {
+    "DONOR_ASSIGNMENT": {
+      "key": "svat",
+      "legacy_relation": "legacy_pre_hru_donor_svat",
+      "operational_relation": "hru_cluster_donor_svat",
+      "producer": "R source rest/donor procedure; legacy initial choice remains an input"
+    },
+    "HRU_CONTEXT_10242": {
+      "full_raw_lineage": false,
+      "invariant": "required typed joins resolve; exact schema identity bound to frozen workbook",
+      "key": "run_id"
+    },
+    "HRU_MEMBERSHIP": {
+      "invariant": "one membership per original SVAT; no spatial connectivity requirement",
+      "keys": [
+        "svat",
+        "HRU"
+      ]
+    },
+    "HRU_REPRESENTATIVE": {
+      "invariant": "source categorical selection plus existing-row medoid",
+      "key": "HRU",
+      "representative": "hru_representative_svat"
+    },
+    "SVAT_QUALIFIED": {
+      "key": "svat",
+      "qualification": "source flags and original values retained",
+      "support": "native SVAT area plus separate 62500 m2 cluster/MODFLOW support"
+    }
+  },
+  "production_admitted": false,
+  "profile": "HRU10242_RECOVERED_SNAPSHOT_20261019",
+  "schema_version": 1
+}

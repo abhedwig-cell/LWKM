@@ -1,0 +1,68 @@
+name: Work D1 standalone consumer qualification
+on:
+  pull_request:
+    paths:
+      - 'tools/metaswap_hru/accept_metaswap*'
+      - 'tools/met_grid_consumer.py'
+      - 'tools/met_consumer_entry.py'
+      - 'tools/bind_met_rasters.py'
+      - 'tools/daily_budget_entry.py'
+      - 'tools/server/pack_daily_year.ps1'
+      - 'tools/prepare_d1_server_support.py'
+      - 'tools/process_daily_budget_plan.py'
+      - 'tools/export_daily_budget_transfer.py'
+      - 'tests/test_d1*'
+      - '.github/workflows/work-d1-windows.yml'
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: ilammy/msvc-dev-cmd@v1
+      - run: python -m pip install numpy pandas scipy pytest pyinstaller pyyaml openpyxl
+      - name: Build native compact acceptor with static runtime
+        shell: cmd
+        run: cl /nologo /std:c++17 /EHsc /O2 /MT /Fe:accept_metaswap.exe tools\metaswap_hru\accept_metaswap.cpp bcrypt.lib
+      - name: Qualify actual Windows acceptor and all 10242 HRUs
+        run: python -m pytest tests/test_d1_metaswap_acceptance.py -q
+        env:
+          LWKM_ACCEPT_EXE: accept_metaswap.exe
+      - name: Build offline raster consumer
+        run: pyinstaller --onefile --clean --paths . --name lwkm_met_consumer tools/met_consumer_entry.py
+      - name: Qualify actual standalone MET consumer
+        run: python -m pytest tests/test_d1_met_consumer.py -q
+        env:
+          LWKM_MET_EXE: dist/lwkm_met_consumer.exe
+      - name: Qualify compact yearly transfer packer
+        shell: pwsh
+        run: |
+          python -c "from pathlib import Path; from tests.test_d1_met_consumer import write_plan; from tools.met_grid_consumer import run; run(write_plan(Path('year-test-input')),Path('year-test-output'))"
+          powershell -NoProfile -ExecutionPolicy Bypass -File tools/server/pack_daily_year.ps1 -Directory year-test-output -Year 2020 -Output year-transfer.zip
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -c "from zipfile import ZipFile; from pathlib import Path; from tools.production_transfer import receive; ZipFile('year-transfer.zip').extractall('year-received'); r=receive(Path('year-received/transfer.json'),Path('year-received'),Path('year-import')); assert not r['errors'],r"
+      - name: Build offline existing-budget consumer
+        run: pyinstaller --onefile --clean --paths . --name lwkm_daily_budget tools/daily_budget_entry.py
+      - name: Qualify actual standalone daily-budget consumer
+        run: python -m pytest tests/test_d1_budget_consumer.py -q
+        env:
+          LWKM_BUDGET_EXE: dist/lwkm_daily_budget.exe
+      - name: Package consumers and record hashes
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path delivery -Force
+          Copy-Item accept_metaswap.exe,tools/metaswap_hru/accept_metaswap.cmd,tools/metaswap_hru/sources.csv,dist/lwkm_met_consumer.exe,dist/lwkm_daily_budget.exe delivery
+          Copy-Item tools/server/pack_daily_year.ps1 delivery
+          python -m tools.prepare_d1_server_support --output delivery
+          Get-ChildItem delivery -File | ForEach-Object { "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower())  $($_.Name)" } | Set-Content delivery/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: LWKM_Work_D1_Windows_x64
+          path: delivery/*
+          retention-days: 90

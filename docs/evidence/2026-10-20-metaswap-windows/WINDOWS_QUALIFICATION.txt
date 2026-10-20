@@ -1,0 +1,32 @@
+NATIVE WINDOWS QUALIFICATION, 2026-10-20
+Status: PASS, 21/21 checks.
+Runtime: Microsoft Windows Server 2025 Datacenter, 10.0.26100, x64.
+GitHub runner image: windows-2025-vs2026, 20261007.264.1.
+Run: https://github.com/abhedwig-cell/LWKM/actions/runs/39405686512
+Job: 118570920692.
+Source head: a35bcf953150074d6a5c868dc6a5674417f4c6db.
+Initial 19-test run: https://github.com/abhedwig-cell/LWKM/actions/runs/39405385700
+PR: https://github.com/abhedwig-cell/LWKM/pull/10
+
+The actual delivered cross-compiled EXE was executed natively on Windows.
+It was not replaced with a different compiler build for testing.
+SHA-256: 0606f5d15bc1c5bb01a1d0a91fd91c839c68daa0a6ae972fa7c79b0b451513b8
+
+Tests include actual CMD execution from a directory with spaces, exclusive
+output locking, recovery after forced process termination, area weighting,
+row/column orientation, multiple SVATs per IDF cell, leap-year decade duration,
+source/output SHA-256 validation, per-variable missing values, changed sources,
+truncated or unsupported IDFs, coordinate mismatches and footer validation.
+
+The full population uses exact original SVAT membership and area/X/Y fields
+from the supplied two files, losslessly retained in a compact test fixture.
+427,656 SVATs; 10,242 HRUs; synthetic spatially varying IDFs, 1,245 x 1,056.
+All original and derived HRU values are independently checked with NumPy.
+CSV precision is 10 significant digits; maximum rounding difference is recorded
+in test_results.json. No real hydrological values are inferred from this test.
+
+The test-only Python/NumPy dependency runs in the development CI workflow;
+the server EXE and CMD have no Python requirement.
+The genuine NHI-server raster series is not available in this runtime.
+Actual production execution, elapsed time and source-level scientific
+qualification remain observable from the first server run.

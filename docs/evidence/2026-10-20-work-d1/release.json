@@ -1,0 +1,12 @@
+{
+  "filename": "LWKM_Work_D1_Windows_x64_20261020.zip",
+  "bytes": 131113761,
+  "sha256": "94b07bcfaaf3fc1cc3f2bfd0a2d64892d6ab2045e44f12bfc91924fda388c06b",
+  "tested_executable_sha256": {
+    "accept_metaswap.exe": "a4da3e0986db5a8b5a08289b4904df6542d907aa1f09f567daba868bbf8f2d16",
+    "lwkm_daily_budget.exe": "214ba5777ede82260592426721a946cccaa73eee4fb641fa394fbd6e50c2b225",
+    "lwkm_met_consumer.exe": "c7cdedf9076909171c799226403c389c08e057d68decffb6ae5933bb2007bfdb"
+  },
+  "documentation_packaged_from_code_commit": "b3a75f85d3fa81f5a0dfb4d668e3c86d334276ac",
+  "production_admitted": false
+}

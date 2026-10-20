@@ -17,6 +17,8 @@ class TestKnmiSvatAdapter(unittest.TestCase):
     def test_partial_support_rejected(self):
         m,a,b=self.example()
         with self.assertRaises(ValueError):aggregate(m,a.iloc[:1],b)
-    def test_zero_raw_rejected(self):
+    def test_zero_raw_uses_owner_positive_rain_fallback(self):
         m,a,b=self.example();b.loc[1,'wet_raw_fraction']=0.
-        with self.assertRaises(ValueError):aggregate(m,a,b)
+        v,audit=aggregate(m,a,b)
+        self.assertAlmostEqual(v.wet_fraction[0],0.075)
+        self.assertEqual(audit.fallback_svat_count[0],1)

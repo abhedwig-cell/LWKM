@@ -1,0 +1,10 @@
+﻿{
+    "generated_local":  "2026-10-20T13:17:56.1345773+02:00",
+    "computer":  "V-NHI001",
+    "root":  "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM",
+    "output":  "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools\\LWKM_SERVER_AUDIT_20261020_131748",
+    "deep_inventory":  false,
+    "python_required":  false,
+    "run_modified_source_data":  false,
+    "note":  "Path existence and size are NOT scientific qualification or SHA verification"
+}

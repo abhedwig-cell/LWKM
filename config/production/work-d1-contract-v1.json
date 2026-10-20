@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "LWKM_D1_TRANSFER_AND_PACKAGE_V1",
+  "production_admitted": false,
+  "expected_hrus": 10242,
+  "expected_original_svats": 427656,
+  "dra_candidates": 10213,
+  "accepted_BBC_policy": "OWNER_DAILY_MEAN_NODES_20261020",
+  "wind_height_m": 10.0,
+  "met_geometry": {
+    "ncols": 300,
+    "nrows": 325,
+    "xllcorner": 0,
+    "yllcorner": 300000,
+    "cellsize": 1000
+  },
+  "transfer": {
+    "status": "RESEARCH_CANDIDATE",
+    "daily_shard": "Exactly one complete population-day, ascending HRU IDs",
+    "required": [
+      "dataset_id",
+      "population_sha256",
+      "source_manifest_sha256",
+      "source_manifest_path",
+      "producer_sha256",
+      "units",
+      "start",
+      "end",
+      "hru_ids",
+      "files"
+    ],
+    "kinds": {
+      "MET": "canonical_MET_units_v1",
+      "BBC": "mm/day_positive_into_L1"
+    },
+    "chunking": "Consecutive same-identity manifests may be combined without annual SWAP reinitialization"
+  },
+  "waveform": {
+    "BBC": "Ordinary daily date nodes; no persistence outside source period; no volume correction",
+    "WET": "Compute from local rain and raw duration before HRU aggregation"
+  },
+  "workflow": {
+    "mode": "RESEARCH_ONLY",
+    "required_assets": [
+      "contexts",
+      "template",
+      "dra_bundle",
+      "dra_checkpoints",
+      "asset_catalogue"
+    ],
+    "hash_binding": [
+      "path",
+      "sha256"
+    ],
+    "met_bbc_binding": "object or consecutive list of {manifest:{path,sha256},source:directory}",
+    "execution": "Explicit execute=true plus pinned engine and runtime_library; default is package building"
+  },
+  "source_decisions": [
+    "WORK_C2_OWNER_DECISIONS_2026-10-19.md",
+    "WORK_A_BBC_DAILY_MEAN_TIMING_DECISION_2026-10-20.md",
+    "W09_SVAT_AREA_AUTHORITY_DECISION_2026-10-20.md"
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "as_of": "2026-10-19",
+  "as_of": "2026-10-20",
   "baseline_commit": "4e6c5803b8d9f996c3331078ac72c6ece6db4a97",
-  "code_checkpoint": "683d62c8b73caaf776b0d7da383457bca4b38cc5",
+  "code_checkpoint": "b3a75f85d3fa81f5a0dfb4d668e3c86d334276ac",
   "streams": {
     "A": {
       "name": "Sources and postprocessing",
@@ -30,7 +30,9 @@
         "representatives",
         "typed contexts"
       ],
-      "contract": "Unique original SVAT membership; donor and representative remain separate"
+      "contract": "Unique original SVAT membership; donor and representative remain separate",
+      "interfaces": "config/production/work-b-interfaces-v1.json",
+      "current_evidence": "docs/evidence/2026-10-19-work-b/"
     },
     "C": {
       "name": "Hydrological boundaries",
@@ -135,9 +137,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-a/",
-      "open_problem": "Native server unavailable; current 2020-2022 INI/LIST and exact WEL/GHB missing",
-      "next_implementation": "Collect only required daily dynamic products from authoritative server",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Existing reconstructed daily products accepted; complete current server receipt unavailable",
+      "next_implementation": "Receive compact products and preserve source lineage; no original WEL/GHB budget prerequisite",
       "command": "python -m tools.server.lwkm_w01 --help"
     },
     "W02": {
@@ -155,83 +157,94 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-a/",
-      "open_problem": "Original budget units/sign/time/package coverage not fully qualified",
-      "next_implementation": "Bind same-period raw budget and historical derived oracle",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Full current source-bound daily processing pending; existing reconstruction/sign authority preserved",
+      "next_implementation": "Use existing five-component processing with content-verified daily checkpoints",
       "command": "python -m pytest -q tests/test_lhm_postprocess.py"
     },
     "W03": {
-      "name": "svat_basis_and_selection",
-      "status": "RECONSTRUCTED_NOT_QUALIFIED",
+      "admission": "SVAT_POPULATION_PRODUCTION_ADMITTED",
+      "available_sources": "config/source/work-b-source-register-20261019.json",
+      "command": "python -m tools.hru_source_chain --plan \"$PLAN\" --output \"$OUT/chain\"",
+      "current_evidence": "docs/evidence/2026-10-19-work-b/",
       "depends_on": [
         "W01",
         "W02"
       ],
-      "admission": "SVAT_POPULATION_PRODUCTION_ADMITTED",
-      "evidence": [],
-      "implementation_observed": "552705 base SVATs, 427656 selected, 25511141709 m2",
+      "evidence": [
+        "docs/production/WORK_B_20261019.md",
+        "docs/evidence/2026-10-19-work-b/interfaces/interfaces.json"
+      ],
+      "implementation_observed": "427656 selected SVATs; 20934 qualification targets; exact raster ID/XY reproduction; four filter exceptions",
+      "name": "svat_basis_and_selection",
+      "next_implementation": "Close registered raw-source/enrichment provenance; preserve exact snapshot replay",
+      "open_problem": "Raw active-support/flag/static source chain remains unadmitted",
       "production_admitted": false,
-      "available_sources": "docs/evidence/2026-10-19/source-register.json",
-      "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19/",
-      "open_problem": "Full raw LHM lineage not admitted",
-      "next_implementation": "Reproduce selection from qualified raw snapshots",
-      "command": "python -m tools.run_current_data_reconstruction --csv-zip \"$CSV\" --lhm2swap-zip \"$LHM2SWAP\" --base-svat \"$SVAT_FULL\" --out \"$OUT/svat\" --keep-staging"
+      "status": "QUALIFIED_NOT_ADMITTED",
+      "tests": "docs/evidence/2026-10-19-work-b/tests.log"
     },
     "W04": {
-      "name": "suspect_donor_assignment",
-      "status": "PARTIALLY_QUALIFIED",
+      "admission": "DONOR_ASSIGNMENT_PRODUCTION_ADMITTED",
+      "available_sources": "config/source/work-b-source-register-20261019.json",
+      "command": "python -m tools.hru_source_chain --plan \"$PLAN\" --output \"$OUT/chain\"",
+      "current_evidence": "docs/evidence/2026-10-19-work-b/",
       "depends_on": [
         "W03"
       ],
-      "admission": "DONOR_ASSIGNMENT_PRODUCTION_ADMITTED",
-      "evidence": [],
-      "implementation_observed": "57880 donor changes; 20934 flagged; 36946 changed outside current flags",
+      "evidence": [
+        "docs/production/WORK_B_20261019.md",
+        "docs/evidence/2026-10-19-work-b/interfaces/interfaces.json"
+      ],
+      "implementation_observed": "Full operational R donor assignment replay; zero donor differences; legacy marker kept separately",
+      "name": "suspect_donor_assignment",
+      "next_implementation": "Close registered raw-source/enrichment provenance; preserve exact snapshot replay",
+      "open_problem": "Initial 20934 legacy donor-choice producer unavailable; operation itself reproduced",
       "production_admitted": false,
-      "available_sources": "docs/evidence/2026-10-19/source-register.json",
-      "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19/",
-      "open_problem": "Donor replacement cannot be inferred solely from current suspect rules",
-      "next_implementation": "Replay Piet procedure and qualify additional changed population",
-      "command": "python -m pytest -q tests/test_hru_clustering.py"
+      "status": "QUALIFIED_NOT_ADMITTED",
+      "tests": "docs/evidence/2026-10-19-work-b/tests.log"
     },
     "W05": {
-      "name": "hru_construction",
-      "status": "PARTIALLY_QUALIFIED",
+      "admission": "HRU_SCHEMATISATION_PRODUCTION_ADMITTED",
+      "available_sources": "config/source/work-b-source-register-20261019.json",
+      "command": "python -m tools.qualify_hru_replay --plan \"$PLAN\" --work \"$OUT/chain\" --output \"$OUT/qualification\"",
+      "current_evidence": "docs/evidence/2026-10-19-work-b/",
       "depends_on": [
         "W03",
         "W04"
       ],
-      "admission": "HRU_SCHEMATISATION_PRODUCTION_ADMITTED",
-      "evidence": [],
-      "implementation_observed": "427656 unique members, 10242 HRUs and representatives, no missing joins",
+      "evidence": [
+        "docs/production/WORK_B_20261019.md",
+        "docs/evidence/2026-10-19-work-b/interfaces/interfaces.json"
+      ],
+      "implementation_observed": "Full R source executed; 10242 identical member sets, labels, representatives and compared attributes",
+      "name": "hru_construction",
+      "next_implementation": "Close registered raw-source/enrichment provenance; preserve exact snapshot replay",
+      "open_problem": "Full raw LHM source lineage and scientific release of changes remain separate",
       "production_admitted": false,
-      "available_sources": "docs/evidence/2026-10-19/source-register.json",
-      "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19/",
-      "open_problem": "Existing partition reconstructed, upstream production lineage incomplete",
-      "next_implementation": "Deterministic replay from admitted selection and donor procedure",
-      "command": "python -m tools.run_hru_primary --help"
+      "status": "QUALIFIED_NOT_ADMITTED",
+      "tests": "docs/evidence/2026-10-19-work-b/tests.log"
     },
     "W06": {
-      "name": "hru_context_assembly",
-      "status": "QUALIFIED_NOT_ADMITTED",
+      "admission": "HRU_CONTEXT_10242_PRODUCTION_ADMITTED",
+      "available_sources": "config/source/work-b-source-register-20261019.json",
+      "command": "python -m tools.export_hru_interfaces --plan \"$PLAN\" --work \"$OUT/chain\" --qualification \"$OUT/qualification\" --output \"$OUT/interfaces\"",
+      "current_evidence": "docs/evidence/2026-10-19-work-b/",
       "depends_on": [
         "W05"
       ],
-      "admission": "HRU_CONTEXT_10242_PRODUCTION_ADMITTED",
       "evidence": [
         "docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md",
-        "tools/xlsx_datamodel.py"
+        "tools/xlsx_datamodel.py",
+        "docs/production/WORK_B_20261019.md",
+        "docs/evidence/2026-10-19-work-b/interfaces/interfaces.json"
       ],
-      "implementation_observed": "22 worksheets; 10242 typed contexts; zero unresolved joins",
+      "implementation_observed": "22 sheets; 10242 contexts; 10242 byte-identical C2 SWPs; source-snapshot HRU identities rebound",
+      "name": "hru_context_assembly",
+      "next_implementation": "Close registered raw-source/enrichment provenance; preserve exact snapshot replay",
+      "open_problem": "Complete enrichment/run-table regeneration for changed HRUs not proven",
       "production_admitted": false,
-      "available_sources": "docs/evidence/2026-10-19/source-register.json",
-      "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19/",
-      "open_problem": "Upstream chain not admitted",
-      "next_implementation": "Bind workbook and lookup roles in file registry",
-      "command": "python -m pytest -q tests/test_swp_context.py tests/test_xlsx_datamodel.py"
+      "status": "QUALIFIED_NOT_ADMITTED",
+      "tests": "docs/evidence/2026-10-19-work-b/tests.log"
     },
     "W07": {
       "name": "dra_generation",
@@ -278,9 +291,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-a/",
-      "open_problem": "Original WEL/GHB and varying-daily-mean BBC temporal policy missing",
-      "next_implementation": "Qualified daily qq generation and sign/time/support test",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Full real daily five-component forcing unavailable; ordinary daily means accepted",
+      "next_implementation": "Consume existing owner-approved daily products; no new daily-volume correction",
       "command": "python -m pytest -q tests/test_bbc_qq_production_contract.py tests/test_build_bbc_met_daily.py",
       "subworkstreams": {
         "W08-GW-L1": {
@@ -319,9 +332,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-a/",
-      "open_problem": "Complete modern six other meteorological fields, assignment and units absent",
-      "next_implementation": "Build daily meteorology from qualified grids and districts",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Real full-period meteorology and raw source-unit bindings unverified",
+      "next_implementation": "Use fixed owner-area weights, offline standalone consumer and explicit conversion bindings",
       "command": "python -m pytest -q tests/test_p12_met_producer.py tests/test_met_daily_input_contract.py"
     },
     "W10": {
@@ -361,9 +374,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
-      "open_problem": "10193 HRU-specific forcing catalogue bindings absent",
-      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "Real daily forcing pending; 29 drainage exceptions and four apple CF cases retained",
+      "next_implementation": "Run source-bound D1 reception and candidate package workflow",
       "command": "python -m pytest -q tests/test_assemble_swap_package.py"
     },
     "W12": {
@@ -398,9 +411,9 @@
       "production_admitted": false,
       "available_sources": "docs/evidence/2026-10-19/source-register.json",
       "tests": "docs/evidence/2026-10-19/tests.log",
-      "current_evidence": "docs/evidence/2026-10-19-work-c2/",
-      "open_problem": "29 structural drainage blocks; population daily source bindings absent",
-      "next_implementation": "See WORK_C2_20261019.md remaining gates and runbook",
+      "current_evidence": "docs/evidence/2026-10-20-work-d1/",
+      "open_problem": "29 protected drainage exceptions, four apple CF cases and real full-period forcing QA remain",
+      "next_implementation": "Keep synthetic integration separate from real whole-period execution and physical validation",
       "command": "python -m tools.build_modern_population --database \"$DB\" --template \"$TEMPLATE\" --output \"$OUT/population\" --oracles \"$ORACLES\""
     },
     "W14": {
@@ -561,5 +574,130 @@
       "ci_run": 39274783800,
       "ci_conclusion": "success"
     }
+  },
+  "work_b": {
+    "baseline_commit": "cff5c454f106efc7953d2ed339201547ad7c064d",
+    "comparison": {
+      "donor_changes": 0,
+      "extra_candidate_hrus": 0,
+      "hru_label_changes": 0,
+      "identical_hrus": 10242,
+      "missing_reference_hrus": 0,
+      "partition": {
+        "candidate_hrus": 10242,
+        "candidate_only_member_sets": 0,
+        "candidate_svats": 427656,
+        "exact_partition_equal": true,
+        "reference_hrus": 10242,
+        "reference_only_member_sets": 0,
+        "reference_svats": 427656,
+        "same_svat_universe": true,
+        "shared_hru_member_sets": 10242
+      },
+      "production_admitted": false,
+      "representative_changes_with_same_members": 0,
+      "same_member_hrus": 10242,
+      "same_members_changed_attributes": 0,
+      "svats_with_changed_membership": 0
+    },
+    "evidence": "docs/evidence/2026-10-19-work-b/",
+    "production_admitted": false,
+    "report": "docs/production/WORK_B_20261019.md",
+    "source_register": "config/source/work-b-source-register-20261019.json",
+    "summary": {
+      "area_difference_hrus": 14,
+      "area_max_abs_difference_m2": 9.0,
+      "area_sum_difference_m2": -25.0,
+      "cluster_support_m2": 26728500000.0,
+      "contexts": 10242,
+      "donor_changes_vs_self": 57880,
+      "from_raw_lhm_complete": false,
+      "from_snapshot_reproduced": true,
+      "legacy_replacement_targets": 20934,
+      "new_swap_executions": 0,
+      "population": 10242,
+      "production_admitted": false,
+      "reason_no_swap_rerun": "All 10242 rendered SWPs and upstream schema identities unchanged; C2 execution evidence retained",
+      "reproduced_hru_schema_fields": 36,
+      "svat_area_m2": 25511141709.0,
+      "svats": 427656,
+      "swps_identical_to_c2": 10242,
+      "workbook_area_m2": 25511141684.0
+    },
+    "tests_passed": 379,
+    "subtests_passed": 3,
+    "code_checkpoint": "ed70690ec4062cb283cb3c8a8db320482d3ffd09",
+    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/8",
+    "integrated_base": "b846dfbedbc60e4b0164210c7fef2142be801d5b",
+    "integrated_tests_passed": 382
+  },
+  "work_d1": {
+    "status": "TECHNICAL_INTEGRATION_CANDIDATE",
+    "branch": "work/lwkm-work-d1-20261020",
+    "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/11",
+    "integrated_heads": {
+      "shared": "212d8c7e9396d62c45f3b26cddd6cefea1cc778d",
+      "work_b": "1a9e8eef340926ecc45bd7e7a8d3260e3344b6d8",
+      "metaswap": "4ab5eb139bd412652081e4b2bce64d9c7b9469f4"
+    },
+    "contract": "config/production/work-d1-contract-v1.json",
+    "blocker_register": "docs/evidence/2026-10-20-work-d1/blockers.json",
+    "real_server_outputs_read": false,
+    "new_real_forcing_runs": 0,
+    "production_admitted": false,
+    "tested_code_commit": "b3a75f85d3fa81f5a0dfb4d668e3c86d334276ac",
+    "tests_passed": 428,
+    "subtests_passed": 3,
+    "national_qualification": {
+      "area_m2": 25514516032.0,
+      "asset_errors": [
+        {
+          "error": "UNQUALIFIED_CROP_FACTOR: appelbomen",
+          "hru_id": 4243
+        },
+        {
+          "error": "UNQUALIFIED_CROP_FACTOR: appelbomen",
+          "hru_id": 4244
+        },
+        {
+          "error": "UNQUALIFIED_CROP_FACTOR: appelbomen",
+          "hru_id": 4245
+        },
+        {
+          "error": "UNQUALIFIED_CROP_FACTOR: appelbomen",
+          "hru_id": 4246
+        }
+      ],
+      "blockers": {
+        "C2_PROTECTED_DRAINAGE_EXCEPTION": 29,
+        "NONFORCING_ASSETS_UNBOUND": 4
+      },
+      "days": [
+        "1971-03-01",
+        "1971-03-02",
+        "1971-03-03"
+      ],
+      "first_complete": 10209,
+      "grid_links": 277190,
+      "independent_max_MET_error": 4.999556324492005e-12,
+      "nature_overrides": [],
+      "new_real_forcing_runs": 0,
+      "population": 10242,
+      "production_admitted": false,
+      "real_server_outputs_read": false,
+      "second_complete": 10209,
+      "second_reused": 10209,
+      "sources": {
+        "Datamodel_10242.xlsx": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+        "HRU_CONTEXT_10242.jsonl.gz": "e4bf2944d10b34ebb5d4148321163c48b264fee965f76723eb43dead21197cb0",
+        "Template.zip": "f21a15697332184e9931487918243ebf195e8d214ae81c4ca698f9f865f4ef85",
+        "supplied_members.csv.gz": "42a73f98acf428e1a3ffd698326aa03b4daf2bf8b505423ab0e6b11b7eed50c8"
+      },
+      "status": "SYNTHETIC_INTEGRATION_ONLY",
+      "svats": 427656,
+      "weights_sha256": "6133a918a0a05bd4b1b384fc88a1d13df7bd49d26c1723b242b319a667712f7c"
+    },
+    "windows_ci_run": 39468193369,
+    "windows_ci_conclusion": "success"
   }
 }

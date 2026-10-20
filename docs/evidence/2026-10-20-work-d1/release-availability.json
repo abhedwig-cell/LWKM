@@ -1,0 +1,9 @@
+{
+  "release": "LWKM_Work_D1_Windows_x64_20261020.zip",
+  "library_save_status": "FAILED_BEFORE_UPLOAD",
+  "error": "HTTP 403 during hosted apps tools/list",
+  "windows_artifact_id": 12286341215,
+  "windows_artifact_expires": "2027-01-18",
+  "artifact_url": "https://github.com/abhedwig-cell/LWKM/actions/runs/39468193369/artifacts/12286341215",
+  "reproducible_source_commit": "b3a75f85d3fa81f5a0dfb4d668e3c86d334276ac"
+}

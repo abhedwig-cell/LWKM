@@ -1,0 +1,7 @@
+﻿"directory","recursive","file_count","total_bytes","alphabetical_first","alphabetical_last","extensions"
+"G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal\modflow\bdgwel","False","20455","119551442928","bdgwel_19700101_l1.idf","LWKM_WEL_L1_UITROL_STATUS.csv",".csv:1;.idf:20454"
+"G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal\modflow\bdgghb","False","19359","113146615239","bdgghb_19700101_l1.idf","BDGGHB_MANIFEST_19700101_20221231.csv",".csv:1;.idf:19358"
+"G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal\modflow\bdgflf","False","25206","116651208156","bdgflf_19700101000000_l1.IDF","bdgflf_20241231_l1_p007.idf",".idf:25206"
+"G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal\modflow\bdgfrf","False","19359","120833507640","bdgfrf_19700101_l1.idf","bdgfrf_20221231_l1.idf",".idf:19358;.zip:1"
+"G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal\modflow\bdgfff","False","19359","120833548611","bdgfff_19700101_l1.idf","bdgfff_20221231_l1.idf",".idf:19358;.zip:1"
+"G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal\metaswap","False","1","748","merge-bdgqrun_daily.py","merge-bdgqrun_daily.py",".py:1"

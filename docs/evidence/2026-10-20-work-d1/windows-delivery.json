@@ -1,0 +1,34 @@
+{
+  "files": [
+    "accept_metaswap.cmd",
+    "lwkm_daily_budget.exe",
+    "accept_metaswap.exe",
+    "lwkm_met_consumer.exe",
+    "members.csv.gz",
+    "met_grid_header.asc",
+    "met_sources.example.json",
+    "pack_daily_year.ps1",
+    "SHA256SUMS.txt",
+    "sources.csv",
+    "support-provenance.json"
+  ],
+  "checks": {
+    "accept_metaswap.cmd": "bb8f5429e4a0955c16a2466ac7726197eb13957062badea84d4bb2143420a704",
+    "accept_metaswap.exe": "a4da3e0986db5a8b5a08289b4904df6542d907aa1f09f567daba868bbf8f2d16",
+    "lwkm_daily_budget.exe": "214ba5777ede82260592426721a946cccaa73eee4fb641fa394fbd6e50c2b225",
+    "lwkm_met_consumer.exe": "c7cdedf9076909171c799226403c389c08e057d68decffb6ae5933bb2007bfdb",
+    "members.csv.gz": "d7254953d26b14b5c957ca5c66364627af33fd60a7781b00903e763f25a47cd2",
+    "met_grid_header.asc": "e7a8a842cdb80f4b52bc4a50f32be953d4682527687a71247c98c756ad52cfbc",
+    "met_sources.example.json": "117e5bb03d7ab263c345c297c390c65d504fd61baf4828490aff864bf0411983",
+    "pack_daily_year.ps1": "5ba35e87d9c691aba33d3fa76048c8c008ec0b2e975b4be3b883ef73356995e3",
+    "sources.csv": "b1314d18dda7a93c100e67194d1b8abfa6eb27c71d1dd72ca82f5aed5949d062",
+    "support-provenance.json": "6980ad57ac53e6e08c8b08e8277c76be5427deb4ca7c18cc4f0f43aba3c97996"
+  },
+  "tested_code_commit": "b3a75f85d3fa81f5a0dfb4d668e3c86d334276ac",
+  "windows_run": 39468193369,
+  "windows_conclusion": "success",
+  "artifact_id": 12286341215,
+  "artifact_zip_sha256": "8a24d204857bee85f13c92e4e433d0cb17b5b416277f52d586dc89e8b8f8c9fa",
+  "artifact_zip_bytes": 131085375,
+  "production_admitted": false
+}

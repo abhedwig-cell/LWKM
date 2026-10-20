@@ -40,23 +40,22 @@ def weighted_weather(weather,weights,*,start,end):
 
 
 def effective_bbc(frame,*,start,end,experimental_daily_steps=False):
-    """Daily means as constant daily steps, positive into layer1, mm/d -> cm/d.
+    """Owner-accepted daily mean nodes, positive into layer1, mm/d -> cm/d.
 
-    Duplicate midnight nodes preserve mathematical daily integrals. Stock
-    SWAP 4.3.1 can sample across a day boundary before reducing dt, so varying
-    steps require explicit experimental opt-in and are not volume-qualified.
+    Ordinary daily points intentionally allow SWAP interpolation. No correction
+    to preserve source daily volumes is applied (owner decision 2026-10-20).
+    The explicit experimental flag retains the archived step experiment only.
     """
     validate_daily_series(frame.date.tolist(),frame.q_ext_mm_d.tolist(),start=start,end=end,label='GW-L1 BBC')
-    if len(frame)>1 and not np.allclose(frame.q_ext_mm_d,frame.q_ext_mm_d.iloc[0],rtol=0,atol=0) and not experimental_daily_steps:
-        raise ValueError('varying daily BBC not volume-qualified for stock SWAP 4.3.1; explicit experimental policy required')
     values=frame.q_ext_mm_d.to_numpy(float)/10.
     if (abs(values)>100.).any():raise ValueError("QBOT2 outside SWAP -100..100 cm/day")
-    if len(values)*2>36600:raise ValueError('BBC exceeds SWAP 4.3.1 36600-row capacity; split run period')
-    lines=['! LWKM_DAILY_STEP_V1','SWBOTB=2','SW2=2','DATE2 QBOT2']
+    if len(values)*(2 if experimental_daily_steps else 1)>36600:raise ValueError('BBC exceeds SWAP 4.3.1 36600-row capacity; split run period')
+    lines=['! LWKM_DAILY_STEP_V1' if experimental_daily_steps else '! LWKM_OWNER_DAILY_MEAN_NODES_20261020', 'SWBOTB=2','SW2=2','DATE2 QBOT2']
     for d,v in zip(frame.date,values):
         terminal=(date.fromisoformat(str(d))+timedelta(days=1)).isoformat()
         token=f'{v:.12g}'
         if not any(c in token.lower() for c in ['.','e']):token+='.'
-        lines.extend([f'{d} {token}',f'{terminal} {token}'])
+        lines.append(f'{d} {token}')
+        if experimental_daily_steps:lines.append(f'{terminal} {token}')
     lines.append('* End of table')
     return '\n'.join(lines)+'\n'

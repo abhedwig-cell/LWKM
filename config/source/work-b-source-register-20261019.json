@@ -1,0 +1,182 @@
+{
+  "archives": [
+    {
+      "library_file_id": "libfile_c6070d5087a88191ae1f4e487d21bae6",
+      "name": "csv.zip",
+      "sha256": "84ae4963145176767a00c67b968ace5b817002d5292fd9cab8d3933476e509e3"
+    },
+    {
+      "library_file_id": "libfile_d23516829c108191b97d36716c381242",
+      "name": "LHM2SWAP.zip",
+      "sha256": "e8387d6e366880b34e821fa7df9a2c0aaa5de8923c67116cb8bdf283b303b645"
+    },
+    {
+      "library_file_id": "libfile_0661d5c4af2081918d2f26de148a5628",
+      "name": "Rscripts.zip",
+      "sha256": "2c6ebd94bba33d62891c5ffff4e73f7c3429f3c91041e54a95813562684d3bc8"
+    },
+    {
+      "library_file_id": "libfile_d046dbecc53481919801995a54bf07e2",
+      "name": "Template.zip",
+      "sha256": "f21a15697332184e9931487918243ebf195e8d214ae81c4ca698f9f865f4ef85"
+    }
+  ],
+  "baseline_commit": "cff5c454f106efc7953d2ed339201547ad7c064d",
+  "inputs": {
+    "base_svat": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "library_file_id": "libfile_fe29581b63608191a485bc808ffece6c",
+      "logical_id": "LWKM_HRU10242_BASE_SVAT",
+      "parent": null,
+      "path": "inputs/base_svat.csv",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "base_svat",
+      "sha256": "5f7b657508a4dc885bd60fae93051239046b27788388d6e8832621eaa85fe192",
+      "source_location": "SVAT_INFO.csv",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "historical_filter": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "logical_id": "LWKM_HRU10242_HISTORICAL_FILTER",
+      "parent": {
+        "archive_sha256": "e8387d6e366880b34e821fa7df9a2c0aaa5de8923c67116cb8bdf283b303b645",
+        "member": "LHM2SWAP/LHM4.3 data 2024/filter_lwkm2.asc"
+      },
+      "path": "inputs/historical_filter.asc",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "historical_filter",
+      "sha256": "7c31f5e5396405855bb981b7229537b449e106f2c57ce1a7ac2d62e12a478d5b",
+      "source_location": "LHM2SWAP.zip/LHM2SWAP/LHM4.3 data 2024/filter_lwkm2.asc",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "landuse_lookup": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "logical_id": "LWKM_HRU10242_LANDUSE_LOOKUP",
+      "parent": {
+        "archive_sha256": "e8387d6e366880b34e821fa7df9a2c0aaa5de8923c67116cb8bdf283b303b645",
+        "member": "LHM2SWAP/LHM4.3 data 2024/lu2lwkm.csv"
+      },
+      "path": "inputs/landuse_lookup.csv",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "landuse_lookup",
+      "sha256": "8d376daa81ebea1b81194e0c607d0aa7e76f6f0e1545f99a883bb468b6eaab3f",
+      "source_location": "LHM2SWAP.zip/LHM2SWAP/LHM4.3 data 2024/lu2lwkm.csv",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "ldgb": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "library_file_id": "libfile_f9770f63fc408191a7e07750633fcf12",
+      "logical_id": "LWKM_HRU10242_LDGB",
+      "parent": null,
+      "path": "inputs/ldgb.csv",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "ldgb",
+      "sha256": "c659530fb69e32af5fe309b7ae80e20b470e88094b92569f851a32321182d21e",
+      "source_location": "xyLDGBclus.csv",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "processed_svat": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "library_file_id": "libfile_ca23b82747e48191b78b6736b0c617d1",
+      "logical_id": "LWKM_HRU10242_PROCESSED_SVAT",
+      "parent": null,
+      "path": "inputs/processed_svat.csv",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "processed_svat",
+      "sha256": "5ea4d24a0ce38c802cb1dbf63e30239664965438fbcc55690acced447a248821",
+      "source_location": "svat_info_lwkm_new.csv",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "r_source": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "logical_id": "LWKM_HRU10242_R_SOURCE",
+      "parent": null,
+      "path": "inputs/r_source.R",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "r_source",
+      "sha256": "6e5055241590be6bf7f7afe53a2eaf3f03ab3e0627cb9a82bbae138b73eb599e",
+      "source_location": "Rscripts.zip/Rscripts/HRU_clustering/HRU_clustering_LWKM20_31082026.R",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "reference_membership": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "logical_id": "LWKM_HRU10242_REFERENCE_MEMBERSHIP",
+      "parent": {
+        "archive_sha256": "84ae4963145176767a00c67b968ace5b817002d5292fd9cab8d3933476e509e3",
+        "member": "csv/export_svat_HRU_NRU_10242.csv"
+      },
+      "path": "inputs/reference_membership.csv",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "reference_membership",
+      "sha256": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4",
+      "source_location": "csv.zip/csv/export_svat_HRU_NRU_10242.csv",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "reference_schema": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "logical_id": "LWKM_HRU10242_REFERENCE_SCHEMA",
+      "parent": {
+        "archive_sha256": "84ae4963145176767a00c67b968ace5b817002d5292fd9cab8d3933476e509e3",
+        "member": "csv/export_HRUschema_10242.csv"
+      },
+      "path": "inputs/reference_schema.csv",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "reference_schema",
+      "sha256": "0ca8534216d1ab2944dcfee4c528926c7798fd967dcc58f760c88befd1c83997",
+      "source_location": "csv.zip/csv/export_HRUschema_10242.csv",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "svat_raster": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "logical_id": "LWKM_HRU10242_SVAT_RASTER",
+      "parent": {
+        "archive_sha256": "e8387d6e366880b34e821fa7df9a2c0aaa5de8923c67116cb8bdf283b303b645",
+        "member": "LHM2SWAP/LHM4.3 data 2024/svat_LHM43.asc"
+      },
+      "path": "inputs/svat_raster.asc",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "svat_raster",
+      "sha256": "bce7f1d0a104772e289598240d33aa19b84c2a247f22058ae2a60bc583b3bc1a",
+      "source_location": "LHM2SWAP.zip/LHM2SWAP/LHM4.3 data 2024/svat_LHM43.asc",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "template": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "logical_id": "LWKM_HRU10242_TEMPLATE",
+      "parent": null,
+      "path": "inputs/template.swp",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "template",
+      "sha256": "ee0c23696fd5565a4b99eb81ce469a1be7c86494cfb20545dfba492820a5858a",
+      "source_location": "wwl.swp",
+      "source_version": "HRU10242_recovered_snapshot"
+    },
+    "workbook": {
+      "consumer": "tools.hru_source_chain / tools.qualify_hru_replay",
+      "library_file_id": "libfile_7e0c2c9937ac8191a71aefab3a875a80",
+      "logical_id": "LWKM_HRU10242_WORKBOOK",
+      "parent": null,
+      "path": "inputs/workbook.xlsx",
+      "production_admitted": false,
+      "qualification_status": "PROVENANCE_BOUND_FOR_RECONSTRUCTION",
+      "semantic_role": "workbook",
+      "sha256": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+      "source_location": "Datamodel_10242.xlsx",
+      "source_version": "HRU10242_recovered_snapshot"
+    }
+  },
+  "production_admitted": false,
+  "qualification": "REGRESSION_QUALIFIED_FOR_RECOVERED_SNAPSHOT",
+  "schema_version": 1,
+  "scope": "W03-W06 recovered snapshot replay"
+}

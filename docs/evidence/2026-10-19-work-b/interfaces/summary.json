@@ -1,0 +1,20 @@
+{
+  "area_difference_hrus": 14,
+  "area_max_abs_difference_m2": 9.0,
+  "area_sum_difference_m2": -25.0,
+  "cluster_support_m2": 26728500000.0,
+  "contexts": 10242,
+  "donor_changes_vs_self": 57880,
+  "from_raw_lhm_complete": false,
+  "from_snapshot_reproduced": true,
+  "legacy_replacement_targets": 20934,
+  "new_swap_executions": 0,
+  "population": 10242,
+  "production_admitted": false,
+  "reason_no_swap_rerun": "All 10242 rendered SWPs and upstream schema identities unchanged; C2 execution evidence retained",
+  "reproduced_hru_schema_fields": 36,
+  "svat_area_m2": 25511141709.0,
+  "svats": 427656,
+  "swps_identical_to_c2": 10242,
+  "workbook_area_m2": 25511141684.0
+}

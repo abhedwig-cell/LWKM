@@ -1,0 +1,50 @@
+{
+  "W03_stage_sha256": "7f0cb52dd5fe2559cca1b528c61a95ebdae55d0c2d42cbebd6f82b697ed9fa85",
+  "W04_W05_stage_sha256": "19986947dfd4f7b27282a79f9d4e46a119aaf212bfe7bc6528194e8cfbb8a4fe",
+  "code_sha256": "6a5e6118bbdd0e8e3d3103a7ac3fc3bbb55bfc36f7c335dfa29f5b6705e71a5e",
+  "comparison_sha256": "22051927cd88b489f21cf7c57e31a62ad9039374c0e1235cb788e1b5f4127dd2",
+  "input_sha256": {
+    "base_svat": "5f7b657508a4dc885bd60fae93051239046b27788388d6e8832621eaa85fe192",
+    "historical_filter": "7c31f5e5396405855bb981b7229537b449e106f2c57ce1a7ac2d62e12a478d5b",
+    "landuse_lookup": "8d376daa81ebea1b81194e0c607d0aa7e76f6f0e1545f99a883bb468b6eaab3f",
+    "ldgb": "c659530fb69e32af5fe309b7ae80e20b470e88094b92569f851a32321182d21e",
+    "processed_svat": "5ea4d24a0ce38c802cb1dbf63e30239664965438fbcc55690acced447a248821",
+    "r_source": "6e5055241590be6bf7f7afe53a2eaf3f03ab3e0627cb9a82bbae138b73eb599e",
+    "reference_membership": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4",
+    "reference_schema": "0ca8534216d1ab2944dcfee4c528926c7798fd967dcc58f760c88befd1c83997",
+    "svat_raster": "bce7f1d0a104772e289598240d33aa19b84c2a247f22058ae2a60bc583b3bc1a",
+    "template": "ee0c23696fd5565a4b99eb81ce469a1be7c86494cfb20545dfba492820a5858a",
+    "workbook": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8"
+  },
+  "interfaces": {
+    "DONOR_ASSIGNMENT": {
+      "artifact": "DONOR_ASSIGNMENT.csv.gz",
+      "sha256": "b190c66e0c6287b1277ec84c929db7a6c9040b5150cd3190da9323509371425e",
+      "version": 1
+    },
+    "HRU_CONTEXT_10242": {
+      "artifact": "HRU_CONTEXT_10242.jsonl.gz",
+      "sha256": "e4bf2944d10b34ebb5d4148321163c48b264fee965f76723eb43dead21197cb0",
+      "version": 1
+    },
+    "HRU_MEMBERSHIP": {
+      "artifact": "HRU_MEMBERSHIP.csv.gz",
+      "sha256": "947f6cfee5193d98128c5e78170e1ef03c4e65999a3ae8d4956295cba18eee8f",
+      "version": 1
+    },
+    "HRU_REPRESENTATIVE": {
+      "artifact": "HRU_REPRESENTATIVE.csv.gz",
+      "sha256": "8992a42eab678012442300466ca4a9d94e463bb0f966a21c3819ce8eb478fd80",
+      "version": 1
+    },
+    "SVAT_QUALIFIED": {
+      "artifact": "SVAT_QUALIFIED.csv.gz",
+      "sha256": "c868fd3020e5758bd888214050052ecb2e92908c656760b9f1ced2e6bf2d6503",
+      "version": 1
+    }
+  },
+  "production_admitted": false,
+  "profile": "LWKM_HRU10242_REPLAY_20261019",
+  "schema_version": 1,
+  "status": "REGRESSION_QUALIFIED_FOR_RECOVERED_SNAPSHOT_NOT_PRODUCTION_ADMITTED"
+}

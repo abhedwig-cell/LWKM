@@ -1,0 +1,26 @@
+{
+  "sources": {
+    "Datamodel_10242.xlsx": {
+      "bytes": 7056025,
+      "sha256": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+      "status": "MATERIALIZED_EXISTING_FILE_NO_REUPLOAD"
+    },
+    "Template.zip": {
+      "bytes": 1860053,
+      "sha256": "f21a15697332184e9931487918243ebf195e8d214ae81c4ca698f9f865f4ef85",
+      "status": "MATERIALIZED_EXISTING_FILE_NO_REUPLOAD"
+    },
+    "control_runs(2).zip": {
+      "bytes": 223897827,
+      "sha256": "f1c6d793e54ef2390d673ef543a7800d0e2bfaf44a887aa4ee2811c9080b7bea",
+      "status": "MATERIALIZED_EXISTING_FILE_NO_REUPLOAD"
+    },
+    "METEO_INVENTORY.zip": {
+      "bytes": 4348,
+      "sha256": "b4c5e1766ca3b317bed1a20b3f36f41fc8db692da6372c95a1f6de16b0ce3f41",
+      "status": "MATERIALIZED_EXISTING_FILE_NO_REUPLOAD"
+    }
+  },
+  "engine_helper_error": "HTTP 403 before bytes; existing Tools engine verified as 4.2.261",
+  "production_admitted": false
+}

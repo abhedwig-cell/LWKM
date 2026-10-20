@@ -1,0 +1,20 @@
+{
+  "base_svats": 552705,
+  "cluster_support_m2": 26728500000.0,
+  "excluded_svats": 125049,
+  "grid": {
+    "cellsize": 250.0,
+    "ncols": 1200,
+    "nrows": 1300,
+    "xllcorner": 0.0,
+    "yllcorner": 300000.0
+  },
+  "historical_filter_difference_count": 4,
+  "nearest_ldgb": 25,
+  "production_admitted": false,
+  "raw_raster_producer_complete": false,
+  "selected_svats": 427656,
+  "source_snapshot_reconstruction": true,
+  "suspected": 20934,
+  "target_area_m2": 25511141709.0
+}
