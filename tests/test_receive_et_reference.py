@@ -69,3 +69,35 @@ def test_pilot_deterministic_diverse_and_no_blocked_selection():
        structural_blocked=i==1,soil_binding_unresolved=i==2) for i in (1,2,3,4)])
     a=select_prototypes(f);b=select_prototypes(f.sample(frac=1,random_state=4))
     assert a.hru_id.tolist()==b.hru_id.tolist()==[3]
+
+
+@pytest.mark.parametrize('negative_gifts',[False,True])
+def test_explicit_mixed_source_signs_keep_raw_values_and_normalize_gifts(tmp_path,negative_gifts):
+    from tools.et_calibration import compare
+    src=native(tmp_path/'source')
+    signs={name:(1 if name in ('PSGW','PSSW') and not negative_gifts else -1) for name in RAW}
+    for p in src.glob('????????.csv'):
+        f=pd.read_csv(p)
+        for name in RAW:f[name]*=signs[name]
+        f.to_csv(p,index=False)
+        p.with_suffix('.sha256').write_text('output='+digest(p)+'\n')
+    out=tmp_path/'received';receive(src,out,[2],'2001-01-01','2001-01-31',data_origin='synthetic')
+    before={p.name:digest(p) for p in out.iterdir()}
+    review=tmp_path/'review.json'
+    body=dict(status='SEMANTICS_REVIEWED',receipt_sha256=digest(out/'receipt.json'),
+        unit='mm/calendar_decade',sign='positive_loss_or_gift',period='calendar_decade_amount',
+        evidence_refs=['synthetic known-sign construction'],source_signs=signs)
+    review.write_text(json.dumps(body));f=reference(out,2,review)
+    assert f.MSW_EBS.iloc[0]<0 and f.NORMALIZED_MSW_EBS.iloc[0]>0
+    assert f.PSGW.iloc[0]*signs['PSGW']>0 and f.SOURCE_SIGN_PSGW.iloc[0]==signs['PSGW']
+    assert f.ET.iloc[0]==pytest.approx(5*1.234567890)
+    assert f.BDGETACT_RESIDUAL.iloc[0]==pytest.approx(-4*1.234567890)
+    score=compare(f,f,dict(rsc_scale=1.,feddes_scale=1.))
+    assert score['data_loss']==0 and score['psgw_reference_mm']==pytest.approx(f.NORMALIZED_PSGW.sum())
+    assert before=={p.name:digest(p) for p in out.iterdir()}
+    assert f.attrs['semantic_review_sha256']==digest(review)
+    body.pop('source_signs');review.write_text(json.dumps(body))
+    with pytest.raises(ValueError,match='negative loss/gift'):reference(out,2,review)
+    for invalid in (None,[],{'MSW_EBS':-1},{**signs,'PSGW':0},{**signs,'PSGW':True},{**signs,'PSGW':1.0}):
+        body['source_signs']=invalid;review.write_text(json.dumps(body))
+        with pytest.raises(ValueError,match='source signs'):reference(out,2,review)

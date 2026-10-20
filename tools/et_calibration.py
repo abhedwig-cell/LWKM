@@ -163,9 +163,12 @@ def extract(csv, start, end):
     return validate_decades(pd.DataFrame(out))
 
 
-def load_reference(directory, hru, *, semantic_qualified=False):
+def load_reference(directory, hru, *, semantic_qualified=False, source_signs=None):
     """Read hash-bound native HRU decades. A provenance hash is not unit qualification."""
     if not semantic_qualified: raise ValueError('explicit unit/sign/period qualification required')
+    signs={name:1 for name in RAW} if source_signs is None else source_signs
+    if set(signs)!=set(RAW) or any(type(v) is not int or v not in (-1,1) for v in signs.values()):
+        raise ValueError('explicit source signs must cover all nine variables with integer +1/-1')
     directory=Path(directory);rows=[]
     for path in sorted(directory.glob('[0-9]'*8+'.csv')):
         stamp=pd.to_datetime(path.stem,format='%Y%m%d');a,b=decade(stamp)
@@ -181,9 +184,15 @@ def load_reference(directory, hru, *, semantic_qualified=False):
         if not np.isfinite(r[RAW].to_numpy(dtype=float)).all(): raise ValueError('nonfinite reference')
         if r.days!=(b-a).days+1:raise ValueError('invalid native decade length')
         row={'start':a,'end':b,'days':int(r.days),**r[RAW].to_dict()}
-        row.update(T=r.MSW_TACT,E_SOIL=r.MSW_EBS+r.MSW_EPD,E_IC=r.MSW_EIC+r.MSW_ESP,
-                   TPOT=r.MSW_TPOT,IRRIG=r.PSSW+r.PSGW)
-        row['ET']=row['T']+row['E_SOIL']+row['E_IC'];row['BDGETACT_RESIDUAL']=r.BDGETACT-row['ET']
+        normalized={name:float(r[name])*signs[name] for name in RAW}
+        if any(normalized[name]<-1e-6 for name in RAW[:-1]):
+            raise ValueError('declared source signs leave negative loss/gift terms')
+        row.update({'NORMALIZED_'+name:value for name,value in normalized.items()})
+        row.update({'SOURCE_SIGN_'+name:signs[name] for name in RAW})
+        row.update(T=normalized['MSW_TACT'],E_SOIL=normalized['MSW_EBS']+normalized['MSW_EPD'],
+                   E_IC=normalized['MSW_EIC']+normalized['MSW_ESP'],TPOT=normalized['MSW_TPOT'],
+                   IRRIG=normalized['PSSW']+normalized['PSGW'])
+        row['ET']=row['T']+row['E_SOIL']+row['E_IC'];row['BDGETACT_RESIDUAL']=normalized['BDGETACT']-row['ET']
         row['source_sha256']=digest(path);rows.append(row)
     return validate_decades(pd.DataFrame(rows))
 
@@ -218,8 +227,8 @@ def compare(model, reference, parameters, *, regularization=.05):
             'year_bias_mm':{str(k):float(v) for k,v in (m.ET-r.ET).groupby(y).sum().items()},
             'season_bias_mm':{str(k):float(v) for k,v in (m.ET-r.ET)[season].groupby(y[season]).sum().items()},
             'stress_model':stress(m),'stress_reference':stress(r),'components':diagnostics,
-            'psgw_reference_mm':float(r.PSGW.sum()) if 'PSGW' in r else None,
-            'pssw_reference_mm':float(r.PSSW.sum()) if 'PSSW' in r else None,
+            'psgw_reference_mm':float(r['NORMALIZED_PSGW' if 'NORMALIZED_PSGW' in r else 'PSGW'].sum()) if 'PSGW' in r else None,
+            'pssw_reference_mm':float(r['NORMALIZED_PSSW' if 'NORMALIZED_PSSW' in r else 'PSSW'].sum()) if 'PSSW' in r else None,
             'bdgetact_residual_mm':float(r.BDGETACT_RESIDUAL.sum()) if 'BDGETACT_RESIDUAL' in r else None}
 
 

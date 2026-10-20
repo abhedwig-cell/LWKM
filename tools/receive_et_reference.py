@@ -134,13 +134,15 @@ def verify(directory):
 def reference(directory,hru,review):
     """A review is bound to this exact receipt; transport never fabricates it."""
     directory=Path(directory);r=verify(directory)
-    review=json.loads(Path(review).read_text())
+    review_path=Path(review)
+    review=json.loads(review_path.read_text())
     required={'unit':'mm/calendar_decade','sign':'positive_loss_or_gift','period':'calendar_decade_amount'}
     if review.get('receipt_sha256')!=digest(directory/'receipt.json') or review.get('status')!='SEMANTICS_REVIEWED':raise ValueError('review not bound to received data')
     if not review.get('evidence_refs') or not all(review.get(k)==v for k,v in required.items()):raise ValueError('source semantics evidence required')
     if hru not in r['hru_ids']:raise ValueError('HRU outside received selection')
-    frame=load_reference(directory,hru,semantic_qualified=True)
-    frame.attrs.update(data_origin=r['data_origin'],receipt_sha256=digest(directory/'receipt.json'))
+    if 'source_signs' in review and not isinstance(review['source_signs'],dict):raise ValueError('explicit source signs must be a map')
+    frame=load_reference(directory,hru,semantic_qualified=True,source_signs=review.get('source_signs'))
+    frame.attrs.update(data_origin=r['data_origin'],receipt_sha256=digest(directory/'receipt.json'),semantic_review_sha256=digest(review_path))
     return frame
 
 
@@ -153,7 +155,7 @@ def select_received(directory,hru,review,candidates,train_years,validation_years
                     and c.get('receipt_sha256')==frame.attrs['receipt_sha256'] and bool(c.get('evidence_refs')))
     result=select_profile(candidates,frame,train_years,validation_years,
                           real_reference=frame.attrs['data_origin']=='real_unreviewed',context_verified=context_ok)
-    result.update(receipt_sha256=frame.attrs['receipt_sha256'],data_origin=frame.attrs['data_origin'])
+    result.update(receipt_sha256=frame.attrs['receipt_sha256'],data_origin=frame.attrs['data_origin'],semantic_review_sha256=frame.attrs['semantic_review_sha256'])
     return result
 
 
