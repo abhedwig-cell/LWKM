@@ -109,6 +109,31 @@ for i,r in enumerate(actual):
     derived={'E_SOIL_POND':vals[0]+vals[2],'E_INTERCEPTION_SPRINKLING':vals[1]+vals[3],'T_ACTUAL':vals[4],'ET_ACTUAL':sum(vals[:5]),'IRR_TOTAL':sum(vals[6:8]),'BDGETACT_MINUS_ET':vals[8]-sum(vals[:5])}
     for name,x in derived.items(): assert abs(float(r[name])-x)<5e-8
 record('all_427656_supplied_svats_all_10242_hrus_vs_independent_numpy',runtime_seconds=secs,max_abs_csv_rounding_error_mm=maxerr,raster_rows=nr,raster_columns=nc)
+# Exercise exactly the delivered CMD with spaces in its own directory.
+if os.name=='nt':
+    package=WORK/'server package with spaces';package.mkdir(exist_ok=True)
+    (package/'data').mkdir(exist_ok=True)
+    shutil.copy2(EXE,package/EXE.name)
+    shutil.copy2(EXE.parent/'run_metaswap_hru.cmd',package/'run_metaswap_hru.cmd')
+    shutil.copy2(AREA,package/'data'/'area_svat.inp');shutil.copy2(MAP,package/'data'/'svat_hru.csv')
+    shutil.copy2(ss,package/'sources.csv')
+    env=dict(os.environ,LWKM_MSW_ROOT=str(full))
+    p=subprocess.run(['cmd','/d','/c','run_metaswap_hru.cmd'],cwd=package,env=env,capture_output=True,text=True,timeout=240)
+    assert p.returncode==0 and 'KLAAR' in p.stdout,(p.stdout,p.stderr)
+    assert len(rows(package/'metaswap_hru_output'/'20240110.csv'))==10242
+    record('delivered_cmd_runs_from_directory_with_spaces_without_python_commands')
+    # A forcibly killed process must not leave a stale lock blocking restart.
+    crash=full/'crash_out'
+    process=subprocess.Popen([str(EXE),str(AREA),str(MAP),str(ss),str(full),str(crash),'10242'],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    deadline=time.monotonic()+15
+    while not (crash/'.running').exists() and process.poll() is None and time.monotonic()<deadline: time.sleep(.005)
+    assert process.poll() is None and (crash/'.running').exists()
+    other=subprocess.run([str(EXE),str(AREA),str(MAP),str(ss),str(full),str(crash),'10242'],capture_output=True,text=True,timeout=30)
+    assert other.returncode!=0 and 'locked' in other.stderr
+    process.kill();process.communicate(timeout=30)
+    run(AREA,MAP,ss,full,crash,n=10242)
+    record('exclusive_output_lock_and_restart_after_forced_termination')
+
 # Artefacts with spatial geometry are copied without synthetic rasters (reproducible).
 report={'binary_sha256':hashlib.sha256(EXE.read_bytes()).hexdigest(),'windows_execution':'native Windows x64' if os.name=='nt' else 'actual PE32+ x64 executable under Wine; not native Windows host','tests':RESULTS,'passed':len(RESULTS)}
 (WORK/'test_results.json').write_text(json.dumps(report,indent=2))

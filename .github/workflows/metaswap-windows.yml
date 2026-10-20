@@ -4,11 +4,6 @@ on:
     paths:
       - 'tools/metaswap_hru/**'
       - '.github/workflows/metaswap-windows.yml'
-  push:
-    branches: ['work/metaswap-windows-20261020']
-    paths:
-      - 'tools/metaswap_hru/**'
-      - '.github/workflows/metaswap-windows.yml'
 permissions:
   contents: read
 jobs:
