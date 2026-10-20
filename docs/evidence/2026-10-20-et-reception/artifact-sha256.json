@@ -1,0 +1,12 @@
+{
+  "code-sha256.json": "eabe75f4265f1c0a68b99cfb74dce390b10b4e97403fcd9671776f9e86d16b67",
+  "pilot-hrus.csv": "690d588316d147ba14ed6c47c6b2fffa97b7107a5210215613d7c24d24716ece",
+  "pilot-plan.json": "570d0f6800c5f3b0a7cdbef9a91cc48a0072d117e09d12f7e7863a6359a3f9ca",
+  "population.csv.gz": "a8dba80605e02c1e1add6ba19eae4e04a26c889848ca72043e5d404308faf975",
+  "replay-existing-runs.json": "58cbf89b891b59a7a6d560d6d9b95219dcc5a30b198c5866ddc4deabb441532e",
+  "review.json": "66738a8def4fcb919e9d8fac48fd96d2c2597d3ac352cb19815886114bce8751",
+  "synthetic-integration.json": "e9d17ae1603cfd7c3d7c8e69da7d31c1885e3ca37b23c8787f8de2a636ef4d8d",
+  "synthetic-native-receipt.zip": "b0966ffac021365125b6020d4ed3eba48746692a3338aef17be141e96d83bdb0",
+  "tests.log": "79227967020206f08f24c6e50ab1ae4fa9707475c12ce741eeeae052d558e6ef",
+  "year-availability.json": "7b53992f7702e7883519664401727e9bfe69847700ffe674efa317474bd424fb"
+}

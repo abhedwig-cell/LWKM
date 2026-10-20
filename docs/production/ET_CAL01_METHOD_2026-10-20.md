@@ -146,3 +146,5 @@ De methodische conclusie is concreet: begin met RSC waar die route actief en gev
 De definitieve 32 berekeningen vragen samen 107,49 seconden gemeten engine-uitvoering. De grootste onafhankelijke dagelijkse balansafwijking is 0,000300 mm/dag, onder de bestaande C2-grens van 0,001 mm/dag. Dit zijn lokale rekentijden, geen prognose voor een landelijke bibliotheek.
 
 Evidence: `docs/evidence/2026-10-20-et-cal01/summary.json`, `metrics.csv`, `sensitivity.json`, `boundary-controls.json`, `source-audit.json`, `source-excerpts.txt` en de twee afzonderlijke uitvoerarchieven. `execution-evidence.zip` bewaart werkelijke dagelijkse SWAP-uitvoer met content-addressed pakketinputs; `synthetic-fixtures.zip` bevat uitsluitend de kunstmatige meerjaarsreeksen. `synthetic-qualification.json` legt de vijf testsituaties vast. De volledige repositorytest staat in `tests.log`.
+
+Vervolg op 20 oktober: de native ontvangst, semantische beoordelingsbinding en beperkte selectie van 21 HRU's zijn geïmplementeerd. Zie `ET_CAL01_RECEPTION_PILOT_2026-10-20.md`. Dit voegt geen feitelijke kalibratie of meerjaarsnauwkeurigheidsclaim toe.
