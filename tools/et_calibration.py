@@ -179,6 +179,7 @@ def load_reference(directory, hru, *, semantic_qualified=False):
         r=sel.iloc[0]
         if r.complete!=1 or any(r['coverage_'+n]!=1 for n in RAW): raise ValueError('incomplete HRU decade')
         if not np.isfinite(r[RAW].to_numpy(dtype=float)).all(): raise ValueError('nonfinite reference')
+        if r.days!=(b-a).days+1:raise ValueError('invalid native decade length')
         row={'start':a,'end':b,'days':int(r.days),**r[RAW].to_dict()}
         row.update(T=r.MSW_TACT,E_SOIL=r.MSW_EBS+r.MSW_EPD,E_IC=r.MSW_EIC+r.MSW_ESP,
                    TPOT=r.MSW_TPOT,IRRIG=r.PSSW+r.PSGW)
@@ -225,7 +226,10 @@ def compare(model, reference, parameters, *, regularization=.05):
 def sensitivity(outputs):
     """Central differences of decade ET and T reduction; singular values flag confounding."""
     derivatives=[];rows=[]
+    outputs={key:validate_decades(value) for key,value in outputs.items()}
     base=outputs[(1.,1.)]
+    keys=['start','end','days']
+    if any(not value[keys].equals(base[keys]) for value in outputs.values()):raise ValueError('sensitivity calendars differ')
     for p,index in [('rsc_scale',0),('feddes_scale',1)]:
         low=[1.,1.];high=[1.,1.];low[index]=.75;high[index]=1.25
         l,h=outputs[tuple(low)],outputs[tuple(high)]

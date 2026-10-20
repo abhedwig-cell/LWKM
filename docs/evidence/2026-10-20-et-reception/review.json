@@ -1,0 +1,19 @@
+{
+  "kind": "technical_self_review_not_independent_scientific_admission",
+  "reviewed_commit": "746eb86247c9010e5135f4c90d921be01b836172",
+  "merged_as": "a03c48738c446c9b597f0e5105f6c4321db25841",
+  "review_scope": [
+    "existing runner and CRP-only overlays",
+    "calendar/unit/component conventions",
+    "bounds, irrigation and validation guards",
+    "source and execution evidence",
+    "native reception requirements"
+  ],
+  "findings": [
+    "fractional native days now rejected rather than cast",
+    "sensitivity calendars now checked explicitly",
+    "transport alone cannot confer semantic review",
+    "model soil identity retained separately from original representative labels"
+  ],
+  "production_admitted": false
+}
