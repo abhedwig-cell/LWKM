@@ -1,0 +1,96 @@
+{
+  "binary_sha256": "0606f5d15bc1c5bb01a1d0a91fd91c839c68daa0a6ae972fa7c79b0b451513b8",
+  "windows_execution": "native Windows x64",
+  "tests": [
+    {
+      "test": "weighted_aggregation_orientation_shared_cell_leap_decade",
+      "status": "PASS",
+      "runtime_seconds": 0.03200000000001069
+    },
+    {
+      "test": "sha256_matches_independent_python",
+      "status": "PASS"
+    },
+    {
+      "test": "resume_verifies_and_skips_unchanged",
+      "status": "PASS"
+    },
+    {
+      "test": "resume_repairs_corrupt_output",
+      "status": "PASS"
+    },
+    {
+      "test": "resume_repairs_missing_quality_file",
+      "status": "PASS"
+    },
+    {
+      "test": "changed_source_hash_recomputes_and_nodata_propagates_per_variable",
+      "status": "PASS"
+    },
+    {
+      "test": "nan_remains_missing",
+      "status": "PASS"
+    },
+    {
+      "test": "restart_after_uncommitted_partial",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_duplicate_svat",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_coordinate_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_unknown_svat",
+      "status": "PASS"
+    },
+    {
+      "test": "failed_run_releases_exclusive_lock",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_missing_source_file",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_unsupported_idf_precision",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_truncated_idf",
+      "status": "PASS"
+    },
+    {
+      "test": "accept_documented_text_idf_footer",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_invalid_idf_footer",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_shifted_or_outside_raster",
+      "status": "PASS"
+    },
+    {
+      "test": "all_427656_supplied_svats_all_10242_hrus_vs_independent_numpy",
+      "status": "PASS",
+      "runtime_seconds": 3.031000000000006,
+      "max_abs_csv_rounding_error_mm": 4.9998671869389e-9,
+      "raster_rows": 1245,
+      "raster_columns": 1056
+    },
+    {
+      "test": "delivered_cmd_runs_from_directory_with_spaces_without_python_commands",
+      "status": "PASS"
+    },
+    {
+      "test": "exclusive_output_lock_and_restart_after_forced_termination",
+      "status": "PASS"
+    }
+  ],
+  "passed": 21
+}

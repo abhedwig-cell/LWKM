@@ -45,5 +45,17 @@
   "hru_count": 10242,
   "area_svat_rows": 645582,
   "missing_svat": 0,
-  "xy_mismatches": 0
+  "xy_mismatches": 0,
+  "normalized_test_records": {
+    "sha256": "42a73f98acf428e1a3ffd698326aa03b4daf2bf8b505423ab0e6b11b7eed50c8",
+    "rows": 427656,
+    "fields": [
+      "svat_orig",
+      "HRU",
+      "area_m2",
+      "x",
+      "y"
+    ],
+    "origin": "Exact selected original SVAT IDs, HRU membership and area/X/Y fields from the two SHA-bound supplied inputs; no donor substitution. Other columns omitted only in the test fixture."
+  }
 }
