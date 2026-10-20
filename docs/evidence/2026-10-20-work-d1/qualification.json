@@ -1,0 +1,49 @@
+{
+  "area_m2": 25514516032.0,
+  "asset_errors": [
+    {
+      "error": "UNQUALIFIED_CROP_FACTOR: appelbomen",
+      "hru_id": 4243
+    },
+    {
+      "error": "UNQUALIFIED_CROP_FACTOR: appelbomen",
+      "hru_id": 4244
+    },
+    {
+      "error": "UNQUALIFIED_CROP_FACTOR: appelbomen",
+      "hru_id": 4245
+    },
+    {
+      "error": "UNQUALIFIED_CROP_FACTOR: appelbomen",
+      "hru_id": 4246
+    }
+  ],
+  "blockers": {
+    "C2_PROTECTED_DRAINAGE_EXCEPTION": 29,
+    "NONFORCING_ASSETS_UNBOUND": 4
+  },
+  "days": [
+    "1971-03-01",
+    "1971-03-02",
+    "1971-03-03"
+  ],
+  "first_complete": 10209,
+  "grid_links": 277190,
+  "independent_max_MET_error": 4.999556324492005e-12,
+  "nature_overrides": [],
+  "new_real_forcing_runs": 0,
+  "population": 10242,
+  "production_admitted": false,
+  "real_server_outputs_read": false,
+  "second_complete": 10209,
+  "second_reused": 10209,
+  "sources": {
+    "Datamodel_10242.xlsx": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+    "HRU_CONTEXT_10242.jsonl.gz": "e4bf2944d10b34ebb5d4148321163c48b264fee965f76723eb43dead21197cb0",
+    "Template.zip": "f21a15697332184e9931487918243ebf195e8d214ae81c4ca698f9f865f4ef85",
+    "supplied_members.csv.gz": "42a73f98acf428e1a3ffd698326aa03b4daf2bf8b505423ab0e6b11b7eed50c8"
+  },
+  "status": "SYNTHETIC_INTEGRATION_ONLY",
+  "svats": 427656,
+  "weights_sha256": "6133a918a0a05bd4b1b384fc88a1d13df7bd49d26c1723b242b319a667712f7c"
+}

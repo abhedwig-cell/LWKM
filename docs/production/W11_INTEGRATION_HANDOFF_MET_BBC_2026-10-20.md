@@ -1,5 +1,7 @@
 # LWKM W11 integratie-handoff: bestaande SVAT/HRU, DRA, BBC en aankomende MET (2026-10-20)
 
+Actuele D1-aanvulling: de hieronder geplande consumerintegratie en synthetische pakketbouw zijn geïmplementeerd. De drie centrale productie-documenten, het D1-herstelpunt en docs/evidence/2026-10-20-work-d1 vormen het actuele uitvoeringsherstelpunt. Dit wijzigt geen van de onderstaande bron- en ontwerpbesluiten.
+
 Status: interface-afspraak en geprioriteerd uitvoeringsplan, **geen** nieuw production admission.
 
 ## Actuele onafhankelijke evidence

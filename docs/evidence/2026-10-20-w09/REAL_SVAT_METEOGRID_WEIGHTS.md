@@ -1,5 +1,7 @@
 # W09 real SVAT-to-meteogrid weight build, 2026-10-20
 
+Actuele aanvulling D1: de projecteigenaar heeft area_svat(3).inp inmiddels als W09-authority bevestigd. Het onderstaande eerdere oppervlakteblokkeringslabel is historisch en niet meer actief. Zie docs/production/W09_SVAT_AREA_AUTHORITY_DECISION_2026-10-20.md en de D1-evidence voor byte-identieke herhaling.
+
 ## Supplied real inputs
 - `export_svat_HRU_NRU_10242(4).csv`: SHA256 `13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4`
 - `area_svat(3).inp`: SHA256 `352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc`

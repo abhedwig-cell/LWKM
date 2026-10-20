@@ -1,5 +1,7 @@
 # Work B hervatting, 20 oktober 2026
 
+Actuele D1-aanvulling: control_runs(2).zip is via de bestaande bestandsverwijzing succesvol verkregen; er is geen reupload gevraagd. De eerdere downloadblokkade hieronder is opgelost voor dit bestand. De raw-LHM/enrichment-gates worden daarmee niet zonder inhoudelijke toets gesloten. Work B is geïntegreerd in PR 11; zie het D1-herstelpunt.
+
 De Work B-branch is samengevoegd met gezamenlijke basis `36c3dac01ccd66e2b58a250fce332df82b784fd6`. De vijfcomponentenroute en het eigenaarbesluit over dagelijkse BBC-timing blijven behouden. De samenvoeging heeft geen conflicten. Lokaal slagen 386 tests en drie subtests. Alle 65 hashes in het bestaande Work B-artifactmanifest en alle 23 codehashes zijn opnieuw gecontroleerd, zonder afwijkingen. De bestaande wetenschappelijke reconstructie en C2-modelberekeningen zijn niet opnieuw uitgevoerd.
 
 De oude schema-copy-notitie bevatte nog een door de latere broncode-audit weerlegde interpretatie van `bfe_repr > 0`. Die tekst verwijst nu expliciet naar de actieve bronsemantiek. Dit verandert geen wetenschappelijk besluit of runwaarde. De verrijkte 43-kolomsvariant blijft onderscheiden van de gereproduceerde 36-kolomsclusterreferentie.
