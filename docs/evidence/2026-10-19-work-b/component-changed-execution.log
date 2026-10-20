@@ -1,0 +1,125 @@
+expression 3 
+expression 4 representative_points
+expression 5 
+expression 6 find_best_matches_ann
+expression 7 representative_percentile_points
+expression 8 cluster_round_maxMAE
+expression 9 closest_to_median
+expression 10 Perct
+expression 11 mae
+expression 12 robust_scalar
+expression 13 skewness
+expression 14 get_mode
+expression 15 log_mod_trans
+expression 16 MinOppha
+expression 17 groupfraction
+expression 18 MAE_threshold_GHG
+expression 19 MAE_threshold_Nkw
+expression 20 minnosvats
+expression 21 minsvatsinNRU
+expression 22 reduction_factor
+expression 23 cdate
+expression 24 dfpawn21piet
+expression 25 dfpawn21os50
+expression 26 dfpawn21oslu50
+expression 27 dflu4
+expression 28 cols_of_interest
+expression 29 items
+expression 30 cols
+expression 32 file_orig
+expression 33 file
+expression 34 df
+expression 35 dfLBDG
+expression 36 inLBDG
+expression 37 naLBDG
+expression 38 nn
+expression 39 naLBDG
+expression 40 df
+expression 41 df_notok
+expression 42 df_suspected
+expression 43 inLBDG
+expression 44 naLBDG
+expression 45 nn
+expression 46 naLBDG
+expression 47 df_suspected
+expression 48 $ df_suspected label
+expression 49 df_valid
+expression 50 $ df_valid label
+expression 51 indlists
+expression 52 df_rem
+expression 53 results
+expression 54 k
+expression 55 FlagClus
+expression 56 
+expression 57 df_res
+expression 58 $ df_res label
+expression 59 $ df_rem label
+expression 60 df2
+expression 61 $ df2 minsvats
+expression 62 p5
+expression 63 p5a
+expression 64 p5b
+expression 65 p5
+expression 66 df_res2
+expression 67 df_tosmall4NRU
+expression 69 df_rem
+expression 70 df_rem
+expression 71 df_ok4NRU
+expression 72 $ df_ok4NRU label
+expression 73 df_res
+expression 74 vars
+expression 75 donors
+expression 76 targets
+expression 77 weights
+expression 78 n1
+expression 81 
+expression 82 weights
+expression 83 n1
+expression 86 
+expression 87 df_assT
+expression 88 v
+expression 89 v1
+expression 90 v2
+expression 91 v1
+expression 92 HRUextra
+expression 93 df_res2
+expression 94 df_res2
+expression 95 df_assT2
+expression 96 df_res3
+expression 97 nmax
+expression 98 HRUextra
+expression 99 df_HRUextra
+expression 100 df_complete
+expression 101 df_complete
+expression 102 df_complete
+expression 103 df_analyse
+expression 104 df_HRU
+expression 105 df_NRU
+expression 106 svat_repr
+expression 107 nt
+expression 108 tmp0
+expression 109 
+expression 110 df_HRU
+expression 111 tmp0
+expression 112 df_HRU
+Warning messages:
+1: Using an external vector in selections was deprecated in tidyselect 1.1.0.
+ℹ Please use `all_of()` or `any_of()` instead.
+  # Was:
+  data %>% select(items)
+
+  # Now:
+  data %>% select(all_of(items))
+
+See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>. 
+2: Using an external vector in selections was deprecated in tidyselect 1.1.0.
+ℹ Please use `all_of()` or `any_of()` instead.
+  # Was:
+  data %>% select(cols)
+
+  # Now:
+  data %>% select(all_of(cols))
+
+See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>. 
+3: Using one column matrices in `filter()` was deprecated in dplyr 1.1.0.
+ℹ Please use one dimensional logical vectors instead. 

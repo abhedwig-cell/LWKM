@@ -1,0 +1,56 @@
+{
+  "inputs": {
+    "LANDUSE_DOMAIN_DERIVED_FROM_LU2LWKM": {
+      "columns": [
+        "LWKM-ID"
+      ],
+      "key": "landgebruik22",
+      "logical_id": "LANDUSE_DOMAIN_DERIVED_FROM_LU2LWKM",
+      "parent_sha256": "8d376daa81ebea1b81194e0c607d0aa7e76f6f0e1545f99a883bb468b6eaab3f",
+      "path": "/dev/shm/lwkm-work-b/raw/landuse-domain.csv",
+      "semantic_role": "landuse_domain_lookup",
+      "sha256": "ddfd597138fbd2485346d355f2a2e3d4c5e29cef358e206b5418c7f955f05098",
+      "units": "categorical"
+    },
+    "area_svat_LHM.csv": {
+      "columns": [
+        "opp(m2)",
+        "maaiveld_m_nap",
+        "bodem370",
+        "landgebruik22"
+      ],
+      "key": "svat",
+      "logical_id": "area_svat_LHM.csv",
+      "path": "/dev/shm/lwkm-work-b/raw/area_svat_LHM.csv",
+      "rename": {
+        "Bodemnummer": "bodem370",
+        "Landgebruik": "landgebruik22",
+        "Maaiveld (m+NAP)": "maaiveld_m_nap",
+        "Oppervlakte (m2)": "opp(m2)"
+      },
+      "semantic_role": "original_svat_area_elevation_soil_landuse",
+      "sha256": "50fce475375be74471ba2824950543ec97d8a5129818a61537a158217803c9af",
+      "units": "mixed_column_units"
+    },
+    "district.asc": {
+      "logical_id": "district.asc",
+      "path": "/dev/shm/lwkm-work-b/raw/district.asc",
+      "semantic_role": "meteo_district",
+      "sha256": "9693db83c91d0459148fff2cde96d4862610f4ba811992152b3d170b735d56c8",
+      "units": "district_id"
+    },
+    "svat_LHM43.asc": {
+      "logical_id": "svat_LHM43.asc",
+      "path": "/dev/shm/lwkm-work-b/raw/svat_LHM43.asc",
+      "semantic_role": "original_svat_raster",
+      "sha256": "bce7f1d0a104772e289598240d33aa19b84c2a247f22058ae2a60bc583b3bc1a",
+      "units": "id"
+    }
+  },
+  "missing_by_field": {
+    "district": 102710
+  },
+  "production_admitted": false,
+  "rows": 645582,
+  "status": "BLOCKED_BY_SOURCE_COVERAGE"
+}

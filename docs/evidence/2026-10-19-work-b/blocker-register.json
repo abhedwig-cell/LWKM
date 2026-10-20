@@ -1,0 +1,33 @@
+{
+  "closed": [
+    "Exact snapshot access",
+    "Full computational R execution",
+    "10242 full member sets, operational donors and representative/schema reproduction",
+    "10242 context and C2 SWP byte identity",
+    "Dependency-closed 1111-SVAT/41-HRU component replay, source edit and stable ID reconciliation",
+    "Population context cache: 10242 unchanged reuses, one edit regenerates one SWP"
+  ],
+  "open": [
+    {
+      "id": "RAW_LHM_SVAT_LINEAGE",
+      "reason": "Bind original active support, static attributes and complete qualification-mask/flag producer inputs; recovered national raster covers 645582 cells, with 3199 selected-reference cells missing district values in supplied raster",
+      "type": "SOURCE_BINDING"
+    },
+    {
+      "id": "DATAMODEL_ENRICHMENT_FOR_CHANGED_HRUS",
+      "reason": "Current workbook contexts reproduce; full BFE/soil2/rootzone/irrigation/boundary enrichment and run-table rebuild from changed raw HRUs is not proven",
+      "type": "SOURCE_AND_PRODUCER_BINDING"
+    },
+    {
+      "id": "LEGACY_PRE_HRU_DONOR_PRODUCER",
+      "reason": "The original 20934 donor choices are read from frozen input, not independently re-selected; operational HRU source restores targets and reproduced exactly",
+      "type": "PROVENANCE_NOT_OPERATIONAL_REPLAY_BLOCK"
+    },
+    {
+      "id": "NEW_POPULATION_SCIENTIFIC_ADMISSION",
+      "reason": "Current exact reconstruction does not admit a changed scientific partition or arbitrary adapter behavior",
+      "type": "RELEASE_GATE"
+    }
+  ],
+  "production_admitted": false
+}

@@ -1,0 +1,32 @@
+name: MetaSWAP Windows binary qualification
+on:
+  pull_request:
+    paths:
+      - 'tools/metaswap_hru/**'
+      - '.github/workflows/metaswap-windows.yml'
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy
+      - name: Restore source-bound SVAT fields
+        run: python tools/metaswap_hru/tests/restore_supplied.py tools/metaswap_hru/tests/supplied_members.csv.gz test-inputs
+      - name: Execute shipped Windows EXE and verify every HRU
+        run: python tools/metaswap_hru/tests/test_windows.py tools/metaswap_hru/lwkm_metaswap_hru.exe test-work test-inputs/area.inp test-inputs/mapping.csv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: metaswap-windows-qualification
+          path: |
+            test-work/test_results.json
+            test-work/small/out/*
+            test-work/full/out/*
+            tools/metaswap_hru/lwkm_metaswap_hru.exe
+          retention-days: 30

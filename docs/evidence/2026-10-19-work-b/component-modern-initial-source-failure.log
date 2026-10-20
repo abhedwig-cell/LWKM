@@ -1,0 +1,79 @@
+expression 3 
+expression 4 representative_points
+expression 5 
+expression 6 find_best_matches_ann
+expression 7 representative_percentile_points
+expression 8 cluster_round_maxMAE
+expression 9 closest_to_median
+expression 10 Perct
+expression 11 mae
+expression 12 robust_scalar
+expression 13 skewness
+expression 14 get_mode
+expression 15 log_mod_trans
+expression 16 MinOppha
+expression 17 groupfraction
+expression 18 MAE_threshold_GHG
+expression 19 MAE_threshold_Nkw
+expression 20 minnosvats
+expression 21 minsvatsinNRU
+expression 22 reduction_factor
+expression 23 cdate
+expression 24 dfpawn21piet
+expression 25 dfpawn21os50
+expression 26 dfpawn21oslu50
+expression 27 dflu4
+expression 28 cols_of_interest
+expression 29 items
+expression 30 cols
+expression 32 file_orig
+expression 33 file
+expression 34 df
+expression 35 dfLBDG
+expression 36 inLBDG
+expression 37 naLBDG
+expression 38 nn
+expression 39 naLBDG
+expression 40 df
+expression 41 df_notok
+expression 42 df_suspected
+expression 43 inLBDG
+expression 44 naLBDG
+expression 45 nn
+expression 46 naLBDG
+expression 47 df_suspected
+expression 48 $ df_suspected label
+expression 49 df_valid
+expression 50 $ df_valid label
+expression 51 indlists
+expression 52 df_rem
+expression 53 results
+expression 54 k
+expression 55 FlagClus
+expression 56 
+expression 57 df_res
+expression 58 $ df_res label
+expression 59 $ df_rem label
+expression 60 df2
+expression 61 $ df2 minsvats
+expression 62 p5
+expression 63 p5a
+expression 64 p5b
+expression 65 p5
+expression 66 df_res2
+expression 67 df_tosmall4NRU
+expression 68 $ df_tosmall4NRU label
+Error in `$<-.data.frame`(`*tmp*`, label, value = " | NRU group size too small") : 
+  replacement has 1 row, data has 0
+Calls: eval -> eval -> $<- -> $<-.data.frame
+In addition: Warning message:
+Using an external vector in selections was deprecated in tidyselect 1.1.0.
+ℹ Please use `all_of()` or `any_of()` instead.
+  # Was:
+  data %>% select(items)
+
+  # Now:
+  data %>% select(all_of(items))
+
+See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>. 
+Execution halted

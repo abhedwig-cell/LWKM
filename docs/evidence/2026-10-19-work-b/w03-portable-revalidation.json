@@ -1,0 +1,23 @@
+{
+  "all_identical": true,
+  "production_admitted": false,
+  "products": {
+    "SVAT_QUALIFIED.csv.gz": {
+      "first": "7649d6ba8fe01939a4254ab49b35dd37dc921a3a0cdeb3b1ab1d2147ec25b3d8",
+      "revalidated": "7649d6ba8fe01939a4254ab49b35dd37dc921a3a0cdeb3b1ab1d2147ec25b3d8"
+    },
+    "legacy-filter-differences.csv": {
+      "first": "01ed4faa6a8723014f95d192c63ca99f47a5089c2c93e75971a37a068b8ee749",
+      "revalidated": "01ed4faa6a8723014f95d192c63ca99f47a5089c2c93e75971a37a068b8ee749"
+    },
+    "replacement-regression.csv": {
+      "first": "a39d502eb22b10affaf1388264d93755a00a31ea94b7e6286721f1f932e13394",
+      "revalidated": "a39d502eb22b10affaf1388264d93755a00a31ea94b7e6286721f1f932e13394"
+    },
+    "svat-fingerprints.json": {
+      "first": "0045b41aed01f3f7cc2d2cb1c1ddfce08802b65c7f51ea1a3de53b49cebd71f0",
+      "revalidated": "0045b41aed01f3f7cc2d2cb1c1ddfce08802b65c7f51ea1a3de53b49cebd71f0"
+    }
+  },
+  "source_inputs_identical": true
+}

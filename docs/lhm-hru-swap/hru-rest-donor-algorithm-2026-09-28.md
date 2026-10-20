@@ -37,7 +37,10 @@ Targets still unresolved are grouped into new HRUs by:
 - grondsoort4;
 - Gt.
 
-Within each group, a SVAT from the largest subgroup is selected as donor (`HRUextra`).
+Within each group, the active 31-Aug-2026 source selects the first row using
+`slice(which.max(N))`. The joined N is constant within that group, so this is
+not an additional largest-subgroup ranking. Work B executed and reproduced
+this behavior; see `docs/production/WORK_B_20261019.md`.
 
 ## Distance implementation
 

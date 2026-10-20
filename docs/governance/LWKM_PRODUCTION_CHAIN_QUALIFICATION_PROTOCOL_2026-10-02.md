@@ -282,9 +282,9 @@ Gekwalificeerde SVAT-populatie met stabiele IDs en source lineage.
 
 ## Huidige status
 
-`RECONSTRUCTED_NOT_QUALIFIED`.
+`QUALIFIED_NOT_ADMITTED` voor de teruggevonden HRU10242-snapshot.
 
-Hoofdsemantiek is grotendeels bekend; formele file-level input qualification en end-to-end population gate moeten nog worden uitgevoerd vanaf W01.
+Work B heeft selectie, geometrie, vier historische filterafwijkingen en 427.656 oorspronkelijke SVAT-identiteiten opnieuw uitgevoerd en gecontroleerd. Volledige ruwe W01/W02-lineage blijft een afzonderlijke gate. Zie `docs/production/WORK_B_20261019.md`.
 
 ---
 
@@ -330,9 +330,9 @@ Donor-assignment table met:
 
 ## Huidige status
 
-`PARTIALLY_QUALIFIED`.
+`QUALIFIED_NOT_ADMITTED` voor de operationele snapshot-reconstructie.
 
-Piet's R-procedure is operationeel authority voor reconstructie, maar de volledige moderne file-qualified route moet nog in de keten worden opgenomen.
+Piet's volledige operationele R-donorprocedure is in Work B uitgevoerd en reproduceert alle donoren. De oorspronkelijke 20.934 pre-HRU-donorkeuzes blijven een gebonden input, geen opnieuw afgeleid keuzeproduct. Ruwe producerlineage blijft afzonderlijk open.
 
 ---
 
@@ -379,9 +379,9 @@ Een authoritative HRU-membership/context basis, onder andere:
 
 ## Huidige status
 
-`PARTIALLY_QUALIFIED`.
+`QUALIFIED_NOT_ADMITTED` voor de teruggevonden HRU10242-snapshot.
 
-De huidige 10,242-run context kan volledig worden opgebouwd, maar deze stap moet nog als volledige provenance-driven transformatie worden gesloten.
+Work B reproduceert alle 10.242 ledenverzamelingen, representanten en vergeleken schema-attributen. De productieherkomst vanaf ruwe LHM-data en toelating van toekomstige wijzigingen blijven afzonderlijke gates.
 
 ---
 

@@ -1,0 +1,25 @@
+{
+  "fingerprint": "05d305e8f27d5969bdbc82e846eb4866b7cc91f404a3b9f8618c765950eec9cf",
+  "outputs": {
+    "SVAT_QUALIFIED.csv.gz": "7649d6ba8fe01939a4254ab49b35dd37dc921a3a0cdeb3b1ab1d2147ec25b3d8",
+    "legacy-filter-differences.csv": "01ed4faa6a8723014f95d192c63ca99f47a5089c2c93e75971a37a068b8ee749",
+    "replacement-regression.csv": "a39d502eb22b10affaf1388264d93755a00a31ea94b7e6286721f1f932e13394",
+    "summary.json": "26f80f8dc97a4e424383bc6027d571c25477a75f547e227fcafd9ed7dd86ba10",
+    "svat-fingerprints.json": "0045b41aed01f3f7cc2d2cb1c1ddfce08802b65c7f51ea1a3de53b49cebd71f0"
+  },
+  "parents": {
+    "base_svat": "5f7b657508a4dc885bd60fae93051239046b27788388d6e8832621eaa85fe192",
+    "historical_filter": "7c31f5e5396405855bb981b7229537b449e106f2c57ce1a7ac2d62e12a478d5b",
+    "landuse_lookup": "8d376daa81ebea1b81194e0c607d0aa7e76f6f0e1545f99a883bb468b6eaab3f",
+    "ldgb": "c659530fb69e32af5fe309b7ae80e20b470e88094b92569f851a32321182d21e",
+    "processed_svat": "5ea4d24a0ce38c802cb1dbf63e30239664965438fbcc55690acced447a248821",
+    "r_source": "6e5055241590be6bf7f7afe53a2eaf3f03ab3e0627cb9a82bbae138b73eb599e",
+    "reference_membership": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4",
+    "reference_schema": "0ca8534216d1ab2944dcfee4c528926c7798fd967dcc58f760c88befd1c83997",
+    "svat_raster": "bce7f1d0a104772e289598240d33aa19b84c2a247f22058ae2a60bc583b3bc1a",
+    "template": "ee0c23696fd5565a4b99eb81ce469a1be7c86494cfb20545dfba492820a5858a",
+    "workbook": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8"
+  },
+  "production_admitted": false,
+  "status": "QUALIFIED_NOT_ADMITTED_AS_SNAPSHOT_RECONSTRUCTION"
+}

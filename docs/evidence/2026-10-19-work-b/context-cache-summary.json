@@ -1,0 +1,16 @@
+{
+  "actual_renderer_calls": 1,
+  "changed_reused": 10241,
+  "changed_written": 1,
+  "different_swp_ids": [
+    1
+  ],
+  "initial_imported": 10242,
+  "input_archive_sha256": "b9e79cdfc78a9308d1a8a1a11dfd1190e7d99c9252743c5c45c53252099a2ce6",
+  "limitation": "Context/SWP invalidation is executed. Upstream cluster dependency closure is separately tested; no partial R-cluster equivalence is claimed.",
+  "modified_contexts": 1,
+  "population": 10242,
+  "production_admitted": false,
+  "renderer_identity": "c24789b9985db9c502f35d54e7551f745e1c3d7e34ed2c4d532c83b9a89e368f",
+  "unchanged_reused": 10242
+}

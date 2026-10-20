@@ -1,0 +1,18 @@
+Cross-build completed 2026-10-20 in Ubuntu 24.04, MinGW-w64 GCC 13.2.0,
+64-bit POSIX compiler, static GCC/libstdc++/pthread linkage.
+Command (ordinary installed MinGW path):
+x86_64-w64-mingw32-g++ -std=c++17 -O2 -Wall -Wextra -static -static-libgcc -static-libstdc++ -o lwkm_metaswap_hru.exe lwkm_metaswap_hru.cpp -lbcrypt
+Compiler emitted no warnings. PE32+ console executable, x86-64.
+Import table, x86_64-w64-mingw32-objdump -p:
+  bcrypt.dll
+  KERNEL32.dll
+  msvcrt.dll
+No third-party DLL imports and no Python requirement in the processor.
+SHA-256: 0606f5d15bc1c5bb01a1d0a91fd91c839c68daa0a6ae972fa7c79b0b451513b8
+
+Local Wine could not execute because wineserver socket creation returned
+Operation not permitted. Native Windows qualification in GitHub Actions
+replaced that unavailable execution route; it is not a Linux-only test claim.
+The compiler/runtime .deb packages were downloaded to scratch and extracted
+without requiring installation on the NHI server. They are not part of the
+server package.

@@ -1,0 +1,61 @@
+{
+  "periods": 1980,
+  "first": "19700110",
+  "last": "20241231",
+  "source_files": 17820,
+  "ignored_auxiliary_files": 80,
+  "inputs": [
+    {
+      "name": ".export_svat_HRU_NRU_10242(3).csv.Kjpw5T",
+      "bytes": 44040192,
+      "sha256": "f8d172074dfa909d9fc0b268f8fd3134aacd6e16251bdc3c3e50d1b98751711e"
+    },
+    {
+      "name": "export_svat_HRU_NRU_10242(3).csv",
+      "bytes": 74144234,
+      "sha256": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4"
+    },
+    {
+      "name": "area_svat(2).inp.openai-download-22bfafde604546b5a98e4b540dc029a9",
+      "bytes": 83886080,
+      "sha256": "e1365e55e34a6bee1742fd12af231709656ab39b8b1b87715a7bdf1a31ef72e2"
+    },
+    {
+      "name": "area_svat(2).inp",
+      "bytes": 99419625,
+      "sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc"
+    },
+    {
+      "name": "lwkm_etref_server_package_v2.zip",
+      "bytes": 7036,
+      "sha256": "7b925295f18588a933ff7df9d3fad1bd21d016d44937776d4b893ee70c18f066"
+    },
+    {
+      "name": "metaswap_inventory.csv",
+      "bytes": 3244844,
+      "sha256": "f5ba8aab0c27099eb75b84a5b9e27edf8ab1b8d8e4d3cc78a8ee0d4475e306cd"
+    },
+    {
+      "name": ".area_svat(2).inp.siOlPp",
+      "bytes": 82313216,
+      "sha256": "51096cf9f3b8b7a6bfffd774b6a6865f22769d64ba8e161e720fd0bb1ab9ff4b"
+    }
+  ],
+  "svat_members": 427656,
+  "hru_count": 10242,
+  "area_svat_rows": 645582,
+  "missing_svat": 0,
+  "xy_mismatches": 0,
+  "normalized_test_records": {
+    "sha256": "42a73f98acf428e1a3ffd698326aa03b4daf2bf8b505423ab0e6b11b7eed50c8",
+    "rows": 427656,
+    "fields": [
+      "svat_orig",
+      "HRU",
+      "area_m2",
+      "x",
+      "y"
+    ],
+    "origin": "Exact selected original SVAT IDs, HRU membership and area/X/Y fields from the two SHA-bound supplied inputs; no donor substitution. Other columns omitted only in the test fixture."
+  }
+}

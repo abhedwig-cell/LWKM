@@ -14,7 +14,7 @@ parameters:
   special_min_cluster_size: 4
   min_nru_size: 4
   special_min_nru_size: 2
-  distance: manhattan
+  distance: euclidean_distance_profiles
   scaling: median_iqr
 rounds:
   - [LDGBclus, lu2, lu4, lu7, grondsoort2, grondsoort4, pawn21, bodem370, Gt_LHM43, kwelklasse4, isdrain]
@@ -29,6 +29,8 @@ rounds:
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4, pawn21]
   - [LDGBclus, lu2, lu4, grondsoort2, grondsoort4]
 notes:
+  distance_audit_20261019: "Source calls distances(as.matrix(dist(features), method='manhattan')). method is supplied to as.matrix, not dist. The inner dist is Euclidean; distances then measures Euclidean distances between its rows. Executed fixture in Work B."
+  minimum_stop_audit_20261019: "Historical loop retains its last clustering on minimum-size stop even if quality failed. Python adaptive_partition is a corrected diagnostic, not an exact historical replay."
   round_6: "Alternative from round 4: remove kwelklasse4 while retaining pawn21 and Gt."
   round_7: "Round 6 without pawn21; equivalent to round 5 without kwelklasse4."
   round_8: "Alternative without Gt, retaining pawn21 and kwelklasse4."

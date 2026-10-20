@@ -1,0 +1,22 @@
+{
+  "fingerprint": "fc791a64c9ba662c41c4fa95086de5f97c4bbed2157a5a440dae761d5ab99771",
+  "outputs": {
+    "CLUSTER_ROUNDS.csv": "bc172adf9669b4f3bd8d27b55200b5a70a6435e296f6afcc888ee5fc00f418fc",
+    "COMPLETE": "2d5b772fe718c349dd8bf0471c32b5d949de170f504262190ce755dd510f75d8",
+    "DONOR_EXTRA.csv": "e07f1ebe99d164e0e89956da43f8956642660f19a1ab4f0b2fcf3b5ec61b3345",
+    "DONOR_ROUND1.csv": "892904e2014060094ff159f87b603e3d21ce88dd5d3656895a0cbfde12d14cd9",
+    "DONOR_ROUND2.csv": "9244a43569851f578bd867c52072ba5753b735893c3c9f7beaadea0c0a7fae62",
+    "HRU_MEMBERSHIP.csv": "e8493dc2051a7e64822b942aaff0fddd65d0d398ed38faf3d3a71025d2f5bd2e",
+    "HRU_REPRESENTATIVE.csv": "653a86a20c341cbdbfda0f6df4558954097b654c57c7f09a5762e6b2d5c7cc69",
+    "NRU_SCHEMA.csv": "cf82f16b6a3dce7cccf111c981baba0a91e6a10d6204ce6890f3cc53f9dcb5bc",
+    "R-session.txt": "65bd769598b0cf486a76dad01ca18ff4e06e402fd216b1c2678f17c4ecc31493",
+    "SUSPECTED_RESTORED.csv": "a48c3abdf96f53c7db2eb9a506bd04e3ee7a25c53f58cee0bce6bc8fd2f06079",
+    "execution.log": "332681e6c59631bb4e12d99491eb0188ef4afbf1f05f2df01ec725e90cad80df"
+  },
+  "parents": {
+    "parent_W03": "69338e0b057c97b33e644293eb34345f37855098340e643956b1dc96054c6ce4",
+    "r_runtime": "R version 4.3.3 (2024-02-29) -- \"Angel Food Cake\"\nCopyright (C) 2024 The R Foundation for Statistical Computing\nPlatform: x86_64-pc-linux-gnu (64-bit)\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under the terms of the\nGNU General Public License versions 2 or 3.\nFor more information about these matters see\nhttps://www.gnu.org/licenses/."
+  },
+  "production_admitted": false,
+  "status": "REPLAY_COMPLETE_NOT_ADMITTED"
+}

@@ -1,5 +1,11 @@
 # HRU10242 reproduction attempt — 28 September 2026
 
+Update 19 October 2026: the runtime-access blocker below is superseded. Work B
+materialized the exact bound files, executed the complete computational R
+source and reproduced all 10,242 memberships, donors, representatives and
+compared schema attributes. See `docs/production/WORK_B_20261019.md` and
+`docs/evidence/2026-10-19-work-b/`. Raw-LHM production admission remains separate.
+
 Status: **RUNTIME BLOCKED, SOURCE AUTHORITY UNCHANGED**
 
 ## Bound inputs

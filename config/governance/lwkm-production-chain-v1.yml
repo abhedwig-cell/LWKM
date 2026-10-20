@@ -49,27 +49,33 @@ steps:
     - tools/lhm_postprocess.py
   W03:
     name: svat_basis_and_selection
-    status: RECONSTRUCTED_NOT_QUALIFIED
+    status: QUALIFIED_NOT_ADMITTED
     depends_on:
     - W01
     - W02
     admission: SVAT_POPULATION_PRODUCTION_ADMITTED
-    evidence: []
+    evidence:
+    - docs/production/WORK_B_20261019.md
+    - docs/evidence/2026-10-19-work-b/interfaces/interfaces.json
   W04:
     name: suspect_donor_assignment
-    status: PARTIALLY_QUALIFIED
+    status: QUALIFIED_NOT_ADMITTED
     depends_on:
     - W03
     admission: DONOR_ASSIGNMENT_PRODUCTION_ADMITTED
-    evidence: []
+    evidence:
+    - docs/production/WORK_B_20261019.md
+    - docs/evidence/2026-10-19-work-b/comparison-comparison.json
   W05:
     name: hru_construction
-    status: PARTIALLY_QUALIFIED
+    status: QUALIFIED_NOT_ADMITTED
     depends_on:
     - W03
     - W04
     admission: HRU_SCHEMATISATION_PRODUCTION_ADMITTED
-    evidence: []
+    evidence:
+    - docs/production/WORK_B_20261019.md
+    - docs/evidence/2026-10-19-work-b/comparison-comparison.json
   W06:
     name: hru_context_assembly
     status: QUALIFIED_NOT_ADMITTED
@@ -79,6 +85,7 @@ steps:
     evidence:
     - docs/lhm-hru-swap/P12-XLSX-RECOVERY-DRA-DIAGNOSTIC-2026-10-01.md
     - tools/xlsx_datamodel.py
+    - docs/evidence/2026-10-19-work-b/interfaces/interfaces.json
   W07:
     name: dra_generation
     status: MODERN_SEVEN_SYSTEM_IMPLEMENTED_SOURCE_Q4_PARTIAL

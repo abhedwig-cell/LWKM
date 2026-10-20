@@ -1,0 +1,11 @@
+{
+  "code_checkpoint": "ed70690ec4062cb283cb3c8a8db320482d3ffd09",
+  "integrated_tests": 382,
+  "integration_base": "b846dfbedbc60e4b0164210c7fef2142be801d5b",
+  "owner_source_decision_preserved": true,
+  "production_admitted": false,
+  "pull_request": "https://github.com/abhedwig-cell/LWKM/pull/8",
+  "standalone_tests": 379,
+  "subtests": 3,
+  "work_b_code_changed_during_base_integration": false
+}

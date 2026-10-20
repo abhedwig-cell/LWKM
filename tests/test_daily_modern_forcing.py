@@ -37,13 +37,16 @@ def test_area_weighted_weather_with_complete_sites():
 def test_daily_flux_units_and_terminal_point():
     f=pd.DataFrame(dict(date=['2020-07-01'],q_ext_mm_d=[-2.5]))
     text=effective_bbc(f,start='2020-07-01',end='2020-07-01')
-    assert '2020-07-01 -0.25' in text and '2020-07-02 -0.25' in text
+    assert '2020-07-01 -0.25' in text and '2020-07-02' not in text
 
 
 def test_varying_daily_means_not_silently_nodal_interpolated():
     f=pd.DataFrame(dict(date=['2020-07-01','2020-07-02'],q_ext_mm_d=[1.,2.]))
     from tools.package_preflight import dated_table
-    with pytest.raises(ValueError,match='not volume-qualified'):effective_bbc(f,start='2020-07-01',end='2020-07-02')
+    ordinary=effective_bbc(f,start='2020-07-01',end='2020-07-02')
+    dates,nodes=dated_table(ordinary,'DATE2 QBOT2')
+    assert [float(x[1]) for x in nodes]==[.1,.2]
+    assert len(dates)==2 and 'OWNER_DAILY_MEAN' in ordinary
     text=effective_bbc(f,start='2020-07-01',end='2020-07-02',experimental_daily_steps=True)
     days,rows=dated_table(text,'DATE2 QBOT2',daily_steps=True)
     assert [float(x[1]) for x in rows]==[.1,.1,.2,.2]
