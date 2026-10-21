@@ -92,3 +92,15 @@ Alle code, regressie, besluitstatus en bewijsstukken komen in Git. Geen automati
 Dit protocol wordt een vaste beslisgate voor **iedere** toekomstige HRU met >5 actieve fysische drainagebronnen, niet een hardcoded uitzonderingslijst. De bestaande W07-producent krijgt een expliciete route `<=5`, `strict_safe_compression`, `diagnostic_alternative`, `blocked`. De 29-case suite blijft een regressie-oracle.
 
 Het protocol zelf geldt als ontwerpautoriteit; eventuele numerieke relaxaties, bronverwijdering buiten de eerdere eigenaarregel en nieuwe SWAP-semantiek vereisen afzonderlijke, versievaste goedkeuring.
+
+## 9. Verplichte oplossing voor elk geval (aanvullend projecteigenaarbesluit 2026-10-21)
+
+**Voor iedere HRU met meer dan vijf actieve fysieke drainagesystemen moet de methode altijd een concrete oplossing voorstellen.** Een blokkade of de melding `NO_DEFENSIBLE_FIVE_LEVEL_REPRESENTATION` zonder voorstel is geen afgerond diagnoseproduct.
+
+De procedure rapporteert altijd minstens één **beste vijf-niveaukandidaat** die syntactisch binnen de SWAP 4.3.1-interface past, met expliciete bron-naar-niveau-toewijzing, equivalente weerstanden, drainage- en infiltratiestatus, peilen, hydraulische foutcurves en een gerangschikte lijst van alternatieven waar mogelijk. Wanneer de strikt toegelaten zoekruimte leeg is, moet de kandidaat uit een afzonderlijke, duidelijk als *niet-toegelaten alternatief* gemarkeerde zoekruimte worden gekozen. Denk aan een gemengde open-waterrepresentatie, gecontroleerd verwijderen van de minst invloedrijke bijdrage of een andere fysisch gemotiveerde benadering. Deze opties mogen niet stilzwijgend de geldende regels wijzigen.
+
+Voor ieder voorstel worden ten minste gerapporteerd: de overtreden randvoorwaarden, benodigde uitzondering of ontwerpbeslissing, maximale en gemiddelde absolute fluxafwijking, netto jaar- of seizoensvolumeafwijking, effect op infiltratie- en drainagebranches, onzekerheden, rangorde en een concrete keuzeaanbeveling. Als zelfs technisch geen geldig vijf-niveau-DRA-bestand te construeren is, moet het rapport een specifiek alternatief inclusief noodzakelijke SWAP-interfacewijziging presenteren en motiveren waarom een vijf-niveaukandidaat onmogelijk blijkt. *Niets voorstellen* is niet toegestaan.
+
+**Voorstellen is niet hetzelfde als accepteren.** Een niet-toegelaten alternatief krijgt `PROPOSED_REQUIRES_OWNER_DECISION`, niet `PRODUCTION_ADMITTED`. De procedure mag het voorstel in diagnostische modus genereren en toetsen, maar mag het niet ongemerkt in de productiecatalogus opnemen. Afwijkingen van het besluit DRARES>100000 weglaten, INFRES>100000 geen infiltratie, bescherming van buisdrainage of eerdere foutgrenzen vergen expliciete onderbouwde goedkeuring.
+
+**Acceptatie-eis voor de 29 huidige gevallen:** 29/29 krijgen een concrete gerangschikte voorgestelde oplossing, ook als sommige voorstellen wetenschappelijk nog niet toelaatbaar zijn. De 10213 bestaande toegelaten kandidaten blijven ongewijzigd.
