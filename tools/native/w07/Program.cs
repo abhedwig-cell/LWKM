@@ -53,7 +53,9 @@ class Program {
  }
  static int Main(string[] args){
   try {
-   if(args.Length==2 && args[0]=="--inspect-raw-sources"){var report=RawDrainage.Inspect(args[1]);Console.WriteLine(JsonSerializer.Serialize(report,new JsonSerializerOptions{WriteIndented=true}));return 0;}\n   if(args.Length==2 && args[0]=="--inspect-idf"){var g=LhmIdfGrid.Read(args[1]);Console.WriteLine($"IDF_OK {g.Columns}x{g.Rows} xmin={g.Xmin} xmax={g.Xmax} ymin={g.Ymin} ymax={g.Ymax} nodata={g.NoData}");return 0;}\n   if(args.Length!=3){Console.Error.WriteLine("Usage: W07Dra.exe --inspect-idf source.idf OR W07Dra.exe renderer_catalogue.json output_directory status.json");return 2;}
+   if(args.Length==2 && args[0]=="--inspect-raw-sources"){var report=RawDrainage.Inspect(args[1]);Console.WriteLine(JsonSerializer.Serialize(report,new JsonSerializerOptions{WriteIndented=true}));return 0;}
+   if(args.Length==2 && args[0]=="--inspect-idf"){var g=LhmIdfGrid.Read(args[1]);Console.WriteLine($"IDF_OK {g.Columns}x{g.Rows} xmin={g.Xmin} xmax={g.Xmax} ymin={g.Ymin} ymax={g.Ymax} nodata={g.NoData}");return 0;}
+   if(args.Length!=3){Console.Error.WriteLine("Usage: W07Dra.exe --inspect-idf source.idf OR W07Dra.exe renderer_catalogue.json output_directory status.json");return 2;}
    using var doc=JsonDocument.Parse(File.ReadAllText(args[0]));var root=doc.RootElement;
    if(root.GetProperty("schema_version").GetInt32()!=1)throw new Exception("unsupported schema");
    int first=root.GetProperty("start_year").GetInt32(),last=root.GetProperty("end_year").GetInt32();
