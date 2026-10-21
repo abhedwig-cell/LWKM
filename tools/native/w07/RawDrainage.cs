@@ -76,12 +76,17 @@ public static class RawDrainage {
    }
   }
   var dq=Csv(cfg["dqsat_csv"]).ToDictionary(r=>int.Parse(Val(r,"hru")),r=>F(Val(r,"representative_dqsat")));
+  if(!cfg.TryGetValue("H1_stage_start",out var stageStart)||!cfg.TryGetValue("H1_stage_end",out var stageEnd))throw new Exception("H1_stage_start/end required as ISO YYYY-MM-DD");
+  var firstMonth=DateTime.ParseExact(stageStart,"yyyy-MM-dd",CultureInfo.InvariantCulture);
+  var lastMonth=DateTime.ParseExact(stageEnd,"yyyy-MM-dd",CultureInfo.InvariantCulture);
+  if(firstMonth>lastMonth||firstMonth.Day!=1||lastMonth.Day!=1)throw new Exception("H1 stage limits must be first day of month");
   var h1Series=new Dictionary<int,List<Stage>>();
   var h1Cdr=members.ToDictionary(m=>m.Svat,m=>{double g=Cell(dict["H1_cdr"],m);return double.IsNaN(g)?0:Math.Max(0,g);});
   if(!cfg.TryGetValue("H1_monthly_dir",out var monthRoot))throw new Exception("missing required H1_monthly_dir");
   {
-   var months=Directory.GetFiles(monthRoot,"peilh_*.idf").OrderBy(x=>x,StringComparer.OrdinalIgnoreCase).ToArray();
+   var months=Directory.GetFiles(monthRoot,"peilh_*.idf").Where(p=>{var s=Path.GetFileNameWithoutExtension(p);if(s.Length!=14)return false;return string.CompareOrdinal(s.Substring(6),stageStart.Replace("-",""))>=0 && string.CompareOrdinal(s.Substring(6),stageEnd.Replace("-",""))<=0;}).OrderBy(x=>x,StringComparer.OrdinalIgnoreCase).ToArray();
    if(months.Length==0)throw new Exception("no original monthly H1 IDF files");
+   if(months.Length!=((lastMonth.Year-firstMonth.Year)*12+lastMonth.Month-firstMonth.Month+1))throw new Exception("incomplete H1 monthly input count");
    var weights=memberGroups.ToDictionary(x=>x.Key,x=>x.Value.Sum(m=>h1Cdr[m.Svat]));
    DateTime? previousMonth=null;
    foreach(var path in months){
@@ -89,6 +94,7 @@ public static class RawDrainage {
     if(tag.Length!=14)throw new Exception("unexpected H1 stage file: "+tag);
     string date=$"{tag.Substring(6,4)}-{tag.Substring(10,2)}-{tag.Substring(12,2)}";
     var current=DateTime.ParseExact(date,"yyyy-MM-dd",CultureInfo.InvariantCulture);
+    if(previousMonth==null && current!=firstMonth)throw new Exception("incorrect first H1 month");
     if(previousMonth.HasValue && previousMonth.Value.AddMonths(1)!=current)throw new Exception("missing or duplicate H1 month "+date);
     previousMonth=current;
     var g=LhmIdfGrid.Read(path);
