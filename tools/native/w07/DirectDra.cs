@@ -106,9 +106,9 @@ public static class DirectDra {
  public static int Run(string config,string output){
   using var settings=JsonDocument.Parse(File.ReadAllText(config));
   var root=settings.RootElement;
-  string horizonsPath=root.GetProperty("horizons_csv").GetString()!;
+  string swpRoot=root.GetProperty("swp_root").GetString()!;
   int first=root.GetProperty("start_year").GetInt32(),last=root.GetProperty("end_year").GetInt32();
-  var horizon=Horizons(horizonsPath);
+  // Horizon count derives from the actual HRU soil schematization in swap.swp.
   using var inspect=JsonDocument.Parse(JsonSerializer.Serialize(RawDrainage.Inspect(config)));
   var arr=inspect.RootElement.GetProperty("results").EnumerateArray().ToArray();
   Directory.CreateDirectory(output);
@@ -116,7 +116,7 @@ public static class DirectDra {
   foreach(var hru in arr){
    int h=hru.GetProperty("hru").GetInt32();
    try{
-    if(!horizon.TryGetValue(h,out int n))throw new Exception("missing HRU profile horizon count");
+    int n=SwpHorizonReader.Read(SwpHorizonReader.ForHru(swpRoot,h));
     var sources=new List<Component>();
     foreach(var s in hru.GetProperty("physical").EnumerateArray()){
      double rd=s.GetProperty("DrainConductance").GetDouble();
