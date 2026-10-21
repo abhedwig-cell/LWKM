@@ -60,6 +60,7 @@ public static class RawDrainage {
  public static object Inspect(string configPath){
   var cfg=Config(configPath);
   var members=ReadMembers(cfg["members_csv"]);
+  var memberGroups=members.GroupBy(m=>m.Hru).ToDictionary(g=>g.Key,g=>g.ToArray());
   var reference=G(cfg,"H1_cdr");
   var ground=LhmIdfGrid.ReadAsc(cfg["ground_asc"]);
   if(ground.Columns!=reference.Columns||ground.Rows!=reference.Rows||ground.Xmin!=reference.Xmin||ground.Ymax!=reference.Ymax||ground.Dx!=reference.Dx)throw new Exception("AHN geometry mismatch");
@@ -76,19 +77,24 @@ public static class RawDrainage {
   }
   var dq=Csv(cfg["dqsat_csv"]).ToDictionary(r=>int.Parse(Val(r,"hru")),r=>F(Val(r,"representative_dqsat")));
   var h1Series=new Dictionary<int,List<Stage>>();
+  var h1Cdr=members.ToDictionary(m=>m.Svat,m=>{double g=Cell(dict["H1_cdr"],m);return double.IsNaN(g)?0:Math.Max(0,g);});
   if(!cfg.TryGetValue("H1_monthly_dir",out var monthRoot))throw new Exception("missing required H1_monthly_dir");
   {
    var months=Directory.GetFiles(monthRoot,"peilh_*.idf").OrderBy(x=>x,StringComparer.OrdinalIgnoreCase).ToArray();
    if(months.Length==0)throw new Exception("no original monthly H1 IDF files");
-   var weights=members.GroupBy(m=>m.Hru).ToDictionary(x=>x.Key,x=>x.Sum(m=>{double v=Cell(dict["H1_cdr"],m);return double.IsNaN(v)?0:Math.Max(0,v);}));
+   var weights=memberGroups.ToDictionary(x=>x.Key,x=>x.Value.Sum(m=>h1Cdr[m.Svat]));
+   DateTime? previousMonth=null;
    foreach(var path in months){
     string tag=Path.GetFileNameWithoutExtension(path);
     if(tag.Length!=14)throw new Exception("unexpected H1 stage file: "+tag);
     string date=$"{tag.Substring(6,4)}-{tag.Substring(10,2)}-{tag.Substring(12,2)}";
+    var current=DateTime.ParseExact(date,"yyyy-MM-dd",CultureInfo.InvariantCulture);
+    if(previousMonth.HasValue && previousMonth.Value.AddMonths(1)!=current)throw new Exception("missing or duplicate H1 month "+date);
+    previousMonth=current;
     var g=LhmIdfGrid.Read(path);
     if(g.Columns!=reference.Columns||g.Rows!=reference.Rows||g.Xmin!=reference.Xmin||g.Ymax!=reference.Ymax)throw new Exception("H1 monthly grid geometry mismatch");
     var sums=new Dictionary<int,double>();
-    foreach(var m in members){double w=Cell(dict["H1_cdr"],m);if(double.IsNaN(w)||w<=0)continue;
+    foreach(var m in members){double w=h1Cdr[m.Svat];if(w<=0)continue;
      double z=Cell(g,m,true),gl=Cell(ground,m,true)/100d;
      sums[m.Hru]=sums.GetValueOrDefault(m.Hru)+w*Math.Max(0,gl-z);
     }
@@ -132,8 +138,11 @@ public static class RawDrainage {
      // not a re-normalization to only cells with the specific drain system.
      double area=bucket.Count()*62500d,rd=area/gd,ri=gi>0?area/gi:100000d;
      if(rd>100000)continue;
-     physical.Add(new(name,1/rd,gi>0&&ri<=100000?1/ri:0,Math.Max(0,depth/gd),
-      summer/gd,winter/gd,spacing,active, name=="H1" ? h1Series.GetValueOrDefault(h):null));
+     var depthMean=Math.Max(0,depth/gd);
+     var series=name=="H1" ? h1Series.GetValueOrDefault(h):null;
+     if(series!=null)series=series.Select(x=>new Stage(x.date,Math.Min(x.depth,depthMean))).ToList();
+     physical.Add(new(name,1/rd,gi>0&&ri<=100000?1/ri:0,depthMean,
+      summer/gd,winter/gd,spacing,active, series));
     }
    }
    results.Add(new{hru=h,source_count=physical.Count,physical});
