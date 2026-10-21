@@ -17,6 +17,6 @@ def test_seven_to_five_preserves_source_and_conductance():
     out,audit=solve(s)
     assert len(out)==5
     assert sorted(v for x in out for v in x.source_ids)==sorted(x.source_ids[0] for x in s)
-    assert sum(x.drainage_conductance for x in out)==sum(x.drainage_conductance for x in s)
+    assert abs(sum(x.drainage_conductance for x in out)-sum(x.drainage_conductance for x in s))<1e-12
     assert len([x for x in out if x.medium=="drain_tube"])==1
     assert audit["method"] in ("PROTECTED","AUTO_APPROXIMATED_FIVE_LEVEL")
