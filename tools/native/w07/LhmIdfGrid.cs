@@ -44,4 +44,25 @@ public sealed class LhmIdfGrid {
   return new LhmIdfGrid{Columns=ncol,Rows=nrow,Xmin=xmin,Xmax=xmax,Ymin=ymin,Ymax=ymax,Dx=dx,Dy=dy,NoData=nodata,Values=values};
  }
  public bool IsValid(float value)=>float.IsFinite(value)&&value!=NoData;
+
+ public static LhmIdfGrid ReadAsc(string path){
+  using var reader=new StreamReader(path);
+  var h=new System.Collections.Generic.Dictionary<string,double>(StringComparer.OrdinalIgnoreCase);
+  for(int i=0;i<6;i++){
+   var words=(reader.ReadLine()??throw new InvalidDataException("short ASC header"))
+     .Split((char[]?)null,StringSplitOptions.RemoveEmptyEntries);
+   if(words.Length!=2)throw new InvalidDataException("invalid ASC header");
+   h[words[0]]=double.Parse(words[1],System.Globalization.CultureInfo.InvariantCulture);
+  }
+  int nc=checked((int)h["ncols"]),nr=checked((int)h["nrows"]);
+  if(nc<1||nr<1||nc>50000||nr>50000)throw new InvalidDataException("invalid ASC extent");
+  double size=h["cellsize"],xmin=h["xllcorner"],ymin=h["yllcorner"];
+  var numbers=reader.ReadToEnd().Split((char[]?)null,StringSplitOptions.RemoveEmptyEntries);
+  if(numbers.Length!=(long)nc*nr)throw new InvalidDataException("short or excess ASC cells");
+  var data=new float[numbers.Length];
+  for(int i=0;i<data.Length;i++)data[i]=float.Parse(numbers[i],System.Globalization.CultureInfo.InvariantCulture);
+  return new LhmIdfGrid{Columns=nc,Rows=nr,Xmin=(float)xmin,Xmax=(float)(xmin+nc*size),
+    Ymin=(float)ymin,Ymax=(float)(ymin+nr*size),Dx=(float)size,Dy=(float)size,
+    NoData=(float)h["nodata_value"],Values=data};
+ }
 }
