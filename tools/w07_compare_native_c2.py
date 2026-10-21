@@ -11,22 +11,26 @@ from pathlib import Path
 KEY=re.compile(r'^\s*(DRARES|INFRES|SWALLO|L|ZBOTDR|SWDTYP)(\d+)\s*=\s*(\S+)',re.I)
 HEADER=re.compile(r'^\s*NRLEVS\s*=\s*(\d+)',re.I)
 
-STAGE=re.compile(r'^\\s*([0-3]?\\d-[a-zA-Z]{3}-\\d{4})\\s+([+-]?\\d+(?:\\.\\d+)?)\\s*
+STAGE=re.compile(r'^\s*([0-3]?\d-[a-zA-Z]{3}-\d{4})\s+([+-]?\d+(?:\.\d+)?)\s*$')
+
+def read(path):
     data=path.read_bytes()
-    values={};levels=None;stages=[]
+    values={}
+    levels=None
+    stages=[]
     for line in data.decode('utf-8-sig').splitlines():
         sm=STAGE.match(line)
-        if sm:stages.append((sm.group(1).lower(),float(sm.group(2))))
+        if sm: stages.append((sm.group(1).lower(),float(sm.group(2))))
         m=HEADER.match(line)
         if m: levels=int(m.group(1))
         m=KEY.match(line)
         if m:
-            if (m.group(1).upper(),int(m.group(2))) in values:
-                raise ValueError('duplicate key in '+str(path))
-            values[(m.group(1).upper(),int(m.group(2)))]=float(m.group(3))
-    if levels is None or not 1<=levels<=5: raise ValueError('invalid NRLEVS '+str(path))
+            key=(m.group(1).upper(),int(m.group(2)))
+            if key in values: raise ValueError('duplicate level key')
+            values[key]=float(m.group(3))
+    if levels is None or not 1<=levels<=5: raise ValueError('invalid NRLEVS')
     required={(name,i) for name in ('DRARES','INFRES','SWALLO','L','ZBOTDR','SWDTYP') for i in range(1,levels+1)}
-    if set(values)!=required:raise ValueError('missing/extra DRA level parameters '+str(path))
+    if set(values)!=required: raise ValueError('missing/extra level parameters')
     return data,levels,values,stages
 
 def compare(native,baseline,report,expected=10242,atol=1e-7):
