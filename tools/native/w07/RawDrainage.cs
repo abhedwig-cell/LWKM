@@ -60,7 +60,7 @@ public static class RawDrainage {
   var cfg=Config(configPath);
   var members=ReadMembers(cfg["members_csv"]);
   var reference=G(cfg,"H1_cdr");
-  var ground=G(cfg,"ground_asc_idf",reference);
+  var ground=LhmIdfGrid.ReadAsc(cfg["ground_asc"]);\n  if(ground.Columns!=reference.Columns||ground.Rows!=reference.Rows||ground.Xmin!=reference.Xmin||ground.Ymax!=reference.Ymax||ground.Dx!=reference.Dx)throw new Exception("AHN geometry mismatch");
   string[] names={"H1","P","S","T","MVG","PIPE","OLF"};
   var dict=new Dictionary<string,LhmIdfGrid>();
   foreach(var n in names){
@@ -82,7 +82,7 @@ public static class RawDrainage {
     foreach(var m in bucket){
      var c=Cell(dict[name+"_cdr"],m);
      if(double.IsNaN(c)||c<=0)continue;
-     double b=Cell(dict[name+"_bottom"],m,true),gl=Cell(ground,m,true);
+     double b=Cell(dict[name+"_bottom"],m,true),gl=Cell(ground,m,true)/100d;
      gd+=c;depth+=c*Math.Max(0,gl-b);active++;
      if(dict.TryGetValue(name+"_inf",out var infGrid)){
       var v=Cell(infGrid,m);
