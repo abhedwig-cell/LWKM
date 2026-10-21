@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 
@@ -140,13 +141,14 @@ public static class DirectDra {
      if(File.ReadAllText(dest).Replace("\r\n","\n")!=bytes)
       throw new Exception("existing DRA differs");
     }else File.WriteAllText(dest,bytes,new UTF8Encoding(false));
-    report.Add(new{hru=h,status="RAW_SOURCE_DRA_CANDIDATE_NOT_ADMITTED",evidence});
+    var sha=Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(dest))).ToLowerInvariant();
+    report.Add(new{hru=h,status="RAW_SOURCE_DRA_CANDIDATE_NOT_ADMITTED",sha256=sha,evidence});
     done++;
    }catch(Exception ex){report.Add(new{hru=h,status="RAW_SOURCE_ERROR",error=ex.Message});errors++;}
   }
   File.WriteAllText(Path.Combine(output,"raw-dra-status.json"),
     JsonSerializer.Serialize(new{schema_version=1,source_mode="RAW_LHM",expected=10242,generated=done,errors,
-     production_admitted=false,results=report},new JsonSerializerOptions{WriteIndented=true}));
+     production_admitted=false,config_sha256=Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(config))).ToLowerInvariant(),results=report},new JsonSerializerOptions{WriteIndented=true}));
   Console.WriteLine($"RAW_SOURCE_DRA generated={done} errors={errors}");
   return errors==0&&done==10242?0:1;
  }
