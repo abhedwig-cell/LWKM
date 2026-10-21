@@ -11,9 +11,9 @@ def asc(name,value):
 def raw():
     (root/"members.csv").write_text("svat,hru,x,y\n1,4015,125,375\n")
     (root/"dqsat.csv").write_text("hru,representative_dqsat\n4015,10\n")
-    (root/"horizons.csv").write_text("hru,n_horizons\n4015,4\n")
+    swp=root/"swps"/"run_04015"\n    swp.mkdir(parents=True,exist_ok=True)\n    swp.joinpath("swap.swp").write_text("ORES OSAT ALFA NPAR KSATFIT LEXP H_ENPR KSATEXM BDENS ELAS\\n"+"0.1 0.4 0.01 1.5 10 0.5 0 10 1.3 1\\n"*4+"* End of table\\n")
     asc("ahn_f250_cm.asc",150)
-    cfg={"members_csv":str(root/"members.csv"),"dqsat_csv":str(root/"dqsat.csv"),"horizons_csv":str(root/"horizons.csv"),
+    cfg={"members_csv":str(root/"members.csv"),"dqsat_csv":str(root/"dqsat.csv"),"swp_root":str(root/"swps"),
          "ground_asc":str(root/"ahn_f250_cm.asc"),"start_year":1971,"end_year":1972,"H1_stage_start":"1971-01-01","H1_stage_end":"1971-02-01"}
     for name in ("H1","P","S","T","MVG","PIPE","OLF"):
         key=name+"_cdr";grid(key+".idf",100 if name=="H1" else 50);cfg[key]=str(root/(key+".idf"))
