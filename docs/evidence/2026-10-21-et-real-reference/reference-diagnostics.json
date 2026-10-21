@@ -1,0 +1,83 @@
+{
+  "status": "REAL_REFERENCE_DIAGNOSTICS_CONDITIONAL_ON_SIGN_HYPOTHESIS",
+  "semantic_review_status": "PENDING_SOURCE_FAMILY_PERIOD_AND_SIGN_REVIEW",
+  "source_sign_hypothesis": {
+    "MSW_EBS": -1,
+    "MSW_EIC": -1,
+    "MSW_EPD": -1,
+    "MSW_ESP": -1,
+    "MSW_TACT": -1,
+    "MSW_TPOT": -1,
+    "PSSW": 1,
+    "PSGW": 1,
+    "BDGETACT": -1
+  },
+  "raw_values_unchanged": true,
+  "native_derived_max_abs_arithmetic_error_mm": 1.4399994086033985e-08,
+  "max_abs_bdgetact_residual_mm_decade": 1.7010000021855376e-06,
+  "bdgetact_residual_over_1e_4_rows": 0,
+  "max_abs_annual_bdgetact_residual_mm": 2.8121203357045488e-06,
+  "tact_over_tpot_rows_1e_6mm": 3834,
+  "tact_over_tpot_rows_1e_5mm": 0,
+  "max_tact_over_tpot_mm_decade": 7.309999997318073e-06,
+  "negative_reduction_not_clipped": true,
+  "stress_fraction_only_where_tpot_gt_1e_6": true,
+  "annual_et_min_mm": 198.30713592117056,
+  "annual_et_max_mm": 672.7609484502138,
+  "full_hru_years": 1155,
+  "nature_irrigation_rows": 0,
+  "rainfed_agricultural_hrus_with_irrigation_guard": [
+    224,
+    826,
+    3019,
+    3487,
+    5432,
+    5999,
+    8622
+  ],
+  "reference_response_highest_nature_deficit_years": [
+    {
+      "year": 1976,
+      "nature_sample_reduction_fraction": 0.09001173635346003
+    },
+    {
+      "year": 1975,
+      "nature_sample_reduction_fraction": 0.06448094783220504
+    },
+    {
+      "year": 2018,
+      "nature_sample_reduction_fraction": 0.06408015224823553
+    },
+    {
+      "year": 1990,
+      "nature_sample_reduction_fraction": 0.060120375284827776
+    },
+    {
+      "year": 2019,
+      "nature_sample_reduction_fraction": 0.059962810884284616
+    }
+  ],
+  "endpoint_year_screen": 2024,
+  "endpoint_year_et_below_60pct_previous_10_years_hrus": [
+    224,
+    253,
+    826,
+    926,
+    3019,
+    3176,
+    3179,
+    3487,
+    5432,
+    5999,
+    6315,
+    7036,
+    8434,
+    8622,
+    9551
+  ],
+  "endpoint_flag_is_diagnostic_not_cause_attribution": true,
+  "no_weather_years_classified": true,
+  "no_training_or_validation_years_assigned": true,
+  "factual_calibrations": 0,
+  "production_admitted": false
+}

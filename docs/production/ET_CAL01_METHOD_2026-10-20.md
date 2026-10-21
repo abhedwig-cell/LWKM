@@ -1,5 +1,7 @@
 # ET-CAL01: HRU-specifieke actuele verdamping
 
+Actualisering 21 oktober 2026: de echte 21-HRU-referentie voor 1970 tot en met 2024 is inmiddels ontvangen en gecontroleerd. Zie [ontvangst en analyse](ET_CAL01_REAL_REFERENCE_2026-10-21.md). De hieronder beschreven status is de historische stand van 20 oktober; er is nog geen feitelijke kalibratie of meerjaars-SWAP-validatie.
+
 20 oktober 2026. Status: geïmplementeerde en geteste onderzoeksmethode. Geen feitelijke MetaSWAP-HRU-kalibratie en geen productie-admission.
 
 De hypothese is dat een beperkt aangepaste gewasrespons de actuele verdamping van een bestaande representatieve SWAP-kolom dichter bij het oppervlaktegewogen gemiddelde van haar LHM-celgroep kan brengen. Een HRU is daarbij een groep cellen met bestaande membership en oppervlaktesupport, geen nieuw afgebakend gebied. De bodem, hydrologische schematisatie en donor/representantenkeuze blijven ongewijzigd. Een passend ET-totaal bewijst op zichzelf niet dat wortelopname, bodemvocht of droogtestress juist zijn.

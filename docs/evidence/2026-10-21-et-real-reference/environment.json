@@ -1,0 +1,9 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "base_commit": "a6787b9d9620f037332b2dd2babbdd9a778ecd1f",
+  "targeted_tests": "30 passed",
+  "source_archive_sha256": "8634f3f86b38ce100705673d5d27db270569087d775901f7596025d606f9cd8f"
+}
