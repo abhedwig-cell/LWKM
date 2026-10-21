@@ -130,7 +130,7 @@ def run(source:Path,output:Path,*,regional_limit=0.10,surface_limit=0.02,require
             # This is a parser-bound preflight, not SWAP rendering.
             rendered=[to_render_level(x) for x in levels]
             record={"hru":hid,"fingerprint":fingerprint,
-                    "status":audit["status"],"audit":audit,
+                    "status":audit.get("status", "AUTO_APPROXIMATED_FIVE_LEVEL_CANDIDATE" if audit.get("method")=="AUTO_APPROXIMATED_FIVE_LEVEL" else "CANDIDATE_NOT_ADMITTED"),"audit":audit,
                     "levels":[{"source_ids":list(x["source_ids"]),
                                "drnres":x["drnres"],"infres":x["infres"],
                                "dd":x["dd"],"dep":x["dep"],
