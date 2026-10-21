@@ -1,0 +1,5 @@
+{
+  "tools/analyze_et_pilot_reference.py": "fa8dbd5f4f579bb8a758965b1705a52fcbf5349fd7be80c318566aee77021f42",
+  "tools/plot_et_pilot_reference.py": "3a3ad3554a515c2b9f6367aec9610ef6755958cb1de04b36fe00f70c35f128a2",
+  "tests/test_et_pilot_reference_analysis.py": "b47c43f96381809b07240e6f5eeaad20118af0410ffb5c65360efa8baf0d32fa"
+}
