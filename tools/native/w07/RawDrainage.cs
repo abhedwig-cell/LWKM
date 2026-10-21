@@ -65,7 +65,7 @@ public static class RawDrainage {
   var dict=new Dictionary<string,LhmIdfGrid>();
   foreach(var n in names){
    dict[n+"_cdr"]=G(cfg,n+"_cdr",reference);
-   dict[n+"_bottom"]=G(cfg,n+"_bottom",reference);
+   if(new[]{"P","S","T"}.Contains(n)){dict[n+"_bottom_sum"]=G(cfg,n+"_bottom_sum",reference);dict[n+"_bottom_win"]=G(cfg,n+"_bottom_win",reference);}\n   else dict[n+"_bottom"]=G(cfg,n+"_bottom",reference);
    if(new[]{"H1","P","S","T"}.Contains(n))dict[n+"_inf"]=G(cfg,n+"_inf",reference);
    if(new[]{"P","S","T"}.Contains(n)){
     dict[n+"_sum"]=G(cfg,n+"_sum",reference);dict[n+"_win"]=G(cfg,n+"_win",reference);
@@ -82,15 +82,15 @@ public static class RawDrainage {
     foreach(var m in bucket){
      var c=Cell(dict[name+"_cdr"],m);
      if(double.IsNaN(c)||c<=0)continue;
-     double b=Cell(dict[name+"_bottom"],m,true),gl=Cell(ground,m,true)/100d;
+     double gl=Cell(ground,m,true)/100d;\n     double b;\n     if(new[]{"P","S","T"}.Contains(name)){\n       double bs=Cell(dict[name+"_bottom_sum"],m),bw=Cell(dict[name+"_bottom_win"],m);\n       double zs0=Cell(dict[name+"_sum"],m),zw0=Cell(dict[name+"_win"],m);\n       if(double.IsNaN(zs0))zs0=bs;if(double.IsNaN(zw0))zw0=bw;\n       if(double.IsNaN(bs)||double.IsNaN(bw)||double.IsNaN(zs0)||double.IsNaN(zw0))continue;\n       b=(bs+bw)/2d;\n     }else b=Cell(dict[name+"_bottom"],m,true);
      gd+=c;depth+=c*Math.Max(0,gl-b);active++;
      if(dict.TryGetValue(name+"_inf",out var infGrid)){
       var v=Cell(infGrid,m);
-      if(double.IsNaN(v)){if(name!="H1")throw new Exception("missing active infiltration factor "+name+" SVAT "+m.Svat);v=0;}
+      if(double.IsNaN(v))v=0;
       gi+=c*Math.Max(0,v);
      }
      double zs=b,zw=b;
-     if(dict.TryGetValue(name+"_sum",out var sumGrid)){zs=Cell(sumGrid,m,true);zw=Cell(dict[name+"_win"],m,true);}
+     if(dict.TryGetValue(name+"_sum",out var sumGrid)){zs=Cell(sumGrid,m);zw=Cell(dict[name+"_win"],m);if(double.IsNaN(zs))zs=Cell(dict[name+"_bottom_sum"],m,true);if(double.IsNaN(zw))zw=Cell(dict[name+"_bottom_win"],m,true);}
      summer+=c*Math.Max(0,gl-zs);winter+=c*Math.Max(0,gl-zw);
     }
     if(gd>0){
