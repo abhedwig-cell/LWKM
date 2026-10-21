@@ -12,7 +12,7 @@ using System.Text.Json;
 public static class RawDrainage {
  public record Member(int Svat,int Hru,double X,double Y);
  public record Physical(string Source,double DrainConductance,double InfConductance,
-   double Depth,double Summer,double Winter,double Spacing,int ActiveCells);
+   double Depth,double Summer,double Winter,double Spacing,int ActiveCells, List<Stage>? LevelSeries);\n public record Stage(string date,double depth);
  static double F(string s)=>double.Parse(s,CultureInfo.InvariantCulture);
  static List<Dictionary<string,string>> Csv(string path){
   using var sr=new StreamReader(path);string? header=sr.ReadLine();
@@ -72,7 +72,7 @@ public static class RawDrainage {
    }
   }
   var dq=Csv(cfg["dqsat_csv"]).ToDictionary(r=>int.Parse(Val(r,"hru")),r=>F(Val(r,"representative_dqsat")));
-  var results=new List<object>();
+  var h1Series=new Dictionary<int,List<Stage>>();\n  if(cfg.TryGetValue("H1_monthly_dir",out var monthRoot)){\n   var months=Directory.GetFiles(monthRoot,"peilh_*.idf").OrderBy(x=>x,StringComparer.OrdinalIgnoreCase).ToArray();\n   if(months.Length==0)throw new Exception("no original monthly H1 IDF files");\n   var weights=members.GroupBy(m=>m.Hru).ToDictionary(x=>x.Key,x=>x.Sum(m=>{double v=Cell(dict["H1_cdr"],m);return double.IsNaN(v)?0:Math.Max(0,v);}));\n   foreach(var path in months){\n    string tag=Path.GetFileNameWithoutExtension(path);\n    if(tag.Length!=14)throw new Exception("unexpected H1 stage file: "+tag);\n    string date=$"{tag.Substring(6,4)}-{tag.Substring(10,2)}-{tag.Substring(12,2)}";\n    var g=LhmIdfGrid.Read(path);\n    if(g.Columns!=reference.Columns||g.Rows!=reference.Rows||g.Xmin!=reference.Xmin||g.Ymax!=reference.Ymax)throw new Exception("H1 monthly grid geometry mismatch");\n    var sums=new Dictionary<int,double>();\n    foreach(var m in members){double w=Cell(dict["H1_cdr"],m);if(double.IsNaN(w)||w<=0)continue;\n     double z=Cell(g,m,true),gl=Cell(ground,m,true)/100d;\n     sums[m.Hru]=sums.GetValueOrDefault(m.Hru)+w*Math.Max(0,gl-z);\n    }\n    foreach(var kv in weights){if(kv.Value<=0)continue;\n     if(!h1Series.TryGetValue(kv.Key,out var list)){list=new List<Stage>();h1Series[kv.Key]=list;}\n     list.Add(new Stage(date,sums.GetValueOrDefault(kv.Key)/kv.Value));\n    }\n   }\n  }\n  var results=new List<object>();
   foreach(var bucket in members.GroupBy(m=>m.Hru).OrderBy(g=>g.Key)){
    int h=bucket.Key;if(!dq.ContainsKey(h))throw new Exception("missing dqsat HRU "+h);
    double spacing=4*dq[h];if(spacing<1||!double.IsFinite(spacing))throw new Exception("invalid spacing HRU "+h);
@@ -99,12 +99,12 @@ public static class RawDrainage {
      double area=bucket.Count()*62500d,rd=area/gd,ri=gi>0?area/gi:100000d;
      if(rd>100000)continue;
      physical.Add(new(name,area/gd,gi>0&&ri<=100000?1/ri:0,Math.Max(0,depth/gd),
-      summer/gd,winter/gd,spacing,active));
+      summer/gd,winter/gd,spacing,active, name=="H1" ? h1Series.GetValueOrDefault(h):null));
     }
    }
    results.Add(new{hru=h,source_count=physical.Count,physical});
   }
   return new{status="STATIC_PHYSICAL_ONLY_NOT_DRA",population=results.Count,member_count=members.Count,
-   note="H1 monthly time series, LHM RIV completeness rules, P/S/T seasonal bottom mean and SWAP fitting are not applied in this diagnostic.",results};
+   note="LHM RIV completeness rules, P/S/T seasonal bottom mean and SWAP fitting are not yet applied in this diagnostic.",results};
  }
 }
