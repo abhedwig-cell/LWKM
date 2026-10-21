@@ -15,7 +15,9 @@ def read(path):
     data=path.read_bytes()
     values={};levels=None;stages=[]
     for line in data.decode('utf-8-sig').splitlines():
-        sm=STAGE.match(line)\n        if sm:stages.append((sm.group(1).lower(),float(sm.group(2))))\n        m=HEADER.match(line)
+        sm=STAGE.match(line)
+        if sm:stages.append((sm.group(1).lower(),float(sm.group(2))))
+        m=HEADER.match(line)
         if m: levels=int(m.group(1))
         m=KEY.match(line)
         if m:
@@ -59,7 +61,8 @@ def compare(native,baseline,report,expected=10242,atol=1e-7):
         c2_count=len(reference),represented_population=len(candidate),
         qualification='NOT_ADMITTED',counts=histogram,rows=rows)
     report.parent.mkdir(parents=True,exist_ok=True)
-    report.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+    report.write_text(json.dumps(result,indent=2,sort_keys=True)+'
+')
     return result
 
 def main():
