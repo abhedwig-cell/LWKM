@@ -1,0 +1,37 @@
+name: HRU21 Windows export qualification
+on:
+  pull_request:
+    paths:
+      - 'tools/hru21_export/**'
+      - 'tools/metaswap_hru/accept_metaswap.cpp'
+      - '.github/workflows/hru21-windows.yml'
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: ilammy/msvc-dev-cmd@v1
+      - name: Build standalone static runtime executable
+        shell: cmd
+        run: cl /nologo /std:c++17 /EHsc /O2 /MT /Fe:tools\hru21_export\export_hru21.exe tools\hru21_export\export_hru21.cpp bcrypt.lib
+      - name: Test actual Windows executable and PowerShell ZIP wrapper
+        run: python tools/hru21_export/test_export.py tools/hru21_export/export_hru21.exe qualification
+      - name: Package release
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path delivery/LWKM_HRU21_Export -Force
+          Copy-Item tools/hru21_export/export_hru21.exe,tools/hru21_export/export_hru21.ps1,tools/hru21_export/run_hru21_export.cmd,tools/hru21_export/pilot-hrus.csv,tools/hru21_export/README_NL.txt delivery/LWKM_HRU21_Export
+          Copy-Item qualification/qualification.json delivery/LWKM_HRU21_Export/windows-qualification.json
+          Get-ChildItem delivery/LWKM_HRU21_Export -File | ForEach-Object { "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower())  $($_.Name)" } | Set-Content delivery/LWKM_HRU21_Export/SHA256SUMS.txt
+          Compress-Archive -Path delivery/LWKM_HRU21_Export -DestinationPath delivery/LWKM_HRU21_Export_Windows_x64_1.0.0.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LWKM_HRU21_Export_Windows_x64
+          path: delivery/LWKM_HRU21_Export_Windows_x64_1.0.0.zip
+          retention-days: 90
