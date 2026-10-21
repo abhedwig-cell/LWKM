@@ -40,6 +40,8 @@ jobs:
           if (-not (Test-Path w07-raw-output/4015.dra)) { throw "Raw input did not produce DRA" }
           $s = Get-Content w07-raw-output/raw-dra-status.json | ConvertFrom-Json
           if ($s.generated -ne 1 -or $s.errors -ne 0) { throw "Unexpected raw source failure" }
+          if (-not (Get-Content w07-raw-output/4015.dra -Raw).Contains("NRLEVS = 5")) { throw "Seven physical sources were not reduced to five" }
+          if (-not $s.results[0].evidence.max_drain_error_mm_d -and $s.results[0].evidence.max_drain_error_mm_d -ne 0) { throw "Missing drainage fit audit" }
           $global:LASTEXITCODE = 0
       - name: Reject missing H1 month in raw input
         shell: pwsh
