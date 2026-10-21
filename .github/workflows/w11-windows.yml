@@ -1,0 +1,55 @@
+name: W11 offline Windows packager
+on:
+  pull_request:
+    paths:
+      - 'tools/native/w11/**'
+      - '.github/workflows/w11-windows.yml'
+  workflow_dispatch:
+jobs:
+  qualify:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Compile self-contained Windows EXE
+        shell: pwsh
+        run: dotnet publish tools/native/w11/W11Packager.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o w11-release
+      - name: Execute positive, cache and negative tests
+        shell: pwsh
+        run: |
+          $exe=(Resolve-Path w11-release/W11Packager.exe).Path
+          New-Item -ItemType Directory -Force w11-fixture/assets | Out-Null
+          foreach($n in @('swap.swp','test.dra','test.bbc','test.met')){
+            Set-Content -Path "w11-fixture/assets/$n" -Value "fixture $n" -NoNewline
+          }
+          $assets=@{}
+          foreach($n in @('swap.swp','test.dra','test.bbc','test.met')){
+            $hash=(Get-FileHash "w11-fixture/assets/$n" -Algorithm SHA256).Hash.ToLowerInvariant()
+            $assets[$n]=@{path="assets/$n";sha256=$hash;logical_id="TEST_$n";qualification_status="PRODUCTION_ADMITTED";semantic_contract="W11_TEST_FIXTURE"}
+          }
+          $catalogue=@{schema_version=1;profile_id="W11_SYNTHETIC_SMOKE";start="2020-01-01";end="2020-01-02";expected_population=10242;runs=@(@{hru_id=7876;assets=$assets})}
+          $catalogue | ConvertTo-Json -Depth 10 | Set-Content -Encoding utf8 w11-fixture/catalogue.json
+          & $exe w11-fixture/catalogue.json w11-fixture/output
+          if($LASTEXITCODE -ne 0){throw "positive smoke failed"}
+          & $exe w11-fixture/catalogue.json w11-fixture/output
+          if($LASTEXITCODE -ne 0){throw "cache validation failed"}
+          $s=Get-Content w11-fixture/output/build-status.json | ConvertFrom-Json
+          if($s.reused -ne 1 -or $s.blocked -ne 0){throw "reuse not verified"}
+          Set-Content -Path w11-fixture/output/run_07876/test.met -Value CORRUPTED
+          & $exe w11-fixture/catalogue.json w11-fixture/output
+          if($LASTEXITCODE -eq 0){throw "tamper was not rejected"}
+          $s=Get-Content w11-fixture/output/build-status.json | ConvertFrom-Json
+          if($s.blocked -ne 1){throw "tamper blocker missing"}
+          $hash=(Get-FileHash $exe -Algorithm SHA256).Hash.ToLowerInvariant()
+          "SHA256 $hash  W11Packager.exe" | Out-File -Encoding ascii w11-release/checksum.txt
+          $global:LASTEXITCODE = 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lwkm-w11-offline-win-x64
+          path: |
+            w11-release/W11Packager.exe
+            w11-release/checksum.txt
+            tools/native/w11/run_packages.cmd
+            tools/native/w11/README.md
