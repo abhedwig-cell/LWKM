@@ -29,3 +29,13 @@ def test_native_c2_rejects_invalid(tmp_path):
     (native/'1.dra').write_text('NRLEVS = 2\nDRARES1=100\n')
     r=compare(native,c2,tmp_path/'report.json',expected=1)
     assert r['counts']['INVALID_DRA']==1
+
+def test_stage_series_changes_are_not_accepted_as_parity(tmp_path):
+    native=tmp_path/'native';c2=tmp_path/'c2'
+    native.mkdir();c2.mkdir()
+    a=_dra()+"01-apr-1971 -40.0\n"
+    b=_dra()+"01-apr-1971 -30.0\n"
+    (native/'1.dra').write_text(a)
+    (c2/'1.dra').write_text(b)
+    r=compare(native,c2,tmp_path/'stage-report.json',expected=1)
+    assert r['counts']['STAGE_SERIES_DIFFERENCE']==1
