@@ -12,7 +12,8 @@ using System.Text.Json;
 public static class RawDrainage {
  public record Member(int Svat,int Hru,double X,double Y);
  public record Physical(string Source,double DrainConductance,double InfConductance,
-   double Depth,double Summer,double Winter,double Spacing,int ActiveCells, List<Stage>? LevelSeries);\n public record Stage(string date,double depth);
+   double Depth,double Summer,double Winter,double Spacing,int ActiveCells, List<Stage>? LevelSeries);
+ public record Stage(string date,double depth);
  static double F(string s)=>double.Parse(s,CultureInfo.InvariantCulture);
  static List<Dictionary<string,string>> Csv(string path){
   using var sr=new StreamReader(path);string? header=sr.ReadLine();
@@ -60,19 +61,43 @@ public static class RawDrainage {
   var cfg=Config(configPath);
   var members=ReadMembers(cfg["members_csv"]);
   var reference=G(cfg,"H1_cdr");
-  var ground=LhmIdfGrid.ReadAsc(cfg["ground_asc"]);\n  if(ground.Columns!=reference.Columns||ground.Rows!=reference.Rows||ground.Xmin!=reference.Xmin||ground.Ymax!=reference.Ymax||ground.Dx!=reference.Dx)throw new Exception("AHN geometry mismatch");
+  var ground=LhmIdfGrid.ReadAsc(cfg["ground_asc"]);
+  if(ground.Columns!=reference.Columns||ground.Rows!=reference.Rows||ground.Xmin!=reference.Xmin||ground.Ymax!=reference.Ymax||ground.Dx!=reference.Dx)throw new Exception("AHN geometry mismatch");
   string[] names={"H1","P","S","T","MVG","PIPE","OLF"};
   var dict=new Dictionary<string,LhmIdfGrid>();
   foreach(var n in names){
    dict[n+"_cdr"]=G(cfg,n+"_cdr",reference);
-   if(new[]{"P","S","T"}.Contains(n)){dict[n+"_bottom_sum"]=G(cfg,n+"_bottom_sum",reference);dict[n+"_bottom_win"]=G(cfg,n+"_bottom_win",reference);}\n   else dict[n+"_bottom"]=G(cfg,n+"_bottom",reference);
+   if(new[]{"P","S","T"}.Contains(n)){dict[n+"_bottom_sum"]=G(cfg,n+"_bottom_sum",reference);dict[n+"_bottom_win"]=G(cfg,n+"_bottom_win",reference);}
+   else dict[n+"_bottom"]=G(cfg,n+"_bottom",reference);
    if(new[]{"H1","P","S","T"}.Contains(n))dict[n+"_inf"]=G(cfg,n+"_inf",reference);
    if(new[]{"P","S","T"}.Contains(n)){
     dict[n+"_sum"]=G(cfg,n+"_sum",reference);dict[n+"_win"]=G(cfg,n+"_win",reference);
    }
   }
   var dq=Csv(cfg["dqsat_csv"]).ToDictionary(r=>int.Parse(Val(r,"hru")),r=>F(Val(r,"representative_dqsat")));
-  var h1Series=new Dictionary<int,List<Stage>>();\n  if(cfg.TryGetValue("H1_monthly_dir",out var monthRoot)){\n   var months=Directory.GetFiles(monthRoot,"peilh_*.idf").OrderBy(x=>x,StringComparer.OrdinalIgnoreCase).ToArray();\n   if(months.Length==0)throw new Exception("no original monthly H1 IDF files");\n   var weights=members.GroupBy(m=>m.Hru).ToDictionary(x=>x.Key,x=>x.Sum(m=>{double v=Cell(dict["H1_cdr"],m);return double.IsNaN(v)?0:Math.Max(0,v);}));\n   foreach(var path in months){\n    string tag=Path.GetFileNameWithoutExtension(path);\n    if(tag.Length!=14)throw new Exception("unexpected H1 stage file: "+tag);\n    string date=$"{tag.Substring(6,4)}-{tag.Substring(10,2)}-{tag.Substring(12,2)}";\n    var g=LhmIdfGrid.Read(path);\n    if(g.Columns!=reference.Columns||g.Rows!=reference.Rows||g.Xmin!=reference.Xmin||g.Ymax!=reference.Ymax)throw new Exception("H1 monthly grid geometry mismatch");\n    var sums=new Dictionary<int,double>();\n    foreach(var m in members){double w=Cell(dict["H1_cdr"],m);if(double.IsNaN(w)||w<=0)continue;\n     double z=Cell(g,m,true),gl=Cell(ground,m,true)/100d;\n     sums[m.Hru]=sums.GetValueOrDefault(m.Hru)+w*Math.Max(0,gl-z);\n    }\n    foreach(var kv in weights){if(kv.Value<=0)continue;\n     if(!h1Series.TryGetValue(kv.Key,out var list)){list=new List<Stage>();h1Series[kv.Key]=list;}\n     list.Add(new Stage(date,sums.GetValueOrDefault(kv.Key)/kv.Value));\n    }\n   }\n  }\n  var results=new List<object>();
+  var h1Series=new Dictionary<int,List<Stage>>();
+  if(cfg.TryGetValue("H1_monthly_dir",out var monthRoot)){
+   var months=Directory.GetFiles(monthRoot,"peilh_*.idf").OrderBy(x=>x,StringComparer.OrdinalIgnoreCase).ToArray();
+   if(months.Length==0)throw new Exception("no original monthly H1 IDF files");
+   var weights=members.GroupBy(m=>m.Hru).ToDictionary(x=>x.Key,x=>x.Sum(m=>{double v=Cell(dict["H1_cdr"],m);return double.IsNaN(v)?0:Math.Max(0,v);}));
+   foreach(var path in months){
+    string tag=Path.GetFileNameWithoutExtension(path);
+    if(tag.Length!=14)throw new Exception("unexpected H1 stage file: "+tag);
+    string date=$"{tag.Substring(6,4)}-{tag.Substring(10,2)}-{tag.Substring(12,2)}";
+    var g=LhmIdfGrid.Read(path);
+    if(g.Columns!=reference.Columns||g.Rows!=reference.Rows||g.Xmin!=reference.Xmin||g.Ymax!=reference.Ymax)throw new Exception("H1 monthly grid geometry mismatch");
+    var sums=new Dictionary<int,double>();
+    foreach(var m in members){double w=Cell(dict["H1_cdr"],m);if(double.IsNaN(w)||w<=0)continue;
+     double z=Cell(g,m,true),gl=Cell(ground,m,true)/100d;
+     sums[m.Hru]=sums.GetValueOrDefault(m.Hru)+w*Math.Max(0,gl-z);
+    }
+    foreach(var kv in weights){if(kv.Value<=0)continue;
+     if(!h1Series.TryGetValue(kv.Key,out var list)){list=new List<Stage>();h1Series[kv.Key]=list;}
+     list.Add(new Stage(date,sums.GetValueOrDefault(kv.Key)/kv.Value));
+    }
+   }
+  }
+  var results=new List<object>();
   foreach(var bucket in members.GroupBy(m=>m.Hru).OrderBy(g=>g.Key)){
    int h=bucket.Key;if(!dq.ContainsKey(h))throw new Exception("missing dqsat HRU "+h);
    double spacing=4*dq[h];if(spacing<1||!double.IsFinite(spacing))throw new Exception("invalid spacing HRU "+h);
@@ -82,7 +107,15 @@ public static class RawDrainage {
     foreach(var m in bucket){
      var c=Cell(dict[name+"_cdr"],m);
      if(double.IsNaN(c)||c<=0)continue;
-     double gl=Cell(ground,m,true)/100d;\n     double b;\n     if(new[]{"P","S","T"}.Contains(name)){\n       double bs=Cell(dict[name+"_bottom_sum"],m),bw=Cell(dict[name+"_bottom_win"],m);\n       double zs0=Cell(dict[name+"_sum"],m),zw0=Cell(dict[name+"_win"],m);\n       if(double.IsNaN(zs0))zs0=bs;if(double.IsNaN(zw0))zw0=bw;\n       if(double.IsNaN(bs)||double.IsNaN(bw)||double.IsNaN(zs0)||double.IsNaN(zw0))continue;\n       b=(bs+bw)/2d;\n     }else b=Cell(dict[name+"_bottom"],m,true);
+     double gl=Cell(ground,m,true)/100d;
+     double b;
+     if(new[]{"P","S","T"}.Contains(name)){
+       double bs=Cell(dict[name+"_bottom_sum"],m),bw=Cell(dict[name+"_bottom_win"],m);
+       double zs0=Cell(dict[name+"_sum"],m),zw0=Cell(dict[name+"_win"],m);
+       if(double.IsNaN(zs0))zs0=bs;if(double.IsNaN(zw0))zw0=bw;
+       if(double.IsNaN(bs)||double.IsNaN(bw)||double.IsNaN(zs0)||double.IsNaN(zw0))continue;
+       b=(bs+bw)/2d;
+     }else b=Cell(dict[name+"_bottom"],m,true);
      gd+=c;depth+=c*Math.Max(0,gl-b);active++;
      if(dict.TryGetValue(name+"_inf",out var infGrid)){
       var v=Cell(infGrid,m);
