@@ -13,9 +13,9 @@ HEADER=re.compile(r'^\s*NRLEVS\s*=\s*(\d+)',re.I)
 
 def read(path):
     data=path.read_bytes()
-    values={};levels=None
+    values={};levels=None;stages=[]
     for line in data.decode('utf-8-sig').splitlines():
-        m=HEADER.match(line)
+        sm=STAGE.match(line)\n        if sm:stages.append((sm.group(1).lower(),float(sm.group(2))))\n        m=HEADER.match(line)
         if m: levels=int(m.group(1))
         m=KEY.match(line)
         if m:
@@ -25,7 +25,7 @@ def read(path):
     if levels is None or not 1<=levels<=5: raise ValueError('invalid NRLEVS '+str(path))
     required={(name,i) for name in ('DRARES','INFRES','SWALLO','L','ZBOTDR','SWDTYP') for i in range(1,levels+1)}
     if set(values)!=required:raise ValueError('missing/extra DRA level parameters '+str(path))
-    return data,levels,values
+    return data,levels,values,stages
 
 def compare(native,baseline,report,expected=10242,atol=1e-7):
     reference={int(p.stem):p for p in baseline.glob('*.dra') if p.stem.isdigit()}
@@ -40,7 +40,7 @@ def compare(native,baseline,report,expected=10242,atol=1e-7):
             elif h not in reference:
                 read(candidate[h]);rec['status']='NEW_CANDIDATE_NO_C2_BASELINE'
             else:
-                a,na,va=read(candidate[h]);b,nb,vb=read(reference[h])
+                a,na,va,sa=read(candidate[h]);b,nb,vb,sb=read(reference[h])
                 if a==b:rec['status']='BYTE_IDENTICAL'
                 elif na!=nb or set(va)!=set(vb):
                     rec['status']='STRUCTURE_DIFFERENCE'
