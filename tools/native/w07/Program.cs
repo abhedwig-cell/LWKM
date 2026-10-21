@@ -11,7 +11,7 @@ class Program {
  static string Num(double v)=>v.ToString("G10",CultureInfo.InvariantCulture).Contains('E')?v.ToString("G10",CultureInfo.InvariantCulture):v.ToString("0.##########",CultureInfo.InvariantCulture);
  static double D(JsonElement o,string name){double v=o.GetProperty(name).GetDouble();if(!double.IsFinite(v))throw new Exception("nonfinite "+name);return v;}
  static string DateText(string s){var d=DateTime.ParseExact(s,"yyyy-MM-dd",CultureInfo.InvariantCulture);return d.ToString("dd-MMM-yyyy",CultureInfo.InvariantCulture).ToLowerInvariant();}
- static string Render(JsonElement levels,int n,int first,int last) {
+ public static string Render(JsonElement levels,int n,int first,int last) {
   if(levels.GetArrayLength()<1||levels.GetArrayLength()>5)throw new Exception("NRLEVS not 1..5");
   if(n<1||n>200)throw new Exception("invalid horizon count");
   var s=new StringBuilder();
@@ -53,6 +53,7 @@ class Program {
  }
  static int Main(string[] args){
   try {
+   if(args.Length==3 && args[0]=="--from-raw"){return DirectDra.Run(args[1],args[2]);}
    if(args.Length==2 && args[0]=="--inspect-raw-sources"){var report=RawDrainage.Inspect(args[1]);Console.WriteLine(JsonSerializer.Serialize(report,new JsonSerializerOptions{WriteIndented=true}));return 0;}
    if(args.Length==2 && args[0]=="--inspect-idf"){var g=LhmIdfGrid.Read(args[1]);Console.WriteLine($"IDF_OK {g.Columns}x{g.Rows} xmin={g.Xmin} xmax={g.Xmax} ymin={g.Ymin} ymax={g.Ymax} nodata={g.NoData}");return 0;}
    if(args.Length!=3){Console.Error.WriteLine("Usage: W07Dra.exe --inspect-idf source.idf OR W07Dra.exe renderer_catalogue.json output_directory status.json");return 2;}
