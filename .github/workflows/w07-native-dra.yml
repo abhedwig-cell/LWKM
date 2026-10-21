@@ -29,6 +29,17 @@ jobs:
           & ./w07_release/W07Dra.exe w07_input.json w07_out w07_status.json
           if ($LASTEXITCODE -ne 0 -or (Get-FileHash w07_out/4015.dra).Hash -ne $hash) { throw "DRA cache changed" }
           (Get-FileHash w07_release/W07Dra.exe).Hash | Out-File -Encoding ascii w07_release/SHA256.txt
+      - name: Direct original-format LHM source to DRA smoke
+        shell: pwsh
+        run: |
+          python tools/native/w07/create_raw_fixture.py
+          & ./w07_release/W07Dra.exe --from-raw w07-raw-fixture/raw_config.json w07-raw-output
+          $expectedExit = $LASTEXITCODE
+          if ($expectedExit -ne 1) { throw "Partial fixture must report incomplete population" }
+          if (-not (Test-Path w07-raw-output/4015.dra)) { throw "Raw input did not produce DRA" }
+          $s = Get-Content w07-raw-output/raw-dra-status.json | ConvertFrom-Json
+          if ($s.generated -ne 1 -or $s.errors -ne 0) { throw "Unexpected raw source failure" }
+          $global:LASTEXITCODE = 0
       - uses: actions/upload-artifact@v4
         with:
           name: lwkm-w07-dra-win-x64
