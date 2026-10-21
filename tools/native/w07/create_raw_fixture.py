@@ -14,7 +14,7 @@ def raw():
     (root/"horizons.csv").write_text("hru,n_horizons\n4015,4\n")
     asc("ahn_f250_cm.asc",150)
     cfg={"members_csv":str(root/"members.csv"),"dqsat_csv":str(root/"dqsat.csv"),"horizons_csv":str(root/"horizons.csv"),
-         "ground_asc":str(root/"ahn_f250_cm.asc"),"start_year":1971,"end_year":1972}
+         "ground_asc":str(root/"ahn_f250_cm.asc"),"start_year":1971,"end_year":1972,"H1_stage_start":"1971-01-01","H1_stage_end":"1971-02-01"}
     for name in ("H1","P","S","T","MVG","PIPE","OLF"):
         key=name+"_cdr";grid(key+".idf",100 if name=="H1" else 50);cfg[key]=str(root/(key+".idf"))
         if name in ("P","S","T"):
