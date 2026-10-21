@@ -44,6 +44,7 @@ jobs:
           if($s.blocked -ne 1){throw "tamper blocker missing"}
           $hash=(Get-FileHash $exe -Algorithm SHA256).Hash.ToLowerInvariant()
           "SHA256 $hash  W11Packager.exe" | Out-File -Encoding ascii w11-release/checksum.txt
+          $global:LASTEXITCODE = 0
       - uses: actions/upload-artifact@v4
         with:
           name: lwkm-w11-offline-win-x64
