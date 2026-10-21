@@ -50,6 +50,8 @@ def compare(native,baseline,report,expected=10242,atol=1e-7):
                 if a==b:rec['status']='BYTE_IDENTICAL'
                 elif na!=nb or set(va)!=set(vb):
                     rec['status']='STRUCTURE_DIFFERENCE'
+                elif sa!=sb:
+                    rec['status']='STAGE_SERIES_DIFFERENCE'
                 else:
                     diff=max(abs(va[k]-vb[k]) for k in va)
                     rec['maximum_parameter_absolute_difference']=diff
