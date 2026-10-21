@@ -1,6 +1,6 @@
 # W07 NHI raw-source to DRA (experimental)
 
-One standalone Windows executable consumes the uncompressed original LHM IDF grids and AHN ASCII, the SVAT-to-HRU relationship, representative dqsat authority, HRU horizon counts, and H1 monthly IDFs. It produces DRA candidates and a source-status register, without Python on the NHI server.
+One standalone Windows executable consumes the uncompressed original LHM IDF grids and AHN ASCII, the SVAT-to-HRU relationship, representative dqsat authority, the authoritative SWP files with the chosen HRU soil/discretization, and H1 monthly IDFs. It produces DRA candidates and a source-status register, without Python on the NHI server.
 
 Command:
 
@@ -11,7 +11,7 @@ W07Dra.exe --from-raw raw_config.json W07_NATIVE_DRA_OUT
 Mandatory `raw_config.json` keys:
 - `members_csv`: SVAT-HRU source relation with columns svat,hru,x,y.
 - `dqsat_csv`: qualified original representative-SVAT HRU dqsat mapping, columns hru,representative_dqsat.
-- `horizons_csv`: original qualified HRU SWAP soil-horizon counts, columns hru,n_horizons.
+- `swp_root`: existing qualified HRU SWP output directory; the program counts hydraulic horizons from each `run_XXXXX/swap.swp`, generated from the selected `Runs.bodem_id` and `Runs.dikte_id`. No separate `horizons_csv` is required.
 - `ground_asc`: original `ahn_f250_cm.asc` in centimetres.
 - `H1_monthly_dir`: original `peilh_YYYYMMDD.idf` monthly sources.
 - `start_year`, `end_year`: SWAP simulation boundaries.
