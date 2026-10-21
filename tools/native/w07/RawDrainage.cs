@@ -102,11 +102,11 @@ public static class RawDrainage {
     var sums=new Dictionary<int,double>();
     foreach(var m in members){double w=h1Cdr[m.Svat];if(w<=0)continue;
      double z=Cell(g,m,true),gl=Cell(ground,m,true)/100d;
-     sums[m.Hru]=sums.GetValueOrDefault(m.Hru)+w*Math.Max(0,gl-z);
+     sums[m.Hru]=sums.GetValueOrDefault(m.Hru)+w*(gl-z);
     }
     foreach(var kv in weights){if(kv.Value<=0)continue;
      if(!h1Series.TryGetValue(kv.Key,out var list)){list=new List<Stage>();h1Series[kv.Key]=list;}
-     list.Add(new Stage(date,sums.GetValueOrDefault(kv.Key)/kv.Value));
+     list.Add(new Stage(date,Math.Max(0,sums.GetValueOrDefault(kv.Key)/kv.Value)));
     }
    }
   }
@@ -129,7 +129,7 @@ public static class RawDrainage {
        if(double.IsNaN(bs)||double.IsNaN(bw)||double.IsNaN(zs0)||double.IsNaN(zw0))continue;
        b=(bs+bw)/2d;
      }else b=Cell(dict[name+"_bottom"],m,true);
-     gd+=c;depth+=c*Math.Max(0,gl-b);active++;
+     gd+=c;depth+=c*(gl-b);active++;
      if(dict.TryGetValue(name+"_inf",out var infGrid)){
       var v=Cell(infGrid,m);
       if(double.IsNaN(v))v=0;
@@ -137,7 +137,7 @@ public static class RawDrainage {
      }
      double zs=b,zw=b;
      if(dict.TryGetValue(name+"_sum",out var sumGrid)){zs=Cell(sumGrid,m);zw=Cell(dict[name+"_win"],m);if(double.IsNaN(zs))zs=Cell(dict[name+"_bottom_sum"],m,true);if(double.IsNaN(zw))zw=Cell(dict[name+"_bottom_win"],m,true);}
-     summer+=c*Math.Max(0,gl-zs);winter+=c*Math.Max(0,gl-zw);
+     summer+=c*(gl-zs);winter+=c*(gl-zw);
     }
     if(gd>0){
      // One SVAT can map to one layer-1 250-m cell. Use true HRU support,
@@ -148,7 +148,7 @@ public static class RawDrainage {
      var series=name=="H1" ? h1Series.GetValueOrDefault(h):null;
      if(series!=null)series=series.Select(x=>new Stage(x.date,Math.Min(x.depth,depthMean))).ToList();
      physical.Add(new(name,1/rd,gi>0&&ri<=100000?1/ri:0,depthMean,
-      summer/gd,winter/gd,spacing,active, series));
+      Math.Min(Math.Max(0,summer/gd),depthMean),Math.Min(Math.Max(0,winter/gd),depthMean),spacing,active, series));
     }
    }
    results.Add(new{hru=h,source_count=physical.Count,physical});
