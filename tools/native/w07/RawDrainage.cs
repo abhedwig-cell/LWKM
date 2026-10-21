@@ -76,7 +76,8 @@ public static class RawDrainage {
   }
   var dq=Csv(cfg["dqsat_csv"]).ToDictionary(r=>int.Parse(Val(r,"hru")),r=>F(Val(r,"representative_dqsat")));
   var h1Series=new Dictionary<int,List<Stage>>();
-  if(cfg.TryGetValue("H1_monthly_dir",out var monthRoot)){
+  if(!cfg.TryGetValue("H1_monthly_dir",out var monthRoot))throw new Exception("missing required H1_monthly_dir");
+  {
    var months=Directory.GetFiles(monthRoot,"peilh_*.idf").OrderBy(x=>x,StringComparer.OrdinalIgnoreCase).ToArray();
    if(months.Length==0)throw new Exception("no original monthly H1 IDF files");
    var weights=members.GroupBy(m=>m.Hru).ToDictionary(x=>x.Key,x=>x.Sum(m=>{double v=Cell(dict["H1_cdr"],m);return double.IsNaN(v)?0:Math.Max(0,v);}));
