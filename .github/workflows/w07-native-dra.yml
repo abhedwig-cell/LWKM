@@ -1,0 +1,39 @@
+name: W07 native Windows drainage renderer
+on:
+  pull_request:
+    paths:
+      - 'tools/native/w07/**'
+      - '.github/workflows/w07-native-dra.yml'
+  workflow_dispatch:
+jobs:
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Build x64 standalone
+        shell: pwsh
+        run: dotnet publish tools/native/w07/W07Dra.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o w07_release
+      - name: Real Windows smoke and idempotence
+        shell: pwsh
+        run: |
+          $o = @{schema_version=1;start_year=1971;end_year=1972;hrus=@(@{hru=4015;n_horizons=4;levels=@(@{drnres=2006.2372534;infres=20062.3722;dd=40;dep=1.5;peil_sum=0.5;peil_win=0.7;medium='open_channel';allow_infiltration=$true;level_series=$null})})}
+          $o | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 w07_input.json
+          & ./w07_release/W07Dra.exe w07_input.json w07_out w07_status.json
+          if ($LASTEXITCODE -ne 0) { throw "DRA Windows execution failed" }
+          $text = Get-Content w07_out/4015.dra -Raw
+          if (-not $text.Contains('NRLEVS = 1') -or -not $text.Contains('SWALLO1 = 1')) { throw "DRA syntax invalid" }
+          $hash=(Get-FileHash w07_out/4015.dra).Hash
+          & ./w07_release/W07Dra.exe w07_input.json w07_out w07_status.json
+          if ($LASTEXITCODE -ne 0 -or (Get-FileHash w07_out/4015.dra).Hash -ne $hash) { throw "DRA cache changed" }
+          (Get-FileHash w07_release/W07Dra.exe).Hash | Out-File -Encoding ascii w07_release/SHA256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lwkm-w07-dra-win-x64
+          path: |
+            w07_release/W07Dra.exe
+            w07_release/SHA256.txt
+            tools/native/w07/run_dra.cmd
+            tools/native/w07/README.md
