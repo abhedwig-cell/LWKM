@@ -132,7 +132,7 @@ public static class RawDrainage {
      // not a re-normalization to only cells with the specific drain system.
      double area=bucket.Count()*62500d,rd=area/gd,ri=gi>0?area/gi:100000d;
      if(rd>100000)continue;
-     physical.Add(new(name,area/gd,gi>0&&ri<=100000?1/ri:0,Math.Max(0,depth/gd),
+     physical.Add(new(name,1/rd,gi>0&&ri<=100000?1/ri:0,Math.Max(0,depth/gd),
       summer/gd,winter/gd,spacing,active, name=="H1" ? h1Series.GetValueOrDefault(h):null));
     }
    }
