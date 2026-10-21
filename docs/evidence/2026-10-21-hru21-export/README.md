@@ -26,3 +26,5 @@ qualification, calibration, or evidence of independent validation. The entire
 1970-2024 CSV population remains on the user's server; only one actual decade
 was available here. Incomplete data can be exported losslessly and are explicitly
 counted; downstream receipt and scientific gates remain mandatory.
+
+Native Windows qualification completed successfully: [run 39556744881](https://github.com/abhedwig-cell/LWKM/actions/runs/39556744881). Both executable and ZIP wrapper passed. The canonical unit workflow also passed on the code commit. Release and executable hashes are recorded in release.json and windows-qualification.json. The release ZIP manifest was independently verified after artifact download.
