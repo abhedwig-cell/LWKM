@@ -2,6 +2,7 @@
 #include <array>
 #include <cmath>
 #include <cctype>
+#include <ctime>
 #include <chrono>
 #include <filesystem>
 #include <fstream>
