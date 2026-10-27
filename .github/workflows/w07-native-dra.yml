@@ -4,6 +4,7 @@ on:
     paths:
       - 'tools/native/w07/**'
       - '.github/workflows/w07-native-dra.yml'
+      - 'tools/recover_swp_population_windows.ps1'
   workflow_dispatch:
 jobs:
   windows:
@@ -50,6 +51,29 @@ jobs:
           & ./w07_release/W07Dra.exe --from-raw w07-raw-fixture/raw_config.json w07-raw-missing
           if ($LASTEXITCODE -eq 0) { throw "Missing monthly H1 stage accepted" }
           if (Test-Path w07-raw-missing/4015.dra) { throw "Invalid monthly forcing produced a DRA" }
+          $global:LASTEXITCODE = 0
+      - name: Verify Windows SWP recovery and conflicts
+        shell: pwsh
+        run: |
+          $root = Join-Path $env:RUNNER_TEMP "swp-synthetic"
+          1..3 | ForEach-Object {
+            $d = Join-Path $root ("run_{0:D5}" -f $_)
+            New-Item -ItemType Directory -Path $d -Force | Out-Null
+            Set-Content -LiteralPath (Join-Path $d "swap.swp") -Value "SWP-$_"
+          }
+          & ./tools/recover_swp_population_windows.ps1 -Roots @($root) -ReportDir "swp-audit-good" -Expected 3 -Package
+          if ($LASTEXITCODE -ne 0) { throw "SWP recovery failed for complete population" }
+          $r = Get-Content swp-audit-good/swp_recovery_status.json -Raw | ConvertFrom-Json
+          if (-not $r.complete -or -not $r.archive_created -or $r.qualified_copies -ne 3) { throw "SWP complete evidence invalid" }
+          $archive = [System.IO.Compression.ZipFile]::OpenRead((Resolve-Path swp-audit-good/SWP_10242_recovered.zip))
+          try {
+            if ($archive.Entries.Count -ne 3) { throw "SWP ZIP entry count mismatch" }
+          } finally { $archive.Dispose() }
+          Remove-Item -LiteralPath (Join-Path $root "run_00003/swap.swp")
+          & ./tools/recover_swp_population_windows.ps1 -Roots @($root) -ReportDir "swp-audit-missing" -Expected 3 -Package
+          if ($LASTEXITCODE -ne 2) { throw "Incomplete SWP recovery was incorrectly admitted" }
+          $m = Get-Content swp-audit-missing/swp_recovery_status.json -Raw | ConvertFrom-Json
+          if ($m.complete -or $m.archive_created -or $m.missing_count -ne 1) { throw "Incomplete SWP evidence invalid" }
           $global:LASTEXITCODE = 0
       - uses: actions/upload-artifact@v4
         with:
