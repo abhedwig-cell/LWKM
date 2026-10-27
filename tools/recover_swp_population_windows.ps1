@@ -64,3 +64,5 @@ $report | ConvertTo-Json -Depth 7 | Set-Content -Encoding UTF8 -Path $reportPath
 Write-Host ("SWP found={0}/{1}, unresolved={2}, missing={3}" -f $seen.Count,$Expected,$conflicts.Count,$missing.Count)
 Write-Host "Report: $reportPath"
 if(-not $ok){exit 2}
+
+exit 0
