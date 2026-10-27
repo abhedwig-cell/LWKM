@@ -23,3 +23,8 @@ Lever voortaan **een volledig, parameterloos startbaar Windows-pakket** met inge
 - `w09_met_config.ini` bevat nog `scale_*=1`: eenheidsbevestiging nodig.
 - De vorige MET05-output is **alleen lokaal Linux-getest**.
 - BBC07H heeft wel bewezen servercompilatie en HRU-mapping, maar is nog niet volledig productiesuccesvol.
+
+## Projecteigenaarcorrectie 2026-10-27: TX naamgevingsconventie
+De LHM TX ASCII-bronbestanden hebben verplicht het achtervoegsel `_l1` vóór `.asc`:
+`path_TX=E:\LHM_4.3.3\Data\2_Model_Input\meteo\TX\TX_{date}_l1.asc`
+Deze exacte waarde is authority voor W09 MET05 en volgende versies. Gebruik niet meer `TX_{date}.asc`. De gebruiker heeft dit reeds eerder vastgesteld; vraag dit niet opnieuw.
