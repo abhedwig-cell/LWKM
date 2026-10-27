@@ -6,6 +6,10 @@ on:
     paths:
       - 'tools/native/w09_met05/**'
       - '.github/workflows/w09-met05-windows-x64.yml'
+  pull_request:
+    paths:
+      - 'tools/native/w09_met05/**'
+      - '.github/workflows/w09-met05-windows-x64.yml'
   workflow_dispatch:
 jobs:
   build:
