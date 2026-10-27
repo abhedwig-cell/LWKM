@@ -1,0 +1,36 @@
+name: LWKM offline SWP Windows x64
+on:
+  pull_request:
+    paths:
+      - 'tools/native/swp/**'
+      - 'tools/modern_swp.py'
+      - 'tools/swp_context.py'
+      - 'tools/swp_renderer.py'
+      - 'tools/swp_template_adapter.py'
+      - '.github/workflows/swp-offline-windows.yml'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile no-Python-install standalone executable
+        shell: pwsh
+        run: |
+          python -m pip install pyinstaller
+          python -m PyInstaller --noconfirm --clean --onefile --name LWKM_SWP --paths . --collect-submodules tools tools/native/swp/swp_server_main.py
+          if (-not (Test-Path dist/LWKM_SWP.exe)) { throw "Missing compiled SWP EXE" }
+          & ./dist/LWKM_SWP.exe --help
+          if ($LASTEXITCODE -ne 0) { throw "SWP standalone CLI failed" }
+          (Get-FileHash dist/LWKM_SWP.exe -Algorithm SHA256).Hash.ToLowerInvariant() | Set-Content dist/SHA256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lwkm-swp-offline-win-x64
+          path: |
+            dist/LWKM_SWP.exe
+            dist/SHA256.txt
+            tools/native/swp/run_swp.cmd
+            tools/native/swp/README.md
