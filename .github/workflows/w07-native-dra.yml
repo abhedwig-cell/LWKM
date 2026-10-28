@@ -74,6 +74,18 @@ jobs:
           if ($LASTEXITCODE -ne 2) { throw "Incomplete SWP recovery was incorrectly admitted" }
           $m = Get-Content swp-audit-missing/swp_recovery_status.json -Raw | ConvertFrom-Json
           if ($m.complete -or $m.archive_created -or $m.missing_count -ne 1) { throw "Incomplete SWP evidence invalid" }
+          $sparse = Join-Path $env:RUNNER_TEMP "swp-sparse"
+          foreach ($id in @(101,205,9001)) {
+            $d = Join-Path $sparse ("run_{0:D5}" -f $id)
+            New-Item -ItemType Directory -Force -Path $d | Out-Null
+            Set-Content -LiteralPath (Join-Path $d "swap.swp") -Value "SWP-$id"
+          }
+          "hru" | Set-Content sparse_hru_ids.csv
+          @(101,205,9001) | Add-Content sparse_hru_ids.csv
+          & ./tools/recover_swp_population_windows.ps1 -Roots @($sparse) -HruIdsCsv sparse_hru_ids.csv -ReportDir swp-audit-sparse -Package
+          if ($LASTEXITCODE -ne 0) { throw "Sparse HRU identities were not accepted" }
+          $s = Get-Content swp-audit-sparse/swp_recovery_status.json -Raw | ConvertFrom-Json
+          if ($s.expected -ne 3 -or $s.found_unique -ne 3 -or -not $s.complete) { throw "Sparse domain was not preserved" }
           $global:LASTEXITCODE = 0
       - uses: actions/upload-artifact@v4
         with:
