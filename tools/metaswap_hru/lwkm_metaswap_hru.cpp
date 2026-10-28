@@ -48,7 +48,7 @@ std::vector<Member> membership(const fs::path&ap,const fs::path&mp,int expected,
  while(std::getline(f,s)){if(trim(s).empty()||s[0]=='*'||s[0]=='!')continue;std::istringstream in(s);std::vector<std::string> v;std::string t;while(in>>t)v.push_back(t);require(v.size()==14,"area_svat needs 14 fields");int id=integer(v[0]);Area a{real(v[1]),real(v[9]),real(v[10])};require(id>0&&a.a>0,"Invalid area/SVAT");require(areas.emplace(id,a).second,"Duplicate area SVAT");}
  std::ifstream m(mp);require(bool(m),"Cannot open SVAT-HRU mapping");std::getline(m,s);auto c=csv(s);auto si=col(c,"svat_orig"),hi=col(c,"HRU"),xi=col(c,"x"),yi=col(c,"y");std::set<int> seen;std::vector<Member> members;
  while(std::getline(m,s)){if(trim(s).empty())continue;auto v=csv(s);require(v.size()==c.size(),"Mapping column count mismatch");int id=integer(v[si]),h=integer(v[hi]);require(h>0&&seen.insert(id).second,"Invalid HRU or duplicate original SVAT");auto a=areas.find(id);require(a!=areas.end(),"SVAT not in area_svat: "+std::to_string(id));require(std::abs(real(v[xi])-a->second.x)<0.001&&std::abs(real(v[yi])-a->second.y)<0.001,"SVAT coordinate mismatch");auto z=a->second;members.push_back({id,h,z.a,z.x,z.y});total[h]+=z.a;}
- require(!members.empty(),"Empty membership");require(int(total.size())==expected,"Expected "+std::to_string(expected)+" HRUs, found "+std::to_string(total.size()));for(int i=1;i<=expected;++i)require(total.count(i),"Non-contiguous HRU IDs");return members;
+ require(!members.empty(),"Empty membership");require(expected==0||int(total.size())==expected,"Expected "+std::to_string(expected)+" HRUs, found "+std::to_string(total.size()));return members;
 }
 struct Raster{int nc=0,nr=0;double xmin,xmax,ymin,ymax,dx,dy,nd;std::vector<double> v;};
 template<class T>T get(std::ifstream&f){T x{};f.read((char*)&x,sizeof(x));require(bool(f),"Truncated IDF");return x;}
@@ -69,11 +69,13 @@ std::map<std::string,Period> sources(const fs::path&p,const fs::path&root){std::
 }
 struct Lock{HANDLE h;Lock(const fs::path&p){h=CreateFileW(p.c_str(),GENERIC_READ|GENERIC_WRITE,0,nullptr,OPEN_ALWAYS,FILE_ATTRIBUTE_NORMAL|FILE_FLAG_DELETE_ON_CLOSE,nullptr);require(h!=INVALID_HANDLE_VALUE,"Output locked by another process: "+p.string());}~Lock(){CloseHandle(h);}};
 int main(int argc,char**argv){fs::path output;try{
- require(argc==7,"Usage: lwkm_metaswap_hru.exe area_svat.inp mapping.csv sources.csv source_root output_directory expected_hrus");
+ require(argc==7||argc==8,"Usage: lwkm_metaswap_hru.exe area_svat.inp mapping.csv sources.csv source_root output_directory expected_hrus_or_0 [release_binding_sha256]");
  output=fs::u8path(argv[5]);fs::create_directories(output);Lock lock(output/".running");std::ofstream log(output/"run.log",std::ios::app);require(bool(log),"Cannot open log");auto report=[&](std::string s){std::cout<<s<<std::endl;log<<s<<std::endl;};report(version+" START");
  std::map<int,double> total;auto members=membership(fs::u8path(argv[1]),fs::u8path(argv[2]),integer(argv[6]),total);auto periods=sources(fs::u8path(argv[3]),fs::u8path(argv[4]));report("SVATs="+std::to_string(members.size())+" HRUs="+std::to_string(total.size())+" decades="+std::to_string(periods.size()));
  wchar_t exe[32768];DWORD length=GetModuleFileNameW(nullptr,exe,32768);require(length>0&&length<32768,"Cannot identify executable");
- std::string base=version+"\nexe="+hashfile(fs::path(exe))+"\narea="+hashfile(fs::u8path(argv[1]))+"\nmapping="+hashfile(fs::u8path(argv[2]))+"\nsources="+hashfile(fs::u8path(argv[3]))+"\nunits=m3/m2_per_decade;factor=1000;sign=source;missing=blank_strict_support\n";
+ std::string releaseBinding=argc==8?argv[7]:"";
+ require(releaseBinding.empty() || (releaseBinding.size()==64 && std::all_of(releaseBinding.begin(),releaseBinding.end(),[](unsigned char ch){return (ch>='0'&&ch<='9')||(ch>='a'&&ch<='f')||(ch>='A'&&ch<='F');})),"Invalid release SHA256");
+ std::string base=version+"\nrelease_binding_sha256="+releaseBinding+"\nrelease_identity_status=DECLARED_NOT_SOURCE_VERIFIED\nexe="+hashfile(fs::path(exe))+"\narea="+hashfile(fs::u8path(argv[1]))+"\nmapping="+hashfile(fs::u8path(argv[2]))+"\nsources="+hashfile(fs::u8path(argv[3]))+"\nunits=m3/m2_per_decade;factor=1000;sign=source;missing=blank_strict_support\n";
  writefile(output/"run_identity.txt",base);
  std::ostringstream support;support<<"hru_id,svats,area_m2\n"<<std::setprecision(15);std::map<int,int> counts;for(auto&m:members)++counts[m.h];for(auto &[h,a]:total)support<<h<<","<<counts[h]<<","<<a<<"\n";writefile(output/"hru_support.csv",support.str());
  size_t done=0,skipped=0;uint64_t incomplete=0;
