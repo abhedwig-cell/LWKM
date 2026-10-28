@@ -1,0 +1,5 @@
+# LWKM offline SWP build on NHI server
+The Windows EXE embeds the existing typed SWP-context and template renderer. No Python installation or internet is needed on NHI.
+Place the **authoritative** SQLite database as `datamodel_10242_2.sqlite` and the original checked `Template/wwl.swp` as `wwl.swp` next to `LWKM_SWP.exe`. These data sources have not been recovered from the available repository and are intentionally **not** fabricated or silently replaced.
+Run `run_swp.cmd`. This writes `SWP_OUTPUT/run_XXXXX/swap.swp` and `swp_generation_status.json`. Require generated=10242 and failed=0. The EXE checks the template hash against the existing LWKM `modern_swp.SOURCE_SHA256` and fails closed on unexpected population size. It does not assert scientific production admission or historical byte equivalence; independent SWP oracle comparisons and representative SWAP runs remain required.
+After successful SWP population, configure W07 `swp_root` pointing to `SWP_OUTPUT`. DRA generation must still receive original LHM drainage inputs and qualifying C2 parity.

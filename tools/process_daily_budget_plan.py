@@ -8,6 +8,7 @@ from tools.modflow_daily_rasters import mosaic,into_cell_from_faces,integrate_in
 from tools.groundwater_l1_boundary import aggregate
 from tools.assemble_swap_package import sha256
 from tools.run_dra_protected_population import atomic_json
+from tools.hru_population_manifest import validate_membership
 
 
 def bound(meta):
@@ -16,11 +17,30 @@ def bound(meta):
     return p
 
 
+def verify_hru_release(cfg,membership):
+    if cfg.get('hru_population_manifest'):
+        manifest=json.loads(bound(cfg['hru_population_manifest']).read_text())
+        validate_membership(manifest,membership.hru_id.unique())
+        release_binding=manifest.get('release_binding_sha256')
+        if not release_binding or len(release_binding)!=64:
+            raise ValueError('source-bound HRU release identity required')
+        if cfg.get('release_binding_sha256')!=release_binding:
+            raise ValueError('BBC HRU release binding mismatch')
+        source_membership_hash=manifest.get('source_sha256',{}).get('membership')
+        if source_membership_hash!=cfg['membership']['sha256']:
+            raise ValueError('BBC membership bytes differ from HRU release')
+    else:
+        if cfg.get('release_binding_sha256'):
+            raise ValueError('BBC release identity without verified population manifest')
+        release_binding=None
+    return release_binding
+
 def process(plan,output,*,allow_estimated_wel=False):
     cfg=json.loads(plan.read_text());reference=read_idf(bound(cfg['grid']))
     membership=pd.read_csv(bound(cfg['membership']))
     if not set(['row','col','hru_id','cell_id','area_m2'])<=set(membership):raise ValueError('membership raster indices required')
     if membership.duplicated(['row','col']).any():raise ValueError('overlapping physical member cells')
+    release_binding=verify_hru_release(cfg,membership)
     rows=membership.row.to_numpy(int);cols=membership.col.to_numpy(int)
     if ((rows<0)|(cols<0)|(rows>=reference.nrow)|(cols>=reference.ncol)).any():raise ValueError('membership outside grid')
     activity=mosaic([bound(cfg['model_activity_mask'])],reference)
@@ -124,7 +144,7 @@ def process(plan,output,*,allow_estimated_wel=False):
             row['files'][kind]=dict(path=str(target.resolve()),sha256=sha256(target),reused=reuse)
         atomic_json(checkpoint,dict(identity=identity,row=row))
         reports.append(row)
-    result=dict(plan_sha256=sha256(plan),code_sha256=code_identity,wel_provenance=cfg['wel_provenance'],ghb_provenance=cfg['ghb_provenance'],reconstructed_products=cfg.get('reconstructed_products',{}),production_admitted=False,days=reports)
+    result=dict(plan_sha256=sha256(plan),code_sha256=code_identity,wel_provenance=cfg['wel_provenance'],ghb_provenance=cfg['ghb_provenance'],reconstructed_products=cfg.get('reconstructed_products',{}),production_admitted=False,release_binding_sha256=release_binding,days=reports)
     atomic_json(output/'manifest.json',result);return result
 
 if __name__=='__main__':
