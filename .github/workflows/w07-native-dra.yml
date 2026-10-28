@@ -65,7 +65,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "SWP recovery failed for complete population" }
           $r = Get-Content swp-audit-good/swp_recovery_status.json -Raw | ConvertFrom-Json
           if (-not $r.complete -or -not $r.archive_created -or $r.qualified_copies -ne 3) { throw "SWP complete evidence invalid" }
-          $archive = [System.IO.Compression.ZipFile]::OpenRead((Resolve-Path swp-audit-good/SWP_10242_recovered.zip))
+          $archive = [System.IO.Compression.ZipFile]::OpenRead((Resolve-Path swp-audit-good/SWP_3_recovered.zip))
           try {
             if ($archive.Entries.Count -ne 3) { throw "SWP ZIP entry count mismatch" }
           } finally { $archive.Dispose() }
