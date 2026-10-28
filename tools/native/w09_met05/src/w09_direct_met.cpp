@@ -30,8 +30,9 @@ Grid gridread(const fs::path&p){std::ifstream f(p);if(!f)throw std::runtime_erro
  if(g.nc<=0||g.nr<=0||g.nc>10000||g.nr>10000||g.cell<=0)throw std::runtime_error("Invalid grid geometry");g.v.resize(size_t(g.nc)*g.nr);for(auto &x:g.v)if(!(f>>x))throw std::runtime_error("Grid truncated "+p.string());return g;}
 void match(const Grid&a,const Grid&b){if(a.nc!=b.nc||a.nr!=b.nr||a.x!=b.x||a.y!=b.y||a.cell!=b.cell)throw std::runtime_error("Grid geometry mismatch");}
 bool valid(double d,double nv){return std::isfinite(d)&&d!=nv;}
-std::vector<std::vector<Link>> weights(const fs::path&p,int npix,std::vector<int>&needed){std::ifstream f(p);if(!f)throw std::runtime_error("Weights missing");std::string s;if(!std::getline(f,s)||trim(s)!="hru_id,grid_id,area_m2,weight")throw std::runtime_error("Weights header mismatch");std::vector<std::vector<Link>> w(10243);std::vector<unsigned char> used(npix);int line=1;while(std::getline(f,s)){++line;if(trim(s).empty())continue;std::istringstream z(s);std::string a,b,c,d;std::getline(z,a,',');std::getline(z,b,',');std::getline(z,c,',');std::getline(z,d,',');if(d.empty())throw std::runtime_error("Weight cols at "+std::to_string(line));int id=std::stoi(a),pix=std::stoi(b);double weight=std::stod(d);if(id<1||id>10242||pix<0||pix>=npix||!std::isfinite(weight)||weight<0)throw std::runtime_error("Invalid weight at "+std::to_string(line));if(weight==0)continue;w[id].push_back({pix,weight});used[pix]=1;}
- for(int i=1;i<=10242;i++){double sum=0;for(auto &lk:w[i])sum+=lk.w;if(w[i].empty()||std::abs(sum-1)>1e-9)throw std::runtime_error("HRU weight sum != 1 HRU="+std::to_string(i)+" sum="+std::to_string(sum));}
+std::map<int,std::vector<Link>> weights(const fs::path&p,int npix,std::vector<int>&needed){std::ifstream f(p);if(!f)throw std::runtime_error("Weights missing");std::string s;if(!std::getline(f,s)||trim(s)!="hru_id,grid_id,area_m2,weight")throw std::runtime_error("Weights header mismatch");std::map<int,std::vector<Link>> w;std::vector<unsigned char> used(npix);int line=1;while(std::getline(f,s)){++line;if(trim(s).empty())continue;std::istringstream z(s);std::string a,b,c,d;std::getline(z,a,',');std::getline(z,b,',');std::getline(z,c,',');std::getline(z,d,',');if(d.empty())throw std::runtime_error("Weight cols at "+std::to_string(line));int id=std::stoi(a),pix=std::stoi(b);double weight=std::stod(d);if(id<1||pix<0||pix>=npix||!std::isfinite(weight)||weight<0)throw std::runtime_error("Invalid weight at "+std::to_string(line));if(weight==0)continue;w[id].push_back({pix,weight});used[pix]=1;}
+ for(const auto &[i,links]:w){double sum=0;for(auto &lk:links)sum+=lk.w;if(links.empty()||std::abs(sum-1)>1e-9)throw std::runtime_error("HRU weight sum != 1 HRU="+std::to_string(i)+" sum="+std::to_string(sum));}
+ if(w.empty())throw std::runtime_error("No HRU weights");
  for(int i=0;i<npix;i++)if(used[i])needed.push_back(i);return w;}
 // Exact Euclidean nearest donor; tie resolves to lowest row-major raster index.
 struct Kd {std::vector<Pt> pts;struct Node{Pt p;int left=-1,right=-1,axis;};std::vector<Node> nodes;int root=-1;
@@ -49,7 +50,7 @@ void run(const fs::path&cp){auto cfg=config(cp);Grid ref=gridread(resolve(cp,req
  std::array<std::string,8> names={"RD1","EV24","TN","TX","Q","FG","WIND","WET_RAW"};std::array<double,8> scale;for(int i=0;i<8;i++){scale[i]=std::stod(required(cfg,"scale_"+names[i]));if(!std::isfinite(scale[i])||scale[i]<=0)throw std::runtime_error("Invalid scale");}
  int first=std::stoi(required(cfg,"start_year")),last=std::stoi(required(cfg,"end_year"));if(first<1900||last>2100||last<first)throw std::runtime_error("Invalid years");
  std::ofstream log(part/"PERFORMANCE.csv");log<<"year,days,ascii_seconds,nearest_seconds,aggregate_seconds,write_seconds,nearest_queries\n";
- for(int yr=first;yr<=last;yr++){std::vector<std::string> lines(10243);for(int id=1;id<=10242;id++)lines[id].reserve(365*100);double io=0,nn=0,agg=0,write=0;long long queries=0;
+ for(int yr=first;yr<=last;yr++){std::map<int,std::string> lines;for(const auto &[id,links]:w)lines[id].reserve(365*100);double io=0,nn=0,agg=0,write=0;long long queries=0;
  for(int day=1;day<=ndays(yr);day++){auto ds=date(yr,day);if(cfg.count("start_date")&&ds<cfg.at("start_date"))continue;if(cfg.count("end_date")&&ds>cfg.at("end_date"))continue;
  std::array<std::vector<double>,8> vals;
  for(int k=0;k<8;k++){auto t=Clock::now();Grid g=gridread(resolve(cp,expand(required(cfg,"path_"+names[k]),ds)));match(ref,g);io+=std::chrono::duration<double>(Clock::now()-t).count();t=Clock::now();
@@ -59,13 +60,13 @@ void run(const fs::path&cp){auto cfg=config(cp);Grid ref=gridread(resolve(cp,req
  vals[k].reserve(needed.size()); // use direct grid indexing for weighted aggregation
  // store full raster; only a subset is accessed
  vals[k]=std::move(g.v);nn+=std::chrono::duration<double>(Clock::now()-t).count();}
- auto t=Clock::now();int m=std::stoi(ds.substr(4,2)),d=std::stoi(ds.substr(6,2));for(int id=1;id<=10242;id++){
+ auto t=Clock::now();int m=std::stoi(ds.substr(4,2)),d=std::stoi(ds.substr(6,2));for(const auto &[id,links]:w){
  std::array<double,8> v{};for(auto lk:w[id]){int pix=lk.pix;double p=vals[0][pix]*scale[0],wet=vals[7][pix]*scale[7];if(p<0||vals[1][pix]*scale[1]<0||vals[4][pix]*scale[4]<0||vals[6][pix]*scale[6]<0||vals[3][pix]*scale[3]<vals[2][pix]*scale[2]||wet<0||wet>1)throw std::runtime_error("Invalid meteorological value "+ds+" HRU "+std::to_string(id));for(int k=0;k<8;k++)v[k]+=lk.w*vals[k][pix]*scale[k];}
  // Preserve original W09 WET rule: weighted (rain pixel > 0 ? max(wet,0.1 if zero) : 0).
  double wet=0;for(auto lk:w[id]){double p=vals[0][lk.pix]*scale[0],raw=vals[7][lk.pix]*scale[7];wet+=lk.w*(p==0?0:(raw>0?raw:0.1));}
  std::ostringstream record;record.imbue(std::locale::classic());record<<std::setprecision(12)<<"'"<<id<<"' "<<d<<" "<<m<<" "<<yr<<" "<<v[4]<<" "<<v[2]<<" "<<v[3]<<" "<<v[5]<<" "<<v[6]<<" "<<v[0]<<" "<<v[1]<<" "<<wet<<"\n";lines[id]+=record.str();}
  agg+=std::chrono::duration<double>(Clock::now()-t).count();}
  auto t=Clock::now();for(int id=1;id<=10242;id++){std::ofstream out(part/filemet(id),std::ios::binary|(yr==first?std::ios::out:std::ios::app));if(!out)throw std::runtime_error("Cannot open output");if(yr==first)out<<"Station DD MM YYYY RAD Tmin Tmax HUM WIND RAIN ETref WET\n";out<<lines[id];if(!out)throw std::runtime_error("Write failed");}write+=std::chrono::duration<double>(Clock::now()-t).count();log<<yr<<","<<ndays(yr)<<","<<io<<","<<nn<<","<<agg<<","<<write<<","<<queries<<"\n";log.flush();std::cout<<"YEAR "<<yr<<" ascii="<<io<<" nearest="<<nn<<" aggregate="<<agg<<" write="<<write<<" nearest_queries="<<queries<<"\n";}
- std::ofstream manifest(part/"MANIFEST.txt");manifest<<"LWKM MET03 direct ASCII to HRU MET; NOT SWAP-qualified. HRUs=10242 Years="<<first<<".."<<last<<"\n";manifest.close();log.close();fs::rename(part,target);
+ std::ofstream manifest(part/"MANIFEST.txt");manifest<<"LWKM MET03 direct ASCII to HRU MET; NOT SWAP-qualified. HRUs="<<w.size()<<" Years="<<first<<".."<<last<<"\n";manifest.close();log.close();fs::rename(part,target);
 }
 int main(int argc,char**argv){try{if(argc!=2)throw std::runtime_error("Usage: w09_direct_met config.ini");run(argv[1]);return 0;}catch(const std::exception&e){std::cerr<<"W09 MET03 ERROR: "<<e.what()<<"\n";return 2;}}
