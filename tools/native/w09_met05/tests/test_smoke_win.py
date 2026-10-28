@@ -22,7 +22,8 @@ with tempfile.TemporaryDirectory() as d:
  assert len(outputs)==10242,len(outputs)
  data=(p/'out'/'HRU_00001.met').read_text().splitlines()
  assert len(data)==3,data
- assert data[1].endswith('100 3 6 0.6 2 2 1 0.5'),data
+ assert data[1].endswith('100.000000 3.000000 6.000000 0.600000 2.000000 2.000000 1.000000 0.500000'),data
+ assert all('.' in token for token in data[1].split()[4:]),data
  print('PASSED',len(outputs),'files,',len(data)-1,'days, values:',data[1])
  # A new release may have sparse, nonsequential HRU IDs, not 1..N.
  (p/'weights.csv').write_text('hru_id,grid_id,area_m2,weight\n101,0,1,1\n205,0,1,1\n9001,0,1,1\n')
