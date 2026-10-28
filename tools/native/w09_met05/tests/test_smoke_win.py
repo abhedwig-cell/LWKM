@@ -25,8 +25,8 @@ with tempfile.TemporaryDirectory() as d:
  assert data[1].endswith('100 3 6 0.6 2 2 1 0.5'),data
  print('PASSED',len(outputs),'files,',len(data)-1,'days, values:',data[1])
  # A new release may have sparse, nonsequential HRU IDs, not 1..N.
- (p/'weights.csv').write_text('hru_id,grid_id,area_m2,weight\\n101,0,1,1\\n205,0,1,1\\n9001,0,1,1\\n')
- (p/'config.ini').write_text(('\\n'.join(cfg)+'\\n').replace('output_met=out','output_met=out_sparse'))
+ (p/'weights.csv').write_text('hru_id,grid_id,area_m2,weight\n101,0,1,1\n205,0,1,1\n9001,0,1,1\n')
+ (p/'config.ini').write_text(('\n'.join(cfg)+'\n').replace('output_met=out','output_met=out_sparse'))
  x=subprocess.run([str(Path(sys.argv[1]).resolve()),str(p/'config.ini')],capture_output=True,text=True)
  assert x.returncode==0,(x.stdout,x.stderr)
  sparse=list((p/'out_sparse').glob('HRU_*.met'))
