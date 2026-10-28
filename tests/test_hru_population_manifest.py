@@ -16,3 +16,16 @@ def test_duplicate_and_corruption():
     a["hru_ids"][0]=11
     with pytest.raises(ValueError,match="digest mismatch"):
         validate_membership(a,[11,20])
+
+def test_release_binding_detects_same_ids_changed_membership(tmp_path):
+    from tools.hru_population_manifest import bind_source_hashes, verify_source_binding
+    paths={}
+    for name in ("membership","representatives","soil_context"):
+        p=tmp_path/(name+".csv")
+        p.write_text(name+" original")
+        paths[name]=p
+    manifest=bind_source_hashes(build_manifest([101,205,9001],release="v1"),paths)
+    assert verify_source_binding(manifest,paths)
+    paths["membership"].write_text("membership altered")
+    with pytest.raises(ValueError,match="source identity mismatch"):
+        verify_source_binding(manifest,paths)
