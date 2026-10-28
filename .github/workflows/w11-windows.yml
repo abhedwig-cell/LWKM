@@ -29,14 +29,29 @@ jobs:
             $hash=(Get-FileHash "w11-fixture/assets/$n" -Algorithm SHA256).Hash.ToLowerInvariant()
             $assets[$n]=@{path="assets/$n";sha256=$hash;logical_id="TEST_$n";qualification_status="PRODUCTION_ADMITTED";semantic_contract="W11_TEST_FIXTURE"}
           }
-          $catalogue=@{schema_version=1;profile_id="W11_SYNTHETIC_SMOKE";start="2020-01-01";end="2020-01-02";expected_population=10242;runs=@(@{hru_id=7876;assets=$assets})}
+          $binding=('a' * 64)
+          foreach($n in @('swap.swp','test.dra','test.bbc','test.met')) { $assets[$n].release_binding_sha256=$binding }
+          $catalogue=@{schema_version=1;profile_id="W11_SYNTHETIC_SMOKE";start="2020-01-01";end="2020-01-02";expected_population=1;release_binding_sha256=$binding;runs=@(@{hru_id=7876;assets=$assets})}
           $catalogue | ConvertTo-Json -Depth 10 | Set-Content -Encoding utf8 w11-fixture/catalogue.json
-          & $exe w11-fixture/catalogue.json w11-fixture/output
+          & $exe w11-fixture/catalogue.json w11-fixture/output --require-release-binding
           if($LASTEXITCODE -ne 0){throw "positive smoke failed"}
           & $exe w11-fixture/catalogue.json w11-fixture/output
           if($LASTEXITCODE -ne 0){throw "cache validation failed"}
           $s=Get-Content w11-fixture/output/build-status.json | ConvertFrom-Json
           if($s.reused -ne 1 -or $s.blocked -ne 0){throw "reuse not verified"}
+          # Same files with inconsistent HRU release identities must fail before assembly.
+          $assets['test.met'].release_binding_sha256=('b' * 64)
+          $catalogue | ConvertTo-Json -Depth 10 | Set-Content -Encoding utf8 w11-fixture/mixed.json
+          & $exe w11-fixture/mixed.json w11-fixture/mixed-output --require-release-binding
+          if($LASTEXITCODE -eq 0){throw "mixed release bindings accepted"}
+          $mix=Get-Content w11-fixture/mixed-output/build-status.json | ConvertFrom-Json
+          if($mix.blocked -ne 1){throw "mixed release mismatch not reported"}
+          $assets['test.met'].release_binding_sha256=$binding
+          $catalogue.release_binding_sha256=$null
+          $catalogue | ConvertTo-Json -Depth 10 | Set-Content -Encoding utf8 w11-fixture/no-release.json
+          & $exe w11-fixture/no-release.json w11-fixture/no-release-output --require-release-binding
+          if($LASTEXITCODE -eq 0){throw "required release binding omitted"}
+          $catalogue.release_binding_sha256=$binding
           Set-Content -Path w11-fixture/output/run_07876/test.met -Value CORRUPTED
           & $exe w11-fixture/catalogue.json w11-fixture/output
           if($LASTEXITCODE -eq 0){throw "tamper was not rejected"}
