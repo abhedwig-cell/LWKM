@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 from tools.execute_swap_candidate import digest
 from tools.et_calibration import write_json
+from tools.hru_population_manifest import build_manifest, validate_membership
 
 
 def select_prototypes(population):
@@ -48,8 +49,8 @@ def prepare(repo,output):
     with gzip.open(interface/'HRU_CONTEXT_10242.jsonl.gz','rt') as f:
         for line in f:
             row=json.loads(line);contexts[row['run_id']]=row['context']
-    if set(int(h) for h in x.HRU)!=set(int(h) for h in contexts):
-        raise ValueError('representative population and context HRU IDs differ')
+    population_manifest=build_manifest(x.HRU,release='work-b-recovered-snapshot',source_path=interface/'HRU_REPRESENTATIVE.csv.gz')
+    validate_membership(population_manifest,contexts)
     rows=[]
     for r in x.to_dict('records'):
         hid=int(r['HRU']);c=contexts[hid];run=c['run']
@@ -72,6 +73,7 @@ def prepare(repo,output):
                          complete_multiyear_forcing_qualified=False,real_reference_received=False))
     frame=pd.DataFrame(rows);selected=select_prototypes(frame)
     frame.to_csv(output/'population.csv',index=False);selected.to_csv(output/'pilot-hrus.csv',index=False)
+    write_json(output/'hru-population-manifest.json',population_manifest)
     counts=pd.read_csv(repo/'docs/evidence/2026-10-20-work-d1/meteo_counts_by_year.csv')
     common_start=max(pd.Timestamp(c['TSTART']) for c in contexts.values())
     common_end=min(pd.Timestamp(c['TEND']) for c in contexts.values())
