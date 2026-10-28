@@ -111,6 +111,8 @@ public static class DirectDra {
   // Horizon count derives from the actual HRU soil schematization in swap.swp.
   using var inspect=JsonDocument.Parse(JsonSerializer.Serialize(RawDrainage.Inspect(config)));
   var arr=inspect.RootElement.GetProperty("results").EnumerateArray().ToArray();
+  int nHrus=arr.Length;
+  if(nHrus<1)throw new Exception("empty HRU population");
   Directory.CreateDirectory(output);
   var report=new List<object>();int done=0,errors=0;
   foreach(var hru in arr){
@@ -147,9 +149,9 @@ public static class DirectDra {
    }catch(Exception ex){report.Add(new{hru=h,status="RAW_SOURCE_ERROR",error=ex.Message});errors++;}
   }
   File.WriteAllText(Path.Combine(output,"raw-dra-status.json"),
-    JsonSerializer.Serialize(new{schema_version=1,source_mode="RAW_LHM",expected=10242,generated=done,errors,
+    JsonSerializer.Serialize(new{schema_version=1,source_mode="RAW_LHM",expected=nHrus,generated=done,errors,
      production_admitted=false,config_sha256=Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(config))).ToLowerInvariant(),results=report},new JsonSerializerOptions{WriteIndented=true}));
   Console.WriteLine($"RAW_SOURCE_DRA generated={done} errors={errors}");
-  return errors==0&&done==10242?0:1;
+  return errors==0&&done==nHrus?0:1;
  }
 }
