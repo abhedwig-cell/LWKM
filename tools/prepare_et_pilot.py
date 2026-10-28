@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 from tools.execute_swap_candidate import digest
 from tools.et_calibration import write_json
-from tools.hru_population_manifest import build_manifest, validate_membership
+from tools.hru_population_manifest import build_manifest, validate_membership, bind_source_hashes
 
 
 def select_prototypes(population):
@@ -51,6 +51,10 @@ def prepare(repo,output):
             row=json.loads(line);contexts[row['run_id']]=row['context']
     population_manifest=build_manifest(x.HRU,release='work-b-recovered-snapshot',source_path=interface/'HRU_REPRESENTATIVE.csv.gz')
     validate_membership(population_manifest,contexts)
+    population_manifest=bind_source_hashes(population_manifest,{
+        'membership':interface/'HRU_MEMBERSHIP.csv.gz',
+        'representatives':interface/'HRU_REPRESENTATIVE.csv.gz',
+        'soil_context':interface/'HRU_CONTEXT_10242.jsonl.gz'})
     rows=[]
     for r in x.to_dict('records'):
         hid=int(r['HRU']);c=contexts[hid];run=c['run']
