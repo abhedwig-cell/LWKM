@@ -37,10 +37,10 @@ jobs:
           & ./w07_release/W07Dra.exe --from-raw w07-raw-fixture/raw_config.json w07-raw-output
           $expectedExit = $LASTEXITCODE
           Get-Content w07-raw-output/raw-dra-status.json
-          if ($expectedExit -ne 1) { throw "Partial fixture must report incomplete population" }
+          if ($expectedExit -ne 0) { throw "Single-HRU noncontiguous-ID fixture must pass population-derived gate" }
           if (-not (Test-Path w07-raw-output/4015.dra)) { throw "Raw input did not produce DRA" }
           $s = Get-Content w07-raw-output/raw-dra-status.json | ConvertFrom-Json
-          if ($s.generated -ne 1 -or $s.errors -ne 0) { throw "Unexpected raw source failure" }
+          if ($s.expected -ne 1 -or $s.generated -ne 1 -or $s.errors -ne 0) { throw "Unexpected raw source failure" }
           if (-not (Get-Content w07-raw-output/4015.dra -Raw).Contains("NRLEVS = 5")) { throw "Seven physical sources were not reduced to five" }
           if (-not $s.results[0].evidence.max_drain_error_mm_d -and $s.results[0].evidence.max_drain_error_mm_d -ne 0) { throw "Missing drainage fit audit" }
           $global:LASTEXITCODE = 0
