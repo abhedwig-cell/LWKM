@@ -1,0 +1,36 @@
+name: W09 MET05 Windows x64
+on:
+  push:
+    branches:
+      - work/w09-met03-native-windows-20261027
+    paths:
+      - 'tools/native/w09_met05/**'
+      - '.github/workflows/w09-met05-windows-x64.yml'
+  pull_request:
+    paths:
+      - 'tools/native/w09_met05/**'
+      - '.github/workflows/w09-met05-windows-x64.yml'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile static x64 binary using MSVC
+        shell: cmd
+        run: |
+          call "%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+          cl /nologo /std:c++17 /EHsc /O2 /MT /DNDEBUG /Fe:w09_direct_met.exe tools\native\w09_met05\src\w09_direct_met.cpp
+      - name: Execute two-day test against Windows binary
+        shell: pwsh
+        run: |
+          python tools/native/w09_met05/tests/test_smoke_win.py ./w09_direct_met.exe
+          if ($LASTEXITCODE -ne 0) { throw "W09 MET05 smoke failed" }
+          (Get-FileHash ./w09_direct_met.exe -Algorithm SHA256).Hash | Out-File -Encoding ascii w09_direct_met.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LWKM_W09_MET05_Windows_x64
+          path: |
+            w09_direct_met.exe
+            w09_direct_met.sha256
+          if-no-files-found: error
