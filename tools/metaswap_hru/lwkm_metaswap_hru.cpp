@@ -75,7 +75,7 @@ int main(int argc,char**argv){fs::path output;try{
  wchar_t exe[32768];DWORD length=GetModuleFileNameW(nullptr,exe,32768);require(length>0&&length<32768,"Cannot identify executable");
  std::string releaseBinding=argc==8?argv[7]:"";
  require(releaseBinding.empty() || (releaseBinding.size()==64 && std::all_of(releaseBinding.begin(),releaseBinding.end(),[](unsigned char ch){return (ch>='0'&&ch<='9')||(ch>='a'&&ch<='f')||(ch>='A'&&ch<='F');})),"Invalid release SHA256");
- std::string base=version+"\\nrelease_binding_sha256="+releaseBinding+"\\nrelease_identity_status=DECLARED_NOT_SOURCE_VERIFIED\\nexe="+hashfile(fs::path(exe))+"\narea="+hashfile(fs::u8path(argv[1]))+"\nmapping="+hashfile(fs::u8path(argv[2]))+"\nsources="+hashfile(fs::u8path(argv[3]))+"\nunits=m3/m2_per_decade;factor=1000;sign=source;missing=blank_strict_support\n";
+ std::string base=version+"\nrelease_binding_sha256="+releaseBinding+"\nrelease_identity_status=DECLARED_NOT_SOURCE_VERIFIED\nexe="+hashfile(fs::path(exe))+"\narea="+hashfile(fs::u8path(argv[1]))+"\nmapping="+hashfile(fs::u8path(argv[2]))+"\nsources="+hashfile(fs::u8path(argv[3]))+"\nunits=m3/m2_per_decade;factor=1000;sign=source;missing=blank_strict_support\n";
  writefile(output/"run_identity.txt",base);
  std::ostringstream support;support<<"hru_id,svats,area_m2\n"<<std::setprecision(15);std::map<int,int> counts;for(auto&m:members)++counts[m.h];for(auto &[h,a]:total)support<<h<<","<<counts[h]<<","<<a<<"\n";writefile(output/"hru_support.csv",support.str());
  size_t done=0,skipped=0;uint64_t incomplete=0;
