@@ -39,7 +39,7 @@ def prepare(repo,output):
     soil_lookup=pop[['bodem370','bofek79']].drop_duplicates()
     if soil_lookup.bodem370.duplicated().any():raise ValueError('ambiguous realized soil mapping')
     soil_lookup=soil_lookup.set_index('bodem370').bofek79.to_dict()
-    if len(x)!=10242 or x.HRU.duplicated().any():raise ValueError('representative population differs')
+    if x.empty or x.HRU.duplicated().any() or x.HRU.isna().any():raise ValueError('invalid representative population')
     c2=json.loads((repo/'docs/evidence/2026-10-19-work-c2/research-input-catalogue.json').read_text())
     drainage={r['hru'] for r in json.loads((repo/'docs/evidence/2026-10-19-work-c2/remaining-blockers.json').read_text())}
     crop=json.load(gzip.open(repo/'docs/evidence/2026-10-20-work-d1/crop-assets-catalogue.json.gz'))
@@ -48,6 +48,8 @@ def prepare(repo,output):
     with gzip.open(interface/'HRU_CONTEXT_10242.jsonl.gz','rt') as f:
         for line in f:
             row=json.loads(line);contexts[row['run_id']]=row['context']
+    if set(int(h) for h in x.HRU)!=set(int(h) for h in contexts):
+        raise ValueError('representative population and context HRU IDs differ')
     rows=[]
     for r in x.to_dict('records'):
         hid=int(r['HRU']);c=contexts[hid];run=c['run']
