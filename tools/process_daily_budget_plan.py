@@ -17,11 +17,7 @@ def bound(meta):
     return p
 
 
-def process(plan,output,*,allow_estimated_wel=False):
-    cfg=json.loads(plan.read_text());reference=read_idf(bound(cfg['grid']))
-    membership=pd.read_csv(bound(cfg['membership']))
-    if not set(['row','col','hru_id','cell_id','area_m2'])<=set(membership):raise ValueError('membership raster indices required')
-    if membership.duplicated(['row','col']).any():raise ValueError('overlapping physical member cells')
+def verify_hru_release(cfg,membership):
     if cfg.get('hru_population_manifest'):
         manifest=json.loads(bound(cfg['hru_population_manifest']).read_text())
         validate_membership(manifest,membership.hru_id.unique())
@@ -37,6 +33,14 @@ def process(plan,output,*,allow_estimated_wel=False):
         if cfg.get('release_binding_sha256'):
             raise ValueError('BBC release identity without verified population manifest')
         release_binding=None
+    return release_binding
+
+def process(plan,output,*,allow_estimated_wel=False):
+    cfg=json.loads(plan.read_text());reference=read_idf(bound(cfg['grid']))
+    membership=pd.read_csv(bound(cfg['membership']))
+    if not set(['row','col','hru_id','cell_id','area_m2'])<=set(membership):raise ValueError('membership raster indices required')
+    if membership.duplicated(['row','col']).any():raise ValueError('overlapping physical member cells')
+    release_binding=verify_hru_release(cfg,membership)
     rows=membership.row.to_numpy(int);cols=membership.col.to_numpy(int)
     if ((rows<0)|(cols<0)|(rows>=reference.nrow)|(cols>=reference.ncol)).any():raise ValueError('membership outside grid')
     activity=mosaic([bound(cfg['model_activity_mask'])],reference)
