@@ -29,3 +29,12 @@ def test_release_binding_detects_same_ids_changed_membership(tmp_path):
     paths["membership"].write_text("membership altered")
     with pytest.raises(ValueError,match="source identity mismatch"):
         verify_source_binding(manifest,paths)
+
+def test_manifest_binding_requires_exact_member_asset(tmp_path):
+    from tools.hru_population_manifest import bind_source_hashes
+    files={}
+    for role in ("membership","representatives","soil_context"):
+        p=tmp_path/(role+".csv");p.write_text(role);files[role]=p
+    m=bind_source_hashes(build_manifest([101,9001],release="v2"),files)
+    assert m["source_sha256"]["membership"]
+    assert len(m["release_binding_sha256"])==64
