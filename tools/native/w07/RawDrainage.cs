@@ -35,7 +35,7 @@ public static class RawDrainage {
   var svats=new HashSet<int>();foreach(var r in Csv(path)){
    int id=int.Parse(Val(r,"svat","svat_orig")),h=int.Parse(Val(r,"hru","hru_id"));
    double x=F(Val(r,"x","xc(m)","xc")),y=F(Val(r,"y","yc(m)","yc"));
-   if(!svats.Add(id)||h<1||h>10242)throw new Exception("duplicate SVAT or invalid HRU");
+   if(!svats.Add(id)||h<1)throw new Exception("duplicate SVAT or invalid HRU");
    members.Add(new(id,h,x,y));
   }return members;
  }
