@@ -26,10 +26,11 @@ with tempfile.TemporaryDirectory() as d:
  print('PASSED',len(outputs),'files,',len(data)-1,'days, values:',data[1])
  # A new release may have sparse, nonsequential HRU IDs, not 1..N.
  (p/'weights.csv').write_text('hru_id,grid_id,area_m2,weight\n101,0,1,1\n205,0,1,1\n9001,0,1,1\n')
- (p/'config.ini').write_text(('\n'.join(cfg)+'\n').replace('output_met=out','output_met=out_sparse'))
+ (p/'config.ini').write_text(('\n'.join(cfg)+'\n'+'release_binding_sha256='+('a'*64)+'\n').replace('output_met=out','output_met=out_sparse'))
  x=subprocess.run([str(Path(sys.argv[1]).resolve()),str(p/'config.ini')],capture_output=True,text=True)
  assert x.returncode==0,(x.stdout,x.stderr)
  sparse=list((p/'out_sparse').glob('HRU_*.met'))
  assert sorted(q.name for q in sparse)==['HRU_00101.met','HRU_00205.met','HRU_09001.met'],sparse
  assert 'HRUs=3' in (p/'out_sparse'/'MANIFEST.txt').read_text()
+ assert 'release_binding_sha256='+('a'*64) in (p/'out_sparse'/'MANIFEST.txt').read_text()
  print('PASSED sparse nonconsecutive HRUs')
