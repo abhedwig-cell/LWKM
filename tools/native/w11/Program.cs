@@ -76,7 +76,7 @@ class Program {
    string catPath=Path.GetFullPath(args[0]),root=Path.GetFullPath(args[1]);bool research=args.Contains("--allow-research-inputs");bool strict=args.Contains("--require-release-binding");
    Catalogue? cat=JsonSerializer.Deserialize<Catalogue>(File.ReadAllText(catPath),JsonOptions);
    if(cat is null||cat.schema_version!=1||string.IsNullOrWhiteSpace(cat.profile_id)||cat.expected_population<=0||cat.runs is null||cat.runs.Count>cat.expected_population||cat.runs.Select(x=>x.hru_id).Distinct().Count()!=cat.runs.Count)throw new Exception("invalid catalogue schema/population/duplicates");
-   if(strict && (string.IsNullOrWhiteSpace(cat.release_binding_sha256)||cat.release_binding_sha256.Length!=64||
+   if((strict || !research) && (string.IsNullOrWhiteSpace(cat.release_binding_sha256)||cat.release_binding_sha256.Length!=64||
        cat.release_binding_sha256.Any(ch=>!Uri.IsHexDigit(ch))))throw new Exception("missing or invalid required release binding");
    if(!DateOnly.TryParse(cat.start,out var first)||!DateOnly.TryParse(cat.end,out var last)||last<first)throw new Exception("invalid period");
    Directory.CreateDirectory(root);
