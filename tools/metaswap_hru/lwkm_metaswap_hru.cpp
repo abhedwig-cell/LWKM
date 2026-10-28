@@ -83,7 +83,7 @@ int main(int argc,char**argv){fs::path output;try{
  for(int j=0;j<9;++j){require(fs::is_regular_file(p.path[j]),"Missing source "+p.path[j].string());sizes[j]=fs::file_size(p.path[j]);times[j]=fs::last_write_time(p.path[j]);identity+=names[j]+","+p.path[j].generic_u8string()+","+std::to_string(sizes[j])+","+hashfile(p.path[j])+"\n";}
  fs::path target=output/(date+".csv"),marker=output/(date+".sha256");
  if(fs::exists(target)&&fs::exists(marker)){fs::path qp=output/(date+"_qc.csv");std::string expected=identity+"output="+hashfile(target)+"\n";if(fs::exists(qp))expected+="qc="+hashfile(qp)+"\n";if(fs::exists(qp)&&readtext(marker)==expected){++skipped;report(date+" SKIP verified");continue;}}
- std::vector<A> sums(total.size()+1),covered(total.size()+1);std::vector<std::array<int,9>> missing(total.size()+1);std::array<uint64_t,9> positive{},negative{};
+ std::map<int,A> sums,covered;std::map<int,std::array<int,9>> missing;std::array<uint64_t,9> positive{},negative{};
  for(int j=0;j<9;++j){Raster r=idf(p.path[j]);for(auto &m:members){double z=r.v[position(r,m)];if(!std::isfinite(z)||z==r.nd){++missing[m.h][j];continue;}double q=z*1000*m.a;require(std::isfinite(q),"Nonfinite weighted value");sums[m.h][j]+=q;covered[m.h][j]+=m.a;if(z>0)++positive[j];if(z<0)++negative[j];}}
  for(int j=0;j<9;++j)require(sizes[j]==fs::file_size(p.path[j])&&times[j]==fs::last_write_time(p.path[j]),"Source changed during processing");
  fs::path tmp=target;tmp+=".partial";std::ofstream f(tmp,std::ios::binary);require(bool(f),"Cannot create output");f<<"hru_id,days,complete";for(auto &n:names)f<<","<<n;f<<",E_SOIL_POND,E_INTERCEPTION_SPRINKLING,T_ACTUAL,ET_ACTUAL,IRR_TOTAL,BDGETACT_MINUS_ET";for(auto &n:names)f<<",coverage_"<<n;f<<"\n"<<std::setprecision(10);
