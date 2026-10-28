@@ -67,6 +67,11 @@ void run(const fs::path&cp){auto cfg=config(cp);Grid ref=gridread(resolve(cp,req
  std::ostringstream record;record.imbue(std::locale::classic());record<<std::fixed<<std::setprecision(6)<<"'"<<id<<"' "<<d<<" "<<m<<" "<<yr<<" "<<v[4]<<" "<<v[2]<<" "<<v[3]<<" "<<v[5]<<" "<<v[6]<<" "<<v[0]<<" "<<v[1]<<" "<<wet<<"\n";lines[id]+=record.str();}
  agg+=std::chrono::duration<double>(Clock::now()-t).count();}
  auto t=Clock::now();for(const auto &[id,links]:w){std::ofstream out(part/filemet(id),std::ios::binary|(yr==first?std::ios::out:std::ios::app));if(!out)throw std::runtime_error("Cannot open output");if(yr==first)out<<"Station DD MM YYYY RAD Tmin Tmax HUM WIND RAIN ETref WET\n";out<<lines[id];if(!out)throw std::runtime_error("Write failed");}write+=std::chrono::duration<double>(Clock::now()-t).count();log<<yr<<","<<ndays(yr)<<","<<io<<","<<nn<<","<<agg<<","<<write<<","<<queries<<"\n";log.flush();std::cout<<"YEAR "<<yr<<" ascii="<<io<<" nearest="<<nn<<" aggregate="<<agg<<" write="<<write<<" nearest_queries="<<queries<<"\n";}
- std::ofstream manifest(part/"MANIFEST.txt");manifest<<"LWKM MET03 direct ASCII to HRU MET; NOT SWAP-qualified. HRUs="<<w.size()<<" Years="<<first<<".."<<last<<"\n";manifest.close();log.close();fs::rename(part,target);
+ std::string binding=cfg.count("release_binding_sha256")?cfg.at("release_binding_sha256"):"";
+ if(!binding.empty() && (binding.size()!=64 || !std::all_of(binding.begin(),binding.end(),[](char ch){return std::isxdigit(static_cast<unsigned char>(ch))!=0;})))
+  throw std::runtime_error("Invalid HRU release binding SHA256");
+ std::ofstream manifest(part/"MANIFEST.txt");manifest<<"LWKM MET03 direct ASCII to HRU MET; NOT SWAP-qualified. HRUs="<<w.size()<<" Years="<<first<<".."<<last<<"\\n";
+ manifest<<"release_binding_sha256="<<binding<<"\\n";
+ manifest<<"release_identity_status="<<(binding.empty()?"UNBOUND_RESEARCH":"DECLARED_NOT_SOURCE_VERIFIED")<<"\\n";manifest.close();log.close();fs::rename(part,target);
 }
 int main(int argc,char**argv){try{if(argc!=2)throw std::runtime_error("Usage: w09_direct_met config.ini");run(argv[1]);return 0;}catch(const std::exception&e){std::cerr<<"W09 MET03 ERROR: "<<e.what()<<"\n";return 2;}}
