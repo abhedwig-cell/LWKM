@@ -27,3 +27,33 @@ def write_manifest(ids,output,release,source_path=None):
     manifest=build_manifest(ids,release=release,source_path=source_path)
     Path(output).write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
     return manifest
+
+def bind_source_hashes(manifest, sources):
+    """Bind exact bytes of release membership, representative and soil context assets."""
+    required=("membership","representatives","soil_context")
+    if set(sources)!=set(required):
+        raise ValueError("Require membership, representatives and soil_context")
+    hashes={}
+    for role,path in sorted(sources.items()):
+        p=Path(path)
+        if not p.is_file():
+            raise FileNotFoundError(p)
+        h=hashlib.sha256()
+        with p.open("rb") as fh:
+            for chunk in iter(lambda:fh.read(1024*1024),b""):
+                h.update(chunk)
+        hashes[role]=h.hexdigest()
+    identity=manifest["identity_sha256"]
+    binding=hashlib.sha256(json.dumps({"identity":identity,"sources":hashes},
+        sort_keys=True,separators=(",",":")).encode()).hexdigest()
+    return {**manifest,"source_sha256":hashes,"release_binding_sha256":binding}
+
+def verify_source_binding(manifest, sources):
+    if not validate_membership(manifest,manifest["hru_ids"]):
+        return False
+    if "source_sha256" not in manifest or "release_binding_sha256" not in manifest:
+        raise ValueError("Manifest lacks source binding")
+    rebound=bind_source_hashes(manifest,sources)
+    if rebound["source_sha256"]!=manifest["source_sha256"] or rebound["release_binding_sha256"]!=manifest["release_binding_sha256"]:
+        raise ValueError("HRU release source identity mismatch")
+    return True
