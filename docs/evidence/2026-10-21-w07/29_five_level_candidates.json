@@ -1,0 +1,2066 @@
+{
+  "schema_version": 1,
+  "source": "Work C2 protected-partition diagnostics 2026-10-19",
+  "reference_range_groundwater_level_m": [
+    -1,
+    5
+  ],
+  "seasons": [
+    "summer",
+    "winter"
+  ],
+  "numerical_method": "exhaustive four-open-group partition plus separate pipe; conductance-weighted stage; 0.1m head grid",
+  "status": "DIAGNOSTIC_ONLY_NOT_DRA_FILE",
+  "count": 29,
+  "results": [
+    {
+      "hru": 4015,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "OLF"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 30.9438242904606,
+          "infres": 20062.372235117902,
+          "allow_infiltration": true,
+          "summer": 0.14768649362498615,
+          "winter": 0.14768649362498615
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 3442.526793874854,
+          "infres": 10431.898960851924,
+          "allow_infiltration": true,
+          "summer": 1.614960521714589,
+          "winter": 1.614960521714589
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 4213.6013287880905,
+          "infres": 12768.488367741282,
+          "allow_infiltration": true,
+          "summer": 0.7457603624520632,
+          "winter": 0.7457603624520632
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2541.7151485332242,
+          "infres": 7702.166810710734,
+          "allow_infiltration": true,
+          "summer": 1.1909322487093683,
+          "winter": 1.191501168535934
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 14413.793042775991,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.3655171279780212,
+          "winter": 1.3655171279780212
+        }
+      ],
+      "max_drain_error_mm_d": 0.04984455344460227,
+      "max_infil_error_mm_d": 0.007361367434229526,
+      "max_net_error_mm_d": 0.0522214654600973,
+      "squared_error_score": 0.006172432508680582
+    },
+    {
+      "hru": 8686,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 119.55252020954536,
+          "infres": 1195.5251842807402,
+          "allow_infiltration": true,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 393.6904889878312,
+          "infres": 1193.0014343756889,
+          "allow_infiltration": true,
+          "summer": 2.6396971611615663,
+          "winter": 2.643565573858135
+        },
+        {
+          "source": [
+            "S",
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 749.4000715368268,
+          "infres": 2270.909217449529,
+          "allow_infiltration": true,
+          "summer": 0.9419052256937775,
+          "winter": 0.9566169934568532
+        },
+        {
+          "source": [
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 40.50000158203132,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.22628931920528408,
+          "winter": 0.22628931920528408
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 5407.935048837956,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0407938671919652,
+          "winter": 1.0407938671919652
+        }
+      ],
+      "max_drain_error_mm_d": 0.11206904552458347,
+      "max_infil_error_mm_d": 0.036982786492676833,
+      "max_net_error_mm_d": 0.07508625903190663,
+      "squared_error_score": 0.05659738987593755
+    },
+    {
+      "hru": 3887,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 32.19885549650948,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.14989121048996085,
+          "winter": 0.14989121048996085
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 12238.885747150322,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.2773330164250525,
+          "winter": 1.4990435460271645
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2919.132946351484,
+          "infres": 29191.329028530134,
+          "allow_infiltration": true,
+          "summer": 1.3057533213595902,
+          "winter": 1.3813677294893618
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 5141.89126615276,
+          "infres": 51418.911895326106,
+          "allow_infiltration": true,
+          "summer": 0.8840741849468077,
+          "winter": 0.8899282331078122
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 173.55945681889435,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0796086265564862,
+          "winter": 1.0796086265564862
+        }
+      ],
+      "max_drain_error_mm_d": 0.0022522952112658274,
+      "max_infil_error_mm_d": 1.3552527156068805e-17,
+      "max_net_error_mm_d": 0.0022522952112658274,
+      "squared_error_score": 0.000010145667437381956
+    },
+    {
+      "hru": 3880,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1950.3301478972585,
+          "infres": 19503.301188350753,
+          "allow_infiltration": true,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P",
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1599.0139861692885,
+          "infres": 17035.356982334328,
+          "allow_infiltration": true,
+          "summer": 1.5957098488255368,
+          "winter": 1.7024563748527266
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 31328.630617099254,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.3822147667228317,
+          "winter": 1.3895929939142764
+        },
+        {
+          "source": [
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 60.00000234375009,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.14999998649267046,
+          "winter": 0.14999998649267046
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 134.8281926409153,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.1378104127908872,
+          "winter": 1.1378104127908872
+        }
+      ],
+      "max_drain_error_mm_d": 0.0025508413734123825,
+      "max_infil_error_mm_d": 0.00040331237438623454,
+      "max_net_error_mm_d": 0.0026950341164980666,
+      "squared_error_score": 0.00001757107527966941
+    },
+    {
+      "hru": 8611,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 30.60900548446076,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.2314633053245356,
+          "winter": 0.2314633053245356
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 35820.12407705712,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.6354339840968726,
+          "winter": 1.5128696452415398
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1199.7046031421266,
+          "infres": 3635.4683499095477,
+          "allow_infiltration": true,
+          "summer": 1.1077150703636998,
+          "winter": 1.1025031655952182
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 796.1709981352767,
+          "infres": 73551.14252620604,
+          "allow_infiltration": true,
+          "summer": 0.682256597416472,
+          "winter": 0.6780197604268415
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 2132.3529411764707,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.1999999033703528,
+          "winter": 1.1999999033703528
+        }
+      ],
+      "max_drain_error_mm_d": 0.006566135169719828,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.006566135169719828,
+      "squared_error_score": 0.0001077853276675791
+    },
+    {
+      "hru": 8744,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 32.37269536418842,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.15632135181908374,
+          "winter": 0.15632135181908374
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 613.2726601750078,
+          "infres": 1858.4019266840685,
+          "allow_infiltration": true,
+          "summer": 2.7992530418660664,
+          "winter": 2.8508816596953106
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 474.2876830434147,
+          "infres": 1437.235346051261,
+          "allow_infiltration": true,
+          "summer": 1.798054738257754,
+          "winter": 1.860284932576264
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 62039.36321073992,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 2.4685685091126395,
+          "winter": 2.4807779731942086
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 396.9578867550895,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.718274091054808,
+          "winter": 0.718274091054808
+        }
+      ],
+      "max_drain_error_mm_d": 0.0015455384914691633,
+      "max_infil_error_mm_d": 8.673617379884035e-16,
+      "max_net_error_mm_d": 0.001545538491469597,
+      "squared_error_score": 0.000004777378464862666
+    },
+    {
+      "hru": 3863,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 34.874858710960346,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.1505988579331018,
+          "winter": 0.1505988579331018
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 15644.539959430886,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.326211329132855,
+          "winter": 1.578611913742437
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2107.0467365906184,
+          "infres": 21070.467051931762,
+          "allow_infiltration": true,
+          "summer": 1.2052297122759739,
+          "winter": 1.3242166489491891
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 12691.498610647017,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0035540807786447,
+          "winter": 1.0102354928834174
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 189.41848793963564,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0872242382899358,
+          "winter": 1.0872242382899358
+        }
+      ],
+      "max_drain_error_mm_d": 0.005648575909932454,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.005648575909932454,
+      "squared_error_score": 0.0000638128196205385
+    },
+    {
+      "hru": 3884,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 35.59769467273343,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.1498850244642862,
+          "winter": 0.1498850244642862
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 14482.92717316039,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 2.058004636253934,
+          "winter": 2.250357202589383
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1513.9079918285424,
+          "infres": 11931.742521859682,
+          "allow_infiltration": true,
+          "summer": 1.6318587805766767,
+          "winter": 1.7198934539410622
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 18610.445043230273,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.5314088222868183,
+          "winter": 1.5314088222868183
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 135.48735455506738,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.3954317406126806,
+          "winter": 1.3954317406126806
+        }
+      ],
+      "max_drain_error_mm_d": 0.002153241569117496,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.002153241569117496,
+      "squared_error_score": 0.000009272898509951151
+    },
+    {
+      "hru": 3890,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 18342.803487089528,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 11073.692926699197,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.6259480953161414,
+          "winter": 1.935499348701315
+        },
+        {
+          "source": [
+            "S",
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1742.7913102158916,
+          "infres": 20559.240107969006,
+          "allow_infiltration": true,
+          "summer": 1.477328403582129,
+          "winter": 1.5736766395338508
+        },
+        {
+          "source": [
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 32.57142984375005,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.14999997583798003,
+          "winter": 0.14999997583798003
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 121.90097865900664,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.3037870169162804,
+          "winter": 1.3037870169162804
+        }
+      ],
+      "max_drain_error_mm_d": 0.003039125608686466,
+      "max_infil_error_mm_d": 0.0009477938926698548,
+      "max_net_error_mm_d": 0.002091331716016615,
+      "squared_error_score": 0.00003482909039539226
+    },
+    {
+      "hru": 2104,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 15244.396144057357,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P",
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 938.3603590102547,
+          "infres": 8575.79598372802,
+          "allow_infiltration": true,
+          "summer": 0.9845167231876936,
+          "winter": 0.9879022194788486
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2566.7708977194698,
+          "infres": 7850.870698295385,
+          "allow_infiltration": true,
+          "summer": 1.34492618115299,
+          "winter": 1.3989822986687526
+        },
+        {
+          "source": [
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 30.36288810835282,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.22911881978505752,
+          "winter": 0.22911881978505752
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 518.4765381862821,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.8349788922929127,
+          "winter": 0.8349788922929127
+        }
+      ],
+      "max_drain_error_mm_d": 0.001243871742603181,
+      "max_infil_error_mm_d": 0.00015259187911571392,
+      "max_net_error_mm_d": 0.001243871742603181,
+      "squared_error_score": 0.000002200390160192991
+    },
+    {
+      "hru": 7584,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 30.442002642963427,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.1504034547750932,
+          "winter": 0.1504034547750932
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 6310.254841413073,
+          "infres": 19121.983608079045,
+          "allow_infiltration": true,
+          "summer": 1.5519890779247547,
+          "winter": 1.9357192376300547
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2077.9570298613894,
+          "infres": 6296.839234214543,
+          "allow_infiltration": true,
+          "summer": 0.8867805409378343,
+          "winter": 0.8926960991377627
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 85065.80612775599,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.3196354400496557,
+          "winter": 1.3196354400496557
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 135.95362401329425,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0276124152311303,
+          "winter": 1.0276124152311303
+        }
+      ],
+      "max_drain_error_mm_d": 0.0016005932319455031,
+      "max_infil_error_mm_d": 5.421010862427522e-17,
+      "max_net_error_mm_d": 0.0016005932319455031,
+      "squared_error_score": 0.000005123797388584666
+    },
+    {
+      "hru": 1371,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 54102.97242645924,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P",
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2623.8766067849638,
+          "infres": 27955.15366272718,
+          "allow_infiltration": true,
+          "summer": 1.5284785735482518,
+          "winter": 1.6045703977537167
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 17042.37196129119,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.1958752272875581,
+          "winter": 1.2029728929782144
+        },
+        {
+          "source": [
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 35.00000136718755,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.14236904153227808,
+          "winter": 0.14236904153227808
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 164.86891960612658,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.3394271844532106,
+          "winter": 1.3394271844532106
+        }
+      ],
+      "max_drain_error_mm_d": 0.0014019913662510763,
+      "max_infil_error_mm_d": 0.0003036894850339271,
+      "max_net_error_mm_d": 0.00156548171256995,
+      "squared_error_score": 0.000005080107294142814
+    },
+    {
+      "hru": 3878,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2176.107321865846,
+          "infres": 21761.07289439321,
+          "allow_infiltration": true,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 32950.051221085836,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 2.2378205922793613,
+          "winter": 2.393498424348598
+        },
+        {
+          "source": [
+            "S",
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 853.738284266573,
+          "infres": 6128.570043148419,
+          "allow_infiltration": true,
+          "summer": 1.5780144123384348,
+          "winter": 1.649254107038496
+        },
+        {
+          "source": [
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 55.38461754807701,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.14999999016064863,
+          "winter": 0.14999999016064863
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 144.5394590900105,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.1390249065218883,
+          "winter": 1.1390249065218883
+        }
+      ],
+      "max_drain_error_mm_d": 0.00039668519773508604,
+      "max_infil_error_mm_d": 0.00015116065585297957,
+      "max_net_error_mm_d": 0.00024552454188213866,
+      "squared_error_score": 8.479600369336171e-7
+    },
+    {
+      "hru": 5989,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 5828.205603508257,
+          "infres": 58282.05516661227,
+          "allow_infiltration": true,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P",
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1484.5119820598682,
+          "infres": 10689.26640709294,
+          "allow_infiltration": true,
+          "summer": 0.6661132020768065,
+          "winter": 0.6957430229145632
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 71855.58096073272,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.1266425527612196,
+          "winter": 1.134530011613719
+        },
+        {
+          "source": [
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 37.99612401829657,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.15763650310663208,
+          "winter": 0.15763650310663208
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 218.5285245275799,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0842190195079182,
+          "winter": 1.0842190195079182
+        }
+      ],
+      "max_drain_error_mm_d": 0.0014415701226760946,
+      "max_infil_error_mm_d": 0.0004227219453540069,
+      "max_net_error_mm_d": 0.0010188481773221107,
+      "squared_error_score": 0.000006502809857590487
+    },
+    {
+      "hru": 10080,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 30.36655729190115,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.20623537157024854,
+          "winter": 0.20623537157024854
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1545.776199332894,
+          "infres": 7442.307309111225,
+          "allow_infiltration": true,
+          "summer": 1.8033965709953872,
+          "winter": 1.8082024042807938
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 828.5889209896939,
+          "infres": 4093.903405237539,
+          "allow_infiltration": true,
+          "summer": 1.2270082191047817,
+          "winter": 1.2316983122267757
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 448.79888836304787,
+          "infres": 12443.626559080652,
+          "allow_infiltration": true,
+          "summer": 0.6850022037884103,
+          "winter": 0.6864400798820677
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 935.3591064867135,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.8710422699003278,
+          "winter": 0.8710422699003278
+        }
+      ],
+      "max_drain_error_mm_d": 0.01959819223303498,
+      "max_infil_error_mm_d": 1.0842021724855044e-16,
+      "max_net_error_mm_d": 0.01959819223303498,
+      "squared_error_score": 0.0009602206362211189
+    },
+    {
+      "hru": 9803,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 36.34969590259968,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.15136805502991216,
+          "winter": 0.15136805502991216
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 29413.675066011525,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.5348744012228386,
+          "winter": 1.537397111987755
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1258.0643225923216,
+          "infres": 12580.643038457025,
+          "allow_infiltration": true,
+          "summer": 1.3451282685856698,
+          "winter": 1.3461262932647329
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 32692.066953389036,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.9712113007107182,
+          "winter": 0.9712113007107182
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 218.54176512946054,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0720031732103799,
+          "winter": 1.0720031732103799
+        }
+      ],
+      "max_drain_error_mm_d": 0.0022786751174926757,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.0022786751174926757,
+      "squared_error_score": 0.000010384720582160519
+    },
+    {
+      "hru": 939,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 30.71615719530275,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.15070146618875557,
+          "winter": 0.15070146618875557
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 10684.329632131383,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.516928781115838,
+          "winter": 1.6535874199443135
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1018.8086633431836,
+          "infres": 10188.086481617514,
+          "allow_infiltration": true,
+          "summer": 1.4960995121448786,
+          "winter": 1.5564203554453757
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 12680.044410141372,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0665138664380516,
+          "winter": 1.0766651891382872
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 208.80720452746746,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.8774989749814245,
+          "winter": 0.8774989749814245
+        }
+      ],
+      "max_drain_error_mm_d": 0.001831670005648744,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.001831670005648744,
+      "squared_error_score": 0.000006710030019206362
+    },
+    {
+      "hru": 8805,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2151.268115942029,
+          "infres": 21512.680838856362,
+          "allow_infiltration": true,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P",
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 307.55595736116527,
+          "infres": 3045.3808979670844,
+          "allow_infiltration": true,
+          "summer": 1.255695221581475,
+          "winter": 1.255695221581475
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 11524.258751438989,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.9421324848896425,
+          "winter": 0.9421324848896425
+        },
+        {
+          "source": [
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 38.983670191185375,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.16238417117907766,
+          "winter": 0.16238417117907766
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 283.1605653591911,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.2002590101855664,
+          "winter": 1.2002590101855664
+        }
+      ],
+      "max_drain_error_mm_d": 0.010380946086886722,
+      "max_infil_error_mm_d": 0.0012450613209022193,
+      "max_net_error_mm_d": 0.010380946086886722,
+      "squared_error_score": 0.00037744062142193127
+    },
+    {
+      "hru": 3883,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 34.603035640412095,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.1496668122957466,
+          "winter": 0.1496668122957466
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 18915.578302768936,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.4824193769903926,
+          "winter": 1.6249251513589096
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 2057.411557732948,
+          "infres": 20574.11527075127,
+          "allow_infiltration": true,
+          "summer": 1.3300396670765007,
+          "winter": 1.399695458469877
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 15520.226500480725,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.129797921287538,
+          "winter": 1.1316235080123043
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 156.53189640874638,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.152036621480046,
+          "winter": 1.152036621480046
+        }
+      ],
+      "max_drain_error_mm_d": 0.0071295750765152915,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.0071295750765152915,
+      "squared_error_score": 0.00010166168154333793
+    },
+    {
+      "hru": 6019,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 24983.48950663235,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 41839.60873185485,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.9647109074022187,
+          "winter": 1.2352776704034893
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 3315.466463627657,
+          "infres": 33154.66414223358,
+          "allow_infiltration": true,
+          "summer": 0.4490748387762241,
+          "winter": 0.47608719897400587
+        },
+        {
+          "source": [
+            "T",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 50.31841383425127,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.15446967942772288,
+          "winter": 0.15446967942772288
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 229.85130289402196,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.102965630462617,
+          "winter": 1.102965630462617
+        }
+      ],
+      "max_drain_error_mm_d": 0.00024224876949449463,
+      "max_infil_error_mm_d": 6.776263578034403e-18,
+      "max_net_error_mm_d": 0.0002422487694944963,
+      "squared_error_score": 1.1736893264319358e-7
+    },
+    {
+      "hru": 8821,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 27.55380952100905,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.17685516668829468,
+          "winter": 0.17685516668829468
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 9441.36551280779,
+          "infres": 94413.65372120484,
+          "allow_infiltration": true,
+          "summer": 6.661000005960465,
+          "winter": 6.661000005960465
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 4895.196879371745,
+          "infres": 48951.96806427629,
+          "allow_infiltration": true,
+          "summer": 3.695558309535731,
+          "winter": 3.695558309535731
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1425.22675672817,
+          "infres": 12133.030294380973,
+          "allow_infiltration": true,
+          "summer": 1.9073767174957124,
+          "winter": 1.9073767174957124
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 353.77677344338696,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.9486661218442852,
+          "winter": 0.9486661218442852
+        }
+      ],
+      "max_drain_error_mm_d": 0.0033252481079101563,
+      "max_infil_error_mm_d": 1.0842021724855044e-16,
+      "max_net_error_mm_d": 0.0033252481079101563,
+      "squared_error_score": 0.000022114549958320148
+    },
+    {
+      "hru": 4027,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 3951.631510361659,
+          "infres": 39516.314514777616,
+          "allow_infiltration": true,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P",
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1202.7845945516453,
+          "infres": 10080.161929080587,
+          "allow_infiltration": true,
+          "summer": 1.854822360502679,
+          "winter": 1.8626417160711848
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 857.1210996125578,
+          "infres": 9588.04333488007,
+          "allow_infiltration": true,
+          "summer": 1.055630524666501,
+          "winter": 1.0559422141634094
+        },
+        {
+          "source": [
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 30.753658949523235,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.23033522309312796,
+          "winter": 0.23033522309312796
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 402.4262202043775,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.6401450968783082,
+          "winter": 0.6401450968783082
+        }
+      ],
+      "max_drain_error_mm_d": 0.016935855588963433,
+      "max_infil_error_mm_d": 0.002232587504554515,
+      "max_net_error_mm_d": 0.016935855588963433,
+      "squared_error_score": 0.0014328800396615695
+    },
+    {
+      "hru": 5891,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 31.38850978283184,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.15074602869250783,
+          "winter": 0.15074602869250783
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 34944.167699586054,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.4010195078872947,
+          "winter": 1.4010195078872947
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1206.5838212855408,
+          "infres": 12065.83803306041,
+          "allow_infiltration": true,
+          "summer": 1.1212167992667585,
+          "winter": 1.1212167992667585
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 28336.12510185639,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.8408525475907528,
+          "winter": 0.8408525475907528
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 199.8285933772564,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.0756951290505228,
+          "winter": 1.0756951290505228
+        }
+      ],
+      "max_drain_error_mm_d": 0.0033359320163726808,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.0033359320163726808,
+      "squared_error_score": 0.0000222568848357206
+    },
+    {
+      "hru": 8990,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 14444.444444444443,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P",
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 678.0837224543877,
+          "infres": 2779.3615426694923,
+          "allow_infiltration": true,
+          "summer": 1.1552972360924922,
+          "winter": 1.1639590933646593
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 599.3706206074148,
+          "infres": 3566.5517105661397,
+          "allow_infiltration": true,
+          "summer": 0.7442561742996266,
+          "winter": 0.7442561742996266
+        },
+        {
+          "source": [
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 30.602531227553936,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.20980854665396328,
+          "winter": 0.20980854665396328
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 432.69484335305395,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.7716938854998696,
+          "winter": 0.7716938854998696
+        }
+      ],
+      "max_drain_error_mm_d": 0.001857215780554089,
+      "max_infil_error_mm_d": 0.0007355258656431031,
+      "max_net_error_mm_d": 0.001857215780554089,
+      "squared_error_score": 0.000029042261246203822
+    },
+    {
+      "hru": 3867,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 33.91872597549395,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.154108614294025,
+          "winter": 0.154108614294025
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 32644.926360611717,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.911629324767454,
+          "winter": 1.9748699364063813
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1978.816717702784,
+          "infres": 19788.166882161175,
+          "allow_infiltration": true,
+          "summer": 1.5502292277294554,
+          "winter": 1.6366883251911495
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 18013.352337981632,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.4060698243985423,
+          "winter": 1.441436735538334
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 156.9248119234217,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.2348886052679184,
+          "winter": 1.2348886052679184
+        }
+      ],
+      "max_drain_error_mm_d": 0.005194059096442329,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.005194059096442329,
+      "squared_error_score": 0.000053956499794670605
+    },
+    {
+      "hru": 8842,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 43.88714821460599,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.17748255641062655,
+          "winter": 0.17748255641062655
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 88.51031692222105,
+          "infres": 294.22933624437906,
+          "allow_infiltration": true,
+          "summer": 2.684437302104066,
+          "winter": 2.731562157213068
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 96.56323256258771,
+          "infres": 300.2414659032256,
+          "allow_infiltration": true,
+          "summer": 2.2703179870099532,
+          "winter": 2.2774509648631143
+        },
+        {
+          "source": [
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 824.1686434760802,
+          "infres": 3938.655020560872,
+          "allow_infiltration": true,
+          "summer": 1.2042207113377748,
+          "winter": 1.207092203281448
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 698.9314034379047,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.122193231122009,
+          "winter": 1.122193231122009
+        }
+      ],
+      "max_drain_error_mm_d": 0.0034391966653248623,
+      "max_infil_error_mm_d": 0,
+      "max_net_error_mm_d": 0.0034391966653248623,
+      "squared_error_score": 0.000023656147405563306
+    },
+    {
+      "hru": 8946,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 4779.077559699919,
+          "infres": 47790.77488486115,
+          "allow_infiltration": true,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1078.9991013076326,
+          "infres": 3269.6941164607942,
+          "allow_infiltration": true,
+          "summer": 1.2539649014891021,
+          "winter": 1.2546526296655935
+        },
+        {
+          "source": [
+            "S",
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 962.8386857308365,
+          "infres": 2975.2675413877896,
+          "allow_infiltration": true,
+          "summer": 0.8279149399466971,
+          "winter": 0.8279149399466971
+        },
+        {
+          "source": [
+            "MVG",
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 28.402658371353738,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.17387782279699432,
+          "winter": 0.17387782279699432
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 292.5170343794753,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.9109246049637646,
+          "winter": 0.9109246049637646
+        }
+      ],
+      "max_drain_error_mm_d": 0.0014537190902164099,
+      "max_infil_error_mm_d": 0.0009578189321508227,
+      "max_net_error_mm_d": 0.0014537190902164099,
+      "squared_error_score": 0.00003908844852909447
+    },
+    {
+      "hru": 9744,
+      "number_source": 6,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 10,
+      "levels": [
+        {
+          "source": [
+            "H1"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 6957.973778919981,
+          "infres": 69579.73675238094,
+          "allow_infiltration": true,
+          "summer": 0,
+          "winter": 0
+        },
+        {
+          "source": [
+            "P",
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 432.69163914976787,
+          "infres": 1326.2518990241992,
+          "allow_infiltration": true,
+          "summer": 0.49533266319348396,
+          "winter": 0.7177950164006008
+        },
+        {
+          "source": [
+            "S"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 1790.9250940604122,
+          "infres": 5427.045523925594,
+          "allow_infiltration": true,
+          "summer": 1.3570125570661864,
+          "winter": 1.3637213893711186
+        },
+        {
+          "source": [
+            "OLF"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 36.92307836538467,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.16664320323100457,
+          "winter": 0.16664320323100457
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 581.2563230671886,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 1.09752896569177,
+          "winter": 1.09752896569177
+        }
+      ],
+      "max_drain_error_mm_d": 0.004404000685388765,
+      "max_infil_error_mm_d": 0.0014937548226509785,
+      "max_net_error_mm_d": 0.004404000685388765,
+      "squared_error_score": 0.00005718588988539753
+    },
+    {
+      "hru": 7737,
+      "number_source": 7,
+      "number_levels": 5,
+      "status": "AUTO_APPROXIMATED_FIVE_LEVEL_DIAGNOSTIC",
+      "qualification": "NOT_ADMITTED",
+      "candidates_evaluated": 65,
+      "levels": [
+        {
+          "source": [
+            "H1",
+            "OLF"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 59.511323891687255,
+          "infres": 73068.0778884555,
+          "allow_infiltration": true,
+          "summer": 0.07053916014324868,
+          "winter": 0.07053916014324868
+        },
+        {
+          "source": [
+            "P"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 369.6008364064221,
+          "infres": 1120.002490060015,
+          "allow_infiltration": true,
+          "summer": 0.058266218983116416,
+          "winter": 0.058266218983116416
+        },
+        {
+          "source": [
+            "S",
+            "T"
+          ],
+          "hydraulic_class": "infiltration_capable_open",
+          "drnres": 612.9922292239494,
+          "infres": 1869.1240733535437,
+          "allow_infiltration": true,
+          "summer": 0.16667080325690095,
+          "winter": 0.16667080325690095
+        },
+        {
+          "source": [
+            "MVG"
+          ],
+          "hydraulic_class": "drain_only_open",
+          "drnres": 159.75063466750865,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.20000004982470518,
+          "winter": 0.20000004982470518
+        },
+        {
+          "source": [
+            "PIPE"
+          ],
+          "hydraulic_class": "pipe",
+          "drnres": 1033.03542090423,
+          "infres": 100000,
+          "allow_infiltration": false,
+          "summer": 0.6444600794007281,
+          "winter": 0.6444600794007281
+        }
+      ],
+      "max_drain_error_mm_d": 2.7755575615628914e-14,
+      "max_infil_error_mm_d": 0.0009055908179369382,
+      "max_net_error_mm_d": 0.0009055908179369382,
+      "squared_error_score": 0.00001804923583069526
+    }
+  ]
+}

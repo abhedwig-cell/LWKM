@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 from tools.execute_swap_candidate import digest
 from tools.et_calibration import write_json
+from tools.hru_population_manifest import build_manifest, validate_membership, bind_source_hashes
 
 
 def select_prototypes(population):
@@ -39,7 +40,7 @@ def prepare(repo,output):
     soil_lookup=pop[['bodem370','bofek79']].drop_duplicates()
     if soil_lookup.bodem370.duplicated().any():raise ValueError('ambiguous realized soil mapping')
     soil_lookup=soil_lookup.set_index('bodem370').bofek79.to_dict()
-    if len(x)!=10242 or x.HRU.duplicated().any():raise ValueError('representative population differs')
+    if x.empty or x.HRU.duplicated().any() or x.HRU.isna().any():raise ValueError('invalid representative population')
     c2=json.loads((repo/'docs/evidence/2026-10-19-work-c2/research-input-catalogue.json').read_text())
     drainage={r['hru'] for r in json.loads((repo/'docs/evidence/2026-10-19-work-c2/remaining-blockers.json').read_text())}
     crop=json.load(gzip.open(repo/'docs/evidence/2026-10-20-work-d1/crop-assets-catalogue.json.gz'))
@@ -48,6 +49,12 @@ def prepare(repo,output):
     with gzip.open(interface/'HRU_CONTEXT_10242.jsonl.gz','rt') as f:
         for line in f:
             row=json.loads(line);contexts[row['run_id']]=row['context']
+    population_manifest=build_manifest(x.HRU,release='work-b-recovered-snapshot',source_path=interface/'HRU_REPRESENTATIVE.csv.gz')
+    validate_membership(population_manifest,contexts)
+    population_manifest=bind_source_hashes(population_manifest,{
+        'membership':interface/'HRU_MEMBERSHIP.csv.gz',
+        'representatives':interface/'HRU_REPRESENTATIVE.csv.gz',
+        'soil_context':interface/'HRU_CONTEXT_10242.jsonl.gz'})
     rows=[]
     for r in x.to_dict('records'):
         hid=int(r['HRU']);c=contexts[hid];run=c['run']
@@ -70,6 +77,7 @@ def prepare(repo,output):
                          complete_multiyear_forcing_qualified=False,real_reference_received=False))
     frame=pd.DataFrame(rows);selected=select_prototypes(frame)
     frame.to_csv(output/'population.csv',index=False);selected.to_csv(output/'pilot-hrus.csv',index=False)
+    write_json(output/'hru-population-manifest.json',population_manifest)
     counts=pd.read_csv(repo/'docs/evidence/2026-10-20-work-d1/meteo_counts_by_year.csv')
     common_start=max(pd.Timestamp(c['TSTART']) for c in contexts.values())
     common_end=min(pd.Timestamp(c['TEND']) for c in contexts.values())

@@ -1,0 +1,97 @@
+name: W07 native Windows drainage renderer
+on:
+  pull_request:
+    paths:
+      - 'tools/native/w07/**'
+      - '.github/workflows/w07-native-dra.yml'
+      - 'tools/recover_swp_population_windows.ps1'
+  workflow_dispatch:
+jobs:
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Build x64 standalone
+        shell: pwsh
+        run: dotnet publish tools/native/w07/W07Dra.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o w07_release
+      - name: Real Windows smoke and idempotence
+        shell: pwsh
+        run: |
+          $o = @{schema_version=1;start_year=1971;end_year=1972;hrus=@(@{hru=4015;n_horizons=4;levels=@(@{drnres=2006.2372534;infres=20062.3722;dd=40;dep=1.5;peil_sum=0.5;peil_win=0.7;medium='open_channel';allow_infiltration=$true;level_series=$null})})}
+          $o | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 w07_input.json
+          & ./w07_release/W07Dra.exe w07_input.json w07_out w07_status.json
+          if ($LASTEXITCODE -ne 0) { throw "DRA Windows execution failed" }
+          $text = Get-Content w07_out/4015.dra -Raw
+          if (-not $text.Contains('NRLEVS = 1') -or -not $text.Contains('SWALLO1 = 1')) { throw "DRA syntax invalid" }
+          $hash=(Get-FileHash w07_out/4015.dra).Hash
+          & ./w07_release/W07Dra.exe w07_input.json w07_out w07_status.json
+          if ($LASTEXITCODE -ne 0 -or (Get-FileHash w07_out/4015.dra).Hash -ne $hash) { throw "DRA cache changed" }
+          (Get-FileHash w07_release/W07Dra.exe).Hash | Out-File -Encoding ascii w07_release/SHA256.txt
+      - name: Direct original-format LHM source to DRA smoke
+        shell: pwsh
+        run: |
+          python tools/native/w07/create_raw_fixture.py
+          & ./w07_release/W07Dra.exe --from-raw w07-raw-fixture/raw_config.json w07-raw-output
+          $expectedExit = $LASTEXITCODE
+          Get-Content w07-raw-output/raw-dra-status.json
+          if ($expectedExit -ne 0) { throw "Single-HRU noncontiguous-ID fixture must pass population-derived gate" }
+          if (-not (Test-Path w07-raw-output/4015.dra)) { throw "Raw input did not produce DRA" }
+          $s = Get-Content w07-raw-output/raw-dra-status.json | ConvertFrom-Json
+          if ($s.expected -ne 1 -or $s.generated -ne 1 -or $s.errors -ne 0) { throw "Unexpected raw source failure" }
+          if (-not (Get-Content w07-raw-output/4015.dra -Raw).Contains("NRLEVS = 5")) { throw "Seven physical sources were not reduced to five" }
+          if (-not $s.results[0].evidence.max_drain_error_mm_d -and $s.results[0].evidence.max_drain_error_mm_d -ne 0) { throw "Missing drainage fit audit" }
+          $global:LASTEXITCODE = 0
+      - name: Reject missing H1 month in raw input
+        shell: pwsh
+        run: |
+          Remove-Item w07-raw-fixture/months/peilh_19710201.idf
+          & ./w07_release/W07Dra.exe --from-raw w07-raw-fixture/raw_config.json w07-raw-missing
+          if ($LASTEXITCODE -eq 0) { throw "Missing monthly H1 stage accepted" }
+          if (Test-Path w07-raw-missing/4015.dra) { throw "Invalid monthly forcing produced a DRA" }
+          $global:LASTEXITCODE = 0
+      - name: Verify Windows SWP recovery and conflicts
+        shell: pwsh
+        run: |
+          $root = Join-Path $env:RUNNER_TEMP "swp-synthetic"
+          1..3 | ForEach-Object {
+            $d = Join-Path $root ("run_{0:D5}" -f $_)
+            New-Item -ItemType Directory -Path $d -Force | Out-Null
+            Set-Content -LiteralPath (Join-Path $d "swap.swp") -Value "SWP-$_"
+          }
+          & ./tools/recover_swp_population_windows.ps1 -Roots @($root) -ReportDir "swp-audit-good" -Expected 3 -Package
+          if ($LASTEXITCODE -ne 0) { throw "SWP recovery failed for complete population" }
+          $r = Get-Content swp-audit-good/swp_recovery_status.json -Raw | ConvertFrom-Json
+          if (-not $r.complete -or -not $r.archive_created -or $r.qualified_copies -ne 3) { throw "SWP complete evidence invalid" }
+          $archive = [System.IO.Compression.ZipFile]::OpenRead((Resolve-Path swp-audit-good/SWP_3_recovered.zip))
+          try {
+            if ($archive.Entries.Count -ne 3) { throw "SWP ZIP entry count mismatch" }
+          } finally { $archive.Dispose() }
+          Remove-Item -LiteralPath (Join-Path $root "run_00003/swap.swp")
+          & ./tools/recover_swp_population_windows.ps1 -Roots @($root) -ReportDir "swp-audit-missing" -Expected 3 -Package
+          if ($LASTEXITCODE -ne 2) { throw "Incomplete SWP recovery was incorrectly admitted" }
+          $m = Get-Content swp-audit-missing/swp_recovery_status.json -Raw | ConvertFrom-Json
+          if ($m.complete -or $m.archive_created -or $m.missing_count -ne 1) { throw "Incomplete SWP evidence invalid" }
+          $sparse = Join-Path $env:RUNNER_TEMP "swp-sparse"
+          foreach ($id in @(101,205,9001)) {
+            $d = Join-Path $sparse ("run_{0:D5}" -f $id)
+            New-Item -ItemType Directory -Force -Path $d | Out-Null
+            Set-Content -LiteralPath (Join-Path $d "swap.swp") -Value "SWP-$id"
+          }
+          "hru" | Set-Content sparse_hru_ids.csv
+          @(101,205,9001) | Add-Content sparse_hru_ids.csv
+          & ./tools/recover_swp_population_windows.ps1 -Roots @($sparse) -HruIdsCsv sparse_hru_ids.csv -ReportDir swp-audit-sparse -Package
+          if ($LASTEXITCODE -ne 0) { throw "Sparse HRU identities were not accepted" }
+          $s = Get-Content swp-audit-sparse/swp_recovery_status.json -Raw | ConvertFrom-Json
+          if ($s.expected -ne 3 -or $s.found_unique -ne 3 -or -not $s.complete) { throw "Sparse domain was not preserved" }
+          $global:LASTEXITCODE = 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lwkm-w07-dra-win-x64
+          path: |
+            w07_release/W07Dra.exe
+            w07_release/SHA256.txt
+            tools/native/w07/run_dra.cmd
+            tools/native/w07/README.md

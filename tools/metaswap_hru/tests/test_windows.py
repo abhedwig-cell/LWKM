@@ -54,6 +54,14 @@ for k,factor in enumerate([2.5,2.]):
     assert abs(float(r[k]['ET_ACTUAL'])+15*factor)<2e-6
     assert abs(float(r[k]['BDGETACT_MINUS_ET']))<2e-6
 record('weighted_aggregation_orientation_shared_cell_leap_decade',runtime_seconds=secs)
+# Sparse IDs identify two HRUs without assuming the IDs are 1 and 2.
+sparse_map=small/'mapping_sparse.csv'
+sparse_map.write_text(m.read_text().replace(',1,',',101,').replace(',2,',',9001,'))
+sparse_out=small/'out_sparse'
+run(a,sparse_map,s,small,sparse_out,n=0)
+assert [int(x['hru_id']) for x in rows(sparse_out/'20200229.csv')]==[101,9001]
+record('noncontiguous_hrus_and_dynamic_expected_population')
+
 identity=(out/'20200229.sha256').read_text();assert 'output='+hashlib.sha256((out/'20200229.csv').read_bytes()).hexdigest() in identity
 assert 'area='+hashlib.sha256(a.read_bytes()).hexdigest() in identity
 record('sha256_matches_independent_python')
