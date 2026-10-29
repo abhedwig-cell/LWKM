@@ -1,0 +1,6 @@
+{
+  "source_archive_sha256": "fe4ac98969643a037f05bb2e82ec2807a4968cba784272f1e91cdd29d0507311",
+  "member": "IBOUND_L1.IDF",
+  "sha256": "0e7770f07e7d63a141bd5e268bd28d7aac3d28b56baab29662579113373a4b9f",
+  "policy": "inactive predecessor face is absent; active predecessor NoData fails"
+}

@@ -1,0 +1,6 @@
+{
+  "tools/server/bbc_production.py": "e90c8b99ee540c6a167adc5750bc6c3326f3cf1194248a8732fc7c82d22787c2",
+  "tools/server/start_work_e.py": "7f10e11315a0ff695cfc5f886edeaea854796f256026938255faf248573e1a16",
+  "tools/qualify_bbc09_faces.py": "bf5507cdfcd65b5a2a8bdce5d6df086ab84705485389b347a048564ab90dda64",
+  "tests/test_bbc_production.py": "7a54f5d906336c1a43e0979687e85531e7d962b6003bb99d7a2d377e00c34a3f"
+}

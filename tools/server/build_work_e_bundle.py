@@ -7,7 +7,7 @@ import argparse,gzip,hashlib,json,shutil,zipfile
 from pathlib import Path
 
 
-def build(repo,members,output):
+def build(repo,members,output,activity_mask=None):
     repo,output=Path(repo),Path(output)
     if output.exists():raise FileExistsError(output)
     output.mkdir(parents=True)
@@ -17,7 +17,9 @@ def build(repo,members,output):
     dest=output/'source_data/svat_hru_xy.csv.gz';dest.parent.mkdir()
     with open(members,'rb') as src,open(dest,'wb') as dst:
         with gzip.GzipFile(filename='',mode='wb',fileobj=dst,mtime=0) as z:shutil.copyfileobj(src,z)
-    shutil.copyfile(repo/'docs/production/WORK_E_20261029.md',output/'README.md')
+    if activity_mask:
+        shutil.copyfile(activity_mask,output/'source_data/IBOUND_L1.IDF')
+    shutil.copyfile(repo/'docs/production/WORK_E_BBC09_20261029.md',output/'README.md')
     rows=[dict(path=p.relative_to(output).as_posix(),sha256=hashlib.sha256(p.read_bytes()).hexdigest())
           for p in sorted(output.rglob('*')) if p.is_file()]
     (output/'bundle-manifest.json').write_text(json.dumps(dict(schema_version=1,
@@ -31,4 +33,5 @@ def build(repo,members,output):
 if __name__=='__main__':
     p=argparse.ArgumentParser()
     for k in ['repo','members','output']:p.add_argument('--'+k,type=Path,required=True)
-    a=p.parse_args();print(json.dumps(build(a.repo,a.members,a.output)))
+    p.add_argument('--activity-mask',type=Path)
+    a=p.parse_args();print(json.dumps(build(a.repo,a.members,a.output,a.activity_mask)))

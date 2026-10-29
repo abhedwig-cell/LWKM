@@ -1,0 +1,50 @@
+{
+  "components": {
+    "fff": {
+      "byte_identical": true,
+      "face_audit": {
+        "closed_forward_faces": 341,
+        "inactive_previous_faces": 194,
+        "max_hru_boundary_difference_m3": 0.0,
+        "outer_previous_faces": 0
+      },
+      "independent_cell_difference_m3": 0.0,
+      "max_hru_saved_face_match_m3": 9.094947017729282e-13,
+      "replay_sha256": "c5a0e0d3864fc794123ebfabace1ef81b5e30093d4c7d17b92709907d288766f",
+      "selected_net_m3": -18951.026409568647,
+      "selected_saved_face_m3": 1188908.8107203103,
+      "server_sha256": "c5a0e0d3864fc794123ebfabace1ef81b5e30093d4c7d17b92709907d288766f"
+    },
+    "frf": {
+      "byte_identical": false,
+      "face_audit": {
+        "closed_forward_faces": 548,
+        "inactive_previous_faces": 94,
+        "max_hru_boundary_difference_m3": 0.0,
+        "outer_previous_faces": 0
+      },
+      "independent_cell_difference_m3": 0.0,
+      "max_hru_saved_face_match_m3": 1.8189894035458565e-12,
+      "replay_sha256": "dcdf83d160cd0dcf9aabf5f58aaf11a51f9817c0eed22b7fa2361fe0bf4c2b2d",
+      "selected_net_m3": -33633.81000562782,
+      "selected_saved_face_m3": 984321.997366623,
+      "server_sha256": "5d02f87dc830027e9ce319fb5a4579850a3904b1ee51e7f5be7a86082725a35a"
+    }
+  },
+  "hrus": 10242,
+  "limitations": [
+    "one real source day, not full server period",
+    "FRF byte hash differs outside or within unobserved per-cell detail; HRU saved-face sums all match",
+    "no modern full SWAP package executed"
+  ],
+  "max_abs_bbc08_correction_mm_d": 3.468091432619095,
+  "physical_cells": 427656,
+  "production_admitted": false,
+  "sources": {
+    "../inputs/LWKM/LWKM_MF_L1_BALANCE_INPUT_20200701.zip": "542de9435ace164843a27a92477c0bef9f0eafb87942364e3c2c9c70db9f07e5",
+    "../inputs/bbc07h/LWKM_BBC07H/source_data/svat_hru_xy.csv": "65d01fff8faefea29ea1130eff5f8e962c2a9bee2abb65f99248a21b1f02ae0f",
+    "../producer_inputs/LWKM/LWKM_MF_L1_FRF_FFF_hele_periode_corrected.zip": "fe4ac98969643a037f05bb2e82ec2807a4968cba784272f1e91cdd29d0507311",
+    "../upload/BBC08_controle_20200701_20200707.zip": "9b245fd78f3f769755224a907ee7418783885a9326adbe470ca955499a466d14"
+  },
+  "status": "BBC09_REAL_SOURCE_FACE_ASSEMBLY_CHECK"
+}
