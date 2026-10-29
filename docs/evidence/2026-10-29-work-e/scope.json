@@ -1,0 +1,20 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "production_admitted": false,
+  "national_server_run": false,
+  "numpy": "2.3.5",
+  "base_commit": "861e6a8bbf7b242756fdab48bc08ddc71d1898c9",
+  "qualification_scope": [
+    "12 BBC contract tests",
+    "real 427656-cell FLF/FRF geometry",
+    "six-HRU retained real numeric snapshot and D1 receipt",
+    "10242 actual DRA candidates, 10213 exact and 29 approximations",
+    "4 genuine historical C2 model executions"
+  ],
+  "remaining": [
+    "full operational corrected FLF/GHB/MET sources unavailable locally",
+    "source profile must match actual saved component semantics",
+    "no full-period DRA or national modern SWAP qualification"
+  ]
+}

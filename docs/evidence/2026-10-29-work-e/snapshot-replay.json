@@ -1,0 +1,17 @@
+{
+  "archive_sha256": "f1c4786fcbdf207968f5b6a067329ba7c26600bc059f0ce4db6157a1beafa834",
+  "code_sha256": "baf7055f785fb43b05a511aef3dab6eb99a655d62f67103d5bbb00092f8d3531",
+  "consumer_errors": [],
+  "hrus": 6,
+  "limitations": [
+    "Source values re-encoded as float32 IDF for this software regression",
+    "Cached historical research GHB, not current operational GHB",
+    "No corrected operational FLF or MET qualification",
+    "One day, six HRUs, no time extrapolation"
+  ],
+  "max_q_ext_difference_mm_d": 2.8521141004489436e-10,
+  "physical_cells": 266,
+  "production_admitted": false,
+  "reused_days": 1,
+  "status": "REAL_NUMERIC_SNAPSHOT_REPLAY_NOT_MODERN_SOURCE_ADMISSION"
+}
