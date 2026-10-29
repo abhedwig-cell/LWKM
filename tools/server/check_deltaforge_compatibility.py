@@ -4,7 +4,7 @@ from pathlib import Path
 PACKAGES={"numpy":"numpy","pandas":"pandas","scipy":"scipy","openpyxl":"openpyxl","yaml":"PyYAML"}
 MODULES=["tools.swp_context","tools.modern_swp","tools.swp_renderer","tools.swp_template_adapter",
          "tools.build_modern_population","tools.run_dra_protected_population",
-         "tools.process_daily_budget_plan","tools.hru_population_manifest"]
+         "tools.hru_population_manifest"]
 def check():
     packages={}
     for module,dist in PACKAGES.items():
