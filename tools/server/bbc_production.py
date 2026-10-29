@@ -1,4 +1,4 @@
-"""BBC08: bounded, restartable BBC production from existing five daily IDF products.
+"""BBC09: bounded, restartable BBC production from existing five daily IDF products.
 
 Requires numpy only; --probe runs before importing it. No flux reconstruction,
 interpolation, spatial resampling, zero filling or source-semantic inference.
@@ -153,6 +153,56 @@ def discover(root, start, end):
     return result
 
 
+def face_net(raster, mask, m, reference, role, multiplier):
+    """Stored incoming right/front face minus the opposite stored face.
+
+    The corrected producer emits NoData at inactive cells, but zero at an
+    active cell's face without an active neighbour. Only the bound IBOUND
+    authorizes skipping that nonexistent opposite face, never NoData alone.
+    """
+    import numpy as np
+    rr,cc=raster.indices(m['x'],m['y'],reference)
+    current=raster.sample(rr,cc)*multiplier
+    mr,mc=mask.indices(m['x'],m['y'],reference)
+    activity=mask.sample(mr,mc)
+    if np.any(activity==0):raise ValueError('BBC membership contains inactive model cells')
+    inside=mc>0 if role=='frf' else mr>0
+    selected=np.flatnonzero(inside)
+    px=m['x'][inside]-(reference.dx if role=='frf' else 0)
+    py=m['y'][inside]+(reference.dy if role=='fff' else 0)
+    pr,pc=mask.indices(px,py,reference)
+    neighbours=mask.sample(pr,pc)
+    active=neighbours!=0
+    previous=np.zeros(len(current),dtype='float64')
+    # Do not read source NoData for an IBOUND=0 cell: the shared face is absent.
+    sr,sc=raster.indices(px[active],py[active],reference)
+    previous[selected[active]]=raster.sample(sr,sc)*multiplier
+    # Closed right/front faces must be explicitly zero in the corrected source.
+    forward_inside=mc+1<mask.nx if role=='frf' else mr+1<mask.ny
+    closed=~forward_inside
+    j=np.flatnonzero(forward_inside)
+    fr,fc=mask.indices(m['x'][j]+(reference.dx if role=='frf' else 0),
+                      m['y'][j]-(reference.dy if role=='fff' else 0),reference)
+    closed[j]=mask.sample(fr,fc)==0
+    if np.any(current[closed]!=0):raise ValueError('nonzero flux across a closed model face')
+    values=current-previous
+    # Independent HRU boundary sum: shared internal faces cancel exactly.
+    owner=np.full((mask.ny,mask.nx),-1,dtype='int64');owner[mr,mc]=m['h']
+    right_owner=np.full(len(mr),-1,dtype='int64')
+    right_owner[j]=owner[mr[j]+(role=='fff'),mc[j]+(role=='frf')]
+    left_owner=np.full(len(mr),-1,dtype='int64')
+    left_owner[inside]=owner[mr[inside]-(role=='fff'),mc[inside]-(role=='frf')]
+    boundary=np.where(right_owner!=m['h'],current,0)-np.where(left_owner!=m['h'],previous,0)
+    n=len(m['domain'])
+    sums=np.bincount(m['inv'],weights=values,minlength=n)
+    edges=np.bincount(m['inv'],weights=boundary,minlength=n)
+    error=float(abs(sums-edges).max())
+    if error>1e-9*max(1,float(abs(values).sum())):raise ValueError('HRU lateral boundary cancellation failure')
+    return values,dict(inactive_previous_faces=int((~active).sum()),
+        outer_previous_faces=int((~inside).sum()),closed_forward_faces=int(closed.sum()),
+        max_hru_boundary_difference_m3=error)
+
+
 def acquire_lock(path):
     """OS-held lock: released automatically on termination, including Windows."""
     f=Path(path).open('a+b')
@@ -177,6 +227,8 @@ def process(config, output):
     timeline = list(days(cfg['start'],cfg['end']))
     if cfg.get('units') != 'm3/calendar_day' or cfg.get('positive') != 'into_layer1':
         raise ValueError('explicit source units/sign convention required')
+    if cfg.get('source_semantics_profile')=='bbc07h-cell-net':
+        raise ValueError('BBC08 CELL_NET profile is invalid for the identified saved-face sources; use BBC09')
     if set(cfg['sources']) != set(ROLES): raise ValueError('exactly five sources required')
     for role, spec in cfg['sources'].items():
         op = spec['spatial_operation']
@@ -210,6 +262,13 @@ def _process(cfg,config,output,timeline,m,reference,source_path,prior):
     import numpy as np
     success = output/'manifest.json'; success.unlink(missing_ok=True)
     static = dict(config_sha256=sha(config),members_sha256=sha(cfg['members']),code_sha256=sha(__file__))
+    needs_mask=any(s['spatial_operation']!='CELL_NET' for s in cfg['sources'].values())
+    mask=None
+    if needs_mask:
+        binding=cfg.get('activity_mask',{})
+        if not binding.get('path') or sha(binding['path'])!=binding.get('sha256'):
+            raise ValueError('saved face processing requires hash-bound IBOUND')
+        mask=Raster(binding['path']);static['activity_mask_sha256']=binding['sha256']
     old = output/'identity.json'
     if old.exists() and json.loads(old.read_text()) != static:
         raise ValueError('changed configuration/membership/code: choose a new output directory')
@@ -232,17 +291,14 @@ def _process(cfg,config,output,timeline,m,reference,source_path,prior):
             sums=[]; geometry={}; source_totals={}; source_abs={}
             for role,path in paths.items():
                 raster=Raster(path); rr,cc=raster.indices(m['x'],m['y'],reference)
-                v=raster.sample(rr,cc)*cfg['sources'][role]['positive_multiplier']
                 op=cfg['sources'][role]['spatial_operation']
                 if op != 'CELL_NET':
-                    # Boundary is relative to the reference domain, never the crop edge.
-                    active = m['col']>0 if role=='frf' else m['row']>0
-                    pr,pc=raster.indices(m['x'][active]-(reference.dx if role=='frf' else 0),
-                        m['y'][active]+(reference.dy if role=='fff' else 0),reference)
-                    v[active]-=raster.sample(pr,pc)*cfg['sources'][role]['positive_multiplier']
+                    v,face_audit=face_net(raster,mask,m,reference,role,cfg['sources'][role]['positive_multiplier'])
+                else:
+                    v=raster.sample(rr,cc)*cfg['sources'][role]['positive_multiplier'];face_audit=None
                 sums.append(np.bincount(m['inv'],weights=v,minlength=len(m['domain'])))
                 source_totals[role]=float(__import__('math').fsum(v)); source_abs[role]=float(np.abs(v).sum())
-                geometry[role]=dict(geometry=raster.geometry,selected_cells=len(v),total_raster_cells=raster.nx*raster.ny)
+                geometry[role]=dict(geometry=raster.geometry,selected_cells=len(v),total_raster_cells=raster.nx*raster.ny,face_audit=face_audit)
                 del raster
             if any(sha(paths[role]) != hashes[role]['sha256'] for role in ROLES):
                 raise ValueError('source changed during processing: '+day)
@@ -272,6 +328,8 @@ def _process(cfg,config,output,timeline,m,reference,source_path,prior):
         transfers.append(dict(date=day,path=shard.name,sha256=sha(shard)))
         records.append(rec)
         print(day+' '+('REUSED' if rec is previous else 'PROCESSED'),flush=True)
+    if needs_mask and sha(cfg['activity_mask']['path'])!=static['activity_mask_sha256']:
+        raise ValueError('IBOUND changed during processing')
     # Transpose in bounded batches; keep at most 64 HRU output handles open.
     artifacts=[]
     reuse_bbc=(reused==len(timeline) and prior.get('identity')==static
@@ -299,7 +357,7 @@ def _process(cfg,config,output,timeline,m,reference,source_path,prior):
                 artifacts.append(dict(hru_id=int(p.stem.split('_')[1]),path=str(p),sha256=sha(p)))
         finally:
             for f in writers:f.close()
-    report=dict(schema_version=1,status='BBC_SOURCE_CANDIDATE_NOT_SWAP_VALIDATED',production_admitted=False,
+    report=dict(schema_version=1,producer_version='BBC09',spatial_operations={r:s['spatial_operation'] for r,s in cfg['sources'].items()},status='BBC_SOURCE_CANDIDATE_NOT_SWAP_VALIDATED',production_admitted=False,
         identity=static,start=timeline[0],end=timeline[-1],days=len(timeline),reused_days=reused,
         svats=m['svats'],physical_cells=len(m['h']),hrus=len(m['domain']),
         full_cell_area_m2=reference.dx*reference.dy,area_m2=float(m['area'].sum()),bbc_reused=bool(reuse_bbc),
@@ -308,7 +366,7 @@ def _process(cfg,config,output,timeline,m,reference,source_path,prior):
     write_json(success,report)
     atomic(output/'transfer'/'source-manifest.json',success.read_bytes())
     write_json(output/'transfer'/'transfer.json',dict(schema_version=1,product_kind='BBC',
-        dataset_id='BBC08_EXISTING_FIVE_COMPONENT_DAILY',population_sha256=sha(output/'population.csv'),
+        dataset_id='BBC09_NET_FIVE_COMPONENT_DAILY',population_sha256=sha(output/'population.csv'),
         source_manifest_sha256=sha(success),source_manifest_path='source-manifest.json',
         producer_sha256=sha(__file__),units='mm/day_positive_into_L1',start=timeline[0],end=timeline[-1],
         hru_ids=[int(h) for h in m['domain']],status='RESEARCH_CANDIDATE',files=transfers))

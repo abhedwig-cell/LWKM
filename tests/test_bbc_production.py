@@ -6,7 +6,7 @@ import struct
 import tempfile
 import unittest
 import numpy as np
-from tools.server.bbc_production import Raster, members, process, discover, days, ROLES, acquire_lock
+from tools.server.bbc_production import Raster, members, process, discover, days, ROLES, acquire_lock, sha, face_net
 from tools.production_transfer import receive
 
 
@@ -92,9 +92,33 @@ class BBCProduction(unittest.TestCase):
     def test_explicit_face_operation_not_applied_twice(self):
         p=self.fixture();cfg=json.loads(p.read_text())
         cfg['sources']['frf']['spatial_operation']='SAVED_CURRENT_MINUS_PREVIOUS_COLUMN'
+        mask=grid(self.root/'IBOUND.idf',np.ones((3,3)))
+        cfg['activity_mask']=dict(path=str(mask),sha256=sha(mask))
         p.write_text(json.dumps(cfg));out=self.root/'out';process(p,out)
         a=np.load(out/'daily/2020-01-01.npy')
         self.assertEqual(a[:,1].tolist(),[2,-6])
+    def test_inactive_predecessor_is_zero_only_with_bound_mask(self):
+        ref=Raster(grid(self.root/'reference.idf',[[0,2,0]]))
+        mask=Raster(grid(self.root/'mask.idf',[[0,1,1]]))
+        m=members(self.mapping([(1,101,375,625)]),ref,1)
+        r=Raster(grid(self.root/'faces.idf',[[-9999,2,0]]))
+        values,audit=face_net(r,mask,m,ref,'frf',1)
+        self.assertEqual(values.tolist(),[2]);self.assertEqual(audit['inactive_previous_faces'],1)
+        active=Raster(grid(self.root/'active.idf',[[1,1,1]]))
+        with self.assertRaisesRegex(ValueError,'missing source'):
+            face_net(r,active,m,ref,'frf',1)
+    def test_closed_face_nonzero_is_not_silently_dropped(self):
+        ref=Raster(grid(self.root/'reference.idf',[[0,2,0]]))
+        mask=Raster(grid(self.root/'mask.idf',[[1,1,0]]))
+        m=members(self.mapping([(1,101,375,625)]),ref,1)
+        with self.assertRaisesRegex(ValueError,'closed model face'):
+            face_net(ref,mask,m,ref,'frf',1)
+    def test_obsolete_default_profile_is_rejected(self):
+        p=self.fixture();c=json.loads(p.read_text());c['source_semantics_profile']='bbc07h-cell-net'
+        p.write_text(json.dumps(c))
+        with self.assertRaisesRegex(ValueError,'invalid'):
+            process(p,self.root/'out')
+
     def test_lock_survives_stale_file_and_rejects_concurrency(self):
         lock=self.root/'production.lock';lock.write_text('stale process id')
         first=acquire_lock(lock)
