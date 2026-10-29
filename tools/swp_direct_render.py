@@ -81,11 +81,11 @@ class Catalog:
         return context
 
 
-def main():
+def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     for key in ('parameters','catalog','template','output'):p.add_argument('--'+key,required=True,type=Path)
     p.add_argument('--expected-hrus',type=int,default=10242)
-    a=p.parse_args();catalog=Catalog(a.catalog);template=a.template.read_bytes()
+    a=p.parse_args(argv);catalog=Catalog(a.catalog);template=a.template.read_bytes()
     parameters=list(rows(a.parameters));ids=[int(r['run_id']) for r in parameters]
     if len(set(ids))!=len(ids) or len(ids)!=a.expected_hrus:raise ValueError('parameter population mismatch')
     a.output.mkdir(parents=True,exist_ok=True)
@@ -102,6 +102,7 @@ def main():
         except (ValueError,KeyError,TypeError) as exc:
             target.unlink(missing_ok=True)
             outcomes.append(dict(HRU=int(run['run_id']),status='FAILED',error=str(exc)))
+        if len(outcomes)%1000==0:print(f'SWP {len(outcomes)}/{len(parameters)}',flush=True)
     failed=sum(r['status']=='FAILED' for r in outcomes)
     manifest=dict(status='FAILED' if failed else 'SWP_RENDERED_NOT_SWAP_VALIDATED',failed_hrus=failed,
                   sources={k:hashlib.sha256(getattr(a,k).read_bytes()).hexdigest() for k in ('parameters','catalog','template')},hrus=outcomes)

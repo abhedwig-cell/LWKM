@@ -1,0 +1,365 @@
+{
+  "status": "SOURCE_VALUE_CHECK_NOT_PRODUCTION_QUALIFIED",
+  "numpy": "1.23.5",
+  "members": 427656,
+  "hrus": 10242,
+  "errors": 0,
+  "source_binding_sha256": "03fbc3d74781e32ab75fc83c60a8cac60987b6c6e44dd3ba81ffe358a889339d",
+  "membership_sha256": "947f6cfee5193d98128c5e78170e1ef03c4e65999a3ae8d4956295cba18eee8f",
+  "groundwater_depth_unit_hypotheses": {
+    "NO_SURFACE_CONVERSION": {
+      "points": 427656,
+      "min": -665.2706129074097,
+      "median": 335.234480214119,
+      "max": 31436.57114562988
+    },
+    "SURFACE_CM_TO_M_HYPOTHESIS": {
+      "points": 427656,
+      "min": -3.8266378479003933,
+      "median": 0.9001224787473677,
+      "max": 102.36307568359376
+    }
+  },
+  "limitations": [
+    "No units chosen or conversions applied.",
+    "No HRU identity recomputed.",
+    "No models executed."
+  ],
+  "source_archive_sha256": "c764c31dc58028adc7e60d692c1a98ccdb780a31a1a33fc4254e5781b3ea2dcd",
+  "sources": {
+    "glk": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\ahn_f250_cm.asc",
+      "bytes": 11615326,
+      "sha256": "af2c918448097d5bedc099a968563930f23f9bbc70b963c8eadf32e211b305df",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": -9999.0
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 0,
+        "finite": 427656,
+        "raw_values": {
+          "min": -672.2,
+          "max": 31651.6,
+          "p05": -368.2,
+          "median": 337.4,
+          "p95": 3433.3100000000004
+        }
+      }
+    },
+    "area": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\UOPP.ASC",
+      "bytes": 23402735,
+      "sha256": "75cbc92d923de3d6c6c1b0e7e4226683b7634197795b13f9744f9ade7d3d55e7",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": -9999.0
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 5579,
+        "finite": 422077,
+        "raw_values": {
+          "min": 3734.0,
+          "max": 2412219.0,
+          "p05": 52087.76,
+          "median": 60918.2,
+          "p95": 62500.0
+        }
+      },
+      "comparison_with_qualified_svat_area": {
+        "points": 422077,
+        "min_ratio": 0.9999802945957929,
+        "max_ratio": 38.595504
+      }
+    },
+    "rds": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\rootzone.asc",
+      "bytes": 7719590,
+      "sha256": "3479640e7bf40c400ef60970d6404c43bc5b35e5cd7fdb227f35e9d1ac775c83",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": -9999.0
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 0,
+        "finite": 427656,
+        "raw_values": {
+          "min": 5.0,
+          "max": 150.0,
+          "p05": 20.0,
+          "median": 100.0,
+          "p95": 150.0
+        }
+      }
+    },
+    "lgn": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\lgn250.asc",
+      "bytes": 3358566,
+      "sha256": "93e8911d945c0d13cff3b4dc8118ad2fc2de8b458484fd5658b1e2830b142d91",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": -9999.0
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 0,
+        "finite": 427656,
+        "raw_values": {
+          "min": 1.0,
+          "max": 21.0,
+          "p05": 1.0,
+          "median": 2.0,
+          "p95": 17.0
+        }
+      }
+    },
+    "bfe": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\bodem.asc",
+      "bytes": 5327295,
+      "sha256": "41bd34fb30bda7f54a2dafd12907c6df9edd3a8ca4919e9fdf558b149b92994e",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": -9999.0
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 0,
+        "finite": 427656,
+        "raw_values": {
+          "min": 1.0,
+          "max": 370.0,
+          "p05": 20.0,
+          "median": 148.0,
+          "p95": 335.0
+        }
+      }
+    },
+    "meteo": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\metestat.asc",
+      "bytes": 9361421,
+      "sha256": "3ff11779c34e3663c14567839ce38ff1ae091a642f0ba653d79493f66c1c324b",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": -9999.0
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 0,
+        "finite": 427656,
+        "raw_values": {
+          "min": 235.0,
+          "max": 391.0,
+          "p05": 249.0,
+          "median": 280.0,
+          "p95": 377.0
+        }
+      }
+    },
+    "irr_switch": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\beregen.asc",
+      "bytes": 23402772,
+      "sha256": "eedc7bd4c6ab11d5704430578ff99f6feffbe6dd5467627c6da746658f8603f5",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": 1e+20
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 0,
+        "finite": 427656,
+        "raw_values": {
+          "min": 0.0,
+          "max": 2.0,
+          "p05": 0.0,
+          "median": 0.0,
+          "p95": 1.0
+        }
+      }
+    },
+    "activity": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\modflow\\bnd\\IBOUND_L1.IDF",
+      "bytes": 6240052,
+      "sha256": "0e7770f07e7d63a141bd5e268bd28d7aac3d28b56baab29662579113373a4b9f",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": 1.0000000200408773e+20
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 0,
+        "finite": 427656,
+        "raw_values": {
+          "min": 1.0,
+          "max": 1.0,
+          "p05": 1.0,
+          "median": 1.0,
+          "p95": 1.0
+        }
+      }
+    },
+    "pipe_cond": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\modflow\\drn\\COND_buisdrainage.IDF",
+      "bytes": 6240052,
+      "sha256": "59e029368770156841b9201e7dbc9228808b9706785df7307cd6e812120fffa3",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": 1.0000000200408773e+20
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 185737,
+        "finite": 241919,
+        "raw_values": {
+          "min": 0.0,
+          "max": 2155.17236328125,
+          "p05": 7.267441749572754,
+          "median": 302.46478271484375,
+          "p95": 774.6478881835938
+        }
+      }
+    },
+    "pipe_level": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\modflow\\drn\\BODH_B_250.IDF",
+      "bytes": 6240052,
+      "sha256": "5690ab654461874d38d7b695e4c1834a036dad4deb2a98c6bba8b66987edf029",
+      "geometry": {
+        "ncols": 1200,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": -9999.0
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 185737,
+        "finite": 241919,
+        "raw_values": {
+          "min": -7.810000419616699,
+          "max": 316.0159912109375,
+          "p05": -5.337999868392944,
+          "median": -0.11000001430511475,
+          "p95": 29.375023078918453
+        }
+      }
+    },
+    "dqsat_svat": {
+      "status": "TEXT_PREVIEW_ONLY",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\inp\\dqsat_svat.inp",
+      "bytes": 14202804
+    },
+    "luse_svat": {
+      "status": "TEXT_PREVIEW_ONLY",
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\inp\\luse_svat.inp",
+      "bytes": 10120
+    },
+    "head": {
+      "status": "RAW_GRID_CHECKED_UNITS_UNVERIFIED",
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_run_resultaten_totaal\\modflow\\head\\head_19700101000000_l1.idf",
+      "bytes": 5844852,
+      "sha256": "09388526520545f9984dcfc85379c18b98fa56a84762023c73af2cf2587c6d48",
+      "geometry": {
+        "ncols": 1124,
+        "nrows": 1300,
+        "xmin": 0.0,
+        "ymin": 300000.0,
+        "dx": 250.0,
+        "dy": 250.0,
+        "nodata": 1.0000000200408773e+20
+      },
+      "samples": {
+        "points": 427656,
+        "outside": 0,
+        "off_center": 0,
+        "nodata_or_nonfinite": 0,
+        "finite": 427656,
+        "raw_values": {
+          "min": -82.26343536376953,
+          "max": 215.0288543701172,
+          "p05": -4.486260533332825,
+          "median": 1.883049726486206,
+          "p95": 27.995611667633057
+        }
+      }
+    }
+  }
+}
