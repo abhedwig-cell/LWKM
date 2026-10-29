@@ -1,0 +1,46 @@
+{
+  "complete_frf_hrus": 10242,
+  "duplicate_physical_cells": 0,
+  "flf_geometry": [
+    1124,
+    1300,
+    0.0,
+    281000.0,
+    300000.0,
+    625000.0,
+    250.0,
+    250.0
+  ],
+  "frf_geometry": [
+    1200,
+    1300,
+    0.0,
+    300000.0,
+    300000.0,
+    625000.0,
+    250.0,
+    250.0
+  ],
+  "full_cell_area_m2": 62500.0,
+  "grouped_frf_m3": -984377.7979004898,
+  "hrus": 10242,
+  "inputs": {
+    "../actual/LWKM_MF_L1_BALANCE_INPUT_20200701/data\\bdgflf__bdgflf_20200701000000_l1.IDF": "cb32ffe161f965b468d122c20b6d996bcc232ab2cf9b0860bad017ce52283a45",
+    "../actual/bdgfrf_20200701_l1_rec/bdgfrf_20200701_l1.idf": "332e422abfb2ddc25fcaf75a69ec874c6ec1905ca426108532c12a59e6bfe469",
+    "../inputs/bbc07h/LWKM_BBC07H/source_data/svat_hru_xy.csv": "65d01fff8faefea29ea1130eff5f8e962c2a9bee2abb65f99248a21b1f02ae0f"
+  },
+  "limitations": [
+    "FRF sampled as stored; no new sign or reconstruction choice",
+    "One real source day, not full five-component historical coverage",
+    "Different source run identities are not asserted equivalent",
+    "No corrected FLF/full GHB/MET forcing or modern end-to-end run admission"
+  ],
+  "missing_frf_cells": 0,
+  "physical_cells": 427656,
+  "production_admitted": false,
+  "selected_frf_m3": -984377.7979004898,
+  "status": "REAL_SOURCE_GEOMETRY_CHECK_NOT_FORCING_ADMISSION",
+  "svats": 427656,
+  "total_area_m2": 26728500000.0,
+  "volume_difference_m3": 0.0
+}

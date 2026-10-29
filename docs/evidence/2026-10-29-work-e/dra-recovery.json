@@ -1,0 +1,568 @@
+{
+  "status": "COMPLETE_C2_DRA_CANDIDATE_POPULATION",
+  "hrus": 10242,
+  "byte_identical": 10213,
+  "approximated": 29,
+  "production_admitted": false,
+  "independent_parser_errors": [],
+  "max_net_approximation_mm_d": 0.10777543122286466,
+  "source_sha256": {
+    "docs/evidence/2026-10-19-work-b/interfaces/HRU_CONTEXT_10242.jsonl.gz": "e4bf2944d10b34ebb5d4148321163c48b264fee965f76723eb43dead21197cb0",
+    "docs/evidence/2026-10-19-work-c2/all-dra-files.jsonl.gz": "2ff5c5cfd329779288478d090fa6edd686db835dd2d52a17fcac8ec58860fe73",
+    "docs/evidence/2026-10-19-work-c2/drainage-checkpoints.jsonl.gz": "bcf37f3acaaa52c453b958af98e2593f61fe9f2d019c366f9fe870d51edfd80b",
+    "tests/fixtures/d1/wwl.swp": "ee0c23696fd5565a4b99eb81ce469a1be7c86494cfb20545dfba492820a5858a"
+  },
+  "approximations": [
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.00830265028454319,
+          "max_infil_error_mm_d": 0.0008302650408259873,
+          "max_net_error_mm_d": 0.00830265028454319,
+          "objective": 0.0005924828759201351,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 939,
+      "path": "../work_e/dra_final/dra/939.dra",
+      "represented_levels": 5,
+      "sha256": "22ab8b378f995e13149345d7fc46e13415d71c0b47d386d1747beaff4374e228",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 13,
+          "max_drain_error_mm_d": 0.003036894805089063,
+          "max_infil_error_mm_d": 0.0003036894850339142,
+          "max_net_error_mm_d": 0.003036894805089063,
+          "objective": 7.016687338814794e-05,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 1371,
+      "path": "../work_e/dra_final/dra/1371.dra",
+      "represented_levels": 5,
+      "sha256": "26421ff64ad2f7b597b44d79696437292f929851db1c4cdb621bf7121d679664",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.008208177663080216,
+          "max_infil_error_mm_d": 0.00015259187911571392,
+          "max_net_error_mm_d": 0.008360769542195876,
+          "objective": 0.0009060407740048514,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 2104,
+      "path": "../work_e/dra_final/dra/2104.dra",
+      "represented_levels": 5,
+      "sha256": "515a15085478fadaedc436634046f5a2c80728817b4cd70d123ad6c437b61170",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 15,
+          "max_drain_error_mm_d": 0.014472696173731259,
+          "max_infil_error_mm_d": 0.0013277632201328497,
+          "max_net_error_mm_d": 0.014472696173731259,
+          "objective": 0.0020084358023965466,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 3863,
+      "path": "../work_e/dra_final/dra/3863.dra",
+      "represented_levels": 5,
+      "sha256": "162adc710386c3b43f091485aa53496213ef124b2c342ef21479f3f2937bcbad",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.010437926835943356,
+          "max_infil_error_mm_d": 0.0010437926991482078,
+          "max_net_error_mm_d": 0.010437926835943356,
+          "objective": 0.0015424696137942666,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 3867,
+      "path": "../work_e/dra_final/dra/3867.dra",
+      "represented_levels": 5,
+      "sha256": "1a4771566f04ca8af8074e1b7a91a798bf9c395947cc0fe27d4e0be251dfe2e0",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 15,
+          "max_drain_error_mm_d": 0.001072399290945325,
+          "max_infil_error_mm_d": 0.00015116065585297957,
+          "max_net_error_mm_d": 0.0009212386350923878,
+          "objective": 1.0144490426481335e-05,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 3878,
+      "path": "../work_e/dra_final/dra/3878.dra",
+      "represented_levels": 5,
+      "sha256": "551c4c5f9a67111d047db0b7e4e96bb70fdcbd1f37f5250585d7097e439c033f",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 14,
+          "max_drain_error_mm_d": 0.004033123683765127,
+          "max_infil_error_mm_d": 0.00040331237438621763,
+          "max_net_error_mm_d": 0.003992768782781764,
+          "objective": 0.0003041573297597696,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 3880,
+      "path": "../work_e/dra_final/dra/3880.dra",
+      "represented_levels": 5,
+      "sha256": "125883a1da26a0941321ec7b4488583805bb6547b99510cf5a62540fda1a3c75",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.004596783620795797,
+          "max_infil_error_mm_d": 0.00045967836892867454,
+          "max_net_error_mm_d": 0.004137105251867127,
+          "objective": 0.0001596084396351494,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 3883,
+      "path": "../work_e/dra_final/dra/3883.dra",
+      "represented_levels": 5,
+      "sha256": "ea88ffc64206ab69b561468dcaecffc14d9de84c070661c68207e213d2d9097e",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 13,
+          "max_drain_error_mm_d": 0.0032273866526469387,
+          "max_infil_error_mm_d": 0.0,
+          "max_net_error_mm_d": 0.0032273866526469387,
+          "objective": 0.00013540831987388696,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 3884,
+      "path": "../work_e/dra_final/dra/3884.dra",
+      "represented_levels": 5,
+      "sha256": "155d13417ed27bd48f600002f2d288ef0ba829b65bd4ab9b733cce43c67368a0",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 15,
+          "max_drain_error_mm_d": 0.0008792774794860736,
+          "max_infil_error_mm_d": 8.792774925906355e-05,
+          "max_net_error_mm_d": 0.0008792774794860736,
+          "objective": 7.680359195744218e-06,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 3887,
+      "path": "../work_e/dra_final/dra/3887.dra",
+      "represented_levels": 5,
+      "sha256": "c1e65039fab3109ae1594b737054feeb035a6f307ab617508dc75e60ea5a1a70",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 14,
+          "max_drain_error_mm_d": 0.007966830927158552,
+          "max_infil_error_mm_d": 0.0,
+          "max_net_error_mm_d": 0.007966830927158552,
+          "objective": 0.000658940031234309,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 3890,
+      "path": "../work_e/dra_final/dra/3890.dra",
+      "represented_levels": 5,
+      "sha256": "8622c95968fd6bc19a52a4410f6a182087ac744ca3dab56c7eb0df5020dd8087",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 14,
+          "max_drain_error_mm_d": 0.06625224234214394,
+          "max_infil_error_mm_d": 0.006625224332937872,
+          "max_net_error_mm_d": 0.05962701800920607,
+          "objective": 0.03824308254368933,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 4015,
+      "path": "../work_e/dra_final/dra/4015.dra",
+      "represented_levels": 5,
+      "sha256": "21715c061dc578bf37851df63c6246341a557d9206f180a9a698b415e49679c1",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.0180434170511945,
+          "max_infil_error_mm_d": 0.002232587504554515,
+          "max_net_error_mm_d": 0.0180434170511945,
+          "objective": 0.006656491614795897,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 4027,
+      "path": "../work_e/dra_final/dra/4027.dra",
+      "represented_levels": 5,
+      "sha256": "ba494b151a7834bdd1897763eb5de045ceba0f224983478e92550881deca6bb1",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.007739886360560999,
+          "max_infil_error_mm_d": 0.0007739886475897532,
+          "max_net_error_mm_d": 0.007739886360560999,
+          "objective": 0.0008906518991052229,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 5891,
+      "path": "../work_e/dra_final/dra/5891.dra",
+      "represented_levels": 5,
+      "sha256": "07db7d57bce91812fd7a1ab8800e625d5b5989056a001c064d7278adabcc219d",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 14,
+          "max_drain_error_mm_d": 0.006279366881136242,
+          "max_infil_error_mm_d": 0.0005452734943254422,
+          "max_net_error_mm_d": 0.006279366881136242,
+          "objective": 0.00064080052938156,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 5989,
+      "path": "../work_e/dra_final/dra/5989.dra",
+      "represented_levels": 5,
+      "sha256": "604032373a8e0d8b82119b517257d25ad426399da461cf94f6678af9d5e4f867",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.0059664948315623426,
+          "max_infil_error_mm_d": 1.6940658945086007e-18,
+          "max_net_error_mm_d": 0.005966494831562344,
+          "objective": 0.00046352635546589583,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 6019,
+      "path": "../work_e/dra_final/dra/6019.dra",
+      "represented_levels": 5,
+      "sha256": "5feaafc36d17d3cbc3e7167ebf881c841613217b60a015f5316f670f1cc00827",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 15,
+          "max_drain_error_mm_d": 0.006742288856012579,
+          "max_infil_error_mm_d": 0.002224955410901866,
+          "max_net_error_mm_d": 0.0045173334451107175,
+          "objective": 0.0008206455425838796,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 7584,
+      "path": "../work_e/dra_final/dra/7584.dra",
+      "represented_levels": 5,
+      "sha256": "b0bd89e7333ec9279e02c5bebb7dc2548c8c7a95e7eed5d919f7dc72b22e4c60",
+      "soil_horizons": 3,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 14,
+          "max_drain_error_mm_d": 0.00763549060916857,
+          "max_infil_error_mm_d": 0.0022099557090290113,
+          "max_net_error_mm_d": 0.0054255349001395585,
+          "objective": 0.0008946339824295751,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 7737,
+      "path": "../work_e/dra_final/dra/7737.dra",
+      "represented_levels": 5,
+      "sha256": "fefa91960e54fd4d2bb0175646ce8f04095c2a2020ac6d241fcc805374c0caa6",
+      "soil_horizons": 3,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.014370548990683888,
+          "max_infil_error_mm_d": 0.0,
+          "max_net_error_mm_d": 0.014370548990683888,
+          "objective": 0.0030075862874480467,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 8611,
+      "path": "../work_e/dra_final/dra/8611.dra",
+      "represented_levels": 5,
+      "sha256": "e50c86638427c33c90ec409d360fb5c1bb8808aca471ae40d59a6ff8f80a2f14",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 14,
+          "max_drain_error_mm_d": 0.13775823745576163,
+          "max_infil_error_mm_d": 0.0454602201668279,
+          "max_net_error_mm_d": 0.09229801728893372,
+          "objective": 0.42889772115677754,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 8686,
+      "path": "../work_e/dra_final/dra/8686.dra",
+      "represented_levels": 5,
+      "sha256": "0ff08de85eb1091db9dfdcfcae2f3ba9040a1b60a9f0092c09faa78a3753a379",
+      "soil_horizons": 3,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.005907232494800629,
+          "max_infil_error_mm_d": 0.001949386800743566,
+          "max_net_error_mm_d": 0.003957845694057065,
+          "objective": 0.0010006398489273653,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 8744,
+      "path": "../work_e/dra_final/dra/8744.dra",
+      "represented_levels": 5,
+      "sha256": "357a3e1d80e83441b7d919c6efca2d98255b11d20a6a2ecc732ba3a61090fee7",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.0155135874519291,
+          "max_infil_error_mm_d": 0.00122968791325686,
+          "max_net_error_mm_d": 0.015191916596876184,
+          "objective": 0.005282869224533062,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 8805,
+      "path": "../work_e/dra_final/dra/8805.dra",
+      "represented_levels": 5,
+      "sha256": "2abcf5d65090781e307fa9ffd77321dc304b98aaf34eb41d6d883ea3e706e5bf",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 18,
+          "max_drain_error_mm_d": 0.10555218537755584,
+          "max_infil_error_mm_d": 0.002223245845308936,
+          "max_net_error_mm_d": 0.10777543122286466,
+          "objective": 0.1522902054119644,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 8821,
+      "path": "../work_e/dra_final/dra/8821.dra",
+      "represented_levels": 5,
+      "sha256": "ea75f4f63c89b0ffab11ca16339d36f959d28648f353331003aea440a6d96202",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 14,
+          "max_drain_error_mm_d": 0.020817473060029044,
+          "max_infil_error_mm_d": 0.0,
+          "max_net_error_mm_d": 0.020817473060029044,
+          "objective": 0.004745152935285798,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 8842,
+      "path": "../work_e/dra_final/dra/8842.dra",
+      "represented_levels": 5,
+      "sha256": "1ee3b476c0ad83b84877f42dd5a3267143bfb67b5042fda578e945b34605ff8b",
+      "soil_horizons": 3,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.023128051823100182,
+          "max_infil_error_mm_d": 0.0032706241489242633,
+          "max_net_error_mm_d": 0.024085870755250788,
+          "objective": 0.003598015818225014,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 8946,
+      "path": "../work_e/dra_final/dra/8946.dra",
+      "represented_levels": 5,
+      "sha256": "731e29457b70e750bd386f6d2510f265b6b785a641d0bdfce1a755ae6e55a5e8",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.03128776483314582,
+          "max_infil_error_mm_d": 0.0007355258656431031,
+          "max_net_error_mm_d": 0.032023290698788814,
+          "objective": 0.012890201711075923,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 8990,
+      "path": "../work_e/dra_final/dra/8990.dra",
+      "represented_levels": 5,
+      "sha256": "cb0f14a9bff6ae7e2e7a069177e165483d98b3452918e5019f58630a09230b11",
+      "soil_horizons": 5,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 14,
+          "max_drain_error_mm_d": 0.004526529585741068,
+          "max_infil_error_mm_d": 0.0014937548226509785,
+          "max_net_error_mm_d": 0.004526529585741068,
+          "objective": 0.00019625987509455103,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 9744,
+      "path": "../work_e/dra_final/dra/9744.dra",
+      "represented_levels": 5,
+      "sha256": "a54580158829533bf24d2f4fabb5f628015d004c51a9e37cc03c72094a47a81d",
+      "soil_horizons": 3,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.006236060377910746,
+          "max_infil_error_mm_d": 0.0006236060470840187,
+          "max_net_error_mm_d": 0.006236060377910746,
+          "objective": 0.0005521081904775297,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 9803,
+      "path": "../work_e/dra_final/dra/9803.dra",
+      "represented_levels": 5,
+      "sha256": "36f397e4d995d80a4f8babd7a572e286dd6e4cfc19efbb611d17be56d04408b7",
+      "soil_horizons": 3,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    },
+    {
+      "audit": {
+        "error": {
+          "head_count": 16,
+          "max_drain_error_mm_d": 0.10274123674415547,
+          "max_infil_error_mm_d": 0.021339478719819206,
+          "max_net_error_mm_d": 0.10274123674415547,
+          "objective": 0.2564122405462408,
+          "stage_count": 13
+        },
+        "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+      },
+      "hru": 10080,
+      "path": "../work_e/dra_final/dra/10080.dra",
+      "represented_levels": 5,
+      "sha256": "12f9d806c92e42ffdfd15996dfcc89acd30fac73a1f5b8db77d567f76adff6c0",
+      "soil_horizons": 4,
+      "status": "APPROXIMATE_DRA_NOT_HYDROLOGICALLY_ADMITTED"
+    }
+  ]
+}

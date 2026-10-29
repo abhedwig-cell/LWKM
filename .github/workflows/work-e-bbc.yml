@@ -1,0 +1,23 @@
+name: Work E BBC Python
+on:
+  pull_request:
+    paths:
+      - 'tools/server/bbc_production.py'
+      - 'tools/server/start_work_e*'
+      - 'tests/test_bbc_production.py'
+      - '.github/workflows/work-e-bbc.yml'
+  workflow_dispatch:
+jobs:
+  qualify:
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        python: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '${{ matrix.python }}'
+      - run: python -m pip install numpy pandas pytest
+      - run: python -m tools.server.bbc_production --probe
+      - run: python -m pytest tests/test_bbc_production.py -q
