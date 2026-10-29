@@ -1,0 +1,57 @@
+{
+  "svats": 427656,
+  "hrus": 10242,
+  "different_svat_areas": 7,
+  "different_hru_totals": 7,
+  "max_abs_difference_m2": 2349719.0,
+  "max_relative_difference": 37.595504,
+  "actual_total_m2": 25514516032.0,
+  "comparison_total_m2": 25511141709.0,
+  "comparison_only": "Existing membership areas never replace area_svat values",
+  "source_sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc",
+  "scope": "OWNER_UPLOADED_AREA_FILE_NOT_SERVER_PERIOD_FILE_HASHES",
+  "differences": [
+    {
+      "svat": 6216,
+      "HRU": 8701,
+      "membership_m2": 62500.0,
+      "area_svat_m2": 420907.0
+    },
+    {
+      "svat": 7042,
+      "HRU": 3367,
+      "membership_m2": 62500.0,
+      "area_svat_m2": 284887.0
+    },
+    {
+      "svat": 7317,
+      "HRU": 8444,
+      "membership_m2": 62500.0,
+      "area_svat_m2": 2412219.0
+    },
+    {
+      "svat": 7591,
+      "HRU": 8699,
+      "membership_m2": 62500.0,
+      "area_svat_m2": 309713.0
+    },
+    {
+      "svat": 7592,
+      "HRU": 8697,
+      "membership_m2": 62500.0,
+      "area_svat_m2": 258700.0
+    },
+    {
+      "svat": 74788,
+      "HRU": 8347,
+      "membership_m2": 62500.0,
+      "area_svat_m2": 62838.0
+    },
+    {
+      "svat": 118055,
+      "HRU": 4630,
+      "membership_m2": 62500.0,
+      "area_svat_m2": 62559.0
+    }
+  ]
+}

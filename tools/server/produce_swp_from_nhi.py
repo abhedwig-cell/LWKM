@@ -15,6 +15,7 @@ import zipfile
 import numpy as np
 from tools.swp_hru_authority import rows,number,unique
 from tools.swp_run_parameters import derive,FIELDS
+from tools.svat_areas import locate_area_files,bind_area_files
 from tools.server.check_swp_source_values import grid,sample,sha
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -42,14 +43,22 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
     output.mkdir(parents=True,exist_ok=True)
     manifest_path=output/'production_manifest.json'
     previous=json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+    specs=json.loads(sources.read_text())['sources']
+    members=list(rows(membership))
+    explicit=Path(specs['area_svat']['path']) if 'area_svat' in specs else None
+    runs_root=Path(specs['head']['path']).parents[3]
+    area_paths,area_discovery=locate_area_files(runs_root,start,end,explicit=explicit)
+    (output/'area_source_manifest.json').write_text(json.dumps(area_discovery,indent=2)+'\n')
     input_hashes={k:sha(v) for k,v in dict(sources=sources,qualified_report=qualified_report,hru=hru,membership=membership,soil=soil,crop=crop).items()}
+    input_hashes['area_files']={str(p):sha(p) for p in area_paths}
     tools_dir=Path(__file__).resolve().parents[1]
-    code_paths=[Path(__file__),tools_dir/'swp_run_parameters.py',tools_dir/'idf_reader.py',tools_dir/'server/check_swp_source_values.py']
+    code_paths=[Path(__file__),tools_dir/'swp_run_parameters.py',tools_dir/'svat_areas.py',tools_dir/'idf_reader.py',tools_dir/'server/check_swp_source_values.py']
     code_hash=hashlib.sha256(''.join(sha(path) for path in code_paths).encode()).hexdigest()
     if previous.get('status')=='SWP_INPUTS_GENERATED_NOT_SWAP_VALIDATED' and start=='1970-01-01' and previous.get('start')==start and previous.get('end')==end and previous.get('input_hashes')==input_hashes and previous.get('producer_sha256')==code_hash and previous.get('hrus')==expected_hrus:
         unchanged=all(Path(spec['path']).is_file() and sha(Path(spec['path']))==spec['sha256'] for spec in previous['sources'].values())
         table=output/'runs_candidate.csv'
         if unchanged and table.is_file() and sha(table)==previous.get('parameters_sha256'):
+            (output/'area_source_manifest.json').write_text(json.dumps(previous['area_sources'],indent=2)+'\n')
             previous['reused_parameter_phase']=True
             print('PARAMETERS REUSED',flush=True)
             return previous
@@ -60,12 +69,16 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
     if sha(sources)!=report['source_binding_sha256'] or sha(membership)!=report['membership_sha256']:
         raise ValueError('returned server report does not bind these sources/membership')
     hrus=unique(rows(hru),lambda r:number(r,'HRU','hru'))
-    members=list(rows(membership));ids={number(m,'svat') for m in members}
+    ids={number(m,'svat') for m in members}
     if len(ids)!=len(members):raise ValueError('duplicate SVAT membership')
     groups=defaultdict(list)
     for m in members:groups[number(m,'HRU')].append(m)
     if set(groups)!=set(hrus) or len(hrus)!=expected_hrus:raise ValueError('HRU population mismatch')
     xy=np.array([(float(m['x']),float(m['y'])) for m in members])
+    actual_areas,area_manifest=bind_area_files(area_paths,members,area_discovery)
+    (output/'area_source_manifest.json').write_text(json.dumps(area_manifest,indent=2)+'\n')
+    if area_manifest['period_area_differences']:
+        raise ValueError('Selected SVAT areas differ between actual area_svat files; see area_source_manifest.json')
     provenance={};source_roles=('glk','rds','lgn','bfe','meteo','irr_switch','head')
     for role in source_roles:
         path=Path(specs[role]['path'])
@@ -93,10 +106,10 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
             row=np.floor((geometry['ymin']+geometry['nrows']*geometry['dy']-xy[:,1])/geometry['dy']).astype(int)+1
             for m,c,r in zip(members,col,row):m['col'],m['row']=str(c),str(r)
         provenance[role]=dict(path=str(path),sha256=digest,scale_to_parameter_units=scale)
-    # Full MODFLOW cell area remains reserved for BBC. UOPP is not an area fallback.
+    # Actual MetaSWAP area_svat values only; frozen membership is QA, never fallback.
     for m in members:
-        area=float(m['svat_area_m2'])
-        if not np.isfinite(area) or area<=0:raise ValueError('invalid qualified SVAT area')
+        area=actual_areas[number(m,'svat')]
+        if not np.isfinite(area) or area<=0:raise ValueError('invalid area_svat value')
         m['area']=str(area)
         m['bbc']='2' # Effective Q_ext from BBC09, explicit project bottom policy.
     dqsat_path=Path(specs['dqsat_svat']['path']);print(f'LEES dqsat: {dqsat_path}',flush=True)
@@ -121,7 +134,7 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
             run,diag=derive(selected,groups[hid],soils,crops,config)
             diag['root_source']=root_source
             diag['initial_water_below_profile']=run['GWLI'] < -2000
-            diag['area_source']='QUALIFIED_MEMBERSHIP_SVAT_AREA_M2'
+            diag['area_source']='ACTUAL_AREA_SVAT_INP_JOINED_ON_SVAT_ID_AND_XY'
             parameters.append(run);diagnostics.append(diag)
         except (KeyError,ValueError,StopIteration) as exc:errors.append(dict(HRU=hid,error=str(exc)))
         if count%1000==0:print(f'PARAMETERS {count}/{len(hrus)}; fouten {len(errors)}',flush=True)
@@ -131,7 +144,7 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
     (output/'parameter_errors.json').write_text(json.dumps(errors,indent=2)+'\n')
     manifest.update(status='PARTIAL_PARAMETERS' if errors else 'RUN_PARAMETERS_SOURCE_CANDIDATE',hrus=len(parameters),failed_hrus=len(errors),
                     sources=provenance,root_policy='REPRESENTATIVE_SERVER_ROOTZONE_CM_CANDIDATE',
-                    area_policy='QUALIFIED_SVAT_AREAS_NOT_UOPP_NOT_MODFLOW_CELL_AREA',bottom_policy='BBC09_EFFECTIVE_FLUX_SWBOTB2',
+                    area_policy='ACTUAL_AREA_SVAT_INP_NOT_MEMBERSHIP_NOT_UOPP_NOT_MODFLOW_CELL_AREA',area_sources=area_manifest,bottom_policy='BBC09_EFFECTIVE_FLUX_SWBOTB2',
                     remaining=['Candidate four-class crop mapping; management assets must be assembled separately.',
                                'Rootzone raw-cm interpretation is explicit candidate policy, not recovered five-column root schema.',
                                'No claim of hydrological validation or national SWAP execution.'])
@@ -164,13 +177,15 @@ def main():
         r['status']='PARTIAL_GENERATION' if r['failed_hrus'] or render_failed else 'SWP_INPUTS_GENERATED_NOT_SWAP_VALIDATED'
         (a.output/'production_manifest.json').write_text(json.dumps(r,indent=2)+'\n')
         with zipfile.ZipFile(a.output/'controle.zip','w',zipfile.ZIP_DEFLATED) as z:
-            for name in ('production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json'):z.write(a.output/name,name)
+            for name in ('production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json','area_source_manifest.json'):z.write(a.output/name,name)
         print(json.dumps(dict(status=r['status'],hrus=r['hrus'],failed_hrus=r['failed_hrus'])))
         return bool(r['failed_hrus'] or render_failed)
     except Exception as exc:
         a.output.mkdir(parents=True,exist_ok=True)
         (a.output/'production_manifest.json').write_text(json.dumps(dict(status='FAILED',error=str(exc)),indent=2)+'\n')
-        with zipfile.ZipFile(a.output/'controle.zip','w',zipfile.ZIP_DEFLATED) as z:z.write(a.output/'production_manifest.json','production_manifest.json')
+        with zipfile.ZipFile(a.output/'controle.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for name in ('production_manifest.json','area_source_manifest.json'):
+                if (a.output/name).is_file():z.write(a.output/name,name)
         print(f'SWP STOP: {exc}',file=sys.stderr);return 1
 
 

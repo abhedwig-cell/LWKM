@@ -10,9 +10,9 @@ def main():
     for name in ('hru','source-report','output'):p.add_argument('--'+name,required=True,type=Path)
     a=p.parse_args();a.output.parent.mkdir(parents=True,exist_ok=True)
     modules=['tools/server/produce_swp_from_nhi.py','tools/server/check_swp_source_values.py','tools/swp_run_parameters.py',
-             'tools/swp_hru_authority.py','tools/swp_direct_render.py','tools/modern_swp.py','tools/swp_renderer.py',
+             'tools/swp_hru_authority.py','tools/svat_areas.py','tools/swp_direct_render.py','tools/modern_swp.py','tools/swp_renderer.py',
              'tools/swp_template_adapter.py','tools/idf_reader.py']
-    prefix='LWKM_WorkE_SWP_Server01/'
+    prefix='LWKM_WorkE_SWP_Server02/'
     with zipfile.ZipFile(a.source_report) as report,zipfile.ZipFile(a.output,'w',zipfile.ZIP_DEFLATED) as z:
         for module in modules:z.write(ROOT/module,prefix+module)
         for name in ('tools/__init__.py','tools/server/__init__.py'):z.writestr(prefix+name,'')

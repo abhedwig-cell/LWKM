@@ -25,6 +25,8 @@ def fixture(tmp_path):
     dqsat=tmp_path/'dqsat.inp';dqsat.write_text('10 13.00\n');sources['dqsat_svat']=dict(path=str(dqsat))
     # Deliberately unusable area raster: it must never be used as an area source.
     sources['area']=dict(path=str(tmp_path/'missing_UOPP.asc'))
+    area=tmp_path/'area_svat.inp';area.write_text('10 45000 1 2 3 4 5 6 7 125 125 8 9 10\n')
+    sources['area_svat']=dict(path=str(area))
     binding=tmp_path/'sources.json';binding.write_text(json.dumps(dict(sources=sources)))
     members=tmp_path/'members.csv.gz'
     with gzip.open(members,'wt') as f:
@@ -34,12 +36,12 @@ def fixture(tmp_path):
     return binding,report,hru,members
 
 
-def test_confirmed_sources_to_rendered_swp_uses_qualified_area_and_correct_units(tmp_path):
+def test_confirmed_sources_to_rendered_swp_uses_actual_area_and_correct_units(tmp_path):
     paths=fixture(tmp_path);output=tmp_path/'out'
     result=generate(*paths,ROOT/'config/swp/soil_classification_and_profile.csv',ROOT/'config/swp/four_landuse_crop_candidate.csv',output,'1970-01-01','2022-12-31',1)
     assert result['hrus']==1 and result['failed_hrus']==0
     with (output/'runs_candidate.csv').open() as f:row=next(csv.DictReader(f))
-    assert (float(row['RDS']),float(row['GWLI']),float(row['area']),float(row['glk']))==(120,-100,50000,2)
+    assert (float(row['RDS']),float(row['GWLI']),float(row['area']),float(row['glk']))==(120,-100,45000,2)
     assert row['SWBOTB']=='2' and row['SWBBCFILE']=='1'
     diagnostics=json.loads((output/'diagnostics.json').read_text())
     assert 'ROOTZONE' in diagnostics[0]['root_source']
@@ -100,4 +102,15 @@ def test_zero_path_cli_generates_and_resumes_without_inventory_step(tmp_path,mon
     rendered=json.loads((out/'swp/manifest.json').read_text())
     assert rendered['hrus'][0]['status']=='REUSED'
     with zipfile.ZipFile(out/'controle.zip') as z:
-        assert set(z.namelist())=={'production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json'}
+        assert set(z.namelist())=={'production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json','area_source_manifest.json'}
+
+
+def test_changed_area_file_invalidates_cached_parameters(tmp_path):
+    paths=fixture(tmp_path);out=tmp_path/'out'
+    args=(*paths,ROOT/'config/swp/soil_classification_and_profile.csv',ROOT/'config/swp/four_landuse_crop_candidate.csv',out,'1970-01-01','2022-12-31',1)
+    result=generate(*args);result['status']='SWP_INPUTS_GENERATED_NOT_SWAP_VALIDATED'
+    (out/'production_manifest.json').write_text(json.dumps(result))
+    p=tmp_path/'area_svat.inp';p.write_text(p.read_text().replace('45000','42000'))
+    updated=generate(*args)
+    assert not updated.get('reused_parameter_phase',False)
+    with (out/'runs_candidate.csv').open() as f:assert float(next(csv.DictReader(f))['area'])==42000

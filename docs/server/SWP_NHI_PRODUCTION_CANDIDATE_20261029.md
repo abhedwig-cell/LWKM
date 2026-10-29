@@ -7,7 +7,7 @@ ontbrekende SVAT-punten en vereist geen interpolatie of verschuiving.
 
 ## Uitvoeren
 
-Pak LWKM_WorkE_SWP_Server01.zip uit onder de gebruikelijke LWKM_tools-map.
+Pak LWKM_WorkE_SWP_Server02.zip uit onder de gebruikelijke LWKM_tools-map.
 Open CMD in de map met maak_swp.cmd:
 
 ```cmd
@@ -21,6 +21,7 @@ geen SWAP-modeluitvoering.
 Uitvoer onder swp_server_productie:
 - runs_candidate.csv: de afgeleide 37 velden;
 - swp/HRU.swp: één .swp per geslaagde HRU (bestandsnaam bijvoorbeeld 1.swp);
+- area_source_manifest.json: area_svat-bronnen, periodevergelijking en afwijkingen;
 - parameter_errors.json en diagnostics.json: fouten en bronkeuzes per HRU;
 - production_manifest.json en swp/manifest.json: aantallen en hashes;
 - controle.zip: klein terugrapport, ook bij een fatale invoerfout.
@@ -40,11 +41,34 @@ ongewijzigde SWP-bestanden worden eveneens hergebruikt.
   stationaire initialisatiegrid uit de MODFLOW-modelconfiguratie.
 - GWLI: conform v0.38 gelijke gewichten per HRU-lid voor head en maaiveld,
   daarna MIN(0,NINT((head_mean-ground_mean)*100)). Dieper dan 20 m wordt gemeld.
-- SVAT-oppervlakken: bestaande gekwalificeerde membership, afkomstig van de
-  SVAT-afleiding. UOPP.ASC is bewust geen vervangende bron: 5.579 NoData en een
-  maximumverhouding 38,595504 tegenover de gekwalificeerde SVAT-oppervlakken.
-  Er worden geen SVAT's wegens UOPP-NoData weggelaten. BBC houdt onafhankelijk
-  de eerder voorgeschreven volledige MODFLOW-celoppervlakken.
+- SVAT-oppervlakken: rechtstreeks uit de werkelijke area_svat.inp, gekoppeld
+  op oorspronkelijk SVAT-ID én X/Y (tolerantie 0,001 m). Alleen 14-koloms
+  area_svat-layout zoals in de bestaande MetaSWAP-HRU-EXE wordt geaccepteerd.
+  Er is geen terugval op UOPP of membership-oppervlakken en geen aftopping op
+  62.500 m². BBC blijft onafhankelijk het volledige MODFLOW-celoppervlak gebruiken.
+- De bestaande run_1970_1979 t/m run_2020_2022 worden gericht gecontroleerd op
+  metaswap/area_svat.inp en metaswap/inp/area_svat.inp. De MS_daily-overlapruns
+  en svat_border-appendage worden niet als vervanging gekozen. Bestanden worden
+  gehasht; bij verschillende hashes worden de geselecteerde SVAT-waarden vergeleken.
+  Als die tussen runbestanden verschillen, stopt statische nationale generatie.
+  Ontbrekende periodebestanden blijven expliciet in het terugrapport staan.
+- Zijn er geen periodebestanden gevonden, dan wordt alleen een reeds aanwezig
+  area_svat-bestand met de SHA-256 van het door de eigenaar aangeleverde bestand
+  gebruikt: 352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc.
+  Daarvoor worden de bestaande MetaSWAP-exportpakketten onder LWKM_tools en de
+  geconsolideerde metaswap-map gericht gecontroleerd. Dat is kandidaatgebruik van
+  de aangeleverde modelinvoer, geen bewijs van gelijke bestanden in alle perioden.
+  Als ook die bron ontbreekt, stopt de producer en vermeldt controle.zip de
+  onderzochte locaties. Er wordt geen bronbestand verplaatst of in dit pakket
+  opgenomen. De waarden worden ter plaatse gelezen.
+- De lokale echte-data-audit op het eerder aangeleverde area_svat(2).inp koppelt
+  alle 427.656 geselecteerde SVAT's foutloos op ID en coördinaten. Zeven SVAT-
+  oppervlakken verschillen van membership en veranderen zeven HRU-totalen.
+  Bijvoorbeeld SVAT 7317 / HRU 8444: 2.412.219 m² tegenover 62.500 m² in
+  membership. De nieuwe producer neemt de modelinvoer over en registreert dit;
+  hij verklaart de grote bronwaarde niet automatisch hydrologisch gevalideerd.
+  Een verschil tussen UOPP en membership bewijst dus op zichzelf geen UOPP-
+  bronfout. De beslissende oppervlaktebron is de werkelijk gebruikte area_svat.
 - Worteldiepte: een aanwezige rz_repr houdt voorrang. De teruggevonden HRU-CSV
   bevat die niet; daarom wordt rootzone.asc bij de aangewezen representatieve
   SVAT gebruikt, met expliciete kandidaatinterpretatie van ruwe waarden als cm.
@@ -74,6 +98,9 @@ Het bewijst geen fysische gelijkwaardigheid van alle oorspronkelijke parameters.
 De vierklassengewaskoppeling blijft kandidaat met 255 verschillen tegenover de
 historische tabel; generieke croporg-metadata mag geen managementbron worden.
 De wortelbronkeuze blijft onderscheiden van de oorspronkelijke rz_repr-tabel.
+
+Server01 is vervangen wegens zijn onjuiste keuze van membership als primaire
+oppervlaktebron. Gebruik Server02.
 
 De software is lokaal getest van grids tot geschreven SWP. De eerdere vier
 historische SWAP-runs valideren de renderer, niet deze nieuwe nationale
