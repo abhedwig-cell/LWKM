@@ -21,7 +21,7 @@ def check_pair(swp,dra):
 
 
 def check(swp,dra,report):
-    swps={p.stem:p for p in swp.glob('*.swp')};dras={p.stem:p for p in dra.glob('*.dra')}
+    swps={p.stem:p for p in swp.rglob('*.swp')};dras={p.stem:p for p in dra.glob('*.dra')}
     errors=[]
     for hid in sorted(set(swps)^set(dras)):
         errors.append(dict(HRU=hid,error='SWP or DRA missing'))

@@ -105,7 +105,7 @@ def test_zero_path_cli_generates_and_resumes_without_inventory_step(tmp_path,mon
     out=tmp_path/'production'
     monkeypatch.setattr(sys,'argv',['producer','--expected-hrus','1','--output',str(out)])
     assert producer.main()==0
-    assert (out/'swp/1.swp').is_file()
+    assert (out/'swp/1/1.swp').is_file()
     assert producer.main()==0
     manifest=json.loads((out/'production_manifest.json').read_text())
     assert manifest['reused_parameter_phase']

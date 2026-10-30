@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 from tools.modern_swp import render
 from tools.swp_hru_authority import rows
+from tools.swp_local_assets import local_assets, source_assets
 
 HYDRAULIC=('ORES','OSAT','ALFA','NPAR','KSATFIT','LEXP','H_ENPR','KSATEXM','BDENS','ELAS')
 TEXTURE=('PSAND','PSILT','PCLAY','ORGMAT')
@@ -89,23 +90,33 @@ def main(argv=None):
     parameters=list(rows(a.parameters));ids=[int(r['run_id']) for r in parameters]
     if len(set(ids))!=len(ids) or len(ids)!=a.expected_hrus:raise ValueError('parameter population mismatch')
     a.output.mkdir(parents=True,exist_ok=True)
+    asset_sources=source_assets()
     outcomes=[]
     for run in parameters:
-        target=a.output/(str(int(run['run_id']))+'.swp')
+        target=a.output/str(int(run['run_id']))/(str(int(run['run_id']))+'.swp')
         try:
-            content=render(template,catalog.context(run)).encode()
+            context=catalog.context(run)
+            assets=local_assets(run,context)
+            content=render(template,context).encode()
+            assets[target.name]=content
+            target.parent.mkdir(parents=True,exist_ok=True)
             digest=hashlib.sha256(content).hexdigest()
-            reused=target.exists() and hashlib.sha256(target.read_bytes()).hexdigest()==digest
+            reused=all((target.parent/name).is_file() and (target.parent/name).read_bytes()==data for name,data in assets.items())
             if not reused:
-                temp=target.with_suffix('.swp.tmp');temp.write_bytes(content);temp.replace(target)
+                for name,data in assets.items():
+                    dest=target.parent/name
+                    temp=dest.with_suffix(dest.suffix+'.tmp');temp.write_bytes(data);temp.replace(dest)
             outcomes.append(dict(HRU=int(run['run_id']),status='REUSED' if reused else 'WRITTEN',sha256=digest,
-                                 irrigation_id=int(run['irrigation_id']),irrigation_management_connected=False))
-        except (ValueError,KeyError,TypeError) as exc:
+                                 irrigation_id=int(run['irrigation_id']),irrigation_management_connected=True,
+                                 directory=str(int(run['run_id'])),
+                                 assets={name:hashlib.sha256(data).hexdigest() for name,data in assets.items()}))
+        except (ValueError,KeyError,TypeError,OSError) as exc:
             target.unlink(missing_ok=True)
             outcomes.append(dict(HRU=int(run['run_id']),status='FAILED',error=str(exc)))
         if len(outcomes)%1000==0:print(f'SWP {len(outcomes)}/{len(parameters)}',flush=True)
     failed=sum(r['status']=='FAILED' for r in outcomes)
     manifest=dict(status='FAILED' if failed else 'SWP_RENDERED_NOT_SWAP_VALIDATED',failed_hrus=failed,
+                  asset_sources=asset_sources,
                   sources={k:hashlib.sha256(getattr(a,k).read_bytes()).hexdigest() for k in ('parameters','catalog','template')},hrus=outcomes)
     (a.output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print(json.dumps(dict(status=manifest['status'],hrus=len(outcomes),failed_hrus=failed)))

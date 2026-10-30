@@ -43,7 +43,7 @@ class DirectTests(unittest.TestCase):
                      '--hru',hru,'--members',members,'--head',str(d/'head.asc'),'--output',str(d/'out'),'--expected-hrus','1']
             result=subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
             self.assertEqual(result.returncode,0,result.stdout+result.stderr)
-            swp=d/'out/swp/1.swp';text=swp.read_text()
+            swp=d/'out/swp/1/1.swp';text=swp.read_text()
             self.assertNotIn('{{',text)
             self.assertIn('2020',text)
             result=subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
@@ -51,3 +51,12 @@ class DirectTests(unittest.TestCase):
             manifest=json.loads((d/'out/swp/manifest.json').read_text())
             self.assertEqual(manifest['hrus'][0]['status'],'REUSED')
             self.assertEqual(manifest['status'],'SWP_RENDERED_NOT_SWAP_VALIDATED')
+            crop=swp.parent/'fictief.crp'
+            self.assertTrue((swp.parent/'atmospheric_1975-2020.co2').is_file())
+            expected=crop.read_bytes()
+            crop.write_text('tampered')
+            result=subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
+            self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+            self.assertEqual(crop.read_bytes(),expected)
+            manifest=json.loads((d/'out/swp/manifest.json').read_text())
+            self.assertEqual(manifest['hrus'][0]['status'],'WRITTEN')
