@@ -2,19 +2,20 @@
 from __future__ import annotations
 from datetime import date
 import numpy as np
-import pandas as pd
 
 from tools.p12_swallo import SUPPLIED_SOURCE_V038, swallo, swallo_modern_explicit
 
 _SWAP_MONTH = ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec")
 
 def conductance_weighted_depth(glk,bottom,cdr):
+    import pandas as pd
     g=pd.to_numeric(glk,errors="coerce").to_numpy(float)
     b=pd.to_numeric(bottom,errors="coerce").to_numpy(float)
     c=pd.to_numeric(cdr,errors="coerce").fillna(0).to_numpy(float)
     return float(np.sum(c*(g-b))/np.sum(c)) if np.sum(c)>0 else 0.0
 
 def aggregate_system(members,sy:int,dqsat_maj:float):
+    import pandas as pd
     cdr=pd.to_numeric(members[f"cdr{sy}"],errors="coerce").fillna(0)
     inf=pd.to_numeric(members[f"inf{sy}"],errors="coerce").fillna(0)
     n=len(members);cs=float(cdr.sum());ins=float((cdr*inf).sum())
@@ -51,98 +52,62 @@ def aggregate_physical_system(
     closed, except infiltration factors when the explicitly confirmed LHM
     missing-is-zero policy is requested. Drain-only systems pass infiltration_factor_col=None.
 
-    Modern L/spacing authority is representative-SVAT dqsat:
+    The supplied HRU dqsat follows the owner-selected positive-member median:
     L = 4 * representative_dqsat for an active physical system.
     """
-    glk = pd.to_numeric(members["glk"], errors="coerce")
-    cdr = pd.to_numeric(members[cdr_col], errors="coerce")
-    bottom = pd.to_numeric(members[bottom_col], errors="coerce")
-    summer = (
-        pd.to_numeric(members[summer_level_col], errors="coerce")
-        if summer_level_col is not None else None
-    )
-    winter = (
-        pd.to_numeric(members[winter_level_col], errors="coerce")
-        if winter_level_col is not None else None
-    )
+    import pandas as pd
+    convert=lambda key:pd.to_numeric(members[key],errors="coerce").to_numpy(float)
+    return aggregate_physical_arrays(
+        convert("glk"),convert(cdr_col),convert(bottom_col),
+        summer=convert(summer_level_col) if summer_level_col else None,
+        winter=convert(winter_level_col) if winter_level_col else None,
+        dqsat=representative_dqsat,
+        infiltration=convert(infiltration_factor_col) if infiltration_factor_col else None,
+        missing_infiltration_factor_is_zero=missing_infiltration_factor_is_zero,
+        cell_area_m2=cell_area_m2)
 
-    if glk.isna().any():
-        raise ValueError("missing ground level in HRU membership")
 
-    active_member = cdr.fillna(0.0) > 0.0
-    if cdr[active_member].isna().any():
-        raise ValueError(f"missing conductance in active {cdr_col} member")
-    if bottom[active_member].isna().any():
-        raise ValueError(f"missing bottom for positive-conductance {cdr_col} member")
-    if summer is not None and summer[active_member].isna().any():
-        raise ValueError(f"missing summer level for positive-conductance {cdr_col} member")
-    if winter is not None and winter[active_member].isna().any():
-        raise ValueError(f"missing winter level for positive-conductance {cdr_col} member")
+def aggregate_physical_arrays(glk,cdr,bottom,*,summer=None,winter=None,dqsat,
+                              infiltration=None,missing_infiltration_factor_is_zero=False,
+                              cell_area_m2=62500.):
+    """Same modern aggregation for NumPy-only server and DataFrame consumers.
 
-    cdr = cdr.fillna(0.0).clip(lower=0.0)
-    cdr_sum = float(cdr.sum())
-    n = len(members)
-    area = float(cell_area_m2) * n
-
-    if infiltration_factor_col is None:
-        infiltration_sum = 0.0
-        infres = 100000.0
+    All-member MODFLOW-cell support is retained; area_svat is a different
+    MetaSWAP convention. Raw conductances remain available before parser caps.
+    """
+    glk,cdr,bottom=(np.asarray(v,dtype=float) for v in (glk,cdr,bottom))
+    if not len(glk) or cdr.shape!=glk.shape or bottom.shape!=glk.shape:
+        raise ValueError('inconsistent physical member arrays')
+    if not np.isfinite(glk).all():raise ValueError('missing ground level in HRU membership')
+    if np.isinf(cdr).any() or (cdr[np.isfinite(cdr)]<0).any():
+        raise ValueError('invalid negative/nonfinite conductance')
+    cdr=np.nan_to_num(cdr,nan=0.)
+    active=cdr>0
+    for name,values in [('bottom',bottom),('summer level',summer),('winter level',winter)]:
+        if values is not None and not np.isfinite(np.asarray(values)[active]).all():
+            raise ValueError(f'missing {name} for positive-conductance member')
+    if (summer is None)!=(winter is None):raise ValueError('summer and winter level columns must both be set or both be None')
+    cs=float(cdr.sum());area=float(cell_area_m2)*len(glk)
+    if not np.isfinite(area) or area<=0:raise ValueError('invalid support area')
+    if infiltration is None:ins=0.
     else:
-        inf = pd.to_numeric(members[infiltration_factor_col], errors="coerce")
-        if inf[active_member].isna().any() and not missing_infiltration_factor_is_zero:
-            raise ValueError(
-                f"missing infiltration factor for positive-conductance {cdr_col} member"
-            )
-        inf = inf.fillna(0.0).clip(lower=0.0)
-        infiltration_sum = float((cdr * inf).sum())
-        infres = min(
-            100000.0,
-            max(1.0, area / infiltration_sum if infiltration_sum > 0.0 else 100000.0),
-        )
-
-    drnres = min(
-        100000.0,
-        max(1.0, area / cdr_sum if cdr_sum > 0.0 else 100000.0),
-    )
-
-    if cdr_sum > 0.0:
-        c = cdr.to_numpy(float)
-        gg = glk.to_numpy(float)
-        bb = bottom.to_numpy(float)
-        mask = c > 0.0
-        dep = float(np.sum(c[mask] * (gg[mask] - bb[mask])) / np.sum(c[mask]))
-        dep = max(0.0, dep)
-        if summer is not None and winter is not None:
-            ss = summer.to_numpy(float)
-            ww = winter.to_numpy(float)
-            ps = float(np.sum(c[mask] * (gg[mask] - ss[mask])) / np.sum(c[mask]))
-            pw = float(np.sum(c[mask] * (gg[mask] - ww[mask])) / np.sum(c[mask]))
-            ps = min(max(0.0, ps), dep)
-            pw = min(max(0.0, pw), dep)
-        elif summer is None and winter is None:
-            ps = 0.0
-            pw = 0.0
-        else:
-            raise ValueError("summer and winter level columns must both be set or both be None")
-        dd = float(representative_dqsat) * 4.0
-    else:
-        dep = 0.0
-        ps = 0.0
-        pw = 0.0
-        dd = 100.0
-
-    return {
-        "drnres": drnres,
-        "infres": infres,
-        "dd": dd,
-        "dep": dep,
-        "peil_sum": ps,
-        "peil_win": pw,
-        "cdr_sum": cdr_sum,
-        "infiltration_conductance_sum": infiltration_sum,
-        "member_count": n,
-        "support_area_m2": area,
-    }
+        inf=np.asarray(infiltration,dtype=float)
+        if np.isinf(inf[active]).any() or (inf[active]<0).any():raise ValueError('invalid infiltration factor')
+        if np.isnan(inf[active]).any() and not missing_infiltration_factor_is_zero:
+            raise ValueError('missing infiltration factor for positive-conductance member')
+        ins=float(np.sum(cdr[active]*np.nan_to_num(inf[active],nan=0.)))
+    dep=ps=pw=0.;dd=100.
+    if cs>0:
+        if not np.isfinite(dqsat) or dqsat<=0:raise ValueError('nonpositive/nonfinite dqsat')
+        dep=max(0.,float(np.sum(cdr[active]*(glk[active]-bottom[active]))/cs))
+        if summer is not None:
+            ps=min(max(0.,float(np.sum(cdr[active]*(glk[active]-np.asarray(summer)[active]))/cs)),dep)
+            pw=min(max(0.,float(np.sum(cdr[active]*(glk[active]-np.asarray(winter)[active]))/cs)),dep)
+        dd=float(dqsat)*4
+    return dict(drnres=min(100000.,max(1.,area/cs if cs>0 else 100000.)),
+                infres=min(100000.,max(1.,area/ins if ins>0 else 100000.)),
+                dd=dd,dep=dep,peil_sum=ps,peil_win=pw,cdr_sum=cs,
+                infiltration_conductance_sum=ins,member_count=len(glk),support_area_m2=area)
 
 
 def repair_system(s:dict,sy:int,isnatuur:bool)->dict:

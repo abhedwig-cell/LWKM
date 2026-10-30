@@ -58,7 +58,7 @@ def sample_centres(grid: AsciiGrid, x: pd.Series, y: pd.Series) -> np.ndarray:
 
     col = np.rint(col_f).astype(int)
     row = np.rint(row_f).astype(int)
-    if not np.allclose(col_f, col, atol=1e-8) or not np.allclose(row_f, row, atol=1e-8):
+    if not np.allclose(col_f, col, rtol=0, atol=1e-8) or not np.allclose(row_f, row, rtol=0, atol=1e-8):
         raise ValueError("SVAT coordinates are not exact raster-cell centres")
     if np.any(col < 0) or np.any(col >= grid.ncols) or np.any(row < 0) or np.any(row >= grid.nrows):
         raise ValueError("SVAT coordinate falls outside dqsat raster")

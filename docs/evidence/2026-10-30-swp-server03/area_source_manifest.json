@@ -1,0 +1,106 @@
+{
+  "periods": [
+    {
+      "period": "1970_1979",
+      "candidates": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\area_svat.inp",
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\inp\\area_svat.inp"
+      ],
+      "existing": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\area_svat.inp"
+      ]
+    },
+    {
+      "period": "1980_1989",
+      "candidates": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1980_1989\\metaswap\\area_svat.inp",
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1980_1989\\metaswap\\inp\\area_svat.inp"
+      ],
+      "existing": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1980_1989\\metaswap\\area_svat.inp"
+      ]
+    },
+    {
+      "period": "1990_1999",
+      "candidates": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1990_1999\\metaswap\\area_svat.inp",
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1990_1999\\metaswap\\inp\\area_svat.inp"
+      ],
+      "existing": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1990_1999\\metaswap\\area_svat.inp"
+      ]
+    },
+    {
+      "period": "2000_2009",
+      "candidates": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2000_2009\\metaswap\\area_svat.inp",
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2000_2009\\metaswap\\inp\\area_svat.inp"
+      ],
+      "existing": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2000_2009\\metaswap\\area_svat.inp"
+      ]
+    },
+    {
+      "period": "2010_2019",
+      "candidates": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2010_2019\\metaswap\\area_svat.inp",
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2010_2019\\metaswap\\inp\\area_svat.inp"
+      ],
+      "existing": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2010_2019\\metaswap\\area_svat.inp"
+      ]
+    },
+    {
+      "period": "2020_2022",
+      "candidates": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2020_2022\\metaswap\\area_svat.inp",
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2020_2022\\metaswap\\inp\\area_svat.inp"
+      ],
+      "existing": [
+        "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2020_2022\\metaswap\\area_svat.inp"
+      ]
+    }
+  ],
+  "scope": "PERIOD_RUN_FILES",
+  "missing_periods": [],
+  "unmatched_existing_fallbacks": [],
+  "files": [
+    {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\area_svat.inp",
+      "sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc"
+    },
+    {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1980_1989\\metaswap\\area_svat.inp",
+      "sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc"
+    },
+    {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1990_1999\\metaswap\\area_svat.inp",
+      "sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc"
+    },
+    {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2000_2009\\metaswap\\area_svat.inp",
+      "sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc"
+    },
+    {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2010_2019\\metaswap\\area_svat.inp",
+      "sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc"
+    },
+    {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_2020_2022\\metaswap\\area_svat.inp",
+      "sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc"
+    }
+  ],
+  "period_area_differences": [],
+  "comparison_with_membership": {
+    "svats": 427656,
+    "hrus": 10242,
+    "different_svat_areas": 7,
+    "different_hru_totals": 7,
+    "max_abs_difference_m2": 2349719.0,
+    "max_relative_difference": 37.595504,
+    "actual_total_m2": 25514516032.0,
+    "comparison_total_m2": 25511141709.0,
+    "comparison_only": "Existing membership areas never replace area_svat values"
+  },
+  "status": "AREA_SVAT_JOIN_VERIFIED_PERIOD_STABILITY_ONLY_FOR_FOUND_FILES"
+}

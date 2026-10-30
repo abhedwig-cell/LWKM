@@ -1,0 +1,70 @@
+[
+  {
+    "HRU": 2276,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 2917,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 3293,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 3322,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 3995,
+    "error": "ambiguous mode [2, 1]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 5119,
+    "error": "ambiguous mode [2, 1]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 6086,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 6089,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 6111,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 6114,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 6936,
+    "error": "ambiguous mode [2, 1]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 7566,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 7574,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 8988,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 9194,
+    "error": "ambiguous mode [2, 1]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 9324,
+    "error": "ambiguous mode [2, 1]; historical MAJORITY tie rule not verified"
+  },
+  {
+    "HRU": 10089,
+    "error": "ambiguous mode [1, 2]; historical MAJORITY tie rule not verified"
+  }
+]

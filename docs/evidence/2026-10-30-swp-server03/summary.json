@@ -1,0 +1,33 @@
+{
+  "status": "PARTIAL_GENERATION",
+  "written_hrus": 10225,
+  "failed_hrus": 17,
+  "period": [
+    "1970-01-01",
+    "2022-12-31"
+  ],
+  "problem": "IRRIGATION_SOURCE_FREQUENCY_TIES",
+  "failed_ids": [
+    2276,
+    2917,
+    3293,
+    3322,
+    3995,
+    5119,
+    6086,
+    6089,
+    6111,
+    6114,
+    6936,
+    7566,
+    7574,
+    8988,
+    9194,
+    9324,
+    10089
+  ],
+  "period_area_files": 6,
+  "identical_period_area_hashes": true,
+  "raw_report_library_id": "libfile_8976345e78b8819190e378ed5c70c81b",
+  "production_admitted": false
+}

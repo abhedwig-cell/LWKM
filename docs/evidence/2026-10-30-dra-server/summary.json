@@ -1,0 +1,679 @@
+{
+  "status": "REAL_SOURCE_DRA_POPULATION_SERIALIZATION_PASS",
+  "hrus": 10242,
+  "start": "1970-01-01",
+  "end": "2022-12-31",
+  "h1_source_months": 637,
+  "methods": {
+    "NO_COMPRESSION": 4778,
+    "PROTECTED": 5435,
+    "AUTO_APPROXIMATED_FIVE_LEVEL": 29
+  },
+  "c2_static_physical_max_absolute_difference": {
+    "drnres": 0,
+    "infres": 2.3283064365386963e-10,
+    "dep": 3.552713678800501e-15,
+    "peil_sum": 1.7763568394002505e-15,
+    "peil_win": 3.552713678800501e-15,
+    "dd": 0,
+    "drainage_conductance_raw": 0,
+    "infiltration_conductance_raw": 1.3877787807814457e-17
+  },
+  "c2_static_physical_changed_above_tolerance": {},
+  "owner_events": {
+    "OMIT_DRAINAGE_SYSTEM": 1815,
+    "DISABLE_INFILTRATION": 2905
+  },
+  "approximate": [
+    {
+      "hru": 939,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -9.7284744688435,
+          "0.0": -9.728474468842427,
+          "1.0": -9.728474468842665,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": 2.673555821175455e-10
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.00830265028454319,
+        "max_infil_error_mm_d": 0.0008302650408259873,
+        "max_net_error_mm_d": 0.00830265028454319,
+        "objective": 0.0273082901670798,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 1371,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -2.526664803747421,
+          "0.0": -2.5266648037475576,
+          "1.0": -2.5266648037475576,
+          "2.0": 1.3432310819183613e-10,
+          "3.0": 0.0,
+          "4.0": -2.673555821175455e-10,
+          "5.0": 0.0
+        },
+        "head_count": 13,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.003036894805089063,
+        "max_infil_error_mm_d": 0.0003036894850339142,
+        "max_net_error_mm_d": 0.003036894805089063,
+        "objective": 0.0032056915881882916,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 2104,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -0.5650203280122708,
+          "0.0": -0.5650203280117493,
+          "1.0": -11.98159456062533,
+          "2.0": 0.0,
+          "3.0": 2.6864621638367225e-10,
+          "4.0": 2.673555821175455e-10,
+          "5.0": 2.69936850649799e-10
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.008208177663080216,
+        "max_infil_error_mm_d": 0.00015259187911571392,
+        "max_net_error_mm_d": 0.008360769542195876,
+        "objective": 0.04432755504497471,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 3863,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -19.080218568357378,
+          "0.0": -19.08021856835745,
+          "1.0": -19.080218568357346,
+          "2.0": 6.748421266244975e-11,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 15,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.014472696414122299,
+        "max_infil_error_mm_d": 0.0013277630416452116,
+        "max_net_error_mm_d": 0.014472696414122299,
+        "objective": 0.09422468595318029,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 3867,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -19.559789071248805,
+          "0.0": -19.559789071248503,
+          "1.0": -19.559789071248492,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.010437926835943356,
+        "max_infil_error_mm_d": 0.0010437926991482078,
+        "max_net_error_mm_d": 0.010437926835943356,
+        "objective": 0.07574345442160443,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 3878,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 1.9737221273558891,
+          "0.0": 1.9737221273558891,
+          "1.0": 1.9737221273558891,
+          "2.0": 1.3432310819183613e-10,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": -1.349684253248995e-10
+        },
+        "head_count": 14,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.001072399290945325,
+        "max_infil_error_mm_d": 0.000151160655853088,
+        "max_net_error_mm_d": 0.0009212386350923412,
+        "objective": 0.0004695386661925623,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 3880,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 0.07637990976610837,
+          "0.0": 0.07637990976610837,
+          "1.0": 0.07637990976597507,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 14,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.004033123683765127,
+        "max_infil_error_mm_d": 0.00040331237438623454,
+        "max_net_error_mm_d": 0.003992768782785233,
+        "objective": 0.014643889797408775,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 3883,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 5.2770635537689285,
+          "0.0": 5.2770635537686434,
+          "1.0": 5.277063553701554,
+          "2.0": -6.683889552938638e-11,
+          "3.0": -2.6864621638367225e-10,
+          "4.0": 0.0,
+          "5.0": -5.372924327673445e-10
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.004596785033228468,
+        "max_infil_error_mm_d": 0.0004596785101727331,
+        "max_net_error_mm_d": 0.004137106523055755,
+        "objective": 0.008360154879468408,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 3884,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 0.0,
+          "0.0": 0.0,
+          "1.0": 0.0,
+          "2.0": -1.3432310819183613e-10,
+          "3.0": -1.349684253248995e-10,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 13,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.0032273866526469387,
+        "max_infil_error_mm_d": 0.0,
+        "max_net_error_mm_d": 0.0032273866526469387,
+        "objective": 0.006635007673820461,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 3887,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -0.33173411064936476,
+          "0.0": -0.3317341106496273,
+          "1.0": -0.33173411064954467,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 15,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.0008792769812873691,
+        "max_infil_error_mm_d": 8.792769943897084e-05,
+        "max_net_error_mm_d": 0.0008792769812873691,
+        "objective": 0.0003636397498180986,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 3890,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 12.038613312046095,
+          "0.0": 12.038613312046259,
+          "1.0": 12.038613312046259,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": -2.69936850649799e-10
+        },
+        "head_count": 15,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.00947793878547376,
+        "max_infil_error_mm_d": 0.0009477938926698412,
+        "max_net_error_mm_d": 0.00853014489280392,
+        "objective": 0.034021323139909146,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 4015,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 32.793837159843555,
+          "0.0": 32.79383715984255,
+          "1.0": 0.0,
+          "2.0": 1.3432310819183613e-10,
+          "3.0": -1.349684253248995e-10,
+          "4.0": -2.69936850649799e-10,
+          "5.0": 2.673555821175455e-10
+        },
+        "head_count": 14,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.06625224702237217,
+        "max_infil_error_mm_d": 0.006625224800960844,
+        "max_net_error_mm_d": 0.05962702222141144,
+        "objective": 1.7895069908921197,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 4027,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -40.8484127877309,
+          "0.0": -40.848412787730716,
+          "1.0": -40.84841278766321,
+          "2.0": -249.04494440968685,
+          "3.0": -2.6864621638367225e-10,
+          "4.0": -2.69936850649799e-10,
+          "5.0": 0.0
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.0180434170511945,
+        "max_infil_error_mm_d": 0.002232587504554515,
+        "max_net_error_mm_d": 0.0180434170511945,
+        "objective": 0.3229486323546541,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 5891,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -14.982872240042116,
+          "0.0": -14.982872240042116,
+          "1.0": -14.98287224004216,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.007739886360560999,
+        "max_infil_error_mm_d": 0.0007739886475897463,
+        "max_net_error_mm_d": 0.007739886360560999,
+        "objective": 0.04364194239400427,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 5989,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -9.622487643882906,
+          "0.0": -9.622487643882737,
+          "1.0": -35.17503372675904,
+          "2.0": -6.748421266244975e-11,
+          "3.0": -1.3367779105877275e-10,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 14,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.006279366881136242,
+        "max_infil_error_mm_d": 0.0005452734943254422,
+        "max_net_error_mm_d": 0.006279366881136242,
+        "objective": 0.03158059877462892,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 6019,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 0.0,
+          "0.0": -3.279372758589749e-14,
+          "1.0": 3.3742106331224875e-11,
+          "2.0": 1.3432310819183613e-10,
+          "3.0": 2.6864621638367225e-10,
+          "4.0": 1.3367779105877275e-10,
+          "5.0": 5.372924327673445e-10
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.005966494831562344,
+        "max_infil_error_mm_d": 1.6940658945086007e-18,
+        "max_net_error_mm_d": 0.005966494831562344,
+        "objective": 0.02271279141782895,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 7584,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 29.592874752255838,
+          "0.0": 29.592874752256105,
+          "1.0": 29.59287475225639,
+          "2.0": 1.3367779105877275e-10,
+          "3.0": 0.0,
+          "4.0": 2.69936850649799e-10,
+          "5.0": 0.0
+        },
+        "head_count": 15,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.006742288856012579,
+        "max_infil_error_mm_d": 0.002224955410901873,
+        "max_net_error_mm_d": 0.0045173334451107175,
+        "objective": 0.038256704376599414,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 7737,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 27.999539673901644,
+          "0.0": 27.99953967390381,
+          "1.0": -6.716155409591806e-11,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 14,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.00763549060916857,
+        "max_infil_error_mm_d": 0.0022099557090290113,
+        "max_net_error_mm_d": 0.0054255349001395585,
+        "objective": 0.04383706513904877,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 8611,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 0.0,
+          "0.0": 0.0,
+          "1.0": -6.716155409591806e-11,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": -2.673555821175455e-10
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.014370548990683936,
+        "max_infil_error_mm_d": 0.0,
+        "max_net_error_mm_d": 0.014370548990683936,
+        "objective": 0.14631799347812866,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 8686,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 0.0,
+          "0.0": 0.0,
+          "1.0": -1171.2090845864839,
+          "2.0": -1.3432310819183613e-10,
+          "3.0": 2.6864621638367225e-10,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 14,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.13775823745575816,
+        "max_infil_error_mm_d": 0.0454602201668279,
+        "max_net_error_mm_d": 0.09229801728893025,
+        "objective": 20.82281894792795,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 8744,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 35.716962237489746,
+          "0.0": 35.716962237489746,
+          "1.0": 35.716962237489746,
+          "2.0": 35.7169622374234,
+          "3.0": -2.69936850649799e-10,
+          "4.0": 0.0,
+          "5.0": -5.372924327673445e-10
+        },
+        "head_count": 15,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.005907232494814507,
+        "max_infil_error_mm_d": 0.001949386800743566,
+        "max_net_error_mm_d": 0.003957845694070943,
+        "objective": 0.04735669249439002,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 8805,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -23.804298250816863,
+          "0.0": -23.804298250814682,
+          "1.0": -23.804298250814682,
+          "2.0": 1.3432310819183613e-10,
+          "3.0": 0.0,
+          "4.0": -2.6864621638367225e-10,
+          "5.0": 0.0
+        },
+        "head_count": 15,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.015513606948812375,
+        "max_infil_error_mm_d": 0.0012296878939362012,
+        "max_net_error_mm_d": 0.015191934124750133,
+        "objective": 0.25789774959371425,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 8821,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -43.03758177884206,
+          "0.0": -43.03758177884072,
+          "1.0": -43.03758177884206,
+          "2.0": -43.03758177884106,
+          "3.0": -43.03758177884115,
+          "4.0": -43.03758177884115,
+          "5.0": -43.03758177884115
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.10555218537755584,
+        "max_infil_error_mm_d": 0.00222324526184738,
+        "max_net_error_mm_d": 0.10777543063940322,
+        "objective": 7.455922721448435,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 8842,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": 0.0,
+          "0.0": 0.0,
+          "1.0": 0.0,
+          "2.0": 0.0,
+          "3.0": 0.0,
+          "4.0": 0.0,
+          "5.0": 0.0
+        },
+        "head_count": 14,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.020817472894040515,
+        "max_infil_error_mm_d": 0.0,
+        "max_net_error_mm_d": 0.020817472894040515,
+        "objective": 0.2289580144570654,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 8946,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -40.984387994976174,
+          "0.0": -40.98438799497629,
+          "1.0": -1.3432310819183613e-10,
+          "2.0": 0.0,
+          "3.0": -1.3367779105877275e-10,
+          "4.0": 0.0,
+          "5.0": 8.0464801488489e-10
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.023128052052942293,
+        "max_infil_error_mm_d": 0.003270624171908482,
+        "max_net_error_mm_d": 0.0240858709850929,
+        "objective": 0.18984556182444243,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 8990,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -13.725632532746914,
+          "0.0": -13.725632532749007,
+          "1.0": -13.725632532883083,
+          "2.0": -1.349684253248995e-10,
+          "3.0": 0.0,
+          "4.0": -2.69936850649799e-10,
+          "5.0": -8.072292834171435e-10
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.03128776483314582,
+        "max_infil_error_mm_d": 0.0007355258656430218,
+        "max_net_error_mm_d": 0.032023290698788814,
+        "objective": 0.6316655976795399,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 9744,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -12.16670960070983,
+          "0.0": -12.166709600708774,
+          "1.0": 0.0,
+          "2.0": 0.0,
+          "3.0": 1.349684253248995e-10,
+          "4.0": 0.0,
+          "5.0": -2.673555821175455e-10
+        },
+        "head_count": 15,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.004526529585741068,
+        "max_infil_error_mm_d": 0.0014937548226509785,
+        "max_net_error_mm_d": 0.004526529585741068,
+        "objective": 0.01108306586698913,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 9803,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -12.023420590991853,
+          "0.0": -12.023420590991853,
+          "1.0": -12.023420590991877,
+          "2.0": 0.0,
+          "3.0": -1.3367779105877275e-10,
+          "4.0": 1.3367779105877275e-10,
+          "5.0": 0.0
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.006236060377910746,
+        "max_infil_error_mm_d": 0.0006236060470840187,
+        "max_net_error_mm_d": 0.006236060377910746,
+        "objective": 0.027036998929894304,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    },
+    {
+      "hru": 10080,
+      "error": {
+        "constant_depth_trapezoid_net_error_mm": {
+          "-1.0": -362.34509092196737,
+          "0.0": -362.34509092196737,
+          "1.0": -362.3450909219684,
+          "2.0": -1640.3983800804133,
+          "3.0": -14.630356260403321,
+          "4.0": -2.673555821175455e-10,
+          "5.0": -5.34711164235091e-10
+        },
+        "head_count": 16,
+        "integration_scope": "HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE",
+        "max_drain_error_mm_d": 0.1027412329297206,
+        "max_infil_error_mm_d": 0.021339477927559827,
+        "max_net_error_mm_d": 0.1027412329297206,
+        "objective": 12.28881806879605,
+        "stage_count": 637
+      },
+      "method": "AUTO_APPROXIMATED_FIVE_LEVEL"
+    }
+  ],
+  "source_manifest_sha256": "54d376aedae213edec2e2539a1f5b18afbeadda405aa7fbf4306a900b2cf321f",
+  "production_manifest_sha256": "0b961a972055dd2694e651fc9b70c8b85244dbd7aba42ebc51d194af54f69ab4",
+  "c2_archive_sha256": "bcf37f3acaaa52c453b958af98e2593f61fe9f2d019c366f9fe870d51edfd80b",
+  "files_csv_sha256": "7860e067915049fb6b69c8162d02187af37e2a0a85597ecdde4d0a4563c1887e",
+  "dra_bytes": 139642358,
+  "production_admitted": false,
+  "swap_executed": false,
+  "limits": [
+    "C2 comparison excludes monthly series: actual 637-month coverage replaces the 13-month C2 interval.",
+    "C2 physical comparisons use tolerance 1e-9 * max(1,abs(reference)); maxima are unrounded.",
+    "Serialization and source comparisons are not hydrological validation."
+  ]
+}

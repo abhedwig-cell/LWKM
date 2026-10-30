@@ -1,0 +1,58 @@
+{
+  "scope": "OFFLINE_READ_OF_PREVIOUSLY_UPLOADED_REAL_RUN_CONTROLS_NOT_CURRENT_SERVER_DISCOVERY",
+  "controls": 8,
+  "references": 4975,
+  "roles": {
+    "ground_surface": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "initial_head_model_setup": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "layer1_activity": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "meteo_region": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "pipe_drain_conductance": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "pipe_drain_level": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "root_depth": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "source_landuse": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "source_soil": {
+      "configured_references": 8,
+      "existing_files": []
+    },
+    "svat_area": {
+      "configured_references": 8,
+      "existing_files": []
+    }
+  },
+  "control_files": [
+    "control_run_1970_1979/nhi_py/control_run_1970_1979.ini",
+    "control_run_1980_1989/nhi_py/control_run_1980_1989.ini",
+    "control_run_1990_1999/nhi_py/control_run_1990_1999.ini",
+    "control_run_2000_2009/nhi_py/control_run_2000_2009.ini",
+    "control_run_2010_2019/nhi_py/control_run_2010_2019.ini",
+    "control_run_2020_2023/nhi_py/control_run_2020_2023.ini",
+    "control_run_2023_2024/nhi_py/control_run_2023_2024.ini",
+    "control_run_2025_2025/nhi_py/control_run_2025_2025.ini"
+  ],
+  "source_archive_sha256": "f1c6d793e54ef2390d673ef543a7800d0e2bfaf44a887aa4ee2811c9080b7bea"
+}

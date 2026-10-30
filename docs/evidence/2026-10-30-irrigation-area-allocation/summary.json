@@ -1,0 +1,46 @@
+{
+  "policy": "NATIONAL_CLOSEST_AREA_PREFIX_OWNER_20261030",
+  "status": "COMPLETE_POPULATION_ALLOCATED",
+  "hru_count": 10242,
+  "candidate_hrus": 6495,
+  "irrigated_hrus": 1130,
+  "svat_irrigated_area_m2": 3018047700.0,
+  "hru_irrigated_area_m2": 3018697894.0,
+  "difference_m2": 650194.0,
+  "difference_ha": 65.0194,
+  "difference_percent": 0.02154352961353129,
+  "assigned_hrus_by_code": {
+    "0": 9112,
+    "1": 778,
+    "2": 352
+  },
+  "source_areas_m2": {
+    "1": {
+      "svat": 1988953778.0,
+      "hru": 2166275921.0,
+      "difference": 177322143.0
+    },
+    "2": {
+      "svat": 1029093922.0,
+      "hru": 852421973.0,
+      "difference": -176671949.0
+    }
+  },
+  "last_selected_hru": 191,
+  "first_excluded_hru": 2824,
+  "effective_fraction": 0.3322388619569649,
+  "fraction_tie_policy": "ASCENDING_HRU_ID",
+  "equal_deviation_policy": "SMALLER_ASSIGNED_AREA",
+  "qualification": "National area allocation only; regional and hydrological equivalence not established",
+  "evidence": {
+    "server_report_library_id": "libfile_faa82972508c8191bf69365a16c443fc",
+    "report_sha256": "b883a3bc164ecec305a7dc74e20c636bed2c8791909c295affa8f2e6ae5f23e7",
+    "area_sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc",
+    "membership_sha256": "947f6cfee5193d98128c5e78170e1ef03c4e65999a3ae8d4956295cba18eee8f",
+    "scope": "Real Server04 source-area diagnostics plus exact server-hash-matched area_svat; no Server05 execution claimed"
+  },
+  "previous_37_percent_rule": {
+    "hrus": 921,
+    "area_m2": 2409484886.0
+  }
+}

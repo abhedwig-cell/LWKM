@@ -1,0 +1,9 @@
+{
+  "profile_lookup_source": "Datamodel_10242.xlsx / bodem370_2_bofek2020",
+  "source_sha256": "5a4e68cb958cb8187639db7750e957c509caf67f81b5b11096c929ca796244d8",
+  "classification_source": "config/p12/bodem370_classification_lookup.csv",
+  "runtime_xls_dependency": false,
+  "runs_sheet_used": false,
+  "four_class_mapping_status": "CANDIDATE_NOT_HYDROLOGICALLY_QUALIFIED",
+  "tests": "11 targeted unit and CLI tests passed"
+}

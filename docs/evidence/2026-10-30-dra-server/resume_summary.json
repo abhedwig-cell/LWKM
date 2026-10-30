@@ -1,0 +1,20 @@
+{
+  "status": "DRA_SOURCE_CANDIDATES_NOT_SWAP_VALIDATED",
+  "hrus": 10242,
+  "generated": 10242,
+  "failed": 0,
+  "approximated": 29,
+  "reused_hrus": 10242,
+  "reused_h1_months": 637,
+  "h1_months": 637,
+  "start": "1970-01-01",
+  "end": "2022-12-31",
+  "production_admitted": false,
+  "fingerprint": "d848e0dfb6dc984cdb9f47ad1475b8663575ea3acb6b05731bdfdc0c7843bee8",
+  "elapsed_seconds": 11.49986760200045,
+  "limitations": [
+    "No new SWAP execution or hydrological validation.",
+    "Best-fit error diagnostics use prescribed groundwater-depth scenarios, not simulated groundwater.",
+    "Existing C2 historical-period files are not overwritten."
+  ]
+}

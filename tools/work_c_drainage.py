@@ -37,7 +37,7 @@ def run(relation,schema,dqsat,h1,remaining,output,start,end):
     deps=[Path(__file__),*(Path(__file__).with_name(n) for n in (
         'diagnose_dra_10242.py','generate_dra.py','dra_level_compression.py',
         'dra_protected_compression.py','prepare_dra_positive_median_dqsat.py',
-        'derive_representative_dqsat.py','idf_reader.py'))]
+        'derive_representative_dqsat.py','compare_dqsat_authority.py','dqsat_policy.py','idf_reader.py'))]
     source_identity['code']={p.name:sha256(p) for p in deps}
     fingerprint=hashlib.sha256(canonical(source_identity).encode()).hexdigest()
     old=output/'identity.json'

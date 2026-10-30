@@ -10,6 +10,7 @@ import argparse
 from datetime import date
 from itertools import combinations
 import json
+import numpy as np
 from math import isfinite
 from pathlib import Path
 from tools.run_dra_protected_population import physical, atomic_json
@@ -57,7 +58,9 @@ def effective(systems):
     gi=sum(s.infiltration_conductance for s in systems)
     if g<=0: raise ValueError("no drainage conductance")
     dates=stages(systems)
-    series=tuple((day,sum(s.drainage_conductance*level(s,day) for s in systems)/g) for day in dates)
+    lookups=[dict(s.level_series) if s.level_series is not None else None for s in systems]
+    series=tuple((day,sum(s.drainage_conductance*(lookup[day] if lookup is not None else level(s,day))
+                          for s,lookup in zip(systems,lookups))/g) for day in dates)
     # Native seasonal fields retained; if any dynamic data present, serialize
     # actual composite explicit stage axis, never replace H1 with seasons.
     explicit=any(s.level_series is not None for s in systems)
@@ -81,22 +84,50 @@ def flux(s,h,z):
             s.infiltration_conductance*max(0,z-h))
 
 def loss(source,represented):
+    """Evaluate the existing breakpoint objective over all actual source months.
+
+    Vectorization avoids repeatedly constructing monthly lookup dictionaries
+    inside every breakpoint evaluation. No source month is subsampled.
+    """
     dates=stages(source)
-    # Includes every source activation threshold, not just a 0.1m grid.
-    max_d=max_i=max_net=0.
-    squared=0.
-    for day in dates:
-        heads={-1.,0.,1.,2.,3.,4.,5.}|{level(s,day) for s in source}|{level(s,day) for s in represented}
-        for h in heads:
-            d0=i0=d1=i1=0.
-            for s in source:
-                d,i=flux(s,h,level(s,day));d0+=d;i0+=i
-            for s in represented:
-                d,i=flux(s,h,level(s,day));d1+=d;i1+=i
-            ed=1000*(d1-d0);ei=1000*(i1-i0)
-            max_d=max(max_d,abs(ed));max_i=max(max_i,abs(ei));max_net=max(max_net,abs(ed-ei))
-            squared+=ed*ed+ei*ei
-    return dict(max_drain_error_mm_d=max_d,max_infil_error_mm_d=max_i,max_net_error_mm_d=max_net,objective=squared,head_count=len(heads),stage_count=len(dates))
+    def depths(systems):
+        columns=[]
+        for s in systems:
+            lookup=dict(s.level_series) if s.level_series is not None else None
+            columns.append([lookup[day] if lookup is not None else level(s,day) for day in dates])
+        return np.array(columns,dtype=float).T
+    original=depths(source);candidate=depths(represented)
+    # Duplicate breakpoints must be removed per month, as in the original
+    # scalar objective. Fixed-head diagnostics use their own first 7 columns.
+    base=np.tile(np.array([-1.,0.,1.,2.,3.,4.,5.]),(len(dates),1))
+    raw=np.concatenate((base,original,candidate),axis=1)
+    heads=np.sort(raw,axis=1)
+    unique=np.ones_like(heads,dtype=bool);unique[:,1:]=heads[:,1:]!=heads[:,:-1]
+    def errors(at):
+        def branches(systems,z):
+            drainage=np.zeros_like(at);infiltration=np.zeros_like(at)
+            for j,s in enumerate(systems):
+                drainage+=s.drainage_conductance*np.maximum(0.,at-z[:,j,None])
+                infiltration+=s.infiltration_conductance*np.maximum(0.,z[:,j,None]-at)
+            return drainage,infiltration
+        d0,i0=branches(source,original);d1,i1=branches(represented,candidate)
+        return 1000*(d1-d0),1000*(i1-i0)
+    ed,ei=errors(heads)
+    result=dict(max_drain_error_mm_d=float(np.max(np.abs(ed))),
+                max_infil_error_mm_d=float(np.max(np.abs(ei))),
+                max_net_error_mm_d=float(np.max(np.abs(ed-ei))),
+                objective=float(np.sum((ed*ed+ei*ei)[unique])),
+                head_count=int(unique[-1].sum()),stage_count=len(dates))
+    # This is a hypothetical fixed-depth diagnostic, not a simulated volume.
+    # Trapezoidal weighting is explicit, including endpoint bracketing.
+    if len(dates)>1:
+        de,ie=errors(base)
+        widths=np.array([(date.fromisoformat(b)-date.fromisoformat(a)).days for a,b in zip(dates,dates[1:])])
+        net=de-ie
+        integrated=np.sum((net[:-1]+net[1:])*.5*widths[:,None],axis=0)
+        result['constant_depth_trapezoid_net_error_mm']={str(h):float(v) for h,v in zip(base[0],integrated)}
+        result['integration_scope']='HYPOTHETICAL_CONSTANT_DEPTH_SCENARIOS_NOT_SIMULATED_WATER_BALANCE'
+    return result
 
 def solve(systems):
     active=[s for s in systems if s.active]
