@@ -9,6 +9,16 @@ from tools.swp_direct_render import Catalog
 from tools.modern_swp import render
 
 ROOT=Path(__file__).resolve().parents[1]
+DQ_GRID='ncols 1\nnrows 1\nxllcorner 0\nyllcorner 0\ncellsize 250\nNODATA_value -9999\n13\n'
+
+
+@pytest.fixture(autouse=True)
+def source_identity(monkeypatch):
+    import hashlib
+    digest=hashlib.sha256(DQ_GRID.encode()).hexdigest()
+    monkeypatch.setattr('tools.server.dqsat_source.DQSAT_SHA256',digest)
+    monkeypatch.setattr('tools.server.produce_swp_from_nhi.DQSAT_SHA256',digest)
+
 
 
 def table(path,records):
@@ -22,7 +32,7 @@ def fixture(tmp_path):
     for role,value in [('glk',200),('rds',120),('lgn',5),('bfe',261),('meteo',280),('irr_switch',0),('head',1)]:
         p=tmp_path/(role+'.asc');p.write_text(f'ncols 1\nnrows 1\nxllcorner 0\nyllcorner 0\ncellsize 250\nNODATA_value -9999\n{value}\n')
         sources[role]=dict(path=str(p));digests[role]=dict(sha256=sha(p))
-    dqsat=tmp_path/'dqsat.inp';dqsat.write_text('10 13.00\n');sources['dqsat_svat']=dict(path=str(dqsat))
+    dqsat=tmp_path/'grensvlak_NHIWQ_v2_fill.asc';dqsat.write_text(DQ_GRID);sources['dqsat_grid']=dict(path=str(dqsat))
     # Deliberately unusable area raster: it must never be used as an area source.
     sources['area']=dict(path=str(tmp_path/'missing_UOPP.asc'))
     area=tmp_path/'area_svat.inp';area.write_text('10 45000 1 2 3 4 5 6 7 125 125 8 9 10\n')
@@ -102,7 +112,7 @@ def test_zero_path_cli_generates_and_resumes_without_inventory_step(tmp_path,mon
     rendered=json.loads((out/'swp/manifest.json').read_text())
     assert rendered['hrus'][0]['status']=='REUSED'
     with zipfile.ZipFile(out/'controle.zip') as z:
-        assert set(z.namelist())=={'production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json','area_source_manifest.json'}
+        assert set(z.namelist())=={'production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json','area_source_manifest.json','dqsat_source_manifest.json','dqsat_hru.csv'}
 
 
 def test_changed_area_file_invalidates_cached_parameters(tmp_path):
@@ -114,3 +124,22 @@ def test_changed_area_file_invalidates_cached_parameters(tmp_path):
     updated=generate(*args)
     assert not updated.get('reused_parameter_phase',False)
     with (out/'runs_candidate.csv').open() as f:assert float(next(csv.DictReader(f))['area'])==42000
+
+
+def test_missing_authoritative_raster_cannot_fall_back_to_svat_table(tmp_path):
+    paths=fixture(tmp_path)
+    (tmp_path/'grensvlak_NHIWQ_v2_fill.asc').unlink()
+    (tmp_path/'dqsat_svat.inp').write_text('10 13\n')
+    with pytest.raises(ValueError,match='not an approved substitute'):
+        generate(*paths,ROOT/'config/swp/soil_classification_and_profile.csv',ROOT/'config/swp/four_landuse_crop_candidate.csv',tmp_path/'out','1970-01-01','2022-12-31',1)
+    assert json.loads((tmp_path/'out/dqsat_source_manifest.json').read_text())['selected'] is None
+
+
+def test_changed_dqsat_is_not_reused(tmp_path):
+    paths=fixture(tmp_path);out=tmp_path/'out'
+    args=(*paths,ROOT/'config/swp/soil_classification_and_profile.csv',ROOT/'config/swp/four_landuse_crop_candidate.csv',out,'1970-01-01','2022-12-31',1)
+    result=generate(*args);result['status']='SWP_INPUTS_GENERATED_NOT_SWAP_VALIDATED'
+    (out/'production_manifest.json').write_text(json.dumps(result))
+    (tmp_path/'grensvlak_NHIWQ_v2_fill.asc').write_text(DQ_GRID.replace('\n13\n','\n14\n'))
+    with pytest.raises(ValueError,match='not found'):
+        generate(*args)

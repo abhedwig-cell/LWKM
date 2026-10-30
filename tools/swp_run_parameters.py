@@ -14,6 +14,7 @@ import json
 import math
 from pathlib import Path
 from tools.swp_hru_authority import rows, number, unique
+from tools.dqsat_policy import summarize
 
 FIELDS = 'run_id,scenario_id,bodem_id,soil2_id,lu_id,climate_id,SWBBCFILE,SWBOTB,dqsat,BBCFIL,DRFIL,METFIL,irrigation_id,solute_id,rotation_id,SWINCO,GWLI,RDS,PONDMX,RSRO,tempBot,glk,area,xc,yc,col,row,nusvat,TSTART,TEND,SWETR,soil_id,crop_id,croporg_id,dikte_id,COFANI,NUMNODNEW'.split(',')
 GRID_KEYS = ('glk', 'area', 'rds', 'dqsat', 'lgn', 'soil2', 'bfe', 'irr_switch', 'meteo', 'vc', 'riv_infil', 'bbc')
@@ -79,16 +80,12 @@ def derive(hru, members, soil_lookup, crop_lookup, config):
     fraction = sum(v > 0 for v in irrigation)/n
     irr = mode([v for v in irrigation if v > 0]) if fraction > .37 else 0
     bbc = mode([number(m, 'bbc') for m in members])
-    # dqsat historically selects members matching pre-override soil majority.
-    # Here identity soil controls the subset: this is a documented correction.
-    if config.get('dqsat_policy') == 'representative_svat_metadata' and bbc == 2:
-        # Auxiliary metadata only under external-flux bottom option 2.
-        dqsat = finite(representative, 'dqsat')
-    else:
-        subset = [m for m in members if number(m, 'bfe') == soil]
-        if not subset:
-            raise ValueError('no dqsat candidates matching authoritative soil')
-        dqsat = mode([finite(m, 'dqsat') for m in subset])
+    policy = config.get('dqsat_policy', 'positive_member_median')
+    if policy != 'positive_member_median':
+        raise ValueError('unsupported dqsat policy; owner decision requires positive_member_median')
+    dq = summarize([float(m['dqsat']) for m in members],
+                   float(representative['dqsat']), config.get('dqsat_nodata'))
+    dqsat = dq['positive_median']
     row = dict(run_id=hid, scenario_id='direct', bodem_id=soil, soil2_id=soil2,
                lu_id=lgn, climate_id=config['climate_id'], SWBBCFILE=0 if bbc==7 else 1,
                SWBOTB=bbc, dqsat=dqsat, BBCFIL=hid, DRFIL=hid, METFIL=f'{hid}.met',
@@ -103,7 +100,7 @@ def derive(hru, members, soil_lookup, crop_lookup, config):
     meteo_counts = Counter(number(m,'meteo') for m in members)
     return row, dict(HRU=hid, lu4=lu4, root_source=root_source,
                     centroid_tie_candidates=len(nearest),
-                    dqsat_policy=config.get('dqsat_policy','soil_subset_mode'),
+                    dqsat_policy=policy, dqsat=dq,
                     irrigation_fraction=fraction, meteo_region_counts=dict(meteo_counts))
 
 

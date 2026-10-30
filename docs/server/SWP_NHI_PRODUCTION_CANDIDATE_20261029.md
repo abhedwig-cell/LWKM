@@ -7,7 +7,7 @@ ontbrekende SVAT-punten en vereist geen interpolatie of verschuiving.
 
 ## Uitvoeren
 
-Pak LWKM_WorkE_SWP_Server02.zip uit onder de gebruikelijke LWKM_tools-map.
+Pak LWKM_WorkE_SWP_Server03.zip uit onder de gebruikelijke LWKM_tools-map.
 Open CMD in de map met maak_swp.cmd:
 
 ```cmd
@@ -21,6 +21,7 @@ geen SWAP-modeluitvoering.
 Uitvoer onder swp_server_productie:
 - runs_candidate.csv: de afgeleide 37 velden;
 - swp/HRU.swp: één .swp per geslaagde HRU (bestandsnaam bijvoorbeeld 1.swp);
+- dqsat_hru.csv en dqsat_source_manifest.json: HRU-waarden en rasterherkomst;
 - area_source_manifest.json: area_svat-bronnen, periodevergelijking en afwijkingen;
 - parameter_errors.json en diagnostics.json: fouten en bronkeuzes per HRU;
 - production_manifest.json en swp/manifest.json: aantallen en hashes;
@@ -74,9 +75,23 @@ ongewijzigde SWP-bestanden worden eveneens hergebruikt.
   SVAT gebruikt, met expliciete kandidaatinterpretatie van ruwe waarden als cm.
   Waarden 5–150 ondersteunen dit fysisch; de oorspronkelijke vijfkoloms
   representatieve worteltabel is daarmee niet als gereproduceerd aangemerkt.
-- dqsat_svat.inp wordt op SVAT-ID gelezen, niet op rijnummer. De waarde van de
-  representatieve SVAT is uitsluitend aanvullende metadata bij SWBOTB=2.
-  Er wordt geen lokale dqsat-grid gereconstrueerd.
+- dqsat: conform eigenaarbesluit van 2026-10-09 voor iedere HRU de mediaan
+  van strikt positieve waarden bij alle lid-SVAT-celcentra, zonder oppervlakte-
+  of bodemselectie. Nul en exacte NoData worden uitgesloten; andere negatieve
+  of niet-eindige waarden en een HRU zonder positieve waarden geven een fout.
+  Dezelfde berekening wordt door de bestaande DRA-producer gebruikt.
+  L = 4 * dqsat is kandidaat-drainageafstand in meter, geen kolomdikte.
+  De ruwe representatieve waarde, positief gemiddelde en aantallen blijven
+  afzonderlijk in dqsat_hru.csv en diagnostics.json beschikbaar.
+- Alleen het eerder geïdentificeerde grensvlak_NHIWQ_v2_fill.asc wordt gebruikt,
+  met SHA-256 e6f13f2308ec55089d384133296fd45e6f796eeefb81260ff8ffebef83f09c3a.
+  De bestaande gridmap, 2_Model_Input-boom en LWKM_tools-boom worden tot vijf
+  niveaus doorzocht op deze bestandsnaam. Alleen een exacte hashmatch wordt
+  gelezen. Er wordt niets verplaatst of geïnterpoleerd. Een ontbrekende bron
+  stopt de uitvoering en schrijft de gecontroleerde locaties en kandidaten naar
+  dqsat_source_manifest.json in controle.zip. Een eventueel expliciet gebonden
+  dqsat_grid-pad heeft voorrang en wordt nooit stilzwijgend vervangen.
+  dqsat_svat.inp is niet als gelijkwaardige bron aangetoond en is geen vervanging.
 - Onderrand: expliciet SWBOTB=2, SWBBCFILE=1 voor de ontwikkelde BBC09 Q_ext.
   Oude vrijedrainage-/bbc-rasterkeuzes worden niet als huidige policy heringevoerd.
 - Meteoregio's blijven diagnostiek; METFIL blijft HRU.met. Geen arbitraire mode
@@ -88,8 +103,7 @@ ongewijzigde SWP-bestanden worden eveneens hergebruikt.
   knopen, COFANI 1, PONDMX .2 cm, RSRO .25, tempBot 12, SWINCO 2.
 
 Alle daadwerkelijk gebruikte rasters worden tegen de teruggestuurde hashes
-gecontroleerd. Veranderingen stoppen de uitvoering. INP-waardetabel wordt
-gecontroleerd op dubbele/ontbrekende SVAT-ID's en krijgt een bronhash.
+gecontroleerd. Veranderingen stoppen de uitvoering. Het dqsat-raster wordt tegen zijn eerder vastgelegde bronhash gecontroleerd.
 
 ## Kwalificatiegrens
 
@@ -100,7 +114,17 @@ historische tabel; generieke croporg-metadata mag geen managementbron worden.
 De wortelbronkeuze blijft onderscheiden van de oorspronkelijke rz_repr-tabel.
 
 Server01 is vervangen wegens zijn onjuiste keuze van membership als primaire
-oppervlaktebron. Gebruik Server02.
+oppervlaktebron. Server02 is vervangen omdat het eerdere dqsat-besluit daarin
+niet correct was verwerkt. Gebruik Server03; bestaande kandidaat-SWP's moeten
+opnieuw met deze versie worden afgeleid. Een ongewijzigde oude cache wordt
+niet hergebruikt omdat de broncodehash is gewijzigd.
+
+De lokale echte-brontoets van 2026-10-30 omvat alle 427.656 SVAT's / 10.242 HRU's:
+geen verschil tussen server- en DRA-berekening, 515 uitgesloten nulwaarden,
+geen NoData onder deze leden, 2.835 HRU-medianen anders dan de representatieve
+waarde en alle 14 representatieve nullen opgelost met positieve leden. Het
+bereik is dqsat 2–20 m en kandidaat-L 8–80 m. Dit is methodische consistentie,
+geen kwalificatie van SWAP-respons of hydrologische productie.
 
 De software is lokaal getest van grids tot geschreven SWP. De eerdere vier
 historische SWAP-runs valideren de renderer, niet deze nieuwe nationale

@@ -9,33 +9,36 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from tools.compare_dqsat_authority import read_ascii_grid,sample_centres
-from tools.derive_representative_dqsat import derive
+from tools.dqsat_policy import summarize
 
 
 def prepare(schema,relation,grid):
-    rep=derive(schema,relation,grid,allow_zero=True)
     required={"HRU","svat_orig","x","y"}
-    if not required.issubset(relation):
-        raise ValueError("relation missing member sampling columns")
+    if not required.issubset(relation) or not {"HRU","svat_repr"}.issubset(schema):
+        raise ValueError("schema/relation missing member sampling columns")
     mem=relation[["HRU","svat_orig","x","y"]].copy()
-    if mem.svat_orig.duplicated().any():raise ValueError("duplicate SVAT member")
-    mem["hru"]=pd.to_numeric(mem.HRU,errors="raise").astype(int)
-    vals=sample_centres(grid,mem.x,mem.y)
-    if (~np.isfinite(vals)).any() or np.isclose(vals,grid.nodata).any():
-        raise ValueError("member dqsat samples invalid or NODATA cell")
-    if (vals<0).any():raise ValueError("negative member dqsat")
-    mem["dqsat"]=vals
-    positive=mem[mem.dqsat>0].groupby("hru").dqsat.agg(
-        positive_median="median",positive_mean="mean",
-        positive_count="count")
-    out=rep.merge(positive,on="hru",how="left",validate="one_to_one")
-    if out.positive_median.isna().any():
-        raise ValueError("HRU has no positive dqsat members")
-    out["source_representative_dqsat"]=out.representative_dqsat
-    out["representative_dqsat"]=out.positive_median
-    out["dqsat_method"]="POSITIVE_MEMBER_MEDIAN_CANDIDATE"
-    out["discriminating"]=out.source_representative_dqsat.ne(out.representative_dqsat)
-    return out.sort_values("hru").reset_index(drop=True)
+    sch=schema[["HRU","svat_repr"]].copy()
+    for frame, columns in ((mem,("HRU","svat_orig")),(sch,("HRU","svat_repr"))):
+        for col in columns:
+            numbers=pd.to_numeric(frame[col],errors="raise")
+            if (~np.isfinite(numbers)).any() or (numbers%1!=0).any():
+                raise ValueError("noninteger HRU/SVAT identity")
+            frame[col]=numbers.astype("int64")
+    if mem.svat_orig.duplicated().any() or sch.HRU.duplicated().any() or sch.svat_repr.duplicated().any():
+        raise ValueError("duplicate HRU or SVAT identity")
+    if set(mem.HRU)!=set(sch.HRU):raise ValueError("schema/membership HRU domain mismatch")
+    mem["dqsat"]=sample_centres(grid,mem.x,mem.y)
+    representatives=dict(zip(sch.HRU,sch.svat_repr))
+    records=[]
+    for hid, group in mem.groupby("HRU",sort=True):
+        rep=representatives[hid]
+        selected=group[group.svat_orig==rep]
+        if len(selected)!=1:raise ValueError("representative SVAT not in its own HRU")
+        summary=summarize(group.dqsat,selected.iloc[0].dqsat,grid.nodata)
+        records.append(dict(hru=hid,representative_svat=rep,
+                            representative_dqsat=summary["positive_median"],**summary))
+    return pd.DataFrame(records).sort_values("hru").reset_index(drop=True)
+
 
 
 def main():

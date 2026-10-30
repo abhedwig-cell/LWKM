@@ -45,9 +45,9 @@ class ParameterTests(unittest.TestCase):
         self.members[0]['head']='3'
         self.assertEqual(self.derive()[0]['GWLI'],0)
 
-    def test_missing_soil_subset_fails(self):
+    def test_owner_median_does_not_select_soil_subset(self):
         self.members[0]['bfe']='99'
-        with self.assertRaises(ValueError):self.derive()
+        self.assertEqual(self.derive()[0]['dqsat'],8)
 
     def test_coordinate_sampling_and_shift_rejection(self):
         with tempfile.TemporaryDirectory() as d:
@@ -84,3 +84,17 @@ class ParameterTests(unittest.TestCase):
             with patch('sys.argv',argv):self.assertEqual(main(),1)
             self.assertFalse((root/'out/runs_candidate.csv').exists())
             self.assertEqual(json.loads((root/'out/errors.json').read_text())[0]['HRU'],1)
+
+    def test_all_members_even_when_representative_zero_or_soil_differs(self):
+        self.members[0]['dqsat']='0'
+        for svat, value in [('11','8'),('12','20')]:
+            self.members.append(dict(self.members[0],svat=svat,dqsat=value,bfe='99'))
+        row,diag=self.derive()
+        self.assertEqual(row['dqsat'],14)
+        self.assertEqual(diag['dqsat']['candidate_spacing_m'],56)
+        self.assertEqual(diag['dqsat']['source_representative_dqsat'],0)
+        self.assertEqual(diag['dqsat']['zero_count'],1)
+
+    def test_old_metadata_policy_is_rejected(self):
+        self.config['dqsat_policy']='representative_svat_metadata'
+        with self.assertRaisesRegex(ValueError,'owner decision'):self.derive()
