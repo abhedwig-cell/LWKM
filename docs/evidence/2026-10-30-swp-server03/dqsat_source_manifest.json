@@ -1,0 +1,20 @@
+{
+  "filename": "grensvlak_NHIWQ_v2_fill.asc",
+  "expected_sha256": "e6f13f2308ec55089d384133296fd45e6f796eeefb81260ff8ffebef83f09c3a",
+  "roots": [
+    "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid",
+    "e:\\LHM_4.3.3\\Data\\2_Model_Input",
+    "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools"
+  ],
+  "max_directory_depth": 5,
+  "candidates": [
+    {
+      "path": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\grensvlak_NHIWQ_v2_fill.asc",
+      "sha256": "e6f13f2308ec55089d384133296fd45e6f796eeefb81260ff8ffebef83f09c3a",
+      "status": "IDENTIFIED_SOURCE"
+    }
+  ],
+  "warnings": [],
+  "production_admitted": false,
+  "selected": "e:\\LHM_4.3.3\\Data\\2_Model_Input\\metaswap\\grid\\grensvlak_NHIWQ_v2_fill.asc"
+}

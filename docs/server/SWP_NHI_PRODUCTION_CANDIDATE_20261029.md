@@ -7,7 +7,7 @@ ontbrekende SVAT-punten en vereist geen interpolatie of verschuiving.
 
 ## Uitvoeren
 
-Pak LWKM_WorkE_SWP_Server03.zip uit onder de gebruikelijke LWKM_tools-map.
+Pak LWKM_WorkE_SWP_Server04.zip uit onder de gebruikelijke LWKM_tools-map.
 Open CMD in de map met maak_swp.cmd:
 
 ```cmd
@@ -95,8 +95,14 @@ ongewijzigde SWP-bestanden worden eveneens hergebruikt.
 - Onderrand: expliciet SWBOTB=2, SWBBCFILE=1 voor de ontwikkelde BBC09 Q_ext.
   Oude vrijedrainage-/bbc-rasterkeuzes worden niet als huidige policy heringevoerd.
 - Meteoregio's blijven diagnostiek; METFIL blijft HRU.met. Geen arbitraire mode
-  nodig om deze bestandsverwijzing te schrijven. Beregening volgt de v0.38
-  drempel >0.37 en bronmodus, met expliciete fout bij een onbesliste bronmodus.
+  nodig om deze bestandsverwijzing te schrijven. De bestaande activeringsdrempel
+  blijft fractie beregende SVAT's >0.37. De keuze tussen grondwater (code 1) en
+  oppervlaktewater (code 2) gebruikt het **totale werkelijke SVAT-oppervlak per
+  bron**, uit area_svat.inp. Bij exact gelijke oppervlakken wint grondwater.
+  Aantallen, oppervlakken per bron en de gemaakte keuze staan in diagnostics.json.
+  Dit eigenaarbesluit van 2026-10-30 geldt voor alle HRU's, niet alleen de 17
+  eerdere fouten. DRA behoudt de bestaande 62.500 m² per lidcel; de kortstondige
+  lokale DRA-oppervlaktewijziging was een misinterpretatie en is teruggedraaid.
 - Gelijke centroidafstanden worden deterministisch opgelost met het kleinste
   SVAT-ID. Dit kiest geen nieuwe HRU-identiteit en wijzigt geen hydrologische weging.
 - Overgenomen v0.38 ontwerpinstellingen: 20-m-profiel/dikte_id 1700, 43 nieuwe
@@ -115,7 +121,10 @@ De wortelbronkeuze blijft onderscheiden van de oorspronkelijke rz_repr-tabel.
 
 Server01 is vervangen wegens zijn onjuiste keuze van membership als primaire
 oppervlaktebron. Server02 is vervangen omdat het eerdere dqsat-besluit daarin
-niet correct was verwerkt. Gebruik Server03; bestaande kandidaat-SWP's moeten
+niet correct was verwerkt. Server03 leverde op de server 10.225 geschreven SWP-bestanden, met 17
+  parameterfouten door gelijke telling van beregeningsbron 1 en 2. Server04
+  vervangt de bronkeuze door oppervlakteweging en grondwatervoorrang bij gelijke oppervlakken.
+Gebruik Server04; bestaande kandidaat-SWP's moeten
 opnieuw met deze versie worden afgeleid. Een ongewijzigde oude cache wordt
 niet hergebruikt omdat de broncodehash is gewijzigd.
 
@@ -132,3 +141,15 @@ parameterafleiding. Pas het server-terugrapport toont hoeveel HRU's hiermee
 werkelijk zijn geproduceerd. Er is nog geen nationale SWAP-uitvoering of
 hydrologische vrijgave. BBC/DRA/MET/CRP-bestanden moeten afzonderlijk met de
 SWP-bestanden worden samengesteld voordat SWAP kan rekenen.
+
+De eerste ontvangen Server03-controle bevestigt tevens dat alle zes
+periodebestanden area_svat.inp dezelfde geïdentificeerde hash hebben, en dat
+het dqsat-raster aanwezig is in de bestaande MetaSWAP-gridmap. Dat zijn nu
+serverwaarnemingen, geen aannames op basis van de lokale bronproef.
+
+Na afloop van SWP en DRA controleert `controleer_swp_dra.cmd` de daadwerkelijk
+geschreven bestanden op HRU-dekking, bodemhorizonten en COFANI-lengte. De
+checker zoekt bestaande DRA_Server-pakketten tot één geneste pakketmap onder
+LWKM_tools. Bij ontbrekende of meerdere DRA-uitvoermappen stopt hij met uitleg;
+er wordt geen map geraden. Alternatief: voer de Python-checker met expliciete
+--swp en --dra argumenten uit. De controle wijzigt geen modelinvoer.

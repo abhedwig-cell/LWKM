@@ -78,7 +78,14 @@ def derive(hru, members, soil_lookup, crop_lookup, config):
     center = min(nearest, key=lambda m: number(m, 'svat'))
     irrigation = [number(m, 'irr_switch') for m in members]
     fraction = sum(v > 0 for v in irrigation)/n
-    irr = mode([v for v in irrigation if v > 0]) if fraction > .37 else 0
+    irrigation_counts = Counter(v for v in irrigation if v > 0)
+    if any(v not in (0, 1, 2) for v in irrigation):
+        raise ValueError('unsupported irrigation source code; expected 0, 1 (groundwater), 2 (surface water)')
+    # Owner decision 2026-10-30: choose the source by actual SVAT area,
+    # with groundwater (1) winning an exact tie. Activation threshold unchanged.
+    irrigation_areas = {code: math.fsum(finite(m, 'area') for m, v in zip(members, irrigation) if v == code)
+                        for code in (1, 2)}
+    irr = (1 if irrigation_areas[1] >= irrigation_areas[2] else 2) if fraction > .37 else 0
     bbc = mode([number(m, 'bbc') for m in members])
     policy = config.get('dqsat_policy', 'positive_member_median')
     if policy != 'positive_member_median':
@@ -101,7 +108,12 @@ def derive(hru, members, soil_lookup, crop_lookup, config):
     return row, dict(HRU=hid, lu4=lu4, root_source=root_source,
                     centroid_tie_candidates=len(nearest),
                     dqsat_policy=policy, dqsat=dq,
-                    irrigation_fraction=fraction, meteo_region_counts=dict(meteo_counts))
+                    irrigation_fraction=fraction, irrigation_source_counts=dict(irrigation_counts),
+                    irrigation_source_areas_m2=irrigation_areas,
+                    irrigation_source_policy='ACTUAL_SVAT_AREA_GROUNDWATER_ON_EXACT_TIE_OWNER_20261030',
+                    irrigation_tie_policy='GROUNDWATER',
+                    irrigation_source_tied=bool(irrigation_counts) and irrigation_areas[1]==irrigation_areas[2],
+                    meteo_region_counts=dict(meteo_counts))
 
 
 def read_control(path, base):

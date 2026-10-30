@@ -11,7 +11,8 @@ De standaardperiode is 1970-01-01 tot en met 2022-12-31. Python wordt gestart
 via `E:\tools\deltaforge\deltaforge_4\python.exe`. De starter toont de Python-
 en NumPy-versie; pandas, XLS, SQLite en installatie van packages zijn niet nodig.
 Er hoeven geen paden te worden veranderd. De SWP-procedure hoeft niet klaar te
-zijn: dit pakket bevat dezelfde HRU-CSV, membership en onafhankelijke bodemcatalogus.
+zijn om DRA af te leiden. Controleer vóór SWAP de daadwerkelijk geschreven
+SWP/DRA-bodemhorizonten en COFANI-lengte. Dit pakket bevat dezelfde HRU-CSV, membership en onafhankelijke bodemcatalogus.
 Het wijzigt geen SWP-bestanden of reeds bestaande C2-resultaten.
 
 Een kortere eerste serverproef voor alle HRU's kan met:

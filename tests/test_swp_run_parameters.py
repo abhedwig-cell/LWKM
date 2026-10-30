@@ -98,3 +98,38 @@ class ParameterTests(unittest.TestCase):
     def test_old_metadata_policy_is_rejected(self):
         self.config['dqsat_policy']='representative_svat_metadata'
         with self.assertRaisesRegex(ValueError,'owner decision'):self.derive()
+
+    def test_equal_irrigation_area_chooses_groundwater(self):
+        self.members[0]['irr_switch']='2'
+        self.members.append(dict(self.members[0],svat='11',irr_switch='1'))
+        run,diag=self.derive()
+        self.assertEqual(run['irrigation_id'],1)
+        self.assertTrue(diag['irrigation_source_tied'])
+        self.assertEqual(diag['irrigation_source_counts'],{1:1,2:1})
+
+    def test_irrigation_source_uses_area_instead_of_counts(self):
+        self.members[0].update(irr_switch='1',area='100')
+        self.members.extend(dict(self.members[0],svat=str(i),irr_switch='2',area='20') for i in (11,12))
+        run,diag=self.derive()
+        self.assertEqual(run['irrigation_id'],1)
+        self.assertEqual(diag['irrigation_source_areas_m2'],{1:100.,2:40.})
+        self.assertFalse(diag['irrigation_source_tied'])
+        self.members[1]['area']='81'
+        self.assertEqual(self.derive()[0]['irrigation_id'],2)
+
+    def test_equal_area_groundwater_even_with_fewer_svats(self):
+        self.members[0].update(irr_switch='1',area='100')
+        self.members.extend(dict(self.members[0],svat=str(i),irr_switch='2',area='50') for i in (11,12))
+        self.assertEqual(self.derive()[0]['irrigation_id'],1)
+        self.assertTrue(self.derive()[1]['irrigation_source_tied'])
+
+    def test_no_irrigation_and_existing_activation_threshold(self):
+        self.members[0]['irr_switch']='0'
+        self.assertEqual(self.derive()[0]['irrigation_id'],0)
+        self.members.extend(dict(self.members[0],svat=str(i),area='1') for i in (11,12))
+        self.members[0]['irr_switch']='1'
+        self.assertEqual(self.derive()[0]['irrigation_id'],0)
+
+    def test_invalid_irrigation_code_fails(self):
+        self.members[0]['irr_switch']='3'
+        with self.assertRaisesRegex(ValueError,'unsupported irrigation'):self.derive()

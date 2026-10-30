@@ -15,9 +15,9 @@ No runtime XLS, SQLite or imported historical Runs values are used.
 | lu_id | lgn grid at selected svat_repr (1115) | HRU landgebruik22 if present, otherwise representative sample; diagnostic original source code |
 | climate_id | Literal __ | Explicit config |
 | SWBBCFILE, SWBOTB | bbc grid member mode; code 7 disables external BBC | Same, ambiguous modes fail |
-| dqsat | dqsat grid mode within pre-override soil-mode subset | Matching authoritative HRU soil subset; explicit correction |
+| dqsat | dqsat grid mode within pre-override soil-mode subset | Owner decision 2026-10-09: positive-member median over all HRU members; raw representative and positive mean retained |
 | BBCFIL, DRFIL, METFIL | HRU number, HRU number, HRU.met | Same |
-| irrigation_id | irr_switch grid: binary majority then fraction >0.37 enables; source mode among irrigated members | Fraction >0.37; source mode, tied source modes fail |
+| irrigation_id | irr_switch grid: binary majority then fraction >0.37 enables; source mode among irrigated members | Existing activation fraction >0.37 retained; source chosen by total actual area_svat area per source, groundwater (code 1) wins exact area ties (owner 2026-10-30) |
 | solute_id, rotation_id | Literal 0, max | Same |
 | SWINCO | Literal 2 for both bottom branches | Same |
 | GWLI | head at TimStart and glk grids; equal-member means, MIN(0,NINT((head_mean-glk_mean)*100)) | Same physical rule, Fortran half-away-from-zero rounding |
@@ -26,7 +26,7 @@ No runtime XLS, SQLite or imported historical Runs values are used.
 | RSRO, tempBot | crunoff_par, tempCbotk control | Explicit config values |
 | glk | glk grid equal-member mean | Same |
 | area | Sum area grid, not full MODFLOW cell area | Same; separate from BBC surface convention |
-| xc,yc,col,row | Member nearest equal-member coordinate centroid | Same coordinate rule; unresolved ties fail |
+| xc,yc,col,row | Member nearest equal-member coordinate centroid | Same coordinate rule; equal distances use smallest SVAT ID deterministically |
 | nusvat | HRU membership count | Same, duplicate SVAT identity fails |
 | TSTART,TEND | TimStart, TimEnd control | Explicit ISO dates in config |
 | SWETR | lgn-mode-derived flag computed before representative override | Explicit four-class crop-policy table; stale flags not carried forward |
