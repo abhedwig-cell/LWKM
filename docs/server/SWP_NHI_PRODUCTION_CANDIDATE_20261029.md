@@ -7,7 +7,7 @@ ontbrekende SVAT-punten en vereist geen interpolatie of verschuiving.
 
 ## Uitvoeren
 
-Pak LWKM_WorkE_SWP_Server04.zip uit onder de gebruikelijke LWKM_tools-map.
+Pak LWKM_WorkE_SWP_Server05.zip uit onder de gebruikelijke LWKM_tools-map.
 Open CMD in de map met maak_swp.cmd:
 
 ```cmd
@@ -19,7 +19,8 @@ De standaardperiode is 1970-01-01 t/m 2022-12-31. Dit maakt kandidaat-invoer,
 geen SWAP-modeluitvoering.
 
 Uitvoer onder swp_server_productie:
-- runs_candidate.csv: de afgeleide 37 velden;
+- runs_candidate.csv: de afgeleide 37 velden, inclusief definitieve beregeningstoekenning;
+- irrigation_allocation.json: doelareaal, toegewezen areaal, afwijking, bronverdeling en afkappunt;
 - swp/HRU.swp: één .swp per geslaagde HRU (bestandsnaam bijvoorbeeld 1.swp);
 - dqsat_hru.csv en dqsat_source_manifest.json: HRU-waarden en rasterherkomst;
 - area_source_manifest.json: area_svat-bronnen, periodevergelijking en afwijkingen;
@@ -95,8 +96,12 @@ ongewijzigde SWP-bestanden worden eveneens hergebruikt.
 - Onderrand: expliciet SWBOTB=2, SWBBCFILE=1 voor de ontwikkelde BBC09 Q_ext.
   Oude vrijedrainage-/bbc-rasterkeuzes worden niet als huidige policy heringevoerd.
 - Meteoregio's blijven diagnostiek; METFIL blijft HRU.met. Geen arbitraire mode
-  nodig om deze bestandsverwijzing te schrijven. De bestaande activeringsdrempel
-  blijft fractie beregende SVAT's >0.37. De keuze tussen grondwater (code 1) en
+  nodig om deze bestandsverwijzing te schrijven. Server05 vervangt de vaste 37%-drempel
+  door de landelijke oppervlakteregel: rangschik op beregend SVAT-oppervlak /
+  totaal HRU-oppervlak en kies de prefix met minimale afwijking van het totale
+  beregende SVAT-areaal. Geen beregende SVATs betekent nooit beregening. Gelijke
+  aandelen gebruiken oplopend HRU-ID, gelijke areaalafwijkingen de kleinste toekenning.
+  De keuze tussen grondwater (code 1) en
   oppervlaktewater (code 2) gebruikt het **totale werkelijke SVAT-oppervlak per
   bron**, uit area_svat.inp. Bij exact gelijke oppervlakken wint grondwater.
   Aantallen, oppervlakken per bron en de gemaakte keuze staan in diagnostics.json.
@@ -124,7 +129,7 @@ oppervlaktebron. Server02 is vervangen omdat het eerdere dqsat-besluit daarin
 niet correct was verwerkt. Server03 leverde op de server 10.225 geschreven SWP-bestanden, met 17
   parameterfouten door gelijke telling van beregeningsbron 1 en 2. Server04
   vervangt de bronkeuze door oppervlakteweging en grondwatervoorrang bij gelijke oppervlakken.
-Gebruik Server04; bestaande kandidaat-SWP's moeten
+Gebruik Server05; bestaande kandidaat-SWP's moeten
 opnieuw met deze versie worden afgeleid. Een ongewijzigde oude cache wordt
 niet hergebruikt omdat de broncodehash is gewijzigd.
 
@@ -153,3 +158,29 @@ checker zoekt bestaande DRA_Server-pakketten tot één geneste pakketmap onder
 LWKM_tools. Bij ontbrekende of meerdere DRA-uitvoermappen stopt hij met uitleg;
 er wordt geen map geraden. Alternatief: voer de Python-checker met expliciete
 --swp en --dra argumenten uit. De controle wijzigt geen modelinvoer.
+
+
+## Server05: landelijke beregeningstoekenning
+
+De nationale keuze gebeurt na volledige parameterafleiding en vóór het schrijven
+van de parametertabel. Bij onvolledige HRU-populatie stopt de procedure; het
+beregende doelareaal mag niet uit een geslaagde deelpopulatie worden berekend.
+Wijziging van de berekening maakt oude parametercaches ongeldig. Het terugrapport
+bevat irrigation_allocation.json, ook na een geslaagde hervatting. Een beschadigd
+of ontbrekend allocatierapport leidt tot nieuwe afleiding.
+
+Lokale toets met Server04-diagnostiek en het exact aan de serverhash gebonden
+area_svat.inp: 301.804,7700 ha beregend SVAT-areaal versus 301.869,7894 ha HRU-areaal.
+Afwijking +65,0194 ha (+0,0215435%); 1.130 HRUs geselecteerd, waarvan 778 grondwater
+ en 352 oppervlaktewater. Het effectieve oppervlakteaandeel bij het afkappunt is
+0,3322388619569649. Dit is geen vaste nieuwe drempel: andere invoer leidt tot
+herberekening van het afkappunt. De bronverdeling verschuift: grondwater +17.732,2143 ha,
+oppervlaktewater -17.667,1949 ha. Totaalbehoud bewijst geen behoud per bron of regio.
+
+De SWP-renderer bevat nog geen complete koppeling van irrigation_id naar de
+beregeningsinstellingen/gewasmanagementbestanden. De definitieve toekenning staat
+in runs_candidate.csv en diagnostics.json voor die runassemblage; dit pakket
+claimt geen reeds ingeschakelde of uitgevoerde beregening in SWAP.
+
+De automatische SWP/DRA-mapselectie is hersteld voor de bestaande voltooide
+DRA_Server01-uitvoer met volledige-celoppervlakken. Geen DRA-formule is gewijzigd.

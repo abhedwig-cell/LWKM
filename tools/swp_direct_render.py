@@ -98,7 +98,8 @@ def main(argv=None):
             reused=target.exists() and hashlib.sha256(target.read_bytes()).hexdigest()==digest
             if not reused:
                 temp=target.with_suffix('.swp.tmp');temp.write_bytes(content);temp.replace(target)
-            outcomes.append(dict(HRU=int(run['run_id']),status='REUSED' if reused else 'WRITTEN',sha256=digest))
+            outcomes.append(dict(HRU=int(run['run_id']),status='REUSED' if reused else 'WRITTEN',sha256=digest,
+                                 irrigation_id=int(run['irrigation_id']),irrigation_management_connected=False))
         except (ValueError,KeyError,TypeError) as exc:
             target.unlink(missing_ok=True)
             outcomes.append(dict(HRU=int(run['run_id']),status='FAILED',error=str(exc)))

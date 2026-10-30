@@ -12,6 +12,7 @@ from datetime import date
 import hashlib
 import json
 import math
+from fractions import Fraction
 from pathlib import Path
 from tools.swp_hru_authority import rows, number, unique
 from tools.dqsat_policy import summarize
@@ -82,10 +83,10 @@ def derive(hru, members, soil_lookup, crop_lookup, config):
     if any(v not in (0, 1, 2) for v in irrigation):
         raise ValueError('unsupported irrigation source code; expected 0, 1 (groundwater), 2 (surface water)')
     # Owner decision 2026-10-30: choose the source by actual SVAT area,
-    # with groundwater (1) winning an exact tie. Activation threshold unchanged.
+    # with groundwater (1) winning an exact tie. National allocation follows derive.
     irrigation_areas = {code: math.fsum(finite(m, 'area') for m, v in zip(members, irrigation) if v == code)
                         for code in (1, 2)}
-    irr = (1 if irrigation_areas[1] >= irrigation_areas[2] else 2) if fraction > .37 else 0
+    irr = (1 if irrigation_areas[1] >= irrigation_areas[2] else 2) if any(irrigation_counts.values()) else 0
     bbc = mode([number(m, 'bbc') for m in members])
     policy = config.get('dqsat_policy', 'positive_member_median')
     if policy != 'positive_member_median':
@@ -108,13 +109,71 @@ def derive(hru, members, soil_lookup, crop_lookup, config):
     return row, dict(HRU=hid, lu4=lu4, root_source=root_source,
                     centroid_tie_candidates=len(nearest),
                     dqsat_policy=policy, dqsat=dq,
-                    irrigation_fraction=fraction, irrigation_source_counts=dict(irrigation_counts),
+                    irrigation_fraction=fraction, irrigation_area_fraction=math.fsum(irrigation_areas.values())/area,
+                    irrigation_allocation='PENDING_NATIONAL_AREA_ALLOCATION', irrigation_source_counts=dict(irrigation_counts),
                     irrigation_source_areas_m2=irrigation_areas,
                     irrigation_source_policy='ACTUAL_SVAT_AREA_GROUNDWATER_ON_EXACT_TIE_OWNER_20261030',
                     irrigation_tie_policy='GROUNDWATER',
                     irrigation_source_tied=bool(irrigation_counts) and irrigation_areas[1]==irrigation_areas[2],
                     meteo_region_counts=dict(meteo_counts))
 
+
+
+def allocate_irrigation(runs, diagnostics):
+    """Choose the closest area prefix in decreasing irrigated-area fraction.
+
+    Exact rational ranking/sums prevent input order and accumulation roundoff
+    deciding ties. Equal fractions use ascending HRU ID; equal deviations
+    choose the smaller assigned area. Never select a zero-irrigation HRU.
+    """
+    by_id = unique(diagnostics, lambda d: int(d['HRU']))
+    run_ids = [int(r['run_id']) for r in runs]
+    if len(set(run_ids)) != len(runs) or set(run_ids) != set(by_id):
+        raise ValueError('irrigation allocation population mismatch')
+    records = []
+    for run in runs:
+        hid = int(run['run_id']);diag = by_id[hid]
+        area = Fraction(str(run['area']))
+        source = {i: Fraction(str(diag['irrigation_source_areas_m2'].get(i,
+                              diag['irrigation_source_areas_m2'].get(str(i), 0)))) for i in (1, 2)}
+        irrigated = sum(source.values())
+        if area <= 0 or min(source.values()) < 0 or irrigated > area:
+            raise ValueError(f'HRU {hid}: invalid irrigation support area')
+        code = 1 if source[1] >= source[2] else 2
+        records.append((hid, area, irrigated, source, code, run, diag))
+    candidates = sorted((r for r in records if r[2] > 0), key=lambda r: (-r[2]/r[1], r[0]))
+    target = sum((r[2] for r in records), Fraction(0))
+    total = Fraction(0);best = (abs(target), Fraction(0), 0)
+    for index, record in enumerate(candidates, 1):
+        total += record[1]
+        best = min(best, (abs(total-target), total, index))
+    selected = {r[0] for r in candidates[:best[2]]}
+    rank = {r[0]:i for i,r in enumerate(candidates, 1)}
+    counts = Counter();assigned_source = {i:Fraction(0) for i in (1,2)}
+    reference_source = {i:sum((r[3][i] for r in records),Fraction(0)) for i in (1,2)}
+    for hid, area, irrigated, source, code, run, diag in records:
+        enabled = hid in selected
+        run['irrigation_id'] = code if enabled else 0
+        counts[run['irrigation_id']] += 1
+        if enabled:assigned_source[code] += area
+        diag.update(irrigation_allocation='NATIONAL_CLOSEST_AREA_PREFIX_OWNER_20261030',
+                    irrigation_area_fraction=float(irrigated/area),
+                    irrigation_allocation_rank=rank.get(hid),irrigation_enabled=enabled,
+                    irrigation_selected_source=run['irrigation_id'])
+    assigned = best[1];difference = assigned-target
+    return dict(policy='NATIONAL_CLOSEST_AREA_PREFIX_OWNER_20261030',status='COMPLETE_POPULATION_ALLOCATED',
+        hru_count=len(runs),candidate_hrus=len(candidates),irrigated_hrus=len(selected),
+        svat_irrigated_area_m2=float(target),hru_irrigated_area_m2=float(assigned),
+        difference_m2=float(difference),difference_ha=float(difference/10000),
+        difference_percent=float(100*difference/target) if target else 0.,
+        assigned_hrus_by_code={str(i):counts[i] for i in (0,1,2)},
+        source_areas_m2={str(i):dict(svat=float(reference_source[i]),hru=float(assigned_source[i]),
+                                  difference=float(assigned_source[i]-reference_source[i])) for i in (1,2)},
+        last_selected_hru=candidates[best[2]-1][0] if best[2] else None,
+        first_excluded_hru=candidates[best[2]][0] if best[2]<len(candidates) else None,
+        effective_fraction=float(candidates[best[2]-1][2]/candidates[best[2]-1][1]) if best[2] else None,
+        fraction_tie_policy='ASCENDING_HRU_ID',equal_deviation_policy='SMALLER_ASSIGNED_AREA',
+        qualification='National area allocation only; regional and hydrological equivalence not established')
 
 def read_control(path, base):
     result = {}
@@ -217,6 +276,9 @@ def main():
             result.append(row); diagnostics.append(diag)
         except (KeyError,ValueError,ZeroDivisionError) as exc:
             errors.append({'HRU':hid,'error':str(exc)})
+    if not errors:
+        allocation=allocate_irrigation(result,diagnostics)
+        (args.output/'irrigation_allocation.json').write_text(json.dumps(allocation,indent=2)+'\n')
     for name,records in [('runs_candidate',result),('diagnostics',diagnostics),('errors',errors)]:
         target=args.output/(name+'.json')
         target.write_text(json.dumps(records,indent=2,allow_nan=False)+'\n')

@@ -43,8 +43,12 @@ def discover_dra():
                 manifest=candidate/'production_manifest.json'
                 if manifest.is_file() and (candidate/'dra').is_dir():
                     data=json.loads(manifest.read_text())
-                    if data.get('area_policy')=='ACTUAL_AREA_SVAT_INP_OWNER_20261030':found.add(candidate/'dra')
-    if len(found)!=1:raise ValueError(f'expected one DRA output using actual SVAT areas, found {len(found)}; use --dra for an explicit directory')
+                    source=candidate/'source_manifest.json'
+                    policy=json.loads(source.read_text()).get('identity',{}).get('area_policy') if source.is_file() else None
+                    if data.get('status')=='DRA_SOURCE_CANDIDATES_NOT_SWAP_VALIDATED' and data.get('failed')==0 and policy=='ALL_MEMBER_MODFLOW_CELL_62500_M2_NOT_AREA_SVAT':
+                        found.add(candidate/'dra')
+
+    if len(found)!=1:raise ValueError(f'expected one completed DRA output with existing full-cell support, found {len(found)}; use --dra for an explicit directory')
     return found.pop()
 
 

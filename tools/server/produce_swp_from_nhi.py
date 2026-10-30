@@ -14,7 +14,7 @@ import sys
 import zipfile
 import numpy as np
 from tools.swp_hru_authority import rows,number,unique
-from tools.swp_run_parameters import derive,FIELDS
+from tools.swp_run_parameters import derive,FIELDS,allocate_irrigation
 from tools.svat_areas import locate_area_files,bind_area_files
 from tools.server.dqsat_source import locate as locate_dqsat, DQSAT_SHA256
 from tools.server.check_swp_source_values import grid,sample,sha
@@ -58,6 +58,8 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
     if previous.get('status')=='SWP_INPUTS_GENERATED_NOT_SWAP_VALIDATED' and start=='1970-01-01' and previous.get('start')==start and previous.get('end')==end and previous.get('input_hashes')==input_hashes and previous.get('producer_sha256')==code_hash and previous.get('hrus')==expected_hrus:
         unchanged=all(Path(spec['path']).is_file() and sha(Path(spec['path']))==spec['sha256'] for spec in previous['sources'].values())
         table=output/'runs_candidate.csv'
+        allocation_file=output/'irrigation_allocation.json'
+        unchanged=unchanged and allocation_file.is_file() and sha(allocation_file)==previous.get('irrigation_allocation_sha256')
         if unchanged and table.is_file() and sha(table)==previous.get('parameters_sha256') and (output/'dqsat_hru.csv').is_file() and sha(output/'dqsat_hru.csv')==previous.get('dqsat_table_sha256'):
             (output/'area_source_manifest.json').write_text(json.dumps(previous['area_sources'],indent=2)+'\n')
             previous['reused_parameter_phase']=True
@@ -151,6 +153,11 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
             parameters.append(run);diagnostics.append(diag)
         except (KeyError,ValueError,StopIteration) as exc:errors.append(dict(HRU=hid,error=str(exc)))
         if count%1000==0:print(f'PARAMETERS {count}/{len(hrus)}; fouten {len(errors)}',flush=True)
+    if errors:
+        (output/'parameter_errors.json').write_text(json.dumps(errors,indent=2)+'\n')
+        raise ValueError(f'Incomplete population: {len(errors)} HRU errors; national irrigation allocation not performed: {errors[:5]}')
+    allocation=allocate_irrigation(parameters,diagnostics)
+    (output/'irrigation_allocation.json').write_text(json.dumps(allocation,indent=2)+'\n')
     with (output/'runs_candidate.csv').open('w',newline='') as f:
         w=csv.DictWriter(f,fieldnames=FIELDS);w.writeheader();w.writerows(parameters)
     with (output/'dqsat_hru.csv').open('w',newline='') as f:
@@ -168,6 +175,8 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
                     remaining=['Candidate four-class crop mapping; management assets must be assembled separately.',
                                'Rootzone raw-cm interpretation is explicit candidate policy, not recovered five-column root schema.',
                                'No claim of hydrological validation or national SWAP execution.'])
+    manifest['irrigation_allocation']=allocation
+    manifest['irrigation_allocation_sha256']=sha(output/'irrigation_allocation.json')
     manifest['input_hashes']=input_hashes
     manifest['dqsat_table_sha256']=sha(output/'dqsat_hru.csv')
     manifest['dqsat_policy']='OWNER_20261009_POSITIVE_MEMBER_MEDIAN_SHARED_WITH_DRA'
@@ -199,7 +208,7 @@ def main():
         r['status']='PARTIAL_GENERATION' if r['failed_hrus'] or render_failed else 'SWP_INPUTS_GENERATED_NOT_SWAP_VALIDATED'
         (a.output/'production_manifest.json').write_text(json.dumps(r,indent=2)+'\n')
         with zipfile.ZipFile(a.output/'controle.zip','w',zipfile.ZIP_DEFLATED) as z:
-            for name in ('production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json','area_source_manifest.json','dqsat_source_manifest.json','dqsat_hru.csv'):z.write(a.output/name,name)
+            for name in ('production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json','area_source_manifest.json','dqsat_source_manifest.json','dqsat_hru.csv','irrigation_allocation.json'):z.write(a.output/name,name)
         print(json.dumps(dict(status=r['status'],hrus=r['hrus'],failed_hrus=r['failed_hrus'])))
         return bool(r['failed_hrus'] or render_failed)
     except Exception as exc:

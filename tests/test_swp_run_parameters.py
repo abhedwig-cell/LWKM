@@ -123,12 +123,13 @@ class ParameterTests(unittest.TestCase):
         self.assertEqual(self.derive()[0]['irrigation_id'],1)
         self.assertTrue(self.derive()[1]['irrigation_source_tied'])
 
-    def test_no_irrigation_and_existing_activation_threshold(self):
+    def test_no_irrigation_and_provisional_source_before_national_allocation(self):
         self.members[0]['irr_switch']='0'
         self.assertEqual(self.derive()[0]['irrigation_id'],0)
         self.members.extend(dict(self.members[0],svat=str(i),area='1') for i in (11,12))
         self.members[0]['irr_switch']='1'
-        self.assertEqual(self.derive()[0]['irrigation_id'],0)
+        self.assertEqual(self.derive()[0]['irrigation_id'],1)
+        self.assertEqual(self.derive()[1]['irrigation_allocation'],'PENDING_NATIONAL_AREA_ALLOCATION')
 
     def test_invalid_irrigation_code_fails(self):
         self.members[0]['irr_switch']='3'

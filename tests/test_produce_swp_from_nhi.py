@@ -112,7 +112,7 @@ def test_zero_path_cli_generates_and_resumes_without_inventory_step(tmp_path,mon
     rendered=json.loads((out/'swp/manifest.json').read_text())
     assert rendered['hrus'][0]['status']=='REUSED'
     with zipfile.ZipFile(out/'controle.zip') as z:
-        assert set(z.namelist())=={'production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json','area_source_manifest.json','dqsat_source_manifest.json','dqsat_hru.csv'}
+        assert set(z.namelist())=={'production_manifest.json','parameter_errors.json','diagnostics.json','swp/manifest.json','area_source_manifest.json','dqsat_source_manifest.json','dqsat_hru.csv','irrigation_allocation.json'}
 
 
 def test_changed_area_file_invalidates_cached_parameters(tmp_path):

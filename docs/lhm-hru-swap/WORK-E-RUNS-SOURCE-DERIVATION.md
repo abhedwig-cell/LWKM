@@ -17,7 +17,7 @@ No runtime XLS, SQLite or imported historical Runs values are used.
 | SWBBCFILE, SWBOTB | bbc grid member mode; code 7 disables external BBC | Same, ambiguous modes fail |
 | dqsat | dqsat grid mode within pre-override soil-mode subset | Owner decision 2026-10-09: positive-member median over all HRU members; raw representative and positive mean retained |
 | BBCFIL, DRFIL, METFIL | HRU number, HRU number, HRU.met | Same |
-| irrigation_id | irr_switch grid: binary majority then fraction >0.37 enables; source mode among irrigated members | Existing activation fraction >0.37 retained; source chosen by total actual area_svat area per source, groundwater (code 1) wins exact area ties (owner 2026-10-30) |
+| irrigation_id | irr_switch grid: binary majority then fraction >0.37 enables; source mode among irrigated members | National closest cumulative HRU-area prefix ranked by irrigated SVAT area fraction; target is total irrigated SVAT area. Source chosen by actual area per source; groundwater wins ties (owner 2026-10-30) |
 | solute_id, rotation_id | Literal 0, max | Same |
 | SWINCO | Literal 2 for both bottom branches | Same |
 | GWLI | head at TimStart and glk grids; equal-member means, MIN(0,NINT((head_mean-glk_mean)*100)) | Same physical rule, Fortran half-away-from-zero rounding |
