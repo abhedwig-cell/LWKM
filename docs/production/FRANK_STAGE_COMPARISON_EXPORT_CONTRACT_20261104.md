@@ -1,0 +1,14 @@
+# Concept datacontract voor Franks SVAT/HRU vergelijkings-CSV (4 november 2026)
+
+**Status: prototype, overleg met Leo vereist.** Gebruiker verzoekt programmeerbare exports voor verschillende verwerkingsstappen, met kolommen:
+SVAT, Opp_svat, Landuse, LU4, LU2, Bodem370, Pawn21, Grondsoort4, Grondsoort 2, Neerslag, Beregening, Evapotranspiratie, Verdamping gewas, verdamping interceptie, Verdamping bodem, Oppervlakkige afstroming, Ontwatering, Fldrou1..Fldrou5, Infiltratie, Fldrin1, Fldrin2, Fldrin345, Netto kwel/wegzijging, Wegzijging, Kwel, Bergingsverandering, Gtnr, GLG, GHG, GG, Dynamiek, Kwelklasse 4, Indicator vervangen Svats, N ???, Gebied.
+
+Canonical bronbasis: `schemas/svat/LWKM_makeHRU-v020.md`: 75 kolommen `SVAT_INFO_HRU.CSV`, grotendeels in mm/j, GHG/GLG in cm-mv, oppervlak m2. Map: SVAT→svat; Opp_svat→opp(m2); Landuse→landgebruik22; LU4→lu4; LU2→lu2; Bodem370→bodem370; Pawn21→pawn21; Grondsoort4→grondsoort4; Grondsoort 2→grondsoort2; neerslag→neerslag(mm/j); beregening→beregening(mm/j); ET→verdamping(mm/j); gewasverdamping→Tact(mm/j); interceptie→Eic(mm/j); bodem→Ebs(mm/j); oppervlakkige afstroming→runoff(mm/j); Ontwatering→afvoer(mm/j); Fldrou1..5→afvoer_sys1..5(mm/j); Fldrin1/2→aanvoer_sys1/2(mm/j); Fldrin345 voorlopig som aanvoer_sys3..5(mm/j); netto kwel/wegzijging→kwelwegzijging(mm/j); wegzijging→wegzijging(mm/j); kwel→kwel(mm/j); bergingsverandering→dberging(mm/j); Gtnr→gt(1-8); GLG→glg(cm-mv); GHG→ghg(cm-mv); kwelklasse 4→kwelklasse4; gebied voorlopig district.
+
+Nog niet autoritatief en daarom niet automatisch ingevuld: **Infiltratie**, **GG**, **Dynamiek**, **Indicator vervangen Svats**, **N ???**. `wegzijgingz(mm/j)` is blijkens broncode de rivierinfiltratie-indicator, niet generiek infiltratie. `Indicator vervangen` moet uit `SVAT_REPLACEMENT` relatie komen, niet verwarren met donor of verdachte vlag.
+
+Software prototype dat in deze sessie lokaal synthetisch is getest: `LWKM_Export_Frank_v01.zip`. CLI `export_frank.py --stage <naam>=<CSV> --out <map> [--hru-map <svat,hru>] [--overrides overrides.json]`, serverstarter `START_FRANK.cmd` via Deltaforge Python. Eén onveranderlijke outputkop per stap, lege bronwaarden blijven leeg; aparte JSON manifesten met SHA256/mapping/missings; optioneel SVAT-oppervlakgewogen HRU-gemiddelde, geen automatische donor- of HRU-representantcorrectie. Deze exporter leest legacy tabellen; genereert *niet* de verschillende verwerkingsstappen vanuit LHM. Hiervoor moeten eerst echte bron-CSV-snapshots en hun semantiek worden aangesloten.
+
+Open contractbesluiten: exacte kolomvolgorde en namen; stage-definities; referentieperiode en eenheden; onderscheid HRU-average vs representatieve SVAT; definitie GG, dynamiek, N, infiltratie, Gebied, Ontwatering en Fldrin345. Niet stilzwijgend één dataset onder meerdere stappen labelen.
+
+**Geen productie-admissie** totdat echte CSV-inputs per stap, reële voorbeeldexport en acceptatie door Frank/Leo zijn gecontroleerd.
