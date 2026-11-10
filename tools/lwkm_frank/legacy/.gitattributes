@@ -1,0 +1,2 @@
+# Preserve the exact historical source bytes, including on Windows.
+*.py -text
