@@ -1,0 +1,9 @@
+{
+  "source": "LWKM_Frank_Pipeline_v02_Bronbeheer(2).zip",
+  "delivery": "Exact data bytes are included in the v03 conversation server ZIP; the large ECHO raster and original soil table are not vendored in this Git source change.",
+  "sha256": {
+    "landuse-mapping-realized-v1.csv": "1bba71f0c7fd8de959671815830784788a04230ea34001e574243f533158c1d0",
+    "bodem370_classification_lookup.csv": "5f5a4923a72e1e46b24a3fd5798222d4d0e25b5c4b32c69833d18672e47b3ce6",
+    "ECHO_toestroom_geclusterd_66gebiedenx.asc": "e22933baa8df86551c9aa390433aa01359b7bd1fddf4ce9eb714f7c5c75532f3"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 3,
+  "period": [1991, 2020],
+  "expected_svats": 645582,
+  "production_enabled": false,
+  "source_hash_mode": "metadata",
+  "binding_file": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools\\LWKM_Frank_RunBinding_v01\\run_source_binding.json",
+  "binding_sha256": "90b736e0629302b3fbbb58048f9d3c1af6baa08263b448d4c077b468ad946fbe",
+  "output_name": "Frank_v03_runlocal_1991_2020",
+  "ibound_l1": "E:\\LHM_4.3.3\\Data\\2_Model_Input\\modflow\\bnd\\ibound_l1.idf",
+  "notes": "Diagnostic replay only. Immutable original algorithms; no accepted production. Raw IDF identity uses path/size/mtime unless source_hash_mode is explicitly sha256."
+}

@@ -1,0 +1,2 @@
+# Preserve original producer/readers bytes on every platform.
+*.py -text

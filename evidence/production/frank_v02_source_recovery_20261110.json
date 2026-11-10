@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "EXACT_COMPUTATIONAL_SOURCE_RECOVERED",
+  "date": "2026-11-10",
+  "source_archive": "LWKM_Frank_Pipeline_v02_Bronbeheer(2).zip",
+  "archive_bytes": 119044,
+  "archive_sha256": "86dcf02933226e78cc5eefc10d11ae6b9067f26056a507110cda48484c904598",
+  "duplicate_upload_identical": true,
+  "zip_crc_passed": true,
+  "archive_members": 32,
+  "original_source_files_checked": 12,
+  "source_hash_matches": 12,
+  "registry": "config/production/frank_original_producers_sha256_v01.json",
+  "original_sources_modified": 0,
+  "original_test_scripts": {
+    "test_pipeline.py": {"exit_code": 0},
+    "test_pipeline_v02.py": {"exit_code": 0},
+    "test_release_integrity.py": {"exit_code": 0}
+  },
+  "production_enabled": false,
+  "nhi_calculation_performed_in_this_session": false
+}

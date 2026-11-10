@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "status": "LOCAL_SYNTHETIC_PASS_NOT_NHI_QUALIFIED",
+  "unittest_count": 71,
+  "unittest_failures": 0,
+  "unittest_errors": 0,
+  "original_v02_test_scripts_passed": 3,
+  "original_source_sha_matches": 12,
+  "original_source_modifications": 0,
+  "synthetic_replay": {
+    "producer": "msw_basic",
+    "svats": 3,
+    "years": [1991, 2020],
+    "raw_idfs": 6480,
+    "csvs_compared": 2,
+    "byte_identical": true,
+    "fixture_override": "EXPECTED_SVATS=3 in memory in the test launcher only"
+  },
+  "platform": "Linux",
+  "production_enabled": false,
+  "windows_cmd_executed": false,
+  "nhi_run_executed": false,
+  "remaining": "Real first-stage server replay/comparison, then the remaining eight producers. Raw IDF default fingerprint is metadata only. One asset test skips on bare Git checkouts without server ZIP data."
+}
