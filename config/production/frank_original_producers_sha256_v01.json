@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "release": "LWKM_Frank_Pipeline_v01",
+  "scope": "immutable original computational source inventory",
+  "provenance": "SOURCE_MANIFEST.json from November 6 historical consolidation artifact",
+  "files": {
+    "build_svat_base.py": "3339e88d040fb08889f3f373311b7ed64567514948c4d8fe30a5d9574d5ba458",
+    "build_modflow_svat.py": "7032210c1b2b49f529fdc030c678272a7469cd0c02e642991e36c29786a27510",
+    "build_gxg_gg.py": "dae0bf6092357a9787e1f8518fed2e5e00fbcd9892305b0aa4e4463f541935e5",
+    "bereken_gw_percentielen.py": "997841676fea9b62bcbe5352da79ebfd9adc02eb27c517fc316e4a83abfe441a",
+    "export_msw_aanvulling.py": "863dd06fd5ad316adc78a86b2bc7e1bb87dfe64f570985f0e0ac09f581621cf5",
+    "derive_static_gt.py": "ae0956142655f0a397ed0ebcbc1672f82de0e37e7a9083a50b4e57ae2f350b61",
+    "maak_gebied_n.py": "4291980fa3758a4791d14742b29aa5c56fc88537032faa125aaeaf277c260a0b",
+    "export_qmodf.py": "bb229ed7342d62065af089ef6f44bb110a56b7967c1a5e4141fe5fb0515f0b16",
+    "maak_svat_basis.py": "d2ea65607104f4c843620c0b6afe04b011344e3fadbb659d27bc0ae30f7ac873",
+    "wb10_reader.py": "740390759ca6228cfa53f2928db763c2e231d28ea6da52693b0c93aebb83d422",
+    "wb01.py": "9edb100911b0a96effce0520f7ec332f5616063faa3276e90bdbec463d286ab0",
+    "wb03_balance.py": "430e824e028f02aa17825bb1b730bb5cc29e91654625944565ad5a5efabdab79"
+  }
+}
