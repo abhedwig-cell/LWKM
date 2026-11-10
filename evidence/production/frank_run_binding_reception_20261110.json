@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "kind": "LWKM_FRANK_RUN_BINDING_RECEPTION",
+  "review_date": "2026-11-10",
+  "disposition": "ACCEPTED_FOR_RUN_LOCAL_SOURCE_BINDING_ONLY",
+  "production_enabled": false,
+  "reported_server_execution_utc": "2026-11-10T13:18:56.186479+00:00",
+  "evidence": {
+    "uploaded_filename": "run_source_binding.json",
+    "bytes": 4758851,
+    "sha256": "90b736e0629302b3fbbb58048f9d3c1af6baa08263b448d4c077b468ad946fbe",
+    "origin": "User-supplied NHI CMD output and run_source_binding.json; no direct server access by reviewer"
+  },
+  "code_baseline_commit": "b19f8e5de9f8e76f770a47aaec4601f23472a518",
+  "package_comparison": {
+    "package": "LWKM_Frank_RunBinding_v01.zip",
+    "binding_code_sha256": "653bd3928ec33145fb82cc18f3b4232b90aa23dd4853e25fa90c6448c5e593e2",
+    "config_sha256": "fe471f059419cfddd1a5378370e8a94628a7e324b96005261c90feea141d7232",
+    "binding_code_matches_delivered_package": true,
+    "configuration_matches_delivered_package": true
+  },
+  "static_reference_run": "run_1970_1979",
+  "metaswap_input_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap",
+  "output_authority_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_run_resultaten_totaal",
+  "static_files_reported_by_server": {
+    "area_svat.inp": {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\area_svat.inp",
+      "bytes": 99419625,
+      "sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc"
+    },
+    "mod2svat.inp": {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\mod2svat.inp",
+      "bytes": 20456970,
+      "sha256": "c84dcc76ef9e32e5ee3fc8bda0e27ef45b8f5765ed875e7bc7c84a25baf9e8dd"
+    },
+    "scap_svat.inp": {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\scap_svat.inp",
+      "bytes": 3692410,
+      "sha256": "34b19cf14472539c7f486cb2c977587b5e0cca5bf81a87a002c4674388f8eb2e"
+    },
+    "dldra_svat.inp": {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\dldra_svat.inp",
+      "bytes": 82994688,
+      "sha256": "121b95cb77e4ace27b7f9dc4d72e1bb350b591642b47f29d5826b5d4c0c85b68"
+    },
+    "dqsat_svat.inp": {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\dqsat_svat.inp",
+      "bytes": 16302528,
+      "sha256": "2a5b67a2e7db297435af71a477c143d11ee8e3453c41c4f276ff3d3752d33fd9"
+    },
+    "idf_svat.inp": {
+      "path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\idf_svat.inp",
+      "bytes": 36152592,
+      "sha256": "1e6b5b05acfbd6a4738eec4ee38596327656b120a6654e68c1fc39c2c2aaf840"
+    }
+  },
+  "optional_files_not_present": [],
+  "declared_ini_context": {
+    "status": "DECLARED_CONTEXT_ONLY",
+    "inventory_sha256_reported": "795d4c1ea495571197cd11a9b7c48cffd9cb38464185c2e161c64f06f9cd2e1a",
+    "file_records": 8,
+    "unique_file_sha256": 6,
+    "assignment_records": 11895
+  },
+  "retained_owner_decisions": {
+    "static_input_identity": "OWNER_ESTABLISHED_IDENTICAL_BETWEEN_RUNS",
+    "cross_run_hash_comparison": "OPTIONAL_QA_NOT_REQUIRED_AND_NOT_PERFORMED",
+    "source_executable_authority": "LWKM-LHM-SOURCE-20261110-01"
+  },
+  "historical_reference": {
+    "filename": "FRANK_SVAT_BASIS_ONGECORRIGEERD_1991_2020.csv",
+    "expected_sha256": "7ec5b7bf24f5f8552d655bed96a71f97d088bcbc088201a293752dd46ac559df",
+    "status": "PROTECTED_NOT_READ_OR_REUSED_BY_THIS_TOOL"
+  },
+  "source_file_mutations_reported": 0,
+  "producers_executed_reported": 0,
+  "reception_checks_passed": [
+    "JSON schema/status and disabled production consistent with delivered tool",
+    "All six configured names recorded with nonzero size and SHA256 syntax",
+    "All six recorded paths directly under selected run-local MetaSWAP folder",
+    "No configured optional files reported missing",
+    "Reported code and configuration SHA256 exactly match bytes in delivered ZIP",
+    "Eight declared INI contexts retained with six distinct reported content hashes"
+  ],
+  "limitations": [
+    "Source data bytes are not included in the upload; their hashes were calculated on the server, not independently rehashed here",
+    "No SVAT count, semantic input completeness, hydrological validation or numerical equivalence established",
+    "INI context retained as declared context, not independent proof of historical execution",
+    "Original v0.2 producer ZIP remains located in Library but raw-byte materialization failed in this session"
+  ],
+  "next_step": "Receive exact LWKM_Frank_Pipeline_v02_Bronbeheer.zip bytes, check the 12 legacy source hashes and import producers/readers before adapting their configuration; do not rerun source binding or manually enable production"
+}
