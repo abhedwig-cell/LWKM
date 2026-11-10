@@ -1,5 +1,11 @@
 # LWKM
 
+## Vastgestelde broncode voor de LHM-waterbalansanalyse
+
+[Projecteigenaarbesluit van 10 november 2026: MetaSWAP-broncode voor de LHM-run](docs/governance/LHM_METASWAP_SOURCE_AUTHORITY_2026-11-10.md), besluit-ID `LWKM-LHM-SOURCE-20261110-01`.
+
+De aangeleverde `IMODFLOW.ZIP` geldt als de broncode van de executable voor de betreffende LHM-run. De broncode-executablekoppeling is geen open verificatievoorwaarde. Het besluit bevat de bestandsvingerafdruk en onderscheidt dit vastgestelde uitgangspunt van de nog uit te voeren inhoudelijke toetsing van `qmodf` en de waterbalans.
+
 Werkrepository voor de verdere ontwikkeling en kwalificatie van het Landelijk Waterkwaliteitsmodel (LWKM).
 
 ## Projectbaseline
