@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source_profile": "run_local",
+  "runs_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM",
+  "static_reference_run": "run_1970_1979",
+  "static_files": {
+    "area_svat.inp": {"path": "area_svat.inp", "required": true},
+    "mod2svat.inp": {"path": "mod2svat.inp", "required": false},
+    "scap_svat.inp": {"path": "scap_svat.inp", "required": false},
+    "dldra_svat.inp": {"path": "dldra_svat.inp", "required": false},
+    "dqsat_svat.inp": {"path": "dqsat_svat.inp", "required": false},
+    "idf_svat.inp": {"path": "idf_svat.inp", "required": false}
+  },
+  "ini_inventory": "LWKM_tools/LWKM_LHM_RunDef_resultaten_v01/lhm_run_definition.json"
+}
