@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "kind": "LWKM_FRANK_MSW_V03_SERVER_COMPARISON_RECEPTION",
+  "review_date": "2026-11-12",
+  "disposition": "ACCEPTED_FIRST_STAGE_TABLE_EQUIVALENCE_ONLY",
+  "production_enabled": false,
+  "baseline_commit": "b06e8d576f1ced10eece35c792165b656b0a8213",
+  "evidence": {
+    "uploaded_filename": "COMPARE_MSW_REFERENCE_V03.json",
+    "bytes": 1267,
+    "sha256": "f9e99320cf2a407f10313443f00a5c18181ec606be52d97fd1aa46d0fb42075c",
+    "origin": "User-supplied server comparison report; underlying two CSVs were not uploaded or independently opened by reviewer"
+  },
+  "local_checks": {
+    "report_internal_consistency": "PASS",
+    "file_set": "EXACT_TWO_EXPECTED_MSW_TABLES",
+    "source_binding_sha256_matches_previous_upload": true,
+    "source_binding_sha256": "90b736e0629302b3fbbb58048f9d3c1af6baa08263b448d4c077b468ad946fbe",
+    "delivered_v03_package_manifest": "ALL_ORIGINAL_FILE_HASHES_MATCH"
+  },
+  "reported_server_result": {
+    "status": "FIRST_STAGE_VALUES_EQUAL",
+    "production_enabled": false,
+    "source_binding_sha256": "90b736e0629302b3fbbb58048f9d3c1af6baa08263b448d4c077b468ad946fbe",
+    "files": {
+      "FRANK_LHM_SVAT_BASE_1991_2020.csv": {
+        "rows": 645582,
+        "equal_values": true,
+        "changed_cells_by_column": {},
+        "examples": [],
+        "reference_sha256": "b7955340a05dfeb3322d8bb91a8152bd155d03dfa43d25f553684838a1ec2b3f",
+        "candidate_sha256": "b7955340a05dfeb3322d8bb91a8152bd155d03dfa43d25f553684838a1ec2b3f",
+        "byte_identical": true
+      },
+      "MSW_SOURCE_SIGNED_1991_2020.csv": {
+        "rows": 645582,
+        "equal_values": true,
+        "changed_cells_by_column": {},
+        "examples": [],
+        "reference_sha256": "1bcb6b96784b6ff519bc2a7ed47c633196c21d6d4e574fc529b2b4823c5b6a1a",
+        "candidate_sha256": "1bcb6b96784b6ff519bc2a7ed47c633196c21d6d4e574fc529b2b4823c5b6a1a",
+        "byte_identical": true
+      }
+    },
+    "scope": "First MetaSWAP producer only, not whole-chain acceptance",
+    "historical_final_reference_expected_sha256": "7ec5b7bf24f5f8552d655bed96a71f97d088bcbc088201a293752dd46ac559df",
+    "historical_final_reference_checked": false,
+    "not_established": "Full raw-source provenance, full physical closure, other eight producers"
+  },
+  "interpretation": "For the first MetaSWAP producer over 1991-2020, both compared 645582-row output tables are reported byte-identical to the historical exports. The run-local wrapper reproduces those outputs; this is not independent physical validation.",
+  "reviewer_did_not_execute_nhi_run": true,
+  "underlying_csv_sha256_independently_recomputed_by_reviewer": false,
+  "historical_final_reference_checked": false,
+  "owner_decisions_reopened": false,
+  "next_step": "Isolated MODFLOW 16-flux table replay and comparison against explicit historical v07 directory; no rerun of msw_basic required"
+}

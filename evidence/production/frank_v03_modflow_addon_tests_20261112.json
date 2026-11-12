@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "status": "LOCAL_SYNTHETIC_PASS_NOT_MODFLOW_NHI_QUALIFIED",
+  "platform": "Linux",
+  "unittest_count": 94,
+  "unittest_failures": 0,
+  "unittest_errors": 0,
+  "new_modflow_comparison_tests": 23,
+  "existing_v03_tests": 71,
+  "original_package_files_unchanged": 33,
+  "original_producer_reader_count_unchanged": 12,
+  "new_cmd_executed_on_windows": false,
+  "modflow_nhi_run_executed_by_reviewer": false,
+  "msw_server_result_received": "FIRST_STAGE_VALUES_EQUAL; two 645582-row tables reported byte-identical",
+  "production_enabled": false,
+  "scope": "Additive MODFLOW table comparison and starter; original controller, configuration and numerical code unchanged."
+}

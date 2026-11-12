@@ -1,0 +1,29 @@
+{
+  "status": "FIRST_STAGE_VALUES_EQUAL",
+  "production_enabled": false,
+  "source_binding_sha256": "90b736e0629302b3fbbb58048f9d3c1af6baa08263b448d4c077b468ad946fbe",
+  "files": {
+    "FRANK_LHM_SVAT_BASE_1991_2020.csv": {
+      "rows": 645582,
+      "equal_values": true,
+      "changed_cells_by_column": {},
+      "examples": [],
+      "reference_sha256": "b7955340a05dfeb3322d8bb91a8152bd155d03dfa43d25f553684838a1ec2b3f",
+      "candidate_sha256": "b7955340a05dfeb3322d8bb91a8152bd155d03dfa43d25f553684838a1ec2b3f",
+      "byte_identical": true
+    },
+    "MSW_SOURCE_SIGNED_1991_2020.csv": {
+      "rows": 645582,
+      "equal_values": true,
+      "changed_cells_by_column": {},
+      "examples": [],
+      "reference_sha256": "1bcb6b96784b6ff519bc2a7ed47c633196c21d6d4e574fc529b2b4823c5b6a1a",
+      "candidate_sha256": "1bcb6b96784b6ff519bc2a7ed47c633196c21d6d4e574fc529b2b4823c5b6a1a",
+      "byte_identical": true
+    }
+  },
+  "scope": "First MetaSWAP producer only, not whole-chain acceptance",
+  "historical_final_reference_expected_sha256": "7ec5b7bf24f5f8552d655bed96a71f97d088bcbc088201a293752dd46ac559df",
+  "historical_final_reference_checked": false,
+  "not_established": "Full raw-source provenance, full physical closure, other eight producers"
+}
