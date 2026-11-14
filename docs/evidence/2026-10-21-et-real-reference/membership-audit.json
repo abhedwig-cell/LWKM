@@ -1,0 +1,12 @@
+{
+  "native_members": 427656,
+  "native_hrus": 10242,
+  "membership_identical_to_work_b": true,
+  "all_native_support_counts_and_areas_reproduced": true,
+  "area_source_sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc",
+  "mapping_source_sha256": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4",
+  "work_b_membership_sha256": "947f6cfee5193d98128c5e78170e1ef03c4e65999a3ae8d4956295cba18eee8f",
+  "work_b_labels_sha256": "c868fd3020e5758bd888214050052ecb2e92908c656760b9f1ced2e6bf2d6503",
+  "qualification_scope": "existing member labels and native weights; static irrigation flag does not verify dynamic gift schedules",
+  "production_admitted": false
+}

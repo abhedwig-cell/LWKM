@@ -1,5 +1,7 @@
 # ET-CAL01: ontvangst en beperkte meerjaarsproef
 
+Actualisering 21 oktober 2026: de echte 21-HRU-referentie voor 1970 tot en met 2024 is inmiddels ontvangen en gecontroleerd. Zie [ontvangst en analyse](ET_CAL01_REAL_REFERENCE_2026-10-21.md). De hieronder beschreven status is de historische stand van 20 oktober; er is nog geen feitelijke kalibratie of meerjaars-SWAP-validatie.
+
 20 oktober 2026. Status: ontvangstsoftware en proefselectie geïmplementeerd en getest. Echte referenties zijn nog niet ontvangen. De selectie is voorbereid, maar nog niet uitvoeringsgereed.
 
 PR #12 is inhoudelijk nagelopen en geïntegreerd in `work/lhm-hru-swap-workflow-v1`, mergecommit `a03c48738c446c9b597f0e5105f6c4321db25841`. Dat integreert een onderzoeksmethode, geen feitelijk gekalibreerde gewasprofielen. Er zijn geen onafhankelijke GitHub-reviews ontvangen; de beschreven review is een technische zelfreview. De vervolgimplementatie sluit de native producent aan op de bestaande ET-extractor en comparator. De eerdere 32 SWAP-runs blijven als oorspronkelijke evidence behouden.

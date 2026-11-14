@@ -1,0 +1,6 @@
+LWKM-MSW-HRU-1.0.0
+exe=0606f5d15bc1c5bb01a1d0a91fd91c839c68daa0a6ae972fa7c79b0b451513b8
+area=352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc
+mapping=13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4
+sources=b1314d18dda7a93c100e67194d1b8abfa6eb27c71d1dd72ca82f5aed5949d062
+units=m3/m2_per_decade;factor=1000;sign=source;missing=blank_strict_support
