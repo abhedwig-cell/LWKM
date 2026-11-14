@@ -1,0 +1,49 @@
+name: W09 native Windows x64
+on:
+  pull_request:
+    paths:
+      - 'tools/native/w09/**'
+      - '.github/workflows/w09-native-windows.yml'
+  workflow_dispatch:
+jobs:
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build native x64 with MSVC
+        shell: cmd
+        run: |
+          call "%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+          cl /nologo /std:c++17 /EHsc /O2 /MT /Fe:lwkm_w09_meteo.exe tools\native\w09\w09.cpp
+      - name: Create deterministic miniature fixture
+        shell: pwsh
+        run: |
+          @'
+          from pathlib import Path
+          p=Path('w09_fixture');p.mkdir(exist_ok=True)
+          (p/'weights.csv').write_text('hru_id,grid_id,area_m2,weight\n'+''.join(f'{i},0,1,1\n' for i in range(1,10243)))
+          for name,val in {'RD1':3,'EV24':2,'TN':1,'TX':5,'Q':100,'FG':1.2,'WIND':4,'WET_RAW':0.25}.items():
+              (p/f'{name}_20200101.asc').write_text(f'ncols 2\nnrows 2\nxllcorner 0\nyllcorner 0\ncellsize 1000\nNODATA_value -9999\n{val} {val}\n{val} {val}\n')
+          c=['weights=w09_fixture/weights.csv','template=w09_fixture/RD1_20200101.asc','output=w09_fixture/output','start_year=2020','end_year=2020','start_date=20200101','end_date=20200101']
+          for name in ('RD1','EV24','TN','TX','Q','FG','WIND','WET_RAW'):
+              c += [f'path_{name}=w09_fixture/{name}_{{date}}.asc',f'scale_{name}=1']
+          (p/'smoke.ini').write_text('\n'.join(c)+'\n')
+          '@ | python -
+      - name: Execute and assert Windows binary
+        shell: pwsh
+        run: |
+          ./lwkm_w09_meteo.exe w09_fixture/smoke.ini
+          if ($LASTEXITCODE -ne 0) { throw "Windows W09 failed" }
+          $rows = Import-Csv w09_fixture/output/met_2020.csv
+          if ($rows.Count -ne 10242) { throw "Wrong HRU count: $($rows.Count)" }
+          $a = $rows[0]
+          if ([double]$a.rain_mm_d -ne 3 -or [double]$a.wind_m_s -ne 4 -or [double]$a.wet_fraction -ne 0.25) { throw "Wrong MET results" }
+          $hash=(Get-FileHash ./lwkm_w09_meteo.exe -Algorithm SHA256).Hash
+          "EXE_SHA256=$hash" | Tee-Object -FilePath w09-exe-sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lwkm-w09-native-windows-x64
+          path: |
+            lwkm_w09_meteo.exe
+            w09-exe-sha256.txt
+            tools/native/w09/w09.cpp
