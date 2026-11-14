@@ -1,0 +1,11 @@
+{
+  "commit": "b63460c0c0c90cec7200bc4170270cb96f17ab30",
+  "workflow_run": 39556744881,
+  "workflow_status": "success",
+  "canonical_unit_tests": "success",
+  "artifact_id": 12326061903,
+  "release_bytes": 208439,
+  "release_sha256": "3b6d2b2a7934aa9d397188750d0a92692782102f3e7ecf582d7c59ce7a8fbf3a",
+  "manifest_verified": true,
+  "existing_receiver_on_real_selected_decade": "PASS"
+}

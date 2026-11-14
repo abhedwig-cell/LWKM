@@ -1,0 +1,54 @@
+{
+  "platform": "linux",
+  "binary_sha256": "2566ed9d32e133c65920eb022786054952bfd8b717b5fcbbc78cb74c215f1e41",
+  "results": [
+    {
+      "test": "three_decades_leap_day_raw_text_hashes_read_only_spaces",
+      "status": "PASS",
+      "seconds": 0.011210512000161543
+    },
+    {
+      "test": "reject_existing_destination",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_hash_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_missing_period",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_duplicate_hru",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_missing_hru",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_wrong_days",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_coverage_contradiction",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_qc_hash_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test": "preserve_incomplete_no_renormalization",
+      "status": "PASS"
+    },
+    {
+      "test": "real_10242_hrus_21_exact_values",
+      "status": "PASS",
+      "seconds": 0.05425340200008577,
+      "source_sha256": "465b5c81adb54b42ce5ba8d8c6427b9be0ed4a4b85e339bc71f872cb1622fb46",
+      "selected_bytes": 3650
+    }
+  ]
+}

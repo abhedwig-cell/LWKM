@@ -1,0 +1,51 @@
+{
+  "platform": "win32",
+  "binary_sha256": "b4179c870110c70eefb4def5922254bf5c7368f51e1d9f300adbdeca04ce9a73",
+  "results": [
+    {
+      "test": "three_decades_leap_day_raw_text_hashes_read_only_spaces",
+      "status": "PASS",
+      "seconds": 0.03200000000001069
+    },
+    {
+      "test": "reject_existing_destination",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_hash_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_missing_period",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_duplicate_hru",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_missing_hru",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_wrong_days",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_coverage_contradiction",
+      "status": "PASS"
+    },
+    {
+      "test": "reject_qc_hash_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test": "preserve_incomplete_no_renormalization",
+      "status": "PASS"
+    },
+    {
+      "test": "native_windows_powershell_zip_wrapper",
+      "status": "PASS"
+    }
+  ]
+}
