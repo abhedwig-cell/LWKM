@@ -1,0 +1,9 @@
+# Ontvangst gecorrigeerde Frank-SVAT-kandidaat, 16 november 2026
+
+Het op de NHI-server aangemaakte `CORRECTED_SVAT_CANDIDATE_SERVER_V04.json` meldt `CORRECTED_SVAT_CANDIDATE_FILE_HASH_VERIFIED`, 645582 rijen en 98 brongebonden correcties. Bestands-SHA256: `31a5e7cb5c4939eea81971bd0e5fdf1a4a6820ea8b057ee81bb45b869697b614`; `area_svat.inp` uit `run_1970_1979/metaswap` SHA256 `352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc`.
+
+**Scope:** acceptatie van identiteit van de gecorrigeerde oorspronkelijke SVAT-eindtabel op basis van de door de gebruiker aangeleverde servercontrole. De checker heeft door `--final-csv` de CSV-bytehash vergeleken; de reviewer heeft de grote CSV niet zelf geopend.
+
+De resterende beperkingstekst in het rapport, `CSV bytes are not independently verified without --final-csv`, is in deze situatie verouderde onvoorwaardelijke standaardtekst uit `qualify_v04.py`. De CMD-starter geeft `--final-csv` verplicht mee en de expliciete bool is `true`. Het lokaal geleverde acceptatiepakket is aangepast zodat deze waarschuwing alleen nog verschijnt wanneer de bestandscontrole niet is uitgevoerd; twee nieuwe regressietests, totaal 15 tests PASS. Deze lokale correctie verandert niets aan de ontvangen originele servercontrole of rekenuitvoer en is nog niet als losse codebestanden in Git opgenomen.
+
+Hiermee wordt de in PR #26 vastgelegde gecorrigeerde kandidaat-referentie voor de SVAT-basistabel voorzien van onafhankelijke NHI-serververificatie van de hash (uitvoer aan de kant van de gebruiker). De historische GxG-oracle wordt niet hersteld. **Geen fysieke waterbalanssluiting, geen HRU-kwalificatie en geen productievrijgave** (`production_enabled=false`). Het waterbalanscontract in `FRANK_V04_CORRECTED_REFERENCE_AND_WATERBALANS_20261116.md` blijft het uitgangspunt.
