@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "kind": "LWKM_FRANK_V04_CORRECTED_SVAT_SERVER_HASH_RECEPTION",
+  "reception_date": "2026-11-16",
+  "original_uploaded_filename": "CORRECTED_SVAT_CANDIDATE_SERVER_V04.json",
+  "original_uploaded_report_sha256": "09bfde9adf436668834d54888c32962ab54d122f4342373bd30ed2bde3d1a526",
+  "receipt_reported_status": "CORRECTED_SVAT_CANDIDATE_FILE_HASH_VERIFIED",
+  "checker_given_final_csv": true,
+  "reported_candidate_final_file_verified": true,
+  "expected_final_sha256": "31a5e7cb5c4939eea81971bd0e5fdf1a4a6820ea8b057ee81bb45b869697b614",
+  "period": "1991-2020",
+  "original_svat_rows": 645582,
+  "corrected_svat_count": 98,
+  "selected_area_svat_sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc",
+  "selected_area_svat_path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\area_svat.inp",
+  "source_binding_sha256": "90b736e0629302b3fbbb58048f9d3c1af6baa08263b448d4c077b468ad946fbe",
+  "source_evidence_report_sha256": "93a5a02f3f47ed92b7fcb6554bf6035ee2dc13592a7f5848c765ddb86b2cb162",
+  "historical_superseded_sha256": "7ec5b7bf24f5f8552d655bed96a71f97d088bcbc088201a293752dd46ac559df",
+  "acceptance": "SOURCE_AND_CORRECTED_SVAT_FILE_IDENTITY_ACCEPTED",
+  "scope_limitations": [
+    "User-supplied Windows-side checker report; original large CSV not independently read by reviewer",
+    "No physical model balance closure",
+    "No HRU production release"
+  ],
+  "known_checker_report_limitation": "Report includes static warning that CSV bytes are unverified without --final-csv even when candidate_final_file_verified=true; Windows CMD passed --final-csv. Warning is generic conditional text, not evidence of missing file hash.",
+  "production_enabled": false
+}
