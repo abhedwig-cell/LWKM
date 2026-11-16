@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "kind": "FRANK_CORRECTED_SVAT_REFERENCE_ACCEPTANCE",
+  "assessed_date": "2026-11-16",
+  "source_evidence": "GXG_CORRECTION_CHAIN_V04.json supplied by project owner",
+  "source_report_sha256": "93a5a02f3f47ed92b7fcb6554bf6035ee2dc13592a7f5848c765ddb86b2cb162",
+  "decision": "CORRECTED_CANDIDATE_TABLE_LEVEL_FROM_SERVER_RECEIPT",
+  "period": "1991-2020",
+  "original_svat_count": 645582,
+  "authoritative_area_path": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\area_svat.inp",
+  "authoritative_area_sha256": "352f2d0210c7a6b653f29469a90a2e4ec3ea4d216b06c33ed2bf1d8faa2192cc",
+  "source_binding_sha256": "90b736e0629302b3fbbb58048f9d3c1af6baa08263b448d4c077b468ad946fbe",
+  "corrected_gxg_sha256": "aa55bd954e1076a3c5bbbd0262b7f8b11df15bd027ce5fc15dca2cfe02e1d492",
+  "corrected_final_sha256_reported": "31a5e7cb5c4939eea81971bd0e5fdf1a4a6820ea8b057ee81bb45b869697b614",
+  "superseded_historical_final_sha256": "7ec5b7bf24f5f8552d655bed96a71f97d088bcbc088201a293752dd46ac559df",
+  "impacted_svats": 98,
+  "changed_fields_in_final": {
+    "GLG": 98,
+    "GHG": 98,
+    "GG": 98,
+    "GW5": 98,
+    "GW95": 98,
+    "Dynamiek": 91
+  },
+  "stage_results": {
+    "gxg": "RUNLOCAL_RECALCULATED",
+    "gw_percentielen": "CORRECTED_HISTORICAL_DIFFERENCE",
+    "statisch_gt": "CORRECTED_HISTORICAL_DIFFERENCE",
+    "svat_basis": "CORRECTED_HISTORICAL_DIFFERENCE",
+    "et_componenten": "BYTE_EQUAL_TO_HISTORICAL",
+    "gebied_n": "BYTE_EQUAL_TO_HISTORICAL",
+    "qmodf": "BYTE_EQUAL_TO_HISTORICAL"
+  },
+  "drn_audit_rows": 442,
+  "drn_audit_byte_identical": true,
+  "corrected_csv_bytes_directly_verified_by_reviewer": false,
+  "hydrological_balance_accepted": false,
+  "production_enabled": false
+}
