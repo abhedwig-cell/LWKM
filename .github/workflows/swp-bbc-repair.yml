@@ -1,0 +1,55 @@
+name: SWP BBC repair
+on:
+  push:
+    branches: [work/swp-bbc-repair-20261117]
+  pull_request:
+    paths:
+      - 'tools/swp_input_contract.py'
+      - 'tools/swp_local_assets.py'
+      - 'tools/swp_direct_render.py'
+      - 'tools/server/swp_bbc_repair/**'
+      - 'tools/server/bbc_production.py'
+      - 'tests/test_swp_bbc*'
+      - '.github/workflows/swp-bbc-repair.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: python -m pip install numpy pytest
+      - name: Regression tests
+        run: python -m pytest tests/test_swp_local_assets.py tests/test_swp_direct_pipeline.py tests/test_swp_run_parameters.py tests/test_bbc_production.py -q
+      - name: Repair-specific tests
+        shell: python
+        run: |
+          from pathlib import Path
+          import subprocess, sys
+          tests = sorted(str(p) for p in Path('tests').glob('test_swp_bbc*.py'))
+          if tests:
+              subprocess.run([sys.executable, '-m', 'pytest', *tests, '-q'], check=True)
+      - name: Export exact source tree for local integration
+        if: runner.os == 'Linux'
+        shell: python
+        run: |
+          import subprocess, zipfile
+          from pathlib import Path
+          names = subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          with zipfile.ZipFile('source.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for name in names:
+                  if name and name.split('/')[0] in ('tools','templates','config','tests','.github'):
+                      p = Path(name)
+                      if p.is_file(): z.write(p,name)
+      - uses: actions/upload-artifact@v4
+        if: runner.os == 'Linux'
+        with:
+          name: swp-bbc-source
+          path: source.zip
