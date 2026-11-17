@@ -11,6 +11,7 @@ from datetime import date, timedelta
 import gzip
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 import struct
@@ -18,6 +19,23 @@ import sys
 
 ROLES = ('flf', 'frf', 'fff', 'ghb', 'wel')
 OPERATIONS = {'CELL_NET', 'SAVED_CURRENT_MINUS_PREVIOUS_COLUMN', 'SAVED_CURRENT_MINUS_PREVIOUS_ROW'}
+
+
+BBC_FLOAT_FORMAT = '.15g'
+
+
+def format_bbc_real(value):
+    """Serialize only the final BBC value within RDDECD's 15-digit limit.
+
+    The scientific computation, NPY checkpoints and transfer CSVs retain their
+    previous precision. This is decimal rounding, not a bit-identical encoding.
+    """
+    if not math.isfinite(value):
+        raise ValueError('nonfinite BBC value')
+    token = format(value, BBC_FLOAT_FORMAT)
+    if '.' not in token and 'e' not in token.lower():
+        token += '.'
+    return token
 
 
 def sha(path):
@@ -348,8 +366,7 @@ def _process(cfg,config,output,timeline,m,reference,source_path,prior):
                 data=np.load(output/'daily'/(day+'.npy'),allow_pickle=False,mmap_mode='r')
                 cm=100*data[lo:hi].sum(axis=1)/m['area'][lo:hi]
                 for f,v in zip(writers,cm):
-                    token=format(v,'.17g')
-                    if '.' not in token and 'e' not in token.lower():token+='.'
+                    token=format_bbc_real(v)
                     f.write(day+' '+token+'\n')
             for f in writers:f.write('* End of table\n');f.close()
             for p in targets:
@@ -357,7 +374,7 @@ def _process(cfg,config,output,timeline,m,reference,source_path,prior):
                 artifacts.append(dict(hru_id=int(p.stem.split('_')[1]),path=str(p),sha256=sha(p)))
         finally:
             for f in writers:f.close()
-    report=dict(schema_version=1,producer_version='BBC09',spatial_operations={r:s['spatial_operation'] for r,s in cfg['sources'].items()},status='BBC_SOURCE_CANDIDATE_NOT_SWAP_VALIDATED',production_admitted=False,
+    report=dict(schema_version=1,producer_version='BBC09_FORMAT15',bbc_float_format=BBC_FLOAT_FORMAT,spatial_operations={r:s['spatial_operation'] for r,s in cfg['sources'].items()},status='BBC_SOURCE_CANDIDATE_NOT_SWAP_VALIDATED',production_admitted=False,
         identity=static,start=timeline[0],end=timeline[-1],days=len(timeline),reused_days=reused,
         svats=m['svats'],physical_cells=len(m['h']),hrus=len(m['domain']),
         full_cell_area_m2=reference.dx*reference.dy,area_m2=float(m['area'].sum()),bbc_reused=bool(reuse_bbc),
