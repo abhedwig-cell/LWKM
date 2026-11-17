@@ -42,7 +42,9 @@ class AdvancedTests(unittest.TestCase):
    item['output_sha256']=file_sha(p)
    with self.assertRaises(ValueError):batch.import_trial(working,records[1],binding)
  def test_lost_controller_kills_model_and_can_resume(self):
-  c=fixture(self.base,n=2,initial=2,scenarios={1:{'sleep':20},2:{'sleep':.1}});batch.prepare(c)
+  fixture(self.base,n=2,initial=2,scenarios={1:{'sleep':20},2:{'sleep':.1}})
+  # Normalize both invocations exactly as the real CLI does (Windows short paths).
+  c=batch.load_config(self.base/'config.json');batch.prepare(c)
   code="import sys;sys.path.insert(0,sys.argv[1]);import batch;batch.run_batch(batch.load_config(sys.argv[2]),workers=1)"
   log=(self.base/'controller.log').open('w')
   p=subprocess.Popen([sys.executable,'-c',code,str(ROOT),str(self.base/'config.json')],stdout=log,stderr=subprocess.STDOUT)
@@ -70,8 +72,16 @@ class AdvancedTests(unittest.TestCase):
    while alive(model_pid) and time.monotonic()<deadline:time.sleep(.05)
    self.assertFalse(alive(model_pid),'Orphan model still executing')
    with common.FileLock(camp/'CONTROLLER.lock'):pass
+   # Model death precedes the supervisor's durable receipt and lock release.
+   released=False;deadline=time.monotonic()+10
+   while time.monotonic()<deadline:
+    try:
+     with common.FileLock(camp/'locks/00001.lock'):pass
+     released=True;break
+    except common.IntegrityError:time.sleep(.05)
+   self.assertTrue(released,'Supervisor failed to release the HRU lock')
    # Use short explicit time-out to avoid waiting for the synthetic slow HRU.
-   s=batch.run_batch(c,workers=1,timeout=.2);self.assertNotEqual(s['status'],'STOPPED_SHARED_PROBLEM')
+   s=batch.run_batch(c,workers=1,timeout=.2);self.assertNotEqual(s['status'],'STOPPED_SHARED_PROBLEM',s)
    self.assertEqual(batch.read_states(camp,[1])[1]['attempts'],2)
   finally:
    if p.poll() is None:p.kill();p.wait()
