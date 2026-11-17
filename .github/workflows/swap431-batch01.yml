@@ -22,8 +22,7 @@ jobs:
         shell: bash
         run: |
           python tools/server/swap431_batch01/build_package.py --manifest-only
-          python -m unittest discover -s tools/server/swap431_batch01/tests -p 'test_*.py' -v > batch-tests.log 2>&1
-          cat batch-tests.log
+          python -m unittest discover -s tools/server/swap431_batch01/tests -p 'test_*.py' -v 2>&1 | tee batch-tests.log
       - name: Build and unpack delivery
         shell: bash
         run: |
@@ -33,8 +32,7 @@ jobs:
         working-directory: ${{ runner.temp }}
         shell: bash
         run: |
-          python -m unittest discover -s "$RUNNER_TEMP/unpacked/LWKM_SWAP431_Batch_v01/tests" -p 'test_*.py' -v > unpacked-tests.log 2>&1
-          cat unpacked-tests.log
+          python -m unittest discover -s "$RUNNER_TEMP/unpacked/LWKM_SWAP431_Batch_v01/tests" -p 'test_*.py' -v 2>&1 | tee unpacked-tests.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
