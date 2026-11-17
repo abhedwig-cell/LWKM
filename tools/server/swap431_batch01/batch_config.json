@@ -1,0 +1,31 @@
+{
+  "anchors": {
+    "1": "77f11a5b68e040ec2af13ecf5645281cde71d192d272fb524893aad5c461e1af",
+    "181": "eae4dfd2f2b1122981904913b486559dc3f0c2bb6cd9b62a8472858e208efe57",
+    "3": "aa15c9c64524795fe36811eb4f53bcb8173873096b69e1604e6ffb69639beef5",
+    "7870": "d7e800f84943ef752638821871a4fd763f279263763928729a5d6d1fe8fced27",
+    "7871": "e19416a4b12b56a644836ddf4bcd4c3bf0c92cff8f19fdf5db36de18b3e6ad7a",
+    "7929": "cf86b658954f2c5497f0131fb64206d3114d1276a9f862b512e945fda5298f74"
+  },
+  "campaign_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_rebuilds\\SWAP431_Referentie_MET07_v01",
+  "end": "2022-12-31",
+  "executable": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools\\SWAP_4.3.1\\SWAP_4.3.1\\tools\\SWAP\\swap_4.3.1.exe",
+  "executable_prefix_args": [],
+  "executable_sha256": "d13f5e0321db1780d211520287dc59db2e7aa763649998a4b29a187195ca89a5",
+  "expected_met07_binding_sha256": "5bfdb74d06ee55cb7b1a4555637d75c9c94cf5bad3bff04ca7c06af6428d62ee",
+  "expected_population": 10242,
+  "import_previous_trials": true,
+  "initial_count": 100,
+  "met07_reports": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools\\LWKM_MET07_HUM_Landelijk_v01_resultaat",
+  "min_free_bytes": 2147483648,
+  "per_run_reserve_bytes": 134217728,
+  "protected_roots": [
+    "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_rebuilds\\SWAP_HRU_Server06_1970_2022_v01",
+    "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_rebuilds\\MET07_HUM_Landelijk_v01"
+  ],
+  "report_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools\\LWKM_SWAP431_Batch_v01_resultaat",
+  "schema_version": 1,
+  "source_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_rebuilds\\SWAP_HRU_Server06_MET07_1970_2022_v01",
+  "start": "1970-01-01",
+  "timeout_seconds": 3600
+}

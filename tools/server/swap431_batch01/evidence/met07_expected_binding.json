@@ -1,0 +1,98 @@
+{
+  "code_sha256": {
+    "assemble_received_hrus.py": "242d70e6bdd573149b4d742338627b09bdee06491e411260598e04a941762040",
+    "national_hum.py": "359daf52362229d526f7538c5c377a24b96eafed038320846e0c6b45bb4d6a77",
+    "run_swap_trial.py": "c604b0592ccf4355782e2d90f1a094c72125061b4aa31edf43d80d36a1216869",
+    "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/assemble_swap_package.py": "467c054ef2608fdb4719ea8ad8583347aeccd371cf4d6f350360fa64708600f0",
+    "tools/met_hum_repair.py": "7165934f3de63585ab357260fafee106caafa42f37edf0222ed09e6affe93e1f",
+    "tools/swp_file_reference_guard.py": "f27905501cbdc7c7c1fcef330f57cc902b71e76bf489c3b03f445e51ba3a8330",
+    "tools/swp_full_oracle.py": "5f28ee9f4b11c13d6a17ca98c23f0bcaf69e04fe9fbed671edf7c49bcb7f1ef7",
+    "tools/swp_template_adapter.py": "7e0ce247bf51e47e38413a45534c1bfb1ef228b6b2844ad470eaa83e0daa7d78"
+  },
+  "config": {
+    "block_hrus": 64,
+    "cache_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_rebuilds\\MET07_HUM_Landelijk_v01",
+    "end": "2022-12-31",
+    "evidence": {
+      "HRU_ASSEMBLAGE_RESULTS.json": {
+        "file": "evidence/HRU_ASSEMBLAGE_RESULTS.json",
+        "sha256": "67f987aaaaeecc76e48df44621acb3adcb2dd5009a3564d433dcca5f3a32b2f4"
+      },
+      "STATUS_HRU_ASSEMBLAGE.json": {
+        "file": "evidence/STATUS_HRU_ASSEMBLAGE.json",
+        "sha256": "d106860584334c811ac27adb58fbe094eba9126dfa0042a22ef7720af7a4369e"
+      }
+    },
+    "expected_population": 10242,
+    "hum": {
+      "geometry": [
+        300,
+        325,
+        0.0,
+        300000.0,
+        1000.0
+      ],
+      "path_HUM": "E:\\LHM_4.3.3\\Data\\2_Model_Input\\meteo\\UG\\UG_{date}.asc",
+      "producer_config": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools\\LWKM_W09_MET06_decimal_server_verified\\LWKM_W09_MET05_Windows_x64_Server\\w09_met_config.ini",
+      "producer_config_sha256": "991cbcb82f77fdb519496ca1344c5c38d56d0d08d200279cdb65c8376d636070",
+      "quantity": "actual_vapour_pressure",
+      "run_control": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\run_1970_1979\\metaswap\\mete_grid.inp",
+      "run_control_sha256": "baf22e8a30e429995f4b3623f3cceac89c56cb9dd983cf5c86887a4f70421d1f",
+      "scale": 1.0,
+      "source_anchors": {
+        "19700101": "57862528290d712a1482304980597bb2589f2f2d4c9e8062aa7dbba3c934a9a8",
+        "19700220": "1fa1e3c536ad75331e6ad79acc08a2813380fa7ce2a608c70ff82bc2878f268d"
+      },
+      "unit": "kPa",
+      "weights": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools\\LWKM_W09_MET06_decimal_server_verified\\LWKM_W09_MET05_Windows_x64_Server\\hru_meteogrid_weights.csv",
+      "weights_sha256": "6133a918a0a05bd4b1b384fc88a1d13df7bd49d26c1723b242b319a667712f7c"
+    },
+    "output_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_rebuilds\\SWAP_HRU_Server06_MET07_1970_2022_v01",
+    "report_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_tools\\LWKM_MET07_HUM_Landelijk_v01_resultaat",
+    "schema_version": 1,
+    "source_root": "G:\\Projecten\\2025\\Release_LHM433\\modelruns\\runs_LWKM\\LWKM_rebuilds\\SWAP_HRU_Server06_1970_2022_v01",
+    "start": "1970-01-01",
+    "trial_evidence": {
+      "HUM_CORRECTIONS.json": {
+        "file": "evidence/trial/HUM_CORRECTIONS.json",
+        "sha256": "5f96a085fa70b625dae5bf082afe6a12011f52d949897afe3f5ef83addf39ee8"
+      },
+      "HUM_SOURCE_LEDGER.csv": {
+        "file": "evidence/trial/HUM_SOURCE_LEDGER.csv",
+        "sha256": "86ff1262f407bcc2287315fd2dd39eedcbdaeb5da3d31fd35d5c9059400683a5"
+      },
+      "RUN_RESULTS.json": {
+        "file": "evidence/trial/RUN_RESULTS.json",
+        "sha256": "054e6468e45d18496248ef8a2356aa7a13f2fb676a396e6291830e263a8e170b"
+      },
+      "STATUS_MET_HUM_PROEF.json": {
+        "file": "evidence/trial/STATUS_MET_HUM_PROEF.json",
+        "sha256": "4eeb2267a4e68382a4406fb2eabe3c355b48445360af12bf655cc7e64755c8fb"
+      }
+    }
+  },
+  "evidence_sha256": {
+    "HRU_ASSEMBLAGE_RESULTS.json": "67f987aaaaeecc76e48df44621acb3adcb2dd5009a3564d433dcca5f3a32b2f4",
+    "STATUS_HRU_ASSEMBLAGE.json": "d106860584334c811ac27adb58fbe094eba9126dfa0042a22ef7720af7a4369e"
+  },
+  "expected_trial_ledger_sha256": "86ff1262f407bcc2287315fd2dd39eedcbdaeb5da3d31fd35d5c9059400683a5",
+  "rule": "LHM_UG_KPA_ORDERED_FLOAT64_HUM_TOKEN_ONLY_V1",
+  "schema_version": 1,
+  "source_contract": {
+    "full_period_control_binding_claimed": false,
+    "hum_column_one_based": 10,
+    "producer_config_sha256": "991cbcb82f77fdb519496ca1344c5c38d56d0d08d200279cdb65c8376d636070",
+    "run_control_rows": 3653,
+    "run_control_sha256": "baf22e8a30e429995f4b3623f3cceac89c56cb9dd983cf5c86887a4f70421d1f",
+    "scale": 1.0,
+    "unit": "kPa",
+    "wind_column_one_based": 11
+  },
+  "trial_evidence_sha256": {
+    "HUM_CORRECTIONS.json": "5f96a085fa70b625dae5bf082afe6a12011f52d949897afe3f5ef83addf39ee8",
+    "HUM_SOURCE_LEDGER.csv": "86ff1262f407bcc2287315fd2dd39eedcbdaeb5da3d31fd35d5c9059400683a5",
+    "RUN_RESULTS.json": "054e6468e45d18496248ef8a2356aa7a13f2fb676a396e6291830e263a8e170b",
+    "STATUS_MET_HUM_PROEF.json": "4eeb2267a4e68382a4406fb2eabe3c355b48445360af12bf655cc7e64755c8fb"
+  }
+}
