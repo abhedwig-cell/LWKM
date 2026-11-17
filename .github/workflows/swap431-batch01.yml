@@ -1,0 +1,44 @@
+name: SWAP431 BATCH01 runner
+on:
+  pull_request:
+    paths:
+      - 'tools/server/swap431_batch01/**'
+      - '.github/workflows/swap431-batch01.yml'
+  workflow_dispatch:
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Prepare manifest and run all subprocess tests
+        shell: bash
+        run: |
+          python tools/server/swap431_batch01/build_package.py --manifest-only
+          python -m unittest discover -s tools/server/swap431_batch01/tests -p 'test_*.py' -v 2>&1 | tee batch-tests.log
+      - name: Build and unpack delivery
+        shell: bash
+        run: |
+          python tools/server/swap431_batch01/build_package.py --out "$RUNNER_TEMP/LWKM_SWAP431_Batch_v01.zip"
+          python -c "import os,zipfile,pathlib; p=pathlib.Path(os.environ['RUNNER_TEMP']); z=zipfile.ZipFile(p/'LWKM_SWAP431_Batch_v01.zip'); assert z.testzip() is None; z.extractall(p/'unpacked')"
+      - name: Test unpacked ZIP from different directory
+        working-directory: ${{ runner.temp }}
+        shell: bash
+        run: |
+          python -m unittest discover -s "$RUNNER_TEMP/unpacked/LWKM_SWAP431_Batch_v01/tests" -p 'test_*.py' -v 2>&1 | tee unpacked-tests.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: LWKM_SWAP431_Batch_v01_${{ matrix.os }}
+          path: |
+            batch-tests.log
+            ${{ runner.temp }}/unpacked-tests.log
+            ${{ runner.temp }}/LWKM_SWAP431_Batch_v01.zip
+          if-no-files-found: warn

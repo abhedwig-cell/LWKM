@@ -1,0 +1,7 @@
+{
+  "MET07_zip_sha256": "ae055c77d0ea64dc75e8a33413e2bf52b84c7f2b55442563a6b4b5ff3da722d8",
+  "build_instruction_sha256": "089c4db6cd0d8425dad490d0944787dce5fed6efc9a1a2e4903bca76f3380b23",
+  "expected_met07_binding_sha256": "5bfdb74d06ee55cb7b1a4555637d75c9c94cf5bad3bff04ca7c06af6428d62ee",
+  "scope": "No raw full-period corrected MET or output CSV locally available; trial fixtures are inputs and excerpts only.",
+  "trial_zip_sha256": "d3051a4a326168e9cd6c098d901c051e557042a87323275038667a219872dac5"
+}
