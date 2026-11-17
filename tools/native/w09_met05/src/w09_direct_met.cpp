@@ -16,13 +16,14 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include "../../w09_common/hum_source_contract.hpp"
 namespace fs=std::filesystem;
 using Clock=std::chrono::steady_clock;
 struct Link {int pix;double w;};
 struct Grid {int nc,nr;double x,y,cell,nodata;std::vector<double> v;};
 struct Pt {int r,c,id;};
 std::string trim(std::string s){auto a=s.find_first_not_of(" \r\n\t");return a==s.npos?"":s.substr(a,s.find_last_not_of(" \r\n\t")-a+1);}
-std::map<std::string,std::string> config(const fs::path&p){std::ifstream f(p);if(!f)throw std::runtime_error("Config missing: "+p.string());std::map<std::string,std::string> m;std::string s;while(std::getline(f,s)){s=trim(s);if(s.empty()||s[0]=='#')continue;auto a=s.find('=');if(a==s.npos)throw std::runtime_error("Invalid config");m[trim(s.substr(0,a))]=trim(s.substr(a+1));}return m;}
+std::map<std::string,std::string> config(const fs::path&p){std::ifstream f(p);if(!f)throw std::runtime_error("Config missing: "+p.string());std::map<std::string,std::string> m;std::string s;while(std::getline(f,s)){s=trim(s);if(s.empty()||s[0]=='#')continue;auto a=s.find('=');if(a==s.npos)throw std::runtime_error("Invalid config");if(!m.emplace(trim(s.substr(0,a)),trim(s.substr(a+1))).second)throw std::runtime_error("Duplicate config key: "+trim(s.substr(0,a)));}return m;}
 std::string required(const std::map<std::string,std::string>&m,const std::string&k){auto it=m.find(k);if(it==m.end()||it->second.empty())throw std::runtime_error("Config missing "+k);return it->second;}
 fs::path resolve(const fs::path&cfg,const std::string&s){fs::path p(s);return p.is_absolute()?p:cfg.parent_path()/p;}
 Grid gridread(const fs::path&p){std::ifstream f(p);if(!f)throw std::runtime_error("Grid missing "+p.string());std::map<std::string,double> m;for(int i=0;i<6;i++){std::string k;double d;if(!(f>>k>>d))throw std::runtime_error("Invalid ASC header "+p.string());for(auto &ch:k)ch=char(std::tolower((unsigned char)ch));m[k]=d;}
@@ -45,15 +46,15 @@ std::string expand(std::string s,const std::string&date){auto p=s.find("{date}")
 std::string date(int yr,int day){std::tm t{};t.tm_year=yr-1900;t.tm_mon=0;t.tm_mday=day;t.tm_isdst=-1;std::mktime(&t);char c[20];std::strftime(c,sizeof(c),"%Y%m%d",&t);return c;}
 int ndays(int yr){return yr%400==0||(yr%4==0&&yr%100!=0)?366:365;}
 std::string filemet(int id){std::ostringstream ss;ss<<"HRU_"<<std::setw(5)<<std::setfill('0')<<id<<".met";return ss.str();}
-void run(const fs::path&cp){auto cfg=config(cp);Grid ref=gridread(resolve(cp,required(cfg,"template")));std::vector<int> needed;auto w=weights(resolve(cp,required(cfg,"weights")),int(ref.v.size()),needed);
+void run(const fs::path&cp){auto cfg=config(cp);lwkm_hum::validate_config(cfg);Grid ref=gridread(resolve(cp,required(cfg,"template")));std::vector<int> needed;auto w=weights(resolve(cp,required(cfg,"weights")),int(ref.v.size()),needed);
  fs::path target=resolve(cp,required(cfg,"output_met"));if(fs::exists(target))throw std::runtime_error("Output already exists: "+target.string());fs::path part=target;part+=".partial";if(fs::exists(part))throw std::runtime_error("Partial output exists: "+part.string());fs::create_directories(part);
- std::array<std::string,8> names={"RD1","EV24","TN","TX","Q","FG","WIND","WET_RAW"};std::array<double,8> scale;for(int i=0;i<8;i++){scale[i]=std::stod(required(cfg,"scale_"+names[i]));if(!std::isfinite(scale[i])||scale[i]<=0)throw std::runtime_error("Invalid scale");}
+ std::array<std::string,8> names={"RD1","EV24","TN","TX","Q","HUM","WIND","WET_RAW"};std::array<double,8> scale;for(int i=0;i<8;i++){scale[i]=std::stod(required(cfg,"scale_"+names[i]));if(!std::isfinite(scale[i])||scale[i]<=0)throw std::runtime_error("Invalid scale");}
  int first=std::stoi(required(cfg,"start_year")),last=std::stoi(required(cfg,"end_year"));if(first<1900||last>2100||last<first)throw std::runtime_error("Invalid years");
  std::ofstream log(part/"PERFORMANCE.csv");log<<"year,days,ascii_seconds,nearest_seconds,aggregate_seconds,write_seconds,nearest_queries\n";
  for(int yr=first;yr<=last;yr++){std::map<int,std::string> lines;for(const auto &[id,links]:w)lines[id].reserve(365*100);double io=0,nn=0,agg=0,write=0;long long queries=0;
  for(int day=1;day<=ndays(yr);day++){auto ds=date(yr,day);if(cfg.count("start_date")&&ds<cfg.at("start_date"))continue;if(cfg.count("end_date")&&ds>cfg.at("end_date"))continue;
  std::array<std::vector<double>,8> vals;
- for(int k=0;k<8;k++){auto t=Clock::now();Grid g=gridread(resolve(cp,expand(required(cfg,"path_"+names[k]),ds)));match(ref,g);io+=std::chrono::duration<double>(Clock::now()-t).count();t=Clock::now();
+ for(int k=0;k<8;k++){auto t=Clock::now();Grid g=gridread(resolve(cp,expand(required(cfg,"path_"+names[k]),ds)));match(ref,g);if(k==lwkm_hum::index)lwkm_hum::validate_grid(g.v,g.nodata,ds);io+=std::chrono::duration<double>(Clock::now()-t).count();t=Clock::now();
  if(k==7){bool any=false;for(auto x:g.v)if(valid(x,g.nodata)){any=true;break;}if(!any){for(int pix:needed)g.v[pix]=0;}}
  bool requires=false;for(int pix:needed)if(!valid(g.v[pix],g.nodata)){requires=true;break;}
  if(requires){Kd tree(g);for(int pix:needed)if(!valid(g.v[pix],g.nodata)){g.v[pix]=g.v[tree.closest(pix,g.nc)];queries++;}}
@@ -62,16 +63,21 @@ void run(const fs::path&cp){auto cfg=config(cp);Grid ref=gridread(resolve(cp,req
  vals[k]=std::move(g.v);nn+=std::chrono::duration<double>(Clock::now()-t).count();}
  auto t=Clock::now();int m=std::stoi(ds.substr(4,2)),d=std::stoi(ds.substr(6,2));for(const auto &[id,links]:w){
  std::array<double,8> v{};for(auto lk:w[id]){int pix=lk.pix;double p=vals[0][pix]*scale[0],wet=vals[7][pix]*scale[7];if(p<0||vals[1][pix]*scale[1]<0||vals[4][pix]*scale[4]<0||vals[6][pix]*scale[6]<0||vals[3][pix]*scale[3]<vals[2][pix]*scale[2]||wet<0||wet>1)throw std::runtime_error("Invalid meteorological value "+ds+" HRU "+std::to_string(id));for(int k=0;k<8;k++)v[k]+=lk.w*vals[k][pix]*scale[k];}
+ lwkm_hum::validate_value(v[lwkm_hum::index],ds+" HRU="+std::to_string(id));
  // Preserve original W09 WET rule: weighted (rain pixel > 0 ? max(wet,0.1 if zero) : 0).
  double wet=0;for(auto lk:w[id]){double p=vals[0][lk.pix]*scale[0],raw=vals[7][lk.pix]*scale[7];wet+=lk.w*(p==0?0:(raw>0?raw:0.1));}
- std::ostringstream record;record.imbue(std::locale::classic());record<<std::fixed<<std::setprecision(6)<<"'"<<id<<"' "<<d<<" "<<m<<" "<<yr<<" "<<v[4]<<" "<<v[2]<<" "<<v[3]<<" "<<v[5]<<" "<<v[6]<<" "<<v[0]<<" "<<v[1]<<" "<<wet<<"\n";lines[id]+=record.str();}
+ std::ostringstream record;record.imbue(std::locale::classic());record<<std::fixed<<std::setprecision(6)<<"'"<<id<<"' "<<d<<" "<<m<<" "<<yr<<" "<<v[4]<<" "<<v[2]<<" "<<v[3]<<" "<<v[lwkm_hum::index]<<" "<<v[6]<<" "<<v[0]<<" "<<v[1]<<" "<<wet<<"\n";lines[id]+=record.str();}
  agg+=std::chrono::duration<double>(Clock::now()-t).count();}
  auto t=Clock::now();for(const auto &[id,links]:w){std::ofstream out(part/filemet(id),std::ios::binary|(yr==first?std::ios::out:std::ios::app));if(!out)throw std::runtime_error("Cannot open output");if(yr==first)out<<"Station DD MM YYYY RAD Tmin Tmax HUM WIND RAIN ETref WET\n";out<<lines[id];if(!out)throw std::runtime_error("Write failed");}write+=std::chrono::duration<double>(Clock::now()-t).count();log<<yr<<","<<ndays(yr)<<","<<io<<","<<nn<<","<<agg<<","<<write<<","<<queries<<"\n";log.flush();std::cout<<"YEAR "<<yr<<" ascii="<<io<<" nearest="<<nn<<" aggregate="<<agg<<" write="<<write<<" nearest_queries="<<queries<<"\n";}
  std::string binding=cfg.count("release_binding_sha256")?cfg.at("release_binding_sha256"):"";
  if(!binding.empty() && (binding.size()!=64 || !std::all_of(binding.begin(),binding.end(),[](char ch){return std::isxdigit(static_cast<unsigned char>(ch))!=0;})))
   throw std::runtime_error("Invalid HRU release binding SHA256");
- std::ofstream manifest(part/"MANIFEST.txt");manifest<<"LWKM MET03 direct ASCII to HRU MET; NOT SWAP-qualified. HRUs="<<w.size()<<" Years="<<first<<".."<<last<<"\\n";
- manifest<<"release_binding_sha256="<<binding<<"\\n";
- manifest<<"release_identity_status="<<(binding.empty()?"UNBOUND_RESEARCH":"DECLARED_NOT_SOURCE_VERIFIED")<<"\\n";manifest.close();log.close();fs::rename(part,target);
+ std::ofstream manifest(part/"MANIFEST.txt");manifest<<"LWKM MET08 direct ASCII to HRU MET; NOT SWAP-qualified. HRUs="<<w.size()<<" Years="<<first<<".."<<last<<"\n";
+ manifest<<"release_binding_sha256="<<binding<<"\n";
+ manifest<<"release_identity_status="<<(binding.empty()?"UNBOUND_RESEARCH":"DECLARED_NOT_SOURCE_VERIFIED")<<"\n";manifest<<"producer_version="<<lwkm_hum::version<<"\n";
+ manifest<<"path_HUM="<<required(cfg,"path_HUM")<<"\n";
+ manifest<<"quantity_HUM=actual_vapour_pressure\nunit_HUM=kPa\nscale_HUM=1\n";
+ manifest<<"hum_validation=ORIGINAL_GRID_AND_AGGREGATE_0_10_KPA\n";
+ manifest.close();if(!manifest)throw std::runtime_error("Manifest write failed");log.close();fs::rename(part,target);
 }
-int main(int argc,char**argv){try{if(argc!=2)throw std::runtime_error("Usage: w09_direct_met config.ini");run(argv[1]);return 0;}catch(const std::exception&e){std::cerr<<"W09 MET03 ERROR: "<<e.what()<<"\n";return 2;}}
+int main(int argc,char**argv){try{if(argc==2&&std::string(argv[1])=="--version"){std::cout<<lwkm_hum::version<<"\n";return 0;}if(argc!=2)throw std::runtime_error("Usage: w09_direct_met config.ini");run(argv[1]);return 0;}catch(const std::exception&e){std::cerr<<"W09 MET08 ERROR: "<<e.what()<<"\n";return 2;}}
