@@ -23,7 +23,10 @@ class DeliveryTests(unittest.TestCase):
    cfg=fixture(Path(d)/'fixture',n=2,initial=2);env=dict(os.environ,LWKM_BATCH_PYTHON=sys.executable)
    for starter in ('01_BEREID_REFERENTIERUN_VOOR.cmd','02_START_REFERENTIEBATCH_100.cmd'):
     command='call "'+str(ROOT/starter)+'" --config "'+str(Path(d)/'fixture/config.json')+'"'
-    x=subprocess.run(['cmd','/d','/c',command],cwd=d,env=env,capture_output=True,text=True,timeout=60)
+    # cmd.exe does not decode list2cmdline backslash-escaped embedded quotes.
+    # Invoke an actual command file with quoted paths, like an interactive CMD.
+    (Path(d)/'invoke_test.cmd').write_bytes(('@echo off\r\n'+command+'\r\nexit /b %ERRORLEVEL%\r\n').encode('utf-8'))
+    x=subprocess.run(['cmd','/d','/c','invoke_test.cmd'],cwd=d,env=env,capture_output=True,text=True,timeout=60)
     self.assertEqual(x.returncode,0,x.stdout+x.stderr)
    states=list((Path(cfg['campaign_root'])/'states').glob('*.json'))
    self.assertEqual(len(states),2);self.assertTrue(all(read_json(p)['state']=='completed' for p in states))
