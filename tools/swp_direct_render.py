@@ -40,6 +40,8 @@ class Catalog:
 
     def context(self, run):
         integer=lambda k:int(run[k])
+        if integer('bodem_id') == 204:
+            raise ValueError('SOIL204_FORBIDDEN: regenerate SWP parameters with owner 204->205 rule')
         bottom=integer('SWBOTB')
         if bottom not in (2,5):raise ValueError(f'unsupported template bottom option {bottom}')
         if integer('SWINCO')!=2:raise ValueError('direct renderer requires SWINCO=2')
