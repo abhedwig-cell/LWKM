@@ -20,6 +20,25 @@ from tools.dqsat_policy import summarize
 FIELDS = 'run_id,scenario_id,bodem_id,soil2_id,lu_id,climate_id,SWBBCFILE,SWBOTB,dqsat,BBCFIL,DRFIL,METFIL,irrigation_id,solute_id,rotation_id,SWINCO,GWLI,RDS,PONDMX,RSRO,tempBot,glk,area,xc,yc,col,row,nusvat,TSTART,TEND,SWETR,soil_id,crop_id,croporg_id,dikte_id,COFANI,NUMNODNEW'.split(',')
 GRID_KEYS = ('glk', 'area', 'rds', 'dqsat', 'lgn', 'soil2', 'bfe', 'irr_switch', 'meteo', 'vc', 'riv_infil', 'bbc')
 
+# LWKM owner decision, 2026-11-20: 204 is O05-only, 205 is B05 (5 cm) over O05.
+# Apply to all HRUs before crop and SWP lookup, never only to selected HRU IDs.
+SOIL370_REPLACEMENTS = {204: 205}
+
+
+def canonical_bodem370(value, soil_lookup):
+    original = int(value)
+    final = SOIL370_REPLACEMENTS.get(original, original)
+    if final not in soil_lookup:
+        raise ValueError(f'missing replacement soil370 {final} for {original}')
+    if final != original:
+        if original not in soil_lookup:
+            raise ValueError(f'missing original soil370 {original}')
+        for field in ('soil_id', 'grondsoort2', 'bofek79', 'pawn21'):
+            if str(soil_lookup[original][field]) != str(soil_lookup[final][field]):
+                raise ValueError(f'soil370 {original}->{final} changes {field}')
+    return final
+
+
 
 def nint(v):
     return math.floor(v + .5) if v >= 0 else math.ceil(v - .5)
@@ -48,7 +67,8 @@ def derive(hru, members, soil_lookup, crop_lookup, config):
     if rep not in by_svat:
         raise ValueError(f'representative SVAT {rep} is not an HRU member')
     representative = by_svat[rep]
-    soil = number(hru, 'bodem370', 'bodem_repr')
+    original_soil = number(hru, 'bodem370', 'bodem_repr')
+    soil = canonical_bodem370(original_soil, soil_lookup)
     soil2 = number(soil_lookup[soil], 'grondsoort2')
     # lu4 is an identity field, never a mode of member land use.
     lu4 = number(hru, 'lu4')
@@ -107,6 +127,8 @@ def derive(hru, members, soil_lookup, crop_lookup, config):
                croporg_id=number(crop,'croporg_id'), dikte_id=1700, COFANI=1., NUMNODNEW=43)
     meteo_counts = Counter(number(m,'meteo') for m in members)
     return row, dict(HRU=hid, lu4=lu4, root_source=root_source,
+                    original_bodem370=original_soil, final_bodem370=soil,
+                    soil204_replaced=(original_soil == 204),
                     centroid_tie_candidates=len(nearest),
                     dqsat_policy=policy, dqsat=dq,
                     irrigation_fraction=fraction, irrigation_area_fraction=math.fsum(irrigation_areas.values())/area,
