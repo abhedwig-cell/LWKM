@@ -156,6 +156,15 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
     if errors:
         (output/'parameter_errors.json').write_text(json.dumps(errors,indent=2)+'\n')
         raise ValueError(f'Incomplete population: {len(errors)} HRU errors; national irrigation allocation not performed: {errors[:5]}')
+    # Mandatory nationwide final gate; no O05-only profile in emitted parameter CSV.
+    stale = [int(r['run_id']) for r in parameters if int(r['bodem_id']) == 204]
+    if stale:
+        raise ValueError(f'SOIL204_FORBIDDEN after derivation: {stale[:20]}')
+    replacements = [{'HRU': d['HRU'], 'source_bodem370': 204, 'final_bodem370': 205}
+                    for d in diagnostics if d['soil204_replaced']]
+    (output/'soil370_replacements_204_to_205.json').write_text(
+        json.dumps({'owner_decision': '2026-11-20 204->205 all HRUs',
+                    'count': len(replacements), 'replacements': replacements}, indent=2)+'\n')
     allocation=allocate_irrigation(parameters,diagnostics)
     (output/'irrigation_allocation.json').write_text(json.dumps(allocation,indent=2)+'\n')
     with (output/'runs_candidate.csv').open('w',newline='') as f:
@@ -180,6 +189,8 @@ def generate(sources,qualified_report,hru,membership,soil,crop,output,start,end,
     manifest['input_hashes']=input_hashes
     manifest['dqsat_table_sha256']=sha(output/'dqsat_hru.csv')
     manifest['dqsat_policy']='OWNER_20261009_POSITIVE_MEMBER_MEDIAN_SHARED_WITH_DRA'
+    manifest['soil204_replaced_count']=len(replacements)
+    manifest['soil204_replacements_sha256']=sha(output/'soil370_replacements_204_to_205.json')
     manifest['parameters_sha256']=sha(output/'runs_candidate.csv')
     manifest['producer_sha256']=code_hash
     manifest_path.write_text(json.dumps(manifest,indent=2)+'\n')
