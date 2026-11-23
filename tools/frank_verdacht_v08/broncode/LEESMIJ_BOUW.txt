@@ -1,0 +1,132 @@
+HERBOUW VAN DE MEEGELEVERDE REFERENTIEGEGEVENS
+
+Doel
+
+Deze twee scripts bouwen de vijf bestanden in data opnieuw op uit de
+vastgelegde historische bronbestanden. Ze leiden geen nieuwe verdachte
+SVATs, donoren of HRUs af en wijzigen geen Frank-tabellen.
+
+Gebruik Python 3.8 of hoger. De bouwscripts gebruiken alleen de
+standaardbibliotheek van Python. Voer de onderstaande commando's uit
+vanuit de hoofdmap van het uitgepakte v08-pakket. Ze gebruiken uitsluitend
+relatieve paden. De interpreter heet in de voorbeelden python; gebruik
+zo nodig de interpreter waarmee je het Frank-pakket uitvoert.
+
+1. BRONBESTANDEN KLAARZETTEN
+
+Maak naast de map broncode een map brondata met deze drie bestanden:
+
+  brondata/csv.zip
+  brondata/export_svat_HRU_NRU_10242.csv
+  brondata/export_HRUschema_10242.csv
+
+De twee losse CSV-bestanden zijn de ongewijzigde leden
+csv/export_svat_HRU_NRU_10242.csv en csv/export_HRUschema_10242.csv
+uit csv.zip. Kopieer die twee leden naast het archief. Sla ze niet opnieuw
+op via Excel of een CSV-editor: gewijzigde scheidingstekens, regelafsluitingen
+of getalnotaties veranderen hun bronhash.
+
+Gebruik de volgende vastgelegde SHA256-identiteiten:
+
+csv.zip
+84ae4963145176767a00c67b968ace5b817002d5292fd9cab8d3933476e509e3
+
+export_svat_HRU_NRU_10242.csv
+13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4
+
+export_HRUschema_10242.csv
+0ca8534216d1ab2944dcfee4c528926c7798fd967dcc58f760c88befd1c83997
+
+csv/SVAT_INFO_HRU.CSV, gelezen rechtstreeks binnen csv.zip
+5aa4a4db2bef7e3c7f72f0925cd2a268170e0428d7225ef674f41af35fd5ce60
+
+Het laatste bestand hoeft niet los te worden uitgepakt. Het bevat de
+historische oorspronkelijke SVAT-oppervlakken en kwalificatievelden.
+De bronbestanden worden alleen gelezen.
+
+2. COMPACTE MEMBERSHIP EN HRU-SCHEMA HERBOUWEN
+
+  python broncode/build_compact_hru_sources.py --source-dir brondata --dest data_herbouw
+
+Dit maakt precies:
+
+  data_herbouw/SVAT_HRU.csv.gz
+  data_herbouw/HRU_SCHEMA.csv.gz
+  data_herbouw/SOURCES.json
+
+De oorspronkelijke target-ID, locatie en historische oppervlakte blijven
+in de compacte membership behouden. De oppervlaktecontrole verlangt
+uitsluitend een positieve, eindige waarde. Er is geen bovengrens van
+62500 m2. Het vaste MODFLOW-celoppervlak wordt daarmee niet gewijzigd.
+Bij de Frank-verwerking blijft de actuele targetoppervlakte uit de
+v07/v07.1-tabel leidend.
+
+Dit is de bestaande bevroren HRU10242-referentie. SOURCES.json behoudt
+daarom zijn oorspronkelijke bronverwijzing naar commit
+b06e8d576f1ced10eece35c792165b656b0a8213. Die wordt niet vervangen door
+een recentere commit alleen omdat het bouwscript nu in v08 is opgenomen.
+
+3. KWALIFICATIE EN OPERATIONELE DONOREN HERBOUWEN
+
+  python broncode/build_donor_data.py --membership brondata/export_svat_HRU_NRU_10242.csv --archive brondata/csv.zip --output data_herbouw
+
+Dit voegt toe:
+
+  data_herbouw/SVAT_DONOR_QUALIFICATION.csv.gz
+  data_herbouw/DONOR_SOURCES.json
+
+Verdachtheid volgt uitsluitend uit de OR van de acht oorspronkelijke
+positieve velden ghg_sel, gt1_sel, gt2_sel, gt8_sel, kwel_sel,
+wegzijging_sel, runoff_sel en subinfil_sel. Het script controleert dat
+deze OR voor exact dezelfde IDs positief is als de oorspronkelijke
+isverdacht-code. De operationele donor komt afzonderlijk uit de
+bestaande membership; donor ongelijk aan zichzelf is geen verdachtcriterium.
+
+De gecontroleerde aantallen zijn 427656 SVATs, 10242 HRUs en 20934
+verdachte SVATs. De overige 36946 niet-verdachte SVATs met een andere
+operationele donor blijven als afzonderlijke groep herkenbaar.
+Iedere donor bestaat, hoort bij dezelfde HRU, heeft zichzelf als
+operationele donor en is niet verdacht.
+
+DONOR_SOURCES.json verwijst voor de kwalificatie- en donorafspraken naar
+commit e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6 en bevat daarnaast de
+SHA256 van het daadwerkelijk gebruikte bouwscript. Pas je dat script
+aan, dan verandert terecht ook deze metadata-identiteit.
+
+4. VERIFICATIE EN REGELAFSLUITINGEN
+
+Gebruik de afzonderlijke map data_herbouw. De hierboven gegeven
+commando's overschrijven de meegeleverde productiegegevens in data niet.
+
+Beide scripts schrijven CSV met vaste LF-regelafsluitingen en gzip
+zonder bestandsnaam of variabele tijdstempel. Ook beide JSON-manifesten
+worden expliciet als UTF-8 met LF geschreven. Een Windows-omgeving
+voegt daarom geen CRLF toe aan de gereproduceerde JSON-bestanden.
+
+De compacte herbouw is in een tijdelijke map uitgevoerd en alle drie
+bestanden zijn byte voor byte vergeleken met het meegeleverde pakket.
+De donorherbouw is afzonderlijk in een tijdelijke map uitgevoerd. De
+donor-gzip bleef bytegelijk; in DONOR_SOURCES.json veranderde alleen
+de geregistreerde builderhash door de expliciete LF-writer.
+De tijdelijke bouwmappen zijn na de controle verwijderd.
+
+Het concrete herbouwbewijs, inclusief bestandsgroottes, SHA256-waarden,
+scriptidentiteiten en controle op LF, staat in BUILD_VALIDATION.json.
+De beoogde identiteiten van de gecomprimeerde gegevens zijn:
+
+SVAT_HRU.csv.gz
+e31dbfc767463180c36752d966b1991059b25221506b3c5a1402517f593287d9
+
+HRU_SCHEMA.csv.gz
+5c60897eb66873a0ce9903e967189e4a749e6d70795831412613f9fffadec15d
+
+SVAT_DONOR_QUALIFICATION.csv.gz
+193d53b856a0ff8b3f081a097edf9b94a0998de80eb220104d7bf005f4cd108e
+
+Voor een vergelijking in PowerShell kun je vanuit de pakketmap gebruiken:
+
+  Get-FileHash -Algorithm SHA256 data/*
+  Get-FileHash -Algorithm SHA256 data_herbouw/*
+
+Vergelijk de hashes per bestandsnaam. Een identieke bestandsinhoud heeft
+dezelfde SHA256, ongeacht de naam van de bovenliggende map.

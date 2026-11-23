@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "validated_utc": "2026-11-23T15:04:32.102779+00:00",
+  "python_version": "3.12.14",
+  "platform": "linux",
+  "windows_execution_performed": false,
+  "method": "Both builders executed from their packaged files into independent temporary directories; output bytes compared against the package. Temporary directories removed afterward.",
+  "scripts": {
+    "build_compact_hru_sources.py": {
+      "sha256": "642da4c450873105e7ac05abc871dd0f9c5d24b9d214c6ea47452889c5209cb3"
+    },
+    "build_donor_data.py": {
+      "sha256": "3a5b108cf27c8fd8d260d07d2a4c5fca190fedc148efbcf4f307c2eca6483208"
+    }
+  },
+  "inputs": {
+    "reference_membership": {
+      "filename": "export_svat_HRU_NRU_10242.csv",
+      "sha256": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4"
+    },
+    "source_archive": {
+      "filename": "csv.zip",
+      "sha256": "84ae4963145176767a00c67b968ace5b817002d5292fd9cab8d3933476e509e3"
+    },
+    "original_qualification": {
+      "archive_member": "csv/SVAT_INFO_HRU.CSV",
+      "sha256": "5aa4a4db2bef7e3c7f72f0925cd2a268170e0428d7225ef674f41af35fd5ce60"
+    }
+  },
+  "checks": {
+    "compact_three_files_byte_identical": true,
+    "donor_gzip_byte_identical": true,
+    "donor_metadata_changed_only_builder_sha256": true,
+    "json_manifests_utf8_with_lf": true,
+    "other_four_package_data_files_unchanged": true
+  },
+  "files": [
+    {
+      "filename": "SVAT_HRU.csv.gz",
+      "size_bytes": 3783784,
+      "sha256": "e31dbfc767463180c36752d966b1991059b25221506b3c5a1402517f593287d9",
+      "rebuild_byte_identical_to_existing_package": true
+    },
+    {
+      "filename": "HRU_SCHEMA.csv.gz",
+      "size_bytes": 1318790,
+      "sha256": "5c60897eb66873a0ce9903e967189e4a749e6d70795831412613f9fffadec15d",
+      "rebuild_byte_identical_to_existing_package": true
+    },
+    {
+      "filename": "SOURCES.json",
+      "size_bytes": 3785,
+      "sha256": "94c40d00d072e0ca3d192e6068c0d5e1145b14984c6adf607aac4c989de2ac82",
+      "rebuild_byte_identical_to_existing_package": true
+    },
+    {
+      "filename": "SVAT_DONOR_QUALIFICATION.csv.gz",
+      "size_bytes": 3126432,
+      "sha256": "193d53b856a0ff8b3f081a097edf9b94a0998de80eb220104d7bf005f4cd108e",
+      "rebuild_byte_identical_to_existing_package": true
+    },
+    {
+      "filename": "DONOR_SOURCES.json",
+      "size_bytes": 5455,
+      "sha256": "a1e0a30c1015166ec459297d24f2391ab6aaf537919b156fbad942b946a15333",
+      "installed_from_verified_rebuild": true,
+      "change_vs_previous_metadata": "builder.sha256 only"
+    }
+  ],
+  "donor_counts": {
+    "membership_rows": 427656,
+    "unique_hrus": 10242,
+    "suspect_svats": 20934,
+    "nonsuspect_nonself_svats": 36946
+  }
+}

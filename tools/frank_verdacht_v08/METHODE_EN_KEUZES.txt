@@ -1,0 +1,324 @@
+FRANK V08: METHODE, KEUZES EN HERKOMST
+Versie 08.0, 23 november 2026
+
+1. DOEL EN AFBAKENING
+
+V08 bouwt voort op de voltooide v07/v07.1-SVAT-tabellen voor 1991-2020.
+De bestaande LWKM-selectie bevat 427656 SVATs en 10242 HRUs. V08 maakt
+een variant waarin uitsluitend de oorspronkelijk verdachte SVATs
+het hydrologische profiel van hun bestaande operationele donor krijgen.
+Dit gebeurt afzonderlijk voor de ongecorrigeerde tabel en de tabel
+met Flevolandcorrectie. Beide worden daarna per HRU samengevat.
+
+De keuze om de huidige Frankvelden zo te vervangen is in dit pakket
+expliciet gemaakt op verzoek om logische vervolgstappen uit te werken.
+De keuze wordt niet gepresenteerd als een al eerder bewezen kopieerregel
+voor deze 49-kolomstabel. De historische Git-bronnen leggen de
+kwalificatie, operationele donortoewijzing en bestaande HRUs vast.
+
+Er worden geen donorafstanden, verdachte vlaggen, HRUs, tijdreeksen,
+GxG-statistieken of percentielen opnieuw berekend. V08 draait geen
+MODFLOW-, MetaSWAP- of SWAP-model.
+
+2. VERDACHTE POPULATIE EN DONORIDENTITEIT
+
+Een target is in deze stap verdacht als in de oorspronkelijke Work B-
+kwalificatie minstens één van deze acht vlaggen positief is:
+
+ghg_sel, gt1_sel, gt2_sel, gt8_sel, kwel_sel, wegzijging_sel,
+runoff_sel, subinfil_sel.
+
+Dit is de bevroren selectie van 20934 verdachte SVATs. De vlaggen
+worden niet opnieuw afgeleid uit de huidige Frank-GHG of -fluxen en
+ook niet opnieuw beoordeeld na Flevolandcorrectie. Zo verandert de
+doelgroep niet ongemerkt tussen de twee uitvoervarianten.
+
+Voor ieder geselecteerd target wordt hru_cluster_donor_svat uit de
+bestaande operationele donorrelatie gebruikt. Dit is niet hetzelfde
+als legacy_pre_hru_donor_svat of hru_representative_svat.
+
+De operationele relatie is in Work B uit de oorspronkelijke R-bron
+gereproduceerd. De eerste twee zoekronden gebruiken geschikte leden
+uit geaccepteerde clusters. Matching gebeurt binnen regionale en
+landgebruiksgroepen met gewogen kenmerken, niet op uitsluitend de
+geografisch dichtstbijzijnde SVAT. De laatste restgroep volgt de
+historische bronvolgorde. V08 hergebruikt de resulterende relatie en
+introduceert geen nieuwe afstandsmaat, tie-breaker of alternatieve donor.
+
+De 57880 operationele relaties met donor ongelijk aan zichzelf omvatten
+meer dan de verdachte populatie. De overige 36946 relaties zijn geen
+aanleiding voor donorvervanging in deze versie. Het gaat om onder meer
+leden die vanwege rest- of kleine groepen een operationele donor kregen.
+
+De bestaande historische HRU-membership blijft behouden, ook na het
+overnemen van een hydrologisch profiel. HRUs worden niet opnieuw
+gegroepeerd of genummerd.
+
+3. EEN COMPLEET HYDROLOGISCH PROFIEL OVERNEMEN
+
+De volgende 35 opeenvolgende velden worden samen vervangen:
+
+Gtnr
+GLG m-mv
+GHG m-mv
+GG ((GHG+GLG)/2)
+Dynamiek (GLG-GHG)
+5% percentiel grondwaterstand op decadebasis voor reeks 30 jaar
+95% percentiel grondwaterstand op decadebasis voor reeks 30 jaar
+Kwelklasse4
+Neerslag (mm/j)
+Beregening
+Evapotranspiratie
+Verdamping gewas
+verdamping interceptie
+Verdamping bodem
+Oppervlakkige afstroming
+Ontwatering
+Fldrou1
+Fldrou2
+Fldrou3
+Fldrou4
+Fldrou5
+Infiltratie
+Fldrin1
+Fldrin2
+Fldrin345
+Netto kwel/wegzijging (wegzijging (neg) + kwel (pos))
+Laterale stroming (netto)
+Onttrekkingen (uit laag 1)
+General head boundary
+Wegzijging
+Kwel
+QModF
+Bergingsverandering (MetaSWAP)
+Waterbalansfout MetaSWAP
+Waterbalansfout overall
+
+Dit is in schema.py het bereik HEADERS[12:47]. Het profiel wordt als
+geheel gebruikt om geen willekeurige combinatie te maken van donor-
+GxG, targetneerslag en losse donorfluxen. Een bronwaarde die ontbreekt,
+blijft ontbreken. Er wordt niet teruggevallen op het target, een
+HRU-representant, een tweede donor of nul.
+
+Het profiel komt altijd uit de ongewijzigde invoertabel van dezelfde
+variant. De Flevolandvariant gebruikt dus de gecorrigeerde donorrij.
+De verwerkingsvolgorde kan het resultaat niet veranderen: een eerder
+vervangen uitvoerrij wordt niet als nieuwe bron voor een volgend
+target gebruikt.
+
+Ook Kwelklasse4 wordt van dat donorprofiel overgenomen. De klasse
+wordt niet opnieuw bepaald uit een met targetoppervlak omgerekend
+volume-equivalent. Zo blijft de hydrologische typering bij het
+werkelijk gekozen profiel horen.
+
+Een ontbrekende donorrij of een ongeldige koppeling is een fout en
+stopt de productie. Dit verschilt van een leeg veld in een wel
+aanwezige, geldige donorrij.
+
+De volgende gegevens blijven van het oorspronkelijke target:
+SVAT-ID, N=1, actuele oppervlakte, Landuse LHM (22), Landuse ANIMO,
+LU4, LU2, Bodem370, Bodem79, Pawn21, Grondsoort4, Grondsoort 2 en
+Gebiednummer. Targetlocatie en HRU-koppeling blijven eveneens behouden.
+
+Daarmee beschrijft de hydrologie in de afgeleide rij het donorprofiel,
+terwijl de ruimtelijke identiteit het target blijft. Verschillende
+bodem- of landgebruikscodes tussen target en donor worden geregistreerd.
+Zij worden niet stilzwijgend gelijkgemaakt. Ook overgenomen GLG/GHG
+zijn donordieptes ten opzichte van donor-maaiveld, geen nieuw berekende
+absolute stijghoogtes of dieptes op het target.
+
+4. EENHEDEN, OPPERVLAK EN BALANSDIAGNOSTIEK
+
+Hydrologische intensiteiten in mm/jaar worden zonder oppervlakteschaling
+van donor naar target gekopieerd. Een afgeleid jaarlijks volume voor
+de nieuwe rij wordt berekend als:
+
+V_equivalent_m3_jaar = q_mm_jaar * A_target_m2 / 1000.
+
+Een donorvolume in m3 wordt dus niet rechtstreeks naar het target
+gekopieerd. Als donor- en targetoppervlak verschillen, verschillen
+de volume-equivalenten bij dezelfde overgenomen intensiteit.
+
+Bij oorspronkelijke MODFLOW-termen heeft de v07-mm/jaar-waarde de
+vorm volledig celvolume gedeeld door MetaSWAP-oppervlakte. Na de
+vervanging levert vermenigvuldiging met de targetoppervlakte een
+afgeleid equivalent op. Het is niet het oorspronkelijke fysieke
+MODFLOW-budget van die targetcel. De unieke oorspronkelijke XY-
+membership voorkomt een dubbele celkoppeling, maar maakt herhaald
+gebruik van donorprofielen niet tot een oorspronkelijke modelbalans.
+
+De veldnamen Waterbalansfout MetaSWAP en Waterbalansfout overall
+blijven omwille van het vaste Frankschema behouden. Hun betekenis
+blijft de bestaande diagnostische termensom uit de bronketen. V08
+neemt die diagnostiek van de donor over; het leidt geen fysische
+targetbalans af en vult ontbrekende modeltermen niet aan. QModF wordt
+niet alsnog als extra externe waterbalansflux opgeteld.
+
+Veranderde landelijke of HRU-volume-equivalenten na donorvervanging
+zijn een gevolg van de gekozen profieltoewijzing en targetweging.
+Een controle van deze veranderingen is geen bewijs dat het oorspronkelijke
+LHM-budget door de vervanging zou moeten worden geconserveerd.
+
+5. FLEVOLAND EN DE INDICATOR
+
+V08 past zelf geen dagelijkse FLF/RIV1-correctie toe. De Flevoland-
+variant van v07/v07.1 is daarvoor de bestaande bron. Het pakket
+neemt ook geen losse FLF-delta van donor naar target over: het leest
+het complete reeds gecorrigeerde hydrologische donorprofiel.
+
+Voor een SVAT is de voorlaatste kolom:
+
+indicator_v08 = vervangen_als_verdacht OF indicator_target_v07.
+
+Een uitgevoerde vervanging krijgt dus 1, ook als het overgenomen
+profiel numeriek gelijk is. Een niet-verdacht target houdt de
+indicator van zijn eigen v07-variant. In de HRU-tabel is de indicator
+1 als ten minste één lid een indicator 1 heeft.
+
+De controle-uitvoer onderscheidt:
+- of het target volgens de oorspronkelijke vlaggen verdacht is;
+- welke operationele donor gebruikt is en waarom het target verdacht is;
+- de eerdere Flevolandstatus van het target;
+- de Flevolandstatus van het werkelijk gebruikte hydrologische profiel;
+- of de overgenomen velden numeriek of tekstueel veranderen.
+
+De Flevolandstatus van een donor betekent niet dat de targetlocatie
+zelf dezelfde oorspronkelijke FLF-correctie had. De hoofdindicator
+is een gecombineerde bewerkingsindicator, geen geografisch masker.
+
+6. HRU-SAMENVATTING OVER ALLE TARGETS
+
+Alle leden uit de bestaande 427656-SVAT-selectie blijven in hun
+oorspronkelijke HRU meetellen. De actuele oppervlakte komt uit de
+v07-SVAT-invoer, niet uit de historische donor of een vaste 62500 m2.
+
+Voor een continu veld x:
+
+x_HRU = som(A_target * x_na_vervanging) / som(A_target).
+N_HRU = aantal oorspronkelijke leden.
+A_HRU = som van de actuele targetoppervlakken.
+
+Wanneer één lid geen waarde voor een continu veld heeft, blijft
+het betreffende HRU-veld leeg. De dekking wordt vastgelegd; er wordt
+geen gemiddelde op een kleinere, alleen bekende deelpopulatie genomen.
+GG en dynamiek worden uit de complete gewogen GLG/GHG afgeleid:
+GG=(GHG+GLG)/2; dynamiek=GLG-GHG.
+
+GLG, GHG, P5 en P95 zijn hier oppervlaktegewogen samenvattingen van
+de SVAT-kengetallen. Een gewogen P5 van afzonderlijke SVATs is in het
+algemeen niet het P5 van een eerst samengevoegde HRU-tijdreeks.
+
+Gtnr en Kwelklasse4 tonen de unieke daadwerkelijk gebruikte
+ledenklassen, gescheiden door |. Ze worden niet numeriek gemiddeld
+en er wordt geen nieuwe modale klasse gekozen. De oude officiële
+HRU-Gt overschrijft de overgenomen hydrologische toestand dus niet.
+
+De negen landgebruik- en bodemvelden worden letterlijk uit de
+bijbehorende, op hash gecontroleerde v07-HRU-tabel overgenomen. V08
+leidt deze kenmerken dus niet opnieuw af uit een kleinere bronpopulatie.
+Zo blijven de v07-afspraken behouden: het bestaande HRU-schema blijft
+leidend, met LHM22/ANIMO uit de bestaande representant en Bodem79 passend
+bij de officiële HRU-Bodem370 volgens de bestaande relatie.
+Donorcategorieën vervangen deze HRU-kenmerken niet. Gebiednummer bevat
+de oorspronkelijke targetgebiednummers; meerdere waarden blijven
+zichtbaar met |.
+
+7. VERSCHIL MET P12 EN HISTORISCHE VERVANGING
+
+Het P12-donorselectiecontract gebruikt voor directe hydrologische
+aggregatie de subset waarvoor svat_orig == svat_donor. Die methode
+selecteert donorbronnen. V08 beschrijft daarentegen de volledige
+targetoppervlakte met oorspronkelijke of toegewezen hydrologische
+profielen. Een donor kan voor meerdere targets een profiel leveren.
+
+Deze twee berekeningen hebben een verschillende populatie en weging.
+V08 is niet als reproducerende P12-waterbalansuitvoer bedoeld.
+De aantallen en oppervlakken van de P12-bronsubset worden afzonderlijk
+vergeleken, zonder de v08-samenvatting tot die subset te beperken.
+
+In de historische hru_source_chain.py vergelijkt audit_replacement()
+54 gedeelde eigenschappen van een bestaande legacy-tussentabel met
+een legacy-donor. Targetcoördinaten en targetoppervlak blijven daar
+behouden. Dat is een regressiecontrole van die tussenstap. Voor de
+HRU-clustering worden de originele verdachte targeteigenschappen
+hersteld. Het is geen eerder vastgelegd kopieercontract voor de
+huidige 49 Frankvelden en geen bewijs voor een nieuwe targetwaterbalans.
+
+8. CONTROLES, HERSTART EN PUBLICATIE
+
+De vier v07-tabellen en hun manifest zijn verplichte bronbestanden.
+Hun volledige SHA256-hashes worden vergeleken met de v07-registratie.
+De bronversie moet 07.0 of 07.1 zijn, met periode 1991-2020, 30 jaren,
+de 49 overeengekomen headers en een komma als scheidingsteken.
+
+Beide SVAT-varianten moeten dezelfde target-IDs, N, oppervlakken,
+negen landgebruik/bodemcategorieën en gebiednummers bevatten. De
+meegeleverde kwalificatie moet iedere geselecteerde SVAT precies
+eenmaal dekken. Donors moeten bestaan, in dezelfde HRU zitten,
+zelfdonors zijn en niet verdacht zijn. De bronmetadata controleert
+de aantallen per kwalificatievlag en het onderscheid tussen verdachte
+en overige operationele nonself-relaties.
+
+Positieve targetoppervlakken boven 62500 m2 worden geaccepteerd en
+afzonderlijk gerapporteerd. V08 verandert die oppervlaktes niet.
+De som van de actuele ledenoppervlakken moet passen bij de bestaande
+v07-HRU-oppervlakte. Ook ledenaantallen en de HRU-koppeling blijven gelijk.
+
+KOLOMREGELS.csv legt de 49 veldregels vast. SVAT_VERVANGING per variant
+legt de gekozen donor, redenen, behouden targeteigenschappen en
+Flevolandherkomst vast. HRU_VERVANGING bevat de dekkingsaantallen en
+oppervlakken. HRU_WATERTERMEN vergelijkt per HRU en waterterm vóór/na
+vervanging en het verschil, zowel in mm/jaar als in m3-equivalent/jaar.
+HRU_AGGREGATIE bewaart de numerieke dekking en categorische herkomst.
+
+De vier nieuwe tabellen en controles worden in een eigen tijdelijke
+map geschreven. Alle bronbestanden worden vóór publicatie opnieuw
+gehasht. Na het sluiten van de bestanden wordt de map gepubliceerd.
+Een fout publiceert geen half complete verzameling eindtabellen.
+De v07-bronnen worden niet gewijzigd.
+
+MANIFEST_FRANK_VERDACHT_V08.json bindt de einduitvoer aan de bron-,
+code- en datahashes en bevat de expliciete toepassingskeuzes. Bij
+een ongewijzigde herstart worden bestaande eindbestanden op hun
+hashes gecontroleerd. Afwijkende bestaande uitvoer wordt niet
+overschreven. Er is geen database of jaarlijkse reken-cache nodig.
+
+9. BRONNEN EN REPRODUCEERBAARHEID
+
+De meegeleverde selectie- en relatiegegevens zijn gebonden aan hun
+bronbestanden en hashes. data/SOURCES.json beschrijft de bestaande
+HRU-membership en het schema. data/DONOR_SOURCES.json beschrijft
+SVAT_DONOR_QUALIFICATION.csv.gz, de oorspronkelijke acht vlaggen,
+de operationele donors en hun controletotalen. De v07-invoertabellen
+moeten bij hun meegeleverde uitvoermanifest passen. De v08-uitvoer
+legt de gebruikte invoer, keuzes en uitvoeridentiteiten vast.
+
+Repository: abhedwig-cell/LWKM.
+Bij de broncontrole actuele workflowreferentie:
+e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6.
+Work B is gemerged via PR 8:
+https://github.com/abhedwig-cell/LWKM/pull/8
+
+Reproductie en aantallen:
+https://github.com/abhedwig-cell/LWKM/blob/e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6/docs/production/WORK_B_20261019.md
+
+Betekenis van verdachte SVATs en operationele donors:
+https://github.com/abhedwig-cell/LWKM/blob/e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6/docs/lhm-hru-swap/SUSPECT-SVAT-DONOR-RECONCILIATION-2026-09-30.md
+https://github.com/abhedwig-cell/LWKM/blob/e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6/docs/lhm-hru-swap/donor-relations-ownership-2026-09-28.md
+https://github.com/abhedwig-cell/LWKM/blob/e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6/docs/lhm-hru-swap/hru-rest-donor-algorithm-2026-09-28.md
+
+Broncode en interfaces:
+https://github.com/abhedwig-cell/LWKM/blob/e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6/tools/legacy/HRU_clustering_LWKM20_31082026.R
+https://github.com/abhedwig-cell/LWKM/blob/e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6/tools/hru_source_chain.py
+https://github.com/abhedwig-cell/LWKM/blob/e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6/tools/export_hru_interfaces.py
+
+Afzonderlijke P12-methode:
+https://github.com/abhedwig-cell/LWKM/blob/e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6/docs/lhm-hru-swap/P12-DONOR-SELECTION-CORRECTION-CONTRACT.md
+
+De eerdere Frank-afbakening laat donorvervanging als latere stap open:
+https://github.com/abhedwig-cell/LWKM/blob/17efe2b466b093676115de0f9ebedea5950cd5d7/docs/production/FRANK_SVAT_UNCORRECTED_BASE_SCOPE_20261106.md
+
+De brongebonden historische reproductie kwalificeert de bestaande
+membership en donorrelatie. Zij bewijst niet dat nieuw berekende
+verdachte vlaggen uit andere bronrasters of perioden dezelfde
+populatie zouden opleveren. Dat herkwalificeren valt buiten v08.

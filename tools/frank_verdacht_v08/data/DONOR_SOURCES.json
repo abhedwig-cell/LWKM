@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "profile": "LWKM_HRU10242_ORIGINAL_QUALIFICATION_AND_OPERATIONAL_DONORS",
+  "repository": "abhedwig-cell/LWKM",
+  "reference_commit": "e9ef2495f2cf11028a457f7e13e4b6bc17ea20f6",
+  "authority_paths": [
+    "docs/production/WORK_B_20261019.md",
+    "docs/lhm-hru-swap/SUSPECT-SVAT-DONOR-RECONCILIATION-2026-09-30.md",
+    "tools/export_hru_interfaces.py",
+    "config/source/work-b-source-register-20261019.json"
+  ],
+  "headers": [
+    "svat",
+    "HRU",
+    "hru_cluster_donor_svat",
+    "is_suspect",
+    "qualification_reason_ids",
+    "label"
+  ],
+  "qualification_flags": [
+    "ghg_sel",
+    "gt1_sel",
+    "gt2_sel",
+    "gt8_sel",
+    "kwel_sel",
+    "wegzijging_sel",
+    "runoff_sel",
+    "subinfil_sel"
+  ],
+  "semantics": {
+    "is_suspect": "OR of the eight original qualification flags > 0; not donor != self.",
+    "qualification_reason_ids": "Original positive qualification field names in the fixed qualification_flags order, joined by |.",
+    "hru_cluster_donor_svat": "Existing operational donor from reference membership svat_donor; not legacy_pre_hru_donor_svat and not the HRU representative.",
+    "membership": "Original target SVAT identity and HRU are retained.",
+    "scope": "Binding only; this builder replaces no Frank values and invents no new criteria.",
+    "legacy_snapshot_status": "Source identities reconstructed and regression-qualified; this package does not claim new model-production qualification."
+  },
+  "inputs": {
+    "reference_membership": {
+      "filename": "export_svat_HRU_NRU_10242.csv",
+      "sha256": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4"
+    },
+    "source_archive": {
+      "filename": "csv.zip",
+      "sha256": "84ae4963145176767a00c67b968ace5b817002d5292fd9cab8d3933476e509e3"
+    },
+    "original_qualification": {
+      "archive_member": "csv/SVAT_INFO_HRU.CSV",
+      "sha256": "5aa4a4db2bef7e3c7f72f0925cd2a268170e0428d7225ef674f41af35fd5ce60"
+    }
+  },
+  "outputs": {
+    "SVAT_DONOR_QUALIFICATION.csv.gz": {
+      "sha256": "193d53b856a0ff8b3f081a097edf9b94a0998de80eb220104d7bf005f4cd108e",
+      "size_bytes": 3126432
+    }
+  },
+  "builder": {
+    "filename": "build_donor_data.py",
+    "sha256": "3a5b108cf27c8fd8d260d07d2a4c5fca190fedc148efbcf4f307c2eca6483208"
+  },
+  "checks": {
+    "membership_rows": 427656,
+    "unique_hrus": 10242,
+    "suspect_svats": 20934,
+    "nonsuspect_svats": 406722,
+    "nonself_donors": 57880,
+    "suspect_nonself_svats": 20934,
+    "nonsuspect_nonself_svats": 36946,
+    "self_donors": 369776,
+    "qualification_flag_counts": {
+      "ghg_sel": 2243,
+      "gt1_sel": 1803,
+      "gt2_sel": 2069,
+      "gt8_sel": 3629,
+      "kwel_sel": 8622,
+      "wegzijging_sel": 3934,
+      "runoff_sel": 2280,
+      "subinfil_sel": 979
+    },
+    "reason_combinations": {
+      "": 406722,
+      "ghg_sel": 1194,
+      "ghg_sel|gt1_sel": 275,
+      "ghg_sel|gt1_sel|kwel_sel": 16,
+      "ghg_sel|gt1_sel|kwel_sel|runoff_sel": 120,
+      "ghg_sel|gt1_sel|runoff_sel": 267,
+      "ghg_sel|gt1_sel|runoff_sel|subinfil_sel": 1,
+      "ghg_sel|gt1_sel|subinfil_sel": 3,
+      "ghg_sel|gt1_sel|wegzijging_sel": 3,
+      "ghg_sel|gt1_sel|wegzijging_sel|runoff_sel|subinfil_sel": 3,
+      "ghg_sel|gt1_sel|wegzijging_sel|subinfil_sel": 4,
+      "ghg_sel|gt2_sel": 58,
+      "ghg_sel|gt2_sel|kwel_sel|runoff_sel": 1,
+      "ghg_sel|gt2_sel|runoff_sel": 35,
+      "ghg_sel|gt2_sel|wegzijging_sel": 1,
+      "ghg_sel|gt2_sel|wegzijging_sel|subinfil_sel": 1,
+      "ghg_sel|kwel_sel": 24,
+      "ghg_sel|kwel_sel|runoff_sel": 68,
+      "ghg_sel|runoff_sel": 164,
+      "ghg_sel|wegzijging_sel|subinfil_sel": 5,
+      "gt1_sel": 400,
+      "gt1_sel|kwel_sel": 386,
+      "gt1_sel|kwel_sel|runoff_sel": 126,
+      "gt1_sel|runoff_sel": 196,
+      "gt1_sel|wegzijging_sel": 1,
+      "gt1_sel|wegzijging_sel|runoff_sel|subinfil_sel": 1,
+      "gt1_sel|wegzijging_sel|subinfil_sel": 1,
+      "gt2_sel": 1382,
+      "gt2_sel|kwel_sel": 499,
+      "gt2_sel|kwel_sel|runoff_sel": 10,
+      "gt2_sel|runoff_sel": 78,
+      "gt2_sel|wegzijging_sel": 3,
+      "gt2_sel|wegzijging_sel|subinfil_sel": 1,
+      "gt8_sel": 3254,
+      "gt8_sel|kwel_sel": 372,
+      "gt8_sel|runoff_sel": 1,
+      "gt8_sel|subinfil_sel": 2,
+      "kwel_sel": 6768,
+      "kwel_sel|runoff_sel": 232,
+      "runoff_sel": 977,
+      "subinfil_sel": 91,
+      "wegzijging_sel": 3044,
+      "wegzijging_sel|subinfil_sel": 866
+    },
+    "source_isverdacht_code_counts": {
+      "0": 406722,
+      "1000001": 91,
+      "1000010": 977,
+      "1000100": 9812,
+      "1001000": 3254,
+      "1010000": 1782,
+      "1100000": 1194,
+      "2000101": 866,
+      "2000110": 232,
+      "2001001": 2,
+      "2001010": 1,
+      "2001100": 372,
+      "2010010": 274,
+      "2010100": 889,
+      "2100010": 164,
+      "2100100": 24,
+      "2110000": 333,
+      "3010101": 2,
+      "3010110": 136,
+      "3100101": 5,
+      "3100110": 68,
+      "3110001": 3,
+      "3110010": 302,
+      "3110100": 20,
+      "4010111": 1,
+      "4110011": 1,
+      "4110101": 5,
+      "4110110": 121,
+      "5110111": 3
+    },
+    "source_label_counts": {
+      "Restgroep": 113,
+      "Toegevoegd": 57791,
+      "valid | HRU group size OK | NRU group size OK": 369752
+    },
+    "flag_union_vs_original_isverdacht_mismatches": 0,
+    "all_donors_exist": true,
+    "all_donors_in_same_hru": true,
+    "all_donors_are_self_donors": true,
+    "all_donors_are_not_suspect": true
+  }
+}
