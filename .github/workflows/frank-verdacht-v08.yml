@@ -1,0 +1,30 @@
+name: Frank verdachte SVATs v08 Windows
+
+on:
+  pull_request:
+    paths:
+      - 'tools/frank_verdacht_v08/**'
+      - '.github/workflows/frank-verdacht-v08.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-2022
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.8', '3.12']
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Test donorprofielen, bronbinding, HRU-weging en publicatie
+        working-directory: tools/frank_verdacht_v08
+        run: python -m unittest discover -s tests -v
+

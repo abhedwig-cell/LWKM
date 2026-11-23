@@ -1,0 +1,229 @@
+LWKM FRANK: VERDACHTE SVATS VERVANGEN, V08
+23 november 2026
+
+DOEL
+
+Dit pakket leest de voltooide tabellen van v07/v07.1 en maakt vier
+nieuwe tabellen. Alleen de 20934 oorspronkelijk als verdacht
+aangemerkte SVATs krijgen het hydrologische profiel van hun bestaande
+operationele donor. De bestaande LWKM-selectie en HRU-indeling blijven
+behouden. De bestaande v07-tabellen worden niet gewijzigd.
+
+De ongecorrigeerde variant gebruikt de donor uit de ongecorrigeerde
+v07-tabel. De Flevolandvariant gebruikt diezelfde donor uit de
+v07-tabel met Flevolandcorrectie. De twee varianten worden apart
+verwerkt en daarna elk per bestaande HRU samengevat.
+
+STARTEN
+
+1. Pak de volledige ZIP uit onder:
+   G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_tools
+
+2. Open een cmd-venster in de map met START_FRANK_VERDACHT.cmd.
+
+3. Voer uit:
+
+   START_FRANK_VERDACHT
+
+Er zijn geen verplichte argumenten. De Deltaforge Python is dezelfde
+als in de eerdere pakketten:
+E:\tools\deltaforge\deltaforge_4\python.exe
+
+Het pakket gebruikt bestaande tabellen en de meegeleverde koppelingen.
+Het leest geen MODFLOW-heads of dagelijkse IDF-fluxen. GHG, GLG en de
+echte decadepercentielen worden uit de bestaande donorprofielen
+overgenomen. V08 berekent geen nieuwe tijdreeksen of nieuwe donors.
+
+BENODIGDE INVOER
+
+De standaard invoermap is:
+G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal\frank_export_eindtabel\svat_lwkm_hru_v07
+
+Benodigd uit de voltooide v07/v07.1-uitvoer:
+
+FRANK_SVAT_LWKM_1991_2020.csv
+FRANK_SVAT_LWKM_FLEVOLAND_1991_2020.csv
+FRANK_HRU_LWKM_1991_2020.csv
+FRANK_HRU_LWKM_FLEVOLAND_1991_2020.csv
+MANIFEST_FRANK_LWKM_HRU_V07.json
+
+Gebruik de uitvoer met het bijbehorende manifest. Het pakket controleert
+de bronidentiteiten en de volledige LWKM-populatie. Een ontbrekende
+SVAT- of donorrij is een fout. Een leeg gegevensveld in een bestaande
+donorrij blijft leeg na de vervanging.
+
+De twee bestaande HRU-tabellen leveren de vaste landgebruik- en
+bodemcategorieën en de waarden vóór vervanging voor de vergelijking.
+De nieuwe hydrologische HRU-gemiddelden worden uit de nieuwe
+SVAT-tabellen berekend.
+
+De selectie van verdachte SVATs, operationele donors en de bestaande
+HRU-koppeling zijn meegeleverd. Er hoeft geen nieuwe donor-CSV op de
+server te worden gezocht of handmatig opgegeven.
+
+ANDERE PADEN OF ALLEEN CONTROLEREN
+
+Gebruik bij een andere resultatenmap bijvoorbeeld:
+
+   START_FRANK_VERDACHT --root "G:\ander\LWKM_run_resultaten_totaal"
+
+Een andere v07-bronmap en een andere v08-uitvoermap kunnen met:
+
+   START_FRANK_VERDACHT --source "G:\pad\naar\v07" --out "G:\pad\naar\nieuwe_v08"
+
+Controle zonder nieuwe tabellen:
+
+   CONTROLEER_BRONNEN
+
+Dat komt overeen met START_FRANK_VERDACHT --check-only. Dezelfde
+--root en --source opties zijn ook bij CONTROLEER_BRONNEN beschikbaar.
+De optie --data is alleen bedoeld om bewust een andere gekwalificeerde
+koppeling met bijpassende bronmetadata te gebruiken. Voor dit pakket
+blijft de meegeleverde data-map de standaard.
+
+VIER NIEUWE TABELLEN
+
+De standaard uitvoermap is:
+G:\Projecten\2025\Release_LHM433\modelruns\runs_LWKM\LWKM_run_resultaten_totaal\frank_export_eindtabel\svat_lwkm_hru_verdacht_v08
+
+FRANK_SVAT_LWKM_VERDACHT_VERVANGEN_1991_2020.csv
+  Alle 427656 LWKM-SVATs. De 20934 verdachte SVATs hebben een
+  donorprofiel uit de ongecorrigeerde v07-variant.
+
+FRANK_SVAT_LWKM_FLEVOLAND_VERDACHT_VERVANGEN_1991_2020.csv
+  Dezelfde selectie, met donorprofielen uit de Flevolandvariant.
+
+FRANK_HRU_LWKM_VERDACHT_VERVANGEN_1991_2020.csv
+  Samenvatting van de eerste tabel per bestaande HRU.
+
+FRANK_HRU_LWKM_FLEVOLAND_VERDACHT_VERVANGEN_1991_2020.csv
+  Samenvatting van de tweede tabel per bestaande HRU.
+
+De twee HRU-tabellen hebben elk 10242 regels. De vier tabellen houden
+dezelfde 49 kolommen en volgorde als v07.
+
+Scheidingsteken: KOMMA. Decimaalteken: PUNT. Codering: UTF-8.
+Kies in Excel zo nodig Gegevens > Van tekst/CSV en kies komma als
+scheidingsteken. Een | binnen een HRU-veld scheidt meerdere categorieën
+of gebiednummers. Dat teken is geen CSV-scheidingsteken.
+
+WAT WORDT VERVANGEN?
+
+Van Gtnr tot en met Waterbalansfout overall worden de 35 opeenvolgende
+velden als één profiel van de donor overgenomen. Dat omvat GHG/GLG,
+GG/dynamiek, P5/P95, kwelklasse, neerslag, beregening, alle genoemde
+verdampings- en fluxcomponenten, QModF, MetaSWAP-berging en de bestaande
+balansdiagnostiek. Ook lege donorwaarden worden overgenomen.
+
+SVAT-ID, N, oppervlakte, landgebruik, bodemkenmerken en Gebiednummer
+blijven van het target. De HRU-koppeling blijft eveneens behouden.
+De donor wordt niet opnieuw gezocht en een wijziging wordt niet via
+een keten van tussentijds vervangen rijen doorgegeven.
+
+Niet-verdachte SVATs blijven inhoudelijk gelijk aan de betreffende
+v07-bronvariant, ook als zij in de historische HRU-procedure een
+andere donor hebben gekregen. Een donorrelatie alleen is geen
+voldoende reden om een SVAT in v08 te vervangen.
+
+VOORLAATSTE KOLOM
+
+De indicator wordt 1 als de SVAT in deze stap als verdachte SVAT wordt
+vervangen, of als de bestaande v07-variant al een Flevolandindicator 1
+heeft. Anders blijft hij 0.
+
+De indicator registreert de bewerking. Hij blijft 1 wanneer een
+donorprofiel toevallig dezelfde getallen bevat als het target.
+In de controle-uitvoer staan de vervanging, de eerdere
+Flevolandstatus van het target en de Flevolandstatus van het gebruikte
+donorprofiel afzonderlijk. De hoofdindicator alleen kan die drie
+zaken niet onderscheiden.
+
+HOE LEES JE DE HRU-TABELLEN?
+
+N is het aantal oorspronkelijke leden en oppervlakte is de som van
+hun actuele v07-SVAT-oppervlakken. Continue gegevens worden met deze
+targetoppervlakken gewogen. Alle LWKM-leden blijven meetellen.
+
+De HRU-tabellen zijn samenvattingen van SVAT-kengetallen. Hun GLG, GHG,
+P5 en P95 zijn geen nieuwe statistieken van een HRU-tijdreeks.
+Gtnr en Kwelklasse4 tonen de voorkomende actuele ledenklassen met |.
+Er wordt geen gemiddelde Gt-code of nieuwe modale klasse berekend.
+De overige landgebruik- en bodemcategorieën volgen dezelfde
+HRU-schema-afspraken als v07.
+
+Als voor een continu veld één lid ontbreekt, blijft dat HRU-veld
+leeg. De dekking wordt gerapporteerd; ontbrekende waarden zijn geen
+nul en de noemer wordt niet verkleind tot alleen de bekende leden.
+
+BETEKENIS VAN DE UITKOMSTEN
+
+Dit is een afgeleide vergelijkingstabel op basis van donorprofielen.
+Het is geen nieuwe LHM-run of nieuwe fysische simulatie van het target.
+De overgenomen hydrologie kan daardoor samengaan met de behouden
+bodem- en landgebruikskenmerken van een ander target. Zulke verschillen
+tussen target en donor worden controleerbaar vastgelegd.
+
+Fluxen blijven in mm/jaar. Een daarvan afgeleid volume gebruikt het
+targetoppervlak: m3-equivalent/jaar = mm/jaar * oppervlakte_m2 / 1000.
+Na donorvervanging is dit geen oorspronkelijk MODFLOW-celbudget van
+het target. De balansvelden houden hun bestaande diagnostische
+betekenis; donorvervanging bewijst geen fysieke waterbalanssluiting.
+
+De HRU-samenvatting gebruikt alle targetoppervlakken. Dit verschilt
+van de P12-waterbalansmethode die alleen donor-equal bronleden gebruikt.
+V08 claimt geen gelijkheid met die P12-uitvoer.
+
+UITVOER CONTROLLEREN
+
+LEES_RESULTAAT.txt geeft de aantallen en betekenis van de nieuwe tabellen.
+MANIFEST_FRANK_VERDACHT_V08.json bindt de uitvoer aan de bronbestanden,
+code, koppelingen en keuzes met SHA256-hashes.
+
+Onder controle staan:
+
+KOLOMREGELS.csv
+  De regel en eenheid per hoofdveld, voor zowel SVAT als HRU.
+
+SVAT_VERVANGING_ONGECORRIGEERD.csv en SVAT_VERVANGING_FLEVOLAND.csv
+  Per vervangen target de donor, oorspronkelijke kwalificatieredenen,
+  target- en donoroppervlak, coördinaten, gebied en Flevolandstatus.
+  Ook de gewijzigde of lege profielvelden en verschillen in
+  landgebruik/bodem worden vermeld.
+
+HRU_VERVANGING_ONGECORRIGEERD.csv en HRU_VERVANGING_FLEVOLAND.csv
+  Per HRU de vervangen aantallen en oppervlakken, indicatoren en
+  de afzonderlijke P12-bronsubset. Die subset bepaalt de v08-weging niet.
+
+HRU_WATERTERMEN_ONGECORRIGEERD.csv en HRU_WATERTERMEN_FLEVOLAND.csv
+  Per HRU en waterterm de waarde vóór vervanging, na vervanging en
+  het verschil, zowel in mm/jaar als in m3-equivalent/jaar.
+
+HRU_AGGREGATIE_ONGECORRIGEERD.json en HRU_AGGREGATIE_FLEVOLAND.json
+  Dekking, ontbrekende waarden, gemengde categorieën en herkomst.
+
+SVAT_OPPERVLAK_BOVEN_62500.csv
+  De SVATs met meer dan 62500 m2. Hun opgegeven positieve oppervlak
+  wordt gebruikt en niet begrensd tot het MODFLOW-celoppervlak.
+
+OPNIEUW STARTEN
+
+Er worden alleen tabellen gelezen en geschreven. De voortgang verschijnt
+per 50000 SVATs. Er is geen jaarlijkse fluxberekening of jaarcache.
+Na een onderbreking kun je hetzelfde startcommando opnieuw uitvoeren.
+
+De vier nieuwe tabellen worden eerst samen in een tijdelijke map gemaakt.
+De definitieve uitvoermap verschijnt pas nadat alle stappen gereed zijn
+en de bronbestanden opnieuw zijn gecontroleerd. Bestanden zijn gesloten
+voordat de tijdelijke map haar definitieve naam krijgt; er is geen
+SQLite-database in deze verwerking.
+
+Een complete bestaande v08-uitvoer met dezelfde bronnen en code wordt
+op hashes gecontroleerd en hergebruikt. Een afwijkende of onvolledige
+bestaande eindmap wordt niet overschreven. Gebruik bij bewust gewijzigde
+invoer --out met een nieuwe map.
+
+TEST_PAKKET voert de meegeleverde lokale tests uit. De tests bewijzen
+de vastgelegde bewerkingsregels; een uitvoering op jouw werkelijke
+serverbestanden levert de uiteindelijke productieresultaten.
+
+METHODE_EN_KEUZES.txt bevat de verdere uitleg en bronverwijzingen.

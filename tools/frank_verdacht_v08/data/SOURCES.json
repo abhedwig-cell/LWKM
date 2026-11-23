@@ -1,0 +1,104 @@
+{
+  "profile": "HRU10242_FROZEN_REFERENCE_20261019",
+  "purpose": "Existing LWKM selection and HRU grouping for Frank export; no reclustering or donor replacement",
+  "repository": "abhedwig-cell/LWKM",
+  "reference_commit": "b06e8d576f1ced10eece35c792165b656b0a8213",
+  "source_semantics": {
+    "selection": "All SVAT IDs in the frozen HRU10242 membership; original target IDs and coordinates",
+    "svat_area_m2": "Historical original target area from SVAT_INFO_HRU.CSV, checked against original target XY. Actual Frank table area remains authoritative for new calculations.",
+    "hru_schema": "All original columns retained, including historical hydrology. Use for identity, representation and fixed categories only; new continuous Frank summaries come from the Frank table.",
+    "unmodified_target_data": true,
+    "donor_replacement_applied": false,
+    "hru_reclustering_applied": false,
+    "reference_hashes_match_work_b_register": true
+  },
+  "inputs": {
+    "reference_membership": {
+      "filename": "export_svat_HRU_NRU_10242.csv",
+      "sha256": "13f4f129957e24ce6f9380dc4e72cc9bdada59620dc4a0a5464bf6e8b319f7f4",
+      "library_file_id": "libfile_fde3_f-6978c794ffe8819184714ef531b87748_c2f9319a255c8191905abbd92f0458b5",
+      "file_id": "file_000000008fdc8246b9464275d7b3479d"
+    },
+    "source_archive": {
+      "filename": "csv.zip",
+      "sha256": "84ae4963145176767a00c67b968ace5b817002d5292fd9cab8d3933476e509e3",
+      "library_file_id": "libfile_fde3_f-c6070d5087a88191ae1f4e487d21bae6_c2f9319a255c8191905abbd92f0458b5",
+      "file_id": "file_0000000058548210a13df90b0b0d3354"
+    },
+    "reference_schema": {
+      "archive_member": "csv/export_HRUschema_10242.csv",
+      "sha256": "0ca8534216d1ab2944dcfee4c528926c7798fd967dcc58f760c88befd1c83997"
+    },
+    "historical_area": {
+      "archive_member": "csv/SVAT_INFO_HRU.CSV",
+      "sha256": "5aa4a4db2bef7e3c7f72f0925cd2a268170e0428d7225ef674f41af35fd5ce60"
+    },
+    "work_b_reference_register": {
+      "repository_path": "config/source/work-b-source-register-20261019.json",
+      "commit": "b06e8d576f1ced10eece35c792165b656b0a8213"
+    }
+  },
+  "outputs": {
+    "SVAT_HRU.csv.gz": {
+      "sha256": "e31dbfc767463180c36752d966b1991059b25221506b3c5a1402517f593287d9",
+      "size_bytes": 3783784
+    },
+    "HRU_SCHEMA.csv.gz": {
+      "sha256": "5c60897eb66873a0ce9903e967189e4a749e6d70795831412613f9fffadec15d",
+      "size_bytes": 1318790
+    }
+  },
+  "checks": {
+    "membership_rows": 427656,
+    "unique_svats": 427656,
+    "unique_modflow_cell_centres": 427656,
+    "unique_hrus": 10242,
+    "maximum_svats_per_modflow_cell": 1,
+    "modflow_cells_in_multiple_hrus": 0,
+    "selected_source_islwkm_one": 427656,
+    "svat_info_source_rows": 427656,
+    "historical_svat_area_sum_m2": 25511141709.0,
+    "cluster_full_cell_area_sum_m2": 26728500000,
+    "schema_rows": 10242,
+    "schema_headers": [
+      "HRU",
+      "LDGBclus_orig",
+      "N",
+      "lu2",
+      "lu4",
+      "grondsoort2",
+      "grondsoort4",
+      "pawn21",
+      "bodem370",
+      "Gt_LHM43",
+      "kwelklasse4",
+      "GHG_average",
+      "GHG_median",
+      "GHG_sd",
+      "NettoKwel_average",
+      "NettoKwel_median",
+      "NettoKwel_sd",
+      "MAE_GHG",
+      "RMSE_GHG",
+      "MAE_NKw",
+      "RMSE_NKw",
+      "Skew_GHG",
+      "Skew_NKw",
+      "svat_repr",
+      "svat_donor_p0.1_p0.1",
+      "svat_donor_p0.1_p0.9",
+      "svat_donor_p0.9_p0.1",
+      "svat_donor_p0.9_p0.9",
+      "GHG_p0.1_p0.1",
+      "GHG_p0.1_p0.9",
+      "GHG_p0.9_p0.1",
+      "GHG_p0.9_p0.9",
+      "NettoKwel_p0.1_p0.1",
+      "NettoKwel_p0.1_p0.9",
+      "NettoKwel_p0.9_p0.1",
+      "NettoKwel_p0.9_p0.9"
+    ],
+    "all_schema_member_counts_match": true,
+    "all_representatives_are_members_of_their_hru": true
+  }
+}
